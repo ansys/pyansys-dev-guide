@@ -1,0 +1,14 @@
+# Compiled source #
+###################
+*.pyc
+
+# packages
+dist/*
+
+# Pip generated folders #
+#########################
+*.egg-info/
+
+
+build/*
+doc/build/
