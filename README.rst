@@ -68,7 +68,7 @@ The PyAnsys project hosted on GitHub at `PyAnsys
 * Interfaces to Ansys products or services:
 
   * `PyMAPDL <https://github.com/pyansys/pymapdl>`_
-  * `PyAEDT <https://github.com/pyansys/PyAEDT>`_
+  * `PyAEDT`_
   * `DPF-Core <https://github.com/pyansys/DPF-Core>`_
   * `DPF-Post <https://github.com/pyansys/DPF-Post>`_
   * `Legacy PyMAPDL Reader <https://github.com/pyansys/pymapdl-reader>`_
@@ -125,50 +125,229 @@ the program API.  While this API can be directly accessed, this often
 results in unreadable and unmaintainable code that forces users to
 rewrite setup boilerplate and other methods from scratch.
 
-Consider the following code examples.  The left-hand example shows
-the amount of work to start, establish a connection to, and submit an
-input file to MAPDL using the auto-generated gRPC interface files.  On
-the right-hand side is the same workflow, but using the PyMAPDL
-library.
+
+Abstraction and Encapsulation
+-----------------------------
+Abstraction in Python is the process of hiding the real implementation
+of an application from the user and emphasizing only on usage of it.
+
+One of the main aims of PyAnsys libraries is to wrap data and methods
+within units of execution while hiding data or parameters in protected
+variables.  The following sections demonstrate how desktop
+applications or complex services in order to expose functionalities
+that matter to the user and hiding all else.  Background details,
+implementation, hidden states, all of these do not need to be exposed
+to the user.
+
+Application Interface Abstraction
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Many Ansys applications are designed around user interaction within a
+desktop GUI based enviorment.  As such, scripts are often recorded
+directly from user sessions and are in the context manipulating a
+desktop application rather than manipulating an API centered around
+data structures represented as classes and modules.
+
+PyAnsys seeks to make the API a "first class citizen" in regards to
+interacting with Ansys's products by presenting the product as a
+stateful data model.  Consider the following comparison between the
+recorded script from AEDT and the PyAEDT example where we create an
+open region in the active editor:
+
+Set oProject = oDesktop.SetActiveProject("Project1")
+Set oDesign = oProject.SetActiveDesign("HFSSDesign1")
+Set oEditor = oDesign.SetActiveEditor("3D Modeler")
+Set oModule = oDesign.GetModule("BoundarySetup")
+
++------------------------------------------------------+----------------------------------------------+
+| Using AEDT using MS COM Methods                      | Using AEDT Using the `PyAEDT`_ Library       |
++------------------------------------------------------+----------------------------------------------+
+| .. code:: python                                     | .. code:: python                             |
+|                                                      |                                              |
+|    import sys                                        |    from pyaedt import Hfss                   |
+|    import pythoncom                                  |                                              |
+|    import win32com.client                            |    hfss = Hfss()                             |
+|                                                      |    hfss.create_open_region(frequency="1GHz") |
+|    # initialze the desktop using pythoncom           |                                              |
+|    Module = sys.modules['__main__']                  |                                              |
+|    oDesktop = Module.oDesktop                        |                                              |
+|    oProject = oDesktop.SetActiveProject("Project1")  |                                              |
+|    oDesign = oProject.SetActiveDesign("HFSSDesign1") |                                              |
+|    oEditor = oDesign.SetActiveEditor("3D Modeler")   |                                              |
+|    oModule = oDesign.GetModule("BoundarySetup")      |                                              |
+|                                                      |                                              |
+|    # create an open region                           |                                              |
+|    parm = [                                          |                                              |
+|        "NAME:Settings",                              |                                              |
+|        "OpFreq:=", "1GHz",                           |                                              |
+|        "Boundary:=", "Radition",                     |                                              |
+|        "ApplyInfiniteGP:=", False                    |                                              |
+|    ]                                                 |                                              |
+|    oModule.CreateOpenRegion(parm)                    |                                              |
++------------------------------------------------------+----------------------------------------------+
+
+Besides length and readability, the biggest difference between the two
+approaches is how the methods and attributes from the ``Hfss`` class
+are encapsulated.  For example, desktop no longer needs to be
+explicitly instantiated and is hidden as a protected attribute
+``_desktop``.  The connection to the application takes place
+automatically when ``Hfss`` is instantiated, and the active project,
+editor, and module are automatically used when creating the open
+region.
+
+Furthermore, the ``create_open_region`` method within ``Hfss``
+contains a full Python documetnation string with keyword arguments,
+clear `numpydoc
+<https://numpydoc.readthedocs.io/en/latest/format.html>`_ parameters
+and returns, as well as a basic example.  These are unavailable when
+directly using COM methods and precludes the usage of contextual help
+within a Python IDE.
+
+What follows is the source of the method in ``hfss.py`` within
+`PyAEDT`_.  Note how calls to the COM object are encapsulated all
+within this method.
+
+.. code:: python
+
+    def create_open_region(self, frequency="1GHz", boundary="Radiation",
+                           apply_infinite_gp=False, gp_axis="-z"):
+       """Create an open region on the active editor.
+
+       Parameters
+       ----------
+       frequency : str, optional
+           Frequency with units. The  default is ``"1GHz"``.
+       boundary : str, optional
+           Type of the boundary. The default is ``"Radition"``.
+       apply_infinite_gp : bool, optional
+           Whether to apply an infinite ground plane. The default is ``False``.
+       gp_axis : str, optional
+           The default is ``"-z"``.
+
+       Returns
+       -------
+       bool
+           ``True`` when successful, ``False`` when failed.
+
+       Examples
+       --------
+       Create an open region in the active editor at 1GHz
+
+       >>> hfss.create_open_region(frequency="1GHz")
+        
+       """
+       vars = [
+           "NAME:Settings",
+           "OpFreq:=", frequency,
+           "Boundary:=", boundary,
+           "ApplyInfiniteGP:=", apply_infinite_gp
+       ]
+       if apply_infinite_gp:
+           vars.append("Direction:=")
+           vars.append(gp_axis)
+
+       self._omodelsetup.CreateOpenRegion(vars)
+       return True
+
+Here, we abstract the COM ``CreateOpenRegion`` method and encapsulate
+model setup object.  There's no reason why the user needs direct
+access to ``_omodelsetup``, and hence why it's protected in the
+``Hfss`` class.  Additionally, we simplify calling the method by
+providing (and documenting) the defaults using keyword arguments and
+placing them into the ``vars`` list, all while following the `Style
+Guide for Python Code (PEP8)`_
 
 
-+-------------------------------------------------------------------------+---------------------------------------------+
-| Using gRPC Autogenerated Interface                                      | Using PyMAPDL Library                       |
-+=========================================================================+=============================================+
-| .. code:: python                                                        | .. code:: python                            |
-|                                                                         |                                             |
-|     import grpc                                                         |     from ansys.mapdl import core as pymapdl |
-|                                                                         |                                             |
-|     from ansys.api.mapdl.v0 import mapdl_pb2 as pb_types                |     # start mapdl and read the input file   |
-|     from ansys.api.mapdl.v0 import mapdl_pb2_grpc as mapdl_grpc         |     mapdl = pymapdl.launch_mapdl()          |
-|     from ansys.api.mapdl.v0 import kernel_pb2 as anskernel              |     output = mapdl.input('ds.dat')          |
-|     from ansys.client.launcher.client import Launcher                   |                                             |
-|     sm = Launcher()                                                     |                                             |
-|                                                                         |                                             |
-|     # start MAPDL                                                       |                                             |
-|     job = sm.create_job_by_name("mapdl-212")                            |                                             |
-|     service_name = f"grpc-{job.name}"                                   |                                             |
-|     mapdl_service = sm.get_service(name=service_name)                   |                                             |
-|                                                                         |                                             |
-|     # create a gRPC channel                                             |                                             |
-|     channel_str = '%s:%d' % (mapdl_service.host,                        |                                             |
-|                              mapdl_service.port)                        |                                             |
-|     channel = grpc.insecure_channel(channel_str)                        |                                             |
-|     stub = mapdl_grpc.MapdlServiceStub(channel)                         |                                             |
-|                                                                         |                                             |
-|     # send an input file request                                        |                                             |
-|     request = pb_types.InputFileRequest(filename=filename)              |                                             |
-|     metadata = (('time-step-stream', '200'),                            |                                             |
-|                 ('chunk-size', '512'),)                                 |                                             |
-|     response = stub.InputFileS(request, metadata=metadata)              |                                             |
-|     # additional postprocessing to parse response                       |                                             |
-+-------------------------------------------------------------------------+---------------------------------------------+
+Service Abstraction
+~~~~~~~~~~~~~~~~~~~
+Some Ansys products are exposed as services that permit remote
+execution using technologies like `REST`_ or `gRPC`_.  These services
+are typically exposed in a manner where the API has already been
+abstracted as not all methods can be exposed through a remote API.
+Here, the abstraction of the service is as crucial as in the case of
+the "desktop API".  In this case, remote API calls should be identical
+if the service is local or remote, with the only difference that local
+calls are faster to execute.
+
+Consider the following code examples.  The left-hand example shows the
+amount of work to start, establish a connection to, and submit an
+input file to MAPDL using auto-generated gRPC interface files (for
+further details, see `pyansys-protos-generator
+<https://github.com/pyansys/pyansys-protos-generator>`_.  On the
+right-hand side is the same workflow, but using the PyMAPDL library.
+
++----------------------------------------------------------+--------------------------------------------+
+| Using gRPC Autogenerated Interface                       | Using the PyMAPDL Library                  |
++==========================================================+============================================+
+| .. code:: python                                         | .. code:: python                           |
+|                                                          |                                            |
+|    import grpc                                           |    from ansys.mapdl import core as pymapdl |
+|                                                          |                                            |
+|    from ansys.mapdl import mapdl_pb2 as pb_types         |    # start mapdl and read the input file   |
+|    from ansys.mapdl import mapdl_pb2_grpc as mapdl_grpc  |    mapdl = pymapdl.launch_mapdl()          |
+|    from ansys.mapdl import kernel_pb2 as anskernel       |    output = mapdl.input('ds.dat')          |
+|    from ansys.client.launcher.client import Launcher     |                                            |
+|                                                          |                                            |
+|    # start MAPDL                                         |                                            |
+|    sm = Launcher()                                       |                                            |
+|    job = sm.create_job_by_name("mapdl-212")              |                                            |
+|    service_name = f"grpc-{job.name}"                     |                                            |
+|    mapdl_service = sm.get_service(name=service_name)     |                                            |
+|                                                          |                                            |
+|    # create a gRPC channel                               |                                            |
+|    channel_str = '%s:%d' % (mapdl_service.host,          |                                            |
+|                             mapdl_service.port)          |                                            |
+|    channel = grpc.insecure_channel(channel_str)          |                                            |
+|    stub = mapdl_grpc.MapdlServiceStub(channel)           |                                            |
+|                                                          |                                            |
+|    # send an input file request                          |                                            |
+|    request = pb_types.InputRequest(filename='ds.dat')    |                                            |
+|    response = stub.InputFileS(request)                   |                                            |
+|    # additional postprocessing to parse response         |                                            |
+|                                                          |                                            |
++----------------------------------------------------------+--------------------------------------------+
+
+The approach on the right has a variety of advantages, chief of those
+is readability due to the abstraction of the start of the service.  Furthermore, package names are short, work is done for the user to provide a
+simplified interface to start-up mapdl, and the classes, methods, and
+functions all have full documentation strings.  Consider the
+documentation for ``launch_mapdl``:
+
+.. code:: python
+
+    def launch_mapdl(exec_file=None, run_location=None,
+                     jobname='file', nproc=2, ram=None, mode=None,
+                     ip=LOCALHOST, port=None, **kwargs):
+        """Start MAPDL locally in gRPC mode.
+
+        Parameters
+        ----------
+        exec_file : str, optional
+            The location of the MAPDL executable.  Will use the cached
+            location when left at the default ``None``.
+
+        run_location : str, optional
+            MAPDL working directory.  Defaults to a temporary working
+            directory.  If directory doesn't exist, will create one.
+
+        ...
+
+        Examples
+        --------
+        Launch MAPDL using the best protocol.
+
+        >>> from ansys.mapdl.core import launch_mapdl
+        >>> mapdl = launch_mapdl()
+        """
+        
+
 
 
 
 PyAnsys Package Basic Structure
 ===============================
 
+
+.. code:: 
 ansys/<product>/<service>/my_module.py
 ansys/<product>/<service>/my_other_module.py
 ansys/<product>/<service>/__init__.py
@@ -216,3 +395,5 @@ Documentation Directory `doc`
 .. _C extensions: https://docs.python.org/3/extending/extending.html
 .. _Anaconda Distribution: https://www.anaconda.com/products/individual
 .. _REST: https://en.wikipedia.org/wiki/Representational_state_transfer
+.. _PyAEDT: https://github.com/pyansys/PyAEDT
+.. _Style Guide for Python Code (PEP8): https://www.python.org/dev/peps/pep-0008
