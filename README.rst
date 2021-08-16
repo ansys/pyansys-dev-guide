@@ -143,8 +143,8 @@ Application Interface Abstraction
 Many Ansys applications are designed around user interaction within a
 desktop GUI-based environment.  As such, scripts are often recorded
 directly from user sessions and are in the context manipulating a
-desktop application rather than manipulating an API centered around
-data structures represented as classes and modules.
+desktop application. Instead, scripts should be written for an API structured
+around data represented as classes and modules.
 
 PyAnsys seeks to make the API a "first class citizen" in regards to
 interacting with Ansys's products by presenting the product as a
