@@ -262,7 +262,7 @@ calls are faster to execute.
 
 Consider the following code examples.  The left-hand example shows the
 amount of work to start, establish a connection to, and submit an
-input file to MAPDL using auto-generated gRPC interface files (for
+input file to MAPDL using auto-generated gRPC interface files. For
 further details, see `pyansys-protos-generator
 <https://github.com/pyansys/pyansys-protos-generator>`_.  On the
 right-hand side is the same workflow, but using the `PyMAPDL`_ library.
