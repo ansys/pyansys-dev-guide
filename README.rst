@@ -59,6 +59,25 @@ approach provides is:
   allow anyone to instantly Ansys's products on the desktop or web
   using a customized workflow.
 
+Project Licencing and Approval
+==============================
+The PyAnsys project is designed to allow users to create their own
+workflows and interfaces to our products using our APIs.  This approach is designed to require anyone using PyAnsys library to use our licensed products either directly or indirectly, while allowing for users to distribute their custom made applications/workflows internally or externally.
+
+To accomplish this, PyAnsys projects use the MIT license.  MIT
+licenses allow commercial use. As the MIT license falls in the
+BSD-style class of licenses, users do not have to provide any other
+source code when releasing new software.  The user only needs to
+include the original MIT license in the reused code to make the
+PyAnsys project suitable for commercial use.
+
+See `LICENSE` in this repository for the standard PyANSYS license.  This should be included in the root directory of any PyAnsys projects.
+
+.. include:: LICENSE
+
+..
+   Stephane, I need you to document the approval process
+
 
 PyAnsys Project Structure
 =========================
