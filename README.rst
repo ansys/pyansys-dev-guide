@@ -318,8 +318,19 @@ the following within its ``setup.py``.
    )
 
 
-Documentation Directory `doc`
- - Use `pyansys-sphinx-theme <https://sphinxdocs.pyansys.com/>`_
+Documentation Directory ``doc``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The documentation directory ``doc`` contains the full PyAnsys library
+documentation including:
+
+- The same information as the README on the main page.  Reuse the ``README.rst`` if possible to avoid duplication.
+- In-depth getting started including installation details.
+- API Reference containing `Sphinx autosummary API documentation <https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html>`_.
+- User guide containing basic examples, thorough description of the library, use case scenarios, descriptive examples explaining methodology.
+- Examples gallery containing jupyter notebook examples.
+- Contributing section (can be linked to the about page general contributing section).
+
+For further details regarding the the structure of the documentation directory, see `pyansys-sphinx-theme <https://sphinxdocs.pyansys.com/>`_.
 
 
 Abstraction and Encapsulation
