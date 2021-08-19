@@ -57,9 +57,9 @@ These tools are intended to be used by developers to generate packages
 from proto files, create coverage reports, or provide users with tools
 to report system coverage.
 
-  * `pyansys-protos-generator <https://github.com/pyansys/pyansys-protos-generator>`_
-  * `example-coverage <https://github.com/pyansys/example-coverage>`_
-  * `system-reporting-tool <https://github.com/pyansys/system-reporting-tool>`_
+* `pyansys-protos-generator <https://github.com/pyansys/pyansys-protos-generator>`_
+* `example-coverage <https://github.com/pyansys/example-coverage>`_
+* `system-reporting-tool <https://github.com/pyansys/system-reporting-tool>`_
 
 
 Project Licensing and Approval
@@ -253,11 +253,11 @@ Each PyAnsys project should contain a README file at the root directory.  This R
 
 This README should at the minimum contain:
 
- - PyAnsys library title
- - General Description
- - Installation directions (via ``pip install`` and ``git clone ...``)
- - Basic usage
- - Links to the full documentation
+- PyAnsys library title
+- General Description
+- Installation directions (via ``pip install`` and ``git clone ...``)
+- Basic usage
+- Links to the full documentation
 
 This README will also be reused within the ``long_description`` within
 the package ``setup.py``.
@@ -267,15 +267,15 @@ Setup File ``setup.py``
 ~~~~~~~~~~~~~~~~~~~~~~~
 The PyAnsys library package setup file is expected to contain the following elements:
 
-  - Name (e.g. ``ansys-mapdl-core``)
-  - Packages (e.g. ``ansys.mapdl.core``)
-  - Short description
-  - Long description using ``README.md`` or ``README.rst``
-  - `Single sourced package version <https://packaging.python.org/guides/single-sourcing-package-version/>`_
-  - Author of ``'ANSYS, Inc.'``
-  - Maintainer and maintainer email.
-  - Dependency requirements
-  - Applicable classifiers
+- Name (e.g. ``ansys-mapdl-core``)
+- Packages (e.g. ``ansys.mapdl.core``)
+- Short description
+- Long description using ``README.md`` or ``README.rst``
+- `Single sourced package version <https://packaging.python.org/guides/single-sourcing-package-version/>`_
+- Author of ``'ANSYS, Inc.'``
+- Maintainer and maintainer email.
+- Dependency requirements
+- Applicable classifiers
 
 The ``ansys-<product/service>-<feature>`` would have at the minimum
 the following within its ``setup.py``.
@@ -316,9 +316,6 @@ the following within its ``setup.py``.
            'Operating System :: OS Independent',
        ],
    )
-
-
-
 
 
 Documentation Directory `doc`
