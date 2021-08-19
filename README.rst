@@ -13,7 +13,7 @@ play a vital role in:
 
 - Application automation
 - Machine learning
-- Postprocessing
+- Post-processing
 - Data visualization
 - Workflow orchestrations
 - Data manipulation and export
@@ -142,9 +142,9 @@ library is `ansys-mapdl-core <https://pypi.org/project/ansys-mapdl-core/>`_.
 
 The reasoning behind long Python library names is two-fold:
 
-  - Allows using `Namespace Packages`_ to designate which are official 
+- Allows using `Namespace Packages`_ to designate which are official 
   Ansys packages
-  - Provides a consistent branding and style to PyAnsys libraries
+- Provides a consistent branding and style to PyAnsys libraries
   
 This pattern for consistently naming packages is followed by 
 large organizations who provide many individual Python packages.
@@ -192,15 +192,15 @@ method should also be used for branch protection. For more
 information, see Repository Administration.
 
 Here are some good examples of using actions:
-  - The `PyAnsys Sphinx documentation theme action <https://github.com/pyansys/pyansys-sphinx-theme/blob/main/.github/workflows/ci-build.yml>`_ 
+- The `PyAnsys Sphinx documentation theme action <https://github.com/pyansys/pyansys-sphinx-theme/blob/main/.github/workflows/ci-build.yml>`_ 
   generates Ansys Python package documentation using the `PyAnsys Sphinx theme <https://sphinxdocs.pyansys.com/>`__.  
-  - The `MAPD documentation action <https://github.com/pyansys/pymapdl/blob/main/.github/workflows/ci-build.yml>`_ 
+- The `MAPDL documentation action <https://github.com/pyansys/pymapdl/blob/main/.github/workflows/ci-build.yml>`_ 
   generates MAPDL documentation using product containers.
-  - The `PyAEDT unit testing action <https://github.com/pyansys/PyAEDT/blob/main/.github/workflows/unit_tests.yml>`_ 
+- The `PyAEDT unit testing action <https://github.com/pyansys/PyAEDT/blob/main/.github/workflows/unit_tests.yml>`_ 
   runs unit testing using an application preinstalled on a self-hosted agent.
-  - The `MAPDL Azure DevOps action <https://github.com/pyansys/pymapdl/blob/main/.ci/azure-pipelines.yml>`_ 
+- The `MAPDL Azure DevOps action <https://github.com/pyansys/pymapdl/blob/main/.ci/azure-pipelines.yml>`_ 
   uses a containerized application to run unit testing for an Azure pipeline.
-  - The `DPF-Core Azure DevOps action <https://github.com/pyansys/DPF-Core/blob/master/.ci/azure-pipelines.yml>`_ 
+- The `DPF-Core Azure DevOps action <https://github.com/pyansys/DPF-Core/blob/master/.ci/azure-pipelines.yml>`_ 
   uses a universal package to run unit testing.
 
 Source Organization ``ansys/<product/service>/<feature>/``
@@ -252,7 +252,7 @@ README File (Either ``README.rst`` or ``README.md``)
 Each PyAnsys project should contain a README file at the root directory. 
 This README file should use either `reStructuredText Markup Syntax`_ 
 or `Markdown Syntax`_.  While Markdown syntax has better GitHub support, 
-text in REST files can be reused within Sphinx documentation, which 
+text in RST formatted files can be reused within Sphinx documentation, which 
 avoids duplicating any auto-generated Sphinx pages. For example, 
 see `pyansys-sphinx-theme index.rst`_.
 
@@ -338,7 +338,7 @@ documentation including:
 - API Reference containing `Sphinx autosummary API documentation <https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html>`_.
 - User guide containing basic examples, thorough description of the library, use case scenarios, descriptive examples explaining methodology.
 - Examples consisting of Jupyter Notebooks.
-- Contributing section, which can be linked to general "Contributing" section of the About page.
+- Contributing section, which can be linked to general "Contributing" section of this "About" repository.
 
 For more information about the structure of the documentation directory, see `pyansys-sphinx-theme <https://sphinxdocs.pyansys.com/>`_.
 
@@ -517,16 +517,16 @@ right-hand side shows the same workflow but uses the `PyMAPDL`_ library.
 
 The approach on the right has a number of advantages:
 
-  - Readability due to the abstraction of service startup
-  - Short package names 
-  - Simplified interface for starting MAPDL
-  - Full documentation strings for all classes, methods, and functions
+- Readability due to the abstraction of service startup
+- Short package names 
+- Simplified interface for starting MAPDL
+- Full documentation strings for all classes, methods, and functions
 
 To properly abstract a service, users must have the option to
 either launch the service and connect to it locally if the software exists on
 their machines or connect to a remote instance of the service.  One
 way to do this is to include a function to launch the service. This example 
-includes `launch_mapdl`, which brokers a connection via a `Mapdl`
+includes `launch_mapdl`, which brokers a connection via the `Mapdl`
 class:
 
 .. code:: python
@@ -566,12 +566,12 @@ connectivity of the mesh are either to print it using the ``NLIST``
 command or to write it to disk using the ``CDWRITE`` command. Both 
 methods are remarkably inefficient and require:
 
-  - Serializing the data to ASCII on the server
-  - Transfering the data
-  - Deserializing the data within Python
-  - Converting the data to an array
+- Serializing the data to ASCII on the server
+- Transfering the data
+- Deserializing the data within Python
+- Converting the data to an array
   
-This example printss using the ``NLIST`` command:
+This example prints node coordinates using the ``NLIST`` command:
 
 .. code:: python
 
