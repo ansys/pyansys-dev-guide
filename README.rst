@@ -18,6 +18,7 @@ play a vital role in:
 - Orchestrating workflows
 - Data manipulation and export
 
+
 Purpose of this Documentation and Intended Audience
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 This documentation is to be a central document for:
@@ -27,6 +28,7 @@ This documentation is to be a central document for:
 - Contributors (anyone) who wish to contribute to an existing pyansys
   project.
 - Those interested in learning more regarding the PyAnsys Project.
+
 
 PyAnsys Project Structure
 =========================
@@ -48,7 +50,7 @@ to a PyAnsys project, reference one of the following links.
 
 * `Project Overview and Development <https://github.com/pyansys/about>`_
 * `PyAnsys Documentation Theme <https://github.com/pyansys/pyansys-sphinx-theme>`_
-* `gRPC Helloworld Example <https://github.com/pyansys/pyansys-helloworld>`_
+* `gRPC Hello-world Example <https://github.com/pyansys/pyansys-helloworld>`_
 * `Material Example <https://github.com/pyansys/example-data>`_
 
 These tools are intended to be used by developers to generate packages
@@ -60,11 +62,7 @@ to report system coverage.
   * `system-reporting-tool <https://github.com/pyansys/system-reporting-tool>`_
 
 
-
-
-
-
-Project Licencing and Approval
+Project Licensing and Approval
 ==============================
 The PyAnsys project is designed to allow users to create their own
 workflows and interfaces to our products using our APIs.  This approach is designed to require anyone using PyAnsys library to use our licensed products either directly or indirectly, while allowing for users to distribute their custom made applications/workflows internally or externally.
@@ -76,13 +74,12 @@ source code when releasing new software.  The user only needs to
 include the original MIT license in the reused code to make the
 PyAnsys project suitable for commercial use.
 
-See `LICENSE` in this repository for the standard PyANSYS license.
+See `LICENSE` in this repository for the standard PyAnsys license.
 This should be included in the root directory of any PyAnsys projects.
 
 Exposing new Ansys technologies to PyAnsys and subject to internal
 review and decision process. Reach out to Stephane Marguerin and
 Alexander Kaszynski  for any requests.
-
 
 
 PyAnsys Library Overview
@@ -121,7 +118,7 @@ rewrite setup boilerplate and other methods from scratch.
 
 
 PyAnsys Library Basic Structure
--------------------------------
+===============================
 All PyAnsys libraries are expected to follow a consistent pattern for:
 
   - Project and library name
@@ -134,7 +131,7 @@ All PyAnsys libraries are expected to follow a consistent pattern for:
 
 
 Project, Repository and Library Name
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------
 Project name is expected to be ``py<project>``.  For example,
 ``PyMAPDL`` for MAPDL, `PyAEDT`` for AEDT.  The repository name as
 hosted on GitHub should be all lowercase to follow GitHub community
@@ -144,17 +141,15 @@ name is expected to be in the format
 library is `ansys-mapdl-core <https://pypi.org/project/ansys-mapdl-core/>`_.
 
 The reasoning behind long python library names is to allow for the
-usage of `Namespace Packages
-<https://packaging.python.org/guides/packaging-namespace-packages/>`_
-in order to designate which are official Ansys packages and to provide
-a consistent branding and style to PyAnsys libraries.  This is a
-consistent pattern among large organizations who wish to provide many
-individual Python packages while following a consistent package name
-pattern.
+usage of `Namespace Packages`_ in order to designate which are
+official Ansys packages and to provide a consistent branding and style
+to PyAnsys libraries.  This is a consistent pattern among large
+organizations who wish to provide many individual Python packages
+while following a consistent package name pattern.
 
 
 Repository Directory Structure
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------
 The source of a PyAnsys project is expected to be hosted on an
 individual repository under the `PyAnsys Organization Account
 <https://github.com/pyansys>`__.  This repository is expected to
@@ -163,44 +158,167 @@ the following directory structure.
 
 ::
 
+   .ci/azure-pipelines.yml
    .github/workflows/ci.yml
-   ansys/<product/serivce>/<feature>/my_module.py
-   ansys/<product/serivce>/<feature>/my_other_module.py
-   ansys/<product/serivce>/<feature>/__init__.py
-   doc/conf.py
-   doc/index.rst
-   doc/requirements.txt
+   ansys/
+       <product/service>/
+           <feature>/
+               __init__.py
+               my_module.py
+               my_other_module.py
+   doc/
+       conf.py
+       index.rst
+       requirements.txt
    LICENSE
    README.rst
    requirements.txt
    setup.py
-   tests/requirements.txt
-   tests/test_basic.py
-   tests/test_advanced.py
+   tests/
+       requirements.txt
+       test_basic.py
+       test_advanced.py
 
 
-This contains a `README.rst` containing
- - How to install...
+CI/CD with ``.github/workflows/`` and ``.ci/azure...``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+CI/CD should use either public `Azure Devops
+<https://azure.microsoft.com/en-us/services/devops/>`_ or public
+`GitHub Actions <https://github.com/features/actions>`_ for unit
+testing, release builds, and documentation builds.  This should also
+be used for branch protection (see repository administration).
+
+A good example for a documentation build action can be found at
+`PyAnsys Sphinx Theme Documentation Action <https://github.com/pyansys/pyansys-sphinx-theme/blob/main/.github/workflows/ci-build.yml>`_.
+This is used to generate the `PyAnsys Sphinx Theme Documentation
+<https://sphinxdocs.pyansys.com/>`__.  Also, see `MAPDL Documentation Action https://github.com/pyansys/pymapdl/blob/main/.github/workflows/ci-build.yml`__ for how to generate documentation using product containers.
+
+The `PyAEDT Unit Testing Action <https://github.com/pyansys/PyAEDT/blob/main/.github/workflows/unit_tests.yml>`_ shows how to run unit testing using an application pre-installed on a self-hosted agent.
+
+See `MAPDL Azure Devops <https://github.com/pyansys/pymapdl/blob/main/.ci/azure-pipelines.yml>`_ for an azure pipeline that uses a containerized application to run unit testing.  See `DPF-Core Azure Devops <https://github.com/pyansys/DPF-Core/blob/master/.ci/azure-pipelines.yml>`_ for an example that uses a universal package to run unit testing.
 
 
-Unit Testing
- - <you know the drill>
- - Will probably require your application/server to be packaged in a
-   way that lets you consume it from public infrastructure.
+Source Organization ``ansys/<product/service>/<feature>/``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+PyAnsys projects follow the `Namespace Packages`_ convention to allow
+for multiple libraries to use the same shared ``ansys`` namespace.  For
+example, the `PyMAPDL`_ library with the ``ansys-mapdl-core`` package
+name has the following directory structure:
 
-Workflows
- - Test CI online
- - Deploy package automagically
+::
 
-Setup File
- - Defines what the "package is"
+   setup.py
+   ansys/
+       mapdl/
+           core/
+               __init__.py
+               launcher.py
+               mapdl_grpc.py
+               ...
 
- <Setup File>
+This allows for us to import the `PyMAPDL`_ library with:
+
+.. code:: python
+
+   >>> from ansys.mapdl import core as pymapdl
+
+With this approach, other namespace packages can use the
+``ansys-mapdl`` namespace, for example:
+
+.. code:: python
+
+   >>> from ansys.mapdl import reader as pymapdl_reader
+
+.. note::
+
+   Both the first and second level directories must not include
+   ``__init__.py``.  If this is included, namespace packages will
+   conflict and only one will be able to be imported.
+
+While verbose, it is important for PyAnsys libraries to use the
+``ansys-<product/service>`` namespace for consistency and to allow for
+multiple products and services to share the same namespace.  This
+makes it easy when searching for "ansys" packages within the `Python
+Package Index PyPi <https://pypi.org/>`_.
 
 
-Python Modules
- - Non-proprietary source.
- - Exposes server functionality pythonically.
+README File (Either ``README.rst`` or ``README.md``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Each PyAnsys project should contain a README file at the root directory.  This README file should use follow either `reStructuredText Markup Syntax`_ or `Markdown Syntax`_ .  While Markdown has better GitHub support, rst text can be reused within Sphinx documentation to avoid duplicating any auto-generated Sphinx pages.  For example, see `pyansys-sphinx-theme index.rst`_.
+
+.. _pyansys-sphinx-theme index.rst: https://github.com/pyansys/pyansys-sphinx-theme/blob/main/doc/source/index.rst
+.. _reStructuredText Markup Syntax: https://docutils.sourceforge.io/rst.html
+.. _Markdown Syntax: https://www.markdownguide.org/basic-syntax/
+
+
+This README should at the minimum contain:
+
+ - PyAnsys library title
+ - General Description
+ - Installation directions (via ``pip install`` and ``git clone ...``)
+ - Basic usage
+ - Links to the full documentation
+
+This README will also be reused within the ``long_description`` within
+the package ``setup.py``.
+
+
+Setup File ``setup.py``
+~~~~~~~~~~~~~~~~~~~~~~~
+The PyAnsys library package setup file is expected to contain the following elements:
+
+  - Name (e.g. ``ansys-mapdl-core``)
+  - Packages (e.g. ``ansys.mapdl.core``)
+  - Short description
+  - Long description using ``README.md`` or ``README.rst``
+  - `Single sourced package version <https://packaging.python.org/guides/single-sourcing-package-version/>`_
+  - Author of ``'ANSYS, Inc.'``
+  - Maintainer and maintainer email.
+  - Dependency requirements
+  - Applicable classifiers
+
+The ``ansys-<product/service>-<feature>`` would have at the minimum
+the following within its ``setup.py``.
+
+.. code:: python
+
+   """Setup file for ansys-<product/service>-<feature>"""
+   import codecs
+   import os
+   from io import open as io_open
+   from setuptools import setup
+
+   THIS_PATH = os.path.abspath(os.path.dirname(__file__))
+   __version__ = None
+   version_file = os.path.join(THIS_PATH, 'ansys', '<product/service>',
+                               '<feature>', '_version.py')
+   with io_open(version_file, mode='r') as fd:
+       exec(fd.read())
+
+   setup(
+       name='ansys-<product/service>-<feature>',
+       packages=['ansys.<product/service>.<feature>'],
+       version=__version__,
+       description='Short description',
+       long_description=open('README.rst').read(),
+       long_description_content_type='text/x-rst',
+       url='https://github.com/pyansys/pyansys-package-example/',
+       license='MIT',
+       author='ANSYS, Inc.',
+       maintainer='First Last',
+       maintainer_email='first.last@ansys.com',
+       install_requires=['grpcio>=1.30.0'],
+       python_requires='>=3.5',
+       classifiers=[
+           'Development Status :: 4 - Beta',
+           'Programming Language :: Python :: 3',
+           'License :: OSI Approved :: MIT License',
+           'Operating System :: OS Independent',
+       ],
+   )
+
+
+
 
 
 Documentation Directory `doc`
@@ -242,7 +360,7 @@ open region in the active editor:
 |    import pythoncom                                  |                                              |
 |    import win32com.client                            |    hfss = Hfss()                             |
 |                                                      |    hfss.create_open_region(frequency="1GHz") |
-|    # initialze the desktop using pythoncom           |                                              |
+|    # initialize the desktop using pythoncom          |                                              |
 |    Module = sys.modules['__main__']                  |                                              |
 |    oDesktop = Module.oDesktop                        |                                              |
 |    oProject = oDesktop.SetActiveProject("Project1")  |                                              |
@@ -290,7 +408,7 @@ within this method.
        frequency : str, optional
            Frequency with units. The  default is ``"1GHz"``.
        boundary : str, optional
-           Type of the boundary. The default is ``"Radition"``.
+           Type of the boundary. The default is ``"Radiation"``.
        apply_infinite_gp : bool, optional
            Whether to apply an infinite ground plane. The default is ``False``.
        gp_axis : str, optional
@@ -349,7 +467,7 @@ further details, see `pyansys-protos-generator
 right-hand side is the same workflow, but using the `PyMAPDL`_ library.
 
 +----------------------------------------------------------+--------------------------------------------+
-| Using the gRPC Autogenerated Interface                   | Using the `PyMAPDL`_ Library               |
+| Using the gRPC Auto-generated Interface                  | Using the `PyMAPDL`_ Library               |
 +==========================================================+============================================+
 | .. code:: python                                         | .. code:: python                           |
 |                                                          |                                            |
@@ -401,7 +519,7 @@ class.  For example:
    MAPDL Version:       21.2
    ansys.mapdl Version: 0.59.dev0
 
-This straighforward approach
+This straightforward approach
 connects to a local or remote instance of MAPDL via gRPC by
 instantiating an instance of `Mapdl`.  At this point, because the
 assumption is MAPDL is always remote, it's possible to issue commands
@@ -426,9 +544,9 @@ example generates a simple mesh in MAPDL.
 
 At this point, the only two ways within MAPDL to access the nodes and
 connectivity of the mesh are to either print it using the ``NLIST``
-command or by writing to disk via CDWRITE.  Both methods are remakably
+command or by writing to disk via CDWRITE.  Both methods are remarkably
 inefficient and they would require serializing the data to ASCII on
-the server, transfering it, and then deserialzing it within Python and
+the server, transferring it, and then deserializing it within Python and
 converting it to an array.  For example:
 
 .. code:: python
@@ -441,7 +559,7 @@ converting it to an array.  For example:
 
 Instead, it's more efficient to transfer the node array as either a
 series of repeated ``Node`` messages, or better yet, serialize the
-entire array into a bytes and deserialze it on the client side.  For a
+entire array into a bytes and deserialize it on the client side.  For a
 concrete and standalone example of this in C++ and Python, see
 `grpc_chunk_stream_demo`_.  While raw byte streams are vastly more
 efficient, one major disadvantage is that the structure of
@@ -449,9 +567,9 @@ the data is lost when serializing the array. This should be considered
 when deciding how to write your API.
 
 Regardless of the serialization or message format, the user will
-expect Python native types (or a common type for a common libary like
+expect Python native types (or a common type for a common library like
 ``pandas.DataFrame`` or ``numpy.ndarray``.  Here, within `PyMAPDL`_,
-the nodes of the mesh are acessible as the ``nodes`` attribute within
+the nodes of the mesh are accessible as the ``nodes`` attribute within
 the ``mesh`` attribute, which provides an encapsulation of the mesh
 within the MAPDL database.
 
@@ -480,3 +598,4 @@ within the MAPDL database.
 .. _Style Guide for Python Code (PEP8): https://www.python.org/dev/peps/pep-0008
 .. _grpc_chunk_stream_demo: https://github.com/pyansys/grpc_chunk_stream_demo
 .. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
+.. _Namespace Packages: https://packaging.python.org/guides/packaging-namespace-packages/
