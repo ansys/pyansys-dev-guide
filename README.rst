@@ -18,6 +18,15 @@ play a vital role in:
 - Orchestrating workflows
 - Data manipulation and export
 
+Purpose of this Documentation and Intended Audience
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This documentation is to be a central document for:
+
+- Ansys developers who wish to create Python libraries and "own" the
+  project.
+- Contributors (anyone) who wish to contribute to an existing pyansys
+  project.
+- Those interested in learning more regarding the PyAnsys Project.
 
 PyAnsys Project Structure
 =========================
@@ -51,14 +60,7 @@ to report system coverage.
   * `system-reporting-tool <https://github.com/pyansys/system-reporting-tool>`_
 
 
-Purpose of this Documentation and Intended Audience
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-This documentation is to be a central document for:
-- Ansys developers who wish to create Python libaries and "own" the
-  project.
-- Contribitors (anyone) who wish to contribute to an existing pyansys
-  project.
-- Those interested in learning more regarding the PyAnsys Project.
+
 
 
 
@@ -76,8 +78,6 @@ PyAnsys project suitable for commercial use.
 
 See `LICENSE` in this repository for the standard PyANSYS license.
 This should be included in the root directory of any PyAnsys projects.
-
-.. include:: LICENSE
 
 Exposing new Ansys technologies to PyAnsys and subject to internal
 review and decision process. Reach out to Stephane Marguerin and
@@ -161,7 +161,7 @@ individual repository under the `PyAnsys Organization Account
 contain the source, documentation, and unit testing of the project in
 the following directory structure.
 
-:: 
+::
 
    .github/workflows/ci.yml
    ansys/<product/serivce>/<feature>/my_module.py
@@ -178,11 +178,6 @@ the following directory structure.
    tests/test_basic.py
    tests/test_advanced.py
 
-.. topic:: Your Topic Title
-
-    Subsequent indented lines comprise
-    the body of the topic, and are
-    interpreted as body elements.
 
 This contains a `README.rst` containing
  - How to install...
@@ -213,7 +208,7 @@ Documentation Directory `doc`
 
 
 Abstraction and Encapsulation
------------------------------
+=============================
 Abstraction in Python is the process of hiding the real implementation
 of an application from the user and emphasizing only on usage of it.
 
@@ -422,7 +417,7 @@ one best practice is to represent arrays as ``numpy.ndarray`` or
 classes, Python lists, or at worst, a string.  The following
 example generates a simple mesh in MAPDL.
 
-.. code::
+.. code:: python
 
    >>> mapdl.prep7()
    >>> mapdl.block(0, 1, 0, 1, 0, 1)
@@ -460,7 +455,7 @@ the nodes of the mesh are acessible as the ``nodes`` attribute within
 the ``mesh`` attribute, which provides an encapsulation of the mesh
 within the MAPDL database.
 
-.. code::
+.. code:: python
 
    >>> mapdl.mesh.nodes
    array([[0.  , 1.  , 0.  ],
