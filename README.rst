@@ -1,9 +1,9 @@
-###################
-The PyAnsys Project
-###################
+###################################################
+The PyAnsys Project - Overview and Developers Guide
+###################################################
 
 The PyAnsys project is an effort by Ansys to provide Python libraries
-that exploit the features of the Python language to produce APIs
+that expose Ansys technologies into the Python ecosystem through APIs
 and interfaces that are clear, concise and maintainable.
 
 PyAnsys libraries are more than just reusable "scripts"; they are a set
@@ -19,45 +19,48 @@ play a vital role in:
 - Data manipulation and export
 
 
-Python - Strategy
-=================
+PyAnsys Project Structure
+=========================
+The PyAnsys project hosted on GitHub at `PyAnsys
+<https://github.com/pyansys>`_ contains several repositories that
+provide interfaces to Ansys's products or services.  If you are a new
+user wishing to try out one of PyAnsys's libraries, visit one of the
+following links:
 
-PyAnsys libraries are intended to extend and interface with existing
-products of Ansys services **outside** of the application itself, and
-in some cases permitting remote execution.  As such, this requires
-that you have a working installation of Python, and ideally a Python
-distribution like the `Anaconda Distribution`_.  For existing users
-of Ansys who are not used to working with Python outside of the
-product, this may seem to be an unnecessary step, but what this
-approach provides is:
+* `PyAnsys Library Overview <https://docs.pyansys.com/>`_
+* `PyMAPDL`_
+* `PyAEDT`_
+* `DPF-Core <https://github.com/pyansys/DPF-Core>`_
+* `DPF-Post <https://github.com/pyansys/DPF-Post>`_
+* `Legacy PyMAPDL Reader <https://github.com/pyansys/pymapdl-reader>`_
 
-* The ability to connect with the vast ecosystem of `CPython
-  <http://www.python.org/>`_ Packages including:
+If you are a new developer wishing to create, develop, or contribute
+to a PyAnsys project, reference one of the following links.
 
-  * `NumPy <https://numpy.org/>`_
-  * `SciPy <https://www.scipy.org/>`_
-  * `Matplotlib <https://matplotlib.org/>`_
-  * `VTK <https://vtk.org/>`_
-  * `PyTorch <https://pytorch.org/>`_
-  * `Qt for Python <https://wiki.qt.io/Qt_for_Python>`_
-  * `Flask <https://flask.palletsprojects.com/>`_
-  * 10,000s of others
+* `Project Overview and Development <https://github.com/pyansys/about>`_
+* `PyAnsys Documentation Theme <https://github.com/pyansys/pyansys-sphinx-theme>`_
+* `gRPC Helloworld Example <https://github.com/pyansys/pyansys-helloworld>`_
+* `Material Example <https://github.com/pyansys/example-data>`_
 
-  Depending on your python environment, you can use a package manager
-  like `pip <https://pip.pypa.io/en/stable/>`_ or `conda
-  <https://conda.io/>`_ to easily install the most up-to-date version
-  of the library you need.
+These tools are intended to be used by developers to generate packages
+from proto files, create coverage reports, or provide users with tools
+to report system coverage.
 
-* Customization of your entire Python environment on the OS of your
-  choosing.  For the applications that support it, you can even
-  remotely connect with and manage the application via `gRPC`_.  For
-  those that don't, you can still customize the version of Python and
-  its packages.
+  * `pyansys-protos-generator <https://github.com/pyansys/pyansys-protos-generator>`_
+  * `example-coverage <https://github.com/pyansys/example-coverage>`_
+  * `system-reporting-tool <https://github.com/pyansys/system-reporting-tool>`_
 
-* Create applications or pipelines that utilize Ansys products and
-  expose features as a web-page, standalone application, or script to
-  allow anyone to instantly Ansys's products on the desktop or web
-  using a customized workflow.
+
+Purpose of this Documentation and Intended Audience
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This documentation is to be a central document for:
+- Ansys developers who wish to create Python libaries and "own" the
+  project.
+- Contribitors (anyone) who wish to contribute to an existing pyansys
+  project.
+- Those interested in learning more regarding the PyAnsys Project.
+
+
 
 Project Licencing and Approval
 ==============================
@@ -71,43 +74,15 @@ source code when releasing new software.  The user only needs to
 include the original MIT license in the reused code to make the
 PyAnsys project suitable for commercial use.
 
-See `LICENSE` in this repository for the standard PyANSYS license.  This should be included in the root directory of any PyAnsys projects.
+See `LICENSE` in this repository for the standard PyANSYS license.
+This should be included in the root directory of any PyAnsys projects.
 
 .. include:: LICENSE
 
-..
-   Stephane, I need you to document the approval process
+Exposing new Ansys technologies to PyAnsys and subject to internal
+review and decision process. Reach out to Stephane Marguerin and
+Alexander Kaszynski  for any requests.
 
-
-PyAnsys Project Structure
-=========================
-The PyAnsys project hosted on GitHub at `PyAnsys
-<https://github.com/pyansys>`_ contains repositories that provide:
-
-* Interfaces to Ansys products or services:
-
-  * `PyMAPDL`_
-  * `PyAEDT`_
-  * `DPF-Core <https://github.com/pyansys/DPF-Core>`_
-  * `DPF-Post <https://github.com/pyansys/DPF-Post>`_
-  * `Legacy PyMAPDL Reader <https://github.com/pyansys/pymapdl-reader>`_
-
-* Documentation and Examples
-
-  * `Project Overview <https://github.com/pyansys/about>`_
-  * `pyansys-sphinx-theme <https://github.com/pyansys/pyansys-sphinx-theme>`_
-  * `pyansys_landing <https://github.com/pyansys/pyansys_landing>`_
-  * `pyansys-helloworld <https://github.com/pyansys/pyansys-helloworld>`_
-  * `example-data <https://github.com/pyansys/example-data>`_
-
-* Tools
-
-  * `pyansys-protos-generator <https://github.com/pyansys/pyansys-protos-generator>`_
-  * `example-coverage <https://github.com/pyansys/example-coverage>`_
-  * `system-reporting-tool <https://github.com/pyansys/system-reporting-tool>`_
-
-For details regarding each project, visit the repository and either
-view the README or visit the documentation linked to the repository.
 
 
 PyAnsys Library Overview
@@ -143,6 +118,98 @@ remotely accessible (`REST`_ or `gRPC`_).  This will be refereed to as
 the program API.  While this API can be directly accessed, this often
 results in unreadable and unmaintainable code that forces users to
 rewrite setup boilerplate and other methods from scratch.
+
+
+PyAnsys Library Basic Structure
+-------------------------------
+All PyAnsys libraries are expected to follow a consistent pattern for:
+
+  - Project and library name
+  - Repository directory structure
+  - Licensing
+  - Package configuration in ``setup.py``
+  - Unit testing
+  - CI/CD using Azure Devops and GitHub Actions
+  - Documentation
+
+
+Project, Repository and Library Name
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Project name is expected to be ``py<project>``.  For example,
+``PyMAPDL`` for MAPDL, `PyAEDT`` for AEDT.  The repository name as
+hosted on GitHub should be all lowercase to follow GitHub community
+standards as in the case of `pymapdl`_.  Finally, the Python library
+name is expected to be in the format
+``ansys-<product/service>-<feature>``.  For example, the core MAPDL
+library is `ansys-mapdl-core <https://pypi.org/project/ansys-mapdl-core/>`_.
+
+The reasoning behind long python library names is to allow for the
+usage of `Namespace Packages
+<https://packaging.python.org/guides/packaging-namespace-packages/>`_
+in order to designate which are official Ansys packages and to provide
+a consistent branding and style to PyAnsys libraries.  This is a
+consistent pattern among large organizations who wish to provide many
+individual Python packages while following a consistent package name
+pattern.
+
+
+Repository Directory Structure
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The source of a PyAnsys project is expected to be hosted on an
+individual repository under the `PyAnsys Organization Account
+<https://github.com/pyansys>`__.  This repository is expected to
+contain the source, documentation, and unit testing of the project in
+the following directory structure.
+
+:: 
+
+   .github/workflows/ci.yml
+   ansys/<product/serivce>/<feature>/my_module.py
+   ansys/<product/serivce>/<feature>/my_other_module.py
+   ansys/<product/serivce>/<feature>/__init__.py
+   doc/conf.py
+   doc/index.rst
+   doc/requirements.txt
+   LICENSE
+   README.rst
+   requirements.txt
+   setup.py
+   tests/requirements.txt
+   tests/test_basic.py
+   tests/test_advanced.py
+
+.. topic:: Your Topic Title
+
+    Subsequent indented lines comprise
+    the body of the topic, and are
+    interpreted as body elements.
+
+This contains a `README.rst` containing
+ - How to install...
+
+
+Unit Testing
+ - <you know the drill>
+ - Will probably require your application/server to be packaged in a
+   way that lets you consume it from public infrastructure.
+
+Workflows
+ - Test CI online
+ - Deploy package automagically
+
+Setup File
+ - Defines what the "package is"
+
+ <Setup File>
+
+
+Python Modules
+ - Non-proprietary source.
+ - Exposes server functionality pythonically.
+
+
+Documentation Directory `doc`
+ - Use `pyansys-sphinx-theme <https://sphinxdocs.pyansys.com/>`_
 
 
 Abstraction and Encapsulation
@@ -405,51 +472,6 @@ within the MAPDL database.
           [0.75, 0.5 , 0.5 ]])
 
 
-PyAnsys Package Basic Structure
-===============================
-
-
-.. code:: 
-ansys/<product>/<service>/my_module.py
-ansys/<product>/<service>/my_other_module.py
-ansys/<product>/<service>/__init__.py
-README.rst
-LICENSE (use Ansys license file in this repo)
-setup.py
-requirements.txt
-docs/conf.py
-docs/index.rst
-tests/test_basic.py
-tests/test_advanced.py
-.github/workflows/ci.yml
-
-This contains a `README.rst` containing
- - How to install...
-
-
-Unit Testing
- - <you know the drill>
- - Will probably require your application/server to be packaged in a
-   way that lets you consume it from public infrastructure.
-
-Workflows
- - Test CI online
- - Deploy package automagically
-
-Setup File
- - Defines what the "package is"
-
- <Setup File>
-
-
-Python Modules
- - Non-proprietary source.
- - Exposes server functionality pythonically.
-
-
-Documentation Directory `doc`
- - Use `pyansys-sphinx-theme <https://sphinxdocs.pyansys.com/>`_
-
 
 .. _gRPC: https://grpc.io/
 .. _pythoncom: http://timgolden.me.uk/pywin32-docs/pythoncom.html
@@ -458,7 +480,8 @@ Documentation Directory `doc`
 .. _Anaconda Distribution: https://www.anaconda.com/products/individual
 .. _REST: https://en.wikipedia.org/wiki/Representational_state_transfer
 .. _PyAEDT: https://github.com/pyansys/PyAEDT
-.. _Style Guide for Python Code (PEP8): https://www.python.org/dev/peps/pep-0008
 .. _PyMAPDL: https://github.com/pyansys/pymapdl
+.. _pymapdl: https://github.com/pyansys/pymapdl
+.. _Style Guide for Python Code (PEP8): https://www.python.org/dev/peps/pep-0008
 .. _grpc_chunk_stream_demo: https://github.com/pyansys/grpc_chunk_stream_demo
 .. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
