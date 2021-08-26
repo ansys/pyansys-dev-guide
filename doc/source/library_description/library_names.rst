@@ -1,0 +1,26 @@
+Project, Repository, and Library Names
+######################################
+Large organizations who provide many Python packages 
+follow a consistent naming pattern. Ansys follows 
+these naming conventions: 
+
+- The project name is to be ``Py<project>``. For example, 
+  ``PyMAPDL`` is the project name for MAPDL and ``PyAEDT`` 
+  is the project name for AEDT.
+- The repository name as hosted on GitHub should be all 
+  lowercase to follow GitHub community standards. For 
+  exmaple, `pymapdl`_ and `pyaedt`_.  
+- The Python library name is to be in the format 
+  ``ansys-<product/service>-<feature>``. For example, 
+  `ansys-mapdl-core <https://pypi.org/project/ansys-mapdl-core/>`_ 
+  is the name for the core MAPDL library. 
+
+Using long Python library names provides two primary advantages:
+
+- `Namespace Packages`_ can be used to designate official 
+  Ansys packages
+- Consistent branding and style can be applied to PyAnsys libraries
+  
+.. _PyMAPDL: https://github.com/pyansys/pymapdl
+.. _PyAEDT: https://github.com/pyansys/PyAEDT
+.. _Namespace Packages: https://packaging.python.org/guides/packaging-namespace-packages/
