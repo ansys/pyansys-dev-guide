@@ -1,5 +1,25 @@
-Project Structure
-#################
+Overview
+########
+
+Through the PyAnsys project, Ansys provides Python libraries that
+expose Ansys technologies to the Python ecosystem. These libraries 
+are more than reusable scripts. They are clear, concise, and 
+maintainable APIs and interfaces. Their useful functions, classes, 
+and plugins eliminate the need to write scripts and code from scratch. 
+
+These libraries play a vital role in:
+
+- Application automation
+- Machine learning
+- Postprocessing
+- Data visualization
+- Workflow orchestrations
+- Data manipulation and export
+
+
+Project Organization
+~~~~~~~~~~~~~~~~~~~~
+
 The PyAnsys project is hosted on GitHub at `PyAnsys
 <https://github.com/pyansys>`_. It contains several repositories with 
 Python libraries that interface with Ansys products or services. 

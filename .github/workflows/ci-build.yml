@@ -1,0 +1,50 @@
+name: Documentation Build
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  docs_build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2.2.2
+        with:
+          python-version: 3.8
+
+      - name: Build HTML Documentation
+        run: |
+          pip install -r requirements_docs.txt --disable-pip-version-check
+          make -C doc html SPHINXOPTS="-W"
+          touch doc/build/html/.nojekyll
+          echo "dev.docs.pyansys.com" > doc/build/html/CNAME
+  
+      - name: Build PDF Documentation
+        run: |
+          sudo apt install apt-get install -y texlive-latex-base
+          make -C doc latexpdf
+
+      - name: Upload HTML Documentation
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: Documentation
+          path: doc/build/html
+          retention-days: 7
+
+      - name: Upload PDF Documentation
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: Documentation
+          path: doc/build/latex/*.pdf
+          retention-days: 7
+
+      - name: Deploy to gh-pages
+        if: github.ref == 'refs/heads/main'
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: doc/build/html
+          CLEAN: true
+          single-commit: true
