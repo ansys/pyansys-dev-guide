@@ -19,8 +19,7 @@ general pattern for a PyAnsys library ensures:
 
 This figure shows the general pattern that each PyAnsys library should follow:
 
-.. image:: https://github.com/pyansys/about/raw/main/doc/source/images/diagram.png
-  :width: 400
+.. image:: ../images/diagram.png
   :alt: Overview Diagram
 
 The Ansys product or service exposes an interface that is locally accessible 

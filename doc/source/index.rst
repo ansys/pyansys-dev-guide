@@ -1,7 +1,7 @@
 ..
    Simply reuse the root readme
 
-.. include:: ../../readme.rst
+.. include:: ../../README.rst
 
 .. toctree::
    :hidden:
