@@ -22,7 +22,7 @@ jobs:
   
       - name: Build PDF Documentation
         run: |
-          sudo apt install apt-get install -y texlive-latex-base
+          sudo apt-get install -y texlive-latex-base
           make -C doc latexpdf
 
       - name: Upload HTML Documentation

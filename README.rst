@@ -8,3 +8,9 @@ This guide serves as the central document for:
   library.
 - Anyone who is interested in learning more about the PyAnsys 
   project and libraries.
+
+
+Web-based documentation will be posted upon approval.
+
+PDF version of this guide can be found in the release notes in `Releases
+<https://github.com/pyansys/about/releases>`_.
