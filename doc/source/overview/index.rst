@@ -5,7 +5,9 @@ Through the PyAnsys project, Ansys provides Python libraries that
 expose Ansys technologies to the Python ecosystem. These libraries 
 are more than reusable scripts. They are clear, concise, and 
 maintainable APIs and interfaces. Their useful functions, classes, 
-and plugins eliminate the need to write scripts and code from scratch. 
+and plugins eliminate the need to write scripts interfacing with low
+level APIs, but rather interact with the product or service at a high
+level, object orientated manner.
 
 These libraries play a vital role in:
 
@@ -15,6 +17,16 @@ These libraries play a vital role in:
 - Data visualization
 - Workflow orchestrations
 - Data manipulation and export
+
+The libaries also include plugins and interfaces to the vast python
+ecosystem.  For example:
+
+- Arrays using `NumPy <https://numpy.org/>`_
+- Data structures and tables with `pandas <https://pandas.pydata.org/>`_
+- 2D visualization using `Matplotlib <https://matplotlib.org/>`_
+- 3D visualization using `pyvista <https://docs.pyvista.org/>`_
+- Advanced scientific computing using `scipy <https://www.scipy.org/>`_
+- Machine learning using `TensorFlow <https://www.tensorflow.org/>`_
 
 
 Project Organization

@@ -1,11 +1,13 @@
-Data Transfer and Representation
-================================
-When transferring data from a local application or remote service, you 
-do not want to return raw JSON, gRPC classes, Python lists, or, even worse, 
-strings. A best practice is to represent arrays as ``numpy.ndarray`` or
-``pandas.DataFrame`` objects.
+Data Transfer and Abstraction
+=============================
+Abstracted APIs should attempt to hide the implementation details of
+the remote or local API in a well organized data model.  This data
+model should avoid returning raw JSON, gRPC messages, SWIG objects, or
+.NET objects.  Rather, it preferable to return standard Python objects
+like lists, strings, dictionaries when useful, and NumPy arrays or
+pandas dataframes for more complex data.
 
-This example generates a simple mesh in MAPDL:
+For example, consider a simple mesh in MAPDL:
 
 .. code:: python
 
@@ -20,7 +22,7 @@ command or to write it to disk using the ``CDWRITE`` command. Both
 methods are remarkably inefficient, requiring:
 
 - Serializing the data to ASCII on the server
-- Transfering the data
+- Transferring the data
 - Deserializing the data within Python
 - Converting the data to an array
   
@@ -61,6 +63,49 @@ within the MAPDL database.
           [0.5 , 0.5 , 0.75],
           [0.5 , 0.75, 0.5 ],
           [0.75, 0.5 , 0.5 ]])
+
+
+REST vs RPC Data and Model Abstraction
+--------------------------------------
+Because of the nature of Ansys's products, our applications and
+services can either fit into the RPC interface where the API is
+centered around operations and commands, or the REST model which is
+centered around resources.  Regardless of the the interface style,
+there are several items to consider.
+
+
+API Chattiness
+~~~~~~~~~~~~~~
+APIs must be efficient to avoid creating chatty I/O.  Because many of
+Ansys's products fit well with the RPC API implementation, there is a
+temptation to design APIs that require constant communication with the
+remote or local service.  However, just because RPC interfaces can,
+does not mean they should as it should be assumed that each RPC call
+takes significant time to execute.
+
+One way to avoid this approach is to either serialize several
+"commands" for services that employ an internal "command pattern" for
+data exchange.  Another approach is to encapsulate the data model
+entirely on the server and avoid data transfer whenever possible and
+expose only a limited number of RPC methods in the front-facing API.
+
+Compatibility and Efficiency
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+APIs should be designed to be compatible with as many languages and
+platforms as possible.  `gRPC`_ for RPC-like interfaces should be one
+of the first choices due to its compatibility with nearly all popular
+languages and its efficiency over REST in terms of speed, memory, and
+payload size.
+
+Typically, data exchange over REST should be limited to short messages
+exchanged over JSON, whereas gRPC can handle large data transfer and
+even allows for bidirectional streaming.
+
+In general, it is preferable to choose gRPC over REST due to the
+performance benefits of a binary compatible protocol.  While REST
+carries a variety of benefits, for complex client/server interactions,
+it is best to have an interface that can efficiently exchange a wide
+variety of data formats and messages.
 
 
 

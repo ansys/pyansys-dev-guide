@@ -22,13 +22,16 @@ This figure shows the general pattern that each PyAnsys library should follow:
 .. image:: ../images/diagram.png
   :alt: Overview Diagram
 
-The Ansys product or service exposes an interface that is locally accessible 
-(in the case of .NET using `pythoncom`_, `SWIG`_, or `C extensions`_) or a 
-service that is both locally and remotely accessible (`REST`_ or `gRPC`_). 
-This interface is referred to as the API (Application Programming Interface). 
-While this API can be directly accessed, this often results in unreadable 
-and unmaintainable code that forces users to rewrite setup boilerplate and 
-other methods from scratch.
+The Ansys product or service exposes an interface that is locally
+accessible (for example, .NET using `pythoncom`_, `SWIG`_, or `C
+extensions`_) or a service that is both locally and remotely
+accessible (`REST`_ or `gRPC`_).  This interface is referred to as the
+API (Application Programming Interface).  While this API can be
+directly accessed, this often results in unreadable and unmaintainable
+code that forces users to rewrite setup boilerplate and other methods
+from scratch.  Therefore, the best practice is to create a Python layer
+that maps the raw API into a carefully designed, object oriented data
+model and API.
 
 .. toctree::
    :hidden:
@@ -42,6 +45,7 @@ other methods from scratch.
    readme_file
    setup_file
    doc_directory  
+   license
    
 .. _gRPC: https://grpc.io/
 .. _pythoncom: http://timgolden.me.uk/pywin32-docs/pythoncom.html

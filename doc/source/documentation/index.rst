@@ -1,3 +1,5 @@
+.. _api_documentation:
+
 API Documentation
 #################
 Good documentation drives library adoption and usage and is the
@@ -9,16 +11,16 @@ documentation or examples they are presented with.
 Good API documentation provides the following:
 
 * Increased adoption and improved experience for the developers using
-  the API or libary.
+  the API or library.
 * Reduction in the time spent on-boarding new users (both contributors
   and users of the project).
-* Better maintainance of the codebase.  The time spent reading the
+* Better maintenance of the code base.  The time spent reading the
   source is often orders of magnitude greater than the time spent
   writing it.  Well documented code (both in user-facing docstrings
-  and developer comments) pays dividends in code maintaince.
+  and developer comments) pays dividends in code maintenance.
 * Reduces the amount of time spent understanding the features API.
 
-The documentation for a PyAnsys libary should contain the following
+The documentation for a PyAnsys library should contain the following
 
 * Module, class, method, and function documentation strings.  See
   :ref:`docstrings`.

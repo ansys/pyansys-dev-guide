@@ -9,7 +9,7 @@ beyond `PEP8 <https://www.python.org/dev/peps/pep-0008/>`__.
 
 For example, `Stack Overflow Answer <https://stackoverflow.com/questions/2536307>`_ 
 outlines deprecation best practices and a `Deprecation library <https://deprecation.readthedocs.io/>`_ 
-aready exists. However, there is no official guidance regarding deprecating features 
+already exists. However, there is no official guidance regarding deprecating features 
 in an API within Python. This page seeks to clarify this issue and others.
 
 Aside from the following PyAnsys-specific directives, the best coding practice is to 

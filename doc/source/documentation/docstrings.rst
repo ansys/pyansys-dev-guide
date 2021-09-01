@@ -15,7 +15,7 @@ documentation style. To use `numpydoc`_ add the following to your
 
 Minimum Requirements
 --------------------
-PyAnsys libary docstrings contain at a minimum the following
+PyAnsys library docstrings contain at a minimum the following
 `numpydoc`_ sections:
 
 * `Short description <https://numpydoc.readthedocs.io/en/latest/format.html#short-summary>`_.
@@ -25,7 +25,7 @@ PyAnsys libary docstrings contain at a minimum the following
 * `Examples <https://numpydoc.readthedocs.io/en/latest/format.html#examples>`_
 
 These sections should follow the numpydoc standards.  To avoid
-inconsistencies between PyAnsys libaries, adhere to the following
+inconsistencies between PyAnsys libraries, adhere to the following
 additional standards:
 
 
@@ -38,7 +38,7 @@ Always specify the type, and whenever necessary, provide the full class name::
   my_obj : :class:`ansys.<product>.<library>.FooClass`
       Description of FooClass.
   some_int : int
-      Some interger value.
+      Some integer value.
 
 .. note::
    These parameter descriptions have punctuation. 

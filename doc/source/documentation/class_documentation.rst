@@ -40,7 +40,7 @@ parameters are automatically assigned to the class.
 Auto-Generated Documentation
 ----------------------------
 
-To automatically genereate class descriptions, use either the ``autoclass``  
+To automatically generate class descriptions, use either the ``autoclass``  
 or ``autosummary`` directive.
 
 For simple classes, you can use the ``autoclass`` directive::

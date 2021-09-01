@@ -1,3 +1,5 @@
+.. _setup_file:
+
 Setup File
 ##########
 The setup file for a PyAnsys library package, ``setup.py``, should contain 
