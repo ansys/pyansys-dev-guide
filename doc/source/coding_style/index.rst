@@ -14,6 +14,7 @@ data science libraries: `NumPy`_, `SciPy`_, and `pandas`_.
 
 
 TODO:
+
 * Describe flake8 standards (in subpage), include example ``.flake8``
   with minimum standards.
 * Include anythin we've written from other documentation either in
