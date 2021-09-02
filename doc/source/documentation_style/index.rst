@@ -1,7 +1,7 @@
 .. _api_documentation:
 
-API Documentation
-#################
+Documentation Style
+###################
 Good documentation drives library adoption and usage and is the
 foundation for a good developer experience.  Even with the best
 interfaces and the most functional product, no one will adopt the API

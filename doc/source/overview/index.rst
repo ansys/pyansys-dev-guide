@@ -13,12 +13,12 @@ These libraries play a vital role in:
 
 - Application automation
 - Machine learning
-- Postprocessing
+- Post-processing
 - Data visualization
-- Workflow orchestrations
+- Workflow orchestration
 - Data manipulation and export
 
-The libaries also include plugins and interfaces to the vast python
+The libraries also include plugins and interfaces to the vast python
 ecosystem.  For example:
 
 - Arrays using `NumPy <https://numpy.org/>`_
@@ -64,6 +64,8 @@ PROTO files, create coverage reports, and report on system coverage:
    :maxdepth: 3
 
    administration
+   contributing
+   dev_practices
 
 .. _PyAEDT: https://github.com/pyansys/PyAEDT
 .. _PyMAPDL: https://github.com/pyansys/pymapdl
