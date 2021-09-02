@@ -7,5 +7,4 @@ the root directory of their project.
 
 ------------
 
-
 .. include:: ../../../LICENSE
