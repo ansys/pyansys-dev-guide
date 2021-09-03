@@ -8,7 +8,7 @@ python code on different platforms.
 
 Namespace package
 -----------------
-PyAnsys libraries use the `namespace_packaging`_.
+PyAnsys libraries use the `namespace packaging`_.
 Namespace packages allow the user to easily split subpackages from a package into
 single and independant distribution.
 
@@ -42,17 +42,20 @@ process manually.
 Create the python package.
 
 .. code::
+
   python setup.py sdist
 
 Verify the distribution's long description rendering with twine.
 
 .. code::
+
   pip install twine
   twine check dist/*
 
 Upload the package to Pypi using twine.
 
 .. code::
+
   python -m twine upload -u __token__ -p PYPI_TOKEN --skip-existing dist/*
 
 Then, for the next release upload, you can do it through the ci/cd workflow.
@@ -62,18 +65,20 @@ This token will be reused in the ci/cd workflow used for the pacakge distributio
 
 Tag a release
 -------------
-In order to deploy a new pacakge on Pypi, you must tag a release.
-As a reminder, PyAnsys library is following a trunk based development.
+In order to deploy a new package on Pypi, you must tag a release.
+As a reminder, PyAnsys library is following a `trunk based development`_.
 Consequently, the main version is always containing the last version of the package.
 To tag the release, you must update your main local branch.
 
 .. code::
+
   git checkout main
   git pull
 
 Then, create the new release branch
 
 .. code::
+
   git checkout -b release/0.1
 
 Change the version number in the _version file.
@@ -81,23 +86,32 @@ Commit and push your changes.
 Create the tag.
 
 .. code::
+
   git commit -am "Increase version to 0.x.x" && git tag v0.x.x && git push --tags
+
+Finally, following this tag creation, the workflow responsible for the distribution
+will be automatically triggered.
 
 Install a package
 -----------------
 
 .. code::
+
   py -m pip install --upgrade pip
   py -m pip install "SomePackage"
 
+Here is the minimal content of your python project to create a package following the standard
+mentionned above.
 
 .. toctree::
+
    ansys
    LICENSE
    README.rst
+   setup.py
    tests
 
 
 .. _namespace_packaging: https://packaging.python.org/guides/packaging-namespace-packages/
 .. _native_namespace_packages: https://packaging.python.org/guides/packaging-namespace-packages/#native-namespace-packages
-
+.. _trunk_based_development: https://trunkbaseddevelopment.com/
