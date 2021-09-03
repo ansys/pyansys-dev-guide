@@ -1,18 +1,17 @@
 How to create a package
 #######################
 Python packages are used to organize and structure a python project containing many modules and
-all kind of assets such as unit tests or documentation.
+all kind of assets such as unit tests or documentation files.
 They offer an easy, reliable and comprehensive way to distribute and install
 python code on different platforms.
-
 
 Namespace package
 -----------------
 PyAnsys libraries use the `namespace packaging`_.
 Namespace packages allow the user to easily split subpackages from a package into
-single and independant distribution.
+a single and an independent distribution.
 
-Three different approaches are currently supported to create a namespace package:
+Three different approaches are currently available to create a namespace package:
 
 * `native namespace packages`_
 * pkgutil-style namespace packages
@@ -30,9 +29,9 @@ Required files
   The presence of this file indicate that the package was likely created using disutils
   which is the python standard for building and distributing python package.
 
-  This file contains package main information such as description, author, versions...
-  This file gathers all namespace packages. It extract the version number from the ``_version.py``
-  located in the source code.
+  This file contains package's main information such as description, author, versions...
+  This file gathers all namespace packages.
+  It also extracts the version number from the ``_version.py`` located close to the source code.
 
 
 Generate the package and upload it on Pypi
@@ -58,18 +57,18 @@ Upload the package to Pypi using twine.
 
 .. code::
 
-  python -m twine upload -u __token__ -p PYPI_TOKEN --skip-existing dist/*
+  python -m twine upload -u __token__ -p TOKEN_FOR_PYPI --skip-existing dist/*
 
 Then, for the next release upload, you can do it through the ci/cd workflow.
-Create a secret in github setting.
+Create a `secret`_ in github settings.
 Name it ``PYPI_TOKEN`` and assign it the token provided by Pypi.
-This token will be reused in the ci/cd workflow used for the pacakge distribution.
+This token will be reused in the ci/cd workflow handling the package distribution.
 
 Tag a release
 -------------
 In order to deploy a new package on Pypi, you must tag a release.
-As a reminder, PyAnsys library is following a `trunk based development`_.
-Consequently, the main version is always containing the last version of the package.
+As a reminder, PyAnsys library is following the `trunk-based development`_ source-control branching model.
+Consequently, the main version is always up to date.
 To tag the release, you must update your main local branch.
 
 .. code::
@@ -81,7 +80,7 @@ Then, create the new release branch
 
 .. code::
 
-  git checkout -b release/0.1
+  git checkout -b release/0.x.x
 
 Change the version number in the _version file.
 Commit and push your changes.
@@ -102,7 +101,7 @@ Install a package
   py -m pip install --upgrade pip
   py -m pip install "SomePackage"
 
-Here is the minimal content of your python project to create a package following the standard
+Here is the minimal content of your python project to create a package complying with the standard
 mentionned above.
 
 .. toctree::
@@ -116,4 +115,5 @@ mentionned above.
 
 .. _namespace packaging: https://packaging.python.org/guides/packaging-namespace-packages/
 .. _native namespace packages: https://packaging.python.org/guides/packaging-namespace-packages/#native-namespace-packages
-.. _trunk based development: https://trunkbaseddevelopment.com/
+.. _trunk-based development: https://trunkbaseddevelopment.com/
+.. _secret: https://docs.github.com/en/actions/reference/encrypted-secrets
