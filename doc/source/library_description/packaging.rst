@@ -20,12 +20,12 @@ Three different approaches are currently available to create a namespace package
 Required files
 --------------
 
-*README.rst file is used to describe the purpose of the package.
+* README.rst file is used to describe the purpose of the package.
   *The format of this file must be reStructuredText.*
 
-*LICENSE file to specify the copyrigths and required authorization.
+* LICENSE file to specify the copyrigths and required authorization.
 
-*setup.py file to provide package main information.
+* setup.py file to provide package main information.
   The presence of this file indicate that the package was likely created using disutils
   which is the python standard for building and distributing python package.
 
