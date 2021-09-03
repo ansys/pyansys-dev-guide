@@ -51,7 +51,7 @@ Setup.py
           packages.append(package)
 
 
-  It also extracts the version number from the ``_version.py`` located close to the source code.
+It also extracts the version number from the ``_version.py`` located close to the source code.
 
 
 Generate the package and upload it on Pypi
