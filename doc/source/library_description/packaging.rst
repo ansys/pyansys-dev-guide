@@ -13,6 +13,7 @@ Namespace packages allow the user to easily split subpackages from a package int
 single and independant distribution.
 
 Three different approaches are currently supported to create a namespace package:
+
 * `native namespace packages`_
 * pkgutil-style namespace packages
 * pkg_resources-style namespace packages
