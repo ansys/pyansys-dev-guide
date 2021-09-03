@@ -124,7 +124,7 @@ Install a package
 Here is the minimal content of your python project to create a package complying with the standard
 mentionned above.
 
-.. toctree::
+.. code::
 
    ansys
    LICENSE
