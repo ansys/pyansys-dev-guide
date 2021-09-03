@@ -36,7 +36,8 @@ Setup.py
   package's main information such as description, author, versions...
   In this file ``setuptools`` module will be used to configurate the metadata.
 
-.. code::
+.. code:: python
+
   import setuptools
   setuptools.setup(...)
 
@@ -77,7 +78,7 @@ Upload the package to Pypi using twine.
 
 .. code::
 
-  python -m twine upload -u __token__ -p TOKEN_FOR_PYPI --skip-existing dist/*
+  python -m twine upload -u __token__ -p <TOKEN_FOR_PYPI> --skip-existing dist/*
 
 Then, for the next release upload, you can do it through the ci/cd workflow.
 Create a `secret`_ in github settings.
