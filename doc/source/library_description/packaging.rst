@@ -119,7 +119,7 @@ Install a package
 .. code::
 
   py -m pip install --upgrade pip
-  py -m pip install "SomePackage"
+  python -m pip install ansys.<product>.<library>
 
 Here is the minimal content of your python project to create a package complying with the standard
 mentionned above.
