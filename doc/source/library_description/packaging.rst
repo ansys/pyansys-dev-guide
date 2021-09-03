@@ -19,6 +19,7 @@ Three different approaches are currently supported to create a namespace package
 
 Required files
 --------------
+
 *README.rst file is used to describe the purpose of the package.
   *The format of this file must be reStructuredText.*
 
@@ -112,6 +113,6 @@ mentionned above.
    tests
 
 
-.. _namespace_packaging: https://packaging.python.org/guides/packaging-namespace-packages/
-.. _native_namespace_packages: https://packaging.python.org/guides/packaging-namespace-packages/#native-namespace-packages
-.. _trunk_based_development: https://trunkbaseddevelopment.com/
+.. _namespace packaging: https://packaging.python.org/guides/packaging-namespace-packages/
+.. _native namespace packages: https://packaging.python.org/guides/packaging-namespace-packages/#native-namespace-packages
+.. _trunk based development: https://trunkbaseddevelopment.com/
