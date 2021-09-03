@@ -29,8 +29,28 @@ Required files
   The presence of this file indicate that the package was likely created using disutils
   which is the python standard for building and distributing python package.
 
-  This file contains package's main information such as description, author, versions...
-  This file gathers all namespace packages.
+
+Setup.py
+--------
+  `setup.py`_ is the build script for setuptools. It exposes dynamic metadata and contains
+  package's main information such as description, author, versions...
+  In this file ``setuptools`` module will be used to configurate the metadata.
+
+.. code::
+  import setuptools
+  setuptools.setup(...)
+
+  This file gathers all namespace packages and files that must be included in the distributed
+  package.
+
+.. code::
+
+  packages = []
+  for package in setuptools.find_namespace_packages(include='ansys*'):
+      if package.startswith('ansys.tools.example_coverage'):
+          packages.append(package)
+
+
   It also extracts the version number from the ``_version.py`` located close to the source code.
 
 
@@ -117,3 +137,4 @@ mentionned above.
 .. _native namespace packages: https://packaging.python.org/guides/packaging-namespace-packages/#native-namespace-packages
 .. _trunk-based development: https://trunkbaseddevelopment.com/
 .. _secret: https://docs.github.com/en/actions/reference/encrypted-secrets
+.. _setup.py: https://packaging.python.org/tutorials/packaging-projects/#configuring-metadata
