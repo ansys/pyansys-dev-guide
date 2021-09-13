@@ -86,7 +86,7 @@ This token will be reused in the CI/CD workflow handling the package distributio
 
 Tag a Release
 -------------
-In order to deploy a new package on PyPI, you must tag a release under a release branch.  The PyAnsys project is follows the `trunk-based development`_ source-control branching model, where the main development branch is always in a releasable state.
+In order to deploy a new package on PyPI, you must tag a release under a release branch. The PyAnsys project follows the `trunk-based development`_ source-control branching model, where the main development branch is always in a releasable state.
 To tag the release, you must update your main local branch.
 
 .. code::
