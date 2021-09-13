@@ -44,8 +44,9 @@ model and API.
    source_organization
    readme_file
    setup_file
-   doc_directory  
+   doc_directory
    license
+   packaging.rst
    
 .. _gRPC: https://grpc.io/
 .. _pythoncom: http://timgolden.me.uk/pywin32-docs/pythoncom.html
