@@ -1,5 +1,13 @@
 name: Documentation Build
-on: [push, pull_request, workflow_dispatch]
+
+on:
+  pull_request:
+  push:
+    tags:
+      - "*"
+    branches:
+      - main
+
 
 jobs:
   docs_build:
@@ -22,6 +30,7 @@ jobs:
   
       - name: Build PDF Documentation
         run: |
+          sudo apt update
           sudo apt-get install -y texlive-latex-extra latexmk
           make -C doc latexpdf
 
