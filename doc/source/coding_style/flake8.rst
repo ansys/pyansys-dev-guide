@@ -21,6 +21,8 @@ code complexity, whitespace, etc.
 .. _pycodestyle: https://pypi.org/project/pycodestyle/
 .. _`Ned Batchelder's McCabe script for complexity`: https://github.com/PyCQA/mccabe
 
+.. _configuring-flake8:
+
 Configuring Flake8
 ------------------
 Flake8 supports configuring a specific set of style rules to
@@ -129,43 +131,92 @@ Minimum Standards
 The following section describes the minimum set of code style standards
 expected in an PyAnsys library.
 
+* `W191`_ - **Indentation contains tabs.**
 
-* `W291`_ - **All extra whitespace should be trimmed.**
+    Indentations should be composed of four spaces, not tabs.
 
-  There should be no trailing whitespace on code lines and no
-  whitespace at all on blank lines.
+* `W291`_ - **Trailing whitespace.**
 
-* `W191`_ - **Code blocks should be correctly indented.**
+    There should be no trailing whitespace after the final character
+    on a line.
 
-  Indentations should be four spaces. Review
-  `PEP8 Indentation <https://www.python.org/dev/peps/pep-0008/#indentation>`_
-  guidelines for more infromation on proper indentation.
+* `W293`_ - **Blank line contains whitespace.**
 
-* `W391`_ - **There should be one blank line at the end of every file.**
+    Blank lines should not have any tabs or spaces.
 
-* All methods should have a single line between them.
-* Double quotes should be used instead of single quotes.
-* Operators should be surrounded by one space on other side.
-* One space should follow a ``,``, ``;``, or ``:``.
-* All code lines should not exceed 100 characters.
-    The `PEP8 line length <https://www.python.org/dev/peps/pep-0008/#maximum-line-length>`_
+* `W391`_ - **Blank line at the end of every file.**
+
+    There should be only one blank line at the end of each file. This
+    warning will occur when there are zero, two, or more than two blank
+    lines.
+
+* `E115`_ - **Comment block expected an indent.**
+
+    An indented block comment was expected but a non-indented block
+    comment was found instead.
+
+* `E117`_ - **Line over-indented.**
+
+    Lines should be consistently indented in increments of two or four.
+
+* `E122`_ - **Continuation line missing indentation or outdented.**
+
+    Continuation line is not indented as far as it should be or is
+    indented too far.
+
+* `E124`_ - **Closing bracket does not match indentation.**
+
+    Closing bracket does not match the indentation of the opening bracket.
+
+* `E125`_ - **Continuation line with same indent as next logical line.**
+
+    Continuation line is indented at the same level as the next logical
+    line. It should be indented to one more level to distinguish it from
+    the next line.
+
+* `E225`_ - **Missing whitespace around operator.**
+
+    There should be one space before and after all operators.
+
+* `E231`_ - **Missing whitespace after certain special characters.**
+
+    There should be one space after the characters ``,``, ``;``, or ``:``.
+
+* `E301`_ - **Expected a blank line, found none.**
+
+    All methods of a class should have a single line between them.
+
+* `E303`_ - **Too many blank lines.**
+
+    There should be one line between methods and two lines between
+    methods and classes.
+
+* `E501`_ - **Line too long.**
+
+    All code lines should not exceed 100 characters. The
+    `PEP8 line length <https://www.python.org/dev/peps/pep-0008/#maximum-line-length>`_
     guidelines suggest a maximum line length of 79. Following this limit
     is not as necessary due to modern screen sizes. The suggested maximum
     length of 100 can be easier to accomodate and can still support
     viewing files side-by-side in code editors.
-* Only import modules that are actually used.
-* ``import *`` should never be used.
-    Importing modules this way leads to uncertainty and pollutes the
-    code. You cannot know exactly what is being imported and it can
-    often lead to name clashes. It is best to import the exact modules
-    to be used.
 
-* ``max-complexity`` - Limit complexity of code to 10.
+* `F401`_ - **Module imported but unused.**
 
-  Complexity is a software metric used to determine stability and
-  confidence in a piece of code. By limiting complexity, code is
-  easier to understand and less risky to modify. Writing low
-  pcomplexity code when possible is preferred.  
+    Modules should only be imported if they are actually used.
+
+* `F403`_ - **'from module import *' used.**
+
+    Importing everything from a module should never be done. Importing
+    modules this way leads to uncertainty and pollutes the code. You
+    cannot know exactly what is being imported and it can often lead to
+    name clashes. It is best to import the exact modules to be used.
+
+* **Limit complexity of code to 10.**
+
+  This is enforced by the ``max-complexity`` option described in
+  :ref:`configuring-flake8`. Limiting code complexity leads to code that
+  is easier to understand and less risky to modify. Writing low
+  complexity code when possible is preferred.
 
 
 Your ``.flake8`` file should be:
@@ -183,27 +234,18 @@ Your ``.flake8`` file should be:
 
 .. _W191: https://www.flake8rules.com/rules/W191.html
 .. _W291: https://www.flake8rules.com/rules/W291.html
+.. _W293: https://www.flake8rules.com/rules/W293.html
 .. _W391: https://www.flake8rules.com/rules/W391.html
-
-
- ..
-    The error codes chosen above
-       have the following descriptions:
-
-       - W191: Indentation has tabs when only spaces are expected.
-       - W291: Line contains trailing whitespace.
-       - W293: Blank line contains tabs or spaces.
-       - W391: There should be only one blank line at the end of each file. This warning will occur when there are zero, two, or more than two blank lines.
-       - E115: An indented block comment was expected but a non-indented block comment was found instead.
-       - E117: Line is over-indented.
-       - E122: Continuation line is not indented as far as it should be or is indented too far.
-       - E124: Closing brackets do not match the indentation of the opening bracket.
-       - E125: Continuation line is indented at the same level as the next logical line. It should be indented to one more level so as to distinguish it from the next line.
-       - E225: Operator does not have one space both before and after it.
-       - E231: Missing whitespace after the characters ``,``, ``;``, or ``:``.
-       - E301: One blank line is expected but no blank line is found.
-       - E303: Too many blank lines are found.
-       - E501: Line too long. Based on the option ``max-line-length`` included in the configuration.
-       - F401: Module imported but not used.
-       - F403: ``from module import *`` used.
+.. _E115: https://www.flake8rules.com/rules/E115.html
+.. _E117: https://www.flake8rules.com/rules/E117.html
+.. _E122: https://www.flake8rules.com/rules/E122.html
+.. _E124: https://www.flake8rules.com/rules/E124.html
+.. _E125: https://www.flake8rules.com/rules/E125.html
+.. _E225: https://www.flake8rules.com/rules/E225.html
+.. _E231: https://www.flake8rules.com/rules/E231.html
+.. _E301: https://www.flake8rules.com/rules/E301.html
+.. _E303: https://www.flake8rules.com/rules/E303.html
+.. _E501: https://www.flake8rules.com/rules/E501.html
+.. _F401: https://www.flake8rules.com/rules/F401.html
+.. _F403: https://www.flake8rules.com/rules/F403.html
 
