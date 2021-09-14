@@ -97,11 +97,15 @@ Running Flake8
 --------------
 First, to install flake8, run:
 
-``python -m pip install flake8``
+.. code::
+
+    python -m pip install flake8
 
 Then, flake8 can be run from inside your project directory by executing:
 
-``flake8 .``
+.. code::
+
+    flake8 .
 
 This will use the configuraiton defined in the ``.flake8`` file to
 run the style checks on the appropriate files within the project and
