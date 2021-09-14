@@ -48,32 +48,13 @@ A list of possible options can be found `here <https://flake8.pycqa.org/en/lates
 The above configuration defines the following options:
 
 - ``exclude``
-    This denotes subdirectories ``venv`` and ``doc/_build``, along with all
+    This denotes subdirectories and ``doc/_build``, along with all
     ``__init__.py`` files to be excluded from the check.
 
 - ``select``
     This is a sequence of error codes that flake8 will report errors
     for. The set in the above configuration is a basic set of errors to
-    check for and is not an exhaustive list. The error codes chosen above
-    have the following descriptions:
-
-    - W191: Indentation has tabs when only spaces are expected.
-    - W291: Line contains trailing whitespace.
-    - W293: Blank line contains tabs or spaces.
-    - W391: There should be only one blank line at the end of each file. This warning will occur when there are zero, two, or more than two blank lines.
-    - E115: An indented block comment was expected but a non-indented block comment was found instead.
-    - E117: Line is over-indented.
-    - E122: Continuation line is not indented as far as it should be or is indented too far.
-    - E124: Closing brackets do not match the indentation of the opening bracket.
-    - E125: Continuation line is indented at the same level as the next logical line. It should be indented to one more level so as to distinguish it from the next line.
-    - E225: Operator does not have one space both before and after it.
-    - E231: Missing whitespace after the characters ``,``, ``;``, or ``:``.
-    - E301: One blank line is expected but no blank line is found.
-    - E303: Too many blank lines are found.
-    - E501: Line too long. Based on the option ``max-line-length`` included in the configuration.
-    - F401: Module imported but not used.
-    - F403: ``from module import *`` used.
-
+    check for and is not an exhaustive list.
 
     A full list of error codes and their descriptions can be found `here <https://flake8.pycqa.org/en/3.9.2/user/error-codes.html>`__.
 
@@ -92,6 +73,7 @@ The above configuration defines the following options:
 - ``statistics``
     This enables the number of occurrences of each error or warning code
     to be printed as a report at the end of the check.
+
 
 Running Flake8
 --------------
@@ -115,6 +97,7 @@ In PyAnsys libraries, flake8 is run as part of the CI/CD for code style.
 This action is run as a required check on pull requests, preventing
 code in violation of these style rules from being merged into the code
 base.
+
 
 Utilizing Black
 ~~~~~~~~~~~~~~~
@@ -140,19 +123,26 @@ workflow with the least amount of manual effort to maintain PEP8 guidelines.
 
 .. _pre-commit: https://pre-commit.com/
 
+
 Minimum Standards
 ~~~~~~~~~~~~~~~~~
 The following section describes the minimum set of code style standards
 expected in an PyAnsys library.
 
-* All extra whitespace should be trimmed.
-    There should be no trailing whitespace on code lines and no
-    whitespace at all on blank lines.
-* Code blocks should be correctly indented.
-    Indentations should be four spaces. Review
-    `PEP8 Indentation <https://www.python.org/dev/peps/pep-0008/#indentation>`_
-    guidelines for more infromation on proper indentation.
-* There should be one blank line at the end of every file.
+
+* `W291`_ - **All extra whitespace should be trimmed.**
+
+  There should be no trailing whitespace on code lines and no
+  whitespace at all on blank lines.
+
+* `W191`_ - **Code blocks should be correctly indented.**
+
+  Indentations should be four spaces. Review
+  `PEP8 Indentation <https://www.python.org/dev/peps/pep-0008/#indentation>`_
+  guidelines for more infromation on proper indentation.
+
+* `W391`_ - **There should be one blank line at the end of every file.**
+
 * All methods should have a single line between them.
 * Double quotes should be used instead of single quotes.
 * Operators should be surrounded by one space on other side.
@@ -169,8 +159,51 @@ expected in an PyAnsys library.
     code. You cannot know exactly what is being imported and it can
     often lead to name clashes. It is best to import the exact modules
     to be used.
-* Limit complexity of code.
-    Complexity is a software metric used to determine stability and
-    confidence in a piece of code. By limiting complexity, code is
-    easier to understand and less risky to modify. Writing low complexity
-    code when possible is preferred.
+
+* ``max-complexity`` - Limit complexity of code to 10.
+
+  Complexity is a software metric used to determine stability and
+  confidence in a piece of code. By limiting complexity, code is
+  easier to understand and less risky to modify. Writing low
+  pcomplexity code when possible is preferred.  
+
+
+Your ``.flake8`` file should be:
+
+.. code::
+
+    [flake8]
+    exclude = venv, __init__.py, doc/_build
+    select = W191, W291, W293, W391, E115, E117, E122, E124, E125, E225, E231, E301, E303, E501, F401, F403
+    count = True
+    max-complexity = 10
+    max-line-length = 100
+    statistics = True
+
+
+.. _W191: https://www.flake8rules.com/rules/W191.html
+.. _W291: https://www.flake8rules.com/rules/W291.html
+.. _W391: https://www.flake8rules.com/rules/W391.html
+
+
+ ..
+    The error codes chosen above
+       have the following descriptions:
+
+       - W191: Indentation has tabs when only spaces are expected.
+       - W291: Line contains trailing whitespace.
+       - W293: Blank line contains tabs or spaces.
+       - W391: There should be only one blank line at the end of each file. This warning will occur when there are zero, two, or more than two blank lines.
+       - E115: An indented block comment was expected but a non-indented block comment was found instead.
+       - E117: Line is over-indented.
+       - E122: Continuation line is not indented as far as it should be or is indented too far.
+       - E124: Closing brackets do not match the indentation of the opening bracket.
+       - E125: Continuation line is indented at the same level as the next logical line. It should be indented to one more level so as to distinguish it from the next line.
+       - E225: Operator does not have one space both before and after it.
+       - E231: Missing whitespace after the characters ``,``, ``;``, or ``:``.
+       - E301: One blank line is expected but no blank line is found.
+       - E303: Too many blank lines are found.
+       - E501: Line too long. Based on the option ``max-line-length`` included in the configuration.
+       - F401: Module imported but not used.
+       - F403: ``from module import *`` used.
+
