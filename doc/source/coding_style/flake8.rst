@@ -43,7 +43,7 @@ PyAnsys libraries:
     statistics = True
 
 Flake8 has many options that can be set within the configuration file.
-A list of possible options can be found `here <https://flake8.pycqa.org/en/latest/user/options.html>`_.
+A list of possible options can be found `here <https://flake8.pycqa.org/en/latest/user/options.html>`__.
 
 The above example defines the following options:
 
@@ -74,7 +74,7 @@ The above example defines the following options:
     - F401: Module import but not used.
     - F403: ``from module import *`` used.
 
-    A full list of error codes and their descriptions can be found `here <https://flake8.pycqa.org/en/3.9.2/user/error-codes.html>`_.
+    A full list of error codes and their descriptions can be found `here <https://flake8.pycqa.org/en/3.9.2/user/error-codes.html>`__.
 
 - ``count``
     The total number of errors is printed at the end of the check.
@@ -89,8 +89,49 @@ The above example defines the following options:
     limiting in some cases. In all cases, the maximum line length should
     not exceed 100.
 
-    .. _PEP8: https://www.python.org/dev/peps/pep-0008/#maximum-line-length
-
 - ``statistics``
     This enables the number of occurrences of each error or warning code
     to be printed as a report at the end of the check.
+
+Running Flake8
+--------------
+First, to install flake8, run:
+
+    ``python -m pip install flake8``
+
+Then, flake8 can be run from inside your project directory by executing:
+
+    ``flake8 .``
+
+This will use the configuraiton defined in the ``.flake8`` file to
+run the style checks on the appropriate files within the project and
+report any errors.
+
+In PyAnsys libaries, flake8 is run as part of the CI/CD for code style.
+This action is run as a requied check on pull requests, preventing
+code in violation of these style rules from being merged into the code
+base.
+
+Utilizing Black
+---------------
+Sometimes, manually checking for code styling can be tedious. Luckily,
+there are several python tools for autoformatting code to meet PEP8
+standards to help with this. The PyAnsys project suggests the use of the
+the formatting tool `black`_.
+
+.. _black: https://black.readthedocs.io/en/stable/
+
+Upon completing a code change, and before committing, ``black`` can be
+run to reformat the code, following the PEP8 guidelines enforced through
+flake8. This will limit any manual code changes needed to address style
+rules.
+
+Optionally, it is possible to automate the use of ``black`` as well.
+This can be done with the tool `pre-commit`_. Setting up a `pre-commit hook
+to run black <https://black.readthedocs.io/en/stable/integrations/source_version_control.html>`_
+will automatically be run before committing the code. This is the
+simplest way to incorporate code style checks into the development
+workflow with the least amount of manual effort to maintain PEP8 guidelines.
+
+.. _pre-commit: https://pre-commit.com/
+
