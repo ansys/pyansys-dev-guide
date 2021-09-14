@@ -12,3 +12,6 @@ dist/*
 
 build/*
 doc/build/
+
+# virtual environment
+/venv/
