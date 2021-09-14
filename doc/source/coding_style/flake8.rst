@@ -130,6 +130,7 @@ flake8. This will limit any manual code changes needed to address style
 rules.
 
 .. _black: https://black.readthedocs.io/en/stable/
+
 Optionally, it is possible to automate the use of ``black`` as well.
 This can be done with the tool `pre-commit`_. Setting up a `pre-commit hook
 to run black <https://black.readthedocs.io/en/stable/integrations/source_version_control.html>`_
@@ -145,18 +146,31 @@ The following section describes the minimum set of code style standards
 expected in an PyAnsys library.
 
 * All extra whitespace should be trimmed.
-    * There should be no trailing whitespace on code lines and no whitespace at all on blank lines.
+    There should be no trailing whitespace on code lines and no
+    whitespace at all on blank lines.
 * Code blocks should be correctly indented.
-    * Indentations should be four spaces. Review `PEP8 Indentation <https://www.python.org/dev/peps/pep-0008/#indentation>`_ guidelines for more infromation on proper indentation.
+    Indentations should be four spaces. Review
+    `PEP8 Indentation <https://www.python.org/dev/peps/pep-0008/#indentation>`_
+    guidelines for more infromation on proper indentation.
 * There should be one blank line at the end of every file.
 * All methods should have a single line between them.
 * Double quotes should be used instead of single quotes.
 * Operators should be surrounded by one space on other side.
 * One space should follow a ``,``, ``;``, or ``:``.
 * All code lines should not exceed 100 characters.
-    * The `PEP8 line length <https://www.python.org/dev/peps/pep-0008/#maximum-line-length>`_ guidelines suggest a maximum line length of 79. Following this limit is not as necessary due to modern screen sizes. The suggested maximum length of 100 can be easier to accomodate and can still support viewing files side-by-side in code editors.
+    The `PEP8 line length <https://www.python.org/dev/peps/pep-0008/#maximum-line-length>`_
+    guidelines suggest a maximum line length of 79. Following this limit
+    is not as necessary due to modern screen sizes. The suggested maximum
+    length of 100 can be easier to accomodate and can still support
+    viewing files side-by-side in code editors.
 * Only import modules that are actually used.
 * ``import *`` should never be used.
-    * Importing modules this way leads to uncertainty and pollutes the code. You cannot know exactly what is being imported and it can often lead to name clashes. It is best to import the exact modules to be used.
+    Importing modules this way leads to uncertainty and pollutes the
+    code. You cannot know exactly what is being imported and it can
+    often lead to name clashes. It is best to import the exact modules
+    to be used.
 * Limit complexity of code.
-    * Complexity is a software metric used to determine stability and confidence in a piece of code. By limiting complexity, code is easier to understand and less risky to modify. Writing low complexity code when possible is preferred.
+    Complexity is a software metric used to determine stability and
+    confidence in a piece of code. By limiting complexity, code is
+    easier to understand and less risky to modify. Writing low complexity
+    code when possible is preferred.
