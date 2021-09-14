@@ -12,24 +12,24 @@ Flake8
 ~~~~~~
 `Flake8`_ is a python tool for enforcing code styling. It is a wrapper
 around the following three tools: `PyFlakes`_, `pycodestyle`_, and
-`Ned Batchelder's McCabe script`_. Flake8 runs all three tools at once,
+`Ned Batchelder's McCabe script for complexity`_. Flake8 runs all three tools at once,
 checking the code against a variety of style rules, such as line length,
 code complexity, whitespace, etc.
 
 .. _Flake8: https://flake8.pycqa.org/en/latest/index.html
 .. _PyFlakes: https://pypi.org/project/pyflakes/
 .. _pycodestyle: https://pypi.org/project/pycodestyle/
-.. _`Ned Batchelder's McCabe script`: https://github.com/PyCQA/mccabe
+.. _`Ned Batchelder's McCabe script for complexity`: https://github.com/PyCQA/mccabe
 
 Configuring Flake8
 ------------------
-Flake8 supports configuring a specific set of the style checks to
+Flake8 supports configuring a specific set of style rules to
 enforce. This configuration can be stored in your project in a
 ``setup.cfg``, ``tox.ini``, or ``.flake8`` file. The PyAnsys libraries
 store the flake8 configuration in a ``.flake8`` file at the root of the
 repository.
 
-Here is an example of a ``.flake8`` configuration file from one the
+Here is an example of a ``.flake8`` configuration file from one of the
 PyAnsys libraries:
 
 .. code::
@@ -45,7 +45,7 @@ PyAnsys libraries:
 Flake8 has many options that can be set within the configuration file.
 A list of possible options can be found `here <https://flake8.pycqa.org/en/latest/user/options.html>`__.
 
-The above example defines the following options:
+The above configuration defines the following options:
 
 - ``exclude``
     This denotes subdirectories ``venv`` and ``doc/_build``, along with all
@@ -53,14 +53,14 @@ The above example defines the following options:
 
 - ``select``
     This is a sequence of error codes that flake8 will report errors
-    for. This set in the above configuration is a basic set of errors to
+    for. The set in the above configuration is a basic set of errors to
     check for and is not an exhaustive list. The error codes chosen above
     have the following descriptions:
 
     - W191: Indentation has tabs when only spaces are expected.
     - W291: Line contains trailing whitespace.
     - W293: Blank line contains tabs or spaces.
-    - W391: There should only one blank line at the end of each file. This warning will occur when there are zero, two, or more than two blank lines.
+    - W391: There should be only one blank line at the end of each file. This warning will occur when there are zero, two, or more than two blank lines.
     - E115: An indented block comment was expected but a non-indented block comment was found instead.
     - E117: Line is over-indented.
     - E122: Continuation line is not indented as far as it should be or is indented too far.
@@ -71,8 +71,9 @@ The above example defines the following options:
     - E301: One blank line is expected but no blank line is found.
     - E303: Too many blank lines are found.
     - E501: Line too long. Based on the option ``max-line-length`` included in the configuration.
-    - F401: Module import but not used.
+    - F401: Module imported but not used.
     - F403: ``from module import *`` used.
+
 
     A full list of error codes and their descriptions can be found `here <https://flake8.pycqa.org/en/3.9.2/user/error-codes.html>`__.
 
@@ -85,9 +86,8 @@ The above example defines the following options:
 
 - ``max-line-length``
     This denotes the maximum line length for any one line of code.
-    The `PEP8`_ standard advises a line length of 79. This is a bit
-    limiting in some cases. In all cases, the maximum line length should
-    not exceed 100.
+    The `PEP8`_ standard advises a line length of 79. Since this is a bit
+    limiting in some cases, a maximum line length of 100 is suggested.
 
 - ``statistics``
     This enables the number of occurrences of each error or warning code
@@ -97,24 +97,24 @@ Running Flake8
 --------------
 First, to install flake8, run:
 
-    ``python -m pip install flake8``
+``python -m pip install flake8``
 
 Then, flake8 can be run from inside your project directory by executing:
 
-    ``flake8 .``
+``flake8 .``
 
 This will use the configuraiton defined in the ``.flake8`` file to
 run the style checks on the appropriate files within the project and
 report any errors.
 
-In PyAnsys libaries, flake8 is run as part of the CI/CD for code style.
+In PyAnsys libraries, flake8 is run as part of the CI/CD for code style.
 This action is run as a requied check on pull requests, preventing
 code in violation of these style rules from being merged into the code
 base.
 
 Utilizing Black
----------------
-Sometimes, manually checking for code styling can be tedious. Luckily,
+~~~~~~~~~~~~~~~
+Manually checking for code styling can be a tedious task. Luckily,
 there are several python tools for autoformatting code to meet PEP8
 standards to help with this. The PyAnsys project suggests the use of the
 the formatting tool `black`_.
@@ -129,7 +129,7 @@ rules.
 Optionally, it is possible to automate the use of ``black`` as well.
 This can be done with the tool `pre-commit`_. Setting up a `pre-commit hook
 to run black <https://black.readthedocs.io/en/stable/integrations/source_version_control.html>`_
-will automatically be run before committing the code. This is the
+will automatically format the code before committing. This is the
 simplest way to incorporate code style checks into the development
 workflow with the least amount of manual effort to maintain PEP8 guidelines.
 
