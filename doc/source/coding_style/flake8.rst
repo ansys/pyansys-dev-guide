@@ -107,12 +107,12 @@ Then, flake8 can be run from inside your project directory by executing:
 
     flake8 .
 
-This will use the configuraiton defined in the ``.flake8`` file to
+This will use the configuration defined in the ``.flake8`` file to
 run the style checks on the appropriate files within the project and
 report any errors.
 
 In PyAnsys libraries, flake8 is run as part of the CI/CD for code style.
-This action is run as a requied check on pull requests, preventing
+This action is run as a required check on pull requests, preventing
 code in violation of these style rules from being merged into the code
 base.
 
@@ -123,13 +123,13 @@ there are several python tools for autoformatting code to meet PEP8
 standards to help with this. The PyAnsys project suggests the use of the
 the formatting tool `black`_.
 
-.. _black: https://black.readthedocs.io/en/stable/
 
-Upon completing a code change, and before committing, ``black`` can be
+Upon completing a code change, and before committing, `black`_ can be
 run to reformat the code, following the PEP8 guidelines enforced through
 flake8. This will limit any manual code changes needed to address style
 rules.
 
+.. _black: https://black.readthedocs.io/en/stable/
 Optionally, it is possible to automate the use of ``black`` as well.
 This can be done with the tool `pre-commit`_. Setting up a `pre-commit hook
 to run black <https://black.readthedocs.io/en/stable/integrations/source_version_control.html>`_
