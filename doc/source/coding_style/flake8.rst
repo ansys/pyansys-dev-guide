@@ -197,7 +197,7 @@ expected in an PyAnsys library.
     `PEP8 line length <https://www.python.org/dev/peps/pep-0008/#maximum-line-length>`_
     guidelines suggest a maximum line length of 79. Following this limit
     is not as necessary due to modern screen sizes. The suggested maximum
-    length of 100 can be easier to accomodate and can still support
+    length of 100 can be easier to accommodate and can still support
     viewing files side-by-side in code editors.
 
 * `F401`_ - **Module imported but unused.**
