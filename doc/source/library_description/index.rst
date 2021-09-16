@@ -33,6 +33,26 @@ from scratch.  Therefore, the best practice is to create a Python layer
 that maps the raw API into a carefully designed, object oriented data
 model and API.
 
+
+Template
+--------
+Within the `PyAnsys Organization <https://github.com/pyansys>`_ there
+is a `template repository <https://github.com/pyansys/template>`_
+where you can `Create a repository from a template`_ and create a new
+PyAnsys project that follows the guidelines specified in this guide.
+
+The template repository contains a generalized library skeleton which includes:
+
+- Library skeleton with sample classes and methods.
+- Sample documentation build including customized templates.
+- Sample GitHub Actions specific to PyAnsys projects.
+- Licencing, example readme, and setup file
+- ``.gitignore`` and other requirements files.
+
+To use this template, follow the `Create a repository from a
+template`_ directions.
+
+
 .. toctree::
    :hidden:
    :maxdepth: 3
@@ -61,3 +81,4 @@ model and API.
 .. _grpc_chunk_stream_demo: https://github.com/pyansys/grpc_chunk_stream_demo
 .. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
 .. _Namespace Packages: https://packaging.python.org/guides/packaging-namespace-packages/
+.. _Create a repository from a template: https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template

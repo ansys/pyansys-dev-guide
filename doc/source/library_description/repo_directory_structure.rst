@@ -8,7 +8,7 @@ this directory structure:
 
 ::
 
-   .ci/azure-pipelines.yml
+   .ci/azure-pipelines.yml (optional)
    .github/workflows/ci.yml
    ansys/
        <product/service>/
