@@ -25,7 +25,7 @@ ecosystem. Examples include:
 - Data structures and tables with `pandas <https://pandas.pydata.org/>`_
 - 2D visualization using `Matplotlib <https://matplotlib.org/>`_
 - 3D visualization using `PyVista <https://docs.pyvista.org/>`_
-- Advanced scientific computing using `scipy <https://www.scipy.org/>`_
+- Advanced scientific computing using `SciPy <https://www.scipy.org/>`_
 - Machine learning using `TensorFlow <https://www.tensorflow.org/>`_
 
 
