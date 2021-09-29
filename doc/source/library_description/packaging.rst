@@ -107,6 +107,7 @@ Then, create a release branch.
   git checkout -b release/MAJOR.MINOR
 
 Bump the version number in the ``_version`` file to ``MAJOR.MINOR.PATCH``.
+
 Commit and push your changes and then create the tag.
 
 .. code::
