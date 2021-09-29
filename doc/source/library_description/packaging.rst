@@ -33,7 +33,7 @@ Required Files
 Setup File
 ----------
 The `setup.py`_ file is the build script for ``setuptools``. It exposes dynamic metadata and contains
-package information, such as a description and the author and version.
+package information, such as a description, author, and version.
 In this file, the ``setuptools`` module is used to configure the metadata (as opposed to ``distutils``).
 
 .. code:: python
