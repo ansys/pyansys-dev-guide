@@ -613,14 +613,13 @@ for this method.
    def test_fahr_to_kelvin():
        assert np.isclose(12.7778, fahr_to_kelvin(55))
 
-Now, not only do you have one line of code to verify, but using a
-testing framework such as ``pytest``, you can test that the method is
+Now, not only do you have one line of code to verify, but you can also
+use a testing framework such as ``pytest`` to test that the method is
 correct.
 
 
 Nested Blocks
 ~~~~~~~~~~~~~
-
 Avoid deeply nested block structures (such as conditional blocks and loops)
 within one single code block. 
 
