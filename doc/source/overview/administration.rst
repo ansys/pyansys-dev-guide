@@ -48,7 +48,7 @@ Each repository is expected to follow this minimum set of standards:
 - Unit testing with at least 80% test coverage. See :ref:`ci_cd`.
 - Infrastructure in place to deploy the library as a package on `PyPi
   <https://pypi.org/>`_.  See :ref:`packaging`.
-- Proper license file and author. See :ref:`setup_file` and `ref:`license_file`.
+- Proper license file and author. See :ref:`setup_file` and :ref:`license_file`.
 
 
 Release Procedures and Versioning
