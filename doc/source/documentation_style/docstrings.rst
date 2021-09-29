@@ -3,7 +3,7 @@
 Docstring Standards
 ###################
 When writing docstrings for PyAnsys libraries, use the `numpydoc`_
-documentation style. To use `numpydoc`_ add the following to your
+documentation style. To use `numpydoc`_, add the following to your
 ``conf.py``:
 
 .. code:: python
@@ -19,14 +19,14 @@ PyAnsys library docstrings contain at a minimum the following
 `numpydoc`_ sections:
 
 * `Short description <https://numpydoc.readthedocs.io/en/latest/format.html#short-summary>`_.
-* `Extended Summary <https://numpydoc.readthedocs.io/en/latest/format.html#extended-summary>`_ (if applicable)
+* `Extended Summary <https://numpydoc.readthedocs.io/en/latest/format.html#extended-summary>`_ if applicable
 * `Parameters <https://numpydoc.readthedocs.io/en/latest/format.html#parameters>`_ if applicable
 * `Returns <https://numpydoc.readthedocs.io/en/latest/format.html#returns>`_ if applicable
 * `Examples <https://numpydoc.readthedocs.io/en/latest/format.html#examples>`_
 
-These sections should follow the numpydoc standards.  To avoid
-inconsistencies between PyAnsys libraries, adhere to the following
-additional standards:
+These sections should follow the numpydoc standards. To avoid
+inconsistencies between PyAnsys libraries, adhere to the additional 
+standards that follow.
 
 
 Parameters
@@ -41,12 +41,15 @@ Always specify the type, and whenever necessary, provide the full class name::
       Some integer value.
 
 .. note::
-   These parameter descriptions have punctuation. 
+   Parameter descriptions have punctuation. While the brief description itself
+   need not be a sentence, any text following it should a clear, complete
+   sentence. 
 
 
 Returns
 ~~~~~~~
-Returns section contains only the return type and no the name and type::
+The Returns section contains only the return type and (not the name and type)
+and a brief description::
 
   Returns
   -------
@@ -55,7 +58,7 @@ Returns section contains only the return type and no the name and type::
 
 Example Docstrings
 ------------------
-Methods and functions should generally be documented with the
+Methods and functions should generally be documented within the
 ``Examples`` docstring section to make the usage of the method or
 function clear.  Here is a sample function:
 
@@ -75,7 +78,7 @@ This directive renders the sample function as:
 
 Validation
 ----------
-Enable validation of docstrings during the sphinx build by adding the
+Enable validation of docstrings during the Sphinx build by adding the
 following line to ``conf.py``::
 
   numpydoc_validation_checks = {"GL08"}
@@ -84,17 +87,17 @@ This will issue the following warning for any objects without a docstring::
 
   "The object does not have a docstring"
 
-The ``"GL08"`` code is required at minimum for PyAnsys projects.
-Other codes may be enforced at a later date; for a full listing see
+The ``"GL08"`` code is required at minimum for PyAnsys libraries.
+Other codes may be enforced at a later date. For a full listing, see
 `numpydoc Validation Check
 <https://numpydoc.readthedocs.io/en/latest/validation.html#validation>`_.
 
 
 Additional Information
 ----------------------
-Additional examples and notes can be found at `numpydoc`_.  Reference
-their documentation as the primary source of information regarding
-docstring styles aside from the directives noted here.
+Additional examples and notes can be found at `numpydoc`_. Reference
+this documentation as the primary source of information regarding
+docstring styles for directives not covered here.
 
 .. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
 .. _googledoc: https://google.github.io/styleguide/
