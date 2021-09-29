@@ -3,8 +3,8 @@
 Coding Style
 ************
 
-The PyAnsys libraries are expected to follow `PEP8`_ will
-attempt to be consistent in style and formatting with the "big three"
+PyAnsys libraries are expected to follow `PEP8`_ and
+be consistent in style and formatting with the "big three"
 data science libraries: `NumPy`_, `SciPy`_, and `pandas`_.
 
 .. _NumPy: https://numpy.org/
