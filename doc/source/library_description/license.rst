@@ -2,8 +2,8 @@
 
 License File
 ############
-PyAnsys projects are expected to have this exact license included in
-the root directory of their project.
+PyAnsys libraries are expected to have this license file included in
+the root directory of their repositories.
 
 ------------
 
