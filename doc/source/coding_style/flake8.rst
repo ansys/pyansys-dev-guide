@@ -2,37 +2,36 @@
 
 Style Guide Enforcement
 =======================
-The following sections will describe the use of flake8 for `PEP8`_ style
-enforcement and the minimum standards expected. The PyAnsys libraries
-will be consistent with these basic guidelines.
+The following sections describe the use of flake8 for `PEP8`_ style
+enforcement and the minimum standards expected. PyAnsys libraries
+are to be consistent with these guidelines.
 
 .. _PEP8: https://www.python.org/dev/peps/pep-0008/
 
 Flake8
 ~~~~~~
-`Flake8`_ is a python tool for enforcing code styling. It is a wrapper
+`Flake8`_ is a Python tool for enforcing code styling. It is a wrapper
 around the following three tools: `PyFlakes`_, `pycodestyle`_, and
 `Ned Batchelder's McCabe script for complexity`_. Flake8 runs all three tools at once,
 checking the code against a variety of style rules, such as line length,
-code complexity, whitespace, etc.
+code complexity, and whitespace.
 
 .. _Flake8: https://flake8.pycqa.org/en/latest/index.html
 .. _PyFlakes: https://pypi.org/project/pyflakes/
 .. _pycodestyle: https://pypi.org/project/pycodestyle/
 .. _`Ned Batchelder's McCabe script for complexity`: https://github.com/PyCQA/mccabe
-
 .. _configuring-flake8:
 
 Configuring Flake8
 ------------------
 Flake8 supports configuring a specific set of style rules to
-enforce. This configuration can be stored in your project in a
-``setup.cfg``, ``tox.ini``, or ``.flake8`` file. The PyAnsys libraries
+enforce. This configuration can be stored in your library in a
+``setup.cfg``, ``tox.ini``, or ``.flake8`` file. PyAnsys libraries
 store the flake8 configuration in a ``.flake8`` file at the root of the
 repository.
 
-Here is an example of a ``.flake8`` configuration file from one of the
-PyAnsys libraries:
+Here is an example of a ``.flake8`` configuration file from a PyAnsys
+library:
 
 .. code::
 
@@ -69,8 +68,9 @@ The above configuration defines the following options:
 
 - ``max-line-length``
     This denotes the maximum line length for any one line of code.
-    The `PEP8`_ standard advises a line length of 79. Since this is a bit
-    limiting in some cases, a maximum line length of 100 is suggested.
+    The `PEP8`_ standard advises a maximum line length of 79. Because
+    this is a bit limiting in some cases, the maximum line length
+    recommended for a PyAnsys libary is 100.
 
 - ``statistics``
     This enables the number of occurrences of each error or warning code
@@ -91,45 +91,44 @@ Then, flake8 can be run from inside your project directory by executing:
 
     flake8 .
 
-This will use the configuration defined in the ``.flake8`` file to
+This uses the configuration defined in the ``.flake8`` file to
 run the style checks on the appropriate files within the project and
 report any errors.
 
 In PyAnsys libraries, flake8 is run as part of the CI/CD for code style.
 This action is run as a required check on pull requests, preventing
-code in violation of these style rules from being merged into the code
+code in violation of style rules from being merged into the code
 base.
 
 
 Utilizing Black
 ~~~~~~~~~~~~~~~
 Manually checking for code styling can be a tedious task. Luckily,
-there are several python tools for autoformatting code to meet PEP8
-standards to help with this. The PyAnsys project suggests the use of the
+several Python tools for autoformatting code to meet PEP8 standards
+are available to help with this. The PyAnsys project suggests the use of the
 the formatting tool `black`_.
 
-
-Upon completing a code change, and before committing, `black`_ can be
+On completing a code change, and before committing, `black`_ can be
 run to reformat the code, following the PEP8 guidelines enforced through
 flake8. This will limit any manual code changes needed to address style
 rules.
 
 .. _black: https://black.readthedocs.io/en/stable/
 
-Optionally, it is possible to automate the use of ``black`` as well.
-This can be done with the tool `pre-commit`_. Setting up a `pre-commit hook
+Optionally, it is possible to automate the use of ``black``. This can be
+done with the tool `pre-commit`_. Setting up a `pre-commit hook
 to run black <https://black.readthedocs.io/en/stable/integrations/source_version_control.html>`_
-will automatically format the code before committing. This is the
-simplest way to incorporate code style checks into the development
-workflow with the least amount of manual effort to maintain PEP8 guidelines.
+will automatically format the code before committing. This simple way of
+incorporating code style checks into the development workflow to maintain
+PEP8 guidelines requires mininmal manual effort.
 
 .. _pre-commit: https://pre-commit.com/
 
 
 Minimum Standards
 ~~~~~~~~~~~~~~~~~
-The following section describes the minimum set of code style standards
-expected in an PyAnsys library.
+Descriptions follow of the code style standards expected in the minimum set 
+for a PyAnsys library.
 
 * `W191`_ - **Indentation contains tabs.**
 
@@ -180,7 +179,7 @@ expected in an PyAnsys library.
 
 * `E231`_ - **Missing whitespace after certain special characters.**
 
-    There should be one space after the characters ``,``, ``;``, or ``:``.
+    There should be one space after the characters ``,``, ``;``, and ``:``.
 
 * `E301`_ - **Expected a blank line, found none.**
 
@@ -196,7 +195,7 @@ expected in an PyAnsys library.
     All code lines should not exceed 100 characters. The
     `PEP8 line length <https://www.python.org/dev/peps/pep-0008/#maximum-line-length>`_
     guidelines suggest a maximum line length of 79. Following this limit
-    is not as necessary due to modern screen sizes. The suggested maximum
+    is not as necessary today due to modern screen sizes. The suggested maximum
     length of 100 can be easier to accommodate and can still support
     viewing files side-by-side in code editors.
 
@@ -208,15 +207,15 @@ expected in an PyAnsys library.
 
     Importing everything from a module should never be done. Importing
     modules this way leads to uncertainty and pollutes the code. You
-    cannot know exactly what is being imported and it can often lead to
-    name clashes. It is best to import the exact modules to be used.
+    cannot know exactly what is being imported and name clashes are common.
+    Import only the modules to be used.
 
 * **Limit complexity of code to 10.**
 
   This is enforced by the ``max-complexity`` option described in
   :ref:`configuring-flake8`. Limiting code complexity leads to code that
-  is easier to understand and less risky to modify. Writing low
-  complexity code when possible is preferred.
+  is easier to understand and less risky to modify. Write low-
+  complexity code when possible.
 
 
 Your ``.flake8`` file should be:
