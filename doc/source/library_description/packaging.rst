@@ -93,21 +93,21 @@ To deploy a new package on PyPI, you must tag a release under a release branch. 
 follows the `trunk-based development`_ source-control branching model, where the main development
 branch is always in a releasable state.
 
-To tag the release, you must update your main local branch.
+To tag the release, update your main local branch.
 
 .. code::
 
   git checkout main
   git pull
 
-Then, create the new release branch.
+Then, create a release branch.
 
 .. code::
 
   git checkout -b release/MAJOR.MINOR
 
 Bump the version number in the ``_version`` file to ``MAJOR.MINOR.PATCH``.
-Commit and push your changes and then create the tag:
+Commit and push your changes and then create the tag.
 
 .. code::
 
