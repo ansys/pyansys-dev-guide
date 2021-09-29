@@ -1,10 +1,10 @@
 .. _best-practices:
 
-Best-Practices
+Best Practices
 ==============
 The following sections summarize the key points from `PEP8`_ and how
-they apply to PyAnsys libaries. The PyAnsys libraries will
-attempt to be consistent in style and formatting with the "big three"
+they apply to PyAnsys libaries. The goal is for PyAnsys libraries to
+be consistent in style and formatting with the "big three"
 data science libraries: `NumPy`_, `SciPy`_, and `pandas`_.
 
 .. _NumPy: https://numpy.org/
