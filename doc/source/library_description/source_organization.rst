@@ -26,15 +26,13 @@ This allows the `PyMAPDL`_ library to be imported with:
    >>> from ansys.mapdl import core as pymapdl
 
 When using this convention, other namespace packages can use the
-``ansys-mapdl`` namespace. 
-
-For example:
+``ansys-mapdl`` namespace.
 
 .. code:: python
 
    >>> from ansys.mapdl import reader as pymapdl_reader
 
-.. note::
+**Note**
 
    Do not include ``__init__.py`` in first-level and second-level 
    directories. If ``__init__.py`` is included in these levels, 
