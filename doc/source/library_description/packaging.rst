@@ -1,6 +1,6 @@
 Packaging
 #########
-A Python package organizes and structures a Python library containing several
+A Python package organizes and structures a Python library, which contains several
 modules and assets such as examples or binary extensions. A Python package
 offers an easy, reliable, and comprehensive way to distribute and install
 a Python library on a variety of platforms and environments.
