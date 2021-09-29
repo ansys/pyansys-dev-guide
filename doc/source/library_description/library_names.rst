@@ -1,6 +1,6 @@
 Project, Repository, and Library Names
 ######################################
-Large organizations who provide many Python packages 
+Large organizations providing Python packages 
 follow a consistent naming pattern. Ansys follows 
 these naming conventions: 
 
