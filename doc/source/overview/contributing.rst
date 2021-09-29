@@ -21,7 +21,7 @@ creating an issue as a feature request. We will then use this thread
 to discuss how best to implement the contribution.
 
 Once you are ready to start coding, see the
-:ref:`development_practices` section for more information on how to
+:ref:`best_practices` section for more information on how to
 develop your code and adhere to PyAnsys repository standards.
 
 
