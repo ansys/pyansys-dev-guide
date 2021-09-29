@@ -5,11 +5,11 @@ of an application from the user and emphasizing only usage.
 
 One of the main objectives of PyAnsys libraries is to wrap (encapsulate) 
 data and methods within units of execution while hiding data or parameters 
-in protected variables. The topics in this section demonstrate how 
-applications and complex services expose functionalities that matter to 
-users and hide all else. For example, because background details, 
-implementation, and hidden states do not need to be exposed to users, 
-they are hidden.
+in protected variables.
+
+The topics in this section demonstrate how applications and complex services
+expose functionalities that matter to users and hide all else. For example,
+background details, implementation, and hidden states can all be hidden.
 
 .. toctree::
    :hidden:
