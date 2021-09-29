@@ -37,7 +37,7 @@ The PyAnsys project is hosted on GitHub at `PyAnsys
 Python libraries that interface with Ansys products or services. 
 To try out a library, visit one of these links:
 
-* `PyAnsys Packages Overview <https://docs.pyansys.com/>`_
+* `PyAnsys Project <https://docs.pyansys.com/>`_
 * `PyMAPDL`_
 * `PyAEDT`_
 * `DPF-Core <https://github.com/pyansys/DPF-Core>`_
