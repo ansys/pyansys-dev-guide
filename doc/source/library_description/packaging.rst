@@ -121,6 +121,7 @@ will be automatically triggered.
 
 Install a Package
 -----------------
+Install a package with:
 
 .. code::
 
