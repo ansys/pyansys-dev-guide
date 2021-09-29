@@ -12,17 +12,16 @@ Licensing and Approval
 To allow for commercial use, a PyAnsys library must use the MIT
 license. Because this license falls in the BSD-style license class,
 PyAnsys libraries can be used as a shared library with no
-restrictions.  This follows the pattern of including a PyAnsys as a
-dependency in ``install_requires`` in the ``setup.py``.
+restrictions. This follows the pattern of including PyAnsys as a
+dependency in ``install_requires`` in the ``setup.py`` file.
 
 Should you choose to copy and include any PyAnsys project source uses,
-all you have to do to to make your library suitable for commercial
-use, is to a copy of the original PyAnsys MIT license in the reused
-code.
+to make your library suitable for commercial use, you need only a copy
+of the original PyAnsys MIT license in the reused code.
 
 To view this license, see the `LICENSE` file in the root directory 
 of this repository. This file must be included in the root 
-directory of the repository for every PyAnsys library.
+directory of the repository of every PyAnsys library.
 
 
 Project Approval
@@ -35,41 +34,40 @@ Stephane Marguerin or Alexander Kaszynski for any requests.
 Repository Management and Standards
 ===================================
 Each PyAnsys repository should at the minimum be administrated by a
-single individual with "Admin" permissions over the repository.  This
+single individual with "Admin" permissions over the repository. This
 enables them to override any blocking pull requests or to change the
-settings for that repository (e.g. GitHub pages, repository
-description, managing branch protections).
+settings for that repository, such as GitHub pages, repository
+description, or branch protection management.
 
-Each repository is expected to follow a minimum set of standards:
+Each repository is expected to follow this minimum set of standards:
 
-- Minimum code standards following PEP8 and described in <REF Code
-  Guidelines Section>
-- CI/CD using GitHub actions or Azure Devops enforcing coding standards.
-- Publicly hosted documentation detailing API with examples.  See
+- Minimum code standards following PEP8. See :ref:`best_practices`.
+- CI/CD using GitHub actions or Azure DevOps to enforce coding standards. See :ref:`ci_cd`.
+- Publicly hosted documentation detailing API with examples. See
   :ref:`api_documentation`.
-- Unit testing with at least 80% test coverage.
+- Unit testing with at least 80% test coverage. See :ref:`ci_cd`.
 - Infrastructure in place to deploy the library as a package on `PyPi
-  <https://pypi.org/>`_
-- Proper license file and author (see :ref:`setup_file` and `ref:`license_file`)
+  <https://pypi.org/>`_.  See :ref:`packaging`.
+- Proper license file and author. See :ref:`setup_file` and `ref:`license_file`.
 
 
 Release Procedures and Versioning
 =================================
 
-PyAnsys library project releases are managed through both automated
+PyAnsys library releases are managed through both automated
 and manual review processes.
 
 PyAnsys follows the `Semantic Versioning`_ process as closely as
 possible:
 
-* **Major** version when you make incompatible API changes,
-* **Minor** version when you add functionality in a backwards compatible manner, and
+* **Major** version when you make incompatible API changes.
+* **Minor** version when you add functionality in a backwards compatible manner.
 * **Patch** version when you make backwards compatible bug fixes.
 
-With one exception: MAJOR versions are not expected to be regularly
-released with any incompatible API changes.  They are only expected to
-released with major globally breaking API changes.  This matches the
-versioning for the "big three", `NumPy`_, `SciPy`_, and `pandas`_.
+One exception exists. MAJOR versions are not expected to be regularly
+released with any incompatible API changes. They are only expected to
+be released with major, globally-breaking API changes. This matches the
+versioning for the "big three": `NumPy`_, `SciPy`_, and `pandas`_.
 
 .. _Semantic Versioning: https://semver.org/
 .. _NumPy: https://numpy.org/
@@ -82,24 +80,24 @@ Release Definition
 
 **Major**
 
-Major releases denote global major, breaking API changes.  Adding or
-changing a feature is not considered a globally backwards incompatible
-API change.  Rather, a major release and version bump should be made
-these are globally breaking changes are made that will require a
+Major releases denote global, major breaking API changes. Adding or
+changing a feature is not considered a globally-backwards incompatible
+API change. Rather, a major release and version bump should be made
+if globally-breaking changes are made that will require a
 signifiant refactor of any dependent modules.
 
-Another note is ``0.MINOR.PATCH`` packges are expected to have fluid
-APIs, and should be solidified at the ``1.MINOR.PATCH`` release.  At
+Note that ``0.MINOR.PATCH`` packges are expected to have fluid
+APIs and should be solidified at the ``1.MINOR.PATCH`` release. At
 that point, APIs are expected to be much more stable.
 
 **Minor**
 
 Minor releases are feature releases that improve the functionality and
-stability of PyAnsys libraries.
+stability of a PyAnsys library.
 
 **Patch**
 
-Patch releases are for critical and important bugfixes that can not or
+Patch releases are for critical and important bug fixes that cannot or
 should not wait until a minor release.
 
 
@@ -113,8 +111,8 @@ See :ref:`release_procedures` for the details on release management.
 
 Product Version Matching
 ------------------------
-PyAnsys libraries should not match product versions.  For example, the
-PyMAPDL library ``ansys-mapdl-core`` may have the version ``0.59.0``
-whereas the product will be versioned 21.2 (i.e. 2021R2).  The reason
+PyAnsys libraries should not match product versions. For example, the
+PyMAPDL library ``ansys-mapdl-core`` might have the version ``0.59.0``
+whereas the product version is 21.2 (2021 R2). The reason
 behind this is PyAnsys libraries are expected to be developed outside
 the product release cycle in a rapid CI/CD manner.
