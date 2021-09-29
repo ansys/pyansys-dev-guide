@@ -3,36 +3,38 @@ PyAnsys Developer's Guide
 
 This guide serves as the central document for:
 
-- Ansys developers who want to create and "own" libraries.
+- Ansys developers who want to create and "own" libraries
 - Anyone in the Python community who wants to contribute to a 
-  library.
+  library
 - Anyone who is interested in learning more about the PyAnsys 
-  project and libraries.
+  project and libraries
 
 
-Web-based documentation will be posted upon approval.
+Web-based documentation is posted upon approval.
 
-PDF version of this guide can be found in the release notes in `Releases
+A PDF version of this guide can be found in the release notes in `Releases
 <https://github.com/pyansys/about/releases>`_.
 
 
 Generate Documentation
 ----------------------
-Generate this documentation locally by first installing the
+To generate this documentation locally, first install the
 requirements with:
 
 .. code::
 
    pip install -r requirements_docs.txt
 
-Then build (on Windows) with:
+Then, depending on your operating system, generate the documentation.
+
+On Windows, generate with:
 
 .. code::
 
    cd doc
    make.bat html
 
-Or on Linux with:
+On Linux, generate with:
 
 .. code::
 
@@ -41,6 +43,6 @@ Or on Linux with:
 
 Contributing
 ------------
-Feel free to contribute to this guide by creating a branch and
-contributing directly, or forking and submitting a PR.  All PRs will
-be reviewed before merge.
+To contribute to this guide, either create a branch and
+contribute directly or fork and submit a pull request.  All 
+pull requests are reviewed before they can be merged.
