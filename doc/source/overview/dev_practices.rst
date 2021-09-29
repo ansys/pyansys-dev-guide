@@ -5,7 +5,7 @@ Development Practices
 
 This section explains how development is conducted in PyAnsys
 repositories. Please follow the practices outlined here when
-contributing directly to PyAnsys.
+contributing directly to PyAnsys libraries.
 
 
 General Development Procedures
