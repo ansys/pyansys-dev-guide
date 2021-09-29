@@ -11,7 +11,7 @@ A PyAnsys library uses `namespace packaging`_.
 Namespace packages allow a user to easily split subpackages from a package into
 a single, independent distribution.
 
-Three different approaches are currently available to create a namespace package:
+Three different approaches are currently available for creating a namespace package:
 
 * `native namespace packages`_
 * pkgutil-style namespace packages
