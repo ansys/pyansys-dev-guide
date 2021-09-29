@@ -30,7 +30,7 @@ API (Application Programming Interface).  While this API can be
 directly accessed, this often results in unreadable and unmaintainable
 code that forces users to rewrite setup boilerplate and other methods
 from scratch.  Therefore, the best practice is to create a Python layer
-that maps the raw API into a carefully designed, object oriented data
+that maps the raw API into a carefully designed, object-oriented data
 model and API.
 
 
