@@ -47,7 +47,7 @@ To try out a library, visit one of these links:
 If you want to create, develop, or contribute to a PyAnsys library, 
 visit these links:
 
-* `PyAnsys Developer's Guide <https://github.com/pyansys/about>`_
+* `PyAnsys Project Developer's Guide <https://github.com/pyansys/about>`_
 * `PyAnsys Documentation Theme <https://github.com/pyansys/pyansys-sphinx-theme>`_
 * `gRPC Hello-world Example <https://github.com/pyansys/pyansys-helloworld>`_
 * `Material Example Data <https://github.com/pyansys/example-data>`_
