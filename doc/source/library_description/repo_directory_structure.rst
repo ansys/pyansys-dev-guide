@@ -3,7 +3,7 @@ Repository Directory Structure
 The source for a PyAnsys library is hosted in an individual 
 repository under the `PyAnsys Organization Account
 <https://github.com/pyansys>`__.  The repository should contain 
-the source, documentation, and unit testing of the project in
+the source, documentation, and unit testing of the library in
 this directory structure:
 
 ::
