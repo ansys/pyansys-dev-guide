@@ -2,10 +2,10 @@ Data Transfer and Abstraction
 =============================
 Abstracted APIs should attempt to hide the implementation details of
 the remote or local API in a well organized data model.  This data
-model should avoid returning raw JSON, gRPC messages, SWIG objects, or
-.NET objects.  Rather, it preferably returns standard Python objects
-like lists, strings, dictionaries when useful, and NumPy arrays or
-Pandas dataframes for more complex data.
+model should avoid returning raw JSON files, gRPC messages, SWIG objects,
+or .NET objects. It should preferably return standard Python objects
+like lists, strings, dictionaries when useful, and `NumPy <https://numpy.org/>`_
+arrays or `pandas <https://pandas.pydata.org/>`_ dataframes for more complex data.
 
 For example, consider a simple mesh in MAPDL:
 
