@@ -71,7 +71,7 @@ Discussions
 General questions regarding development practices should be raised as
 discussions in the repository for the corresponding PyAnsys library
 rather than as issues. For example, general questions about PyMAPDL should be raised
-in the PyMAPDL `Discussions <https://github.com/pyansys/pymapdl/discussions>`_. 
+in the `PyMAPDL Discussions <https://github.com/pyansys/pymapdl/discussions>`_. 
 Issues can be spun out of discussions depending on what is decided, but general
 questions should start as discussions where possible.
 
