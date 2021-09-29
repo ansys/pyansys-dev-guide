@@ -50,8 +50,7 @@ The template repository contains a generalized library skeleton that includes:
 - Licensing, example readme, and setup files
 - ``.gitignore`` and other requirements files
 
-To use this template, follow the instructions for `creating a repository from a
-template`_.
+To use this template, `create a repository from a template`_.
 
 
 .. toctree::
