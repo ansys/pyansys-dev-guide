@@ -36,20 +36,21 @@ model and API.
 
 Template
 --------
-Within the `PyAnsys Organization <https://github.com/pyansys>`_ there
+Within the `PyAnsys Organization <https://github.com/pyansys>`_, there
 is a `template repository <https://github.com/pyansys/template>`_
-where you can `Create a repository from a template`_ and create a new
-PyAnsys project that follows the guidelines specified in this guide.
+where you can `create a repository from a template`_ and create a 
+PyAnsys project that follows the guidelines specified in this developer's
+guide.
 
-The template repository contains a generalized library skeleton which includes:
+The template repository contains a generalized library skeleton that includes:
 
-- Library skeleton with sample classes and methods.
-- Sample documentation build including customized templates.
-- Sample GitHub Actions specific to PyAnsys projects.
-- Licencing, example readme, and setup file
-- ``.gitignore`` and other requirements files.
+- Library skeleton with sample classes and methods
+- Sample documentation build including customized templates
+- Sample GitHub actions specific to PyAnsys libraries
+- Licensing, example readme, and setup files
+- ``.gitignore`` and other requirements files
 
-To use this template, follow the `Create a repository from a
+To use this template, follow the `create a repository from a
 template`_ directions.
 
 
