@@ -7,7 +7,7 @@ a Python library on a variety of platforms and environments.
 
 Namespace Packaging
 -------------------
-A PyAnsys library uses the `namespace packaging`_.
+A PyAnsys library uses `namespace packaging`_.
 Namespace packages allow a user to easily split subpackages from a package into
 a single, independent distribution.
 
