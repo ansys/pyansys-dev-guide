@@ -1,7 +1,7 @@
 CI/CD Methods
 #############
 CI/CD (continuous integration/continuous delivery) is 
-achieved using either public `Azure Devops
+achieved using either public `Azure DevOps
 <https://azure.microsoft.com/en-us/services/devops/>`_ or public
 `GitHub Workflow Actions <https://github.com/features/actions>`_ 
 for unit testing, release builds, and documentation builds. 
