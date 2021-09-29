@@ -26,7 +26,7 @@ Required Files
 * LICENSE file: Specifies copyrights and required authorization.
 
 * setup.py file: Provides package information.
-  The presence of this file indicate that the package was likely created using disutils,
+  The presence of this file indicate that the package was likely created using ``disutils``,
   which is the Python standard for building and distributing a Python package.
 
 
