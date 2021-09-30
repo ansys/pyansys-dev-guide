@@ -72,7 +72,7 @@ This example includes ``launch_mapdl``, which brokers a connection via the
    ansys.mapdl Version: 0.59.dev0
 
 This straightforward approach connects to a local or remote instance 
-of MAPDL via gRPC by instantiating an instance of the ``Mapdl``. class. 
+of MAPDL via gRPC by instantiating an instance of the ``Mapdl`` class. 
 At this point, because the assumption is that MAPDL is always remote, it's 
 possible to issue commands to MAPDL, including those requiring 
 file transfer like ``Mapdl.input``.

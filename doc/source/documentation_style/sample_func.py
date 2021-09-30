@@ -7,9 +7,9 @@ def func(arg1, arg2):
 
     .. warning::
        Use the ``.. warning::`` directive within the docstring for any
-       warnings that need to be explicitly state. For example, you 
-       want to include a warning if the method is to be deprecated in 
-       the next release.
+       warnings that need to be explicitly stated. For example, you 
+       want to include a warning for a method that is to be deprecated 
+       in the next release.
 
     Parameters
     ----------

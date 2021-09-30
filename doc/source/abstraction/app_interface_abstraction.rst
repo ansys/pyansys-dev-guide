@@ -13,7 +13,7 @@ recorded script from AEDT versus using the PyAEDT libary to create an
 open region in the active editor:
 
 +------------------------------------------------------+----------------------------------------------+
-| Using AEDT with MS COM Methods                       | Using AEDT with the `PyAEDT`_ Library        |
+| Using a Recorded Script from AEDT (MS COM Methods)   | Using the `PyAEDT`_ Library                  |
 +------------------------------------------------------+----------------------------------------------+
 | .. code:: python                                     | .. code:: python                             |
 |                                                      |                                              |
@@ -41,15 +41,15 @@ open region in the active editor:
 
 Besides length and readability, the biggest difference between the two
 approaches is how the methods and attributes from the ``Hfss`` class
-are encapsulated.  For example, AEDT no longer needs to be
+are encapsulated. For example, AEDT no longer needs to be
 explicitly instantiated and is hidden as a protected attribute
 ``_desktop``. The connection to the application takes place
 automatically when ``Hfss`` is instantiated, and the active AEDT 
 project, editor, and module are automatically used to create the 
 open region.
 
-Furthermore, the ``create_open_region`` method within ``Hfss`` 
-contains a full Python documentation string with keyword arguments,
+Furthermore, the ``create_open_region`` method within the ``Hfss`` 
+class contains a full Python documentation string with keyword arguments,
 clear ``numpydoc`` parameters and returns, and a basic example.
 These are unavailable when directly using COM methods, preventing
 the use of contextual help from within a Python IDE.
@@ -103,7 +103,7 @@ within this method.
 Here, the COM ``CreateOpenRegion`` method is abstracted, encapsulating
 the model setup object.  There's no reason why a user needs direct
 access to ``_omodelsetup``, which is why it's protected in the
-``Hfss`` class.  Additionally, calling the method is simplified by
+``Hfss`` class. Additionally, calling the method is simplified by
 providing (and documenting) the defaults using keyword arguments and
 placing them into the ``vars`` list, all while following the `Style
 Guide for Python Code (PEP8)`_.

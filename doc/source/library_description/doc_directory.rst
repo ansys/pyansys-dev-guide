@@ -13,4 +13,4 @@ package, including:
   use case scenarios, and descriptive examples explaining methodologies.
 - Examples consisting of `Jupyter Notebooks <https://jupyter.org/>`_.
 - Contributing section, which can be linked to the general "Contributing" 
-  section in this documentation for the "About" repository.
+  section in this developer's guide.
