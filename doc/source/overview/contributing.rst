@@ -7,9 +7,9 @@ contributing to a PyAnsys library.
 
 We welcome all code contributions and hope that this developer's guide
 facilitates an understanding of the PyAnsys code repository. It is important to
-note that while Ansys maintains all PyAnsys libaries and thoroughly reviews all
+note that while Ansys maintains all PyAnsys libraries and thoroughly reviews all
 submissions before merging, our goal is to foster a community that can support
-user questions and develop new features to make PyAnsys libaries powerful tools
+user questions and develop new features to make PyAnsys libraries powerful tools
 for all users. As such, we welcome and encourage the submittal of questions and
 code to this repository and all PyAnsys library repositories.
 
@@ -52,7 +52,7 @@ screenshot, and sample files to help us address the issue.
 
 Issues
 ------
-For general or technical questions about a PyAnsys libary, its applications, or
+For general or technical questions about a PyAnsys library, its applications, or
 about software usage, you can create issues for the applicable repository at:
 
 - `PyAEDT Issues <https://github.com/pyansys/pyaedt/issues>`_
@@ -95,7 +95,7 @@ For example:
     pip install -e .
 
 Consider creating a fork of the repository if you want to eventually
-push a contribution to the offical PyAnsys repository.
+push a contribution to the official PyAnsys repository.
 
 .. https://docs.github.com/en/get-started/quickstart/fork-a-repo
 

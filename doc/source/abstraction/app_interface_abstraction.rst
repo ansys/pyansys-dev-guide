@@ -9,7 +9,7 @@ that is structured around data represented as classes and methods.
 PyAnsys seeks to make the API a "first class citizen" in regard to
 interacting with an Ansys product by presenting the product as a
 stateful data model. Consider the following comparison between using a
-recorded script from AEDT versus using the PyAEDT libary to create an
+recorded script from AEDT versus using the PyAEDT library to create an
 open region in the active editor:
 
 +------------------------------------------------------+----------------------------------------------+

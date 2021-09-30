@@ -13,12 +13,12 @@ data science libraries: `NumPy`_, `SciPy`_, and `pandas`_.
 .. _PEP8: https://www.python.org/dev/peps/pep-0008/
 
 
-TODO:
+.. todo::
 
-* Describe flake8 standards (in subpage), include example ``.flake8``
-  with minimum standards.
-* Include anythin we've written from other documentation either in
-  this page or other pages.
+   * Describe flake8 standards (in subpage), include example ``.flake8``
+     with minimum standards.
+   * Include anything we've written from other documentation either in
+     this page or other pages.
 
 .. toctree::
    :hidden:

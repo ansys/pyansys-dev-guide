@@ -47,7 +47,7 @@ The template repository contains a generalized library skeleton that includes:
 - Library skeleton with sample classes and methods
 - Sample documentation build including customized templates
 - Sample GitHub actions specific to PyAnsys libraries
-- Licensing, example readme, and setup files
+- Licensing, example README, and setup files
 - ``.gitignore`` and other requirements files
 
 To use this template, `create a repository from a template`_.

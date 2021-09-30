@@ -9,7 +9,7 @@ these naming conventions:
   is the project name for AEDT.
 - The repository name as hosted on GitHub should be all 
   lowercase to follow GitHub community standards. For 
-  exmaple, `pymapdl`_ and `pyaedt`_.  
+  example, `pymapdl`_ and `pyaedt`_.
 - The Python library name is to be in the format 
   ``ansys-<product/service>-<feature>``. For example, 
   `ansys-mapdl-core <https://pypi.org/project/ansys-mapdl-core/>`_ 

@@ -86,9 +86,9 @@ Major releases denote global, major breaking API changes. Adding or
 changing a feature is not considered a globally-backwards incompatible
 API change. Rather, a major release and version bump should be made
 if globally-breaking changes are made that will require a
-signifiant refactor of any dependent modules.
+significant refactor of any dependent modules.
 
-Note that ``0.MINOR.PATCH`` packges are expected to have fluid
+Note that ``0.MINOR.PATCH`` packages are expected to have fluid
 APIs and should be solidified at the ``1.MINOR.PATCH`` release. At
 that point, APIs are expected to be much more stable.
 
