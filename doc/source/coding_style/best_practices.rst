@@ -1,10 +1,10 @@
-.. _best-practices:
+.. _best_practices:
 
-Best-Practices
+Best Practices
 ==============
 The following sections summarize the key points from `PEP8`_ and how
-they apply to PyAnsys libaries. The PyAnsys libraries will
-attempt to be consistent in style and formatting with the "big three"
+they apply to PyAnsys libaries. The goal is for PyAnsys libraries to
+be consistent in style and formatting with the "big three"
 data science libraries: `NumPy`_, `SciPy`_, and `pandas`_.
 
 .. _NumPy: https://numpy.org/
@@ -22,7 +22,7 @@ might only be discovered during runtime.
 
 .. _ImportError: https://docs.python.org/3/library/exceptions.html#ImportError
 
-Avoid this:
+Avoid:
 
 .. code:: python
 
@@ -30,7 +30,7 @@ Avoid this:
        import math
        return math.log(8, x)
 
-Instead:
+Use:
 
 .. code:: python
 
@@ -98,8 +98,8 @@ Use:
        return math.log(8, x)
 
 
-You should generally avoid using wild cards in imports because doing so
-can cause confusion on which names are present in the namespaces.
+You should avoid using wild cards in imports because doing so
+can make it difficult to detect undefined names.  For more details see `Python Anti-Patterns: using wildcard imports <(https://docs.quantifiedcode.com/python-anti-patterns/maintainability/from_module_import_all_used.html>`_.
 
 Avoid:
 
@@ -107,7 +107,7 @@ Avoid:
 
     from my_package.mymodule import *
 
-Instead:
+Use:
 
 .. code:: python
 
@@ -120,11 +120,11 @@ Proper and consistent indentation is important to producing
 easy-to-read and maintainable code. In Python, use four spaces per
 indentation level and avoid tabs. 
 
-Indentation should be used to:
+Indentation should be used to emphasize:
 
- - Emphasize the body of a control statement, such as a loop or a select statement.
- - Emphasize the body of a conditional statement.
- - Emphasize a new scope block.
+ - Body of a control statement, such as a loop or a select statement
+ - Body of a conditional statement
+ - New scope block
 
 .. code:: python
 
@@ -139,7 +139,8 @@ Indentation should be used to:
        return
 
 For improved readability, add blank lines or wrapping lines. Two
-blank lines should be added before and after all function and class definitions.
+blank lines should be added before and after all function and class
+definitions.
 
 Inside a class, use a single line before any method definition.
 
@@ -156,7 +157,8 @@ Inside a class, use a single line before any method definition.
        """Second method docstring"""
        return
 
-Use a blank line to separate logical sections. 
+To make it clear when a "paragraph" of code is complete and a new section
+is starting, use a blank line to separate logical sections.
 
 Instead of:
 
@@ -198,18 +200,15 @@ Use:
        print("x is less than zero.")
 
 
-This way, it's clear when a "paragraph" of code is complete and 
-a new section is starting.
-
-
 Maximum Line Length
 -------------------
 For source code lines, best practice is to keep the length at or below
-100 characters.  For docstrings and comments, best practice is to keep
+100 characters. For docstrings and comments, best practice is to keep
 the length at or below 72 characters.
 
-Lines longer than this might not display properly on some terminals and tools 
-or might be difficult to follow.  For example, this line is difficult to follow:
+Lines longer than these recommended limits might not display properly
+on some terminals and tools or might be difficult to follow. For example,
+this line is difficult to follow:
 
 .. code:: python
 
@@ -251,12 +250,12 @@ indistinguishable from the numerals one and zero.
 Package and Module Naming Conventions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Use a short, lowercase word or words for module names. Separate words
-with underscores to improve readability.  For example, ``module.py`` or
-``my_module.py``.
+with underscores to improve readability. For example, use ``module.py``
+or ``my_module.py``.
 
-For a package name, use a short, lowercase word or words.  Avoid
-underscores as these will have to be represented as dashes when
-installing from PyPi.
+For a package name, use a short, lowercase word or words. Avoid
+underscores as these must be represented as dashes when installing
+from PyPi.
 
 .. code::
 
@@ -265,8 +264,8 @@ installing from PyPi.
 
 Class Naming Conventions
 ~~~~~~~~~~~~~~~~~~~~~~~~
-Use camel case when naming classes.  Do not separate words
-with underscores.  For example:
+Use `CamelCase <https://en.wikipedia.org/wiki/Camel_case>`_ when naming classes. Do not separate words
+with underscores. 
 
 .. code:: python
 
@@ -339,9 +338,9 @@ readability.
 
 Comments
 --------
-Because PyAnsys projects generally involve multiple physics domains,
+Because a PyAnsys library generally involves multiple physics domains,
 users reading its source code do not have the same background as
-the person who writes it. This is why it is important for this library
+the developers who wrote it. This is why it is important for a library
 to have well commented and documented source code. Comments that
 contradict the code are worse than no comments. Always make a priority
 of keeping comments up to date with the code.
@@ -363,20 +362,20 @@ Here are general guidelines for writing comments:
 #. Warn of consequences.
 
 Obvious portions of the source code should not be commented. 
-For example:
+For example, the following comment is not needed:
 
 .. code:: python
 
    # increment the counter
    i += 1
 
-However, important portions of the behavior that are not self-apparent
-should include a note from the developer writing it.  Otherwise,
-future developers may remove what they see as unnecessary. For example:
+However, an important portion of the behavior that is not self-apparent
+should include a note from the developer writing it. Otherwise,
+future developers may remove what they see as unnecessary. 
 
 .. code:: python
 
-   # Be sure to reset the object's cache prior to exporting, otherwise
+   # Be sure to reset the object's cache prior to exporting. Otherwise,
    # some portions of the database in memory will not be written.
    obj.update_cache()
    obj.write(filename)
@@ -384,27 +383,27 @@ future developers may remove what they see as unnecessary. For example:
 
 Inline Comments
 ~~~~~~~~~~~~~~~
-Inline comments should be used sparingly. An inline comment is a comment 
-on the same line as a statement.
+Use inline comments sparingly. An inline comment is a comment on the
+same line as a statement.
 
 Inline comments should be separated by two spaces from the statement. 
-For example:
 
 .. code:: python
 
     x = 5  # This is an inline comment
 
-Inline comments that state the obvious are distracting. Again, avoid:
+Inline comments that state the obvious are distracting and should be
+avoided:
 
 .. code:: python
 
     x = x + 1  # Increment x
 
 
-Focus on writing self-documenting code and using short, but
+Focus on writing self-documenting code and using short but
 descriptive variable names.  
 
-Rather than:
+Avoid:
 
 .. code:: python
 
@@ -420,7 +419,7 @@ Use:
 Documentation Convention
 ------------------------
 A docstring is a string literal that occurs as the first statement in
-a module, function, class, or method definition.  A docstring becomes
+a module, function, class, or method definition. A docstring becomes
 the doc special attribute of the object.
 
 Write docstrings for all public modules, functions, classes, and
@@ -431,7 +430,7 @@ To create a docstring, surround the comments with three double quotes
 on either side.
 
 For a one-line docstring, keep both the starting and ending ``"""`` on the
-same line. For example:
+same line. 
 
 .. code:: python
 
@@ -450,9 +449,9 @@ source projects.  For a full description of the code style, reference
 
 Programming Recommendations
 ---------------------------
-This section provides some of the `PEP8
+This section provides some `PEP8
 <https://www.python.org/dev/peps/pep-0008/>`_ suggestions for removing
-ambiguity and preserving consistency.  They address some common pitfalls 
+ambiguity and preserving consistency. They address some common pitfalls 
 when writing Python code.
 
 
@@ -461,7 +460,7 @@ Booleans and Comparisons
 Don't compare Boolean values to ``True`` or ``False`` using the
 equivalence operator.
 
-Rather than:
+Avoid:
 
 .. code:: python
 
@@ -479,7 +478,7 @@ Knowing that empty sequences are evaluated to ``False``, don't compare the
 length of these objects but rather consider how they would evaluate
 by using ``bool(<object>)``.
 
-  Avoid:
+Avoid:
 
 .. code:: python
 
@@ -487,7 +486,7 @@ by using ``bool(<object>)``.
    if not len(my_list):
        raise ValueError('List is empty')
 
-Instead:
+Use:
 
 .. code:: python
 
@@ -497,7 +496,7 @@ Instead:
 
 In ``if`` statements, use ``is not`` rather than ``not ...``. 
 
-Rather than:
+Avoid:
 
 .. code:: python
 
@@ -519,7 +518,7 @@ Handling Strings
 ~~~~~~~~~~~~~~~~
 Use ``.startswith()`` and ``.endswith()`` instead of slicing.
 
-Rather than:
+Avoid:
 
 .. code:: python
 
@@ -563,8 +562,8 @@ Duplicated Code
 ~~~~~~~~~~~~~~~
 Follow the DRY principle, which states that "Every piece of knowledge
 must have a single, unambiguous, authoritative representation within a
-system."  Attempt to follow this unless it overly complicates the code.
-For instance, the following example converts Fahrenheit to Celsius
+system."  Attempt to follow this principle unless it overly complicates
+the code. For instance, the following example converts Fahrenheit to kelvin
 twice, which now requires the developer to maintain two separate lines
 that do the same thing.
 
@@ -576,7 +575,7 @@ that do the same thing.
    temp2 = 46
    new_temp_k = ((temp2 - 32) * (5 / 9)) + 273.15
 
-Instead, write a simple method that converts Fahrenheit to Celsius:
+Instead, write a simple method that converts Fahrenheit to kelvin:
 
 .. code:: python
 
@@ -595,7 +594,7 @@ Instead, write a simple method that converts Fahrenheit to Celsius:
        """
        return ((fahr - 32) * (5 / 9)) + 273.15
 
-Now, you can execute and get the exact same output with:
+Now, you can execute and get the same output with:
 
 .. code:: python
 
@@ -603,9 +602,9 @@ Now, you can execute and get the exact same output with:
    new_temp_k = fahr_to_kelvin(46)
 
 This is a trivial example, but the approach can be applied for a
-variety of both simple and complex algorithms and workflows.  Another
-advantage of this approach is that you can now implement unit testing
-for this method.  For example:
+variety of both simple and complex algorithms and workflows. Another
+advantage of this approach is that you can implement unit testing
+for this method.
 
 .. code:: python
 
@@ -614,16 +613,15 @@ for this method.  For example:
    def test_fahr_to_kelvin():
        assert np.isclose(12.7778, fahr_to_kelvin(55))
 
-Now, not only do you have one line of code to verify, but using a
-testing framework such as ``pytest``, you can verify that the method is
+Now, not only do you have one line of code to verify, but you can also
+use a testing framework such as ``pytest`` to test that the method is
 correct.
 
 
 Nested Blocks
 ~~~~~~~~~~~~~
-
 Avoid deeply nested block structures (such as conditional blocks and loops)
-within one single code block. For example:
+within one single code block. 
 
 .. code:: python
 
@@ -643,9 +641,10 @@ within one single code block. For example:
                        e = self.validate_something(a, b, d)
 
 
-Aside from the lack of comments, this complex nested validation method
+Aside from the lack of comments, this complex method
 is difficult to debug and validate with unit testing. It would
-be far better to implement more validation methods and join conditionals.
+be far better to implement more validation methods and join conditional
+blocks.
 
 For a conditional block, the maximum depth recommended is four. If you
 think you need more for the algorithm, create small functions that are
@@ -680,7 +679,7 @@ Implement a list comprehension with:
 
 
 If the loop is too complicated for creating a list comprehension,
-consider creating small functions and calling these instead.  For
+consider creating small functions and calling these instead. For
 example, extract all consonants in a sentence:
 
 .. code:: python
@@ -699,7 +698,7 @@ This is better implemented by creating a simple method to return if a
 letter is a consonant.
 
    >>> def is_consonant(letter):
-   ...     """Return True when a letter is a consonant."""
+   ...     """Return ``True`` when a letter is a consonant."""
    ...     vowels = 'aeiou'
    ...     return letter.isalpha() and letter.lower() not in vowels
    ...
@@ -708,6 +707,5 @@ letter is a consonant.
    >>> consonants
    ['T', 'h', 's', 's', 's', 'm', 'p', 'l', 's', 'n', 't', 'n', 'c']
 
-The advantage of the second approach is it is more readable and better
-documented.  Additionally, while it's a trivial example, you could
-implement a unit test for ``is_consonant``.
+The second approach is more readable and better documented. Additionally,
+you could implement a unit test for ``is_consonant``.

@@ -1,6 +1,6 @@
 README File
 ###########
-Each PyAnsys project should have a README file in the root directory. 
+Each PyAnsys library should have a README file in the root directory. 
 To create this file, use either `reStructuredText Markup Syntax`_ to 
 create a file named ``README.rst`` or `Markdown Syntax`_ to create a file 
 named ``README.md``

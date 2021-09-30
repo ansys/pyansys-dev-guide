@@ -6,26 +6,26 @@ expose Ansys technologies to the Python ecosystem. These libraries
 are more than reusable scripts. They are clear, concise, and 
 maintainable APIs and interfaces. Their useful functions, classes, 
 and plugins eliminate the need to write scripts interfacing with low
-level APIs, but rather interact with the product or service at a high
-level, object orientated manner.
+level APIs, allowing you to now interact with the product or service
+at a high level in an object-orientated manner.
 
 These libraries play a vital role in:
 
 - Application automation
 - Machine learning
-- Post-processing
+- Postprocessing
 - Data visualization
 - Workflow orchestration
 - Data manipulation and export
 
 The libraries also include plugins and interfaces to the vast python
-ecosystem.  For example:
+ecosystem. Examples include:
 
 - Arrays using `NumPy <https://numpy.org/>`_
 - Data structures and tables with `pandas <https://pandas.pydata.org/>`_
 - 2D visualization using `Matplotlib <https://matplotlib.org/>`_
-- 3D visualization using `pyvista <https://docs.pyvista.org/>`_
-- Advanced scientific computing using `scipy <https://www.scipy.org/>`_
+- 3D visualization using `PyVista <https://docs.pyvista.org/>`_
+- Advanced scientific computing using `SciPy <https://www.scipy.org/>`_
 - Machine learning using `TensorFlow <https://www.tensorflow.org/>`_
 
 
@@ -37,7 +37,7 @@ The PyAnsys project is hosted on GitHub at `PyAnsys
 Python libraries that interface with Ansys products or services. 
 To try out a library, visit one of these links:
 
-* `PyAnsys Packages Overview <https://docs.pyansys.com/>`_
+* `PyAnsys Project <https://docs.pyansys.com/>`_
 * `PyMAPDL`_
 * `PyAEDT`_
 * `DPF-Core <https://github.com/pyansys/DPF-Core>`_
@@ -47,7 +47,7 @@ To try out a library, visit one of these links:
 If you want to create, develop, or contribute to a PyAnsys library, 
 visit these links:
 
-* `About the PyAnsys Project <https://github.com/pyansys/about>`_
+* `PyAnsys Project Developer's Guide <https://github.com/pyansys/about>`_
 * `PyAnsys Documentation Theme <https://github.com/pyansys/pyansys-sphinx-theme>`_
 * `gRPC Hello-world Example <https://github.com/pyansys/pyansys-helloworld>`_
 * `Material Example Data <https://github.com/pyansys/example-data>`_

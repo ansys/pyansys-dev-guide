@@ -75,7 +75,7 @@ This example raises an ``Exception``:
         """
         raise Exception('`my_function` has been deprecated.')
 
-Because there is no built-in depreciation error within 
+Because there is no built-in deprecation error within 
 Python, an alternative is to create a custom ``DeprecationError``.
 
 .. code:: python
@@ -107,7 +107,7 @@ According to `Semantic Versioning <https://semver.org/>`_, you should
 increment the MAJOR version when you make incompatible changes.
 However, adding or eliminating methods should not be considered
 incompatible changes to a code base but rather incremental changes
-that are backwards-compatible (to a degree).  Therefore, whenever a
+that are backwards-compatible (to a degree). Therefore, whenever a
 method or feature is added, changed, or removed, the minor version
 should be bumped.
 
@@ -154,7 +154,7 @@ First, install ``pytest``.
 
     pip install pytest
 
-Now, run ``doctest`` can on any Python file.
+Now, run ``doctest`` on any Python file.
 
 .. code::
 
