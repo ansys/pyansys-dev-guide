@@ -63,6 +63,7 @@ PROTO files, create coverage reports, and report on system coverage:
    :hidden:
    :maxdepth: 3
 
+   basic
    administration
    contributing
    dev_practices
