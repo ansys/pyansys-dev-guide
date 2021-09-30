@@ -129,7 +129,7 @@ Install a package with:
 
   pip install ansys.<product>.<library>
 
-To create a package complying with the above standards, here is the minimal content of your PyAnsys libary:
+To create a package complying with the above standards, here is the minimal content of your PyAnsys library:
 
 .. code::
 
