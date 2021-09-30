@@ -13,7 +13,7 @@ General Development Procedures
 
 To submit new code to a PyAnsys, first `fork <https://docs.github.com/en/get-started/quickstart/fork-a-repo>`_ 
 the repository (for example `PyMAPDL <https://github.com/pyansys/pymapdl>`_)
-and then clone the forked repository to your computer. Next, create a new branch based on the
+and then clone the forked repository to your local environment. Next, create a new branch based on the
 `Branch Naming Conventions Section <#branch-naming-conventions>`__ in
 your local repository.
 
@@ -80,27 +80,27 @@ features without sacrificing stability and closely follows the
 
 Descriptions follow for the main features of the branching model.
 
-- The `main` branch is the main development branch. All features,
+- The `main` branch is the primary development branch. All features,
   patches, and other branches should be merged here. While all pull
   requests (PRs) should pass all applicable CI (Continuous Integration)
   checks, this branch might be functionally unstable if changes have
   introduced unintended side-effects or bugs that were not caught through
   unit testing.
 - There will be one or many `release/` branches based on minor
-  releases (for example, `release/0.2`) that contain a stable version
-  of the code base that is also reflected on PyPi. Hotfixes from
+  releases (for example, ``release/0.2``) that contain a stable version
+  of the code base that is also reflected on PyPI. Hotfixes from
   `fix/` branches should be merged both to main and to these
   branches. When creating a new patch release is necessary, these
-  release branches will have their `__version__.py` updated and be
-  tagged with a patched semantic version (for example, `0.2.1`). This
+  release branches will have their ``__version__.py`` updated and be
+  tagged with a patched semantic version (for example, ``0.2.1``). This
   triggers CI to push to PyPi and allow us to rapidly push hotfixes
   for past versions without having to worry about untested features.
-- When a minor release candidate is ready, a new `release` branch will
-  be created from `main` with the next incremented minor version
-  (for example, `release/0.2`), This `release` branch will be thoroughly
-  tested. When deemed stable, it will be tagged with the version (`0.2.0`
-  in this case) and merged with `main` if any changes were pushed to it.
-  Feature development then continues on `main` and any hotfixes will now
+- When a minor release candidate is ready, a new ``release`` branch will
+  be created from ``main`` with the next incremented minor version
+  (for example, ``release/0.2``), This ``release`` branch will be thoroughly
+  tested. When deemed stable, it will be tagged with the version (``0.2.0``
+  in this case) and merged with ``main`` if any changes were pushed to it.
+  Feature development then continues on ``main`` and any hotfixes will now
   be merged with this release. Older release branches should not be deleted
   so they can be patched as needed.
 
@@ -114,7 +114,7 @@ Major and Minor
 Procedures follow for major and minor releases.
 
 #. Create a new branch from the `main` branch with name
-    `release/MAJOR.MINOR`(for example, `release/0.2`).
+   ``release/MAJOR.MINOR`` (for example, ``release/0.2``).
 
 #. Locally run all tests as outlined in :ref:`testing` and ensure all
    are passing.
@@ -135,12 +135,12 @@ Procedures follow for major and minor releases.
 #. Update the version numbers in
    ``ansys/<product>/<library>/_version.py`` and commit it.  Push the
    branch to GitHub and create a new PR for this release that merges
-   it to `main`. Development to `main` should be limited while
+   it to ``main``. Development to ``main`` should be limited while
    effort is focused on the release.
 
 #. The community and Ansys developers must now functionally test the
    new release. It is best to locally install this branch and use it in
-   production. Any bugsidentified should have their hotfixes pushed to
+   production. Any bugs identified should have their hotfixes pushed to
    this release branch.
 
 #. When the branch is deemed as stable for public release, the PR ismerged
@@ -155,13 +155,13 @@ Procedures follow for major and minor releases.
         git push origin --tags
 
 #. Create a list of all changes for the release. It is often helpful
-   to see the `GitHub's compare feature`_ differences from
-   the last tag and the `main` branch.  Be sure to acknowledge new
+   to see the differences from the last tag and the ``main`` branch
+   using `GitHub's compare feature`_ tool.  Be sure to acknowledge new
    contributors by their GitHub username and place mentions where
    appropriate if a specific contributor is to be thanked for a new
    feature.
 
-#. Place your release notes from step 8 in the release section with GitHub. See
+#. Place your release notes from the previous in the release section within the GitHub repository. See
    `GitHub Releases`_
 
 .. _GitHub Releases: https://docs.github.com/en/github/administering-a-repository/releasing-projects-on-github/managing-releases-in-a-repository

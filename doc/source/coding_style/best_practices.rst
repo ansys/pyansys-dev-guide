@@ -99,7 +99,7 @@ Use:
 
 
 You should avoid using wild cards in imports because doing so
-can cause confusion on which names are present in the namespaces.
+can make it difficult to detect undefined names.  For more details see `Python Anti-Patterns: using wildcard imports <(https://docs.quantifiedcode.com/python-anti-patterns/maintainability/from_module_import_all_used.html>`_.
 
 Avoid:
 
@@ -264,7 +264,7 @@ from PyPi.
 
 Class Naming Conventions
 ~~~~~~~~~~~~~~~~~~~~~~~~
-Use camel case when naming classes. Do not separate words
+Use `CamelCase <https://en.wikipedia.org/wiki/Camel_case>`_ when naming classes. Do not separate words
 with underscores. 
 
 .. code:: python
@@ -338,7 +338,7 @@ readability.
 
 Comments
 --------
-Because a PyAnsys library generally involve multiple physics domains,
+Because a PyAnsys library generally involves multiple physics domains,
 users reading its source code do not have the same background as
 the developers who wrote it. This is why it is important for a library
 to have well commented and documented source code. Comments that
@@ -641,7 +641,7 @@ within one single code block.
                        e = self.validate_something(a, b, d)
 
 
-Aside from the lack of comments, this complex nested validation method
+Aside from the lack of comments, this complex method
 is difficult to debug and validate with unit testing. It would
 be far better to implement more validation methods and join conditional
 blocks.

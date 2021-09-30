@@ -42,14 +42,13 @@ provide feedback.
 Reporting Bugs
 --------------
 If you encounter a bug or your workflow crashes while using a PyAnsys
-library, please create an issue on the `issues`_ page for the respective
+library, please create an issue on the issues page of the respective
 PyAnsys library and tag it with an appropriate label so that it can be
 promptly addressed. When reporting an issue, be as descriptive as possible
 so that the issue can be reproduced. Whenever possible, provide a traceback,
 screenshot, and sample files to help us address the issue.
 
 
-.. _issues:
 
 Issues
 ------

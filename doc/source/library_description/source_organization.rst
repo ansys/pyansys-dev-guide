@@ -32,7 +32,7 @@ When using this convention, other namespace packages can use the
 
    >>> from ansys.mapdl import reader as pymapdl_reader
 
-**Note**
+.. note::
 
    Do not include ``__init__.py`` in first-level and second-level 
    directories. If ``__init__.py`` is included in these levels, 

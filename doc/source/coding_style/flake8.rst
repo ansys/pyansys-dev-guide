@@ -2,9 +2,9 @@
 
 Style Guide Enforcement
 =======================
-The following sections describe the use of flake8 for `PEP8`_ style
+The following sections describe the use of `Flake8`_ for `PEP8`_ style
 enforcement and the minimum standards expected. PyAnsys libraries
-are to be consistent with these guidelines.
+are expected to be consistent with these guidelines.
 
 .. _PEP8: https://www.python.org/dev/peps/pep-0008/
 
@@ -127,8 +127,8 @@ PEP8 guidelines requires mininmal manual effort.
 
 Minimum Standards
 ~~~~~~~~~~~~~~~~~
-Descriptions follow of the code style standards expected in the minimum set 
-for a PyAnsys library.
+The following section describes the minimum set of code style standards
+expected in an PyAnsys library.
 
 * `W191`_ - **Indentation contains tabs.**
 
@@ -205,7 +205,7 @@ for a PyAnsys library.
 
 * `F403`_ - **'from module import *' used.**
 
-    Importing everything from a module should never be done. Importing
+    Importing using wildcards (``*``) should never be done. Importing
     modules this way leads to uncertainty and pollutes the code. You
     cannot know exactly what is being imported and name clashes are common.
     Import only the modules to be used.

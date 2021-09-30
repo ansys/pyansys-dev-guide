@@ -19,7 +19,7 @@ Should you choose to copy and include any PyAnsys project source uses,
 to make your library suitable for commercial use, you need only a copy
 of the original PyAnsys MIT license in the reused code.
 
-To view this license, see the `LICENSE` file in the root directory 
+To view this license, see the `LICENSE <https://github.com/pyansys/dev-guide/blob/main/LICENSE>`_ file in the root directory 
 of this repository. This file must be included in the root 
 directory of the repository of every PyAnsys library.
 
@@ -66,9 +66,10 @@ possible:
 * **Patch** version when you make backwards compatible bug fixes.
 
 One exception exists. MAJOR versions are not expected to be regularly
-released with any incompatible API changes. They are only expected to
+released when any incompatible API changes are made. They are only expected to
 be released with major, globally-breaking API changes. This matches the
-versioning for the "big three": `NumPy`_, `SciPy`_, and `pandas`_.
+versioning methodology for the "big three" data science python libraries: `NumPy`_,
+`SciPy`_, and `pandas`_.
 
 .. _Semantic Versioning: https://semver.org/
 .. _NumPy: https://numpy.org/
