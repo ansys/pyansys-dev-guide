@@ -30,6 +30,7 @@ Exposing new Ansys technologies through the PyAnsys project is subject
 to an internal review and decision process. Please reach out to
 Stephane Marguerin or Alexander Kaszynski for any requests.
 
+.. _repository_management:
 
 Repository Management and Standards
 ===================================

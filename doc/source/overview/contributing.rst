@@ -110,4 +110,4 @@ responsibility to ensure that the existing license is compatible and
 included in the contributed files. You must obtain permission from the
 original author to relicense the code.
 
-See :ref:`license` for more details.
+See :ref:`license_file` for more details.

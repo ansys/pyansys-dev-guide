@@ -1,3 +1,5 @@
+.. _packaging:
+
 Packaging
 #########
 A Python package organizes and structures a Python library, which contains several

@@ -1,12 +1,14 @@
-CI/CD Methods
-#############
+.. _ci_cd:
+
+CI/CD
+#####
 CI/CD (continuous integration/continuous delivery) is 
 achieved using either public `Azure DevOps
-<https://azure.microsoft.com/en-us/services/devops/>`_ or public
+<https://azure.microsoft.com/en-us/services/devops/>`_ or 
 `GitHub Workflow Actions <https://github.com/features/actions>`_ 
 for unit testing, release builds, and documentation builds. 
 The selected method should also be used for branch protection. 
-For more information, see `Repository Management`.
+For more information, see :ref:`repository_management`.
 
 Here are some good examples:
 
