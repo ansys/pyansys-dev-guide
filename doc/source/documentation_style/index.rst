@@ -5,7 +5,7 @@ Documentation Style
 Good documentation drives library adoption and usage and is the
 foundation for a good developer experience.  Even with the best
 interfaces and the most functional product, no one will adopt the API
-if they don't know how to use it or if they aren't satisifed with the
+if they don't know how to use it or if they aren't satisfied with the
 documentation or examples they are presented with.
 
 Good API documentation provides:

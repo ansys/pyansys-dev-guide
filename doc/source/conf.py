@@ -16,6 +16,7 @@ html_theme_options = {
 
 # Sphinx extensions
 extensions = [
+    'sphinx.ext.todo',
     'sphinx.ext.autodoc',
     'sphinx.ext.napoleon',
     'sphinx.ext.autosummary',

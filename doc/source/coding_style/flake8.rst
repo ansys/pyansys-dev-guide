@@ -70,7 +70,7 @@ The above configuration defines the following options:
     This denotes the maximum line length for any one line of code.
     The `PEP8`_ standard advises a maximum line length of 79. Because
     this is a bit limiting in some cases, the maximum line length
-    recommended for a PyAnsys libary is 100.
+    recommended for a PyAnsys library is 100.
 
 - ``statistics``
     This enables the number of occurrences of each error or warning code
@@ -104,7 +104,7 @@ base.
 Utilizing Black
 ~~~~~~~~~~~~~~~
 Manually checking for code styling can be a tedious task. Luckily,
-several Python tools for autoformatting code to meet PEP8 standards
+several Python tools for auto-formatting code to meet PEP8 standards
 are available to help with this. The PyAnsys project suggests the use of the
 the formatting tool `black`_.
 
@@ -120,7 +120,7 @@ done with the tool `pre-commit`_. Setting up a `pre-commit hook
 to run black <https://black.readthedocs.io/en/stable/integrations/source_version_control.html>`_
 will automatically format the code before committing. This simple way of
 incorporating code style checks into the development workflow to maintain
-PEP8 guidelines requires mininmal manual effort.
+PEP8 guidelines requires minimal manual effort.
 
 .. _pre-commit: https://pre-commit.com/
 

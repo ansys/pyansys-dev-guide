@@ -52,7 +52,7 @@ Consider the following general coding paradigms when contributing:
    guidelines, and always provide an example of simple use cases for
    new features.
 
-3. **Test it**. Because Python is an interperted language, if it's not
+3. **Test it**. Because Python is an interpreted language, if it's not
    tested, it's probably broken. At the minimum, include unit tests
    for each new feature within the ``tests`` directory. Ensure that
    each new method, class, or function has reasonable (>80%) coverage.
@@ -143,7 +143,7 @@ Procedures follow for major and minor releases.
    production. Any bugs identified should have their hotfixes pushed to
    this release branch.
 
-#. When the branch is deemed as stable for public release, the PR ismerged
+#. When the branch is deemed as stable for public release, the PR is merged
    to `main` branch, which is then tagged with a `MAJOR.MINOR.0` release.
    The release branch will not be deleted.
    
