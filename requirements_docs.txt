@@ -1,1 +1,2 @@
 pyansys-sphinx-theme
+Sphinx==4.0.3  # using this version due to the link to the logo
