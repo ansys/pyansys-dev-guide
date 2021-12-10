@@ -29,6 +29,8 @@ The documentation for a PyAnsys library should contain:
 * User guide for the library.
 * Link to this developer's guide.
 
+Finally the documentation should be public and hosted via gh-pages, either as a branch named ``gh-pages`` within the library repository, or within a ``gh-pages`` branch within ``<library-repository>-docs``.  See :ref:`doc_deployment` for more details.
+
 .. toctree::
    :hidden:
    :maxdepth: 3
@@ -36,3 +38,4 @@ The documentation for a PyAnsys library should contain:
    docstrings
    class_documentation
    coding_style
+   deployment
