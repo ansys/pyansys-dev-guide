@@ -8,7 +8,7 @@
    :maxdepth: 3
 
    overview/index
+   guidelines/index
    library_description/index
-   abstraction/index
    coding_style/index
    documentation_style/index
