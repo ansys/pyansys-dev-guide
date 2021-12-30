@@ -19,3 +19,10 @@ functionalities such as logging, data transfer...
    data_transfer_and_representation
    logging
    service_abstraction
+
+
+List of guidelines
+-------------------
+
+* :ref:`ref_guide_logging`_ . Guidelines for logging in PyAnsys.
+  
