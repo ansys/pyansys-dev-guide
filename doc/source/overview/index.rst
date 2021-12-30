@@ -66,7 +66,6 @@ PROTO files, create coverage reports, and report on system coverage:
    basic
    administration
    contributing
-   dev_practices
 
 .. _PyAEDT: https://github.com/pyansys/PyAEDT
 .. _PyMAPDL: https://github.com/pyansys/pymapdl
