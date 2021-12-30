@@ -9,7 +9,7 @@ This page describes the general framework for logging in PyAnsys package and its
 Logging in PyAnsys
 ===================
 
-The logging capabilities in PyAnsys are built upon the `logging <https://docs.python.org/3/library/logging.html/>`_ library.
+The logging capabilities in PyAnsys are built upon the `logging <https://docs.python.org/3/library/logging.html/>`__ library.
 It does *NOT* intend to replace this library, rather provide a standardized way to interact between the built-in ``logging`` library and ``PyAnsys`` module.
 There are two main loggers in PyAnsys, the *Global logger* and *Instance logger*.
 These loggers are customized classes that wraps the ``Logger`` class from ``logging`` module and add specific features to it.
@@ -144,7 +144,7 @@ AEDT product has its own internal logger called the message manager made of 3 ma
   * *Design*: related to the design (most specific destination of each 3 loggers.)
 
 The message manager is not using the standard python logging module and this might be a problem later when exporting messages and data from each ANSYS product to a common tool. In most of the cases, it is easier to work with the standard python module to extract data.
-In order to overcome this limitation, the existing message manager is wrapped into a logger based on the standard python `logging <https://docs.python.org/3/library/logging.html>`_ module.
+In order to overcome this limitation, the existing message manager is wrapped into a logger based on the standard python `logging <https://docs.python.org/3/library/logging.html>`__ module.
 
 
 .. figure:: images/log_flow.png
