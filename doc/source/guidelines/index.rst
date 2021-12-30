@@ -19,4 +19,3 @@ functionalities such as logging, data transfer...
    data_transfer_and_representation
    logging
    service_abstraction
-
