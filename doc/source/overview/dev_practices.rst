@@ -194,4 +194,113 @@ should not wait until a minor release. These are the steps for a patch release:
 
 Testing
 -------
-<Testing Section>
+Unit testing is critical for the sucessful continious integration and testing of
+any program or libraries belonging to the PyAnsys project are no exception.
+
+There are generally two types of libraries part of the PyAnsys project: those that
+interface or wrap functionality of a different product, service, or application, or
+those that provide functionality. Both types of libraries should be tested, but the
+tests written will depend on purpose of the library.  For example, a library that is
+wrapping a gRPC interface would include tests of the gRPC methods exposed by the proto
+files and wrapped by your Python library.  For example, if testing the gRPC method ``GetNode``, your test would test
+the wrapped method (for example, ``get_node``).  For example the ``get_node`` method
+might be implemented as:
+
+.. code::
+
+   Proto interface here.
+
+
+.. code:: python
+
+from ansys.product.service.v0 import service_pb2
+
+   def get_node(self, index):
+       """Return the coordinates of a node for a given index.
+
+       Parameters
+       ----------
+       index : int
+           Index of the node.
+
+       Returns
+       -------
+       tuple
+           Coordinates of the node.
+
+       Examples
+       --------
+       >>> from ansys.product.service import Service
+       >>> srv = Service()
+       >>> srv.create_node(1, 4.5, 9.0, 3.2)
+       >>> node = srv.get_node(1)
+       >>> node
+       (4.5, 9.0, 3.2)
+
+       """
+       resp = service_pb2.GetNode(index=index)
+       return resp.x, resp.y, resp.z
+
+Your test would look like:
+
+.. code::
+
+   def test_get_node(srv):
+       srv.clear()
+
+       node_index = 1
+       node_coord = 0, 10, 20
+       srv.create_node(node_index, node_coord*)
+       assert srv.get_node(node_index) == node_coord
+
+The goal of the unit test should be to test the wrapping of the interface rather
+than the product or service itself, which would be instead tested at the product or
+service level. In the case of the ``GetNode``, this method should have already been
+tested when designing and developing the service.
+
+
+Remote Method Invocation Testing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In the case of a Remote Method Invocation (RMI)-like method, it is only necessary
+to test the method with a basic case and potentially with any edge cases.
+
+RMI Service Definition:
+
+.. code::
+
+   message SendCommand()
+
+
+Python Wrapping
+
+.. code::
+
+   def send_command(command):
+       """Run a command on the server.
+
+       Parameters
+       ----------
+       command : str
+           Command to run on the remote server. Should be in the form of
+             
+
+
+
+
+Files Layout
+~~~~~~~~~~~~
+PyAnsys libraries should use ``unittest`` or ``pytest`` libraries to run individual
+unit tests contained within a ``tests`` directory in the root of the project.  The 
+testing specific files of your project should at a minimum include:
+
+.. code::
+
+   requirements_tests.py
+   tests/
+     test_<filename>.py
+     conftest.py
+
+**Requirements File**
+The requirements file contains a list of all the libraries that must be installed to
+run ``pytest``.  No assumption should be made regarding the state of the virtual
+
