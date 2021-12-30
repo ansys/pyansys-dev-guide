@@ -1,4 +1,4 @@
-  .. _ref_guide_logging:
+.. _ref_guide_logging:
 
 Logging Guideline
 ###################

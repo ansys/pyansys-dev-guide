@@ -24,5 +24,4 @@ functionalities such as logging, data transfer...
 List of guidelines
 -------------------
 
-* :ref:`ref_guide_logging`_ . Guidelines for logging in PyAnsys.
-  
+* :ref:`ref_guide_logging`. Guidelines for logging in PyAnsys.
