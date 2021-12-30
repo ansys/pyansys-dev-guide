@@ -16,5 +16,7 @@ functionalities such as logging, data transfer...
 
    dev_practices
    app_interface_abstraction
-   service_abstraction
    data_transfer_and_representation
+   logging
+   service_abstraction
+
