@@ -9,7 +9,9 @@ libraries. Suggestions and improvements are welcome.
 
 Why and when to log
 ===================
-Logging helps to track events occurring  in the application.
+Logging helps to track events occurring in the application.
+Whenever an information must be exposed, displayed and shared, logging is the
+way to do it.
 It is destinated to both the users and the application developers.
 It can serve several purposes:
 
@@ -17,10 +19,12 @@ It can serve several purposes:
   - track the progress and the course of the application usage.
   - provide the developer with as much information as possible if an issue happens.
 
-The message logged can contain generic information or embed data specific to the current session.
+The message logged can contain generic information or embed data specific
+to the current session.
 Message content is associated to a level of severity (info, warning, error...).
 Generally, this degree of significance indicates the recipient of the message.
-An info message is directed to the user while a debug message is useful for the developer itself.
+An info message is directed to the user while a debug message is useful for
+the developer itself.
 
 
 Logging in PyAnsys Libraries
