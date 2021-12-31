@@ -1,2 +1,3 @@
-pyansys-sphinx-theme
-Sphinx==4.0.3  # using this version due to the link to the logo
+Sphinx==4.3.2
+pyansys-sphinx-theme==0.2.0
+sphinx-copybutton==0.4.0

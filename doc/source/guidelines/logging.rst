@@ -1,58 +1,84 @@
 .. _ref_guide_logging:
 
-Logging Guideline
-###################
+Logging Guidelines
+##################
 
-This page describes the general framework for logging in PyAnsys package and its libraries.
+This section describes several guidelines for logging in PyAnsys
+libraries. These guidelines are best practices discovered through
+implementing logging services and modules within PyAnsys
+libraries. Suggestions and improvements are welcome.
 
 
-Logging in PyAnsys
-===================
+Logging in PyAnsys Libraries
+============================
 
-The logging capabilities in PyAnsys are built upon the `logging <https://docs.python.org/3/library/logging.html/>`__ library.
-It does *NOT* intend to replace this library, rather provide a standardized way to interact between the built-in ``logging`` library and ``PyAnsys`` module.
-There are two main loggers in PyAnsys, the *Global logger* and *Instance logger*.
-These loggers are customized classes that wraps the ``Logger`` class from ``logging`` module and add specific features to it.
+The logging capabilities in PyAnsys libraries should be built upon the
+`standard logging <https://docs.python.org/3/library/logging.html/>`__
+library.  PyAnsys libries should not to replace this library, rather provide
+a standardized way to interact between the built-in :mod:`logging`
+library and ``PyAnsys`` libraries.
 
+
+Application or Service Logging
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The following guidelines describe "Application" or "Service" logging
+from a PyAnsys library, where a PyAnsys library is used to extend or
+expose features from an Ansys application, product, or service that
+may be local or remote.
+
+There should be two main loggers in a PyAnsys library that exposes or
+extends a service based application, the *Global logger* and *Instance
+logger*. These loggers are customized classes that wrap
+:class:`logging.Logger` from :mod:`logging` module and add specific
+features to it.  :ref:`logging_in_pymapdl_figure` outlines the logging
+approach used by PyMAPDL and the scopes of the global and local
+loggers.
+
+.. _logging_in_pymapdl_figure:
 
 .. figure:: images/Guidelines_chart.png
     :align: center
-    :alt: Logging in PyAnsys
+    :alt: Logging in PyMAPDL
     :figclass: align-center
 
-    **Figure 1: Loggers structure in PyAnsys**
+    **Figure 1: Example Logging Structure in PyMAPDL**
 
 
-Global logger
-~~~~~~~~~~~~~~~~~
+Example Global logger
+~~~~~~~~~~~~~~~~~~~~~
 
-There is a global logger named ``pymapdl_global`` which is created when importing ``ansys.mapdl.core`` (``ansys.mapdl.core.__init__``).
-This logger is recommended for most scenarios, especially when the library ``pool`` is not involved, since it does not track the instances, rather the whole library.
-If you intend to log the initialization of a library or module, you should use this logger.
-If you want to use this global logger, you must import it at the top of your script or module:
+There is a global logger named ``py*_global`` which is created when
+importing ``ansys.product.service``
+(``ansys.product.service.__init__``).  This logger is recommended for
+most scenarios, especially when complex modules or classes are not
+involved, since it does not track instances, rather can be used
+globally.  If you intend to log the initialization of a library or
+module, you should use this logger.  To use this global logger, you
+must import it at the top of your script or module:
 
 .. code:: python
 
-   from ansys.mapdl.core import LOG
+   from ansys.product.service import LOG
 
 You could also rename it to avoid conflicts with other loggers (if any):
 
 .. code:: python
 
-   from ansys.mapdl.core import LOG as logger
+   from ansys.product.service import LOG as logger
 
 
-It should be noticed that the default logging level of ``LOG`` is ``ERROR`` (``logging.ERROR``).
-To change this and output different error level messages you can use the next approach:
+It should be noted that the default logging level of ``LOG`` is
+``ERROR`` (``logging.ERROR``).  To change this and output different
+ferror level messages you can use the next approach:
 
 .. code:: python
 
    LOG.logger.setLevel('DEBUG')
-   LOG.file_handler.setLevel('DEBUG')  # If present.
-   LOG.stdout_handler.setLevel('DEBUG')  # If present.
+   LOG.file_handler.setLevel('DEBUG')  # if present
+   LOG.stdout_handler.setLevel('DEBUG')  # if present
 
 
-Alternatively, you can do:
+Alternatively, you can use:
 
 .. code:: python
 
@@ -61,20 +87,22 @@ Alternatively, you can do:
 
 This way ensures all the handlers are set to the desired log level.
 
-By default, this logger does not log to a file. If you wish to do so, you can add a file handler using:
+By default, this logger does not log to a file. If you wish to do so,
+you can add a file handler using:
 
 .. code:: python
 
    import os
-   file_path = os.path.join(os.getcwd(), 'pymapdl.log')
+   file_path = os.path.join(os.getcwd(), 'pylibrary.log')
    LOG.log_to_file(file_path)
 
+This enables logging to that file in addition of the standard output.
+If you wish to change the characteristics of this global logger from
+the beginning of the execution, you must edit the file ``__init__`` in
+the directory of your library.
 
-This sets the logger to be redirected also to that file, in addition of the standard output.
-If you wish to change the characteristics of this global logger from the beginning of the execution,
-you must edit the file ``__init__`` in the directory ``ansys.mapdl.core``.
-
-To log using this logger, just call the desired method as a normal logger.
+To log using this logger, simply call the desired method as a normal
+logger.
 
 .. code:: python
 
@@ -82,30 +110,33 @@ To log using this logger, just call the desired method as a normal logger.
     >>> from ansys.mapdl.core.logging import Logger
     >>> LOG = Logger(level=logging.DEBUG, to_file=False, to_stdout=True)
     >>> LOG.debug('This is LOG debug message.')
-
     | Level    | Instance        | Module           | Function             | Message
     |----------|-----------------|------------------|----------------------|--------------------------------------------------------
     | DEBUG    |                 |  __init__        | <module>             | This is LOG debug message.
 
 
-
 Instance logger
-~~~~~~~~~~~~~~~~~
-Every time that the class ``_MapdlCore`` is instantiated, a logger is created. 
-This logger is recommended when using the ``pool`` library or when using multiple instances of ``Mapdl``.
-The main feature of this logger is that it tracks each instance and it includes its name when logging.
-The name of the instances are unique. 
-For example in case of using the ``gRPC`` ``Mapdl`` version, its name includes the IP and port of the correspondent instance, making unique its logger.
+~~~~~~~~~~~~~~~
+Every time that the class ``_MapdlCore`` is instantiated, a logger is
+created.  This logger is recommended when using the ``pool`` library
+or when using multiple instances of ``Mapdl``.  The main feature of
+this logger is that it tracks each instance and it includes its name
+when logging.  The name of the instances are unique.  For example in
+case of using the ``gRPC`` ``Mapdl`` version, its name includes the IP
+and port of the correspondent instance, making unique its logger.
 
 
 The instance loggers can be accessed in two places:
 
 * ``_MapdlCore._log``. For backward compatibility.
-* ``LOG._instances``. This field is a ``dict`` where the key is the name of the created logger.
+* ``LOG._instances``. This field is a ``dict`` where the key is the
+  name of the created logger.
 
-These instance loggers inherit from the ``pymapdl_global`` output handlers and logging level unless otherwise specified.
-The way this logger works is very similar to the global logger.
-You can add a file handler if you wish using the method ``log_to_file`` or change the log level using ``setLevel`` method.
+These instance loggers inherit from the ``pymapdl_global`` output
+handlers and logging level unless otherwise specified.  The way this
+logger works is very similar to the global logger.  You can add a file
+handler if you wish using the method ``log_to_file`` or change the log
+level using :meth:`logging.Logger.setLevel`.
 
 You can use this logger like this:
 
@@ -227,9 +258,13 @@ To do so, a boolean argument can be added in the initializer of the ``Logger`` c
 
 
 Formatting
-~~~~~~
-Even if the current practice recommends using the f-string to format your strings, when it comes to logging, the former %-formatting suits the need.
-This way the string is not constantly interpolated. It is deferred and evaluated only when the message is emitted.
+~~~~~~~~~~
+Even if the current practice recommends using the f-string to format
+your strings, when it comes to logging, the former %-formatting is
+preferable.  This way the string format is not evaluated at
+runtime. It is deferred and evaluated only when the message is
+emitted. If there is any formatting or evaluation error, these will be
+reported as logging errors and will not halt code execution.
 
 .. code:: python
 
@@ -238,8 +273,12 @@ This way the string is not constantly interpolated. It is deferred and evaluated
 
 Enable/Disable handlers
 ~~~~~~~~~~~~~~~~~~~~~~~
-Sometimes the customer might want to disable specific handlers such as a file handler in which log messages are written.
-If so, the existing handler must be properly closed and removed. Otherwise the file access might be denied later when you try to write new log content.
+Sometimes the user might want to disable specific handlers such as a
+file handler where log messages are written.  If so, the existing
+handler must be properly closed and removed. Otherwise the file access
+might be denied later when you try to write new log content.
+
+Here's one approach to closing log handlers.
 
 .. code:: python
 
