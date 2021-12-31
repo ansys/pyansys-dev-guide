@@ -1,5 +1,3 @@
-.. _ref_guide_logging:
-
 Logging Guidelines
 ##################
 
@@ -7,6 +5,22 @@ This section describes several guidelines for logging in PyAnsys
 libraries. These guidelines are best practices discovered through
 implementing logging services and modules within PyAnsys
 libraries. Suggestions and improvements are welcome.
+
+
+Why and when to log
+===================
+Logging helps to track events occurring  in the application.
+It is destinated to both the users and the application developers.
+It can serve several purposes:
+
+  - extract some valuable data for the final users to know the status of their work.
+  - track the progress and the course of the application usage.
+  - provide the developer with as much information as possible if an issue happens.
+
+The message logged can contain generic information or embed data specific to the current session.
+Message content is associated to a level of severity (info, warning, error...).
+Generally, this degree of significance indicates the recipient of the message.
+An info message is directed to the user while a debug message is useful for the developer itself.
 
 
 Logging in PyAnsys Libraries
