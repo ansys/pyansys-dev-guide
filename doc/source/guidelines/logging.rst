@@ -70,10 +70,12 @@ Here's one approach to closing log handlers.
 
 App Filter
 ~~~~~~~~~~
-In case you need to modify the content of some messages you can apply filters.
-This can be useful to harmonize the message rendering especially when you write in an external file.
-To do so you can create a class based on the logging.Filter.
-You must implement the ``filter`` method. It will contain all the modified content send to the stream.
+A filter shows all its value when the content of a message depends on some conditions.
+It injects contextual information in the core of the message.
+This can be useful to harmonize the message rendering when the application output is not consistent
+and vary upon the data processed.
+It requires the creation of class based on the logging.Filter and the implementation of
+the ``filter`` method. This method will contain all the modified content send to the stream.
 
 .. code:: python
 
@@ -112,7 +114,7 @@ You must implement the ``filter`` method. It will contain all the modified conte
 String format
 ~~~~~~~~~~~~~
 Even if the current practice recommends using the f-string to format
-your strings, when it comes to logging, the former %-formatting is
+most strings, when it comes to logging, the former %-formatting is
 preferable.  This way the string format is not evaluated at
 runtime. It is deferred and evaluated only when the message is
 emitted. If there is any formatting or evaluation error, these will be
