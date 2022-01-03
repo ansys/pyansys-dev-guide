@@ -19,6 +19,7 @@ html_theme_options = {
 # Sphinx extensions
 extensions = [
     "sphinx_copybutton",
+    'sphinx_toolbox.collapse',
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
