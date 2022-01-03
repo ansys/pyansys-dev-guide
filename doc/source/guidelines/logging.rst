@@ -22,13 +22,13 @@ library and ``PyAnsys`` libraries.
 Application or Service Logging
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The following guidelines describe "Application" or "Service" logging
-from a PyAnsys library, where a PyAnsys library is used to extend or
-expose features from an Ansys application, product, or service that
-may be local or remote.
+module for a PyAnsys library, where a PyAnsys library is used to
+extend or expose features from an Ansys application, product, or
+service that may be local or remote.
 
-There should be two main loggers in a PyAnsys library that exposes or
-extends a service based application, the *Global logger* and *Instance
-logger*. These loggers are customized classes that wrap
+This section describes two two main loggers for a PyAnsys library that
+exposes or extends a service based application, the *Global logger*
+and the *Instance logger*. These loggers are customized classes that wrap
 :class:`logging.Logger` from :mod:`logging` module and add specific
 features to it.  :ref:`logging_in_pymapdl_figure` outlines the logging
 approach used by PyMAPDL and the scopes of the global and local
@@ -42,6 +42,15 @@ loggers.
     :figclass: align-center
 
     **Figure 1: Example Logging Structure in PyMAPDL**
+
+The source for this example logger can be found both within developers
+guide repository at `pyansys_logging.py
+<https://github.com/pyansys/dev-guide/blob/main/logging/pyansys_logging.py>`_
+as well as below in the collapsable section below:
+
+.. collapse:: Example PyAnsys custom logger module
+
+    .. literalinclude:: ../../../logging/pyansys_logging.py
 
 
 Example Global logger
