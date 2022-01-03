@@ -290,7 +290,7 @@ Create a custom log handler to catch each product message and redirect them on a
 ==============================================================================================
 
 Context:
-~~~~~~~~~
+--------
 
 AEDT product has its own internal logger called the message manager made of 3 main destinations: 
 
