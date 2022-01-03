@@ -6,7 +6,6 @@ import tempfile
 
 import pytest
 
-sys.path.append(os.path.join("..", "logging"))
 import pyansys_logging
 
 
