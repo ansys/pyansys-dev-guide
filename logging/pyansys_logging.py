@@ -445,16 +445,16 @@ def add_file_handler(logger, filename=FILE_NAME, level=LOG_LEVEL, write_headers=
 
 
 def add_stdout_handler(logger, level=LOG_LEVEL, write_headers=False):
-    """Add a file handler to the logger.
+    """Add a stream handler to the logger.
 
     Parameters
     ----------
     logger : logging.Logger or logging.Logger
-        Logger where to add the file handler.
+        Logger where to add the stream handler.
     level : str, optional
         Level of log recording. By default ``logging.DEBUG``.
     write_headers : bool, optional
-        Record the headers to the file. By default ``False``.
+        Record the headers to the stream. By default ``False``.
 
     Returns
     -------
