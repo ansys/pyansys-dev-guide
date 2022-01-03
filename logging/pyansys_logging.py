@@ -6,12 +6,12 @@ import sys
 
 # Default configuration
 LOG_LEVEL = logging.DEBUG
-FILE_NAME = "pyproject.log"
+FILE_NAME = "PyProject.log"
 
 
 # Formatting
 STDOUT_MSG_FORMAT = (
-    "%(levelname)s - %(instance_name)s -  %(module)s - %(funcName)s - %(message)s"
+    "%(levelname)s - %(instance_name)s - %(module)s - %(funcName)s - %(message)s"
 )
 FILE_MSG_FORMAT = STDOUT_MSG_FORMAT
 
@@ -46,7 +46,7 @@ class InstanceCustomAdapter(logging.LoggerAdapter):
     to once.
     """
 
-    # level is kept for compatibility with ``supress_logging``,
+    # level is kept for compatibility with ``suppress_logging``,
     # but it does nothing.
     level = None
     file_handler = None
@@ -162,14 +162,14 @@ class InstanceFilter(logging.Filter):
 class Logger:
     """Logger used for each PyProject session.
 
-    This class allows you to add handler to a file or standard output.
+    This class allows you to add a handler to a file or standard output.
 
     Parameters
     ----------
     level : int, optional
         Logging level to filter the message severity allowed in the logger.
         The default is ``logging.DEBUG``.
-    to_filet : bool, optional
+    to_file : bool, optional
         Write log messages to a file. The default is ``False``.
     to_stdout : bool, optional
         Write log messages into the standard output. The
@@ -200,7 +200,7 @@ class Logger:
             To output the logs to the standard output, which is the
             command line. By default ``True``.
         filename : str, optional
-            Name of the output file. By default ``"pyproject.log"``.
+            Name of the output file. By default ``"PyProject.log"``.
         """
 
         self.logger = logging.getLogger(
@@ -220,7 +220,7 @@ class Logger:
         self.log = self.logger.log
 
         if to_file or filename != FILE_NAME:
-            # We record to file
+            # We record to file.
             self.log_to_file(filename=filename, level=level)
 
         if to_stdout:
@@ -228,7 +228,7 @@ class Logger:
 
         self.add_handling_uncaught_expections(
             self.logger
-        )  # Using logger to record unhandled exceptions
+        )  # Using logger to record unhandled exceptions.
 
     def log_to_file(self, filename=FILE_NAME, level=LOG_LEVEL):
         """Add file handler to logger.
@@ -286,7 +286,7 @@ class Logger:
 
                 if level:
                     # The logger handlers are copied and changed the
-                    # loglevel is the specified log level is lower
+                    # loglevel if the specified log level is lower
                     # than the one of the global.
                     if each_handler.level > string_to_loglevel[level.upper()]:
                         new_handler.setLevel(level)
@@ -366,7 +366,7 @@ class Logger:
         -------
         InstanceCustomAdapter
             Logger adapter customized to add additional information to
-            the logs.  You can use this class to log events in the
+            the logs. You can use this class to log events in the
             same way you would with a logger class.
 
         Raises
@@ -462,7 +462,7 @@ def add_stdout_handler(logger, level=LOG_LEVEL, write_headers=False):
         The logger or Logger object.
     """
 
-    std_out_handler = logging.StreamHandler()
+    std_out_handler = logging.StreamHandler(sys.stdout)
     std_out_handler.setLevel(level)
     std_out_handler.setFormatter(PyProjectFormatter(STDOUT_MSG_FORMAT))
 
