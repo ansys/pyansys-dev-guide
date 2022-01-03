@@ -68,6 +68,47 @@ Here's one approach to closing log handlers.
             design_logger.removeHandler(handler)
 
 
+App Filter
+~~~~~~~~~~
+In case you need to modify the content of some messages you can apply filters.
+This can be useful to harmonize the message rendering especially when you write in an external file.
+To do so you can create a class based on the logging.Filter.
+You must implement the ``filter`` method. It will contain all the modified content send to the stream.
+
+.. code:: python
+
+    class AppFilter(logging.Filter):
+
+        def __init__(self, destination="Global", extra=""):
+            self._destination = destination
+            self._extra = extra
+
+        def filter(self, record):
+            """Modify the record sent to the stream.""""
+
+            record.destination = self._destination
+
+            # This will avoid the extra '::' for Global that does not have any extra info.
+            if not self._extra:
+                record.extra = self._extra
+            else:
+                record.extra = self._extra + ":"
+            return True
+
+
+.. code:: python
+
+    class CustomLogger(object):
+
+        def __init__(self, messenger, level=logging.DEBUG, to_stdout=False):
+
+            if to_stdout:
+                self._std_out_handler = logging.StreamHandler()
+                self._std_out_handler.setLevel(level)
+                self._std_out_handler.setFormatter(FORMATTER)
+                self.global_logger.addHandler(self._std_out_handler)
+
+
 String format
 ~~~~~~~~~~~~~
 Even if the current practice recommends using the f-string to format
@@ -229,8 +270,8 @@ You can use this logger like this:
 
 
 
-Other loggers
-~~~~~~~~~~~~~~~~~
+Wrapping Other Loggers
+~~~~~~~~~~~~~~~~~~~~~~
 A product, due to its architecture can be made of several loggers.
 The ``logging`` library features allows to work a finite number of loggers.
 The factory function logging.getLogger() helps to access each logger by its name.
@@ -292,42 +333,3 @@ As a reminder the record is an object containing all kind of information related
 
 This custom handler is used into the new logger instance (the one based on the standard library).
 A good practice before to add a handler on any logger is to verify if any appropriate handler is already available in order to avoid any conflict, message duplication...
-
-App Filter
-~~~~~~~~~~
-In case you need to modify the content of some messages you can apply filters. This can be useful to harmonize the message rendering especially when you write in an external file. To do so you can create a class based on the logging.Filter.
-You must implement the ``filter`` method. It will contain all the modified content send to the stream.
-
-.. code:: python
-
-    class AppFilter(logging.Filter):
-
-        def __init__(self, destination="Global", extra=""):
-            self._destination = destination
-            self._extra = extra
-
-        def filter(self, record):
-            """Modify the record sent to the stream.""""
-
-            record.destination = self._destination
-
-            # This will avoid the extra '::' for Global that does not have any extra info.
-            if not self._extra:
-                record.extra = self._extra
-            else:
-                record.extra = self._extra + ":"
-            return True
-
-
-.. code:: python
-
-    class CustomLogger(object):
-
-        def __init__(self, messenger, level=logging.DEBUG, to_stdout=False):
-
-            if to_stdout:
-                self._std_out_handler = logging.StreamHandler()
-                self._std_out_handler.setLevel(level)
-                self._std_out_handler.setFormatter(FORMATTER)
-                self.global_logger.addHandler(self._std_out_handler)
-
