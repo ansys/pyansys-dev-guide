@@ -5,11 +5,14 @@ This section describes several guidelines for logging in PyAnsys
 libraries. These guidelines are best practices discovered through
 implementing logging services and modules within PyAnsys
 libraries. Suggestions and improvements are welcome.
+External resources also describe `basic <https://docs.python-guide.org/writing/logging/>`__
+and `advanced <https://coralogix.com/blog/python-logging-best-practices-tips/>`__ technics.
 
 
-Why and when to log
-===================
-Logging helps to track events occurring in the application.
+Description and usage
+=====================
+Logging helps to track events occurring in the application. For each of them a log record
+is created. It contains a detailed set of information about the current application operation.
 Whenever an information must be exposed, displayed and shared, logging is the
 way to do it.
 It is destinated to both the users and the application developers.
@@ -172,12 +175,16 @@ You can use this logger like this:
 
 Other loggers
 ~~~~~~~~~~~~~~~~~
-You can create your own loggers using python ``logging`` library as you would do in any other script.
-There shall be no conflicts between these.
+A product, due to its architecture can be made of several loggers.
+The ``logging`` library features allows to work a finite number of loggers.
+The factory function logging.getLogger() helps to access each logger by its name.
+In addition of this naming-mappings, a hierachy can be established to structure the loggers
+order.
 
 
 For instance, if an ANSYS product is using a custom logger encapsulated inside the product itself, you might benefit from exposing it through the standard python tools.
-It is recommended to use the standard library as much as possible. It will benefit every contributor to your project by exposing common tools that are widely spread. Each developer will be able to operate quickly and autonomously.
+It is recommended to use the standard library as much as possible. It will benefit every contributor to your project by exposing common tools that are widely spread.
+Each developer will be able to operate quickly and autonomously.
 Your project will take advantage of the entire set of features exposed in the standard logger and all the upcoming improvements.
 
 Create a custom log handler to catch each product message and redirect them on another logger:
@@ -275,8 +282,8 @@ To do so, a boolean argument can be added in the initializer of the ``Logger`` c
                 self.global_logger.addHandler(self._std_out_handler)
 
 
-Formatting
-~~~~~~~~~~
+String format
+~~~~~~~~~~~~~
 Even if the current practice recommends using the f-string to format
 your strings, when it comes to logging, the former %-formatting is
 preferable.  This way the string format is not evaluated at
