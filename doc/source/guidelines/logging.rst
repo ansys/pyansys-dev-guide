@@ -40,6 +40,48 @@ a standardized way to interact between the built-in :mod:`logging`
 library and ``PyAnsys`` libraries.
 
 
+Logging Best Practices
+----------------------
+
+Avoid printing to the console
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+A common habit while prototyping a new feature is to print message into the command line executable.
+Instead of using the common ``Print()`` method, it is advised to use a ``StreamHandler`` and redirect its content.
+Indeed that will allow to filter messages based on their level and apply properly the formatter.
+To do so, a boolean argument can be added in the initializer of the ``Logger`` class.
+This argument specifies how to handle the stream.
+
+Enable/Disable handlers
+~~~~~~~~~~~~~~~~~~~~~~~
+Sometimes the user might want to disable specific handlers such as a
+file handler where log messages are written.  If so, the existing
+handler must be properly closed and removed. Otherwise the file access
+might be denied later when you try to write new log content.
+
+Here's one approach to closing log handlers.
+
+.. code:: python
+
+    for handler in design_logger.handlers:
+        if isinstance(handler, logging.FileHandler):
+            handler.close()
+            design_logger.removeHandler(handler)
+
+
+String format
+~~~~~~~~~~~~~
+Even if the current practice recommends using the f-string to format
+your strings, when it comes to logging, the former %-formatting is
+preferable.  This way the string format is not evaluated at
+runtime. It is deferred and evaluated only when the message is
+emitted. If there is any formatting or evaluation error, these will be
+reported as logging errors and will not halt code execution.
+
+.. code:: python
+
+    logger.info("Project %s has been opened.", project.GetName())
+
+
 Application or Service Logging
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The following guidelines describe "Application" or "Service" logging
@@ -73,6 +115,11 @@ as well as below in the collapsable section below:
 
     .. literalinclude:: ../../../logging/pyansys_logging.py
 
+Following are some unit tests demonstatring how to use the code implemented above:
+
+.. collapse:: How to use PyAnsys custom logger module
+
+    .. literalinclude:: ../../../logging/test_pyansys_logging.py
 
 Example Global logger
 ~~~~~~~~~~~~~~~~~~~~~
@@ -271,12 +318,6 @@ You must implement the ``filter`` method. It will contain all the modified conte
                 record.extra = self._extra + ":"
             return True
 
-Avoid printing to the console
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-A common habit while prototyping a new feature is to print message into the command line executable.
-Instead of using the common ``Print()`` method, it is advised to use a ``StreamHandler`` and redirect its content.
-Indeed that will allow to filter messages based on their level and apply properly the formatter.
-To do so, a boolean argument can be added in the initializer of the ``Logger`` class. This argument specifies how to handle the stream.
 
 .. code:: python
 
@@ -290,33 +331,3 @@ To do so, a boolean argument can be added in the initializer of the ``Logger`` c
                 self._std_out_handler.setFormatter(FORMATTER)
                 self.global_logger.addHandler(self._std_out_handler)
 
-
-String format
-~~~~~~~~~~~~~
-Even if the current practice recommends using the f-string to format
-your strings, when it comes to logging, the former %-formatting is
-preferable.  This way the string format is not evaluated at
-runtime. It is deferred and evaluated only when the message is
-emitted. If there is any formatting or evaluation error, these will be
-reported as logging errors and will not halt code execution.
-
-.. code:: python
-
-    logger.info("Project %s has been opened.", project.GetName())
-
-
-Enable/Disable handlers
-~~~~~~~~~~~~~~~~~~~~~~~
-Sometimes the user might want to disable specific handlers such as a
-file handler where log messages are written.  If so, the existing
-handler must be properly closed and removed. Otherwise the file access
-might be denied later when you try to write new log content.
-
-Here's one approach to closing log handlers.
-
-.. code:: python
-
-    for handler in design_logger.handlers:
-        if isinstance(handler, logging.FileHandler):
-            handler.close()
-            design_logger.removeHandler(handler)
