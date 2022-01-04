@@ -275,16 +275,16 @@ You can use this logger like this:
 Wrapping Other Loggers
 ~~~~~~~~~~~~~~~~~~~~~~
 A product, due to its architecture can be made of several loggers.
-The ``logging`` library features allows to work a finite number of loggers.
+The ``logging`` library features allows to work with a finite number of loggers.
 The factory function logging.getLogger() helps to access each logger by its name.
 In addition of this naming-mappings, a hierachy can be established to structure the loggers
-order.
+parenting and their connection.
 
 
-For instance, if an ANSYS product is using a custom logger encapsulated inside the product itself, you might benefit from exposing it through the standard python tools.
-It is recommended to use the standard library as much as possible. It will benefit every contributor to your project by exposing common tools that are widely spread.
+For instance, if an ANSYS product is using a pre-exsiting custom logger encapsulated inside the product itself, the <PyProject> will benefit from exposing it through the standard python tools.
+It is recommended to use the standard library as much as possible. It will facilitate every contribution -both external and internal- to the <PyProject> by exposing common tools that are widely spread.
 Each developer will be able to operate quickly and autonomously.
-Your project will take advantage of the entire set of features exposed in the standard logger and all the upcoming improvements.
+The project will take advantage of the entire set of features exposed in the standard logger and all the upcoming improvements.
 
 Create a custom log handler to catch each product message and redirect them on another logger:
 ==============================================================================================
