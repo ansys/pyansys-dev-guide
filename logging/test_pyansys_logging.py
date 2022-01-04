@@ -62,35 +62,6 @@ def test_level_stdout():
     assert os.path.exists(os.path.exists(os.path.join(os.getcwd(), "PyProject.log")))
 
 
-def test_default_file_handlers():
-    """Activate the `PyProject.log` file handler."""
-
-    current_dirctory = os.getcwd()
-    file_logger = os.path.join(current_dirctory, "PyProject.log")
-    if os.path.exists(file_logger):
-        os.remove(file_logger)
-
-    content = None
-    test_logger = pyansys_logging.Logger(to_file=True)
-    test_logger.info("Test PyProject.Log")
-
-    with open(file_logger, "r") as f:
-        content = f.readlines()
-
-    assert len(content) == 6
-    assert "NEW SESSION" in content[2]
-    assert "===============================================================================" in content[3]
-    assert "LEVEL - INSTANCE NAME - MODULE - FUNCTION - MESSAGE" in content[4]
-    assert "INFO -  - test_pyansys_logging - test_default_file_handlers - Test PyProject.Log" in content[5]
-
-
-    # Delete the logger and its file handler.
-    test_logger_ref = weakref.ref(test_logger)
-    del test_logger
-    assert test_logger_ref() is None
-    os.remove(file_logger)
-
-
 def test_file_handlers(tmpdir):
     """Activate a file handler different from `PyProject.log`."""
 
