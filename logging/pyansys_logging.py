@@ -185,7 +185,7 @@ class Logger:
     _instances = {}
 
     def __init__(
-        self, level=logging.DEBUG, to_file=False, to_stdout=True, filename=FILE_NAME
+        self, level=logging.DEBUG, to_file=False, to_stdout=True, filename=FILE_NAME, cleanup=True
     ):
         """Initialize Logger class."""
 
@@ -216,7 +216,7 @@ class Logger:
             self.logger
         )  # Using logger to record unhandled exceptions.
 
-        self._cleanup = True
+        self.cleanup = cleanup
 
     def log_to_file(self, filename=FILE_NAME, level=LOG_LEVEL):
         """Add file handler to logger.
@@ -395,7 +395,7 @@ class Logger:
     def __del__(self):
         """Close the logger and all its handlers."""
         self.logger.debug("Collecting logger")
-        if self._cleanup:
+        if self.cleanup:
             try:
                 for handler in self.logger.handlers:
                         handler.close()
@@ -407,7 +407,7 @@ class Logger:
                 except Exception:
                     pass
         else:
-            self.logger.debug("Collecting but not exiting due to 'self._cleanup = False'")
+            self.logger.debug("Collecting but not exiting due to 'cleanup = False'")
 
 
 def add_file_handler(logger, filename=FILE_NAME, level=LOG_LEVEL, write_headers=False):
