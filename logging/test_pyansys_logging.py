@@ -91,14 +91,13 @@ def test_default_file_handlers():
     os.remove(file_logger)
 
 
-def test_file_handlers():
+def test_file_handlers(tmpdir):
     """Activate a file handler different from `PyProject.log`."""
 
     content = None
-    current_dirctory = os.getcwd()
-    file_logger = os.path.join(current_dirctory, "test_logger.txt")
-    if os.path.exists(file_logger):
-        os.remove(file_logger)
+
+    file_logger = tmpdir.mkdir("sub").join("test_logger.txt")
+
     test_logger = pyansys_logging.Logger(to_file=True, filename=file_logger)
     test_logger.info("Test Misc File")
 
@@ -116,7 +115,6 @@ def test_file_handlers():
     test_logger_ref = weakref.ref(test_logger)
     del test_logger
     assert test_logger_ref() is None
-    os.remove(file_logger)
 
 
 class CaptureStdOut:
