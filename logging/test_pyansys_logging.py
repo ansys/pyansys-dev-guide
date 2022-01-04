@@ -65,8 +65,6 @@ def test_level_stdout():
 def test_file_handlers(tmpdir):
     """Activate a file handler different from `PyProject.log`."""
 
-    content = None
-
     file_logger = tmpdir.mkdir("sub").join("test_logger.txt")
 
     test_logger = pyansys_logging.Logger(to_file=True, filename=file_logger)
