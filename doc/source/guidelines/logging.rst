@@ -54,7 +54,7 @@ This argument specifies how to handle the stream.
 Enable/Disable handlers
 ~~~~~~~~~~~~~~~~~~~~~~~
 Sometimes the user might want to disable specific handlers such as a
-file handler where log messages are written.  If so, the existing
+file handler where log messages are written. If so, the existing
 handler must be properly closed and removed. Otherwise the file access
 might be denied later when you try to write new log content.
 
@@ -132,7 +132,7 @@ module for a PyAnsys library, where a PyAnsys library is used to
 extend or expose features from an Ansys application, product, or
 service that may be local or remote.
 
-This section describes two two main loggers for a PyAnsys library that
+This section describes two main loggers for a PyAnsys library that
 exposes or extends a service based application, the *Global logger*
 and the *Instance logger*. These loggers are customized classes that wrap
 :class:`logging.Logger` from :mod:`logging` module and add specific
@@ -298,7 +298,8 @@ AEDT product has its own internal logger called the message manager made of 3 ma
   * *Project*: related to the project
   * *Design*: related to the design (most specific destination of each 3 loggers.)
 
-The message manager is not using the standard python logging module and this might be a problem later when exporting messages and data from each ANSYS product to a common tool. In most of the cases, it is easier to work with the standard python module to extract data.
+The message manager is not using the standard python logging module and this might be a problem later when exporting messages and data from each ANSYS product to a common tool.
+In most of the cases, it is easier to work with the standard python module to extract data.
 In order to overcome this limitation, the existing message manager is wrapped into a logger based on the standard python `logging <https://docs.python.org/3/library/logging.html>`__ module.
 
 
@@ -310,7 +311,7 @@ In order to overcome this limitation, the existing message manager is wrapped in
     **Figure 1: Loggers message passing flow.**
 
 
-To do so, we created a class called LogHandler based on logging.Handler.
+This wrapper implementation boils down to a custom handler. It is based on a class inherited from logging.Handler.
 The initializer of this class will require the message manager to be passed as an argument in order to link the standard logging service with the ANSYS internal message manager.
 
 .. code:: python
@@ -319,7 +320,7 @@ The initializer of this class will require the message manager to be passed as a
 
         def __init__(self, internal_app_messenger, log_destination, level=logging.INFO):
             logging.Handler.__init__(self, level)
-            # destination is used if your internal message manager
+            # destination is used if when the internal message manager
             # is made of several different logs. Otherwise it is not relevant.
             self.destination = log_destination
             self.messenger = internal_app_messenger
