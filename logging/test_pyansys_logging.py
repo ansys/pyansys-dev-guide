@@ -2,9 +2,7 @@ import io
 import logging
 import os
 import sys
-import tempfile
-
-import pytest
+import weakref
 
 import pyansys_logging
 
@@ -85,11 +83,11 @@ def test_default_file_handlers():
     assert "LEVEL - INSTANCE NAME - MODULE - FUNCTION - MESSAGE" in content[4]
     assert "INFO -  - test_pyansys_logging - test_default_file_handlers - Test PyProject.Log" in content[5]
 
-    # Remove file's handlers and delete the file.
-    for handler in test_logger.logger.handlers:
-        if isinstance(handler, logging.FileHandler):
-            handler.close()
-            test_logger.logger.removeHandler(handler)
+
+    # Delete the logger and its file handler.
+    test_logger_ref = weakref.ref(test_logger)
+    del test_logger
+    assert test_logger_ref() is None
     os.remove(file_logger)
 
 
@@ -114,11 +112,10 @@ def test_file_handlers():
     assert "LEVEL - INSTANCE NAME - MODULE - FUNCTION - MESSAGE" in content[4]
     assert "INFO -  - test_pyansys_logging - test_file_handlers - Test Misc File" in content[5]
 
-    # Remove file's handlers and delete the file.
-    for handler in test_logger.logger.handlers:
-        if isinstance(handler, logging.FileHandler):
-            handler.close()
-            test_logger.logger.removeHandler(handler)
+    # Delete the logger and its file handler.
+    test_logger_ref = weakref.ref(test_logger)
+    del test_logger
+    assert test_logger_ref() is None
     os.remove(file_logger)
 
 

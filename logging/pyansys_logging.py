@@ -230,6 +230,8 @@ class Logger:
             self.logger
         )  # Using logger to record unhandled exceptions.
 
+        self._cleanup = True
+
     def log_to_file(self, filename=FILE_NAME, level=LOG_LEVEL):
         """Add file handler to logger.
 
@@ -403,6 +405,23 @@ class Logger:
             )
 
         sys.excepthook = handle_exception
+
+    def __del__(self):
+        """Close the logger and all its handlers."""
+        self.logger.debug("Collecting logger")
+        if self._cleanup:
+            try:
+                for handler in self.logger.handlers:
+                        handler.close()
+                        self.logger.removeHandler(handler)
+            except Exception as e:
+                try:
+                    if self.logger is not None:
+                        self.logger.error("The logger was not deleted properly.")
+                except Exception:
+                    pass
+        else:
+            self.logger.debug("Collecting but not exiting due to 'self._cleanup = False'")
 
 
 def add_file_handler(logger, filename=FILE_NAME, level=LOG_LEVEL, write_headers=False):
