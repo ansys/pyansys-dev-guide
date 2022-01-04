@@ -187,21 +187,7 @@ class Logger:
     def __init__(
         self, level=logging.DEBUG, to_file=False, to_stdout=True, filename=FILE_NAME
     ):
-        """Customized logger class for PyProject.
-
-        Parameters
-        ----------
-        level : str, optional
-            Level of logging as defined in the package ``logging``. By
-            default ``'DEBUG'``.
-        to_file : bool, optional
-            To record the logs in a file, by default ``False``.
-        to_stdout : bool, optional
-            To output the logs to the standard output, which is the
-            command line. By default ``True``.
-        filename : str, optional
-            Name of the output file. By default ``"PyProject.log"``.
-        """
+        """Initialize Logger class."""
 
         self.logger = logging.getLogger(
             "pyproject_global"
