@@ -22,7 +22,7 @@ coding paradigms:
    it's not tested, it's probably broken. At the minimum, include a unit
    test for each new feature within the ``tests`` directory. Ensure that
    each new method, class, or function has reasonable (>80%) coverage.
-   See :ref:`testing`.
+   See `Testing <#Testing>`__ for automating testing.
 
 #. Do not include any datasets for which a license is not available
    or commercial use is prohibited.
