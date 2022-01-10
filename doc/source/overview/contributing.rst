@@ -77,12 +77,11 @@ Once you are ready to start coding, see:
 
 Starting Discussions
 --------------------
-General questions regarding development practices should be raised as
-discussions in the repository for the respective PyAnsys library
-rather than as issues. For example, general questions about PyMAPDL
-should be raised in `PyMAPDL Discussions <https://github.com/pyansys/pymapdl/discussions>`_. 
-Issues can be spun out of discussions depending on what is decided, but general
-questions should start as discussions where possible.
+In the repository for the respective PyAnsys library, you should raise
+general questions regarding development practices as discussions rather
+than issues. For example, raise general questions about PyMAPDL
+in `PyMAPDL Discussions <https://github.com/pyansys/pymapdl/discussions>`_. 
+Dedpending on what is decided, issues can be spun out of general discussions.
 
 .. note::
     The discussions feature is still in beta on GitHub, so this may
