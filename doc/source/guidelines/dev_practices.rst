@@ -15,10 +15,10 @@ coding paradigms:
 
 #. Document your contributions. Include a docstring for any added
    function, method, or class, following `numpydocs docstring <https://numpydoc.readthedocs.io/en/latest/format.html>`_
-   guidelines and PyAnsys documenation standards <#Documentation Standards>.
+   guidelines and PyAnsys documentation standards <#Documentation Standards>.
    Always provide at least one simple use case for a new feature.
 
-#. Test your contribution. Because Python is an interperted language, if
+#. Test your contribution. Because Python is an interpreted language, if
    it's not tested, it's probably broken. At the minimum, include a unit
    test for each new feature within the ``tests`` directory. Ensure that
    each new method, class, or function has reasonable (>80%) coverage.
@@ -27,7 +27,7 @@ coding paradigms:
 #. Do not include any datasets for which a license is not available
    or commercial use is prohibited.
 
-#. Review our our `Code of Conduct <https://github.com/pyansys/DPF-Core/blob/master/CODE_OF_CONDUCT.md>`_.
+#. Review our `Code of Conduct <https://github.com/pyansys/DPF-Core/blob/master/CODE_OF_CONDUCT.md>`_.
 
 Contributing Through GitHub
 ---------------------------
@@ -164,9 +164,9 @@ from its repository. You can access the latest development version of the
 documentation tracking the ``main`` branch by adding the prefix ``dev.`` to
 the URL for the latest stable release. For example, the URL for the latest
 stable release of the PyAEDT documentation is
-''https://dev.aedtdocs.pyansys.com/``, and the URL for the latest development 
-version of this documenation is ''https://dev.aedtdocs.pyansys.com/``. The
-latest develompment version is kept up-to-date automatically via GitHub actions.
+`<https://dev.aedtdocs.pyansys.com/>`_, and the URL for the latest development 
+version of this documentation is `<https://dev.aedtdocs.pyansys.com/>`_. The
+latest development version is kept up-to-date automatically via GitHub actions.
 
 Building the Documentation Locally
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -261,7 +261,7 @@ Release procedures follow for major and minor releases.
    ensure that all are passing.
 
 #. Locally test and build the documentation with link checking to
-   ensure that no links are outdated
+   ensure that no links are outdated.
    
 #. Run ``make clean`` to ensure that no results are cached.
 
@@ -297,7 +297,7 @@ Release procedures follow for major and minor releases.
         git push origin --tags
 
 #. Create a list of all changes for the release. It is often helpful
-   to levearage GitHub's compare feature to see the differences from
+   to leverage GitHub's compare feature to see the differences from
    the last tag and the ``main`` branch. Be sure to acknowledge new
    contributors by their GitHub usernames and place mentions where
    appropriate if specific contributors are to be thanked for new

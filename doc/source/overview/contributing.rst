@@ -15,7 +15,7 @@ PyAnsys library. Contribution information specific to a particular
 library appears on the ``Contributing`` page in the respective
 library's documentation, including:
 
-- Instrutions for cloning the source repository from GitHub
+- Instructions for cloning the source repository from GitHub
 - URL to the library`s ``Issues`` page
 - Email address for the library's support team
 
@@ -30,7 +30,7 @@ applicable repositories:
 
 The overall PyAnsys project support team can be reached at
 pyansys.support@ansys.com. Someone will either respond or direct the
-message to the respective libary's support team.
+message to the respective library's support team.
 
 Submitting Questions
 ---------------------
@@ -81,7 +81,7 @@ In the repository for the respective PyAnsys library, you should raise
 general questions regarding development practices as discussions rather
 than issues. For example, raise general questions about PyMAPDL
 in `PyMAPDL Discussions <https://github.com/pyansys/pymapdl/discussions>`_. 
-Dedpending on what is decided, issues can be spun out of general discussions.
+Depending on what is decided, issues can be spun out of general discussions.
 
 .. note::
     The discussions feature is still in beta on GitHub, so this may
