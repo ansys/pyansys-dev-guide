@@ -70,8 +70,8 @@ to discuss how best to implement the contribution.
 
 Once you are ready to start coding, see:
 
-- :ref:`dev_practices` for information on how development is conducted
-  in PyAnsys repositories
+- :ref:`development_practices` for information on how development is
+  conducted in PyAnsys repositories
 - :ref:`best_practices` for information on how to style and format your
   code to adhere to PyAnsys standards
 
