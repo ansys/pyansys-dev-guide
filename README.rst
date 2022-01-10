@@ -25,7 +25,7 @@ your Python environment with:
 
    pip install -r requirements_docs.txt
 
-or if you want to configure and activate Python virtual environment with the
+or if you want to configure and activate a Python virtual environment with the
 required packages:
 
 .. code::
