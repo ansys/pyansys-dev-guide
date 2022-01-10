@@ -257,8 +257,8 @@ Release procedures follow for major and minor releases.
 #. Create a new branch from the ``main`` branch with the name
    ``release/MAJOR.MINOR`` (for example, ``release/0.2``).
 
-#. Locally run all tests as outlined in :ref:`testing` and ensure
-   that all are passing.
+#. Locally run all tests as outlined in `Testing <#Testing>`_ and
+   ensure that all are passing.
 
 #. Locally test and build the documentation with link checking to
    ensure that no links are outdated
