@@ -12,6 +12,7 @@ dist/*
 # Build docs and packages
 build/*
 doc/build/
+.vscode/
 
 # virtual environment
 venv/

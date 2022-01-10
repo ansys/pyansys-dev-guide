@@ -18,12 +18,19 @@ A PDF version of this guide can be found in the release notes in `Releases
 
 Generate Documentation
 ----------------------
-To generate this documentation locally, first install the
-requirements with:
+To generate this documentation locally, you can install the requirements into
+your Python environment with:
 
 .. code::
 
    pip install -r requirements_docs.txt
+
+or if you want to configure and activate a Python virtual environment with the
+required packages:
+
+.. code::
+    
+   configure_venv
 
 Then, depending on your operating system, generate the documentation.
 
