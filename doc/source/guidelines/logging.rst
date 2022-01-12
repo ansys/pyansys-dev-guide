@@ -116,7 +116,7 @@ modified content send to the stream.
 String format
 ~~~~~~~~~~~~~
 Even if the current practice recommends using the f-string to format most
-strings, when it comes to logging, the former %-formatting is preferable.  This
+strings, when it comes to logging, the former %-formatting is preferable. This
 way the string format is not evaluated at runtime. It is deferred and evaluated
 only when the message is emitted. If there is any formatting or evaluation
 error, these will be reported as logging errors and will not halt code
@@ -237,9 +237,9 @@ Instance logger
 ~~~~~~~~~~~~~~~
 Every time that the class ``_MapdlCore`` is instantiated, a logger is created.
 This logger is recommended when using the ``pool`` library or when using
-multiple instances of ``Mapdl``.  The main feature of this logger is that it
-tracks each instance and it includes its name when logging.  The name of the
-instances are unique.  For example in case of using the ``gRPC`` ``Mapdl``
+multiple instances of ``Mapdl``. The main feature of this logger is that it
+tracks each instance and it includes its name when logging. The name of the
+instances are unique. For example in case of using the ``gRPC`` ``Mapdl``
 version, its name includes the IP and port of the correspondent instance, making
 unique its logger.
 
@@ -251,8 +251,8 @@ The instance loggers can be accessed in two places:
   name of the created logger.
 
 These instance loggers inherit from the ``pymapdl_global`` output handlers and
-logging level unless otherwise specified.  The way this logger works is very
-similar to the global logger.  You can add a file handler if you wish using the
+logging level unless otherwise specified. The way this logger works is very
+similar to the global logger. You can add a file handler if you wish using the
 method ``log_to_file`` or change the log level using
 :meth:`logging.Logger.setLevel`.
 
