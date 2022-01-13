@@ -74,7 +74,7 @@ Starting Discussions
 --------------------
 For general questions about development practices, you should create discussions
 rather than issues. The repository for each PyAnsys library has its own
-``Discussions`` page. For example, to ask a question about an PyMAPDL development
+``Discussions`` page. For example, to ask a question about a PyMAPDL development
 practice, you would create a discussion on this library's `Discussions <https://github.com/pyansys/pymapdl/discussions>`_
 page. It is possible for discussions to lead to the creation of issues.
 
