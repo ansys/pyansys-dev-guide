@@ -119,4 +119,3 @@ If you did not write the code that you are contributing yourself, it is your
 responsibility to ensure that the existing license for this code is compatible and
 included in the contributed files. You must obtain permission from the original
 author to relicense the code.
-
