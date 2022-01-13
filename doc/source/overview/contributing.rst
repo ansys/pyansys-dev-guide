@@ -112,7 +112,7 @@ of the repository. For additional information, see :ref: dev_practices.
 Licensing
 ---------
 All contributed code will be licensed under the MIT License. For more information, see
-for more information. The ``LICENSE`` file with the MIT License must be included in
+:ref:`license_file`. The ``LICENSE`` file with the MIT License must be included in
 the root directory of the repository for a PyAnsys library.
 
 If you did not write the code that you are contributing yourself, it is your
