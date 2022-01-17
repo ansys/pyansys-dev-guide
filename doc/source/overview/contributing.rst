@@ -111,7 +111,7 @@ is a placeholder for the name of the repository.
     pip install -e .
 
 For example, to clone and install the latest version of PyMAPDL,
-you would use this code:
+you would run the following:
 
 .. code::
 
