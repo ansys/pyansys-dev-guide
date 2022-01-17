@@ -18,6 +18,23 @@ library's documentation, including:
 - Instructions for cloning the source repository from GitHub
 - URL to the library's ``Issues`` page
 
+Creating Issues
+---------------
+You create issues to submit questions, report bugs, and request new
+features. When you create an issue, ensure that you provide sufficient
+context, such as application versions and reproduction steps. Also use
+an issue label like "Documentation" to indicate the issue category.
+
+PyAnsys developers and community members will respond to and hopefully
+resolve your issue. Once an issue is resolved, you are encouraged to
+close it yourself. Otherwise, after a period of inactivity, the PyAnsys
+project support team will use discretion as to whether to close it.
+
+Should it turn out that your issue is closed erroneously, perhaps because
+a bug fix implemented to resolve your issue did not work, you can re-open
+it with a comment that explains why you have done so. If you need to contact the
+PyAnsys project support team directly, email `pyansys.support@ansys.com <pyansys.support@ansys.com>`_.
+
 For convenience, here are URLs for ``Issues`` pages for
 Ansys product repositories:
 
@@ -27,11 +44,8 @@ Ansys product repositories:
 - `PyMAPDL Issues <https://github.com/pyansys/pymapdl/issues>`_
 - `PyMAPDL-Reader Issues <https://github.com/pyansys/pymapdl-reader/issues>`_
 
-You can reach the overall PyAnsys project support team at
-'pyansys.support@ansys.com <pyansys.support@ansys.com>`_.
-
 Submitting Questions
----------------------
+~~~~~~~~~~~~~~~~~~~~
 For general or technical questions about a PyAnsys library, its
 applications, or software usage, create issues on the respective
 library's ``Issues`` page. This allows PyAnsys developers and
@@ -39,7 +53,7 @@ community members with the needed expertise to collectively address
 them. It also makes their responses available to all users.
 
 Reporting Bugs
---------------
+~~~~~~~~~~~~~~
 If you encounter a bug or your workflow crashes while using a
 PyAnsys library, create an issue on the respective library's 
 ``Issues`` page and tag it with an appropriate label so that it 
@@ -49,7 +63,7 @@ provide a traceback, screenshots, and sample files that might help
 the community to address the issue.
 
 Requesting New Features
------------------------
+~~~~~~~~~~~~~~~~~~~~~~~
 We encourage you to submit ideas for improving PyAnsys libraries.
 To suggest a new feature, create an issue on the respective library's
 ``Issues`` page and tag it with the ``Feature Request`` label. Use a 
@@ -79,14 +93,14 @@ practice, you would create a discussion on this library's `Discussions <https://
 page. It is possible for discussions to lead to the creation of issues.
 
 .. note::
-    Because the ``Discussions`` feature is still in beta on GitHub, usage may
-    change in the future.
+    Because the ``Discussions`` page is still a beta feature on GitHub, usage
+    may change in the future.
     
 Cloning the Source Repository
 -----------------------------
 As mentioned earlier, specific instructions for cloning a source
 repository from GitHub appear on the ``Contributing`` page in the
-respective library's documentation. In te following code for cloning and
+respective library's documentation. In the following code for cloning and
 installing the latest version of a PyAnsys repository, ``<pyansy-repository>``
 is a placeholder for the name of the repository.
 
@@ -96,8 +110,8 @@ is a placeholder for the name of the repository.
     cd <pyansys-repository>
     pip install -e .
 
-For example, you would use this code to clone and installing the latest version
-of PyMAPDL:
+For example, to clone and install the latest version of PyMAPDL,
+you would run the following:
 
 .. code::
 
@@ -107,7 +121,9 @@ of PyMAPDL:
 
 If you want to eventually push a contribution to the official
 PyAnsys repository, consider creating a `fork <https://docs.github.com/en/get-started/quickstart/fork-a-repo>`_
-of the repository. For additional information, see :ref: dev_practices.
+of the repository. For information on how to contribute through
+GitHub, see :ref:`development_practices`, paying particular attention to :ref:`branch_naming`
+when you are ready to create a pull request.
 
 Licensing
 ---------

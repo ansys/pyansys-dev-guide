@@ -64,6 +64,8 @@ If your PR branch is a ``fix/`` branch, do not delete it because it may be neces
 merge your PR branch with the current release branch. See the next section for branch
 naming conventions.
 
+.. _branch_naming:
+
 Branch Naming Conventions
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 To streamline development, we have the following requirements for naming
@@ -154,9 +156,9 @@ Documentation Style and Organization
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Docstrings should follow `numpydocs docstring <https://numpydoc.readthedocs.io/en/latest/format.html>`_
 guidelines. Documentation within the ``doc/`` directory use the reStructuredText.
-(RST) format. Examples within the ``examples/`` directory should be PEP8-compliant
+(RST) format. Examples within the ``examples/`` directory should be PEP 8-compliant
 and will be compiled dynamically during the build process. Always ensure that
-examples run properly locally as they will be verified through the CI performed
+examples run properly locally because they will be verified through the CI performed
 via GitHub Actions.
 
 Documentation for the latest stable release of a PyAnsys libary is accessible
