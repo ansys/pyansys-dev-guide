@@ -37,8 +37,9 @@ To submit new code to a PyAnsys repository:
    the respective GitHub repository and then clone the forked repository
    to your computer. 
 
-#. In your local repository, create a branch. See :ref:`branch_naming`and 
-   :ref:`branching_model`.
+#. In your local repository, create a branch. See :ref:`branch_naming`.
+   Comprehensive information on our model for branching is availible in
+   `Branching Model <#Branching Model>`__.
 
 #. Add your new feature and commit it locally. Be sure to commit
    frequently as the ability to revert to past commits is often helpful,
