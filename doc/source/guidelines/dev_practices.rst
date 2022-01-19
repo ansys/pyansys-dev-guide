@@ -168,7 +168,7 @@ Documentation for the latest stable release of a PyAnsys library is accessible
 from its repository. You can generally access the latest development version of the
 documentation tracking the ``main`` branch by adding the prefix ``dev.`` to
 the URL for the latest stable release. For example, the URL for documentation of the
-latest stable release of PyAEDT is `<https://dev.aedtdocs.pyansys.com/>`_, and
+latest stable release of PyAEDT is `<https://aedtdocs.pyansys.com/>`_, and
 the URL for the latest documentation for the development version of PyAEDT is
 `<https://dev.aedtdocs.pyansys.com/>`_. The latest development versions of both
 the library and its documentation are kept up-to-date automatically via GitHub actions.
