@@ -3,14 +3,14 @@
 Development Practices
 =====================
 This page explains how PyAnsys development is conducted. When
-contributing directly to PyAnsys libraries, use these general 
+contributing to a PyAnsys repository, use these general 
 coding paradigms:
 
 #. Follow the `Zen of Python <https://www.python.org/dev/peps/pep-0020/>`__.
    As silly as core Python developers are sometimes, there's much to be
    gained by following the basic guidelines listed in PEP 20. As suggested
    in these guidelines, focus on making your additions intuitive, novel,
-   and helpful for PyAnsys library users. When in doubt, use ``import this``.
+   and helpful for PyAnsys users. When in doubt, use ``import this``.
    For Ansys code quality standards, see :ref:`coding_style`.
 
 #. Document your contributions. Include a docstring for any added
@@ -31,13 +31,15 @@ coding paradigms:
 
 Contributing Through GitHub
 ---------------------------
-To submit new code to a PyAnsys Library:
+To submit new code to a PyAnsys repository:
 
 #. `Fork <https://docs.github.com/en/get-started/quickstart/fork-a-repo>`_
-   the respective library's GitHub repository and then clone
-   the forked repository to your computer. 
+   the respective GitHub repository and then clone the forked repository
+   to your computer. 
 
-#. In your local repository, create a branch. See `Branching Model <#Branching Model>`__.
+#. In your local repository, create a branch. See :ref:`branch_naming`.
+   Comprehensive information on our model for branching is availible in
+   `Branching Model <#Branching Model>`__.
 
 #. Add your new feature and commit it locally. Be sure to commit
    frequently as the ability to revert to past commits is often helpful,
@@ -54,15 +56,15 @@ Once you have tested your branch locally, create a PR and target your
 merge to ``main``. This will automatically run CI testing and verify
 that your changes will work across all supported platforms.
 
-For code verification, someone from the development team for the PyAnsys library
-will review your code to verify that it meets our standards. Once your code
-is approved, if you have write permission, you may merge the PR branch. If you
-don't have write permission, the reviewer or someone else with write permission
-will merge and delete the PR branch.
+For code verification, someone from the PyAnsys development team will review your
+code to verify that it meets our standards. Once your code is approved, if you
+have write permission, you may merge the PR branch. If you don't have write
+permission, the reviewer or someone else with write permission will merge your
+PR and then delete your PR branch.
 
 If your PR branch is a ``fix/`` branch, do not delete it because it may be necessary to
-merge your PR branch with the current release branch. See the next section for branch
-naming conventions.
+merge your PR branch with the current release branch. The next section explains our
+branch naming conventions.
 
 .. _branch_naming:
 
@@ -124,7 +126,8 @@ like this:
 
 Documentation
 -------------
-Documentation for a PyAnsys library is generated from three sources:
+The source and content for documentation varies from repository to repository. For a PyAnsys library,
+documentation is generated from three sources:
 
 - Docstrings from the library's classes, functions, and modules using
   `sphinx.ext.autodoc <https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html>`_.
@@ -161,21 +164,21 @@ and will be compiled dynamically during the build process. Always ensure that
 examples run properly locally because they will be verified through the CI performed
 via GitHub Actions.
 
-Documentation for the latest stable release of a PyAnsys libary is accessible
-from its repository. You can access the latest development version of the
+Documentation for the latest stable release of a PyAnsys library is accessible
+from its repository. You can generally access the latest development version of the
 documentation tracking the ``main`` branch by adding the prefix ``dev.`` to
-the URL for the latest stable release. For example, the URL for the latest
-stable release of the PyAEDT documentation is
-`<https://dev.aedtdocs.pyansys.com/>`_, and the URL for the latest development 
-version of this documentation is `<https://dev.aedtdocs.pyansys.com/>`_. The
-latest development version is kept up-to-date automatically via GitHub actions.
+the URL for the latest stable release. For example, the URL for documentation of the
+latest stable release of PyAEDT is `<https://aedtdocs.pyansys.com/>`_, and
+the URL for the latest documentation for the development version of PyAEDT is
+`<https://dev.aedtdocs.pyansys.com/>`_. The latest development versions of both
+the library and its documentation are kept up-to-date automatically via GitHub actions.
 
-Building the Documentation Locally
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-You can build and verify a library's HTML documentation locally by installing
-Sphinx and other documentation build dependencies.
+Building Documentation Locally
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+You can build and verify the HTML documentation for a PyAnsys project locally
+by installing Sphinx and other documentation build dependencies.
 
-#. Optionally install the library in development mode:
+#. Optionally install the project in development mode:
 
 .. code::
 
@@ -201,14 +204,14 @@ Otherwise, if running on Windows, build the documentation:
    cd doc
    make.bat html
 
-#. After documentation builds successfully locally, use your
-   browser to open the file ``index.html`` in ``doc/_build/html/`` 
-   to review it.
+#. After documentation builds successfully locally, navigate to
+   ``doc/_build/html/`` and use your browser to open the
+   ``index.html`` so that you can review the documenation.
 
 Continuous Integration and Continuous Delivery (CI/CD)
 ------------------------------------------------------
 
-A PyAnsys library uses continuous integration (CI) and continuous delivery (CD)
+A PyAnsys project uses continuous integration (CI) and continuous delivery (CD)
 to automate building, testing, and deployment tasks. The CI pipeline is
 deployed on both GitHub Actions and Azure Pipelines and performs the following
 tasks:
@@ -218,9 +221,11 @@ tasks:
 - Spelling and style verification
 - Documentation build
 
+.. _branching_model:
+
 Branching Model
 ---------------
-The branching model for a PyAnsys library enables rapid development of
+The branching model for a PyAnsys project enables rapid development of
 features without sacrificing stability. The model closely follows the 
 `Trunk Based Development <https://trunkbaseddevelopment.com/>`_ approach:
 
@@ -276,11 +281,10 @@ Release procedures follow for major and minor releases.
 #. After building the documentation, open the local build and examine
    the examples for any obvious issues.
 
-#. Update the version numbers in
-   ``ansys/<product>/<library>/_version.py`` and commit this file.  Push the
-   branch to GitHub and create a new PR for this release that merges
-   it to ``main``. While effort is focused on the release, development
-   to ``main`` should be limited.
+#. Update the version numbers in ``ansys/<product>/<library>/_version.py``
+   and commit this file. Push the branch to GitHub and create a new PR
+   for this release that merges it to ``main``. While effort is focused
+   on the release, development to ``main`` should be limited.
 
 #. Wait for the PyAnsys developers and community to functionally test the
    new release. Testors should locally install this branch and use it in
@@ -327,11 +331,12 @@ should not wait until a minor release. These are the steps for a patch release:
    an opportunity to validate and approve the bug fix release. Any
    additional hotfixes should be outside of this PR.
 
-#. When the PR is approved, merge it with the release branch, but not with
-   ``main`` as there is no reason to increment the version of the ``main`` branch.
+#. When the PR is approved, merge it with the release branch but not with
+   ``main`` because there is no reason to increment the version of the
+   ``main`` branch.
 
 #. Create a tag from the release branch with the applicable version number
    as described in the previous section.
 
-4. If deemed necessary, create and add release notes as described in the
+#. If deemed necessary, create and add release notes as described in the
    previous section.
