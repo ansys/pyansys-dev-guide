@@ -126,7 +126,7 @@ like this:
 
 Documentation
 -------------
-The source and content for documentation varies from project to project. For a PyAnsys library,
+The source and content for documentation varies from repository to repository. For a PyAnsys library,
 documentation is generated from three sources:
 
 - Docstrings from the library's classes, functions, and modules using
@@ -164,14 +164,14 @@ and will be compiled dynamically during the build process. Always ensure that
 examples run properly locally because they will be verified through the CI performed
 via GitHub Actions.
 
-Documentation for the latest stable release of a PyAnsys libary is accessible
-from its repository. You can access the latest development version of the
+Documentation for the latest stable release of a PyAnsys library is accessible
+from its repository. You can generally access the latest development version of the
 documentation tracking the ``main`` branch by adding the prefix ``dev.`` to
-the URL for the latest stable release. For example, the URL for the latest
-stable release of the PyAEDT documentation is
-`<https://dev.aedtdocs.pyansys.com/>`_, and the URL for the latest development 
-version of this documentation is `<https://dev.aedtdocs.pyansys.com/>`_. The
-latest development version is kept up-to-date automatically via GitHub actions.
+the URL for the latest stable release. For example, the URL for documentation of the
+latest stable release of PyAEDT is `<https://dev.aedtdocs.pyansys.com/>`_, and
+the URL for the latest documentation for the development version of PyAEDT is
+`<https://dev.aedtdocs.pyansys.com/>`_. The latest development versions of both
+the library and its documentation are kept up-to-date automatically via GitHub actions.
 
 Building Documentation Locally
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

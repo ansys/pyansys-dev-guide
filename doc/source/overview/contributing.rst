@@ -10,10 +10,10 @@ our libraries powerful tools for all users. As such, we
 encourage you to submit questions, report bugs, request new
 features, contribute code, and start discussions.
 
-This page provides general information about contributing to a
-PyAnsys repository. Contribution information specific to a particular
+This page provides general information about contributing code to a
+PyAnsys respository. Contribution information specific to a particular
 repository appears on the ``Contributing`` page in the respective
-repository's documentation, including:
+respository's documentation, including:
 
 - Instructions for cloning the source repository from GitHub
 - URL to the repository's ``Issues`` page
@@ -38,7 +38,7 @@ PyAnsys project support team directly, email `pyansys.support@ansys.com <pyansys
 For convenience, here are URLs for ``Issues`` pages for
 public Ansys repositories:
 
-- `OpenAPI Client Issues <https://github.com/pyansys/openapi-common/issues>`_
+- `OpenAPI Common Issues <https://github.com/pyansys/openapi-common/issues>`_
 - `PyAEDT Issues <https://github.com/pyansys/pyaedt/issues>`_
 - `PyDPF-Core Issues <https://github.com/pyansys/pydpf-core/issues>`_
 - `PyDPF-Post Issues <https://github.com/pyansys/pydpf-post/issues>`_
@@ -47,41 +47,39 @@ public Ansys repositories:
 
 Submitting Questions
 ~~~~~~~~~~~~~~~~~~~~
-For general or technical questions about a PyAnsys repository, its
-applications, or software usage, create issues on the respective
-repository's ``Issues`` page. This allows PyAnsys developers and
-community members with the needed expertise to collectively address
-them. It also makes their responses available to all users.
+For general or technical questions about the code in a PyAnsys repository or
+about its application or software usage, create issues on the ``Issues`` page
+of the repository. This allows PyAnsys developers and community members with
+the needed expertise to collectively address them. It also makes their responses
+available to all users.
 
 Reporting Bugs
 ~~~~~~~~~~~~~~
-If you encounter a bug or your workflow crashes while using code
-in a PyAnsys repository, create an issue on the respective repository's 
-``Issues`` page and tag it with an appropriate label so that it 
-can be promptly addressed. In describing the issue, be as descriptive
-as possible so that the issue can be reproduced. Whenever possible,
-provide a traceback, screenshots, and sample files that might help
-the community to address the issue.
+If you encounter a bug or your workflow crashes while using code in a PyAnsys
+repository, create an issue on the repository's ``Issues`` page and tag it with
+an appropriate label so that it can be promptly addressed. In describing the
+issue, be as descriptive as possible so that the issue can be reproduced.
+Whenever possible, provide a traceback, screenshots, and sample files that might
+help the community to address the issue.
 
 Requesting New Features
 ~~~~~~~~~~~~~~~~~~~~~~~
-We encourage you to submit ideas for improving PyAnsys repositories.
-To suggest a new feature, create an issue on the respective repository's
-``Issues`` page and tag it with the ``Feature Request`` label. Use a 
-descriptive title and provide ample background information to help the
-community decide how the feature might be implemented. For example,
-if you would like to see a reader added for a specific file format,
-in the issue, provide a link to documentation for this file
-format and possibly some sample files and screenshots. The community
-will then use the issue thread to discuss the request and
-provide feedback on how the feature might best be implemented.
+We encourage you to submit ideas for improving the code in a PyAnsys
+repository. To suggest a new feature, create an issue on the repository's
+``Issues`` page and tag this issue with the ``Feature Request`` label.
+Use a descriptive title and provide ample background information to help the
+community decide how the feature might be implemented. For example, if you
+would like to see a reader added for a specific file format, in the issue,
+provide a link to documentation for this file format and possibly some sample
+files and screenshots. The community will then use the issue thread to discuss
+the request and provide feedback on how the feature might best be implemented.
 
 Contributing New Code
 ---------------------
 When you are ready to start contributing code, see:
 
-- :ref:`development_practices` for information on how development is
-  conducted in PyAnsys repositories
+- :ref:`development_practices` for information on how PyAnsys development is
+  conducted
 - :ref:`best_practices` for information on how to style and format your
   code to adhere to PyAnsys standards
 
