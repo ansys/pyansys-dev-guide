@@ -126,87 +126,22 @@ like this:
 
 Documentation
 -------------
-The source and content for documentation varies from repository to repository. For a PyAnsys library,
-documentation is generated from three sources:
+Good documentation is essential to Python community members adopting PyAnsys libraries.
+While the source and content for each library's documentation differs, the documentation
+itself is generated from three sources:
 
 - Docstrings from the library's classes, functions, and modules using
   `sphinx.ext.autodoc <https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html>`_.
 - reStructuredText (RST) files from ``doc/``
 - Examples from ``examples/``
 
-General usage information and API descriptions should be placed within
-``doc/source`` and docstrings. Full examples should be placed in
-``examples/``.
+Docstrings are included in the Python (PY) files for your API. General usage information
+is provided in RST files that are placed in ``doc/source``. Full-fledged standalone examples
+that are meant to be run as individual downloadable scripts are provided in PY files that are
+placed in ``examples/``.
 
-Adding a New Example
-~~~~~~~~~~~~~~~~~~~~
-Examples come in two formats:
-
-- Basic code snippets demonstrating some functionality
-- Full-fledged standalone examples meant to be run as individual downloadable scripts
-
-While basic code snippets should be placed in the ``doc/source`` directory, full-fledged
-standalone examples must be placed in the ``examples`` directory at the root of the repository.
-
-When adding a standalone example, you add it to an applicable subfolder in the ``examples``
-directory. If none of the existing directories match the category of your example, create
-a new subfolder with a ``README.txt`` file describing the new category. As these examples
-are built using the Sphinx gallery extension, you must follow `Sphinx gallery coding guidelines <https://sphinx-gallery.github.io/stable/index.html>_`.
-
-PyMAPDL provides a self-demonstrating example of how to `add an example reference key <https://mapdldocs.pyansys.com/examples/03-tips-n-tricks/00-example-template.html#ref-how-to-add-an-example-reference-key>`_. 
-
-Documentation Style and Organization
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Docstrings should follow `numpydocs docstring <https://numpydoc.readthedocs.io/en/latest/format.html>`_
-guidelines. Documentation within the ``doc/`` directory use the reStructuredText.
-(RST) format. Examples within the ``examples/`` directory should be PEP 8-compliant
-and will be compiled dynamically during the build process. Always ensure that
-examples run properly locally because they will be verified through the CI performed
-via GitHub Actions.
-
-Documentation for the latest stable release of a PyAnsys library is accessible
-from its repository. You can generally access the latest development version of the
-documentation tracking the ``main`` branch by adding the prefix ``dev.`` to
-the URL for the latest stable release. For example, the URL for documentation of the
-latest stable release of PyAEDT is `<https://aedtdocs.pyansys.com/>`_, and
-the URL for the latest documentation for the development version of PyAEDT is
-`<https://dev.aedtdocs.pyansys.com/>`_. The latest development versions of both
-the library and its documentation are kept up-to-date automatically via GitHub actions.
-
-Building Documentation Locally
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-You can build and verify the HTML documentation for a PyAnsys project locally
-by installing Sphinx and other documentation build dependencies.
-
-#. Optionally install the project in development mode:
-
-.. code::
-
-   pip install -e .
-
-#. Install the build requirements for documentation:
-
-.. code::
-
-   pip install -r requirements_docs.txt
-
-
-#. If running on Linux/Mac OS, build the documentation:
-
-.. code::
-
-    make -C doc html
-
-Otherwise, if running on Windows, build the documentation:
-
-.. code::
-
-   cd doc
-   make.bat html
-
-#. After documentation builds successfully locally, navigate to
-   ``doc/_build/html/`` and use your browser to open the
-   ``index.html`` so that you can review the documenation.
+For comprehensive documentation guidelines, including how to build documentation locally,
+see :ref:`doc_practices`.
 
 Continuous Integration and Continuous Delivery (CI/CD)
 ------------------------------------------------------
