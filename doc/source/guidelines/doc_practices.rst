@@ -184,7 +184,7 @@ Cloning a GitHub Repository
 ---------------------------
 While developers likely know how to clone a GitHub repository, technical documentation
 specialists may not know how to do this. You can easily use either Windows PowerShell
-commands or GitBash.
+or GitBash.
 
 Using Windows PowerShell to Clone a GitHub Repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -193,13 +193,14 @@ Using Windows PowerShell to Clone a GitHub Repository
 #. Go to the `PyAnsys GitHub account <https://github.com/pyansys>`_ and select the
    repository that you want to clone.
 
-   Because the list of repositories is quite long, you might want to use the ``Find
+   Because the list of repositories is quite long, you can use the ``Find
    a repository`` option to search for the repository that you want to clone. For
    example, you can seach for "theme" to find the ``pyansys-sphinx-theme`` repository.  
 
-#. On the right, click the green ``Code`` button to drop down a list of options.
+#. In the upper right corner of the repository, click the green ``Code`` button to
+   drop down a list of options.
 
-#. To the right of the HTTPS entry, click the clipboard icon to copy the path to
+#. To the right of the ``HTTPS`` option, click the clipboard icon to copy the path to
    the repository.
  
 #. Go back to Windows Powershell and type ``git clone`` and then click the right
@@ -334,15 +335,12 @@ Completing the GitHub PR
 #. If the pushed branch resolves an issue, in its description, type ``Resolves #``
    and select from the list of issues that appears.
 
-#. Create the PR, making title a simple statement because this title is rendered
-   in our `automatic release generator <https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes>`_.
+#. Create either a PR or draft PR, making the title a simple statement because
+   the PR title is rendered in our `automatic release generator <https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes>`_.
 
-#. If you are not ready to have someone review the PR, change its title to include
-   a prefix of ``WIP``, which indicates ``Work in Progress``.
+   If your PR is ready for review, select ``Create pull request``. Otherwise,
+   select ``Create draft pull request`` and mark it as ready for review once
+   you are satisified with it. 
 
-   There is an ``Edit`` button to the right of the title, which becomes a ``Save``
-   button when you are in the editing mode.
-
-#. When the PR is ready for review, remove the ``WIP`` prefix if applicable and
-   then assign the appropriate reviewer.
-
+   If you need to change a PR title, to its right, click the ``Edit`` button,
+   which becomes a ``Save`` button while you are in editing mode.
