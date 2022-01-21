@@ -26,7 +26,9 @@ and a `user guide <https://numpydoc.readthedocs.io/en/latest/>`_ that explains h
 the extension with Sphinx. The ``napoleon`` extension, which parses both numpy and Google
 style docstrings, refers you to the `Google Python Style Guide <https://google.github.io/styleguide/pyguide.html>`_.
 
-This guide provides additional API documentation guidelines in :ref:`api_documentation`.
+Regardless of the extension that you choose for generating documentation, we
+recommend the use of numpy-style docstrings so that there is consistency
+across PyAnsys libraries. For more information, see :ref:`api_documentation`.
 
 RST Files
 ---------
@@ -255,10 +257,7 @@ GitHub repository.
    
    .. code::
 
-    git checkout -b edit_contributing
-   
-#. To add and check out this new branch, enter ``git add checkout -b doc/`` followed by
-   the branch name that you specified in the previous step.
+    git checkout -b doc/edit_contributing
 
 #. Enter ``git add .`` to stage the changed files to commit.
 
@@ -282,22 +281,19 @@ GitHub repository.
    The number of files changed are shown, followed by the number of insertions and deletions.
    A create mode or rename doc action is then shown for each file.
 
-#. Enter ``git push``, which shows a message like this to indicate that changed files have not
-   been uploaded yet:
+#. For the first push of a newly created branch, enter ``git push --set-upstream origin``,
+   followed by the branch name.
    
-   .. code::
+   For the given example, you would enter:
    
-    fatal: The current branch doc/edit_contributing has no upstream branch.
-
-#. To push the  current branch and set the remote as upstream, enter the following,
-   replacing the branch name shown with your branch name:
    
    .. code::
    
     git push --set-upstream origin doc/edit_contributing
 
-#. Copy the text shown and paste it into the command line and run it.
-
+   .. note::
+      For any subsequent push, you would simply use ``git push``.
+   
 #. Complete the PR as described in :ref:`complete_pr`.
 
 Using Git Extensions to Push Changes
@@ -331,7 +327,7 @@ GitHub repository.
 
 .. _complete_pr:
 
-Completing the GetHub PR
+Completing the GitHub PR
 -------------------------
 #. Go to the GitHub reposity, where you will see an entry for your pushed branch.
 
