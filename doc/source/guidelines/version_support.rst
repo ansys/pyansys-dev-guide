@@ -3,7 +3,8 @@ Python Version Support
 
 When creating Python libraries, plan on supporting the oldest actively supported
 version of Python. For a quick reference, visit `Status of Python Branches
-<https://devguide.python.org/#status-of-python-branches>`_. Here is 2022 summary:
+<https://devguide.python.org/#status-of-python-branches>`_. Here is a summary as
+of 2022:
 
 +---------+-------------+-----------------------+
 | Version | Released    | Security Support Ends |
@@ -18,14 +19,14 @@ version of Python. For a quick reference, visit `Status of Python Branches
 +---------+-------------+-----------------------+
 
 Expect these to be the most commonly used Python versions. Note that some
-libraries like `numpy <https://numpy.org/>`_ drop support for older versions of
+libraries like `NumPy <https://numpy.org/>`_ drop support for older versions of
 Python earlier than the Python versions end of life (EOL) as outlined in `NEP 29
-<https://numpy.org/neps/nep-0029-deprecation_policy.html#support-table>`_. Realize
-that users can still install the older version from PyPI via ``pip`` as the
-package manager will download and install the most recent version of that
-library that supports your version of Python.
+<https://numpy.org/neps/nep-0029-deprecation_policy.html#support-table>`_.
 
-You can enforce a minimum required Python version within ``setup.py`` with:
+Realize that users can still install the older version from PyPI via ``pip`` as
+the package manager (``pip``) will download and install the most recent version
+of that library that supports your version of Python.  You can enforce a minimum
+required Python version within ``setup.py`` with:
 
 .. code:: python
 
@@ -43,11 +44,13 @@ support which versions of Python. You can also impose an upper limit if you're
 sure you don't support certain versions of Python. For example, if you only
 support Python 3.6 through 3.9: ``python_requires='>=3.6, <3.10'``.
 
+
 Verifying Support
 -----------------
 The best way to validate support of a Python library's support of a version of
-Python is to validate it via GitHub Actions. An example GitHub workflow testing
-Python 3.6 through Python 3.10 on Windows and Linux would would start with::
+Python is to validate it via unit testing within CI/CD. An example
+GitHub workflow testing Python 3.6 through Python 3.10 on Windows and Linux
+would would start with::
 
    jobs:
      unittest:
