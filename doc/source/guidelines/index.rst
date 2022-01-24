@@ -14,6 +14,7 @@ Table of Contents
    :maxdepth: 2
 
    dev_practices
+   version_support
    app_interface_abstraction
    data_transfer_and_representation
    logging
