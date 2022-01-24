@@ -25,7 +25,7 @@ Python earlier than their end of life (EOL) as outlined in `NEP 29
 
 Realize that users can still install the older version from PyPI via ``pip`` as
 the package manager (``pip``). When ``pip`` is used, it downloads and installs the most recent version
-of THE library that supports your version of Python. You can enforce a minimum-
+of the library that supports your version of Python. You can enforce a minimum-
 required Python version within ``setup.py`` with:
 
 .. code:: python
