@@ -1,8 +1,8 @@
   .. _ref_guide_wsl:
 
 
-ANSYS on WSL and docker 
-########################
+ANSYS on Windows Subsystem for Linux and Docker
+###############################################
 
 This guide shows you how to use Ansys products, more specifically PyMAPDL, in the Windows Subsystem for Linux (WSL).
 WSL is a compatibility layer for running Linux binary executables natively on Windows 10, Windows 11, and Windows Server 2019 
@@ -18,7 +18,7 @@ For more information about WSL please visit `What is the Windows Subsystem for L
 .. warning:: This guide hasn't been tested with a VPN connection.
 
 
-Running ANSYS in WSL 
+Running ANSYS on WSL 
 *********************
 
 Install WSL2
@@ -116,7 +116,7 @@ You can see the steps in `How to open port in Windows 10 Firewall <https://answe
 **Reality:**
 This works if you want to run a docker image using WSL Linux image to host that docker image.
 The docker image will successfully communicate with the Windows License Server using these ports if using ``'-p'`` flag when running the docker image and if having those ports open.
-See `Running ANSYS in a local docker`_ .
+See `Running ANSYS on a local docker`_ .
 
 
 If you wish to run ANSYS in the CentOS7 image and use the Windows License Server, opening the ports might not work properly, since Windows firewall seems to block all traffic coming from WSL. 
@@ -165,10 +165,10 @@ You can add the next lines to you WSL ``~/.bashrc`` file to create an environmen
     export ANSYSLMD_LICENSE_FILE=1055@$winhostIP
 
 
-Running ANSYS in a local docker
+Running ANSYS on a local docker
 ********************************
 
-To run a docker image, you need to follow all the previous steps detailed in `Running ANSYS in WSL`_ .
+To run a docker image, you need to follow all the previous steps detailed in `Running ANSYS on WSL`_ .
 
 Additionally, to run a docker PyMAPDL image, use the next command:
 
@@ -246,7 +246,7 @@ Then you can run the docker image using:
 Notes
 ======
 
-The specified IP (``127.0.0.1``) in `Running ANSYS in a local docker`_ is the IP of WSL CentOS from the WSL perspective.
+The specified IP (``127.0.0.1``) in `Running ANSYS on a local docker`_ is the IP of WSL CentOS from the WSL perspective.
 Whereas the Windows host IP is (normally) ``127.0.1.1``.
 Docker build the images (PyMAPDL images) using the WSL distribution as base. 
 Hence we have a PyMAPDL running on a Linux WSL distribution which is running on a Windows host.
@@ -417,7 +417,7 @@ It is needed if we want to replicate the CI/CD behaviour (See ``.ci`` folder).
 Notes
 ******
 
-- The PyMAPDL does only work for shared-memory parallel (SMP) when running it in WSL, hence this flag (``-smp``) should be included.
+- The PyMAPDL does only work for shared-memory parallel (SMP) when running it on WSL, hence this flag (``-smp``) should be included.
 
 - Remember there are some incompatibilities between VPN and INTEL MPI. In that case use ``-mpi msmpi`` flag when calling mapdl.
 
