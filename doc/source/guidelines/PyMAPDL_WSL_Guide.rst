@@ -9,7 +9,7 @@ WSL is a compatibility layer for running Linux binary executables natively on Wi
 
 This section walks you through the installation of WSL on Windows and then shows how to use it together with MAPDL, PyMAPDL, and Docker.
 
-For more information about WSL,  see `What is the Windows Subsystem for Linux? <https://docs.microsoft.com/en-us/windows/wsl/about>`_. 
+For more information about WSL, see `What is the Windows Subsystem for Linux? <https://docs.microsoft.com/en-us/windows/wsl/about>`_. 
 
 .. warning:: **Disclaimer:** This section is currently being drafted. Use it with caution.
 
