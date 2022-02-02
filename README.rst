@@ -10,7 +10,8 @@ This guide serves as the central document for:
   project and libraries
 
 
-Web-based documentation is posted upon approval.
+Web-based documentation can be found in `PyAnsys Developer's Guide <https://dev.docs.pyansys.com>`_.
+
 
 A PDF version of this guide can be found in the release notes in `Releases
 <https://github.com/pyansys/about/releases>`_.
