@@ -271,32 +271,36 @@ Or:
     cat ./INSTALL
 
 
-- ``-licserverinfo`` : Specifies information to be used by the client for the license server. 
-  Valid only in conjunction with a silent installation (INSTALL). 
+``-licserverinfo``
+------------------
+
+Specifies information to be used by the client for the license server. 
+Valid only in conjunction with a silent installation (INSTALL). 
   
-  The format for a single license server is:
+The format for a **single license server** is:
 
-    .. code:: bash
+.. code:: bash
 
-        -licserverinfo LI_port_number:FLEXlm_port_number:hostname
+   -licserverinfo LI_port_number:FLEXlm_port_number:hostname
+
+Example:
+
+.. code:: bash
     
-    Example:
+   ./INSTALL -silent -install_dir /ansys_inc/ -mechapdl -licserverinfo 2325:1055:winhostIP
+
+The format for **three license servers** is:
+
+.. code:: bash
+
+   -licserverinfo LI_port_number:FLEXlm_port_number:hostname1,hostname2,hostname3
     
-    .. code:: bash
-
-        ./INSTALL -silent -install_dir /ansys_inc/ -mechapdl -licserverinfo 2325:1055:winhostIP
-
-  + The format for three license servers is:
-
-    .. code:: bash
-
-        -licserverinfo LI_port_number:FLEXlm_port_number:hostname1,hostname2,hostname3
+Example:
     
-    Example:
-    
-    .. code:: bash
+.. code:: bash
 
-        ./INSTALL -silent -install_dir /ansys_inc/ -mechapdl -licserverinfo 2325:1055:abc,def,xyz
+   ./INSTALL -silent -install_dir /ansys_inc/ -mechapdl -licserverinfo 2325:1055:abc,def,xyz
+
 
 ``-lang``
 ----------
