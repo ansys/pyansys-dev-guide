@@ -1,0 +1,55 @@
+name: Nightly Documentation Build
+
+
+on:
+  schedule:  # UTC at 0400
+    - cron:  '0 4 * * */2' # To run every 3 days
+  workflow_dispatch:
+
+jobs:
+  nightly_docs_build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2.2.2
+        with:
+          python-version: 3.8
+
+      - name: Build HTML Documentation
+        run: |
+          pip install -r requirements_docs.txt --disable-pip-version-check
+          make -C doc html SPHINXOPTS="-W"
+          touch doc/build/html/.nojekyll
+          echo "dev.docs.pyansys.com" > doc/build/html/CNAME
+  
+      - name: Build PDF Documentation
+        run: |
+          sudo apt update
+          sudo apt-get install -y texlive-latex-extra latexmk
+          make -C doc latexpdf
+
+      - name: Upload HTML Documentation
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: HTML-Documentation
+          path: doc/build/html
+          retention-days: 7
+
+      - name: Upload PDF Documentation
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: PDF-Documentation
+          path: doc/build/latex/*.pdf
+          retention-days: 7
+
+      - name: Deploy to gh-pages
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          token: ${{ secrets.github_token }}
+          branch: gh-pages
+          folder: doc/build/html
+          clean: true
+          single-commit: true
