@@ -20,3 +20,5 @@ Table of Contents
    data_transfer_and_representation
    logging
    service_abstraction
+   PyMAPDL_WSL_Guide
+
