@@ -36,14 +36,14 @@ jobs:
       - name: Upload HTML Documentation
         uses: actions/upload-artifact@v2.2.4
         with:
-          name: Documentation
+          name: HTML-Documentation
           path: doc/build/html
           retention-days: 7
 
       - name: Upload PDF Documentation
         uses: actions/upload-artifact@v2.2.4
         with:
-          name: Documentation
+          name: PDF-Documentation
           path: doc/build/latex/*.pdf
           retention-days: 7
 
@@ -65,10 +65,10 @@ jobs:
       - name: Deploy to gh-pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: doc/build/html
-          CLEAN: true
+          token: ${{ secrets.github_token }}
+          branch: gh-pages
+          folder: doc/build/html
+          clean: true
           single-commit: true
 
       - name: Release
