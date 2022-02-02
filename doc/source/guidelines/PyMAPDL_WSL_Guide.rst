@@ -15,31 +15,27 @@ For more information about WSL please visit `What is the Windows Subsystem for L
 .. warning:: **Disclaimer:** This guide is still in Alpha state. Please proceed with caution. 
 
 
-.. warning:: This guide hasn't been tested with a VPN connection.
+.. warning:: This guide hasn't been fully tested with a VPN connection. If you experience any problems to connect WSL to internet, try to disconnect from the VPN. 
 
 
 Running ANSYS on WSL 
 *********************
 
-Install WSL2
-=============
+Install WSL
+============
 
 Follow the instructions in the official Microsoft website `Install WSL <https://docs.microsoft.com/en-us/windows/wsl/install/>`_ .
 
-It is recommended you use WSL2 over WSL1. 
+Currently there are two versions of WSL. The oldest is WSL1, whereas WSL2 is the latest and include many improvements over WSL1.
+It is highly recommended you upgrade and use WSL2 over WSL1. 
 
 Install CentOS7 WSL Distribution
 =================================
 
 This is the recommended distribution to work with PyANSYS.
 
-You can install it using an unofficial WSL distribution from `<https://github.com/wsldl-pg/CentWSL/>`_ .
-
-.. note:: 
-
-    It seems the above project has been discontinued.
-    A more updated CentOS distribution can be found in `<https://github.com/mishamosher/CentOS-WSL/>`_ , however it has not been tested yet.
-
+You can install it using an unofficial WSL distribution from `<https://github.com/wsldl-pg/CentWSL/>`_ or
+`<https://github.com/mishamosher/CentOS-WSL/>`_ .
 
 You can use Ubuntu if you wish to do so, but it has not been tested yet.
 
@@ -110,7 +106,7 @@ Opening ports
 --------------
 
 **Theory:** 
-You should open the ports ``1055`` and ``2325`` for the license server communication in `Windows Firewall Advanced`.
+You should open the ports ``1055`` and ``2325`` for the license server communication in *Windows Firewall Advanced*.
 You can see the steps in `How to open port in Windows 10 Firewall <https://answers.microsoft.com/en-us/windows/forum/all/how-to-open-port-in-windows-10-firewall/f38f67c8-23e8-459d-9552-c1b94cca579a/>`_ . 
 
 **Reality:**
@@ -240,7 +236,7 @@ Then you can run the docker image using:
 
     docker run -e ANSYSLMD_LICENSE_FILE=1055@host.docker.internal -e ANS_USER_PATH='/ansys_jobs/upf' -e ANS_USE_UPF='TRUE' --restart always --name mapdl -p 50053:50052 docker.pkg.github.com/pyansys/pymapdl/mapdl -smp  1>log.txt
 
-.. warning:: The use of UPFs with docker images or PyMAPDL is still in Alpha state.
+.. warning:: The use of UPFs with Docker images or PyMAPDL is still in the Alpha state.
 
 
 Notes
@@ -324,7 +320,7 @@ Regarding IPs in WSL and Windows host
 Theory:
 --------
 
-You should be able to access Windows host using IP specified in ``/etc/hosts`` which normally is ``127.0.1.1``. This means that the local WSL IP is ``127.0.1.1``.
+You should be able to access Windows host using IP specified in ``/etc/hosts`` which normally is ``127.0.1.1``. This means that the local WSL IP is ``127.0.0.1``.
 
 Reality
 --------
