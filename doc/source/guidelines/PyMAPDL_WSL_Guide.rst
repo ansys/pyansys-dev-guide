@@ -163,7 +163,7 @@ You can add the next lines to your WSL ``~/.bashrc`` file to create an environme
 Running MAPDL on a Local Docker Image
 **************************************
 
-To run a Docker image, you must follow all steps in `Running ANSYS on WSL`_ .
+To run a Docker image, you must follow all steps in `Running PyMAPDL on WSL`_ .
 
 Additionally, you run a Docker image of PyMAPDL with:
 
