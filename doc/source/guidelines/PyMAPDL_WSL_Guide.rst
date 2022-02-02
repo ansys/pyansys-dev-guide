@@ -111,7 +111,7 @@ You can see the steps in `How to open port in Windows 10 Firewall <https://answe
 **Reality:**
 This works if you want to run a Docker image using WSL Linux image to host that docker image.
 The docker image will successfully communicate with the Windows License Server using these ports if you use the ``'-p'`` flag when running the Docker image and these ports are open.
-See `Running ANSYS on a local docker`_ .
+See `Running MAPDL on a Local Docker Image`_ .
 
 
 If you want to run MAPDL in the CentOS7 image and use the Windows License Server, opening the ports might not work properly because the Windows firewall seems to block all traffic coming from WSL. 
@@ -241,7 +241,7 @@ You can then run the Docker image with:
 Notes
 ======
 
-The specified IP (``127.0.0.1``) in `Running ANSYS on a local docker`_ is the IP of WSL CentOS from the WSL perspective, whereas the Windows host IP is normally ``127.0.1.1``.
+The specified IP (``127.0.0.1``) in `Running MAPDL on a Local Docker Image`_ is the IP of WSL CentOS from the WSL perspective, whereas the Windows host IP is normally ``127.0.1.1``.
 Docker builds the PyMAPDL images using the WSL distribution as the base. 
 Hence, PyMAPDL is running on a Linux WSL distribution, which is running on a Windows host.
 Because the Docker image shares resources with WSL, it also shares the internal IP with the WSL distribution.
