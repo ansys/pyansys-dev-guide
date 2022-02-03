@@ -2,9 +2,23 @@
 
 Documentation Practices
 =======================
-The generation of documentation uses `Sphinx <https://www.sphinx-doc.org/en/master/>`__
-and an Ansys-branded theme. Documentation is built from docstrings, reStructuredText
-(RST) files, and Python (PY) example files.
+PyAnsys documentation must not only be written but also maintained. If you are new
+to writing developer documentation, see the `Google Developer Documentation Style
+Guide <https://developers.google.com/style/articles>`_. It provides editorial guidelines
+for writing clear and consistent developer documentation, allowing this guide to supply
+only style guidance specific to PyAnsys libraries.
+
+When writing developer documentation, the relationship between code and documenation is
+key. To keep documentation up to date with rapdily evolving code:
+
+- Minimize the content footprint
+- Write `timeless documentation <https://developers.google.com/style/timeless-documentation>`_
+- Support contributions from both inside and outside of the development team
+- Perform periodic reviews
+
+The generation of PyAnsys documentation uses `Sphinx <https://www.sphinx-doc.org/en/master/>`__ 
+and an Ansys-branded theme (pyansys-sphinx-theme) to assemble content comes from docstrings,
+reStructuredText (RST) files, and Python (PY) example files.
 
 Docstrings
 ----------
@@ -61,9 +75,17 @@ After you build documenatation locally as described in :ref:`doc_building`, the 
 heading in the ``index.rst`` file for each docuemntation section is shown as clickable link
 in the header of the documentation's generated HTML output.
 
+Within RST files, headings are indicated by following the line with the heading title with a
+string of characters of the same length as the heading title. If the length of the characters
+under the heading title do not match the length of the heading title, Sphinx will generate a warning.
+
+- For first-level headings, use ====.
+- For second-level headings, use ---.
+- For third-level headings, use ~~~. 
+
 You can nest RST files. Plenty of examples of nested RST files are available in the PyAnsys
 libraries on GitHub. Because you need to be familiar with the content in the *PyAnsys Developer's
-Guide*, paging through this doc and exploring its repository will help you better
+Guide*, paging through this document and exploring the files in its repository will help you better
 understand how RST files are used. For more information on defining documentation
 structure, see the `Sphinx Getting Started <https://www.sphinx-doc.org/en/master/usage/quickstart.html>`_
 documentation.

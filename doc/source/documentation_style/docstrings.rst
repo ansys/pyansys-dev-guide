@@ -12,6 +12,11 @@ documentation style. To use `numpydoc`_, add the following to your
                 # other extensions
   ]
 
+For consistency within PyAnsys libraries, alwyas use ``"""`` to introduce and conclude a
+docstring. Additonally, use double back ticks to surround words that are to be formatted
+as literal strings, including the names of files, folders, classes, and methods. While the
+`numpydoc`_ documentation style says to use one back tick to surround the names of classes
+and methods, the PyAnsys style is to use two back ticks. 
 
 Minimum Requirements
 --------------------
@@ -24,14 +29,45 @@ PyAnsys library docstrings contain at a minimum the following
 * `Returns <https://numpydoc.readthedocs.io/en/latest/format.html#returns>`_ if applicable
 * `Examples <https://numpydoc.readthedocs.io/en/latest/format.html#examples>`_
 
-These sections should follow the numpydoc standards. To avoid
+These sections should follow numpydoc standards. To avoid
 inconsistencies between PyAnsys libraries, adhere to the additional 
 standards that follow.
 
+Classes
+~~~~~~~
+A class is a "noun" representing a collection of methods. For consistency within PyAnsys libraries,
+always start the short description for a class with a verb ending in "s", followed by an extended
+summary if applicable::
+
+  class FieldAnalysis3D(Analysis, object):
+    """Manages 3D field analysis setup in HFSS, Maxwell 3D, and Q3D.
+
+    This class is automatically initialized by an application call from one of
+    the 3D tools. See the application function for parameter definitions.
+
+
+Always have a line break between the end of a class docstring and the subsequent methods.
+
+Methods
+~~~~~~~
+A method is a "verb" representing an action that can be performed. For consistency within PyAnsys
+libraries, always start the short description for a method with a verb not ending in "s", followed
+by an extended summary if applicable::
+
+  def export_mesh_stats(self, setup_name, variation_string="", mesh_path=None):
+        """Export mesh statistics to a file.
+
+
+If a method has the decorator ``@exceperty``, you can remove the Parameters section for this method.
+
+Methods with a leading underscore are 'protected' methods, meaning that they aren't rendered in the
+documentation unless an explicit require is made to add them using Sphinx directives. However, clear
+documentation for these methods is still important.
 
 Parameters
 ~~~~~~~~~~
-Always specify the type, and whenever necessary, provide the full class name::
+Classes and functions both have parameters. After the name of a parameter, always specify the data type
+and, whenever necessary, provide the full class name::
 
   Parameters
   ----------
@@ -42,19 +78,21 @@ Always specify the type, and whenever necessary, provide the full class name::
 
 .. note::
    Parameter descriptions have punctuation. While the brief description itself
-   need not be a sentence, any text following it should a clear, complete
-   sentence. 
+   is generally a sentence fragment, clear, complete sentences should be used to
+   provide any additional information. 
 
 
 Returns
 ~~~~~~~
-The Returns section contains only the return type and (not the name and type)
+The Returns section contains only the return type (not the name and type)
 and a brief description::
 
   Returns
   -------
   int
       Description of some return value.
+
+Classes do not have a Returns section.
 
 Example Docstrings
 ------------------
@@ -79,11 +117,11 @@ This directive renders the sample function as:
 Validation
 ----------
 Enable validation of docstrings during the Sphinx build by adding the
-following line to ``conf.py``::
+following line to the ``conf.py`` file::
 
   numpydoc_validation_checks = {"GL08"}
 
-This will issue the following warning for any objects without a docstring::
+This will issue the following warning for any object without a docstring::
 
   "The object does not have a docstring"
 
