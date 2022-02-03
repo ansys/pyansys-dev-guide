@@ -67,7 +67,7 @@ jobs:
         with:
           token: ${{ secrets.github_token }}
           branch: gh-pages
-          folder: doc/build/html
+          folder: HTML-Documentation
           clean: true
           single-commit: true
 
@@ -75,4 +75,4 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            ./**/*.pdf
+            ./*PDF*/*.pdf
