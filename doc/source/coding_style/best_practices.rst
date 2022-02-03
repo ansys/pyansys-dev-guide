@@ -714,10 +714,10 @@ you could implement a unit test for ``is_consonant``.
 Security Considerations
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Security is is an ongoing process involving people and practices, and ensures application confidentiality, integrity, and availability [#]_.
+Security, an ongoing process involving people and practices, ensures application confidentiality, integrity, and availability [#]_.
 Any library should be secure and implement good practices that avoid or mitigate possible security risks.
-This is especially relevant in libraries that requests user input (such web-services).
-Security is a very wide topic hence we do recommend to have a look at the following useful resources:
+This is especially relevant in libraries that request user input (such as web services).
+Because security is a broad topic, we recommend you review this useful Python-specific resource:
 
 * `10 Unknown Security Pitfalls for Python <https://blog.sonarsource.com/10-unknown-security-pitfalls-for-python>`_ - By Dennis Brinkrolf - Sonar source blog
 
