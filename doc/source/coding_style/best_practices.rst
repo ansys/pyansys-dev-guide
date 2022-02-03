@@ -709,3 +709,16 @@ letter is a consonant.
 
 The second approach is more readable and better documented. Additionally,
 you could implement a unit test for ``is_consonant``.
+
+
+Security Considerations
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Security, an ongoing process involving people and practices, ensures application confidentiality, integrity, and availability [#]_.
+Any library should be secure and implement good practices that avoid or mitigate possible security risks.
+This is especially relevant in libraries that request user input (such as web services).
+Because security is a broad topic, we recommend you review this useful Python-specific resource:
+
+* `10 Unknown Security Pitfalls for Python <https://blog.sonarsource.com/10-unknown-security-pitfalls-for-python>`_ - By Dennis Brinkrolf - Sonar source blog
+
+.. [#] Wikipedia - `Software development security <https://en.wikipedia.org/wiki/Software_development_security>`_. 
