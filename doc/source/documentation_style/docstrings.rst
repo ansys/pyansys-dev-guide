@@ -20,9 +20,7 @@ will then have to resolve.
 A blank line signifies the start of a new paragraph. To create a bulleted or numbered list,
 ensure that there is a blank line before the first item and after the last item. Because you
 use the same markup in your docstrings as you do in RST files, see this `quick reference
-<https://docutils.sourceforge.io/docs/user/rst/quickref.html>`_.
-that you use in your Py
-list items in your Python files using the same method as in your REST files. 
+<https://docutils.sourceforge.io/docs/user/rst/quickref.html>`_. 
 
 Surround any text that you want to set apart as literal text in double back ticks to render
 it in a monospace gold font. Use double back ticks to surround the names of files, folders,
@@ -66,7 +64,7 @@ summary if applicable::
     """
 
 
-Always have a line break between the end of a class docstring and the subsequent methods.
+Ensure that there is a line break between the end of a class docstring and the subsequent methods.
 
 Methods
 ~~~~~~~
@@ -84,9 +82,9 @@ documenting private methods is still important.
 
 If a method has the decorator ``@property``, it is turned into a property, which is described as a
 'noun' rather than a 'verb'. Because the resulting property cannot have parameters, you remove
-the 'Parameters' section for such a method. If a setter follows the decorator ``@property``, do not
+the 'Parameters' section for this method. If a setter follows the decorator ``@property``, do not
 add a docstring for the setter. A setter simply exposes both the GET and SET methods rather
-just the GET method. Examples should be included to demonstrate its usage.
+just the GET method. Examples should be included to demonstrate usage.
 
 Parameters
 ~~~~~~~~~~
@@ -131,13 +129,13 @@ Here is an example of a 'Parameters' section for a class in PyAEDT::
         Whether to enable the student version of AEDT. The default
         is ``False``.
     
-The name of each parameter is always followed by a space, a colon, a space, and then
+The name of each parameter is followed by a space, a colon, a space, and then
 the data type. A parameter is optional if its keyword argument has a default shown
-in the function signature. For these cases, the data type is followed by a
+in the function signature. For an optional parameter, the data type is followed by a
 comma and ``optional``.
 
 The brief description for a parameter is generally a sentence fragment. However, 
-additional information is always provided in clear, complete sentences. For an optional
+additional information is provided in clear, complete sentences. For an optional
 parameter, the description specifies the default along with any information that might
 be needed about the behavior that occurs when the default is used.
   
