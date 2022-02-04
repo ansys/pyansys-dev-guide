@@ -6,7 +6,7 @@ PyAnsys documentation must not only be written but also maintained. If you are n
 to writing developer documentation, see the `Google Developer Documentation Style
 Guide <https://developers.google.com/style/articles>`_. It provides editorial guidelines
 for writing clear and consistent developer documentation, allowing this guide to supply
-only style guidance specific to PyAnsys libraries.
+guidance specific to PyAnsys library documentation.
 
 When writing developer documentation, the relationship between code and documenation is
 key. To keep documentation up to date with rapdily evolving code:
@@ -42,7 +42,10 @@ style docstrings, refers you to the `Google Python Style Guide <https://google.g
 
 Regardless of the extension that you choose for generating documentation, we
 recommend the use of numpy-style docstrings so that there is consistency
-across PyAnsys libraries. For more information, see :ref:`api_documentation`.
+across PyAnsys libraries. For more information, see:
+
+- :ref:`docstrings`
+- :ref:`api_documentation`
 
 RST Files
 ---------
@@ -73,22 +76,27 @@ Python libraries that expose Ansys technologies to the Python ecosystem.
 
 After you build documenatation locally as described in :ref:`doc_building`, the first-level
 heading in the ``index.rst`` file for each docuemntation section is shown as clickable link
-in the header of the documentation's generated HTML output.
+in the header of the documentation's generated HTML output. For more information on defining
+a documentation structure, see the `Sphinx Getting Started <https://www.sphinx-doc.org/en/master/usage/quickstart.html>`_
+guide.
 
-Within RST files, headings are indicated by following the line with the heading title with a
-string of characters of the same length as the heading title. If the length of the characters
+Within RST files, heading titles are followed by a line having a string of characters that is
+the same length as the heading title. If the length of the characters
 under the heading title do not match the length of the heading title, Sphinx will generate a warning.
+
+For consistency within PyAnsys libraries, the use of these special characters are recommended for
+headings but are not enforced:
 
 - For first-level headings, use ====.
 - For second-level headings, use ---.
 - For third-level headings, use ~~~. 
 
-You can nest RST files. Plenty of examples of nested RST files are available in the PyAnsys
-libraries on GitHub. Because you need to be familiar with the content in the *PyAnsys Developer's
-Guide*, paging through this document and exploring the files in its repository will help you better
-understand how RST files are used. For more information on defining documentation
-structure, see the `Sphinx Getting Started <https://www.sphinx-doc.org/en/master/usage/quickstart.html>`_
-documentation.
+For comprehensive syntax information, see the `reStrucutredText Markup Specification
+<https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html>`_.
+
+Because you need to be familiar with the content in the *PyAnsys Developer's Guide*, page through
+its HTML pages and then exploreg the RST files in its repository. This will help you to understand
+the syntax and see how RST files are nested to create this guide. 
 
 Examples
 --------
