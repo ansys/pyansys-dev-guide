@@ -74,7 +74,7 @@ index file referenced for each section must be named ``index.rst``. If you open 
 in ``doc\source\overview``, you can see that it describes how the PyAnsys project provides
 Python libraries that expose Ansys technologies to the Python ecosystem. 
 
-After you build documenatation locally as described in :ref:`doc_building`, the first-level
+After you build documentation locally as described in :ref:`doc_building`, the first-level
 heading in the ``index.rst`` file for each docuemntation section is shown as clickable link
 in the header of the documentation's generated HTML output. For more information on defining
 a documentation structure, see the `Sphinx Getting Started <https://www.sphinx-doc.org/en/master/usage/quickstart.html>`_
@@ -84,7 +84,7 @@ Within RST files, heading titles are followed by a line having a string of chara
 the same length as the heading title. If the length of the characters
 under the heading title do not match the length of the heading title, Sphinx will generate a warning.
 
-For consistency within PyAnsys libraries, the use of these special characters are recommended for
+For consistency within PyAnsys libraries, the use of these special characters is recommended for
 headings but are not enforced:
 
 - For first-level headings, use ====.
@@ -95,7 +95,7 @@ For comprehensive syntax information, see the `reStrucutredText Markup Specifica
 <https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html>`_.
 
 Because you need to be familiar with the content in the *PyAnsys Developer's Guide*, page through
-its HTML pages and then exploreg the RST files in its repository. This will help you to understand
+its HTML pages and then explore the RST files in its repository. This will help you to understand
 the syntax and see how RST files are nested to create this guide. 
 
 Examples

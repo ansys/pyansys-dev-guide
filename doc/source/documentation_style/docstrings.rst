@@ -26,11 +26,11 @@ Surround any text that you want to set apart as literal text in double back tick
 it in a monospace gold font. Use double back ticks to surround the names of files, folders,
 classes, methods, and variables. For example::
 
-  """Initialize the ``Desktop`` class with th version of AEDT to use.``
+  """Initialize the ``Desktop`` class with the version of AEDT to use.``
 
 
 .. note::
-   The PyAnsys style uses two back ticks to surrounnd the names of classes, methods, and
+   The PyAnsys style uses two back ticks to surround the names of classes, methods, and
    variables, not the single back tick that is recommended by the  `numpydoc`_ documentation
    style. 
 
