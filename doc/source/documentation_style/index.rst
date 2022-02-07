@@ -26,7 +26,7 @@ The documentation for a PyAnsys library should contain:
   :ref:`docstrings`.
 * Full gallery of examples. See `PyMAPDL Examples
   <https://mapdldocs.pyansys.com/examples/index.html>`_
-* User guide for the library.
+* Developer's guide for the library.
 * Link to this developer's guide.
 
 .. toctree::
