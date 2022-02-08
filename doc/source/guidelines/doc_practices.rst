@@ -259,7 +259,7 @@ type and enter:
   
   git clone https://github.com/pyansys/pyansys-sphinx-theme
 
-.. _create_pr:
+.. _push_changes:
 
 Pushing Changes to the GitHub Repository
 ----------------------------------------
