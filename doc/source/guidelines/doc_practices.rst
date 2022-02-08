@@ -17,13 +17,14 @@ key. To keep documentation up to date with rapdily evolving code:
 - Perform periodic reviews
 
 The generation of PyAnsys documentation uses `Sphinx <https://www.sphinx-doc.org/en/master/>`__ 
-and an Ansys-branded theme (pyansys-sphinx-theme) to assemble content comes from docstrings,
-reStructuredText (RST) files, and Python (PY) example files.
+and an Ansys-branded theme (`pyansys-sphinx-theme <https://github.com/pyansys/pyansys-sphinx-theme>`_)
+to assemble content that comes from docstrings, reStructuredText (RST) files, and Python (PY)
+example files.
 
 Docstrings
 ----------
-Docstrings must be formatted so that Sphinx can parse them. You can use either the 
-``numpydoc``or ``napoleon`` Sphinx extension:
+Docstrings must be formatted so that Sphinx can parse them. You can use either of these
+Sphinx extensions:
  
  - `numpydoc <https://pypi.org/project/numpydoc/>`_
  - `napoleon <https://pypi.org/project/sphinxcontrib-napoleon/>`_
@@ -42,16 +43,13 @@ style docstrings, refers you to the `Google Python Style Guide <https://google.g
 
 Regardless of the extension that you choose for generating documentation, we
 recommend the use of numpy-style docstrings so that there is consistency
-across PyAnsys libraries. For more information, see:
-
-- :ref:`docstrings`
-- :ref:`api_documentation`
+across PyAnsys libraries. For more information, see :ref:`api_documentation`.
 
 RST Files
 ---------
-To provide general usage information in your documentation, you use your favorite editor to
+To provide general usage information in your documentation, use your favorite editor to
 create RST files that you then place in the repository's ``doc/`` directory. The ``index.rst``
-file in the ``doc\source`` directory defines the first level of the your documentation hierarchy.
+file in the ``doc\source`` directory defines the first level of your documentation hierarchy.
 The ``toctree`` directive indicates the maximum number of heading levels that the documentation
 is to display. Below this directive are the directory names for your documentation sections.
 Each documentation section has its own ``index.rst`` file.
@@ -75,7 +73,7 @@ in ``doc\source\overview``, you can see that it describes how the PyAnsys projec
 Python libraries that expose Ansys technologies to the Python ecosystem. 
 
 After you build documentation locally as described in :ref:`doc_building`, the first-level
-heading in the ``index.rst`` file for each docuemntation section is shown as clickable link
+heading in the ``index.rst`` file for each documentation section is shown as clickable link
 in the header of the documentation's generated HTML output. For more information on defining
 a documentation structure, see the `Sphinx Getting Started <https://www.sphinx-doc.org/en/master/usage/quickstart.html>`_
 guide.
@@ -96,7 +94,7 @@ For comprehensive syntax information, see the `reStrucutredText Markup Specifica
 
 Because you need to be familiar with the content in the *PyAnsys Developer's Guide*, page through
 its HTML pages and then explore the RST files in its repository. This will help you to understand
-the syntax and see how RST files are nested to create this guide. 
+the syntax and see how RST files have been nested to create this guide. 
 
 Examples
 --------
@@ -126,11 +124,13 @@ Accessing a Library's Documentation
 Documentation for the latest stable release of a PyAnsys library is accessible
 from its repository. You can generally access the latest development version of the
 documentation tracking the ``main`` branch by adding the prefix ``dev.`` to
-the URL for the latest stable release. For example, the URL for documentation of the
-latest stable release of PyAEDT is `<https://aedtdocs.pyansys.com/>`_, and
-the URL for the latest documentation for the development version of PyAEDT is
-`<https://dev.aedtdocs.pyansys.com/>`_. The latest development versions of both
-the library and its documentation are kept up-to-date automatically via GitHub actions.
+the URL for the latest stable release. For example, consider PyAEDT documentation.
+
+- The URL for documentation of the latest stable release is `<https://aedtdocs.pyansys.com/>`_.
+- The URL for documentation of the lastest development version is `<https://dev.aedtdocs.pyansys.com/>`_.
+
+The latest development versions of both the library and its documentation are automatically kept
+up-to-date via GitHub actions.
 
 .. _doc_building:
 
@@ -149,7 +149,7 @@ and running.
 
 #. If a PyAnsys library already exists, create a directory in which to place a clone of its GitHub repository.
 
-#. Clone the PyAnsys library's repository. For more information, see :ref:`cloning`.
+#. Clone the PyAnsys library's GitHub repository. For more information, see :ref:`cloning`.
 
 #. If you have not yet cloned the ``pyansys-sphinx-theme`` repository, clone it.
 
@@ -199,7 +199,7 @@ that the full library is installed.
    
 #. After local documentation builds successfully, navigate to ``doc/_build/html/``
    and use your browser to open the ``index.html`` file to review the documentation,
-   repeating this process until there are no errors or obvious issues.
+   repeating the local build process until there are no errors or obvious issues.
 
 .. note::
    You can use ``make.bat`` to build more than HTML output. To view a summary of
@@ -218,7 +218,8 @@ or GitBash.
 
 Using Windows PowerShell to Clone a GitHub Repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. In Windows PowerShell, navigate to where you clone repositories on your machine.
+#. In Windows PowerShell, navigate to the directory on your machine where you want
+   to clone GitHub repositories.
 
 #. Go to the `PyAnsys GitHub account <https://github.com/pyansys>`_ and select the
    repository that you want to clone.
@@ -236,22 +237,23 @@ Using Windows PowerShell to Clone a GitHub Repository
 #. Go back to Windows Powershell and type ``git clone`` and then click the right
    mouse button to paste the copied path.
 
-#. Press ``Enter`` to copy the files in the repository to yoour local directory.
+#. Press ``Enter`` to copy the files in the repository to your local directory.
 
-#. Type ``ls`` to see a list of the files now in your local directory. 
+#. Type ``ls`` to see a list of the files now in the folder for this repository
+   in your local directory. 
 
 .. note::
    In Anaconda Powershell, typing ``dir`` is the equivalent to typing ``ls``.
 
 Using GitBash to Clone a GitHub Repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. In the folder where you clone PyAnsys repositories, right-click and select
-   ``GitBash Here``.
+#. In the directory where you want to clone PyAnsys repositories, right-click and
+   select ``GitBash Here``.
 
 #. Type ``git clone`` followed by the address of the repo to clone.
 
 For example, to clone the ``pyansys-sphinx-theme`` repository, you would
-enter:
+type and enter:
   
 .. code::
   
@@ -265,17 +267,16 @@ Once you have tested your changes in local documentation builds and are
 satisifed with them, you can push them to the library's GitHub repository. 
 You can use Git commands or Git Extension to accomplish this. 
 
-For documentation changes, the branch name should have a prefix of ``doc\``
+For documentation changes, the branch name should always have a prefix of ``doc/``
 followed by a short description of what you've changed. For more information, see
 :ref:`branch_naming`.
 
 Using Git Commands to Push Changes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-This procedure assumes that you are using Git Commands to push your changes to the
-GitHub repository.
+To use Git commands to push your changes to the GitHub repository:
 
 #. In Windows Command Prompt, navigate to the directory where you cloned 
-   the GitHub reposity.
+   the GitHub repository.
 
 #. Type ``git status`` to see a summary of the changes that you have made in this
    directory.
@@ -325,15 +326,14 @@ GitHub repository.
    .. note::
       For any subsequent push, you would simply use ``git push``.
    
-#. Complete the PR as described in :ref:`complete_pr`.
+#. Create the PR as described in :ref:`create_pr`.
 
 Using Git Extensions to Push Changes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-This procedure assumes that you are using Git Extensions to push your changes to the
-GitHub repository.
+To use Git Extensions to push your changes to the GitHub repository:
 
 #. In Git Extensions, select ``Commands > Create branch`` and then provide a name for
-   the branch that you want to create, using the prefix ``doc`` followed by a short
+   the branch that you want to create, using the prefix ``doc/`` followed by a short
    description of what you intend to change.
    
 #. Make your documentation changes in the directory where you cloned the library's
@@ -354,23 +354,27 @@ GitHub repository.
 
 #. Do a push of your branch to the GitHub repsitory.
 
-#. Complete the PR as described in :ref:`complete_pr`.
+#. Create the PR as described in :ref:`create_pr`.
 
-.. _complete_pr:
+.. _create_pr:
 
-Completing the GitHub PR
--------------------------
+Creating the GitHub PR
+----------------------
+Regardless of what method you used to push your changes, do the following to create
+the GitHub PR:
+
 #. Go to the GitHub reposity, where you will see an entry for your pushed branch.
 
 #. If the pushed branch resolves an issue, in its description, type ``Resolves #``
    and select from the list of issues that appears.
 
 #. Create either a PR or draft PR, making the title a simple statement because
-   the PR title is rendered in our `automatic release generator <https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes>`_.
+   our `automatic release generator <https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes>`_
+   uses this PR title in the automatic rendering of release notes.
 
    If your PR is ready for review, select ``Create pull request``. Otherwise,
    select ``Create draft pull request`` and mark it as ready for review once
-   you are satisified with it. 
+   you it includes all of your changes and you are satisified with it. 
 
    If you need to change a PR title, to its right, click the ``Edit`` button,
    which becomes a ``Save`` button while you are in editing mode.

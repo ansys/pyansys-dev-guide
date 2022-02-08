@@ -1,17 +1,17 @@
 Class Documentation
 ###################
 
-There are two main ways of using Sphinx to document an API class:
+There are two main ways of using Sphinx to document a class:
 
-* Manually describe "how" and "why" to use a class in either 
+* Manually describe 'how' and 'why' to use a class in either 
   a "User Guide" or an example within the library's documentation
-* Automatically generate API documentation for classes using the 
+* Automatically generate documentation for classes using the 
   ``autoclass`` or ``autosummary`` directive
 
 Manual Documentation
 --------------------
 
-To manually describe "how" and "why" to exercise a class, use the 
+To manually describe'how' and 'why' to exercise a class, use the 
 ``.. code:: python`` directive::
 
    Initialize ``my_module.MyClass`` with initial parameters. These
@@ -24,7 +24,7 @@ To manually describe "how" and "why" to exercise a class, use the
        >>> my_obj.parm1
        'apple'
 
-This is rendered as:
+In the documentation, this is rendered as:
 
 Initialize ``my_module.MyClass`` with initial parameters.  These
 parameters are automatically assigned to the class.
@@ -37,7 +37,7 @@ parameters are automatically assigned to the class.
    'apple'
 
 
-Auto-Generated Documentation
+Auto-generated Documentation
 ----------------------------
 
 To automatically generate class descriptions, use either the ``autoclass``  
@@ -48,7 +48,7 @@ For simple classes, use the ``autoclass`` directive::
    .. autoclass:: pyansys_sphinx_theme.samples.ExampleClass
        :members:
 
-This is rendered as:
+In the documentation, this is rendered as:
 
 .. autoclass:: pyansys_sphinx_theme.samples.ExampleClass
     :members:
