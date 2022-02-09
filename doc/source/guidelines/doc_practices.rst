@@ -16,13 +16,18 @@ key. To keep documentation up to date with rapdily evolving code:
 - Support contributions from both inside and outside of the development team
 - Perform periodic reviews
 
+Understanding Documentation Sources
+------------------------------------
 The generation of PyAnsys documentation uses `Sphinx <https://www.sphinx-doc.org/en/master/>`__ 
 and an Ansys-branded theme (`pyansys-sphinx-theme <https://github.com/pyansys/pyansys-sphinx-theme>`_)
-to assemble content that comes from docstrings, reStructuredText (RST) files, and Python (PY)
-example files.
+to assemble content in:
+
+- Docstrings
+- reStructuredText (RST) files
+- Python (PY) example files
 
 Docstrings
-----------
+~~~~~~~~~~
 Docstrings must be formatted so that Sphinx can parse them. You can use either of these
 Sphinx extensions:
  
@@ -46,9 +51,9 @@ recommend the use of numpy-style docstrings so that there is consistency
 across PyAnsys libraries. For more information, see :ref:`api_documentation`.
 
 RST Files
----------
+~~~~~~~~~
 To provide general usage information in your documentation, use your favorite editor to
-create RST files that you then place in the repository's ``doc/`` directory. The ``index.rst``
+create RST files that you then place in the repository's ``doc\`` directory. The ``index.rst``
 file in the ``doc\source`` directory defines the first level of your documentation hierarchy.
 The ``toctree`` directive indicates the maximum number of heading levels that the documentation
 is to display. Below this directive are the directory names for your documentation sections.
@@ -80,7 +85,7 @@ guide.
 
 Within RST files, heading titles are followed by a line having a string of characters that is
 the same length as the heading title. If the length of the characters
-under the heading title do not match the length of the heading title, Sphinx will generate a warning.
+under the heading title do not match the length of the heading title, Sphinx generates a warning.
 
 For consistency within PyAnsys libraries, the use of these special characters is recommended for
 headings but are not enforced:
@@ -97,7 +102,7 @@ its HTML pages and then explore the RST files in its repository. This will help 
 the syntax and see how RST files have been nested to create this guide. 
 
 Examples
---------
+~~~~~~~~
 Examples come in two formats:
 
 - Basic code snippets demonstrating some functionality
@@ -109,9 +114,7 @@ repository. All of these examples, which should be PEP 8-compliant, are compiled
 during the build process. Always ensure that your examples run properly locally because
 they will be verified through the CI performed via GitHub Actions.
 
-Adding a New Example
-~~~~~~~~~~~~~~~~~~~~
-Adding a standalone example consists of placing it in an applicable subfolder in the ``examples``
+Adding a new standalone example consists of placing it in an applicable subfolder in the ``examples``
 directory. If none of the existing directories match the category of your example, create
 a new subfolder with a ``README.txt`` file describing the new category. Because these examples
 are built using the `Sphinx-Gallery <https://sphinx-gallery.github.io/stable/index.html>`_
@@ -124,13 +127,197 @@ Accessing a Library's Documentation
 Documentation for the latest stable release of a PyAnsys library is accessible
 from its repository. You can generally access the latest development version of the
 documentation tracking the ``main`` branch by adding the prefix ``dev.`` to
-the URL for the latest stable release. For example, consider PyAEDT documentation.
+the URL for the latest stable release.
+
+For example, consider PyAEDT documentation:
 
 - The URL for documentation of the latest stable release is `<https://aedtdocs.pyansys.com/>`_.
 - The URL for documentation of the lastest development version is `<https://dev.aedtdocs.pyansys.com/>`_.
 
 The latest development versions of both the library and its documentation are automatically kept
 up-to-date via GitHub actions.
+
+To make documentation changes, you create a branch with a name that begins with a prefix of
+``doc/`` that is then followed by a short description of what you are changing. For more
+information, see :ref:`branch_naming`.
+
+As you are making changes in this branch, you want to periodically generate the documentation
+locally so that you can test your changes before you create a GitHub pull request. For more
+information, see :ref:`doc_building`. It is also possible for you to build a PDF
+of your documentation locally on Windows as described in :ref:`pdf_building`.
+
+.. _cloning:
+
+Cloning a GitHub Repository
+---------------------------
+Contributing to a GitHub repository requires that you first clone the repository. While developers
+likely know many ways to do this, technical documentation specialists may need to review the
+following instructions for using either Windows PowerShell or GitBash to clone a GitHub repository.
+
+Using Windows PowerShell to Clone a GitHub Repository
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To use Windows PowerShell to clone a GitHub repository:
+
+#. In Windows PowerShell, navigate to the directory on your machine where you want
+   to clone GitHub repositories.
+
+#. Go to the `PyAnsys GitHub account <https://github.com/pyansys>`_ and select the
+   repository that you want to clone.
+
+   Because the list of repositories is quite long, you can use the ``Find
+   a repository`` option to search for the repository that you want to clone. For
+   example, you can seach for "theme" to find the ``pyansys-sphinx-theme`` repository.  
+
+#. In the upper right corner of the repository, click the green ``Code`` button to
+   drop down a list of options.
+
+#. To the right of the ``HTTPS`` option, click the clipboard icon to copy the path to
+   the repository.
+ 
+#. Go back to Windows Powershell and type ``git clone`` and then click the right
+   mouse button to paste the copied path.
+
+#. Press ``Enter`` to copy the files in the repository to your local directory.
+
+#. Type ``ls`` to see a list of the files now in the folder for this repository
+   in your local directory. 
+
+.. note::
+   In Anaconda Powershell, typing ``dir`` is the equivalent to typing ``ls``.
+
+Using GitBash to Clone a GitHub Repository
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To use GitBase to clone a GitHub repository:
+
+#. In the directory where you want to clone PyAnsys repositories, right-click and
+   select ``GitBash Here``.
+
+#. Type ``git clone`` followed by the address of the repo to clone.
+
+
+For example, you clone the ``pyansys-sphinx-theme`` repository with:
+  
+.. code::
+  
+  git clone https://github.com/pyansys/pyansys-sphinx-theme
+
+.. _push_changes:
+
+Pushing Changes to the GitHub Repository
+----------------------------------------
+As you make changes in your ``doc/`` branch, you want to periodically test then in
+local documentation builds as described in :ref:`doc_building`. After you resolve
+any issues and are satisfied with what apears in a local build, you are ready
+to push your changes to the library's GitHub repository. To accomplish this,
+you can use either Git commands or Git Extensions. 
+
+Using Git Commands to Push Changes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To use Git commands to push your changes to the GitHub repository:
+
+#. In Windows Command Prompt, navigate to the directory where you cloned 
+   the GitHub repository.
+
+#. Type ``git status`` to see a summary of the changes that you have made in this
+   directory.
+
+#. Create a branch by entering ``git checkout -b`` followed by the name to give
+   this branch.
+   
+   The option ``-b`` is for adding a branch. If you were adding a branch with documentation
+   changes to the ``Contributing`` topic, you might enter:
+   
+   .. code::
+
+    git checkout -b doc/edit_contributing
+
+#. Enter ``git add .`` to stage the changed files to commit.
+
+#. Enter ``git status`` again to see all files that are staged for committing in green.
+
+#. If any unnecessary files are staged, delete them in File Explorer and then enter ``git status`` 
+   again to ensure that the final red line indicates that these files have been deleted.
+
+#. If you make any additional file changes, type ``git add .`` again to restage the files to
+   commit.
+
+#. When finished, commit your changes to GitHub history by entering ``git commit -m`` followed by
+   a description in quotation marks.
+   
+   For the given example, you might enter:
+   
+   .. code::
+
+    git commit -m "Edit Contributing topic" 
+   
+   The number of files changed are shown, followed by the number of insertions and deletions.
+   A create mode or rename doc action is then shown for each file.
+
+#. For the first push of a newly created branch, enter ``git push --set-upstream origin``,
+   followed by the branch name.
+   
+   For the given example, you would enter:
+      
+   .. code::
+   
+    git push --set-upstream origin doc/edit_contributing
+
+   .. note::
+      For any subsequent push, you would simply use ``git push``.
+   
+#. Create the PR as described in :ref:`create_pr`.
+
+Using Git Extensions to Push Changes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To use Git Extensions to push your changes to the GitHub repository:
+
+#. In Git Extensions, select ``Commands > Create branch`` and then provide a name for
+   the branch that you want to create, using the prefix ``doc/`` followed by a short
+   description of what you intend to change.
+   
+#. Make your documentation changes in the directory where you cloned the library's
+   GitHub reposity.   
+
+#. Test your changes in local documentation builds. For more information, see
+   :ref:`doc_building`.
+
+#. In Git Extensions, click ``Commit`` to see the files that have been changed in your
+   local directory.
+   
+#. In the window that opens, stage the files to commit, add a commit message, and then
+   click ``Commit``.
+
+#. Do a pull from the GitHub repository to your local directory to ensure that there
+   are no conflicts with what is in your branch. If there are conflicts, resolve
+   them.
+
+#. Do a push of your branch to the GitHub repsitory.
+
+#. Create the PR as described in :ref:`create_pr`.
+
+
+.. _create_pr:
+
+Creating the GitHub PR
+----------------------
+Regardless of what method you used to push your changes, do the following to create
+the GitHub PR:
+
+#. Go to the GitHub reposity, where you will see an entry for your pushed branch.
+
+#. If the pushed branch resolves an issue, in its description, type ``Resolves #``
+   and select from the list of issues that appears.
+
+#. Create either a PR or draft PR, making the title a simple statement because
+   our `automatic release generator <https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes>`_
+   uses this PR title in the automatic rendering of release notes.
+
+   If your PR is ready for review, select ``Create pull request``. Otherwise,
+   select ``Create draft pull request`` and mark it as ready for review once
+   you it includes all of your changes and you are satisified with it. 
+
+   If you need to change a PR title, to its right, click the ``Edit`` button,
+   which becomes a ``Save`` button while you are in editing mode.
 
 .. _doc_building:
 
@@ -186,10 +373,10 @@ that the full library is installed.
    .. code::
   
     cd doc
-    make.bat html
+    .\make.bat html
 
 
-   As Sphinx is generating HTML output in the library's ``doc\_build\html`` folder,
+   As Sphinx is generating HTML output in the library's ``..\doc\_build\html`` folder,
    Anaconda Powershell displays any errors and warnings for unexpected indentations,
    bad target locations for links, missing files, and extra files included in the
    repository but not referenced by any ``index.rst`` file.
@@ -208,173 +395,43 @@ that the full library is installed.
 Your next step is to push your changes to the library's GitHub repository
 by creating a PR. For more information, see :ref:`create_pr`.
 
-.. _cloning:
+.. _pdf_building:
 
-Cloning a GitHub Repository
----------------------------
-While developers likely know how to clone a GitHub repository, technical documentation
-specialists may not know how to do this. You can easily use either Windows PowerShell
-or GitBash.
+Building a PDF of Your Documentation Locally
+--------------------------------------------
+Some libraries supply a link to a PDF of the documentation under 'Assets' in the 
+release notes for a version. On Linux, building this PDF can be set up as an
+automated process. On Windows, building a PDF is a manual process that you run
+locally:
 
-Using Windows PowerShell to Clone a GitHub Repository
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. In Windows PowerShell, navigate to the directory on your machine where you want
-   to clone GitHub repositories.
-
-#. Go to the `PyAnsys GitHub account <https://github.com/pyansys>`_ and select the
-   repository that you want to clone.
-
-   Because the list of repositories is quite long, you can use the ``Find
-   a repository`` option to search for the repository that you want to clone. For
-   example, you can seach for "theme" to find the ``pyansys-sphinx-theme`` repository.  
-
-#. In the upper right corner of the repository, click the green ``Code`` button to
-   drop down a list of options.
-
-#. To the right of the ``HTTPS`` option, click the clipboard icon to copy the path to
-   the repository.
- 
-#. Go back to Windows Powershell and type ``git clone`` and then click the right
-   mouse button to paste the copied path.
-
-#. Press ``Enter`` to copy the files in the repository to your local directory.
-
-#. Type ``ls`` to see a list of the files now in the folder for this repository
-   in your local directory. 
-
-.. note::
-   In Anaconda Powershell, typing ``dir`` is the equivalent to typing ``ls``.
-
-Using GitBash to Clone a GitHub Repository
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. In the directory where you want to clone PyAnsys repositories, right-click and
-   select ``GitBash Here``.
-
-#. Type ``git clone`` followed by the address of the repo to clone.
-
-For example, to clone the ``pyansys-sphinx-theme`` repository, you would
-type and enter:
-  
-.. code::
-  
-  git clone https://github.com/pyansys/pyansys-sphinx-theme
-
-.. _push_changes:
-
-Pushing Changes to the GitHub Repository
-----------------------------------------
-Once you have tested your changes in local documentation builds and are
-satisifed with them, you can push them to the library's GitHub repository. 
-You can use Git commands or Git Extension to accomplish this. 
-
-For documentation changes, the branch name should always have a prefix of ``doc/``
-followed by a short description of what you've changed. For more information, see
-:ref:`branch_naming`.
-
-Using Git Commands to Push Changes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-To use Git commands to push your changes to the GitHub repository:
-
-#. In Windows Command Prompt, navigate to the directory where you cloned 
-   the GitHub repository.
-
-#. Type ``git status`` to see a summary of the changes that you have made in this
-   directory.
-
-#. Create a branch by entering ``git checkout -b`` followed by the name to give
-   this branch.
+#. Install `MiKTeX <https://miktex.org/download>`_ for Windows, selecting the
+   recommended option for installing it for only your own use.
+#. From the Windows Start menu, start the MiKTeX Console.
+#. On the Welcome page, click ``Check for updates`` and install any available
+   updates.
+#. Install the latest version of Strawbery Perl, which enables you to build
+   LaTeX files, accepting the default installation location (``C:\Strawberry\``).
+#. In the Command Prompt window, type ``perl-v`` to test that you installation is
+   successful.  
+#. Ensure that these Perl directory locations have been added to your ``Path``
+   system environment variable:
    
-   The option ``-b`` is for adding a branch. If you were adding a branch with documentation
-   changes to the ``Contributing`` topic, you might enter:
+   - C:/Strawberry/c/bin
+   - C:/Strawberry/perl/site/bin
+   - C:/Strawberry/perl/bin
+
+
+#. In Anaconda PowerShell, navigate to the ``doc`` directory with:
    
    .. code::
 
-    git checkout -b doc/edit_contributing
+    cd C:\AnsysDev\GitRepos\PyAnsys\dev-guide\doc
 
-#. Enter ``git add .`` to stage the changed files to commit.
 
-#. Enter ``git status`` again to see all files that are staged for committing in green.
+#. Generate LaTeX files and a PDF from these files in ``..\doc\build\latex``
+   with:
 
-#. If any unnecessary files are staged, delete them in File Explorer and then enter ``git status`` 
-   again to ensure that the final red line indicates that these files have been deleted.
-
-#. If you make any additional file changes, type ``git add .`` again to restage the files to
-   commit.
-
-#. When finished, commit your changes to GitHub history by entering ``git commit -m`` followed by
-   a description in quotation marks.
-   
-   For the given example, you might enter:
-   
    .. code::
 
-    git commit -m "Edit Contributing topic" 
-   
-   The number of files changed are shown, followed by the number of insertions and deletions.
-   A create mode or rename doc action is then shown for each file.
+    .\make latexpdf
 
-#. For the first push of a newly created branch, enter ``git push --set-upstream origin``,
-   followed by the branch name.
-   
-   For the given example, you would enter:
-   
-   
-   .. code::
-   
-    git push --set-upstream origin doc/edit_contributing
-
-   .. note::
-      For any subsequent push, you would simply use ``git push``.
-   
-#. Create the PR as described in :ref:`create_pr`.
-
-Using Git Extensions to Push Changes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-To use Git Extensions to push your changes to the GitHub repository:
-
-#. In Git Extensions, select ``Commands > Create branch`` and then provide a name for
-   the branch that you want to create, using the prefix ``doc/`` followed by a short
-   description of what you intend to change.
-   
-#. Make your documentation changes in the directory where you cloned the library's
-   GitHub reposity.   
-
-#. Test your changes in local documentation builds. For more information, see
-   :ref:`doc_building`.
-
-#. In Git Extensions, click ``Commit`` to see the files that have been changed in your
-   local directory.
-   
-#. In the window that opens, stage the files to commit, add a commit message, and then
-   click ``Commit``.
-
-#. Do a pull from the GitHub repository to your local directory to ensure that there
-   are no conflicts with what is in your branch. If there are conflicts, resolve
-   them.
-
-#. Do a push of your branch to the GitHub repsitory.
-
-#. Create the PR as described in :ref:`create_pr`.
-
-.. _create_pr:
-
-Creating the GitHub PR
-----------------------
-Regardless of what method you used to push your changes, do the following to create
-the GitHub PR:
-
-#. Go to the GitHub reposity, where you will see an entry for your pushed branch.
-
-#. If the pushed branch resolves an issue, in its description, type ``Resolves #``
-   and select from the list of issues that appears.
-
-#. Create either a PR or draft PR, making the title a simple statement because
-   our `automatic release generator <https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes>`_
-   uses this PR title in the automatic rendering of release notes.
-
-   If your PR is ready for review, select ``Create pull request``. Otherwise,
-   select ``Create draft pull request`` and mark it as ready for review once
-   you it includes all of your changes and you are satisified with it. 
-
-   If you need to change a PR title, to its right, click the ``Edit`` button,
-   which becomes a ``Save`` button while you are in editing mode.

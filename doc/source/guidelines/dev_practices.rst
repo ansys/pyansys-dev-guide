@@ -106,6 +106,12 @@ any new issues from your changes.
 
     pytest -v --cov _unittest
 
+Error Messages
+~~~~~~~~~~~~~~
+When writing error messages, follow the `Error Message Guidelines 
+<https://docs.microsoft.com/en-us/windows/win32/debug/error-message-guidelines>`_
+on the Microsoft website to ensure that your messages are well crafted.
+
 Spelling and Code Style
 ~~~~~~~~~~~~~~~~~~~~~~~
 If you are using Linux or Mac OS, run spelling and coding style checks:
