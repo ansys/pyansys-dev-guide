@@ -11,7 +11,7 @@ There are two main ways of using Sphinx to document a class:
 Manual Documentation
 --------------------
 
-To manually describe'how' and 'why' to exercise a class, use the 
+To manually describe 'how' and 'why' to exercise a class, use the 
 ``.. code:: python`` directive::
 
    Initialize ``my_module.MyClass`` with initial parameters. These
