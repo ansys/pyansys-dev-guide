@@ -4,7 +4,7 @@ Coding Style
 ************
 
 PyAnsys libraries are expected to follow `PEP8`_ and
-be consistent in style and formatting with the "big three"
+be consistent in style and formatting with the 'big three'
 data science libraries: `NumPy`_, `SciPy`_, and `pandas`_.
 
 .. _NumPy: https://numpy.org/
@@ -24,5 +24,6 @@ data science libraries: `NumPy`_, `SciPy`_, and `pandas`_.
    :hidden:
    :maxdepth: 3
 
+   pep8_best_practices
+   beyond_pep8
    flake8
-   best_practices

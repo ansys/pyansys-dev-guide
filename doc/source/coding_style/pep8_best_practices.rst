@@ -1,10 +1,10 @@
 .. _best_practices:
 
-Best Practices
-==============
-The following sections summarize the key points from `PEP8`_ and how
+PEP 8 Best Practices
+====================
+This topic summarizes key points from `PEP8`_ and how
 they apply to PyAnsys libraries. The goal is for PyAnsys libraries to
-be consistent in style and formatting with the "big three"
+be consistent in style and formatting with the `big three`
 data science libraries: `NumPy`_, `SciPy`_, and `pandas`_.
 
 .. _NumPy: https://numpy.org/
@@ -22,7 +22,7 @@ might only be discovered during runtime.
 
 .. _ImportError: https://docs.python.org/3/library/exceptions.html#ImportError
 
-Avoid:
+Instead of:
 
 .. code:: python
 
@@ -40,13 +40,13 @@ Use:
         return math.log(8, x)
 
 
-For better readability, you should group imports following this order:
+For better readability, group imports in this order:
 
 #. Standard library imports
 #. Related third-party imports
-#. Local application/library-specific imports
+#. Local application- or library-specific imports
 
-Avoid:
+Instead of:
 
 .. code:: python
 
@@ -75,7 +75,7 @@ Use:
 You should place imports in separate lines unless they are
 modules from the same package.
 
-Avoid:
+Instead of:
 
 .. code:: python
 
@@ -99,9 +99,10 @@ Use:
 
 
 You should avoid using wild cards in imports because doing so
-can make it difficult to detect undefined names.  For more details see `Python Anti-Patterns: using wildcard imports <(https://docs.quantifiedcode.com/python-anti-patterns/maintainability/from_module_import_all_used.html>`_.
+can make it difficult to detect undefined names.  For more information,
+see `Python Anti-Patterns: using wildcard imports <(https://docs.quantifiedcode.com/python-anti-patterns/maintainability/from_module_import_all_used.html>`_.
 
-Avoid:
+Instead of:
 
 .. code:: python
 
@@ -157,7 +158,7 @@ Inside a class, use a single line before any method definition.
        """Second method docstring"""
        return
 
-To make it clear when a "paragraph" of code is complete and a new section
+To make it clear when a 'paragraph' of code is complete and a new section
 is starting, use a blank line to separate logical sections.
 
 Instead of:
@@ -227,9 +228,8 @@ classic loop.
 
 Naming Conventions
 ------------------
-It is important to use concise and descriptive names for classes,
-methods, functions, and constants for readable and maintainable
-code. Regardless of the programming language, you must follow these
+To achieve readable and maintainable code, use concise and descriptive names for classes,
+methods, functions, and constants. Regardless of the programming language, you must follow these
 global rules to determine the correct names:
 
 #. Choose descriptive and unambiguous names.
@@ -264,7 +264,7 @@ from PyPi.
 
 Class Naming Conventions
 ~~~~~~~~~~~~~~~~~~~~~~~~
-Use `CamelCase <https://en.wikipedia.org/wiki/Camel_case>`_ when naming classes. Do not separate words
+Use `camel case <https://en.wikipedia.org/wiki/Camel_case>`_ when naming classes. Do not separate words
 with underscores. 
 
 .. code:: python
@@ -301,7 +301,7 @@ words with underscores to improve readability.
            """This method should only be called from ``MyClass``.
 
            Protected methods can be called from inherited classes,
-           unlike private methods, which names are "mangled" to avoid
+           unlike private methods, which names are 'mangled' to avoid
            these methods from being called from inherited classes.
 
            """
@@ -337,7 +337,7 @@ readability.
 
 
 Comments
---------
+~~~~~~~~
 Because a PyAnsys library generally involves multiple physics domains,
 users reading its source code do not have the same background as
 the developers who wrote it. This is why it is important for a library
@@ -403,7 +403,7 @@ avoided:
 Focus on writing self-documenting code and using short but
 descriptive variable names.  
 
-Avoid:
+Instead of:
 
 .. code:: python
 
@@ -416,21 +416,21 @@ Use:
     user_name = 'John Smith'
 
 
-Documentation Convention
-------------------------
+Docstring Conventions
+~~~~~~~~~~~~~~~~~~~~~
 A docstring is a string literal that occurs as the first statement in
 a module, function, class, or method definition. A docstring becomes
 the doc special attribute of the object.
 
 Write docstrings for all public modules, functions, classes, and
-methods. Docstrings are not necessary for non-public methods, but such
+methods. Docstrings are not necessary for private methods, but such
 methods should have comments that describe what they do.
 
 To create a docstring, surround the comments with three double quotes
 on either side.
 
 For a one-line docstring, keep both the starting and ending ``"""`` on the
-same line. 
+same line: 
 
 .. code:: python
 
@@ -440,27 +440,27 @@ For a multi-line docstring, put the ending ``"""`` on a line by itself.
 
 PyAEDT follows the `numpydoc
 <https://numpydoc.readthedocs.io/en/latest/format.html>`_
-documentation style, which is used by `numpy <https://numpy.org/>`_,
+docstring style, which is used by `numpy <https://numpy.org/>`_,
 `scipy <https://www.scipy.org/>`_, `pandas
 <https://pandas.pydata.org/>`_, and a variety of other Python open
-source projects.  For a full description of the code style, reference
-`PyAnsys sphinxdocs <https://sphinxdocs.pyansys.com/style.html>`_.
+source projects.  For more information on docstrings for PyAnsys
+libraries, see :ref:`api_documentation`.
 
 
 Programming Recommendations
----------------------------
-This section provides some `PEP8
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The following sections provide some `PEP8
 <https://www.python.org/dev/peps/pep-0008/>`_ suggestions for removing
 ambiguity and preserving consistency. They address some common pitfalls 
 when writing Python code.
 
 
 Booleans and Comparisons
-~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 Don't compare Boolean values to ``True`` or ``False`` using the
 equivalence operator.
 
-Avoid:
+Instead of:
 
 .. code:: python
 
@@ -478,7 +478,7 @@ Knowing that empty sequences are evaluated to ``False``, don't compare the
 length of these objects but rather consider how they would evaluate
 by using ``bool(<object>)``.
 
-Avoid:
+Instead of:
 
 .. code:: python
 
@@ -496,7 +496,7 @@ Use:
 
 In ``if`` statements, use ``is not`` rather than ``not ...``. 
 
-Avoid:
+Instead of:
 
 .. code:: python
 
@@ -515,10 +515,10 @@ especially important when parsing arguments.
 
 
 Handling Strings
-~~~~~~~~~~~~~~~~
+----------------
 Use ``.startswith()`` and ``.endswith()`` instead of slicing.
 
-Avoid:
+Instead of:
 
 .. code:: python
 
@@ -540,7 +540,7 @@ Use:
 
 
 Reading the Windows Registry
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------
 Never read the Windows registry or write to it because this is dangerous and 
 makes it difficult to deploy libraries on different environments or operating
 systems.
@@ -559,7 +559,7 @@ Bad practice - Example 2
 
 
 Duplicated Code
-~~~~~~~~~~~~~~~
+---------------
 Follow the DRY principle, which states that "Every piece of knowledge
 must have a single, unambiguous, authoritative representation within a
 system."  Attempt to follow this principle unless it overly complicates
@@ -619,7 +619,7 @@ correct.
 
 
 Nested Blocks
-~~~~~~~~~~~~~
+-------------
 Avoid deeply nested block structures (such as conditional blocks and loops)
 within one single code block. 
 
@@ -652,13 +652,13 @@ reusable and unit-testable.
 
 
 Loops
-~~~~~
+-----
 While there is nothing inherently wrong with nested loops, to avoid
-certain pitfalls, avoid having loops with more than two levels. In
+certain pitfalls, steer clear of having loops with more than two levels. In
 some cases, you can rely on coding mechanisms like list comprehensions 
-to avoid nested loops. 
+to circumvent nested loops. 
 
-Rather than:
+Instead of:
 
 .. code::
 
@@ -695,7 +695,7 @@ example, extract all consonants in a sentence:
 
 
 This is better implemented by creating a simple method to return if a
-letter is a consonant.
+letter is a consonant:
 
    >>> def is_consonant(letter):
    ...     """Return ``True`` when a letter is a consonant."""

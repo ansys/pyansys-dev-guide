@@ -3,8 +3,12 @@
 Docstring Standards
 ###################
 When writing docstrings for PyAnsys libraries, use the `numpydoc`_
-documentation style. To use `numpydoc`_, add the following to your
-``conf.py`` file:
+style, regardless as to whether you are using this Sphinx extension or the 
+`napoleon <https://pypi.org/project/sphinxcontrib-napoleon/>`_ Sphinx extension
+to generate your library documentation.
+
+You add the extension to use for documentation generation in your ``conf.py`` file.
+For example, to use `numpydoc`_, you would add:
 
 .. code:: python
 
@@ -15,23 +19,23 @@ documentation style. To use `numpydoc`_, add the following to your
 For consistency within PyAnsys libraries, always use ``"""`` to introduce and conclude a
 docstring, keeping the line length shorter than 70 characters. Ensure that there are
 no blank spaces at the end of a line because they will cause errors in build checks that you
-will then have to resolve.
+will have to resolve.
 
 A blank line signifies the start of a new paragraph. To create a bulleted or numbered list,
 ensure that there is a blank line before the first item and after the last item. Because you
-use the same markup in your docstrings as you do in RST files, see this `quick reference
+use the same markup in docstrings as you do in RST files, see this `quick reference
 <https://docutils.sourceforge.io/docs/user/rst/quickref.html>`_. 
 
 Surround any text that you want to set apart as literal text in double back ticks to render
 it in a monospace gold font. Use double back ticks to surround the names of files, folders,
 classes, methods, and variables. For example::
 
-  """Initialize the ``Desktop`` class with the version of AEDT to use.``
+  """Initialize the ``Desktop`` class with the version of AEDT to use."""
 
 
 .. note::
    The PyAnsys style uses two back ticks to surround the names of classes, methods, and
-   variables, not the single back tick that is recommended by the  `numpydoc`_ documentation
+   variables, not the single back tick that is recommended by `numpydoc`_ 
    style. 
 
  
@@ -39,19 +43,19 @@ Minimum Section Requirements
 ----------------------------
 PyAnsys library docstrings contain these `numpydoc`_ sections as a minimum:
 
-* `Short description <https://numpydoc.readthedocs.io/en/latest/format.html#short-summary>`_.
+* `Short description <https://numpydoc.readthedocs.io/en/latest/format.html#short-summary>`_
 * `Extended Summary <https://numpydoc.readthedocs.io/en/latest/format.html#extended-summary>`_ if applicable
 * `Parameters <https://numpydoc.readthedocs.io/en/latest/format.html#parameters>`_ if applicable
 * `Returns <https://numpydoc.readthedocs.io/en/latest/format.html#returns>`_ if applicable
 * `Examples <https://numpydoc.readthedocs.io/en/latest/format.html#examples>`_
 
-These sections should follow numpydoc standards. To avoid inconsistencies between
-PyAnsys libraries, adhere to the additional standards that follow.
+These sections should follow numpydoc style. To avoid inconsistencies between
+PyAnsys libraries, adhere to the additional style guidelines that follow.
 
 Classes
 ~~~~~~~
-A class is a "noun" representing a collection of methods. For consistency within PyAnsys libraries,
-always start the brief description for a class with a verb ending in "s", followed by an extended
+A class is a 'noun' representing a collection of methods. For consistency within PyAnsys libraries,
+always start the brief description for a class with a verb ending in 's', followed by an extended
 summary if applicable::
 
   class FieldAnalysis3D(Analysis):
@@ -68,17 +72,17 @@ Ensure that there is a line break between the end of a class docstring and the s
 
 Methods
 ~~~~~~~
-A method is a "verb" representing an action that can be performed. For consistency within PyAnsys
-libraries, always start the brief description for a method with a verb not ending in "s", followed
+A method is a 'verb' representing an action that can be performed. For consistency within PyAnsys
+libraries, always start the brief description for a method with a verb not ending in 's', followed
 by an extended summary if applicable::
 
   def export_mesh_stats(self, setup_name, variation_string="", mesh_path=None):
-    """Export mesh statistics to a file."
+    """Export mesh statistics to a file."""
       
 
 Methods with a leading underscore (_) are 'protected' methods, meaning that they are not rendered in the
-documentation unless an explicit request is made to add them using Sphinx directives. However, clearing
-documenting private methods is still important.
+documentation unless an explicit request is made to add them using Sphinx directives. However, clearly
+written descriptions for private methods are still important.
 
 If a method has the decorator ``@property``, it is turned into a property, which is described as a
 'noun' rather than a 'verb'. Because the resulting property cannot have parameters, you remove
@@ -170,7 +174,7 @@ It is possible for more than one item to be returned::
 
 
 If a method does not have a decorator, the basic implementation of Python
-methods is used. In this case, ``None`` is returned but you do not document it.
+methods is used. In this case, while ``None`` is returned, you do not document it.
 Consequently, such a method does not have a 'Returns' section.
 
 Example Docstrings
@@ -205,19 +209,18 @@ This will issue the following warning for any object without a docstring::
   "The object does not have a docstring"
 
 The ``"GL08"`` code is required at minimum for PyAnsys libraries.
-Other codes may be enforced at a later date. For a full listing, in the `numpydoc`_,
-see the `Validation <https://numpydoc.readthedocs.io/en/latest/validation.html#validation>`_
-topic.
+Other codes may be enforced at a later date. For a full listing,
+see `Validation <https://numpydoc.readthedocs.io/en/latest/validation.html#validation>`_
+in the `numpydoc`_.
 
 
 Additional Information
 ----------------------
-Additional examples and notes can be found at `numpydoc`_. Reference
-this documentation as the primary source of information regarding
-docstring styles for directives that are not covered here. For example,
-you would use the ``note::`` directive to highlight important information
-and the ``warning::`` directive to point out an action that might result
-in data loss.
+You can find additional information and examples at `numpydoc`_. Reference
+this documentation as the primary source regarding docstring styles for directives
+that are not covered here. For example, you use the ``note::`` directive to highlight
+important information and the ``warning::`` directive to point out an action that
+might result in data loss.
 
 .. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
 .. _googledoc: https://google.github.io/styleguide/

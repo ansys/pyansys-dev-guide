@@ -1,10 +1,6 @@
-Coding Style and Best Practices
-###############################
-This page provides best practices applicable to the `PyAnsys
-<https://pypi.org/project/pyansys/>`_ project.  The intent is 
-not to repeat coding style documentation but rather to state
-the approach used by the PyAnsys project when there are any
-delineations, clarifications, or additional procedures above and 
+Beyond PEP8
+###########
+This topic describes any delineations, clarifications, or additional procedures above and 
 beyond `PEP8 <https://www.python.org/dev/peps/pep-0008/>`__.
 
 For example, `Stack Overflow Answer <https://stackoverflow.com/questions/2536307>`_ 
@@ -87,7 +83,7 @@ Python, an alternative is to create a custom ``DeprecationError``.
             """Empty init."""
             RuntimeError.__init__(self, message)
 
-You then use this custom ``DeprecationError`` in place of an ``Exception``.
+You can then use this custom ``DeprecationError`` in place of an ``Exception``.
 
 .. code:: python
 
@@ -142,7 +138,7 @@ also be used to perform regression testing to verify that the code is
 executing as expected.
 
 This is an important feature of maintainable documentation as examples
-must always match the API they are documenting. When using `doctest`` 
+must always match the API they are documenting. When using ``doctest`` 
 through ``pytest``, any changes within the API without corresponding 
 changes in the documentation will trigger doctest failures.
 
@@ -270,8 +266,8 @@ example by referencing the key ``icepak``.
 
         """
 
-Useful Features
-~~~~~~~~~~~~~~~
+Useful ``doctest`` Features
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Ellipses for Random Output
 **************************
@@ -299,7 +295,7 @@ To support this, ``doctest`` must be run with the option set to allow ellipses.
 The directive ``# doctest: +SKIP`` can be added to any line of a
 docstring example so that it is not executed in ``doctest-modules``. 
 This is useful for examples that cannot run within ``pytest`` or have 
-side-effects that will affect the other tests if they are run during 
+side effects that will affect the other tests if they are run during 
 the ``doctest`` session.
 
 .. code :: python
