@@ -401,8 +401,8 @@ by creating a PR. For more information, see :ref:`create_pr`.
 Building a PDF of Your Documentation Locally
 --------------------------------------------
 Some libraries supply a link to a PDF of the documentation under 'Assets' in the 
-release notes for a version. On Linux, building this PDF can be set up as an
-automated process. On Windows, building a PDF is a manual process that you run
+release notes for a version. On Linux, building this PDF can be done by following
+`these directions <https://sudonull.com/post/70830-How-to-make-LaTeX-and-PDF-generation-in-Sphinx>. On Windows, building a PDF is a manual process that you run
 locally:
 
 #. Install `MiKTeX <https://miktex.org/download>`_ for Windows, selecting the
