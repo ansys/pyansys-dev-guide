@@ -402,8 +402,8 @@ Building a PDF of Your Documentation Locally
 --------------------------------------------
 Some libraries supply a link to a PDF of the documentation under 'Assets' in the 
 release notes for a version. On Linux, building this PDF can be done by following
-`these directions <https://sudonull.com/post/70830-How-to-make-LaTeX-and-PDF-generation-in-Sphinx>. On Windows, building a PDF is a manual process that you run
-locally:
+`these directions <https://sudonull.com/post/70830-How-to-make-LaTeX-and-PDF-generation-in-Sphinx>`_.
+On Windows, building a PDF is a manual process that you run locally:
 
 #. Install `MiKTeX <https://miktex.org/download>`_ for Windows, selecting the
    recommended option for installing it for only your own use.
