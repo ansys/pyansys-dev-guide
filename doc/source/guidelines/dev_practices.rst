@@ -108,9 +108,14 @@ any new issues from your changes.
 
 Error Messages
 ~~~~~~~~~~~~~~
-When writing error messages, follow the `Error Message Guidelines 
-<https://docs.microsoft.com/en-us/windows/win32/debug/error-message-guidelines>`_
-on the Microsoft website to ensure that your messages are well crafted.
+For general information on writting good error messages, see Microsoft's
+`Error Message Guidelines <https://docs.microsoft.com/en-us/windows/win32/debug/error-message-guidelines>`_.
+
+For information specific to writing Pythonic error messages, see:
+
+- `Python Exception Handling <https://www.codementor.io/@sheena/python-exception-handling-ogr0a41t7>`_
+- `7 Tips to Improve Your Error Handling in Python <https://pybit.es/articles/pythonic-exceptions/>`_
+- `Python Exception TUtorial: Printing Error Messges <https://embeddedinventor.com/python-exception-tutorial-printing-error-messages/>`_
 
 Spelling and Code Style
 ~~~~~~~~~~~~~~~~~~~~~~~
