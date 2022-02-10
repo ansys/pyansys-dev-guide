@@ -106,6 +106,18 @@ any new issues from your changes.
 
     pytest -v --cov _unittest
 
+Error Messages
+~~~~~~~~~~~~~~
+For general information on writting good error messages, see Microsoft's
+`Error Message Guidelines <https://docs.microsoft.com/en-us/windows/win32/debug/error-message-guidelines>`_.
+
+For information specific to writing Pythonic error messages, see:
+
+- `Python Exception Handling <https://www.codementor.io/@sheena/python-exception-handling-ogr0a41t7>`_
+- `7 Tips to Improve Your Error Handling in Python <https://pybit.es/articles/pythonic-exceptions/>`_
+
+Additionally, ensure that you have reviewed this guide's :ref:`logging` topic.
+
 Spelling and Code Style
 ~~~~~~~~~~~~~~~~~~~~~~~
 If you are using Linux or Mac OS, run spelling and coding style checks:

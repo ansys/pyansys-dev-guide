@@ -16,13 +16,18 @@ key. To keep documentation up to date with rapdily evolving code:
 - Support contributions from both inside and outside of the development team
 - Perform periodic reviews
 
+Understanding Documentation Sources
+------------------------------------
 The generation of PyAnsys documentation uses `Sphinx <https://www.sphinx-doc.org/en/master/>`__ 
 and an Ansys-branded theme (`pyansys-sphinx-theme <https://github.com/pyansys/pyansys-sphinx-theme>`_)
-to assemble content that comes from docstrings, reStructuredText (RST) files, and Python (PY)
-example files.
+to assemble content in:
+
+- Docstrings
+- reStructuredText (RST) files
+- Python (PY) example files
 
 Docstrings
-----------
+~~~~~~~~~~
 Docstrings must be formatted so that Sphinx can parse them. You can use either of these
 Sphinx extensions:
  
@@ -46,9 +51,9 @@ recommend the use of numpy-style docstrings so that there is consistency
 across PyAnsys libraries. For more information, see :ref:`api_documentation`.
 
 RST Files
----------
+~~~~~~~~~
 To provide general usage information in your documentation, use your favorite editor to
-create RST files that you then place in the repository's ``doc/`` directory. The ``index.rst``
+create RST files that you then place in the repository's ``doc`` directory. The ``index.rst``
 file in the ``doc\source`` directory defines the first level of your documentation hierarchy.
 The ``toctree`` directive indicates the maximum number of heading levels that the documentation
 is to display. Below this directive are the directory names for your documentation sections.
@@ -80,7 +85,7 @@ guide.
 
 Within RST files, heading titles are followed by a line having a string of characters that is
 the same length as the heading title. If the length of the characters
-under the heading title do not match the length of the heading title, Sphinx will generate a warning.
+under the heading title do not match the length of the heading title, Sphinx generates a warning.
 
 For consistency within PyAnsys libraries, the use of these special characters is recommended for
 headings but are not enforced:
@@ -97,7 +102,7 @@ its HTML pages and then explore the RST files in its repository. This will help 
 the syntax and see how RST files have been nested to create this guide. 
 
 Examples
---------
+~~~~~~~~
 Examples come in two formats:
 
 - Basic code snippets demonstrating some functionality
@@ -109,11 +114,9 @@ repository. All of these examples, which should be PEP 8-compliant, are compiled
 during the build process. Always ensure that your examples run properly locally because
 they will be verified through the CI performed via GitHub Actions.
 
-Adding a New Example
-~~~~~~~~~~~~~~~~~~~~
-Adding a standalone example consists of placing it in an applicable subfolder in the ``examples``
+Adding a new standalone example consists of placing it in an applicable subdirectory in the ``examples``
 directory. If none of the existing directories match the category of your example, create
-a new subfolder with a ``README.txt`` file describing the new category. Because these examples
+a new subdirectory with a ``README.txt`` file describing the new category. Because these examples
 are built using the `Sphinx-Gallery <https://sphinx-gallery.github.io/stable/index.html>`_
 extension, you must follow its `coding guidelines <https://sphinx-gallery.github.io/stable/index.html>`_.
 
@@ -124,7 +127,9 @@ Accessing a Library's Documentation
 Documentation for the latest stable release of a PyAnsys library is accessible
 from its repository. You can generally access the latest development version of the
 documentation tracking the ``main`` branch by adding the prefix ``dev.`` to
-the URL for the latest stable release. For example, consider PyAEDT documentation.
+the URL for the latest stable release.
+
+For example, consider PyAEDT documentation:
 
 - The URL for documentation of the latest stable release is `<https://aedtdocs.pyansys.com/>`_.
 - The URL for documentation of the lastest development version is `<https://dev.aedtdocs.pyansys.com/>`_.
@@ -132,92 +137,27 @@ the URL for the latest stable release. For example, consider PyAEDT documentatio
 The latest development versions of both the library and its documentation are automatically kept
 up-to-date via GitHub actions.
 
-.. _doc_building:
+To make documentation changes, you create a branch with a name that begins with a prefix of
+``doc/`` that is then followed by a short description of what you are changing. For more
+information, see :ref:`branch_naming`.
 
-Building Documentation Locally
-------------------------------
-You can build and verify the HTML documentation for a PyAnsys library locally
-by installing Sphinx and other documentation build dependencies.
-
-Setting Up Your Machine
-~~~~~~~~~~~~~~~~~~~~~~~
-Anaconda provides Python and tools, such as a Python IDE (Interactive Development Environment),
-a Python command line editor, and Sphinx dependencies. This gives you what you need to get up
-and running.
-
-#. Install the `Anaconda individual edition <https://www.anaconda.com/products/individual>`_.
-
-#. If a PyAnsys library already exists, create a directory in which to place a clone of its GitHub repository.
-
-#. Clone the PyAnsys library's GitHub repository. For more information, see :ref:`cloning`.
-
-#. If you have not yet cloned the ``pyansys-sphinx-theme`` repository, clone it.
-
-Installing Build Requirements
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
-You can build documentation for the ``dev_guide`` and ``pyansys-sphinx-theme`` repositories without
-installing a PyAnsys library in development mode. However, when you push changes that you have made
-in a local branch to the GitHub repository for other PyAnsys libraries, CI checks typically require
-that the full library is installed.
-
-#. In Anaconda Powershell, navigate to the base directory in the library's cloned repository.
-
-#. If your library must be installed in development mode, enter:
-   
-   .. code::
-
-    pip install -e .
-
-#. To install the build requirements for generating documentation, enter:
-   
-   .. code::
-
-    pip install -r requirements_docs.txt
-
-#. If you are running on a Linux/Mac OS, to build the documentation, enter:
-   
-   .. code::
-
-    make -C doc html
-
-#. If you are running on Windows, to build the documentation, enter two
-   commands:
-   
-   .. code::
-  
-    cd doc
-    make.bat html
-
-
-   As Sphinx is generating HTML output in the library's ``doc\_build\html`` folder,
-   Anaconda Powershell displays any errors and warnings for unexpected indentations,
-   bad target locations for links, missing files, and extra files included in the
-   repository but not referenced by any ``index.rst`` file.
-   
-#. Resolve all indicated issues before submitting a pull request (PR) to push
-   your changes to the library's GitHub repository. 
-   
-#. After local documentation builds successfully, navigate to ``doc/_build/html/``
-   and use your browser to open the ``index.html`` file to review the documentation,
-   repeating the local build process until there are no errors or obvious issues.
-
-.. note::
-   You can use ``make.bat`` to build more than HTML output. To view a summary of
-   all target options, enter ``make.bat``.
-
-Your next step is to push your changes to the library's GitHub repository
-by creating a PR. For more information, see :ref:`create_pr`.
+As you are making changes in this branch, you want to periodically generate the documentation
+locally so that you can test your changes before you create a GitHub pull request. For more
+information, see :ref:`doc_building`. It is also possible for you to build a PDF
+of your documentation locally on Windows as described in :ref:`pdf_building`.
 
 .. _cloning:
 
 Cloning a GitHub Repository
 ---------------------------
-While developers likely know how to clone a GitHub repository, technical documentation
-specialists may not know how to do this. You can easily use either Windows PowerShell
-or GitBash.
+Contributing to a GitHub repository requires that you first clone the repository. While developers
+likely know many ways to do this, technical documentation specialists may need to review the
+following instructions for using either Windows PowerShell or GitBash to clone a GitHub repository.
 
 Using Windows PowerShell to Clone a GitHub Repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To use Windows PowerShell to clone a GitHub repository:
+
 #. In Windows PowerShell, navigate to the directory on your machine where you want
    to clone GitHub repositories.
 
@@ -239,21 +179,22 @@ Using Windows PowerShell to Clone a GitHub Repository
 
 #. Press ``Enter`` to copy the files in the repository to your local directory.
 
-#. Type ``ls`` to see a list of the files now in the folder for this repository
-   in your local directory. 
+#. Type ``ls`` to see a list of the files now in your local directory. 
 
 .. note::
    In Anaconda Powershell, typing ``dir`` is the equivalent to typing ``ls``.
 
 Using GitBash to Clone a GitHub Repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To use GitBash to clone a GitHub repository:
+
 #. In the directory where you want to clone PyAnsys repositories, right-click and
    select ``GitBash Here``.
 
 #. Type ``git clone`` followed by the address of the repo to clone.
 
-For example, to clone the ``pyansys-sphinx-theme`` repository, you would
-type and enter:
+
+For example, you clone the ``pyansys-sphinx-theme`` repository with:
   
 .. code::
   
@@ -263,13 +204,11 @@ type and enter:
 
 Pushing Changes to the GitHub Repository
 ----------------------------------------
-Once you have tested your changes in local documentation builds and are
-satisifed with them, you can push them to the library's GitHub repository. 
-You can use Git commands or Git Extension to accomplish this. 
-
-For documentation changes, the branch name should always have a prefix of ``doc/``
-followed by a short description of what you've changed. For more information, see
-:ref:`branch_naming`.
+As you make changes in your ``doc/`` branch, you want to periodically test then in
+local documentation builds as described in :ref:`doc_building`. After you resolve
+any issues and are satisfied with what apears in a local build, you are ready
+to push your changes to the library's GitHub repository. To accomplish this,
+you can use either Git commands or Git Extensions. 
 
 Using Git Commands to Push Changes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -317,8 +256,7 @@ To use Git commands to push your changes to the GitHub repository:
    followed by the branch name.
    
    For the given example, you would enter:
-   
-   
+      
    .. code::
    
     git push --set-upstream origin doc/edit_contributing
@@ -356,6 +294,7 @@ To use Git Extensions to push your changes to the GitHub repository:
 
 #. Create the PR as described in :ref:`create_pr`.
 
+
 .. _create_pr:
 
 Creating the GitHub PR
@@ -378,3 +317,122 @@ the GitHub PR:
 
    If you need to change a PR title, to its right, click the ``Edit`` button,
    which becomes a ``Save`` button while you are in editing mode.
+
+.. _doc_building:
+
+Building Documentation Locally
+------------------------------
+You can build and verify the HTML documentation for a PyAnsys library locally
+by installing Sphinx and other documentation build dependencies.
+
+Setting Up Your Machine
+~~~~~~~~~~~~~~~~~~~~~~~
+Anaconda provides Python and tools, such as a Python IDE (Interactive Development Environment),
+a Python command line editor, and Sphinx dependencies. This gives you what you need to get up
+and running.
+
+#. Install the `Anaconda individual edition <https://www.anaconda.com/products/individual>`_.
+
+#. If a PyAnsys library already exists, create a directory in which to place a clone of its GitHub repository.
+
+#. Clone the PyAnsys library's GitHub repository. For more information, see :ref:`cloning`.
+
+#. If you have not yet cloned the `pyansys-sphinx-theme <https://github.com/pyansys/pyansys-sphinx-theme>`_
+   repository, clone it.
+
+Installing Build Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+You can build documentation for the `dev_guide <https://github.com/pyansys/dev-guide>`_
+and `pyansys-sphinx-theme <https://github.com/pyansys/pyansys-sphinx-theme>`_ repositories without
+installing a PyAnsys library in development mode. However, when you push changes that you have made
+in a local branch to the GitHub repository for other PyAnsys libraries, CI checks typically require
+that the full library is installed.
+
+#. In Anaconda Powershell, navigate to the base directory in the library's cloned repository.
+
+#. If your library must be installed in development mode, enter:
+   
+   .. code::
+
+    pip install -e .
+
+#. To install the build requirements for generating documentation, enter:
+   
+   .. code::
+
+    pip install -r requirements_docs.txt
+
+#. If you are running on a Linux/Mac OS, to build the documentation, enter:
+   
+   .. code::
+
+    make -C doc html
+
+#. If you are running on Windows, to build the documentation, enter two
+   commands:
+   
+   .. code::
+  
+    cd doc
+    .\make.bat html
+
+
+   As Sphinx is generating HTML output in the library's ``../doc/_build/html`` directory,
+   Anaconda Powershell displays any errors and warnings for unexpected indentations,
+   bad target locations for links, missing files, and extra files included in the
+   repository but not referenced by any ``index.rst`` file.
+   
+#. Resolve all indicated issues before submitting a pull request (PR) to push
+   your changes to the library's GitHub repository. 
+   
+#. After local documentation builds successfully, navigate to ``doc/_build/html/``
+   and use your browser to open the ``index.html`` file to review the documentation,
+   repeating the local build process until there are no errors or obvious issues.
+
+.. note::
+   You can use ``make.bat`` to build more than HTML output. To view a summary of
+   all target options, enter ``make.bat``.
+
+Your next step is to push your changes to the library's GitHub repository
+by creating a PR. For more information, see :ref:`create_pr`.
+
+.. _pdf_building:
+
+Building a PDF of Your Documentation Locally
+--------------------------------------------
+Some libraries supply a link to a PDF of the documentation under 'Assets' in the 
+release notes for a version. On Linux, building this PDF can be done by following
+`these directions <https://sudonull.com/post/70830-How-to-make-LaTeX-and-PDF-generation-in-Sphinx>`_.
+On Windows, building a PDF is a manual process that you run locally:
+
+#. Install `MiKTeX <https://miktex.org/download>`_ for Windows, selecting the
+   recommended option for installing it for only your own use.
+#. From the Windows Start menu, start the MiKTeX Console.
+#. On the Welcome page, click ``Check for updates`` and install any available
+   updates.
+#. Install the latest version of Strawbery Perl, which enables you to build
+   LaTeX files, accepting the default installation location (``C:\Strawberry\``).
+#. In the Command Prompt window, type ``perl-v`` to test that your installation is
+   successful.  
+#. Ensure that these Perl directory locations have been added to your ``Path``
+   system environment variable:
+   
+   - C:/Strawberry/c/bin
+   - C:/Strawberry/perl/site/bin
+   - C:/Strawberry/perl/bin
+
+
+#. In Anaconda PowerShell, navigate to the ``doc`` directory with:
+   
+   .. code::
+
+    cd C:\AnsysDev\GitRepos\PyAnsys\dev-guide\doc
+
+
+#. Generate LaTeX files and a PDF from these files in ``..\doc\build\latex``
+   with:
+
+   .. code::
+
+    .\make latexpdf
+
