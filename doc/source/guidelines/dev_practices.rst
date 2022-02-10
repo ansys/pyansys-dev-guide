@@ -115,7 +115,8 @@ For information specific to writing Pythonic error messages, see:
 
 - `Python Exception Handling <https://www.codementor.io/@sheena/python-exception-handling-ogr0a41t7>`_
 - `7 Tips to Improve Your Error Handling in Python <https://pybit.es/articles/pythonic-exceptions/>`_
-- `Python Exception TUtorial: Printing Error Messges <https://embeddedinventor.com/python-exception-tutorial-printing-error-messages/>`_
+
+Additionally, ensure that you have reviewed this guide's :ref:`logging` topic.
 
 Spelling and Code Style
 ~~~~~~~~~~~~~~~~~~~~~~~

@@ -53,7 +53,7 @@ across PyAnsys libraries. For more information, see :ref:`api_documentation`.
 RST Files
 ~~~~~~~~~
 To provide general usage information in your documentation, use your favorite editor to
-create RST files that you then place in the repository's ``doc\`` directory. The ``index.rst``
+create RST files that you then place in the repository's ``doc`` directory. The ``index.rst``
 file in the ``doc\source`` directory defines the first level of your documentation hierarchy.
 The ``toctree`` directive indicates the maximum number of heading levels that the documentation
 is to display. Below this directive are the directory names for your documentation sections.
@@ -187,7 +187,7 @@ To use Windows PowerShell to clone a GitHub repository:
 
 Using GitBash to Clone a GitHub Repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-To use GitBase to clone a GitHub repository:
+To use GitBash to clone a GitHub repository:
 
 #. In the directory where you want to clone PyAnsys repositories, right-click and
    select ``GitBash Here``.
@@ -342,7 +342,8 @@ and running.
 
 Installing Build Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
-You can build documentation for the ``dev_guide`` and ``pyansys-sphinx-theme`` repositories without
+You can build documentation for the `dev_guide <https://github.com/pyansys/dev-guide>`_
+and `pyansys-sphinx-theme <https://github.com/pyansys/pyansys-sphinx-theme>`_ repositories without
 installing a PyAnsys library in development mode. However, when you push changes that you have made
 in a local branch to the GitHub repository for other PyAnsys libraries, CI checks typically require
 that the full library is installed.
@@ -376,7 +377,7 @@ that the full library is installed.
     .\make.bat html
 
 
-   As Sphinx is generating HTML output in the library's ``..\doc\_build\html`` folder,
+   As Sphinx is generating HTML output in the library's ``../doc/_build/html`` directory,
    Anaconda Powershell displays any errors and warnings for unexpected indentations,
    bad target locations for links, missing files, and extra files included in the
    repository but not referenced by any ``index.rst`` file.
@@ -411,7 +412,7 @@ locally:
    updates.
 #. Install the latest version of Strawbery Perl, which enables you to build
    LaTeX files, accepting the default installation location (``C:\Strawberry\``).
-#. In the Command Prompt window, type ``perl-v`` to test that you installation is
+#. In the Command Prompt window, type ``perl-v`` to test that your installation is
    successful.  
 #. Ensure that these Perl directory locations have been added to your ``Path``
    system environment variable:
