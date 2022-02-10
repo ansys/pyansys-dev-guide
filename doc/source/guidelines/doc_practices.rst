@@ -338,7 +338,7 @@ and running.
 
 #. Clone the PyAnsys library's GitHub repository. For more information, see :ref:`cloning`.
 
-#. If you have not yet cloned the ``pyansys-sphinx-theme`` repository, clone it.
+#. If you have not yet cloned the `pyansys-sphinx-theme <https://github.com/pyansys/pyansys-sphinx-theme>`_ repository, clone it.
 
 Installing Build Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
