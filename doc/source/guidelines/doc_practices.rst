@@ -114,9 +114,9 @@ repository. All of these examples, which should be PEP 8-compliant, are compiled
 during the build process. Always ensure that your examples run properly locally because
 they will be verified through the CI performed via GitHub Actions.
 
-Adding a new standalone example consists of placing it in an applicable subfolder in the ``examples``
+Adding a new standalone example consists of placing it in an applicable subdirectory in the ``examples``
 directory. If none of the existing directories match the category of your example, create
-a new subfolder with a ``README.txt`` file describing the new category. Because these examples
+a new subdirectory with a ``README.txt`` file describing the new category. Because these examples
 are built using the `Sphinx-Gallery <https://sphinx-gallery.github.io/stable/index.html>`_
 extension, you must follow its `coding guidelines <https://sphinx-gallery.github.io/stable/index.html>`_.
 
@@ -179,8 +179,7 @@ To use Windows PowerShell to clone a GitHub repository:
 
 #. Press ``Enter`` to copy the files in the repository to your local directory.
 
-#. Type ``ls`` to see a list of the files now in the folder for this repository
-   in your local directory. 
+#. Type ``ls`` to see a list of the files now in your local directory. 
 
 .. note::
    In Anaconda Powershell, typing ``dir`` is the equivalent to typing ``ls``.
@@ -338,7 +337,8 @@ and running.
 
 #. Clone the PyAnsys library's GitHub repository. For more information, see :ref:`cloning`.
 
-#. If you have not yet cloned the ``pyansys-sphinx-theme`` repository, clone it.
+#. If you have not yet cloned the `pyansys-sphinx-theme <https://github.com/pyansys/pyansys-sphinx-theme>`_
+   repository, clone it.
 
 Installing Build Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
