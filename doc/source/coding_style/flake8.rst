@@ -2,7 +2,7 @@
 
 Style Guide Enforcement
 =======================
-The following sections describe the use of `Flake8`_ for `PEP8`_ style
+This topic describes the use of `Flake8`_ for `PEP8`_ style
 enforcement and the minimum standards expected. PyAnsys libraries
 are expected to be consistent with these guidelines.
 
@@ -27,7 +27,7 @@ Configuring Flake8
 Flake8 supports configuring a specific set of style rules to
 enforce. This configuration can be stored in your library in a
 ``setup.cfg``, ``tox.ini``, or ``.flake8`` file. PyAnsys libraries
-store the flake8 configuration in a ``.flake8`` file at the root of the
+store the Flake8 configuration in a ``.flake8`` file at the root of the
 repository.
 
 Here is an example of a ``.flake8`` configuration file from a PyAnsys
@@ -44,48 +44,50 @@ library:
     statistics = True
 
 Flake8 has many options that can be set within the configuration file.
-A list of possible options can be found `here <https://flake8.pycqa.org/en/latest/user/options.html>`__.
+For a list and descriptions, see this `Flake8 documentation topic
+<https://flake8.pycqa.org/en/latest/user/options.html>`__.
 
-The above configuration defines the following options:
+The example configuration defines the following options:
 
 - ``exclude``
-    This denotes subdirectories and ``doc/_build``, along with all
+    Denotes subdirectories and ``doc/_build``, along with all
     ``__init__.py`` files to be excluded from the check.
 
 - ``select``
-    This is a sequence of error codes that flake8 will report errors
+    Sequence of error codes that Flake8 will report errors
     for. The set in the above configuration is a basic set of errors to
     check for and is not an exhaustive list.
 
-    A full list of error codes and their descriptions can be found `here <https://flake8.pycqa.org/en/3.9.2/user/error-codes.html>`__.
+    For a full list of error codes and their descriptions, see this `Flake8
+    documentation topic <https://flake8.pycqa.org/en/3.9.2/user/error-codes.html>`__.
 
 - ``count``
-    The total number of errors is printed at the end of the check.
+    Total number of errors to print at the end of the check.
 
 - ``max-complexity``
-    This sets the maximum allowed McCabe complexity value for a block of code.
+    Sets the maximum allowed McCabe complexity value for a block of code.
     The value of 10 was chosen because it is a common default.
 
 - ``max-line-length``
-    This denotes the maximum line length for any one line of code.
+    Denotes the maximum line length for any one line of code.
     The `PEP8`_ standard advises a maximum line length of 79. Because
     this is a bit limiting in some cases, the maximum line length
     recommended for a PyAnsys library is 100.
 
 - ``statistics``
-    This enables the number of occurrences of each error or warning code
+    Number of occurrences of each error or warning code
     to be printed as a report at the end of the check.
 
 
 Running Flake8
 --------------
-First, to install flake8, run:
+First, to install Flake8, run:
 
 .. code::
 
     python -m pip install flake8
 
-Then, flake8 can be run from inside your project directory by executing:
+Then, you can run Flake8 from inside your project directory by executing:
 
 .. code::
 
@@ -95,7 +97,7 @@ This uses the configuration defined in the ``.flake8`` file to
 run the style checks on the appropriate files within the project and
 report any errors.
 
-In PyAnsys libraries, flake8 is run as part of the CI/CD for code style.
+In PyAnsys libraries, Flake8 is run as part of the CI/CD for code style.
 This action is run as a required check on pull requests, preventing
 code in violation of style rules from being merged into the code
 base.
@@ -110,12 +112,12 @@ the formatting tool `black`_.
 
 On completing a code change, and before committing, `black`_ can be
 run to reformat the code, following the PEP8 guidelines enforced through
-flake8. This will limit any manual code changes needed to address style
+Flake8. This will limit any manual code changes needed to address style
 rules.
 
 .. _black: https://black.readthedocs.io/en/stable/
 
-Optionally, it is possible to automate the use of ``black``. This can be
+Optionally, it is possible to automate the use of `black`_. This can be
 done with the tool `pre-commit`_. Setting up a `pre-commit hook
 to run black <https://black.readthedocs.io/en/stable/integrations/source_version_control.html>`_
 will automatically format the code before committing. This simple way of
@@ -128,7 +130,7 @@ PEP8 guidelines requires minimal manual effort.
 Minimum Standards
 ~~~~~~~~~~~~~~~~~
 The following section describes the minimum set of code style standards
-expected in an PyAnsys library.
+expected in a PyAnsys library.
 
 * `W191`_ - **Indentation contains tabs.**
 
@@ -193,11 +195,11 @@ expected in an PyAnsys library.
 * `E501`_ - **Line too long.**
 
     All code lines should not exceed 100 characters. The
-    `PEP8 line length <https://www.python.org/dev/peps/pep-0008/#maximum-line-length>`_
-    guidelines suggest a maximum line length of 79. Following this limit
+    `PEP8 line length guideline <https://www.python.org/dev/peps/pep-0008/#maximum-line-length>`_
+    suggests a maximum line length of 79. Following this limit
     is not as necessary today due to modern screen sizes. The suggested maximum
     length of 100 can be easier to accommodate and can still support
-    viewing files side-by-side in code editors.
+    viewing files side by side in code editors.
 
 * `F401`_ - **Module imported but unused.**
 

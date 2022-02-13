@@ -1,12 +1,14 @@
 from datetime import datetime
 
+from pyansys_sphinx_theme import __version__, pyansys_logo_black
+
 # Project information
 project = 'PyAnsys Developers Guide'
-copyright = f'{datetime.now().year}, ANSYS'
-author = 'ANSYS, Inc.'
-release = version = '0.1.dev0'
+copyright = f"(c) {datetime.now().year} ANSYS, Inc. All rights reserved"
+author = "Ansys Inc."
+release = version = '0.2.dev0'
 
-html_logo = 'https://docs.pyansys.com/_static/pyansys-logo-black-cropped.png'
+html_logo = pyansys_logo_black
 html_theme = 'pyansys_sphinx_theme'
 
 html_theme_options = {
@@ -16,19 +18,29 @@ html_theme_options = {
 
 # Sphinx extensions
 extensions = [
-    'sphinx.ext.todo',
+    "sphinx_copybutton",
+    'sphinx_toolbox.collapse',
     'sphinx.ext.autodoc',
-    'sphinx.ext.napoleon',
     'sphinx.ext.autosummary',
+    'sphinx.ext.intersphinx',
+    'sphinx.ext.napoleon',
+    'sphinx.ext.todo',
 ]
+
+# Intersphinx mapping
+intersphinx_mapping = {
+    "python": ("https://docs.python.org/dev", None),
+    # "scipy": ("https://docs.scipy.org/doc/scipy/reference", None),
+    # "numpy": ("https://numpy.org/devdocs", None),
+    # "matplotlib": ("https://matplotlib.org/stable", None),
+    # "pandas": ("https://pandas.pydata.org/pandas-docs/stable", None),
+    # "pyvista": ("https://docs.pyvista.org/", None),
+}
 
 # The suffix(es) of source filenames.
 source_suffix = '.rst'
 
 # The master toctree document.
-master_doc = 'index'
-
-
 master_doc = 'index'
 
 latex_elements = {}

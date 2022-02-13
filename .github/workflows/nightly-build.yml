@@ -1,15 +1,13 @@
-name: Documentation Build
+name: Nightly Documentation Build
+
 
 on:
-  pull_request:
-  push:
-    tags:
-      - "*"
-    branches:
-      - main
+  schedule:  # UTC at 0400
+    - cron:  '0 4 * * */2' # To run every 3 days
+  workflow_dispatch:
 
 jobs:
-  docs_build:
+  nightly_docs_build:
     runs-on: ubuntu-latest
 
     steps:
@@ -47,34 +45,11 @@ jobs:
           path: doc/build/latex/*.pdf
           retention-days: 7
 
-  Release:
-    if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-    needs: docs_build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v1
-        with:
-          python-version: 3.8
-
-      - uses: actions/download-artifact@v2
-
-      - name: Display structure of downloaded files
-        run: ls -R
-
       - name: Deploy to gh-pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           token: ${{ secrets.github_token }}
           branch: gh-pages
-          folder: HTML-Documentation
+          folder: doc/build/html
           clean: true
           single-commit: true
-
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: |
-            ./*PDF*/*.pdf

@@ -9,9 +9,13 @@ dist/*
 #########################
 *.egg-info/
 
-
+# Build docs and packages
 build/*
 doc/build/
+.vscode/
 
 # virtual environment
 venv/
+
+# sphinx autogen
+doc/source/documentation_style/api/*

@@ -18,7 +18,7 @@ These libraries play a vital role in:
 - Workflow orchestration
 - Data manipulation and export
 
-The libraries also include plugins and interfaces to the vast python
+The libraries also include plugins and interfaces to the vast Python
 ecosystem. Examples include:
 
 - Arrays using `NumPy <https://numpy.org/>`_
@@ -28,10 +28,13 @@ ecosystem. Examples include:
 - Advanced scientific computing using `SciPy <https://www.scipy.org/>`_
 - Machine learning using `TensorFlow <https://www.tensorflow.org/>`_
 
+.. note::
+   If you are new to GitHub, we suggest that you visit `The ReadMe Project <https://github.com/readme>`_.
+   It is a dedicated platform for highlighting the best from the open source software community.
+   Monthly newletters provide feature articles, developer stories, guides, and podcasts.
 
 Project Organization
 ~~~~~~~~~~~~~~~~~~~~
-
 The PyAnsys project is hosted on GitHub at `PyAnsys
 <https://github.com/pyansys>`_. It contains several repositories with 
 Python libraries that interface with Ansys products or services. 
@@ -48,7 +51,7 @@ If you want to create, develop, or contribute to a PyAnsys library,
 visit these links:
 
 * `PyAnsys Project Developer's Guide <https://github.com/pyansys/about>`_
-* `PyAnsys Documentation Theme <https://github.com/pyansys/pyansys-sphinx-theme>`_
+* `PyAnsys Sphinx Theme Documentation <https://github.com/pyansys/pyansys-sphinx-theme>`_
 * `gRPC Hello-world Example <https://github.com/pyansys/pyansys-helloworld>`_
 * `Material Example Data <https://github.com/pyansys/example-data>`_
 
@@ -66,7 +69,6 @@ PROTO files, create coverage reports, and report on system coverage:
    basic
    administration
    contributing
-   dev_practices
 
 .. _PyAEDT: https://github.com/pyansys/PyAEDT
 .. _PyMAPDL: https://github.com/pyansys/pymapdl
