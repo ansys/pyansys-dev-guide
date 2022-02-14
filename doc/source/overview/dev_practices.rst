@@ -446,7 +446,7 @@ If you are using ``setup.py``, your installation step is::
           pip install -r requirements_test.txt
 
 If you are using ``pyproject.toml`` with the ``flit`` build system, your
-installation step will be::
+installation step is::
 
       - name: Install the library and dependencies
         run: |
