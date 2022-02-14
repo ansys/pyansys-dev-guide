@@ -37,5 +37,4 @@ Finally the documentation should be public and hosted via gh-pages, either as a 
 
    docstrings
    class_documentation
-   coding_style
    deployment
