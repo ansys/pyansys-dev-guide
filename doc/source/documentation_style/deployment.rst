@@ -11,4 +11,4 @@ After following the documentation build strategy contained within both
 the `pyansys/template <https://github.com/pyansys/template/>`_ and
 `pyansys-sphinx-theme
 <https://github.com/pyansys/pyansys-sphinx-theme>`_ you will end up
-with html documentation files contained within `doc/build/html`.  
+with html documentation files in ``doc/build/html``.  
