@@ -382,8 +382,7 @@ CI/CD, such testing can still occur and be enforced automatically.
 `GitHub Actions <gh actions link>`_ is the preferred automated CI/CD platform
 for running Python library unit tests for PyAnsys, and can be employed
 immediately by closing the project `template <link to
-github.com/pyansys/template>`_. For a basic overview of those unfamiliar of
-GitHub Actions, read: `missing link <missing_link>`_.
+github.com/pyansys/template>`_. If you are unfamiliar with GitHub Actions, see: `missing link <missing_link>`_ for an overview.
 
 **Sample Workflow**
 
