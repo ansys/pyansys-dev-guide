@@ -231,7 +231,7 @@ For example, if testing the gRPC method ``GetNode``:
    }
 
 Then your unit test would test the wrapped python function (for example,
-``get_node``).  For example the ``get_node`` method might be implemented as:
+``get_node``).  You might implement the ``get_node`` method with:
 
 .. code:: python
 
@@ -276,7 +276,7 @@ Your test would be implemented within ``tests/test_nodes.py``:
        assert srv.get_node(node_index) == node_coord
 
 The goal of the unit test should be to test the wrapping of the interface rather
-than the product or service itself. In the case of the ``GetNode``, this method
+than the product or service itself. In the case of ``GetNode``, this method
 should have already been tested when designing and developing the service.
 
 
@@ -291,14 +291,19 @@ directory in the root directory of the library::
        test_basic.py
        test_advanced.py
 
-Furthermore, any testing dependencies requirements should be included when using ``setup.py`` within a ``requirements_tests.txt`` file that is installed via::
+Furthermore, any requirements for testing dependencies should be included when using ``setup.py`` within a ``requirements_tests.txt`` file that is installed via::
 
 .. code::
 
    pip install -r requirements_tests.txt
 
+<<<<<<< HEAD
 Or included in ``pyproject.toml``. For example, when using the `poetry
 <https://python-poetry.org/>`_ build system::
+=======
+An alternative is to include requirements for dependencie in the ``pyproject.toml`` file. For example, when using the `filt
+<missing_link>`_ build system::
+>>>>>>> c2852319d933c2409d1669a7333e47cde85c4312
 
    [tool.poetry.group.test.dependencies]
        pytest>="2.7.3"
@@ -313,8 +318,8 @@ When using ``pytest``, test via::
    pytest
 
 .. note::
-   Note that it is preferable to cd into the testing directory and run unit
-   testing there as you will be testing the installed library (generally in
+   We recommend that you use ``cd`` to change to the ``testing`` directory and run unit
+   testing there because you will be testing the installed library (generally in
    development mode ``pip install -e .``) rather than the source within the
    uninstalled "local" source. This catches files that might be missed by the
    installer, including any C extensions or additional internal packages.
@@ -322,11 +327,10 @@ When using ``pytest``, test via::
 
 Coverage
 ~~~~~~~~
-As Python is an interpreted language, developers of any Python library should
+Given that Python is an interpreted language, developers of Python libraries should
 aim to have high coverage for their libraries as only syntax errors can be caught
 during the almost trivial compile time. Coverage is defined as parts of the
-executable and usable source that are tested by unit tests, and the coverage for
-your library can be viewed using the ``pytest-cov`` library. For example::
+executable and usable source that are tested by unit tests. You can use the ``pytest-cov`` library to view the coverage for your library. For example::
 
   $ pytest --cov numpydoc_validation
    ============================= test session starts ==============================
@@ -348,7 +352,7 @@ your library can be viewed using the ``pytest-cov`` library. For example::
 While 100% coverage is ideal, the law of diminishing returns often applies to
 the coverage of a Python library. Consequently, achieving 80-90% coverage is often sufficient.
 For parts of your library that are difficult or impossible to test,
-consider using ``# pragma: no cover`` at the end of method definition, branch,
+consider using ``# pragma: no cover`` at the end of the method definition, branch,
 or line to denote that part of the code cannot be reasonably tested.  For
 example, if part of your module performs a simple ``import`` test of
 ``matplotlib`` and raises an error when the library is not installed, it is not
@@ -359,14 +363,14 @@ reasonable to attempt to test this and assume full coverage:
    try:
        import matplotlib
    except ImportError:  # pragma: no cover
-       raise ImportError("Please install matplotlib to use this feature")
+       raise ImportError("Install matplotlib to use this feature.")
 
 .. note::
    You should only avoid coverage of parts of your library where you cannot
    reasonably test without an extensive testing suite or setup.  Most methods
    and classes, including edge cases, can be reasonable tested. Even parts of
    your code that raise errors like ``TypeError`` or ``ValueError`` when users
-   input the wrong data type or value.
+   input the wrong data type or value can be reasonably tested.
 
 
 Unit Testing within CI/CD
@@ -423,9 +427,7 @@ PyAnsys libraries should run on the currently supported versions of Python on bo
 **Running the Tests**
 
 Each virtual machine within GitHub actions starts in a fresh state with no
-software or source installed or downloaded. Therefore it is necessary to both
-clone the repository using the ``checkout`` action, as well as setup Python and
-install the necessary testing dependencies.
+software or source installed or downloaded. Therefore, you must clone the repository using the ``checkout`` action, set up Python, and install the necessary testing dependencies.
 
     steps:
       - uses: actions/checkout@v2
@@ -457,7 +459,7 @@ Run the unit tests via ``pytest`` with::
         run: pytest --cov ansys.product.library
 
 .. note::
-   Replace ``ansys.product.library`` with your library. This should match how it
+   Replace ``ansys.product.library`` with your library name. This should match how it
    would be imported within Python. For example, rather than
    ``ansys-product-library`` use ``ansys.product.library``.
 
@@ -505,12 +507,12 @@ of your repository:
            if_ci_failed: error
            if_no_uploads: error
 
-This requires that each PR has a patch coverage of 90%, meaning that 90% any source added to the repository (unless ignored) must be covered by unit tests.
+This requires that each PR has a patch coverage of 90%, meaning that 90% of any source added to the repository (unless ignored) must be covered by unit tests.
 
 .. note::
    This is only a sample configuration.
 
-Test Driven Development
+Test-Driven Development
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -548,7 +550,7 @@ Files Layout
 ~~~~~~~~~~~~
 PyAnsys libraries should use ``unittest`` or ``pytest`` libraries to run individual
 unit tests contained within a ``tests`` directory in the root of the project.  The
-testing specific files of your project should at a minimum include:
+specific test files for your project should at a minimum include:
 
 .. code::
 
