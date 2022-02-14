@@ -285,7 +285,7 @@ Testing Framework
 For consistency, PyAnsys tools and libraries should use either the `unit test
 <some link>`_ or `pytest <some link>`_ frameworks for unit testing. As detailed
 in the :ref:`repo_dir_struct`, unit tests should be placed into the ``tests``
-directory in the of the root directory of the library::
+directory in the root directory of the library::
 
    tests/
        test_basic.py
