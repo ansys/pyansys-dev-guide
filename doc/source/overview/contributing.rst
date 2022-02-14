@@ -1,6 +1,6 @@
-============
+############
 Contributing
-============
+############
 
 Ansys welcomes all PyAnsys code contributions and wants you to
 understand how to contribute. While we maintain PyAnsys libraries
@@ -18,8 +18,9 @@ respository's documentation, including:
 - Instructions for cloning the source repository from GitHub
 - URL to the repository's ``Issues`` page
 
+
 Creating Issues
----------------
+===============
 You create issues to submit questions, report bugs, and request new
 features. When you create an issue, ensure that you provide sufficient
 context, such as application versions and reproduction steps. Also use
@@ -45,8 +46,9 @@ public Ansys repositories:
 - `PyMAPDL Issues <https://github.com/pyansys/pymapdl/issues>`_
 - `PyMAPDL-Reader Issues <https://github.com/pyansys/pymapdl-reader/issues>`_
 
+
 Submitting Questions
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 For general or technical questions about the code in a PyAnsys repository or
 about its application or software usage, create issues on the ``Issues`` page
 of the repository. This allows PyAnsys developers and community members with
@@ -54,7 +56,7 @@ the needed expertise to collectively address them. It also makes their responses
 available to all users.
 
 Reporting Bugs
-~~~~~~~~~~~~~~
+--------------
 If you encounter a bug or your workflow crashes while using code in a PyAnsys
 repository, create an issue on the repository's ``Issues`` page and tag it with
 an appropriate label so that it can be promptly addressed. In describing the
@@ -63,7 +65,7 @@ Whenever possible, provide a traceback, screenshots, and sample files that might
 help the community to address the issue.
 
 Requesting New Features
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 We encourage you to submit ideas for improving the code in a PyAnsys
 repository. To suggest a new feature, create an issue on the repository's
 ``Issues`` page and tag this issue with the ``Feature Request`` label.
@@ -75,7 +77,7 @@ files and screenshots. The community will then use the issue thread to discuss
 the request and provide feedback on how the feature might best be implemented.
 
 Contributing New Code
----------------------
+=====================
 When you are ready to start contributing code, see:
 
 - :ref:`development_practices` for information on how PyAnsys development is
@@ -83,8 +85,11 @@ When you are ready to start contributing code, see:
 - :ref:`best_practices` for information on how to style and format your
   code to adhere to PyAnsys standards
 
+
+All pull requests are reviwed before they can be merged.
+
 Starting Discussions
---------------------
+====================
 For general questions about development practices, you should create discussions
 rather than issues. Each PyAnsys repository has its own ``Discussions`` page.
 For example, to ask a question about a PyMAPDL development practice, you would
@@ -96,7 +101,7 @@ page. It is possible for discussions to lead to the creation of issues.
     may change in the future.
     
 Cloning the Source Repository
------------------------------
+=============================
 As mentioned earlier, specific instructions for cloning a source
 repository from GitHub appear on the ``Contributing`` page in the
 respective repository's documentation. In the following code for cloning and
@@ -109,6 +114,7 @@ is a placeholder for the name of the repository.
     cd <pyansys-repository>
     pip install -e .
 
+
 For example, to clone and install the latest version of PyMAPDL,
 you would run the following:
 
@@ -118,6 +124,7 @@ you would run the following:
     cd pymapdl
     pip install -e .
 
+
 If you want to eventually push a contribution to a
 PyAnsys repository, consider creating a `fork <https://docs.github.com/en/get-started/quickstart/fork-a-repo>`_
 of the repository. For information on how to contribute through
@@ -125,7 +132,7 @@ GitHub, see :ref:`development_practices`, paying particular attention to :ref:`b
 when you are ready to create a pull request.
 
 Licensing
----------
+=========
 All contributed code will be licensed under the MIT License. For more information, see
 :ref:`license_file`. The ``LICENSE`` file containing the MIT License must be included in
 the root directory of a PyAnsys repository.
