@@ -12,7 +12,7 @@ General Development Procedures
 ------------------------------
 
 To submit new code to a PyAnsys, first `fork <https://docs.github.com/en/get-started/quickstart/fork-a-repo>`_
-the repository (for example `PyMAPDL <https://github.com/pyansys/pymapdl>`_)
+the repository (for example, `PyMAPDL <https://github.com/pyansys/pymapdl>`_)
 and then clone the forked repository to your local environment. Next, create a new branch based on the
 `Branch Naming Conventions Section <#branch-naming-conventions>`__ in
 your local repository.
