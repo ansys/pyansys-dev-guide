@@ -348,8 +348,8 @@ your library can be viewed using the ``pytest-cov`` library. For example::
    TOTAL                                 71      0   100%
 
 While 100% coverage is ideal, the law of diminishing returns often applies to
-the coverage of a Python library, and it is often sufficient, to achieve 80-90%
-coverage. For parts of your library that are difficult or impossible to test,
+the coverage of a Python library. Consequently, achieving 80-90% coverage is often sufficient.
+For parts of your library that are difficult or impossible to test,
 consider using ``# pragma: no cover`` at the end of method definition, branch,
 or line to denote that part of the code cannot be reasonably tested.  For
 example, if part of your module performs a simple ``import`` test of
