@@ -457,7 +457,7 @@ Run the unit tests via ``pytest`` with::
         run: pytest --cov ansys.product.library
 
 .. note::
-   Replace ``ansys.product.library`` with your library. This should match how it
+   Replace ``ansys.product.library`` with your library name. This should match how it
    would be imported within Python. For example, rather than
    ``ansys-product-library`` use ``ansys.product.library``.
 
