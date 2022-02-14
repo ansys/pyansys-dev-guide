@@ -425,9 +425,7 @@ PyAnsys libraries should run on the currently supported versions of Python on bo
 **Running the Tests**
 
 Each virtual machine within GitHub actions starts in a fresh state with no
-software or source installed or downloaded. Therefore it is necessary to both
-clone the repository using the ``checkout`` action, as well as setup Python and
-install the necessary testing dependencies.
+software or source installed or downloaded. Therefore, you must clone the repository using the ``checkout`` action, set up Python, and install the necessary testing dependencies.
 
     steps:
       - uses: actions/checkout@v2
