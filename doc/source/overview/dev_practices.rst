@@ -438,7 +438,7 @@ install the necessary testing dependencies.
         with:
           python-version: ${{ matrix.python-version }}
 
-If you are using ``setup.py``, your installation step will be::
+If you are using ``setup.py``, your installation step is::
 
       - name: Install the library
         run: |
