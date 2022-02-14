@@ -291,7 +291,7 @@ directory in the root directory of the library::
        test_basic.py
        test_advanced.py
 
-Furthermore, any testing dependencies requirements should be included when using ``setup.py`` within a ``requirements_tests.txt`` file that is installed via::
+Furthermore, any requirements for testing dependencies should be included when using ``setup.py`` within a ``requirements_tests.txt`` file that is installed via::
 
 .. code::
 
