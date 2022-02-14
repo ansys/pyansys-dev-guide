@@ -316,7 +316,7 @@ When using ``pytest``, test via::
 
 .. note::
    Note that it is preferable to cd into the testing directory and run unit
-   testing there as you will be testing the installed library (generally in
+   testing there because you will be testing the installed library (generally in
    development mode ``pip install -e .``) rather than the source within the
    uninstalled "local" source. This catches files that might be missed by the
    installer, including any C extensions or additional internal packages.
