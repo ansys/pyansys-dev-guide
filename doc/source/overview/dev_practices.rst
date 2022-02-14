@@ -297,7 +297,7 @@ Furthermore, any requirements for testing dependencies should be included when u
 
    pip install -r requirements_tests.txt
 
-Or included in ``pyproject.toml``. For example, when using the `filt
+An alternative is to include requirements for dependencie in the ``pyproject.toml`` file. For example, when using the `filt
 <missing_link>`_ build system::
 
    [project.optional-dependencies]
