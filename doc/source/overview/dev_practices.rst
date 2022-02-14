@@ -283,8 +283,8 @@ should have already been tested when designing and developing the service.
 Testing Framework
 ~~~~~~~~~~~~~~~~~
 For consistency, PyAnsys tools and libraries should use either the `unit test
-<some link>`_ or `pytest <some link>`_ frameworks for unit testing. As detailed
-in the :ref:`repo_dir_struct`, unit tests should be placed into the ``tests``
+<some link>`_ or `pytest <some link>`_ frameworks for unit testing. As described
+in :ref:`repo_dir_struct`, unit tests should be placed into the ``tests``
 directory in the root directory of the library::
 
    tests/
