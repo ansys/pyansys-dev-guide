@@ -386,7 +386,7 @@ github.com/pyansys/template>`_. If you are unfamiliar with GitHub Actions, see: 
 
 **Sample Workflow**
 
-The following sections detail the usage of a simple GitHub workflow for a
+The following sections describe the usage of a simple GitHub workflow for a
 PyAnsys library:
 
 **Setup**
