@@ -202,7 +202,7 @@ that interface or wrap functionality of a different Ansys product, service, or
 application, or tools those that provide functionality. Both types of libraries
 should be tested, but the tests written will depend on the purpose of the library.
 For example, a library that is wrapping a gRPC interface would include tests of
-the gRPC methods exposed by the proto files and wrapped by the Python library, but would not be expected to test the functionality of the server.
+the gRPC methods exposed by the proto files and wrapped by the Python library. They would not be expected to test the functionality of the server.
 
 For example, if testing the gRPC method ``GetNode``:
 
