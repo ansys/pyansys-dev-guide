@@ -344,9 +344,9 @@ Installing Build Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 You can build documentation for the `dev_guide <https://github.com/pyansys/dev-guide>`_
 and `pyansys-sphinx-theme <https://github.com/pyansys/pyansys-sphinx-theme>`_ repositories without
-installing a PyAnsys library in development mode. However, when you push changes that you have made
-in a local branch to the GitHub repository for other PyAnsys libraries, CI checks typically require
-that the full library is installed.
+installing a PyAnsys library in development mode. However, for many other PyAnsys libraries, when
+you push changes that you have made in a local branch to the library's GitHub repository, CI checks
+typically require that the full library is installed.
 
 #. In Anaconda Powershell, navigate to the base directory in the library's cloned repository.
 
@@ -362,14 +362,25 @@ that the full library is installed.
 
     pip install -r requirements_docs.txt
 
-#. If you are running on a Linux/Mac OS, to build the documentation, enter:
+
+.. note::
+   If you want to configure and activate a Python virtual environment with the
+   required packages, you can use ``configure_venv``.
+
+Once build requirements are installed, you can build HTML documentation.
+
+Building HTML Documentation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+How you build HTML documentation depends on your operating system.
+
+#. If you are running on Linux or Mac, enter:
    
    .. code::
 
     make -C doc html
 
-#. If you are running on Windows, to build the documentation, enter two
-   commands:
+
+#. If you are running on Windows, enter two commands:
    
    .. code::
   
@@ -377,7 +388,7 @@ that the full library is installed.
     .\make.bat html
 
 
-   As Sphinx is generating HTML output in the library's ``../doc/_build/html`` directory,
+   As Sphinx generates HTML output in the library's ``../doc/_build/html`` directory,
    Anaconda Powershell displays any errors and warnings for unexpected indentations,
    bad target locations for links, missing files, and extra files included in the
    repository but not referenced by any ``index.rst`` file.
@@ -390,8 +401,8 @@ that the full library is installed.
    repeating the local build process until there are no errors or obvious issues.
 
 .. note::
-   You can use ``make.bat`` to build more than HTML output. To view a summary of
-   all target options, enter ``make.bat``.
+   You can use ``.\make.bat`` to build more than HTML output. To view a summary of
+   all target options, enter ``.\make.bat``.
 
 Your next step is to push your changes to the library's GitHub repository
 by creating a PR. For more information, see :ref:`create_pr`.
@@ -407,13 +418,18 @@ On Windows, building a PDF is a manual process that you run locally:
 
 #. Install `MiKTeX <https://miktex.org/download>`_ for Windows, selecting the
    recommended option for installing it for only your own use.
+
 #. From the Windows Start menu, start the MiKTeX Console.
+
 #. On the Welcome page, click ``Check for updates`` and install any available
    updates.
+
 #. Install the latest version of Strawbery Perl, which enables you to build
    LaTeX files, accepting the default installation location (``C:\Strawberry\``).
+
 #. In the Command Prompt window, type ``perl-v`` to test that your installation is
-   successful.  
+   successful.
+
 #. Ensure that these Perl directory locations have been added to your ``Path``
    system environment variable:
    

@@ -1,5 +1,37 @@
+############################
+PyAnsys Project Organization
+############################
+
+The PyAnsys project is hosted on GitHub at `PyAnsys
+<https://github.com/pyansys>`_. It contains several repositories with 
+Python libraries that interface with Ansys products or services. 
+To try out a library, visit one of these links:
+
+* `PyAnsys Project <https://docs.pyansys.com/>`_
+* `PyMAPDL`_
+* `PyAEDT`_
+* `DPF-Core <https://github.com/pyansys/DPF-Core>`_
+* `DPF-Post <https://github.com/pyansys/DPF-Post>`_
+* `Legacy PyMAPDL Reader <https://github.com/pyansys/pymapdl-reader>`_
+
+If you want to create, develop, or contribute to a PyAnsys library, 
+visit these links:
+
+* `PyAnsys Project Developer's Guide <https://github.com/pyansys/about>`_
+* `PyAnsys Sphinx Theme Documentation <https://github.com/pyansys/pyansys-sphinx-theme>`_
+* `gRPC Hello-world Example <https://github.com/pyansys/pyansys-helloworld>`_
+* `Material Example Data <https://github.com/pyansys/example-data>`_
+
+Using the following tools, developers generate library packages from 
+PROTO files, create coverage reports, and report on system coverage:
+
+* `pyansys-protos-generator <https://github.com/pyansys/pyansys-protos-generator>`_
+* `example-coverage <https://github.com/pyansys/example-coverage>`_
+* `system-reporting-tool <https://github.com/pyansys/system-reporting-tool>`_
+
+#################
 Quick Start Guide
-=================
+#################
 
 This is a brief overview on how to get started right away with your own PyAnsys
 repository on the `PyAnsys GitHub Organization`_. A repository is generally a
@@ -48,7 +80,8 @@ project for a particular PyAnsys library.
 
    Others like requests, RPC, COM, etc.
 
-
+.. _PyAEDT: https://github.com/pyansys/PyAEDT
+.. _PyMAPDL: https://github.com/pyansys/pymapdl
 .. _pytest-cov: https://pytest-cov.readthedocs.io/en/latest/reporting.html
 .. _pyansys/template: https://github.com/pyansys/template
 .. _Creating a repository from a template: https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template

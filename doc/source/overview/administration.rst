@@ -1,5 +1,7 @@
+######################
 Project Administration
 ######################
+
 The PyAnsys project allows you to create your own workflows and 
 interfaces to Ansys products using Ansys APIs. While using PyAnsys 
 libraries requires that the relevant Ansys products are licensed 
@@ -22,7 +24,6 @@ of the original PyAnsys MIT license in the reused code.
 To view this license, see the `LICENSE <https://github.com/pyansys/dev-guide/blob/main/LICENSE>`_ file in the root directory 
 of this repository. This file must be included in the root 
 directory of the repository of every PyAnsys library.
-
 
 Project Approval
 ================
@@ -54,7 +55,6 @@ Each repository is expected to follow this minimum set of standards:
 
 Release Procedures and Versioning
 =================================
-
 PyAnsys library releases are managed through both automated
 and manual review processes.
 
@@ -108,7 +108,7 @@ Release Management
 A release may be a major, minor, or patch release depending on the
 features, changes, or bug fixes to be released.
 
-See :ref:`release_procedures` for the details on release management.
+For more information, see :ref:`release_procedures`.
 
 
 Product Version Matching

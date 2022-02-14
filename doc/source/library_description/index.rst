@@ -1,5 +1,7 @@
+################
 Library Overview
 ################
+
 A PyAnsys library eliminates the need to share snippets of code that
 perform actions. Users can instead create workflows consisting of 
 their own Python modules and third-party libraries. This extends 
@@ -34,29 +36,11 @@ that maps the raw API into a carefully designed, object-oriented data
 model and API.
 
 
-Template
---------
-Within the `PyAnsys Organization <https://github.com/pyansys>`_, there
-is a `template repository <https://github.com/pyansys/template>`_
-where you can `create a repository from a template`_ and create a 
-PyAnsys project that follows the guidelines specified in this developer's
-guide.
-
-The template repository contains a generalized library skeleton that includes:
-
-- Library skeleton with sample classes and methods
-- Sample documentation build including customized templates
-- Sample GitHub actions specific to PyAnsys libraries
-- Licensing, example README, and setup files
-- ``.gitignore`` and other requirements files
-
-To use this template, `create a repository from a template`_.
-
-
 .. toctree::
    :hidden:
    :maxdepth: 3
 
+   template
    library_structure
    library_names
    repo_directory_structure
