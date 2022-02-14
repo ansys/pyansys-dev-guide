@@ -324,7 +324,7 @@ When using ``pytest``, test via::
 
 Coverage
 ~~~~~~~~
-As Python is an interpreted language, developers of any Python library should
+Given that Python is an interpreted language, developers of Python libraries should
 aim to have high coverage for their libraries as only syntax errors can be caught
 during the almost trivial compile time. Coverage is defined as parts of the
 executable and usable source that are tested by unit tests, and the coverage for
