@@ -276,7 +276,7 @@ Your test would be implemented (within ``tests/test_nodes.py``):
        assert srv.get_node(node_index) == node_coord
 
 The goal of the unit test should be to test the wrapping of the interface rather
-than the product or service itself. In the case of the ``GetNode``, this method
+than the product or service itself. In the case of ``GetNode``, this method
 should have already been tested when designing and developing the service.
 
 
