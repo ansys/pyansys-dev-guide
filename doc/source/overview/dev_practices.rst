@@ -231,7 +231,7 @@ For example, if testing the gRPC method ``GetNode``:
    }
 
 Then your unit test would test the wrapped python function (for example,
-``get_node``).  For example the ``get_node`` method might be implemented as:
+``get_node``).  You might implement the ``get_node`` method with:
 
 .. code:: python
 
