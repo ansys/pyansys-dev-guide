@@ -327,8 +327,7 @@ Coverage
 Given that Python is an interpreted language, developers of Python libraries should
 aim to have high coverage for their libraries as only syntax errors can be caught
 during the almost trivial compile time. Coverage is defined as parts of the
-executable and usable source that are tested by unit tests, and the coverage for
-your library can be viewed using the ``pytest-cov`` library. For example::
+executable and usable source that are tested by unit tests. You can use the ``pytest-cov`` library to view the coverage for your library. For example::
 
   $ pytest --cov numpydoc_validation
    ============================= test session starts ==============================
