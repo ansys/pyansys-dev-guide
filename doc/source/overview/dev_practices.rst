@@ -195,7 +195,7 @@ should not wait until a minor release. These are the steps for a patch release:
 Testing
 -------
 Unit testing is critical for the sucessful continious integration and testing of
-any program or libraries belonging to the PyAnsys project are no exception.
+any program or libraries belonging to the PyAnsys project.
 
 There are generally two types of libraries part of the PyAnsys project: those
 that interface or wrap functionality of a different Ansys product, service, or
