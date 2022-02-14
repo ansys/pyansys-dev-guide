@@ -485,7 +485,7 @@ See the following section regarding the usage of `codecov.io`_.
 Code Coverage Enforcement
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 One way of enforcing unit test coverage with a project on GitHub is to use the
-`codecov.io CI Bot`_ to enforce minimum patch (and optionally project)
+**codecov.io CI Bot** to enforce minimum patch (and optionally project)
 coverage. As this application is already available to the `PyAnsys Organization
 <https://github.com/pyansys>`_, simply add the following to the root directory
 of your repository:
