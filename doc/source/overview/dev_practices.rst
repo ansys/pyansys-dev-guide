@@ -315,7 +315,7 @@ When using ``pytest``, test via::
    pytest
 
 .. note::
-   Note that it is preferable to cd into the testing directory and run unit
+   We recommend that you use ``cd`` to change to the ``testing`` directory and run unit
    testing there because you will be testing the installed library (generally in
    development mode ``pip install -e .``) rather than the source within the
    uninstalled "local" source. This catches files that might be missed by the
