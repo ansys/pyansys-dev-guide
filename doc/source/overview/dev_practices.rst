@@ -505,7 +505,7 @@ of your repository:
            if_ci_failed: error
            if_no_uploads: error
 
-This requires that each PR has a patch coverage of 90%, meaning that 90% any source added to the repository (unless ignored) must be covered by unit tests.
+This requires that each PR has a patch coverage of 90%, meaning that 90% of any source added to the repository (unless ignored) must be covered by unit tests.
 
 .. note::
    This is only a sample configuration.
