@@ -430,7 +430,7 @@ software or source installed or downloaded. Therefore, you must clone the reposi
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v1
         with:
-          python-version: ${{ matrix.python-version }}
+         python-version: ${{ matrix.python-version }}
 
 If you are using ``setup.py``, your installation step is::
 
