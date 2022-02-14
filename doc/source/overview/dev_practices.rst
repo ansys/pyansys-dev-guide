@@ -411,7 +411,7 @@ commit for each PR, which may saturate available build or testing machines.
 
 **Job Description**
 
-PyAnsys Libraries should run on the currently supported versions of Python on both Windows and Linux (and ideally Mac OS). Therefore, it is necessary to also test on both Linux and Windows for these versions of Python. Use the ``matrix`` run strategy for the job with both the latest images of Windows and Linux::
+PyAnsys libraries should run on the currently supported versions of Python on both Windows and Linux (and ideally on Mac OS). Therefore, it is necessary to also test on both Linux and Windows for these versions of Python. Use the ``matrix`` run strategy for the job with both the latest images of Windows and Linux::
 
    jobs:
      unit_tests:
