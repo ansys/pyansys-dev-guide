@@ -230,7 +230,7 @@ For example, if testing the gRPC method ``GetNode``:
      // other methods
    }
 
-Then youyour unit test would test the wrapped python function (for example,
+Then your unit test would test the wrapped python function (for example,
 ``get_node``).  For example the ``get_node`` method might be implemented as:
 
 .. code:: python
