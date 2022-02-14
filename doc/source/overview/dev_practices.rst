@@ -404,7 +404,7 @@ Include the name and when your job should be run at the top of the workflow ``.y
        branches:
          - main
 
-Take note that here we run the this workflow on all pull requests and on demand
+Take note that this workflow runs on all pull requests and on demand
 with ``workflow_dispatch``, but limit it being run on commits to only tags and
 on the ``main`` branch.  This ensures that CI/CD is not run twice on every
 commit for each PR, which may saturate available build or testing machines.
