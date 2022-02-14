@@ -297,13 +297,8 @@ Furthermore, any requirements for testing dependencies should be included when u
 
    pip install -r requirements_tests.txt
 
-<<<<<<< HEAD
-Or included in ``pyproject.toml``. For example, when using the `poetry
+An alternative is to include requirements for dependencie in the ``pyproject.toml`` file. For example, when using the `poetry
 <https://python-poetry.org/>`_ build system::
-=======
-An alternative is to include requirements for dependencie in the ``pyproject.toml`` file. For example, when using the `filt
-<missing_link>`_ build system::
->>>>>>> c2852319d933c2409d1669a7333e47cde85c4312
 
    [tool.poetry.group.test.dependencies]
        pytest>="2.7.3"
