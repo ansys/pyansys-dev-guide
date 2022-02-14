@@ -265,7 +265,7 @@ Then your unit test would test the wrapped python function (for example,
 
 Your test would be implemented within ``tests/test_nodes.py``:
 
-.. code::
+.. code:: python
 
    def test_get_node(srv):
        srv.clear()
@@ -424,34 +424,46 @@ PyAnsys libraries should run on the currently supported versions of Python on bo
 Each virtual machine within GitHub actions starts in a fresh state with no
 software or source installed or downloaded. Therefore, you must clone the repository using the ``checkout`` action, set up Python, and install the necessary testing dependencies.
 
-    steps:
-      - uses: actions/checkout@v2
+.. code::
 
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v1
-        with:
+   steps:
+     - uses: actions/checkout@v2
+     - name: Set up Python ${{ matrix.python-version }}
+       uses: actions/setup-python@v1
+       with:
          python-version: ${{ matrix.python-version }}
 
-If you are using ``setup.py``, your installation step is::
 
-      - name: Install the library
-        run: |
-          pip install .
-          pip install -r requirements_test.txt
+If you are using ``setup.py``, your installation step is:
 
-If you are using ``pyproject.toml`` with the ``flit`` build system, your
-installation step is::
 
-      - name: Install the library and dependencies
-        run: |
-          pip install flit
-          flit install
+.. code:: yaml
 
-Run the unit tests via ``pytest`` with::
+     - name: Install the library
+       run: |
+         pip install .
+         pip install -r requirements_test.txt
 
-      - name: Test and show coverage
-        working-directory: tests
-        run: pytest --cov ansys.product.library
+
+If you are using ``pyproject.toml`` with the ``poetry`` build system, your
+installation step is:
+
+.. code:: yaml
+
+   - name: Install the library and dependencies
+     run: |
+       pip install poetry
+       poetry install
+
+
+Run the unit tests via ``pytest`` with:
+
+.. code:: yaml
+
+   - name: Test and show coverage
+     working-directory: tests
+     run: pytest --cov ansys.product.library
+
 
 .. note::
    Replace ``ansys.product.library`` with your library name. This should match how it
@@ -461,8 +473,11 @@ Run the unit tests via ``pytest`` with::
 Optionally, though highly recommended, upload your unit test coverage to
 `codecov.io`_ with::
 
-      - uses: codecov/codecov-action@v2
-        name: 'Upload coverage to Codecov'
+.. code:: yaml
+
+   - uses: codecov/codecov-action@v2
+     name: 'Upload coverage to Codecov'
+
 
 See the following section regarding the usage of `codecov.io`_.
 
@@ -477,7 +492,7 @@ of your repository:
 
 **/codecov.yml**
 
-::
+.. code:: yaml
 
    comment:
      layout: "diff"
@@ -527,7 +542,7 @@ RMI Service Definition:
 
 Python Wrapping
 
-.. code::
+.. code:: python
 
    def send_command(command):
        """Run a command on the server.
