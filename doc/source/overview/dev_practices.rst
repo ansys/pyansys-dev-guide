@@ -510,7 +510,7 @@ This requires that each PR has a patch coverage of 90%, meaning that 90% of any 
 .. note::
    This is only a sample configuration.
 
-Test Driven Development
+Test-Driven Development
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 
