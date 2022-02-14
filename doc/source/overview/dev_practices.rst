@@ -361,7 +361,7 @@ reasonable to attempt to test this and assume full coverage:
    try:
        import matplotlib
    except ImportError:  # pragma: no cover
-       raise ImportError("Please install matplotlib to use this feature")
+       raise ImportError("Install matplotlib to use this feature.")
 
 .. note::
    You should only avoid coverage of parts of your library where you cannot
