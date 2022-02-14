@@ -21,4 +21,4 @@ Table of Contents
    logging
    service_abstraction
    PyMAPDL_WSL_Guide
-
+   test_practices
