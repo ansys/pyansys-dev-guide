@@ -548,7 +548,7 @@ Files Layout
 ~~~~~~~~~~~~
 PyAnsys libraries should use ``unittest`` or ``pytest`` libraries to run individual
 unit tests contained within a ``tests`` directory in the root of the project.  The
-testing specific files of your project should at a minimum include:
+specific test files for your project should at a minimum include:
 
 .. code::
 
