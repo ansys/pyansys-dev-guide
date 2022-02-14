@@ -197,10 +197,10 @@ Testing
 Unit testing is critical for the sucessful continious integration and testing of
 any program or libraries belonging to the PyAnsys project.
 
-There are generally two types of libraries part of the PyAnsys project: those
-that interface or wrap functionality of a different Ansys product, service, or
-application, or tools those that provide functionality. Both types of libraries
-should be tested, but the tests written will depend on the purpose of the library.
+There are generally two types of libraries part of the PyAnsys project:
+* those that interface or wrap functionality of a different Ansys product, service, or application
+* tools those that provide functionality
+Both types of libraries should be tested, but the tests written will depend on the purpose of the library.
 For example, a library that is wrapping a gRPC interface would include tests of
 the gRPC methods exposed by the proto files and wrapped by the Python library. They would not be expected to test the functionality of the server.
 
@@ -263,7 +263,7 @@ Then your unit test would test the wrapped python function (for example,
        resp = service_pb2.GetNode(index=index)
        return resp.x, resp.y, resp.z
 
-Your test would be implemented (within ``tests/test_nodes.py``):
+Your test would be implemented within ``tests/test_nodes.py``:
 
 .. code::
 
@@ -297,14 +297,12 @@ Furthermore, any testing dependencies requirements should be included when using
 
    pip install -r requirements_tests.txt
 
-Or included in ``pyproject.toml``. For example, when using the `filt
-<missing_link>`_ build system::
+Or included in ``pyproject.toml``. For example, when using the `poetry
+<https://python-poetry.org/>`_ build system::
 
-   [project.optional-dependencies]
-   test = [
-       "pytest>=2.7.3",
-       "pytest-cov",
-   ]
+   [tool.poetry.group.test.dependencies]
+       pytest>="2.7.3"
+       pytest-cov = "*"
 
 And then installed via::
 
@@ -391,7 +389,7 @@ PyAnsys library:
 
 **Setup**
 
-Include the name and when your job should be run at the top of the workflow ``.yml``::
+Include the job name when it should be run at the top of the workflow ``.yml``::
 
    name: Unit Testing
 
