@@ -471,7 +471,7 @@ Run the unit tests via ``pytest`` with:
    ``ansys-product-library`` use ``ansys.product.library``.
 
 Optionally, though highly recommended, upload your unit test coverage to
-`codecov.io`_ with::
+`codecov.io <https://app.codecov.io/gh/pyansys>`_ with::
 
 .. code:: yaml
 
