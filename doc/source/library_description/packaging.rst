@@ -102,6 +102,9 @@ Verify the distribution's long description rendering with ``twine``.
   twine check dist/*
 
 Upload the package to PyPI using ``twine`` and the upload token generated for the ``ansys`` PyPI account.
+As soon as the package has been released for the first time, it is possible to create an independent token dedicated to this package.
+This way the token stored in the GitHub secrets and used in the release's workflow is only related to that specific package.
+This limits the exposure to any potential token security flaws.
 Contact alexander.kaszynski@ansys.com for the token.
 
 .. code::
