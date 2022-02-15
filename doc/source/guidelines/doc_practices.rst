@@ -452,3 +452,8 @@ On Windows, building a PDF is a manual process that you run locally:
 
     .\make latexpdf
 
+
+.. note::
+   For the Table of Contents in the PDF file to generate correctly, ``index.rst`` files
+   must not include child sections.
+
