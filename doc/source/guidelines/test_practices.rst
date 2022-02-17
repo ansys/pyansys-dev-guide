@@ -2,15 +2,35 @@
 
 Testing
 -------
-Unit testing is critical for the sucessful continious integration and testing of
-any program or libraries belonging to the PyAnsys project.
+Unit and integration testing is critical for the successful continuous
+integration and delivery of any program or libraries belonging to the PyAnsys
+project.
 
+`Test driven development`_ is the practice of writing unit tests before writing
+production code. This has the benefit of knowing that each of the new lines of
+code are working as soon as they're written. It's easier to track down problems
+as only a small amount of code has been implemented since the execution of the
+last test. Furthermore, all test cases do not have to be implemented at once
+but rather gradually as the code evolves TDD has been created by Kent Beck in
+the 1990's as part of the Extreme Programming software development process
+
+.. _Test driven development: https://en.wikipedia.org/wiki/Test-driven_development
+
+We recommend that you follow TDD when developing your PyAnsys project, and
+this document contains examples and best practices to help you write them.
+
+
+Sample gRPC Method Test
+~~~~~~~~~~~~~~~~~~~~~~~
 There are generally two types of libraries part of the PyAnsys project:
-* those that interface or wrap functionality of a different Ansys product, service, or application
+* those that interface or wrap functionality of a different Ansys product,
+  service, or application
 * tools those that provide functionality
-Both types of libraries should be tested, but the tests written will depend on the purpose of the library.
-For example, a library that is wrapping a gRPC interface would include tests of
-the gRPC methods exposed by the proto files and wrapped by the Python library. They would not be expected to test the functionality of the server.
+Both types of Python libraries should be tested, but the tests written will depend on
+the purpose of the library. For example, a library that is wrapping a gRPC
+interface would include tests of the gRPC methods exposed by the proto files
+and wrapped by the Python library. They would not be expected to test the
+functionality of the server.
 
 For example, if testing the gRPC method ``GetNode``:
 
@@ -21,20 +41,20 @@ For example, if testing the gRPC method ``GetNode``:
      int32      id = 1;
      double     x = 2;
      double     y = 3;
-     double	z = 4;
+     double     z = 4;
    }
 
    message NodeRequest {
-     int32		num = 1;
+     int32              num = 1;
    }
 
    message NodeResponse {
-     Node		node = 1;
+     Node               node = 1;
    }
 
   service SomeService{
 
-     rpc GetNode(NodeRequest)				returns (NodeResponse);
+     rpc GetNode(NodeRequest)  returns (NodeResponse);
      // other methods
    }
 
@@ -83,30 +103,73 @@ Your test would be implemented within ``tests/test_nodes.py``:
        srv.create_node(node_index, node_coord*)
        assert srv.get_node(node_index) == node_coord
 
-The goal of the unit test should be to test the wrapping of the interface rather
-than the product or service itself. In the case of ``GetNode``, this method
-should have already been tested when designing and developing the service.
+The goal of the unit test should be to test the wrapping of the
+interface rather than the product or service itself. In the case of
+``GetNode``, this method should have already been tested when designing and
+developing the service.
+
+
+Remote Method Invocation Testing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In the case of a Remote Method Invocation (RMI)-like method, it is only necessary
+to test the method with a basic case and potentially with any edge cases.
+
+RMI Service Definition:
+
+.. code::
+
+   message SendCommand()
+
+
+Python wrapping:
+
+.. code:: python
+
+   def send_command(command):
+       """Run a command on the server.
+
+       Parameters
+       ----------
+       command : str
+           Command to run on the remote server.
+
+Example test:
+
+.. code:: python
+
+   def test_send_command(srv):
+       output = srv.send_command("CREATE,1")
+       assert "Created 1" in output
+
+Note that this test only validates the command ``"CREATE,1"`` has been
+received, executed, and sent back to the client. It does not validate all
+commands, but nor is it necessary to do this unless there are edge cases
+(e.g. characters that cannot be streamed or dealing with long running
+commands).
 
 
 Testing Framework
 ~~~~~~~~~~~~~~~~~
-For consistency, PyAnsys tools and libraries should use either the `unit test
-<some link>`_ or `pytest <some link>`_ frameworks for unit testing. As described
-in :ref:`repo_dir_struct`, unit tests should be placed into the ``tests``
+For consistency, PyAnsys tools and libraries should use either the `unittest
+<https://docs.python.org/3/library/unittest.html>`_ or `pytest
+<https://docs.pytest.org/>`_ frameworks for unit testing. As described in
+:ref:`repo_dir_struct`, unit tests should be placed into the ``tests``
 directory in the root directory of the library::
 
    tests/
        test_basic.py
        test_advanced.py
 
-Furthermore, any requirements for testing dependencies should be included when using ``setup.py`` within a ``requirements_tests.txt`` file that is installed via::
+Furthermore, any requirements for testing dependencies should be included when
+using ``setup.py`` within a ``requirements_tests.txt`` file that is installed
+via::
 
 .. code::
 
    pip install -r requirements_tests.txt
 
-An alternative is to include requirements for dependencie in the ``pyproject.toml`` file. For example, when using the `poetry
-<https://python-poetry.org/>`_ build system::
+An alternative is to include requirements for dependencies in the
+``pyproject.toml`` file. For example, when using the `poetry`_ build system::
 
    [tool.poetry.group.test.dependencies]
        pytest>="2.7.3"
@@ -121,19 +184,22 @@ When using ``pytest``, test via::
    pytest
 
 .. note::
-   We recommend that you use ``cd`` to change to the ``testing`` directory and run unit
-   testing there because you will be testing the installed library (generally in
-   development mode ``pip install -e .``) rather than the source within the
-   uninstalled "local" source. This catches files that might be missed by the
-   installer, including any C extensions or additional internal packages.
+   We recommend that you place the source of your library within the ``src``
+   direction rather than having your Python library source directly within the
+   repository root directory. This helps you avoid testing the source of the
+   repository and rather the installed package. This helps to catch errors
+   caused by files that might be missed by the installer, including any C
+   extensions or additional internal packages.
 
 
 Coverage
 ~~~~~~~~
-Given that Python is an interpreted language, developers of Python libraries should
-aim to have high coverage for their libraries as only syntax errors can be caught
-during the almost trivial compile time. Coverage is defined as parts of the
-executable and usable source that are tested by unit tests. You can use the ``pytest-cov`` library to view the coverage for your library. For example::
+Given that Python is an interpreted language, developers of Python libraries
+should aim to have high coverage for their libraries as only syntax errors can
+be caught during the almost trivial compile time. Coverage is defined as parts
+of the executable and usable source that are tested by unit tests. You can use
+the `pytest-cov <https://pytest-cov.readthedocs.io/>`_ library to view the
+coverage for your library. For example::
 
   $ pytest --cov numpydoc_validation
    ============================= test session starts ==============================
@@ -153,13 +219,14 @@ executable and usable source that are tested by unit tests. You can use the ``py
    TOTAL                                 71      0   100%
 
 While 100% coverage is ideal, the law of diminishing returns often applies to
-the coverage of a Python library. Consequently, achieving 80-90% coverage is often sufficient.
-For parts of your library that are difficult or impossible to test,
-consider using ``# pragma: no cover`` at the end of the method definition, branch,
-or line to denote that part of the code cannot be reasonably tested.  For
-example, if part of your module performs a simple ``import`` test of
-``matplotlib`` and raises an error when the library is not installed, it is not
-reasonable to attempt to test this and assume full coverage:
+the coverage of a Python library. Consequently, achieving 80-90% coverage is
+often sufficient.  For parts of your library that are difficult or impossible
+to test, consider using ``# pragma: no cover`` at the end of the method
+definition, branch, or line to denote that part of the code cannot be
+reasonably tested.  For example, if part of your module performs a simple
+``import`` test of ``matplotlib`` and raises an error when the library is not
+installed, it is not reasonable to attempt to test this and assume full
+coverage:
 
 .. code:: python
 
@@ -180,14 +247,16 @@ Unit Testing within CI/CD
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 Effective CI/CD assumes that unit testing is developed during feature
 development or bug fixes. However, given the limited scope of the local
-development environment, it is often not possible to enforce testing on multiple
-platforms, or even, unit testing in general. However, with the right automated
-CI/CD, such testing can still occur and be enforced automatically.
+development environment, it is often not possible to enforce testing on
+multiple platforms, or even, unit testing in general. However, with the right
+automated CI/CD, such testing can still occur and be enforced automatically.
 
-`GitHub Actions <gh actions link>`_ is the preferred automated CI/CD platform
-for running Python library unit tests for PyAnsys, and can be employed
-immediately by closing the project `template <link to
-github.com/pyansys/template>`_. If you are unfamiliar with GitHub Actions, see: `missing link <missing_link>`_ for an overview.
+`GitHub Actions`_ is the preferred automated CI/CD platform for running Python
+library unit tests for PyAnsys, and can be employed immediately by cloning the
+project `template <https://github.com/pyansys/template/>`_. If you are
+unfamiliar with GitHub Actions, see `GitHub Actions`_ for an overview.
+
+.. _GitHub Actions: https://github.com/features/actions
 
 **Sample Workflow**
 
@@ -209,14 +278,18 @@ Include the job name when it should be run at the top of the workflow ``.yml``::
        branches:
          - main
 
-Take note that this workflow runs on all pull requests and on demand
-with ``workflow_dispatch``. On commits, this workflow runs only on tags and
-on the ``main`` branch.  This ensures that CI/CD is not run twice on every
-commit for each PR, which may saturate available build or testing machines.
+Take note that this workflow runs on all pull requests and on demand with
+``workflow_dispatch``. On commits, this workflow runs only on tags and on the
+``main`` branch.  This ensures that CI/CD is not run twice on every commit for
+each PR, which may saturate available build or testing machines.
 
 **Job Description**
 
-PyAnsys libraries should run on the currently supported versions of Python on both Windows and Linux (and ideally on Mac OS). Therefore, it is necessary to also test on both Linux and Windows for these versions of Python. Use the ``matrix`` run strategy for the job with both the latest images of Windows and Linux::
+PyAnsys libraries should run on the currently supported versions of Python on
+both Windows and Linux (and ideally on Mac OS). Therefore, it is necessary to
+also test on both Linux and Windows for these versions of Python. Use the
+``matrix`` run strategy for the job with both the latest images of Windows and
+Linux::
 
    jobs:
      unit_tests:
@@ -230,7 +303,9 @@ PyAnsys libraries should run on the currently supported versions of Python on bo
 **Running the Tests**
 
 Each virtual machine within GitHub actions starts in a fresh state with no
-software or source installed or downloaded. Therefore, you must clone the repository using the ``checkout`` action, set up Python, and install the necessary testing dependencies.
+software or source installed or downloaded. Therefore, you must clone the
+repository using the ``checkout`` action, set up Python, and install the
+necessary testing dependencies.
 
 .. code::
 
@@ -253,7 +328,7 @@ If you are using ``setup.py``, your installation step is:
          pip install -r requirements_test.txt
 
 
-If you are using ``pyproject.toml`` with the ``poetry`` build system, your
+If you are using ``pyproject.toml`` with the `poetry`_ build system, your
 installation step is:
 
 .. code:: yaml
@@ -272,22 +347,18 @@ Run the unit tests via ``pytest`` with:
      working-directory: tests
      run: pytest --cov ansys.product.library
 
-
 .. note::
-   Replace ``ansys.product.library`` with your library name. This should match how it
-   would be imported within Python. For example, rather than
+   Replace ``ansys.product.library`` with your library name. This should match
+   how it would be imported within Python. For example, rather than
    ``ansys-product-library`` use ``ansys.product.library``.
 
 Optionally, though highly recommended, upload your unit test coverage to
-`codecov.io <https://app.codecov.io/gh/pyansys>`_ with::
+`codecov.io`_ with::
 
 .. code:: yaml
 
    - uses: codecov/codecov-action@v2
      name: 'Upload coverage to Codecov'
-
-
-See the following section regarding the usage of `codecov.io`_.
 
 
 Code Coverage Enforcement
@@ -325,50 +396,18 @@ of your repository:
            if_ci_failed: error
            if_no_uploads: error
 
-This requires that each PR has a patch coverage of 90%, meaning that 90% of any source added to the repository (unless ignored) must be covered by unit tests.
+This requires that each PR has a patch coverage of 90%, meaning that 90% of any
+source added to the repository (unless ignored) must be covered by unit tests.
 
 .. note::
    This is only a sample configuration.
 
-Test-Driven Development
-~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-
-Remote Method Invocation Testing
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In the case of a Remote Method Invocation (RMI)-like method, it is only necessary
-to test the method with a basic case and potentially with any edge cases.
-
-RMI Service Definition:
-
-.. code::
-
-   message SendCommand()
-
-
-Python Wrapping
-
-.. code:: python
-
-   def send_command(command):
-       """Run a command on the server.
-
-       Parameters
-       ----------
-       command : str
-           Command to run on the remote server. Should be in the form of
-
-
-
-
 
 Files Layout
 ~~~~~~~~~~~~
-PyAnsys libraries should use ``unittest`` or ``pytest`` libraries to run individual
-unit tests contained within a ``tests`` directory in the root of the project.  The
-specific test files for your project should at a minimum include:
+PyAnsys libraries should use ``unittest`` or ``pytest`` libraries to run
+individual unit tests contained within a ``tests`` directory in the root of the
+project.  The specific test files for your project should at a minimum include:
 
 .. code::
 
@@ -378,5 +417,10 @@ specific test files for your project should at a minimum include:
      conftest.py
 
 **Requirements File**
-The requirements file contains a list of all the libraries that must be installed to
-run ``pytest``.  No assumption should be made regarding the state of the virtual
+The requirements file contains a list of all the libraries that must be
+installed to run ``pytest``.  No assumption should be made regarding the state
+of the virtual
+
+
+.. _poetry: https://python-poetry.org
+.. _codecov.io: https://app.codecov.io/gh/pyansys
