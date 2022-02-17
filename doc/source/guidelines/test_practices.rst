@@ -23,14 +23,15 @@ this document contains examples and best practices to help you write them.
 Sample gRPC Method Test
 ~~~~~~~~~~~~~~~~~~~~~~~
 There are generally two types of libraries part of the PyAnsys project:
+
 * those that interface or wrap functionality of a different Ansys product,
   service, or application
-* tools those that provide functionality
-Both types of Python libraries should be tested, but the tests written will depend on
-the purpose of the library. For example, a library that is wrapping a gRPC
-interface would include tests of the gRPC methods exposed by the proto files
-and wrapped by the Python library. They would not be expected to test the
-functionality of the server.
+* tools those that provide functionality Both types of Python libraries should
+  be tested, but the tests written will depend on the purpose of the
+  library. For example, a library that is wrapping a gRPC interface would
+  include tests of the gRPC methods exposed by the proto files and wrapped by
+  the Python library. They would not be expected to test the functionality of
+  the server.
 
 For example, if testing the gRPC method ``GetNode``:
 
@@ -164,8 +165,6 @@ Furthermore, any requirements for testing dependencies should be included when
 using ``setup.py`` within a ``requirements_tests.txt`` file that is installed
 via::
 
-.. code::
-
    pip install -r requirements_tests.txt
 
 An alternative is to include requirements for dependencies in the
@@ -243,16 +242,16 @@ coverage:
    input the wrong data type or value can be reasonably tested.
 
 
-Unit Testing within CI/CD
+Unit Testing Within CI/CD
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 Effective CI/CD assumes that unit testing is developed during feature
 development or bug fixes. However, given the limited scope of the local
 development environment, it is often not possible to enforce testing on
-multiple platforms, or even, unit testing in general. However, with the right
+multiple platforms, or even unit testing in general. However, with the right
 automated CI/CD, such testing can still occur and be enforced automatically.
 
 `GitHub Actions`_ is the preferred automated CI/CD platform for running Python
-library unit tests for PyAnsys, and can be employed immediately by cloning the
+library unit tests for PyAnsys, and it can be used immediately by cloning the
 project `template <https://github.com/pyansys/template/>`_. If you are
 unfamiliar with GitHub Actions, see `GitHub Actions`_ for an overview.
 
@@ -302,8 +301,8 @@ Linux::
 
 **Running the Tests**
 
-Each virtual machine within GitHub actions starts in a fresh state with no
-software or source installed or downloaded. Therefore, you must clone the
+Each virtual machine within GitHub Actions starts in a fresh state with no
+software or source downloaded or installed. Therefore, you must clone the
 repository using the ``checkout`` action, set up Python, and install the
 necessary testing dependencies.
 
@@ -353,7 +352,7 @@ Run the unit tests via ``pytest`` with:
    ``ansys-product-library`` use ``ansys.product.library``.
 
 Optionally, though highly recommended, upload your unit test coverage to
-`codecov.io`_ with::
+`codecov.io`_ with:
 
 .. code:: yaml
 
@@ -364,8 +363,8 @@ Optionally, though highly recommended, upload your unit test coverage to
 Code Coverage Enforcement
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 One way of enforcing unit test coverage with a project on GitHub is to use the
-**codecov.io CI Bot** to enforce minimum patch (and optionally project)
-coverage. As this application is already available to the `PyAnsys Organization
+codecov.io to enforce minimum patch (and optionally project) coverage. As this
+application is already available to the `PyAnsys Organization
 <https://github.com/pyansys>`_, simply add the following to the root directory
 of your repository:
 
