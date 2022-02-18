@@ -316,7 +316,7 @@ necessary testing dependencies.
          python-version: ${{ matrix.python-version }}
 
 
-If you are using ``setup.py``, your installation step is:
+If you are using ``setup.py``, install with:
 
 
 .. code:: yaml
