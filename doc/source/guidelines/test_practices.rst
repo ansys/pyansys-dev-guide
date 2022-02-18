@@ -142,11 +142,11 @@ Example test:
        output = srv.send_command("CREATE,1")
        assert "Created 1" in output
 
-Note that this test only validates the command ``"CREATE,1"`` has been
+Note that this test only validates that the command ``"CREATE,1"`` has been
 received, executed, and sent back to the client. It does not validate all
-commands, but nor is it necessary to do this unless there are edge cases
-(e.g. characters that cannot be streamed or dealing with long running
-commands).
+commands, but doing this is necessary only if there are edge cases, which
+include characters that cannot be streamed or using long-running
+commands.
 
 
 Testing Framework
