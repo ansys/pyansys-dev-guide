@@ -418,7 +418,7 @@ project. The specific test files for your project should at a minimum include:
 **Requirements File**
 The requirements file contains a list of all the libraries that must be
 installed to run ``pytest``.  No assumption should be made regarding the state
-of the virtual
+of the virtual environment and the packages already installed.
 
 
 .. _poetry: https://python-poetry.org
