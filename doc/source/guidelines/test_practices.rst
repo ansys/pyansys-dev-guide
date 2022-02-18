@@ -327,8 +327,8 @@ If you are using ``setup.py``, your installation step is:
          pip install -r requirements_test.txt
 
 
-If you are using ``pyproject.toml`` with the `poetry`_ build system, your
-installation step is:
+If you are using ``pyproject.toml`` with the `poetry`_ build system, install
+with:
 
 .. code:: yaml
 
