@@ -184,7 +184,7 @@ When using ``pytest``, test via::
 
 .. note::
    We recommend that you place the source of your library within the ``src``
-   direction rather than having your Python library source directly within the
+   directory rather than having your Python library source directly within the
    repository root directory. This helps you avoid testing the source of the
    repository and rather the installed package. This helps to catch errors
    caused by files that might be missed by the installer, including any C
