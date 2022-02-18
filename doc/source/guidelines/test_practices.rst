@@ -237,7 +237,7 @@ coverage:
 .. note::
    You should only avoid coverage of parts of your library where you cannot
    reasonably test without an extensive testing suite or setup.  Most methods
-   and classes, including edge cases, can be reasonable tested. Even parts of
+   and classes, including edge cases, can be reasonably tested. Even parts of
    your code that raise errors like ``TypeError`` or ``ValueError`` when users
    input the wrong data type or value can be reasonably tested.
 
