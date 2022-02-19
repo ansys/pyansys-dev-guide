@@ -1,7 +1,7 @@
 .. _testing:
 
 Testing
--------
+=======
 Unit and integration testing is critical for the successful continuous
 integration and delivery of any program or libraries belonging to the PyAnsys
 project.
@@ -14,26 +14,134 @@ last test. Furthermore, all test cases do not have to be implemented at once
 but rather gradually as the code evolves TDD has been created by Kent Beck in
 the 1990's as part of the Extreme Programming software development process
 
-.. _Test driven development: https://en.wikipedia.org/wiki/Test-driven_development
-
 We recommend that you follow TDD when developing your PyAnsys project, and
 this document contains examples and best practices to help you write them.
 
 
-Sample gRPC Method Test
-~~~~~~~~~~~~~~~~~~~~~~~
-There are generally two types of libraries part of the PyAnsys project:
+Testing Methodology
+-------------------
+You should consider three levels of testing for your PyAnsys library: unit,
+integration, and functional testing.
 
-* those that interface or wrap functionality of a different Ansys product,
-  service, or application
-* tools those that provide functionality Both types of Python libraries should
-  be tested, but the tests written will depend on the purpose of the
-  library. For example, a library that is wrapping a gRPC interface would
-  include tests of the gRPC methods exposed by the proto files and wrapped by
-  the Python library. They would not be expected to test the functionality of
-  the server.
+**Unit** testing validates your library at the lowest possible level, isolating
+individual classes and methods without any communication with other libraries
+or services.
 
-For example, if testing the gRPC method ``GetNode``:
+**Integration** testing validates that your library works in the context of an
+application or software stack. For example, if your library extends or wraps
+the functionality of an external service, you would need to test that service
+in conjunction with your library. On GitHub, the ideal approach for this would
+be to start your service via docker and test accordingly. You should still be
+testing at the individual class or method level, but you can now test how
+multiple libraries or services interact. This is mandatory for testing APIs and
+is preferred over mocking the service.
+
+**Functional** testing should be used for validating workflows or long running
+examples. For example, if you have a library that wraps a CAD service, you
+would validate that you can create complex geometry while directly interfacing
+with the service. Functional tests are great at discovering edge cases that are
+not normally found at the unit or integration level, but functional testing
+should be limited to only a handful of examples as these tend to be long
+running and difficult to validate.
+
+Each PyAnsys project should have all three levels of testing implemented in its
+testing framework. Consider implementing functional tests as examples within
+your project's documentation examples. This will allow you to write helpful
+user-facing tests while accomplishing functional testing.
+
+
+Unit Testing
+~~~~~~~~~~~~
+Unit testing tests at the lowest possible level isolated
+from other applications or libraries. For Python tool libraries like
+`ansys-tools-protoc-helper`_, unit testing is sufficient to get high coverage
+(> 80%) of your library while actually testing the library.
+
+.. _ansys-tools-protoc-helper: https://github.com/ansys/ansys-tools-protoc-helper
+
+These tests should be written to test a single method in isolation. For
+example, if you have a method that deserializes chunks:
+
+.. code:: python
+   
+    def parse_chunks(chunks):
+        """Deserialize gRPC chunks into a numpy array
+
+        Parameters
+        ----------
+        chunks : generator
+            generator from grpc.  Each chunk contains a bytes payload
+
+        dtype : np.dtype
+            Numpy data type to interpert chunks as.
+
+        Returns
+        -------
+        array : np.ndarray
+            Deserialized numpy array.
+
+        """
+        arrays = []
+        for chunk in chunks:
+            arrays.append(np.frombuffer(chunk.payload, ANSYS_VALUE_TYPE[chunk.value_type]))
+
+        return np.hstack(arrays)
+
+Your ``test_parse_chunks.py`` would then be:
+
+.. code:: python
+
+
+    import pytest
+    import numpy as np
+    from ansys.api.mapdl.v0 import ansys_kernel_pb2 as anskernel
+
+    from ansys.mapdl.core.common_grpc import parse_chunks
+
+    DEFAULT_CHUNKSIZE = 256*1024  # 256 kB
+
+
+    @pytest.fixture()
+    def sample_array():
+        """Generate a non-trivial (n x 3) float array."""
+        sz = np.random.randint(100000, 200000)
+        array = np.random.random((sz, 3)).astype(np.float64)
+        assert array.nbytes > DEFAULT_CHUNKSIZE
+        return array
+
+
+    def serialize_chunks(array):
+        """Serialize an array into chunks."""
+        # convert to raw
+        raw = array.tobytes()
+        value_type = 5  # float64
+
+        i = 0
+        while True:
+            piece = raw[i:i + DEFAULT_CHUNKSIZE]
+            i += DEFAULT_CHUNKSIZE
+            length = len(piece)
+            if length == 0:
+                break
+            yield anskernel.Chunk(payload=piece, size=length, value_type=value_type)
+
+
+    def test_deserialize_chunks(sample_array):
+        parsed_array = parse_chunks(serialize_chunks(sample_array))
+        parsed_array = parsed_array.reshape(-1, 3)
+        assert np.allclose(sample_array, parsed_array)
+
+This assumes that you do not have a ``serialize_chunks`` function within your
+library. If you did, you could exclude it from ``test_parse_chunks.py``
+
+
+Integration Testing - Wrapped Service Methods
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Any PyAnsys library that provides functionality by wrapping a gRPC interface
+should include tests of the gRPC methods exposed by the proto files and wrapped
+by the Python library. They would not be expected to test the functionality of
+the server, but rather the APIs exposed by the server. For example, if testing
+the gRPC method ``GetNode``:
 
 .. code::
 
@@ -59,8 +167,8 @@ For example, if testing the gRPC method ``GetNode``:
      // other methods
    }
 
-Then your unit test would test the wrapped python function (for example,
-``get_node``).  You might implement the ``get_node`` method with:
+Then your integration test would test the wrapped Python function.  If the
+Python library wraps this gRPC method with a ``get_node`` method:
 
 .. code:: python
 
@@ -104,25 +212,28 @@ Your test would be implemented within ``tests/test_nodes.py``:
        srv.create_node(node_index, node_coord*)
        assert srv.get_node(node_index) == node_coord
 
-The goal of the unit test should be to test the wrapping of the
-interface rather than the product or service itself. In the case of
-``GetNode``, this method should have already been tested when designing and
-developing the service.
+The goal of the unit test should be to test the API rather than the product or
+service itself. In the case of ``GetNode``, this method should have already
+been tested when designing and developing the service.
 
 
-Remote Method Invocation Testing
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In the case of a Remote Method Invocation (RMI)-like method, it is only necessary
-to test the method with a basic case and potentially with any edge cases.
 
-RMI Service Definition:
+Integration Testing - Remote Method Invocation Testing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In the case of a Remote Method Invocation (RMI)-like method, it is only
+necessary to test the method with a basic case and potentially with any edge
+cases. A RMI-like API might send and receive strings that are excuted on the
+server using a custom API or language only available within the context of the
+service.
+
+For example, if a method has a RMI service definition of:
 
 .. code::
 
    message SendCommand()
 
 
-Python wrapping:
+and a Python wrapping:
 
 .. code:: python
 
@@ -134,7 +245,7 @@ Python wrapping:
        command : str
            Command to run on the remote server.
 
-Example test:
+Your exmaple test would be:
 
 .. code:: python
 
@@ -149,8 +260,25 @@ commands, but nor is it necessary to do this unless there are edge cases
 commands).
 
 
+Functional Testing
+~~~~~~~~~~~~~~~~~~
+Functional testing should test the Python library using scripts or examples
+that are expected to be excuted by the user. Unlike unit or integration
+testing, these functional tests are testing the library as a whole by calling
+several methods to accomplish a task. These tests should only be run after unit
+and integration testing is complete, and they should be run outside the
+``pytest`` framework and ideally while building documentation with
+`sphinx-gallery`_.
+
+.. note::
+   Functional tests should not contribute to global library coverage. Testing
+   should always be done on individual function or methods.
+
+.. _sphinx-gallery: https://sphinx-gallery.github.io/
+
+
 Testing Framework
-~~~~~~~~~~~~~~~~~
+-----------------
 For consistency, PyAnsys tools and libraries should use either the `unittest
 <https://docs.python.org/3/library/unittest.html>`_ or `pytest
 <https://docs.pytest.org/>`_ frameworks for unit testing. As described in
@@ -191,8 +319,28 @@ When using ``pytest``, test via::
    extensions or additional internal packages.
 
 
+Files Layout
+~~~~~~~~~~~~
+PyAnsys libraries should use ``unittest`` or ``pytest`` libraries to run
+individual unit tests contained within a ``tests`` directory in the root of the
+project.  The specific test files for your project should at a minimum include:
+
+.. code::
+
+   requirements_tests.py
+   tests/
+     test_<filename>.py
+     conftest.py
+
+Requirements File
+~~~~~~~~~~~~~~~~~
+The requirements file contains a list of all the libraries that must be
+installed to run ``pytest``.  No assumption should be made regarding the state
+of the virtual
+
+
 Coverage
-~~~~~~~~
+--------
 Given that Python is an interpreted language, developers of Python libraries
 should aim to have high coverage for their libraries as only syntax errors can
 be caught during the almost trivial compile time. Coverage is defined as parts
@@ -241,9 +389,50 @@ coverage:
    your code that raise errors like ``TypeError`` or ``ValueError`` when users
    input the wrong data type or value can be reasonably tested.
 
-
-Unit Testing Within CI/CD
+Code Coverage Enforcement
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+One way of enforcing unit test coverage with a project on GitHub is to use the
+codecov.io to enforce minimum patch (and optionally project) coverage. As this
+application is already available to the `PyAnsys Organization
+<https://github.com/pyansys>`_, simply add the following to the root directory
+of your repository:
+
+**/codecov.yml**
+
+.. code:: yaml
+
+   comment:
+     layout: "diff"
+     behavior: default
+
+   coverage:
+     status:
+       project:
+         default:
+           # basic
+           # target: 50%
+           threshold: 0%
+           # advanced
+           if_not_found: success
+           if_ci_failed: error
+           if_no_uploads: error
+       patch:
+         default:
+           # basic
+           target: 90%
+           if_not_found: success
+           if_ci_failed: error
+           if_no_uploads: error
+
+This requires that each PR has a patch coverage of 90%, meaning that 90% of any
+source added to the repository (unless ignored) must be covered by unit tests.
+
+.. note::
+   This is only a sample configuration.
+
+
+Unit Testing on GitHub via CI/CD
+--------------------------------
 Effective CI/CD assumes that unit testing is developed during feature
 development or bug fixes. However, given the limited scope of the local
 development environment, it is often not possible to enforce testing on
@@ -257,14 +446,13 @@ unfamiliar with GitHub Actions, see `GitHub Actions`_ for an overview.
 
 .. _GitHub Actions: https://github.com/features/actions
 
-**Sample Workflow**
-
 The following sections describe the usage of a simple GitHub workflow for a
 PyAnsys library:
 
-**Setup**
-
-Include the job name when it should be run at the top of the workflow ``.yml``::
+Setup
+~~~~~
+Include the job name when it should be run at the top of the workflow
+``.yml``::
 
    name: Unit Testing
 
@@ -282,8 +470,9 @@ Take note that this workflow runs on all pull requests and on demand with
 ``main`` branch.  This ensures that CI/CD is not run twice on every commit for
 each PR, which may saturate available build or testing machines.
 
-**Job Description**
 
+Job Description
+~~~~~~~~~~~~~~~
 PyAnsys libraries should run on the currently supported versions of Python on
 both Windows and Linux (and ideally on Mac OS). Therefore, it is necessary to
 also test on both Linux and Windows for these versions of Python. Use the
@@ -299,8 +488,9 @@ Linux::
            os: [windows-latest, ubuntu-latest]
            python-version: ['3.7', '3.8', '3.9', '3.10']
 
-**Running the Tests**
 
+Running the Tests
+~~~~~~~~~~~~~~~~~
 Each virtual machine within GitHub Actions starts in a fresh state with no
 software or source downloaded or installed. Therefore, you must clone the
 repository using the ``checkout`` action, set up Python, and install the
@@ -360,66 +550,6 @@ Optionally, though highly recommended, upload your unit test coverage to
      name: 'Upload coverage to Codecov'
 
 
-Code Coverage Enforcement
-~~~~~~~~~~~~~~~~~~~~~~~~~
-One way of enforcing unit test coverage with a project on GitHub is to use the
-codecov.io to enforce minimum patch (and optionally project) coverage. As this
-application is already available to the `PyAnsys Organization
-<https://github.com/pyansys>`_, simply add the following to the root directory
-of your repository:
-
-**/codecov.yml**
-
-.. code:: yaml
-
-   comment:
-     layout: "diff"
-     behavior: default
-
-   coverage:
-     status:
-       project:
-         default:
-           # basic
-           # target: 50%
-           threshold: 0%
-           # advanced
-           if_not_found: success
-           if_ci_failed: error
-           if_no_uploads: error
-       patch:
-         default:
-           # basic
-           target: 90%
-           if_not_found: success
-           if_ci_failed: error
-           if_no_uploads: error
-
-This requires that each PR has a patch coverage of 90%, meaning that 90% of any
-source added to the repository (unless ignored) must be covered by unit tests.
-
-.. note::
-   This is only a sample configuration.
-
-
-Files Layout
-~~~~~~~~~~~~
-PyAnsys libraries should use ``unittest`` or ``pytest`` libraries to run
-individual unit tests contained within a ``tests`` directory in the root of the
-project.  The specific test files for your project should at a minimum include:
-
-.. code::
-
-   requirements_tests.py
-   tests/
-     test_<filename>.py
-     conftest.py
-
-**Requirements File**
-The requirements file contains a list of all the libraries that must be
-installed to run ``pytest``.  No assumption should be made regarding the state
-of the virtual
-
-
-.. _poetry: https://python-poetry.org
+.. _Test driven development: https://en.wikipedia.org/wiki/Test-driven_development
 .. _codecov.io: https://app.codecov.io/gh/pyansys
+.. _poetry: https://python-poetry.org
