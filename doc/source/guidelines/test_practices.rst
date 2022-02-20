@@ -219,7 +219,7 @@ been tested when designing and developing the service.
 
 
 Integration Testing - Remote Method Invocation Testing
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 In the case of a Remote Method Invocation (RMI)-like method, it is only
 necessary to test the method with a basic case and potentially with any edge
 cases. A RMI-like API might send and receive strings that are excuted on the
