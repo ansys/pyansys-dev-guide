@@ -253,11 +253,11 @@ Your exmaple test would be:
        output = srv.send_command("CREATE,1")
        assert "Created 1" in output
 
-Note that this test only validates the command ``"CREATE,1"`` has been
+Note that this test only validates that the command ``"CREATE,1"`` has been
 received, executed, and sent back to the client. It does not validate all
-commands, but nor is it necessary to do this unless there are edge cases
-(e.g. characters that cannot be streamed or dealing with long running
-commands).
+commands, but doing this is necessary only if there are edge cases, which
+include characters that cannot be streamed or using long-running
+commands.
 
 
 Functional Testing
@@ -312,7 +312,7 @@ When using ``pytest``, test via::
 
 .. note::
    We recommend that you place the source of your library within the ``src``
-   direction rather than having your Python library source directly within the
+   directory rather than having your Python library source directly within the
    repository root directory. This helps you avoid testing the source of the
    repository and rather the installed package. This helps to catch errors
    caused by files that might be missed by the installer, including any C
@@ -385,7 +385,7 @@ coverage:
 .. note::
    You should only avoid coverage of parts of your library where you cannot
    reasonably test without an extensive testing suite or setup.  Most methods
-   and classes, including edge cases, can be reasonable tested. Even parts of
+   and classes, including edge cases, can be reasonably tested. Even parts of
    your code that raise errors like ``TypeError`` or ``ValueError`` when users
    input the wrong data type or value can be reasonably tested.
 
@@ -506,7 +506,7 @@ necessary testing dependencies.
          python-version: ${{ matrix.python-version }}
 
 
-If you are using ``setup.py``, your installation step is:
+If you are using ``setup.py``, install with:
 
 
 .. code:: yaml
@@ -517,8 +517,8 @@ If you are using ``setup.py``, your installation step is:
          pip install -r requirements_test.txt
 
 
-If you are using ``pyproject.toml`` with the `poetry`_ build system, your
-installation step is:
+If you are using ``pyproject.toml`` with the `poetry`_ build system, install
+with:
 
 .. code:: yaml
 
@@ -539,7 +539,7 @@ Run the unit tests via ``pytest`` with:
 .. note::
    Replace ``ansys.product.library`` with your library name. This should match
    how it would be imported within Python. For example, rather than
-   ``ansys-product-library`` use ``ansys.product.library``.
+   ``ansys-product-library``, use ``ansys.product.library``.
 
 Optionally, though highly recommended, upload your unit test coverage to
 `codecov.io`_ with:
@@ -548,7 +548,6 @@ Optionally, though highly recommended, upload your unit test coverage to
 
    - uses: codecov/codecov-action@v2
      name: 'Upload coverage to Codecov'
-
 
 .. _Test driven development: https://en.wikipedia.org/wiki/Test-driven_development
 .. _codecov.io: https://app.codecov.io/gh/pyansys
