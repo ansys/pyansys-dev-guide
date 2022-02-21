@@ -8,8 +8,8 @@ Guide <https://developers.google.com/style/articles>`_. It provides editorial gu
 for writing clear and consistent developer documentation, allowing this guide to supply
 guidance specific to PyAnsys library documentation.
 
-When writing developer documentation, the relationship between code and documenation is
-key. To keep documentation up to date with rapdily evolving code:
+When writing developer documentation, the relationship between code and documentation is
+key. To keep documentation up to date with rapidly evolving code:
 
 - Minimize the content footprint
 - Write `timeless documentation <https://developers.google.com/style/timeless-documentation>`_
@@ -122,6 +122,29 @@ extension, you must follow its `coding guidelines <https://sphinx-gallery.github
 
 PyMAPDL provides a self-demonstrating example of how to `add an example reference key <https://mapdldocs.pyansys.com/examples/03-tips-n-tricks/00-example-template.html#ref-how-to-add-an-example-reference-key>`_. 
 
+
+URL of the documentation page
+-----------------------------
+To host the documentation related to a PyAnsys project, an easy way to go is to use GitHub Page.
+This GitHub feature do not require any database to be setup nor to configure any server.
+GitHub will serve the documentation related to the project from a URL tied to PyAnsys organization.
+
+The standard name for this URL can be such as:
+   ``<product_name>.docs.pyansys.com``
+
+For instance: `grantami <https://grantami.docs.pyansys.com>`_
+
+Regarding the documentation dedicated to a specific feature of the product or an example, the URL is formatted like this:
+   ``<extra>.<product_name>.docs.pyansys.com``
+
+For instance: `cartpole <https://cartpole.mapdl.docs.pyansys.com>`_
+
+Once the URL name has been decided, it must be specified in the "Settings" of the repository under the "Custom domain" section.
+For example, `see <https://github.com/pyansys/grantami-bomanalytics-docs/settings/pages>`_
+
+Then, the URL has to be registered using Microsoft Azure to set the DNS properly and link it to the ANSYS organization.
+This action will be performed by one of the Ansys administrator of Microsoft Azure account.
+
 Accessing a Library's Documentation
 -----------------------------------
 Documentation for the latest stable release of a PyAnsys library is accessible
@@ -166,7 +189,7 @@ To use Windows PowerShell to clone a GitHub repository:
 
    Because the list of repositories is quite long, you can use the ``Find
    a repository`` option to search for the repository that you want to clone. For
-   example, you can seach for "theme" to find the ``pyansys-sphinx-theme`` repository.  
+   example, you can search for "theme" to find the ``pyansys-sphinx-theme`` repository.  
 
 #. In the upper right corner of the repository, click the green ``Code`` button to
    drop down a list of options.
@@ -206,7 +229,7 @@ Pushing Changes to the GitHub Repository
 ----------------------------------------
 As you make changes in your ``doc/`` branch, you want to periodically test then in
 local documentation builds as described in :ref:`doc_building`. After you resolve
-any issues and are satisfied with what apears in a local build, you are ready
+any issues and are satisfied with what appears in a local build, you are ready
 to push your changes to the library's GitHub repository. To accomplish this,
 you can use either Git commands or Git Extensions. 
 
@@ -290,7 +313,7 @@ To use Git Extensions to push your changes to the GitHub repository:
    are no conflicts with what is in your branch. If there are conflicts, resolve
    them.
 
-#. Do a push of your branch to the GitHub repsitory.
+#. Do a push of your branch to the GitHub repository.
 
 #. Create the PR as described in :ref:`create_pr`.
 
@@ -302,7 +325,7 @@ Creating the GitHub PR
 Regardless of what method you used to push your changes, do the following to create
 the GitHub PR:
 
-#. Go to the GitHub reposity, where you will see an entry for your pushed branch.
+#. Go to the GitHub repository, where you will see an entry for your pushed branch.
 
 #. If the pushed branch resolves an issue, in its description, type ``Resolves #``
    and select from the list of issues that appears.
@@ -313,7 +336,7 @@ the GitHub PR:
 
    If your PR is ready for review, select ``Create pull request``. Otherwise,
    select ``Create draft pull request`` and mark it as ready for review once
-   you it includes all of your changes and you are satisified with it. 
+   you it includes all of your changes and you are satisfied with it. 
 
    If you need to change a PR title, to its right, click the ``Edit`` button,
    which becomes a ``Save`` button while you are in editing mode.
