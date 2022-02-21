@@ -123,28 +123,28 @@ extension, you must follow its `coding guidelines <https://sphinx-gallery.github
 PyMAPDL provides a self-demonstrating example of how to `add an example reference key <https://mapdldocs.pyansys.com/examples/03-tips-n-tricks/00-example-template.html#ref-how-to-add-an-example-reference-key>`_. 
 
 
-Documentation page DNS
-----------------------
+URL of the documentation page
+-----------------------------
 To host the documentation related to a PyAnsys project, an easy way to go is to use GitHub Page.
 This GitHub feature do not require any database to be setup nor to configure any server.
-GitHub will serve the documentation of related to the project from a URL tied to PyAnsys organization.
+GitHub will serve the documentation related to the project from a URL tied to PyAnsys organization.
 
 The standard name for this URL can be such as:
-   <product_name>.docs.pyansys.com
+   ``<product_name>.docs.pyansys.com``
 
 For instance:
 `grantami.docs.pyansys.com <https://grantami.docs.pyansys.com>`_
 
-Regarding documentation dedicated to a specific feature of the product or an example, the URL can be such as:
-   <extra>.<product_name>.docs.pyansys.com
+Regarding the documentation dedicated to a specific feature of the product or an example, the URL can be such as:
+   ``<extra>.<product_name>.docs.pyansys.com``
 
 For instance:
 `cartpole.mapdl.docs.pyansys.com <https://cartpole.mapdl.docs.pyansys.com>`_
 
 Once the URL name has been decided, it must be specified in the "Settings" of the repository under the "Custom domain" section.
-*For example, see https://github.com/pyansys/grantami-bomanalytics-docs/settings/pages*
+For example, `see https://github.com/pyansys/grantami-bomanalytics-docs/settings/pages`__
 
-Then, the URL must be registered using Microsoft Azure to set the DNS properly and link it to the ANSYS organization.
+Then, the URL has to be registered using Microsoft Azure to set the DNS properly and link it to the ANSYS organization.
 This action will be performed by one of the Ansys administrator of Microsoft Azure account.
 
 Accessing a Library's Documentation
