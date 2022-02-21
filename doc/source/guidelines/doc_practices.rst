@@ -132,17 +132,15 @@ GitHub will serve the documentation related to the project from a URL tied to Py
 The standard name for this URL can be such as:
    ``<product_name>.docs.pyansys.com``
 
-For instance:
-`grantami.docs.pyansys.com <https://grantami.docs.pyansys.com>`_
+For instance: `grantami <https://grantami.docs.pyansys.com>`_
 
 Regarding the documentation dedicated to a specific feature of the product or an example, the URL can be such as:
    ``<extra>.<product_name>.docs.pyansys.com``
 
-For instance:
-`cartpole.mapdl.docs.pyansys.com <https://cartpole.mapdl.docs.pyansys.com>`_
+For instance: `cartpole <https://cartpole.mapdl.docs.pyansys.com>`_
 
 Once the URL name has been decided, it must be specified in the "Settings" of the repository under the "Custom domain" section.
-For example, `see https://github.com/pyansys/grantami-bomanalytics-docs/settings/pages`__
+For example, `see https://github.com/pyansys/grantami-bomanalytics-docs/settings/pages`_
 
 Then, the URL has to be registered using Microsoft Azure to set the DNS properly and link it to the ANSYS organization.
 This action will be performed by one of the Ansys administrator of Microsoft Azure account.
