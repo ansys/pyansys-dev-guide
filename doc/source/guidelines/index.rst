@@ -19,4 +19,4 @@ logging, data transfer, and application APIs.
    logging
    service_abstraction
    PyMAPDL_WSL_Guide
-
+   test_practices
