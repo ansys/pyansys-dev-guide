@@ -134,7 +134,7 @@ The standard name for this URL can be such as:
 
 For instance: `grantami <https://grantami.docs.pyansys.com>`_
 
-Regarding the documentation dedicated to a specific feature of the product or an example, the URL can be such as:
+Regarding the documentation dedicated to a specific feature of the product or an example, the URL is formatted like this:
    ``<extra>.<product_name>.docs.pyansys.com``
 
 For instance: `cartpole <https://cartpole.mapdl.docs.pyansys.com>`_
