@@ -1,30 +1,31 @@
 from datetime import datetime
 
-from pyansys_sphinx_theme import __version__, pyansys_logo_black
+from pyansys_sphinx_theme import __version__
+from pyansys_sphinx_theme import pyansys_logo_black
 
 # Project information
-project = 'PyAnsys Developers Guide'
+project = "PyAnsys Developers Guide"
 copyright = f"(c) {datetime.now().year} ANSYS, Inc. All rights reserved"
 author = "Ansys Inc."
-release = version = '0.2.dev0'
+release = version = "0.2.dev0"
 
 html_logo = pyansys_logo_black
-html_theme = 'pyansys_sphinx_theme'
+html_theme = "pyansys_sphinx_theme"
 
 html_theme_options = {
     "github_url": "https://github.com/pyansys/about",
-    "show_prev_next": False
+    "show_prev_next": False,
 }
 
 # Sphinx extensions
 extensions = [
     "sphinx_copybutton",
-    'sphinx_toolbox.collapse',
-    'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary',
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.napoleon',
-    'sphinx.ext.todo',
+    "sphinx_toolbox.collapse",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.todo",
 ]
 
 # Intersphinx mapping
@@ -38,10 +39,10 @@ intersphinx_mapping = {
 }
 
 # The suffix(es) of source filenames.
-source_suffix = '.rst'
+source_suffix = ".rst"
 
 # The master toctree document.
-master_doc = 'index'
+master_doc = "index"
 
 latex_elements = {}
 
@@ -49,11 +50,13 @@ latex_elements = {}
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc,
-     f'pyansys_dev_guide_v{version}.tex',
-     "PyAnsys Developer's Guide",
-     author,
-     'manual'),
+    (
+        master_doc,
+        f"pyansys_dev_guide_v{version}.tex",
+        "PyAnsys Developer's Guide",
+        author,
+        "manual",
+    ),
 ]
 
 
