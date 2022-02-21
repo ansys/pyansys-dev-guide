@@ -9,14 +9,9 @@ editorial guidelines for writing clear and consistent developer documentation,
 allowing this guide to supply guidance specific to PyAnsys library
 documentation.
 
-<<<<<<< HEAD
 When writing developer documentation, the relationship between code and
 documentation is key. To keep documentation up to date with radial evolving
 code:
-=======
-When writing developer documentation, the relationship between code and documentation is
-key. To keep documentation up to date with rapidly evolving code:
->>>>>>> main
 
 - Minimize the content footprint
 - Write `timeless documentation <https://developers.google.com/style/timeless-documentation>`_
