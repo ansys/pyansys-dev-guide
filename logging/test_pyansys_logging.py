@@ -80,7 +80,7 @@ def test_level_stdout():
         in capture.content
     )
     assert (
-        "CRITICAL -  - test_pyansys_logging - test_level_stdout - Critical stdout with level=WARNING"
+        "CRITICAL -  - test_pyansys_logging - test_level_stdout - Critical stdout with level=WARNING"  # noqa: E501
         in capture.content
     )
 

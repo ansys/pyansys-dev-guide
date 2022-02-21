@@ -9,6 +9,24 @@ on:
       - main
 
 jobs:
+  pre-commit:
+    name: Pre-commit checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: Install pre-commit requirements
+        run: |
+          pip install pre-commit~=2.16.0
+
+      - name: Run pre-commit
+        run: |
+          pre-commit run --all-files || ( git status --short ; git diff ; exit 1 )
+
   docs_build:
     runs-on: ubuntu-latest
 

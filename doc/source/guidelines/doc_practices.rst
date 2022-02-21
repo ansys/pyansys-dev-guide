@@ -2,14 +2,16 @@
 
 Documentation Practices
 =======================
-PyAnsys documentation must not only be written but also maintained. If you are new
-to writing developer documentation, see the `Google Developer Documentation Style
-Guide <https://developers.google.com/style/articles>`_. It provides editorial guidelines
-for writing clear and consistent developer documentation, allowing this guide to supply
-guidance specific to PyAnsys library documentation.
+PyAnsys documentation must not only be written but also maintained. If you are
+new to writing developer documentation, see the `Google Developer Documentation
+Style Guide <https://developers.google.com/style/articles>`_. It provides
+editorial guidelines for writing clear and consistent developer documentation,
+allowing this guide to supply guidance specific to PyAnsys library
+documentation.
 
-When writing developer documentation, the relationship between code and documenation is
-key. To keep documentation up to date with rapdily evolving code:
+When writing developer documentation, the relationship between code and
+documentation is key. To keep documentation up to date with radial evolving
+code:
 
 - Minimize the content footprint
 - Write `timeless documentation <https://developers.google.com/style/timeless-documentation>`_
@@ -18,9 +20,10 @@ key. To keep documentation up to date with rapdily evolving code:
 
 Understanding Documentation Sources
 ------------------------------------
-The generation of PyAnsys documentation uses `Sphinx <https://www.sphinx-doc.org/en/master/>`__ 
-and an Ansys-branded theme (`pyansys-sphinx-theme <https://github.com/pyansys/pyansys-sphinx-theme>`_)
-to assemble content in:
+The generation of PyAnsys documentation uses `Sphinx
+<https://www.sphinx-doc.org/en/master/>`__ and an Ansys-branded theme
+(`pyansys-sphinx-theme <https://github.com/pyansys/pyansys-sphinx-theme>`_) to
+assemble content in:
 
 - Docstrings
 - reStructuredText (RST) files
@@ -28,8 +31,8 @@ to assemble content in:
 
 Docstrings
 ~~~~~~~~~~
-Docstrings must be formatted so that Sphinx can parse them. You can use either of these
-Sphinx extensions:
+Docstrings must be formatted so that Sphinx can parse them. You can use either
+of these Sphinx extensions:
  
  - `numpydoc <https://pypi.org/project/numpydoc/>`_
  - `napoleon <https://pypi.org/project/sphinxcontrib-napoleon/>`_
@@ -41,10 +44,12 @@ and `NumPy <https://numpy.org/>`_. If, however, your API is very linear, you
 might prefer the  ``napoleon`` extension because it supports a documentation
 structure where everything needed to solve a certain problem can be shown on one page.
 
-The ``numpydoc`` extension provides its own `style guide <https://numpydoc.readthedocs.io/en/latest/format.html>`_
-and a `user guide <https://numpydoc.readthedocs.io/en/latest/>`_ that explains how to use
-the extension with Sphinx. The ``napoleon`` extension, which parses both numpy and Google
-style docstrings, refers you to the `Google Python Style Guide <https://google.github.io/styleguide/pyguide.html>`_.
+The ``numpydoc`` extension provides its own `style guide
+<https://numpydoc.readthedocs.io/en/latest/format.html>`_ and a `user guide
+<https://numpydoc.readthedocs.io/en/latest/>`_ that explains how to use the
+extension with Sphinx. The ``napoleon`` extension, which parses both numpy and
+Google style docstrings, refers you to the `Google Python Style Guide
+<https://google.github.io/styleguide/pyguide.html>`_.
 
 Regardless of the extension that you choose for generating documentation, we
 recommend the use of numpy-style docstrings so that there is consistency
@@ -52,17 +57,18 @@ across PyAnsys libraries. For more information, see :ref:`api_documentation`.
 
 RST Files
 ~~~~~~~~~
-To provide general usage information in your documentation, use your favorite editor to
-create RST files that you then place in the repository's ``doc`` directory. The ``index.rst``
-file in the ``doc\source`` directory defines the first level of your documentation hierarchy.
-The ``toctree`` directive indicates the maximum number of heading levels that the documentation
-is to display. Below this directive are the directory names for your documentation sections.
-Each documentation section has its own ``index.rst`` file.
+To provide general usage information in your documentation, use your favorite
+editor to create RST files that you then place in the repository's ``doc``
+directory. The ``index.rst`` file in the ``doc\source`` directory defines the
+first level of your documentation hierarchy.  The ``toctree`` directive
+indicates the maximum number of heading levels that the documentation is to
+display. Below this directive are the directory names for your documentation
+sections.  Each documentation section has its own ``index.rst`` file.
 
-For example, if you open the ``index.rst`` file in the ``doc\source`` directory in the
-``dev-guide`` repository, you will see that the ``toctree`` direction indicates that the
-*PyAnsys Developer's Guide* is to display a maximum of three heading levels. You then
-see the section structure for this guide:
+For example, if you open the ``index.rst`` file in the ``doc\source`` directory
+in the ``dev-guide`` repository, you will see that the ``toctree`` direction
+indicates that the *PyAnsys Developer's Guide* is to display a maximum of three
+heading levels. You then see the section structure for this guide:
 
 .. code::
 
@@ -72,23 +78,26 @@ see the section structure for this guide:
    coding_style/index
    documentation_style/index
 
-While you do not include the ``.rst`` extension when defining the section structure, the
-index file referenced for each section must be named ``index.rst``. If you open ``index.rst``
-in ``doc\source\overview``, you can see that it describes how the PyAnsys project provides
-Python libraries that expose Ansys technologies to the Python ecosystem. 
+While you do not include the ``.rst`` extension when defining the section
+structure, the index file referenced for each section must be named
+``index.rst``. If you open ``index.rst`` in ``doc\source\overview``, you can
+see that it describes how the PyAnsys project provides Python libraries that
+expose Ansys technologies to the Python ecosystem.
 
-After you build documentation locally as described in :ref:`doc_building`, the first-level
-heading in the ``index.rst`` file for each documentation section is shown as clickable link
-in the header of the documentation's generated HTML output. For more information on defining
-a documentation structure, see the `Sphinx Getting Started <https://www.sphinx-doc.org/en/master/usage/quickstart.html>`_
-guide.
+After you build documentation locally as described in :ref:`doc_building`, the
+first-level heading in the ``index.rst`` file for each documentation section is
+shown as clickable link in the header of the documentation's generated HTML
+output. For more information on defining a documentation structure, see the
+`Sphinx Getting Started
+<https://www.sphinx-doc.org/en/master/usage/quickstart.html>`_ guide.
 
-Within RST files, heading titles are followed by a line having a string of characters that is
-the same length as the heading title. If the length of the characters
-under the heading title do not match the length of the heading title, Sphinx generates a warning.
+Within RST files, heading titles are followed by a line having a string of
+characters that is the same length as the heading title. If the length of the
+characters under the heading title do not match the length of the heading
+title, Sphinx generates a warning.
 
-For consistency within PyAnsys libraries, the use of these special characters is recommended for
-headings but are not enforced:
+For consistency within PyAnsys libraries, the use of these special characters
+is recommended for headings but are not enforced:
 
 - For first-level headings, use ====.
 - For second-level headings, use ---.
@@ -97,9 +106,10 @@ headings but are not enforced:
 For comprehensive syntax information, see the `reStrucutredText Markup Specification
 <https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html>`_.
 
-Because you need to be familiar with the content in the *PyAnsys Developer's Guide*, page through
-its HTML pages and then explore the RST files in its repository. This will help you to understand
-the syntax and see how RST files have been nested to create this guide. 
+Because you need to be familiar with the content in the *PyAnsys Developer's
+Guide*, page through its HTML pages and then explore the RST files in its
+repository. This will help you to understand the syntax and see how RST files
+have been nested to create this guide.
 
 Examples
 ~~~~~~~~
@@ -108,11 +118,12 @@ Examples come in two formats:
 - Basic code snippets demonstrating some functionality
 - Full-fledged standalone examples that are meant to be run as individual downloadable scripts
 
-Basic code snippets should be placed in the ``doc/source`` directory. Full-fledged
-standalone examples must be placed in the ``examples`` directory at the root of the
-repository. All of these examples, which should be PEP 8-compliant, are compiled dynamically
-during the build process. Always ensure that your examples run properly locally because
-they will be verified through the CI performed via GitHub Actions.
+Basic code snippets should be placed in the ``doc/source``
+directory. Full-fledged standalone examples must be placed in the ``examples``
+directory at the root of the repository. All of these examples, which should be
+PEP 8-compliant, are compiled dynamically during the build process. Always
+ensure that your examples run properly locally because they will be verified
+through the CI performed via GitHub Actions.
 
 Adding a new standalone example consists of placing it in an applicable subdirectory in the ``examples``
 directory. If none of the existing directories match the category of your example, create
@@ -132,7 +143,7 @@ the URL for the latest stable release.
 For example, consider PyAEDT documentation:
 
 - The URL for documentation of the latest stable release is `<https://aedtdocs.pyansys.com/>`_.
-- The URL for documentation of the lastest development version is `<https://dev.aedtdocs.pyansys.com/>`_.
+- The URL for documentation of the latest development version is `<https://dev.aedtdocs.pyansys.com/>`_.
 
 The latest development versions of both the library and its documentation are automatically kept
 up-to-date via GitHub actions.
@@ -166,7 +177,7 @@ To use Windows PowerShell to clone a GitHub repository:
 
    Because the list of repositories is quite long, you can use the ``Find
    a repository`` option to search for the repository that you want to clone. For
-   example, you can seach for "theme" to find the ``pyansys-sphinx-theme`` repository.  
+   example, you can search for "theme" to find the ``pyansys-sphinx-theme`` repository.  
 
 #. In the upper right corner of the repository, click the green ``Code`` button to
    drop down a list of options.
@@ -174,7 +185,7 @@ To use Windows PowerShell to clone a GitHub repository:
 #. To the right of the ``HTTPS`` option, click the clipboard icon to copy the path to
    the repository.
  
-#. Go back to Windows Powershell and type ``git clone`` and then click the right
+#. Go back to Windows PowerShell and type ``git clone`` and then click the right
    mouse button to paste the copied path.
 
 #. Press ``Enter`` to copy the files in the repository to your local directory.
@@ -182,7 +193,7 @@ To use Windows PowerShell to clone a GitHub repository:
 #. Type ``ls`` to see a list of the files now in your local directory. 
 
 .. note::
-   In Anaconda Powershell, typing ``dir`` is the equivalent to typing ``ls``.
+   In PowerShell, typing ``dir`` is the equivalent to typing ``ls``.
 
 Using GitBash to Clone a GitHub Repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -206,7 +217,7 @@ Pushing Changes to the GitHub Repository
 ----------------------------------------
 As you make changes in your ``doc/`` branch, you want to periodically test then in
 local documentation builds as described in :ref:`doc_building`. After you resolve
-any issues and are satisfied with what apears in a local build, you are ready
+any issues and are satisfied with what appears in a local build, you are ready
 to push your changes to the library's GitHub repository. To accomplish this,
 you can use either Git commands or Git Extensions. 
 
@@ -275,7 +286,7 @@ To use Git Extensions to push your changes to the GitHub repository:
    description of what you intend to change.
    
 #. Make your documentation changes in the directory where you cloned the library's
-   GitHub reposity.   
+   GitHub repository.   
 
 #. Test your changes in local documentation builds. For more information, see
    :ref:`doc_building`.
@@ -290,7 +301,7 @@ To use Git Extensions to push your changes to the GitHub repository:
    are no conflicts with what is in your branch. If there are conflicts, resolve
    them.
 
-#. Do a push of your branch to the GitHub repsitory.
+#. Do a push of your branch to the GitHub repository.
 
 #. Create the PR as described in :ref:`create_pr`.
 
@@ -302,7 +313,7 @@ Creating the GitHub PR
 Regardless of what method you used to push your changes, do the following to create
 the GitHub PR:
 
-#. Go to the GitHub reposity, where you will see an entry for your pushed branch.
+#. Go to the GitHub repository, where you will see an entry for your pushed branch.
 
 #. If the pushed branch resolves an issue, in its description, type ``Resolves #``
    and select from the list of issues that appears.
@@ -313,7 +324,7 @@ the GitHub PR:
 
    If your PR is ready for review, select ``Create pull request``. Otherwise,
    select ``Create draft pull request`` and mark it as ready for review once
-   you it includes all of your changes and you are satisified with it. 
+   you it includes all of your changes and you are satisfied with it. 
 
    If you need to change a PR title, to its right, click the ``Edit`` button,
    which becomes a ``Save`` button while you are in editing mode.
@@ -348,7 +359,7 @@ installing a PyAnsys library in development mode. However, for many other PyAnsy
 you push changes that you have made in a local branch to the library's GitHub repository, CI checks
 typically require that the full library is installed.
 
-#. In Anaconda Powershell, navigate to the base directory in the library's cloned repository.
+#. In Anaconda PowerShell, navigate to the base directory in the library's cloned repository.
 
 #. If your library must be installed in development mode, enter:
    
@@ -389,7 +400,7 @@ How you build HTML documentation depends on your operating system.
 
 
    As Sphinx generates HTML output in the library's ``../doc/_build/html`` directory,
-   Anaconda Powershell displays any errors and warnings for unexpected indentations,
+   Anaconda PowerShell displays any errors and warnings for unexpected indentations,
    bad target locations for links, missing files, and extra files included in the
    repository but not referenced by any ``index.rst`` file.
    
@@ -424,7 +435,7 @@ On Windows, building a PDF is a manual process that you run locally:
 #. On the Welcome page, click ``Check for updates`` and install any available
    updates.
 
-#. Install the latest version of Strawbery Perl, which enables you to build
+#. Install the latest version of Strawberry Perl, which enables you to build
    LaTeX files, accepting the default installation location (``C:\Strawberry\``).
 
 #. In the Command Prompt window, type ``perl-v`` to test that your installation is
