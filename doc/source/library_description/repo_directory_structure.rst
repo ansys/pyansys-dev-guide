@@ -1,3 +1,5 @@
+.. _repo_dir_struct:
+
 Repository Directory Structure
 ------------------------------
 The source for a PyAnsys library is hosted in an individual 

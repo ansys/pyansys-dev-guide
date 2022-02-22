@@ -17,3 +17,4 @@ functionalities such as logging, data transfer, and application APIs.
    data_transfer_and_representation
    logging
    service_abstraction
+   test_practices
