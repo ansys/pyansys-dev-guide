@@ -1,10 +1,11 @@
+"""Sphinx documentation configuration file for the pyansys developer's guide."""
 from datetime import datetime
 
 from pyansys_sphinx_theme import __version__
 from pyansys_sphinx_theme import pyansys_logo_black
 
 # Project information
-project = "PyAnsys Developers Guide"
+project = "PyAnsys Developer's Guide"
 copyright = f"(c) {datetime.now().year} ANSYS, Inc. All rights reserved"
 author = "Ansys Inc."
 release = version = "0.2.dev0"
@@ -13,9 +14,16 @@ html_logo = pyansys_logo_black
 html_theme = "pyansys_sphinx_theme"
 
 html_theme_options = {
-    "github_url": "https://github.com/pyansys/about",
+    "github_url": "https://github.com/pyansys/dev-guide",
     "show_prev_next": False,
+    "show_breadcrumbs": True,
+    "additional_breadcrumbs": [
+        ("PyAnsys", "https://docs.pyansys.com/"),
+    ],
 }
+
+# necessary for proper breadcrumb title
+html_short_title = html_title = project
 
 # Sphinx extensions
 extensions = [
