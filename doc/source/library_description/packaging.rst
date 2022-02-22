@@ -38,34 +38,38 @@ projects. It needs to at least contain a ``[build-system]`` section, which deter
 how the project is built. Some commonly used packaging tools are `setuptools`_,
 `poetry`_, or `flit`_.
 
-When writing a *library*, `flit`_ is a good default choice. For *applications*,
-`poetry`_ is a good default as it provides features to pin dependency versions.
-We use `flit`_ in the template repository and the description below.
+We use `poetry`_ as a default choice in the `PyAnsys template`_, for the following reasons:
+* it supports pinning dependency versions, which we use for testing / CI
+* downstream packages can still consume a loose dependency specification
+* it integrates with `dependabot`_ to update the pinned version
 
-To use `flit`_ as a packaging tool, the ``pyproject.toml`` should contain
+Feel free to use any one of the packaging tools mentioned above that best suits
+your needs. The advantage of `flit`_ is its simplicity, while `setuptools`_ is most useful
+when custom build steps need to be implemented as Python code.
+
+To use `poetry`_ as a packaging tool, the ``pyproject.toml`` should contain
 
 .. code:: toml
 
   [build-system]
-  requires = ["flit_core >=3.2,<4"]
-  build-backend = "flit_core.buildapi"
+  requires = ["poetry-core>=1.0.0"]
+  build-backend = "poetry.core.masonry.api"
 
-The ``[project]`` section contains metadata, and defines the project's dependencies. Refer to the
-`flit metadata documentation`_ for details.
+The ``[tool.poetry]`` section contains metadata, and defines the project's dependencies. Refer to the
+`poetry pyproject.toml documentation`_ for details.
 
-Flit can automatically determine the project's version from the source code.
-In the ``[project]`` section, add
-
-.. code:: toml
-
-  dynamic = ["version"]
-
-The version is parsed from the ``ansys/package/library/__init__.py`` file, which must
-contain a statement
+Since poetry cannot automatically determine a package's version, we instead specify it in the ``[tool.poetry]``
+section, and add code to ``__init__.py`` which obtains the version from the installation metadata:
 
 .. code:: python
 
-  __version__ = "0.1.0"
+  try:
+      import importlib.metadata as importlib_metadata
+  except ModuleNotFoundError:
+      import importlib_metadata
+
+  __version__ = importlib_metadata.version(__name__.replace(".", "-"))
+
 
 Where supported, we aim to put all tooling-related configuration into ``pyproject.toml``.
 For example, it can also be used to configure the code formatter `black`_ or the static
@@ -166,7 +170,9 @@ To create a package complying with the above standards, here is the minimal cont
 .. _setuptools: https://setuptools.pypa.io
 .. _poetry: https://python-poetry.org/docs/
 .. _flit: https://flit.readthedocs.io
-.. _flit metadata documentation: https://flit.readthedocs.io/en/latest/pyproject_toml.html#new-style-metadata
+.. _dependabot: https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates
+.. _PyAnsys template: https://github.com/pyansys/template
+.. _poetry pyproject.toml documentation: https://python-poetry.org/docs/pyproject/
 .. _black: https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html#configuration-via-a-file
 .. _mypy: https://mypy.readthedocs.io/en/stable/config_file.html#the-mypy-configuration-file
 .. _trunk-based development: https://trunkbaseddevelopment.com/
