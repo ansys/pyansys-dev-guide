@@ -1,8 +1,12 @@
+import logging
+import sys
 from copy import copy
 from datetime import datetime
-import logging
-from logging import DEBUG, INFO, WARN, ERROR, CRITICAL
-import sys
+from logging import CRITICAL
+from logging import DEBUG
+from logging import ERROR
+from logging import INFO
+from logging import WARN
 
 # Default configuration
 LOG_LEVEL = logging.DEBUG
@@ -185,7 +189,12 @@ class Logger:
     _instances = {}
 
     def __init__(
-        self, level=logging.DEBUG, to_file=False, to_stdout=True, filename=FILE_NAME, cleanup=True
+        self,
+        level=logging.DEBUG,
+        to_file=False,
+        to_stdout=True,
+        filename=FILE_NAME,
+        cleanup=True,
     ):
         """Initialize Logger class."""
 
@@ -398,8 +407,8 @@ class Logger:
         if self.cleanup:
             try:
                 for handler in self.logger.handlers:
-                        handler.close()
-                        self.logger.removeHandler(handler)
+                    handler.close()
+                    self.logger.removeHandler(handler)
             except Exception as e:
                 try:
                     if self.logger is not None:

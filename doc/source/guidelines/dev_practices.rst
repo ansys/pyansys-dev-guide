@@ -3,7 +3,7 @@
 Development Practices
 =====================
 This page explains how PyAnsys development is conducted. When
-contributing to a PyAnsys repository, use these general 
+contributing to a PyAnsys repository, use these general
 coding paradigms:
 
 #. Follow the `Zen of Python <https://www.python.org/dev/peps/pep-0020/>`__.
@@ -35,15 +35,15 @@ To submit new code to a PyAnsys repository:
 
 #. `Fork <https://docs.github.com/en/get-started/quickstart/fork-a-repo>`_
    the respective GitHub repository and then clone the forked repository
-   to your computer. 
+   to your computer.
 
 #. In your local repository, create a branch. See :ref:`branch_naming`.
-   Comprehensive information on our model for branching is availible in
+   Comprehensive information on our model for branching is available in
    `Branching Model <#Branching Model>`__.
 
 #. Add your new feature and commit it locally. Be sure to commit
    frequently as the ability to revert to past commits is often helpful,
-   especially if your change is complex. 
+   especially if your change is complex.
 
 #. Test often. See `Testing <#Testing>`__ for automating testing.
 
@@ -104,11 +104,11 @@ any new issues from your changes.
 
 .. code::
 
-    pytest -v --cov _unittest
+    pytest -v --cov <ansys.product.library>
 
 Error Messages
 ~~~~~~~~~~~~~~
-For general information on writting good error messages, see Microsoft's
+For general information on writing good error messages, see Microsoft's
 `Error Message Guidelines <https://docs.microsoft.com/en-us/windows/win32/debug/error-message-guidelines>`_.
 
 For information specific to writing Pythonic error messages, see:
@@ -130,7 +130,7 @@ If you are using Linux or Mac OS, run spelling and coding style checks:
 
 Misspelled words will be reported. You can add words to be ignored to
 the ``ignore_words.txt`` file. For example, for PyMAPDL, this file looks
-like this: 
+like this:
 
 ... code::
 
@@ -173,7 +173,7 @@ tasks:
 Branching Model
 ---------------
 The branching model for a PyAnsys project enables rapid development of
-features without sacrificing stability. The model closely follows the 
+features without sacrificing stability. The model closely follows the
 `Trunk Based Development <https://trunkbaseddevelopment.com/>`_ approach:
 
 - The `main` branch is the primary development branch. All features,
@@ -216,7 +216,7 @@ Release procedures follow for major and minor releases.
 
 #. Locally test and build the documentation with link checking to
    ensure that no links are outdated.
-   
+
 #. Run ``make clean`` to ensure that no results are cached.
 
     .. code::
@@ -233,10 +233,10 @@ Release procedures follow for major and minor releases.
    for this release that merges it to ``main``. While effort is focused
    on the release, development to ``main`` should be limited.
 
-#. Wait for the PyAnsys developers and community to functionally test the
-   new release. Testors should locally install this branch and use it in
-   production. Any bugs that they identify should have their hotfixes pushed to
-   this release branch.
+#. Wait for the PyAnsys developers and community to functionally test the new
+   release. Developers and testers should locally install this branch and use
+   it in production. Any bugs that they identify should have their hotfixes
+   pushed to this release branch.
 
    When the branch is deemed as stable for public release, the PR is merged
    to ``main``, which must then be tagged with a ``MAJOR.MINOR.0`` release.
@@ -246,7 +246,7 @@ Release procedures follow for major and minor releases.
 
     .. code::
 
-	     git tag v<MAJOR.MINOR.0>
+        git tag v<MAJOR.MINOR.0>
         git push origin --tags
 
 #. Create a list of all changes for the release. It is often helpful
@@ -256,7 +256,7 @@ Release procedures follow for major and minor releases.
    appropriate if specific contributors are to be thanked for new
    features.
 
-#. Place your release notes from the previous step in ``Releases`` 
+#. Place your release notes from the previous step in ``Releases``
    in the GitHub repository. See `GitHub Releases`_.
 
 .. _GitHub Releases: https://docs.github.com/en/github/administering-a-repository/releasing-projects-on-github/managing-releases-in-a-repository
@@ -272,7 +272,7 @@ should not wait until a minor release. These are the steps for a patch release:
    This will generally be the latest release branch (for example,
    ``release/MAJOR.MINOR``).
 
-#. Update the ``__version__.py`` file with the next patch increment
+#. Update the ``_version.py`` file with the next patch increment
    (``MAJOR.MINOR.PATCH``), commit it, and open a PR to merge with the
    release branch. This gives the PyAnsys developers and community
    an opportunity to validate and approve the bug fix release. Any

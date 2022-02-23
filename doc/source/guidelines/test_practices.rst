@@ -222,7 +222,7 @@ Integration Testing - Remote Method Invocation Testing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 In the case of a Remote Method Invocation (RMI)-like method, it is only
 necessary to test the method with a basic case and potentially with any edge
-cases. A RMI-like API might send and receive strings that are excuted on the
+cases. A RMI-like API might send and receive strings that are executed on the
 server using a custom API or language only available within the context of the
 service.
 
@@ -245,7 +245,7 @@ and a Python wrapping:
        command : str
            Command to run on the remote server.
 
-Your exmaple test would be:
+Your example test would be:
 
 .. code:: python
 
@@ -263,7 +263,7 @@ commands.
 Functional Testing
 ~~~~~~~~~~~~~~~~~~
 Functional testing should test the Python library using scripts or examples
-that are expected to be excuted by the user. Unlike unit or integration
+that are expected to be executed by the user. Unlike unit or integration
 testing, these functional tests are testing the library as a whole by calling
 several methods to accomplish a task. These tests should only be run after unit
 and integration testing is complete, and they should be run outside the

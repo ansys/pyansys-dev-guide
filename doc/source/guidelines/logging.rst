@@ -10,7 +10,7 @@ improvements.
 
 Also see external resources for `basic
 <https://docs.python-guide.org/writing/logging/>`__ and `advanced
-<https://coralogix.com/blog/python-logging-best-practices-tips/>`__ technics.
+<https://coralogix.com/blog/python-logging-best-practices-tips/>`__ techniques.
 
 
 Description and Usage
@@ -45,7 +45,7 @@ Avoid Printing to the Console
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 A common habit while prototyping a new feature is to print a message into the
 command line executable. Instead of using the common ``Print()`` method, we
-recommend using a ``StreamHandler`` and redirecting its content. This will
+recommend using a ``Stream-Handler`` and redirecting its content. This will
 allow messages to be filtered based on their severity level and apply formatting
 properly. To accomplish this, add a Boolean argument in the initializer
 of the ``Logger`` class that specifies how to handle the stream.
@@ -150,7 +150,7 @@ of the global and instance loggers.
     :figclass: align-center
 
 
-You can find the source for this example logger in the collapsable section below
+You can find the source for this example logger in the collapsible section below
 and in the ``dev_guide`` repository at `pyansys_logging.py
 <https://github.com/pyansys/dev-guide/blob/main/logging/pyansys_logging.py>`_.
 
@@ -277,10 +277,10 @@ Ansys Product Loggers
 An Ansys product, due to its architecture, can have several loggers. The
 ``logging`` library features support working with a finite number of loggers. The
 factory function ``logging.getLogger()`` helps to access each logger by its name. In
-addition to name mappings, a hierachy can be established to structure the
+addition to name mappings, a hierarchy can be established to structure the
 loggers' parenting and their connections.
 
-For example, if an Ansys product is using a pre-exsiting custom logger
+For example, if an Ansys product is using a pre-existing custom logger
 encapsulated inside the product itself, the *<PyProject>* will benefit from
 exposing it through the standard Python tools. We recommend that you use the
 standard library as much as possible. It will facilitate every contribution

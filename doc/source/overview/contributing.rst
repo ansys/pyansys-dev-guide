@@ -2,18 +2,17 @@
 Contributing
 ############
 
-Ansys welcomes all PyAnsys code contributions and wants you to
-understand how to contribute. While we maintain PyAnsys libraries
-and thoroughly review all submissions, we want to foster a community
-that supports user questions and develops new features to make
-our libraries powerful tools for all users. As such, we
-encourage you to submit questions, report bugs, request new
-features, contribute code, and start discussions.
+Ansys welcomes all PyAnsys code contributions and wants you to understand how
+to contribute. While we maintain PyAnsys libraries and thoroughly review all
+submissions, we want to foster a community that supports user questions and
+develops new features to make our libraries powerful tools for all users. As
+such, we encourage you to submit questions, report bugs, request new features,
+contribute code, and start discussions.
 
-This page provides general information about contributing code to a
-PyAnsys respository. Contribution information specific to a particular
-repository appears on the ``Contributing`` page in the respective
-respository's documentation, including:
+This page provides general information about contributing code to a PyAnsys
+repository. Contribution information specific to a particular repository
+appears on the ``Contributing`` page in the respective repository's
+documentation, including:
 
 - Instructions for cloning the source repository from GitHub
 - URL to the repository's ``Issues`` page
@@ -22,19 +21,20 @@ respository's documentation, including:
 Creating Issues
 ===============
 You create issues to submit questions, report bugs, and request new
-features. When you create an issue, ensure that you provide sufficient
-context, such as application versions and reproduction steps. Also use
-an issue label like "Documentation" to indicate the issue category.
+features. When you create an issue, ensure that you provide sufficient context,
+such as application versions and reproduction steps. Also use an issue label
+like "Documentation" to indicate the issue category.
 
-PyAnsys developers and community members will respond to and hopefully
-resolve your issue. Once an issue is resolved, you are encouraged to
-close it yourself. Otherwise, after a period of inactivity, the PyAnsys
-project support team will use discretion as to whether to close it.
+PyAnsys developers and community members will respond to and hopefully resolve
+your issue. Once an issue is resolved, you are encouraged to close it
+yourself. Otherwise, after a period of inactivity, the PyAnsys project support
+team will use discretion as to whether to close it.
 
-Should it turn out that your issue is closed erroneously, perhaps because
-a bug fix implemented to resolve your issue did not work, you can re-open
-it with a comment that explains why you have done so. If you need to contact the
-PyAnsys project support team directly, email `pyansys.support@ansys.com <pyansys.support@ansys.com>`_.
+Should it turn out that your issue is closed erroneously, perhaps because a bug
+fix implemented to resolve your issue did not work, you can re-open it with a
+comment that explains why you have done so. If you need to contact the PyAnsys
+project support team directly, email `pyansys.support@ansys.com
+<pyansys.support@ansys.com>`_.
 
 For convenience, here are URLs for ``Issues`` pages for
 public Ansys repositories:
@@ -86,7 +86,7 @@ When you are ready to start contributing code, see:
   code to adhere to PyAnsys standards
 
 
-All pull requests are reviwed before they can be merged.
+All pull requests are reviewed before they can be merged.
 
 Starting Discussions
 ====================
@@ -100,13 +100,14 @@ page. It is possible for discussions to lead to the creation of issues.
     Because the ``Discussions`` page is still a GitHub beta feature, usage
     may change in the future.
     
+
 Cloning the Source Repository
 =============================
-As mentioned earlier, specific instructions for cloning a source
-repository from GitHub appear on the ``Contributing`` page in the
-respective repository's documentation. In the following code for cloning and
-installing the latest version of a PyAnsys repository, ``<pyansy-repository>``
-is a placeholder for the name of the repository.
+As mentioned earlier, specific instructions for cloning a source repository
+from GitHub appear on the ``Contributing`` page in the respective repository's
+documentation. In the following code for cloning and installing the latest
+version of a PyAnsys repository, ``<pyansys-repository>`` is a placeholder for
+the name of the repository.
 
 .. code::
 
@@ -125,11 +126,12 @@ you would run the following:
     pip install -e .
 
 
-If you want to eventually push a contribution to a
-PyAnsys repository, consider creating a `fork <https://docs.github.com/en/get-started/quickstart/fork-a-repo>`_
-of the repository. For information on how to contribute through
-GitHub, see :ref:`development_practices`, paying particular attention to :ref:`branch_naming`
-when you are ready to create a pull request.
+If you want to eventually push a contribution to a PyAnsys repository, consider
+creating a `fork`_ of the repository. For information on how to contribute
+through GitHub, see :ref:`development_practices`, paying particular attention
+to :ref:`branch_naming` when you are ready to create a pull request.
+
+.. _fork: https://docs.github.com/en/get-started/quickstart/fork-a-repo
 
 Licensing
 =========
