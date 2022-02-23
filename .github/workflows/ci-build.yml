@@ -51,7 +51,7 @@ jobs:
         with:
           token: ${{ secrets.github_token }}
           branch: gh-pages
-          folder: docs/build/html
+          folder: doc/build/html
           clean: true
           single-commit: true
   
