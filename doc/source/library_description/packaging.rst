@@ -2,32 +2,93 @@
 
 Packaging
 #########
-A Python package organizes and structures a Python library, which contains several
-modules and assets such as examples or binary extensions. A Python package
-offers an easy, reliable, and comprehensive way to distribute and install
-a Python library on a variety of platforms and environments.
+
+A Python package organizes and structures a Python library, which contains
+several modules and assets such as examples or binary extensions. A Python
+package offers an easy, reliable, and comprehensive way to distribute and
+install a Python library on a variety of platforms and environments.
+
+
+Python scripts, modules, sub-packages and packages
+--------------------------------------------------
+
+It is important to understand the difference between Python scripts, modules,
+sub-packages and packages:
+
+* ``Script``: any Python file holding logic source code.
+* ``Module``: any Python script hosted next to an ``__init__.py`` file.
+* ``Sub-package``: any directory holding various Python modules.
+* ``Package``: any directory which contains Python modules and sub-packages.
+
+The following structure is shown to better explain previous concepts:
+
+.. code:: bash
+
+    .
+    ├── src
+    │   └── package
+    │       ├── subpackage_a
+    │       │   ├── __init__.py
+    │       │   └── module_c.py
+    │       ├── __init__.py
+    │       ├── module_a.py
+    │       └── module_b.py
+    ├── LICENSE
+    ├── README.rst
+    └── pyproject.toml
+
 
 Namespace Packaging
 -------------------
-A PyAnsys library uses `namespace packaging`_.
-Namespace packages allow a user to easily split subpackages from a package into
-single, independent distributions.
+A PyAnsys library uses `namespace packaging`_.  Namespace packages allow a user
+to easily split sub-packages from a package into single, independent
+distributions.
 
-There are different approaches available for creating a namespace package. For the
-``ansys`` namespace, we use the `PEP 420`_ `native namespace packages`_ approach.
+There are different approaches available for creating a namespace package. For
+the ``ansys`` namespace, we use the `PEP 420`_ `native namespace packages`_
+approach.
+
+Following previous namespace, the source directory of any `PyAnsys library`
+should look like this:
+
+.. code::
+    .
+    └── src
+        └── ansys
+            └── product
+                └── library
+                    └── __init__.py
+
 
 Required Files
 --------------
 
-* README.rst file: Describes the purpose of the package.
+* ``README.rst`` file: Describes the purpose of the package.
   *The format of this file must be reStructuredText.*
 
-* LICENSE file: Specifies copyrights and required authorization.
+* ``LICENSE`` file: Specifies copyrights and required authorization.
 
-* pyproject.toml file: Provides package information.
+* ``pyproject.toml`` file: Provides package information.
   This file provides the package metadata, and defines how it is built.
   There are different build backends available, such as `setuptools`_,
   `poetry`_ and `flit`_.
+
+* ``src/ansys/product/library/__init__.py`` file: This file usually holds the
+  version of the package in a variable named ``__version__``. The value of this
+  variable can be parsed from the `pyproject.toml` file, so it is only specified
+  in one location.
+
+
+Additional directories
+----------------------
+
+The following directories may be specified at the same level of ``src/`` one:
+
+* ``tests/``: This directory holds all unitary tests of the package. It is
+  likely that those take advantage of the `pytest`_ framework.
+
+* ``doc/``: A directory devoted to hold all documentation files and examples on
+  how to use the package.
 
 
 Project Configuration File
@@ -38,10 +99,44 @@ projects. It needs to at least contain a ``[build-system]`` section, which deter
 how the project is built. Some commonly used packaging tools are `setuptools`_,
 `poetry`_, or `flit`_.
 
-We use `poetry`_ as a default choice in the `PyAnsys template`_, for the following reasons:
-* it supports pinning dependency versions, which we use for testing / CI
-* downstream packages can still consume a loose dependency specification
-* it integrates with `dependabot`_ to update the pinned version
+
+Flit
+^^^^
+
+It is a modern and lightweight building system. Using this tool requires
+developers to manage by their own a virtual environment, that is:
+
+* Creating a virtual environment and activating it.
+* Installing the package in editable mode.
+
+This tool is the default one for creating a new project when using the
+`pyansys-template`_ tool.
+
+
+Poetry
+^^^^^^
+
+Poetry is known because of it strong dependency pinning via its ``poetry.lock``
+file. It creates a virtual environment for isolating package development. This
+might cause conflicts with other tools operating over the same principle.
+
+* ``setuptools``: a very well known build system in the Python ecosystem. Its
+  usage should be limited to projects using the deprecated ``setup.py``
+  installer file.
+
++---------------+--------------------+-----------------------------------+
+| Build system  | Pros               | Cons                              |
++===============+====================+===================================+
+| flit          | Very lightweight   | Requires you to manage venvs      |
+| poetry        | Dependency focused | Might interfere with other tools  |
+| setuptools    | Most popular       | Discouraged                       |
++---------------+--------------------+-----------------------------------+
+
+
+On the other hand, `poetry`_ may be chosen for the followign reasons for the following reasons:
+* It supports pinning dependency versions via a ``poetry.lock`` file, which we use for testing / CI.
+* Downstream packages can still consume a loose dependency specification.
+* It integrates with `dependabot`_ to update the pinned version.
 
 Feel free to use any one of the packaging tools mentioned above that best suits
 your needs. The advantage of `flit`_ is its simplicity, while `setuptools`_ is most useful
@@ -175,6 +270,7 @@ To create a package complying with the above standards, here is the minimal cont
 .. _flit: https://flit.readthedocs.io
 .. _dependabot: https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates
 .. _PyAnsys template: https://github.com/pyansys/template
+.. _pyansys template: https://github.com/pyansys/pyansys-template
 .. _poetry pyproject.toml documentation: https://python-poetry.org/docs/pyproject/
 .. _black: https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html#configuration-via-a-file
 .. _mypy: https://mypy.readthedocs.io/en/stable/config_file.html#the-mypy-configuration-file
