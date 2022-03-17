@@ -4,7 +4,7 @@ Documentation Practices
 =======================
 PyAnsys documentation must not only be written but also maintained. If you are
 new to writing developer documentation, see the `Google Developer Documentation
-Style Guide <https://developers.google.com/style/articles>`_. It provides
+Style Guide <https://developers.google.com/style>`_. It provides
 editorial guidelines for writing clear and consistent developer documentation,
 allowing this guide to supply guidance specific to PyAnsys library
 documentation.
@@ -186,7 +186,7 @@ Cloning a GitHub Repository
 ---------------------------
 Contributing to a GitHub repository requires that you first clone the repository. While developers
 likely know many ways to do this, technical documentation specialists may need to review the
-following instructions for using either Windows PowerShell or GitBash to clone a GitHub repository.
+following instructions for using either Windows PowerShell or Git Bash to clone a GitHub repository.
 
 Using Windows PowerShell to Clone a GitHub Repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -218,12 +218,12 @@ To use Windows PowerShell to clone a GitHub repository:
 .. note::
    In PowerShell, typing ``dir`` is the equivalent to typing ``ls``.
 
-Using GitBash to Clone a GitHub Repository
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-To use GitBash to clone a GitHub repository:
+Using Git Bash to Clone a GitHub Repository
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To use Git Bash to clone a GitHub repository:
 
 #. In the directory where you want to clone PyAnsys repositories, right-click and
-   select ``GitBash Here``.
+   select ``Git Bash Here``.
 
 #. Type ``git clone`` followed by the address of the repo to clone.
 
@@ -347,7 +347,7 @@ the GitHub PR:
 
    If your PR is ready for review, select ``Create pull request``. Otherwise,
    select ``Create draft pull request`` and mark it as ready for review once
-   you it includes all of your changes and you are satisfied with it. 
+   it includes all of your changes and you are satisfied with it. 
 
    If you need to change a PR title, to its right, click the ``Edit`` button,
    which becomes a ``Save`` button while you are in editing mode.
