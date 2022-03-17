@@ -219,7 +219,7 @@ To use Windows PowerShell to clone a GitHub repository:
    In PowerShell, typing ``dir`` is the equivalent to typing ``ls``.
 
 Using Git Bash to Clone a GitHub Repository
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 To use Git Bash to clone a GitHub repository:
 
 #. In the directory where you want to clone PyAnsys repositories, right-click and
