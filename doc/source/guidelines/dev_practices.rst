@@ -124,7 +124,7 @@ If you are using Linux or Mac OS, run spelling and coding style checks:
 
 .. code::
 
-    cd <local pyvista root directory>
+    cd <local pyansys project root directory>
     pip install -r requirements_style.txt
     make
 
@@ -132,7 +132,7 @@ Misspelled words will be reported. You can add words to be ignored to
 the ``ignore_words.txt`` file. For example, for PyMAPDL, this file looks
 like this:
 
-... code::
+.. code::
 
     codespell ./ "*.pyc,*.txt,*.gif,*.png,*.jpg,*.js,*.html,*.doctree,*.ttf,*.woff,*.woff2,*.eot,*.mp4,*.inv,*.pickle,*.ipynb,flycheck*,./.git/*,./.hypothesis/*,*.yml,./doc/build/*,./doc/images/*,./dist/*,*~,.hypothesis*,./doc/source/examples/*,*cover,*.dat,*.mac,\#*,build,./docker/mapdl/v211,./factory/*,./ansys/mapdl/core/mapdl_functions.py,PKG-INFO" -I "ignore_words.txt"
 
