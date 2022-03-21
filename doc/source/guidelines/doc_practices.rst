@@ -148,7 +148,7 @@ For instance: `grantami <https://grantami.docs.pyansys.com>`_
 Regarding the documentation dedicated to a specific feature of the product or an example, the URL is formatted like this:
    ``<extra>.<product_name>.docs.pyansys.com``
 
-For instance: `cartpole <https://cartpole.mapdl.docs.pyansys.com>`_
+For instance: `cartpole <https://pyansys.github.io/ml-rl-cartpole/>`_
 
 Once the URL name has been decided, it must be specified in the "Settings -> Pages -> Custom domain" section of the repository.
 
