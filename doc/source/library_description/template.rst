@@ -3,7 +3,7 @@ Library Template
 ################
 
 Starting a new project from scratch is a tedious task. For this reason, the
-`ansys-tempaltes` tool was created in order to simplify the starting process and
+`ansys-templates`_ tool was created to simplify the starting process and
 make it more dynamic. Any rendered project will be compliant with the latest
 PyAnsys coding and API style guidelines.
 
@@ -41,7 +41,7 @@ projects. These are the ``pyansys`` and the ``pyansys-advanced`` templates.
    `ansys-templates user guide`_ for more information on how to use this tool.
 
 
-PyAnsys template 
+PyAnsys Template 
 ----------------
 
 The ``pyansys`` template ships only with the required directories and files to
