@@ -60,7 +60,7 @@ To download the Python package from the `PyAnsys PyPI`_, use the following:
 .. warning::
    Take care to always use the ``--index-url`` switch rather than the
    ``--extra-index-url`` switch. As noted in the `pip Documentation`_, the
-   ``-index-url`` switch changes the Python Package Index, and forces ``pip``
+   ``--index-url`` switch changes the Python Package Index, and forces ``pip``
    to only use packages from that package index.
 
    Our package index uses PyPI upstream, and therefore other users cannot
