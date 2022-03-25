@@ -8,7 +8,7 @@ from pyansys_sphinx_theme import pyansys_logo_black
 project = "PyAnsys Developer's Guide"
 copyright = f"(c) {datetime.now().year} ANSYS, Inc. All rights reserved"
 author = "Ansys Inc."
-release = version = "0.2.dev0"
+release = version = "0.3.dev0"
 
 html_logo = pyansys_logo_black
 html_theme = "pyansys_sphinx_theme"
