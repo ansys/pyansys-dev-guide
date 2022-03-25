@@ -18,3 +18,4 @@ functionalities such as logging, data transfer, and application APIs.
    logging
    service_abstraction
    test_practices
+   private_packaging
