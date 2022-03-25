@@ -1,4 +1,4 @@
-.. _testing:
+.. _private_dependencies:
 
 
 Hosting Private Dependencies
