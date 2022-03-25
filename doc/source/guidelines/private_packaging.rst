@@ -13,8 +13,9 @@ a secret PAT, specified in the GitHub secret ``PYANSYS_PYPI_PRIVATE_PAT`` which
 is only available to repositories within the `PyAnsys`_.
 
 .. note::
-   This includes forked repositories. This is designed to protect against PRs
-   that could potentially scrape tokens from our CI/CD.
+   Forked GitHub repositories do not have access to GitHub secrets. This is
+   designed to protect against PRs that could potentially scrape tokens from
+   our CI/CD.
 
 
 Upload
