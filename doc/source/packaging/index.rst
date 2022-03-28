@@ -40,17 +40,7 @@ model and API.
    :hidden:
    :maxdepth: 3
 
-   template
-   library_structure
-   library_names
-   repo_directory_structure
-   ci_cd
-   source_organization
-   readme_file
-   setup_file
-   doc_directory
-   license
-   packaging.rst
+   templates
    
 .. _gRPC: https://grpc.io/
 .. _pythoncom: http://timgolden.me.uk/pywin32-docs/pythoncom.html
