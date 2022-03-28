@@ -9,6 +9,6 @@
 
    overview/index
    guidelines/index
-   library_description/index
+   packaging/index
    coding_style/index
    documentation_style/index

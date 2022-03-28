@@ -1,6 +1,6 @@
-################
-Library Overview
-################
+###############
+Packaging Style
+###############
 
 A PyAnsys library eliminates the need to share snippets of code that
 perform actions. Users can instead create workflows consisting of 
