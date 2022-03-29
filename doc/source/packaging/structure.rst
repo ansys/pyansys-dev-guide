@@ -31,14 +31,11 @@ Scripts, Modules, Sub-packages, and Packages
 
 To understand the structure of a Python Library, it is important to know
 the difference between Python scripts, modules, sub-packages, and packages.
-Figure :numref:`python elements diagram` provides a graphical interpretation.
 
 * ``Script``: Any Python file with logic source code.
 * ``Module``: Any Python script hosted next to an ``__init__.py`` file.
 * ``Sub-package``: Any directory containing various Python modules.
 * ``Package``: Any directory containing Python modules and sub-packages.
-
-.. include:: diagrams/python_elements_diagram.rst
 
 
 Differences Between a Python Package and Library
@@ -49,20 +46,7 @@ them: a Python package is a collection of Python modules and sub-packages while
 a Python Library is a collection of Python packages. Figure :numref:`python pkg
 lib diagram` exposes this.
 
-.. include:: diagrams/python_pkg_lib_diagram.rst
-
-
-Other Files
-===========
-
-Additional files can be stored next to a Python Library. These files will not be
-included when distributing the library. Most of these files are metadata, tool
-configuration files, and CI workflows definitions.
-
-.. tip::
-
-   Avoid having lots of additional files. This reduces mainteinance tasks and
-   provides a clean root project directory.
+.. include:: diagrams/python_library_diagram.rst
 
 
 Required Files for a PyAnsys Project

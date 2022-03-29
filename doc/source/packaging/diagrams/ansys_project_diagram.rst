@@ -1,6 +1,6 @@
 .. _high level pyansys structure:
 .. graphviz::
-    :caption: High-level structure of a PyAnsys project
+    :caption: A PyAnsys project is composed by a Python library and other files.
     :alt: High-level structure of a PyAnsys project
     :align: center
 
