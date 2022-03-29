@@ -31,6 +31,7 @@ extensions = [
     "sphinx_toolbox.collapse",
     "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
+    "sphinx.ext.graphviz",
     "sphinx.ext.intersphinx",
     "sphinx.ext.napoleon",
     "sphinx.ext.todo",
@@ -89,3 +90,10 @@ latex_documents = [
 #      author, 'ansys.mapdl.core', 'Pythonic interface to MAPDL using gRPC',
 #      'Engineering Software'),
 # ]
+
+# Include numerical references for the figures
+numfig = True
+
+# Do not include the following patterns as documentation source files.
+# See issue: https://github.com/sphinx-doc/sphinx/issues/1668
+exclude_patterns = ["packaging/diagrams/*"]
