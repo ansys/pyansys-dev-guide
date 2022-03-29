@@ -1,14 +1,23 @@
-.. ref_project_structure::
+.. _ref_project_structure:
 
 #################
 Project Structure
 #################
 
 Most of the projects in the PyAnsys ecosystem ship in the form of a Python
-package. This is the formal way of distributing Python-based projects.
+library with other additional files. All these files form what it is called a
+"project". A project can be uploaded to a repository to better track the changes
+applied to it. The high-level structure of a PyAnsys project is exposed in
+figure :numref:`high level pyansys structure`.
 
-The guide presented in this page is compliant with the `Python Packaging
-Authority`_ and `PyAnsys`_ recommendations.
+.. include:: diagrams/ansys_project_diagram.rst
+
+Python Libraries
+================
+
+A Python library is the formal way of distributing Python source code. It allows
+to reuse and specify Python code dependencies. The guide presented in this page
+is compliant with the `Python Packaging Authority`_ and PyAnsys recommendations.
 
 .. note::
 
@@ -17,9 +26,43 @@ Authority`_ and `PyAnsys`_ recommendations.
    PyAnsys guidelines are built on top of PyPA guidelines.
 
 
-.. TODO: Explain the difference between Package and Library?
-   Package: only holds modules
-   Library: a collection of packages
+Scripts, Modules, Sub-packages, and Packages
+--------------------------------------------
+
+To understand the structure of a Python Library, it is important to know
+the difference between Python scripts, modules, sub-packages, and packages.
+Figure :numref:`python elements diagram` provides a graphical interpretation.
+
+* ``Script``: Any Python file with logic source code.
+* ``Module``: Any Python script hosted next to an ``__init__.py`` file.
+* ``Sub-package``: Any directory containing various Python modules.
+* ``Package``: Any directory containing Python modules and sub-packages.
+
+.. include:: diagrams/python_elements_diagram.rst
+
+
+Differences Between a Python Package and Library
+------------------------------------------------
+
+Although both terms are used interchangeably, there is a key difference between
+them: a Python package is a collection of Python modules and sub-packages while
+a Python Library is a collection of Python packages. Figure :numref:`python pkg
+lib diagram` exposes this.
+
+.. include:: diagrams/python_pkg_lib_diagram.rst
+
+
+Other Files
+===========
+
+Additional files can be stored next to a Python Library. These files will not be
+included when distributing the library. Most of these files are metadata, tool
+configuration files, and CI workflows definitions.
+
+.. tip::
+
+   Avoid having lots of additional files. This reduces mainteinance tasks and
+   provides a clean root project directory.
 
 
 Required Files for a PyAnsys Project

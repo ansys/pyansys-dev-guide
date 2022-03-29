@@ -41,6 +41,7 @@ model and API.
    :maxdepth: 3
 
    templates
+   structure
    
 .. _gRPC: https://grpc.io/
 .. _pythoncom: http://timgolden.me.uk/pywin32-docs/pythoncom.html
