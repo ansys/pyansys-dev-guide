@@ -52,7 +52,7 @@ lib diagram` exposes this.
 Required Files for a PyAnsys Project
 ====================================
 
-The fundamental PyAnsys Library structure is composed by the following files and
+The fundamental PyAnsys library structure contains the following files and
 directories:
 
 .. code:: bash
