@@ -55,30 +55,7 @@ Required Files for a PyAnsys Project
 The fundamental PyAnsys library structure contains the following files and
 directories:
 
-.. code:: bash
-
-    pyproduct_library/
-    │
-    ├── doc/
-    │   ├── make.bat
-    │   ├── Makefile
-    │   └── source/
-    │       ├── index.rst
-    │       └── conf.py
-    │               
-    ├── src/
-    │   └── ansys/
-    │       └── product/
-    │           └── library/
-    │               └── __init__.py
-    │               
-    ├── tests/
-    │   └── test_*.py
-    │               
-    ├── LICENSE
-    ├── README.rst
-    ├── pyproject.toml
-    └── setup.py (optional)
+.. include:: diagrams/pyproduct_library_structure_diagram.rst
 
 Descriptions follow for some of the directories in the structure:
 
