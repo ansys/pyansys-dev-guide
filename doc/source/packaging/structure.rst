@@ -5,16 +5,16 @@ Project Structure
 #################
 
 Most of the projects in the PyAnsys ecosystem ship in the form of a Python
-Package. This is the formal way of distributing Python-based projects.
+package. This is the formal way of distributing Python-based projects.
 
 The guide presented in this page is compliant with the `Python Packaging
-Authority`_ and the `PyAnsys`_ recommendations.
+Authority`_ and `PyAnsys`_ recommendations.
 
 .. note::
 
-   The best way to keep up-to-date with Python Packaging is to check the `Python
+   The best way to keep up to date with Python packaging is to check the `Python
    Packaging User Guide`_, maintained by the `Python Packaging Authority`_ (PyPA).
-   PyAnsys guidelines are build on top of PyPA ones.
+   PyAnsys guidelines are built on top of PyPA guidelines.
 
 
 .. TODO: Explain the difference between Package and Library?
@@ -22,8 +22,8 @@ Authority`_ and the `PyAnsys`_ recommendations.
    Library: a collection of packages
 
 
-PyAnsys Project Required Files
-==============================
+Required Files for a PyAnsys Project
+====================================
 
 The fundamental PyAnsys Library structure is composed by the following files and
 directories:
@@ -53,16 +53,13 @@ directories:
     ├── pyproject.toml
     └── setup.py (optional)
 
-The following directories can be identified in previous structure:
+Descriptions follow for some of the directories in the structure:
 
-- ``doc/`` is devoted to store any piece of information related to documentation,
-  guidelines and examples.
+- ``doc/`` contains files related to documentation, guidelines, and examples.
 
-- ``src/`` is used to collect all the Python modules and scripts that form
-  the project.
+- ``src/`` contains all Python modules and scripts that form the project.
 
-- ``tests/`` stores all the unit tests whose purpose is to check the integrity
-  of the project.
+- ``tests/`` contains all unit tests for checking the integrity of the project.
 
 
 The ``doc/`` Directory

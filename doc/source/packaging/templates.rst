@@ -12,8 +12,8 @@ PyAnsys coding and API style guidelines.
 The ``ansys-templates`` tool
 ============================
 
-The `ansys-templates`_ is a command line interface which provides you with a
-collection of templates. This tool allows you to create new PyAnsys projects
+The `ansys-templates`_ is a command line interface that provides you with a
+collection of templates. This tool allows you to create new PyAnsys projects.
 from scratch in a dynamic way by asking you several questions before generating
 the new project.
 
