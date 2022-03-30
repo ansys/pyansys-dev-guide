@@ -131,6 +131,19 @@ exposed by figure :numref:`src structure diagram`:
 The ``tests/`` Directory
 ------------------------
 
+To guarantee the integrity of a PyAnsys project, a good test suite is required.
+PyAnsys projects use the `pytest`_ testing framework.
+
+A good practice is to emulate the structure of the ``src/ansys/product/library``
+directory although it is not always necessary.
+
+.. include:: diagrams/tests_structure_diagram.rst
+
+Notice the usage of ``tests_*/`` when creating new directories inside the
+``tests/`` one. On the other hand, unit testing files are named using the
+``test_*.py`` prefix. This is the preferred way of naming directories and files
+inside the ``tests/`` directory.
+
 
 The ``LICENSE`` File
 --------------------
