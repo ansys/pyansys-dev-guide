@@ -52,7 +52,7 @@ lib diagram` exposes this.
 Required Files for a PyAnsys Project
 ====================================
 
-The fundamental PyAnsys library structure contains the following files and
+The structure of any PyAnsys library contains the following files and
 directories:
 
 .. include:: diagrams/pyproduct_library_structure_diagram.rst
@@ -65,9 +65,43 @@ Descriptions follow for some of the directories in the structure:
 
 - ``tests/`` contains all unit tests for checking the integrity of the project.
 
+- ``setup.py`` or ``pyproject.toml`` is known as the project's file.
+
 
 The ``doc/`` Directory
 ----------------------
+
+When distributing software it is important to document it. Documenting software
+means giving guidelines on how to install and use it but also which functions,
+methods and/or classes does it ship with. Examples can also be considered
+documentation. The purpose of the ``doc/`` directory is to store all
+documentation related files.
+
+Projects in the PyAnsys ecosystem take advantage of `Sphinx`_, a tool used for
+building documentation for Python-based projects. A ``doc/`` directory making
+use of `Sphinx`_ requires the following structure, as shown by figure
+:numref:`doc structure diagram`:
+
+
+.. include:: diagrams/doc_structure_diagram.rst
+
+- ``_build`` contains the rendered documentation in various formats: HTML,
+  PDF...
+
+- ``source`` contains the RST files which will be rendered when building the
+  documentation.
+
+- ``make.bat`` and ``Makefile`` are used to automate cleaning and building
+  commands. The ``make.bat`` is intended to be used by Windows users while
+  ``Makefile`` is devised for MacOS/Linux ones.
+
+The ``source/`` directory needs to contain at least the following files:
+
+- ``conf.py`` is a Python script used to declare the configuration of `Sphinx`_.
+- ``index.rst`` is the index page of the documentation.
+
+In case you would like to include images or documents, it is recommended to add
+those in the ``_static/`` directory.
 
 
 The ``src/`` Directory
@@ -91,5 +125,7 @@ The ``README.rst`` File
 
 .. REFERENCES & LINKS
 
+.. _`PyAnsys`: https://docs.pyansys.com/
 .. _`Python Packaging User Guide`: https://packaging.python.org/en/latest/
 .. _`Python Packaging Authority`: https://www.pypa.io/en/latest/
+.. _`Sphinx`: https://www.sphinx-doc.org/en/master/
