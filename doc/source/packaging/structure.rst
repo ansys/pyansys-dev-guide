@@ -107,6 +107,26 @@ those in the ``_static/`` directory.
 The ``src/`` Directory
 ----------------------
 
+All the Python source code must be located in this directory. This is where the
+build system will look when generating the wheel and source distributions.
+
+.. warning::
+
+   Folders inside the ``src/`` cannot contain spaces or hypens. Replace these
+   symbols by using the underscore '_'.
+
+The structure of the ``src/`` directory determines the namespace of the PyAnsys
+library. Namespace allow you to easily split sub-packages from a package into
+single, independent distributions.
+
+There are different approaches available for creating a namespace package. For
+the ansys namespace, we use the `PEP 420`_ `native namespace packages`_ approach.
+
+Therefore, the source directory of any PyAnsys library must look like the one
+exposed by figure :numref:`src structure diagram`:
+
+.. include:: diagrams/src_structure_diagram.rst
+
 
 The ``tests/`` Directory
 ------------------------
@@ -125,6 +145,8 @@ The ``README.rst`` File
 
 .. REFERENCES & LINKS
 
+.. _`PEP 420`: https://peps.python.org/pep-0420/
+.. _`native namespace packages`: https://packaging.python.org/en/latest/guides/packaging-namespace-packages/#native-namespace-packages
 .. _`PyAnsys`: https://docs.pyansys.com/
 .. _`Python Packaging User Guide`: https://packaging.python.org/en/latest/
 .. _`Python Packaging Authority`: https://www.pypa.io/en/latest/

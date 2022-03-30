@@ -1,7 +1,7 @@
 .. _doc structure diagram:
 .. graphviz::
-    :caption: Minimum required PyAnsys project structure
-    :alt: Minimum required PyAnsys project structure
+    :caption: Generic structure for the ``doc/`` directory
+    :alt: Generic structure for the ``doc/`` directory
     :align: center
 
      digraph "sphinx-ext-graphviz" {
