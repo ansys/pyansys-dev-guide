@@ -148,6 +148,18 @@ inside the ``tests/`` directory.
 The ``LICENSE`` File
 --------------------
 
+The ``LICENSE`` file provides the legal framework for the software. The
+recommended license for `PyAnsys`_ projects is `MIT License`_. A template for
+this license is provided below:
+
+.. include:: resources/license_mit.rst
+
+.. note::
+
+   Just because a software does not ship with a LICENSE file, it does not mean
+   it is free or open source. If you require from using this software, contact
+   its development team so they can provide you with the right license.
+
 
 The ``README.rst`` File
 -----------------------
@@ -158,9 +170,11 @@ The ``README.rst`` File
 
 .. REFERENCES & LINKS
 
+.. _`MIT License`: https://opensource.org/licenses/MIT
 .. _`PEP 420`: https://peps.python.org/pep-0420/
 .. _`native namespace packages`: https://packaging.python.org/en/latest/guides/packaging-namespace-packages/#native-namespace-packages
 .. _`PyAnsys`: https://docs.pyansys.com/
 .. _`Python Packaging User Guide`: https://packaging.python.org/en/latest/
 .. _`Python Packaging Authority`: https://www.pypa.io/en/latest/
+.. _`pytest`: https://docs.pytest.org/en/latest/
 .. _`Sphinx`: https://www.sphinx-doc.org/en/master/

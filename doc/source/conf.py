@@ -96,4 +96,4 @@ numfig = True
 
 # Do not include the following patterns as documentation source files.
 # See issue: https://github.com/sphinx-doc/sphinx/issues/1668
-exclude_patterns = ["packaging/diagrams/*"]
+exclude_patterns = ["packaging/diagrams/*", "packaging/resources/*"]

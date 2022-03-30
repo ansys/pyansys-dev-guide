@@ -46,6 +46,14 @@
            label="tests", shape="folder"
          ]
 
+         readme [
+           label="README.rst", shape="file"
+         ]
+
+         license [
+           label="LICENSE", shape="file"
+         ]
+
          pyproject [
            label="pyproject.toml", shape="file"
          ]
@@ -58,6 +66,8 @@
          pyproduct_library -> doc;
          pyproduct_library -> src;
          pyproduct_library -> tests;
+         pyproduct_library -> license;
+         pyproduct_library -> readme;
          pyproduct_library -> pyproject;
          pyproduct_library -> setup;
 
