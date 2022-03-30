@@ -73,9 +73,17 @@ The ``doc/`` Directory
 
 When distributing software it is important to document it. Documenting software
 means giving guidelines on how to install and use it but also which functions,
-methods and/or classes does it ship with. Examples can also be considered
-documentation. The purpose of the ``doc/`` directory is to store all
-documentation related files.
+methods and/or classes does it ship with. Case scenarios and examples are also
+be considered documentation. 
+
+It is recommended to have the following sections in a PyAnsys project
+documentation:
+
+- ``Getting Started`` section explains requirements and installation details.
+- ``User Guide`` section explains how to use the software.
+- ``API Reference`` section contains source code documentation.
+- ``Examples`` section case scenarios demonstrating the capabilities of the software.
+- ``Contributing`` section can be linked to generic PyAnsys contributing guidelines. 
 
 Projects in the PyAnsys ecosystem take advantage of `Sphinx`_, a tool used for
 building documentation for Python-based projects. A ``doc/`` directory making
@@ -98,7 +106,8 @@ use of `Sphinx`_ requires the following structure, as shown by figure
 The ``source/`` directory needs to contain at least the following files:
 
 - ``conf.py`` is a Python script used to declare the configuration of `Sphinx`_.
-- ``index.rst`` is the index page of the documentation.
+- ``index.rst`` is the index page of the documentation. Try to reuse the
+  ``README.rst`` file in here to avoid duplication.
 
 In case you would like to include images or documents, it is recommended to add
 those in the ``_static/`` directory.

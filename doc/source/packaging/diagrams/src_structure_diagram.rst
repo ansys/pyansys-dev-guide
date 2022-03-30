@@ -31,7 +31,7 @@
          ]
 
          pkg_A [
-           label="Package A", shape="folder"
+           label="package_A", shape="folder"
          ]
 
          init_file_pkgA [
