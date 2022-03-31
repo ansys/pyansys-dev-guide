@@ -220,8 +220,24 @@ this license is provided below:
 The ``README.rst`` File
 -----------------------
 
+Each PyAnsys library should have a ``README.rst`` file in the root directory.
 
+The preferred format of this file is `reStructuredText Markup Syntax`_ or a
+although `Markdown Syntax`_ can be used too.  While Markdown syntax has better
+GitHub support, text in RST files can be reused within Sphinx documentation.
+This avoids duplication between the ``README.rst`` and the main ``index.rst`` in
+the ``doc/source/`` directory.
 
+The ``README.rst`` file should at the minimum contain these elements:
+
+- PyAnsys library title
+- General description
+- Installation directions (via ``pip install`` and ``git clone``)
+- Basic usage
+- Links to the full documentation
+
+The ``README.rst`` file is also reused within the project file metadata. It is
+usually included in the ``long-description`` field.
 
 
 .. REFERENCES & LINKS
@@ -238,3 +254,5 @@ The ``README.rst`` File
 .. _PyMAPDL: https://github.com/pyansys/pymapdl
 .. _PyAEDT: https://github.com/pyansys/PyAEDT
 .. _ansys-api-mapdl: https://pypi.org/project/ansys-api-mapdl/
+.. _reStructuredText Markup Syntax: https://docutils.sourceforge.io/rst.html
+.. _Markdown Syntax: https://www.markdownguide.org/basic-syntax/
