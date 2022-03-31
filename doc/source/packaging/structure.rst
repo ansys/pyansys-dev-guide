@@ -330,3 +330,4 @@ template can be used:
 .. _PEP 518: https://peps.python.org/pep-0518/
 .. _Building and Distributing Packages with Setuptools: https://setuptools.pypa.io/en/latest/setuptools.html
 .. _Configuring setuptools using setup.cfg files: https://setuptools.pypa.io/en/latest/userguide/declarative_config.html
+.. _setuptools: https://setuptools.pypa.io/en/latest/index.html
