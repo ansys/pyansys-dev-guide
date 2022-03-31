@@ -32,7 +32,7 @@ PyAnsys Library
 
 .. include:: diagrams/pyansys_namespace_diagram.rst
 
-Previous structure leads to the following namespace when executing the import
+The previous structure leads to the following namespace when executing the import
 statement:
 
 .. code:: python
@@ -47,13 +47,13 @@ Using long Python library names provides two primary advantages:
 
 gRPC Interface Package
 ----------------------
-Lower level gRPC interface packages like `ansys-api-mapdl`_ should always be
-named ``ansys-api-<product/service>`` or may contain an additional level with
+Lower-level gRPC interface packages like `ansys-api-mapdl`_ should always be
+named ``ansys-api-<product/service>`` and may contain an additional level:
 ``ansys-api-<product/service>-<secondlevel>``.
 
 .. include:: diagrams/grpc_structure_diagram.rst
 
-Previous structure leas to the following namespace within the ``*.proto`` files:
+The previous structure leads to the following namespace within the ``*.proto`` files:
 
 .. code::
 
@@ -120,18 +120,17 @@ The ``doc/`` Directory
 ----------------------
 
 When distributing software it is important to document it. Documenting software
-means giving guidelines on how to install and use it but also which functions,
-methods and/or classes does it ship with. Case scenarios and examples are also
-be considered documentation. 
+means giving guidelines on how to install and describing all functions,
+methods, and classes that it ships with. Case scenarios and examples should also
+be part of the documentation. 
 
-It is recommended to have the following sections in a PyAnsys project
-documentation:
+A PyAnsys project should have the following documentation sections:
 
-- ``Getting Started`` section explains requirements and installation details.
-- ``User Guide`` section explains how to use the software.
-- ``API Reference`` section contains source code documentation.
-- ``Examples`` section case scenarios demonstrating the capabilities of the software.
-- ``Contributing`` section can be linked to generic PyAnsys contributing guidelines. 
+- ``Getting Started``: Defines requirements and provides installation information
+- ``User Guide``: Explains how to use the software
+- ``API Reference``: Describes the source code
+- ``Examples``: Provides use case scenarios that demonstrate the capabilities of the software
+- ``Contributing``: Supplies project-specific contribution guides and can link to general PyAnsys contribution guidelines
 
 Projects in the PyAnsys ecosystem take advantage of `Sphinx`_, a tool used for
 building documentation for Python-based projects. A ``doc/`` directory making
@@ -151,11 +150,11 @@ use of `Sphinx`_ requires the following structure, as shown by figure
   commands. The ``make.bat`` is intended to be used by Windows users while
   ``Makefile`` is devised for MacOS/Linux ones.
 
-The ``source/`` directory needs to contain at least the following files:
+The ``source/`` directory must contain at least these files:
 
 - ``conf.py`` is a Python script used to declare the configuration of `Sphinx`_.
-- ``index.rst`` is the index page of the documentation. Try to reuse the
-  ``README.rst`` file in here to avoid duplication.
+- ``index.rst`` is the index page of the documentation. In this file, try to reuse the
+  ``README.rst`` file to avoid duplication.
 
 In case you would like to include images or documents, it is recommended to add
 those in the ``_static/`` directory.
