@@ -240,6 +240,77 @@ The ``README.rst`` file is also reused within the project file metadata. It is
 usually included in the ``long-description`` field.
 
 
+The ``pyproject.toml`` File
+---------------------------
+
+The `PEP 518`_ introduced the usage of a new project file called
+``pyproject.toml``. More information about this file can be found in the
+REF-TO-BUILD-SYSTEMS-TOML section.
+
+This file is mandatory as it  allows ``pip`` to resolve the requirements for
+building the library. The following tabs expose the ``[build-system]`` section
+for some of the most popular build tools in the Python ecosystem:
+
+
+.. tabs::
+
+   .. tab:: setuptools
+
+      .. code:: toml
+
+          [build-system]
+          requires = ["setuptools", "wheel"]
+
+   .. tab:: flit
+
+      .. code:: toml
+
+          # Refer to https://dev.docs.pyansys.com/packaging/build-systems#flit
+          [build-system]
+          requires = ["flit_core>=3.2,<4"]
+          build-backend = "flit_core.buildapi"
+
+
+   .. tab:: poetry
+
+      .. code:: toml
+
+          # Refer to https://dev.docs.pyansys.com/packaging/build-systems#poetry
+          [build-system]
+          requires = ["poetry"]
+          build-backend = "poetry.masonry.api"
+
+
+The ``setup.py`` File
+---------------------
+
+For a long time, the ``setup.py`` has been the usual way of building and
+distributing Python libraries. As opposite to the static ``pyproject.toml``
+file, ``setup.py`` is Python script. This means that Python code is interpreted
+when building the library. This allows to customize the building process but
+also may introduced security issues.
+
+.. tip::
+
+   Consider using a ``pyproject.toml`` file instead of a ``setup.py`` when
+   possible.
+
+
+The ``setup.py`` file is only compatible with `Setuptools`_. A ``setup.cfg`` can
+also be used for specifying the metadata and packages, but the ``setup.py`` file
+must be present too. More information about its usage can be found in the
+following links:
+
+* `Building and Distributing Packages with Setuptools`_
+* `Configuring setuptools using setup.cfg files`_
+
+As a minimum configuration for PyAnsys projects, the following ``setup.py``
+template can be used:
+
+
+.. include:: resources/setup_file_template.rst
+
+
 .. REFERENCES & LINKS
 
 .. _MIT License: https://opensource.org/licenses/MIT
@@ -256,3 +327,6 @@ usually included in the ``long-description`` field.
 .. _ansys-api-mapdl: https://pypi.org/project/ansys-api-mapdl/
 .. _reStructuredText Markup Syntax: https://docutils.sourceforge.io/rst.html
 .. _Markdown Syntax: https://www.markdownguide.org/basic-syntax/
+.. _PEP 518: https://peps.python.org/pep-0518/
+.. _Building and Distributing Packages with Setuptools: https://setuptools.pypa.io/en/latest/setuptools.html
+.. _Configuring setuptools using setup.cfg files: https://setuptools.pypa.io/en/latest/userguide/declarative_config.html
