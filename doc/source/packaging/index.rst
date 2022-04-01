@@ -42,6 +42,7 @@ model and API.
 
    templates
    structure
+   build-systems
    
 .. _gRPC: https://grpc.io/
 .. _pythoncom: http://timgolden.me.uk/pywin32-docs/pythoncom.html

@@ -8,7 +8,7 @@
          size="8,6";
          rankdir="LR";
          graph [
-           fontname="Verdana", fontsize="10", color="black", fillcolor="white"
+           fontname="Verdana", fontsize="10", color="black", fillcolor="white",splines=ortho
          ];
          node [
            fontname="Verdana", fontsize="10", style="filled", color="black", fillcolor="#ffc107"
