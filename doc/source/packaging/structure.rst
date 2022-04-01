@@ -156,8 +156,8 @@ The ``source/`` directory must contain at least these files:
 - ``index.rst`` is the index page of the documentation. In this file, try to reuse the
   ``README.rst`` file to avoid duplication.
 
-In case you would like to include images or documents, it is recommended to add
-those in the ``_static/`` directory.
+If you would like to include images or documents, add them in the ``_static/``
+directory.
 
 
 The ``src/`` Directory
