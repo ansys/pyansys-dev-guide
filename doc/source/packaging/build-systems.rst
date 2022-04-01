@@ -4,21 +4,21 @@
 Build System
 ############
 
-The build system is a fundamental tool when it comes to packaging Python
-libraries. It allows to generate distribution files which can be shared with
+The build system is a fundamental tool for packaging Python
+libraries. It generates distribution files that can be shared with
 users and developers. 
 
 
-The Build System
+Artifacts
 ================
 
 The build-system allows maintainers to generate artifacts for their Python
-libraries. The word artifacts refers to both wheel and source files:
+libraries. Here, `artifacts` refers to both wheel and source files:
 
 - ``Wheel files`` have the ``*.whl`` file extension.
 - ``Source files`` have the ``*.tar.gz`` or ``*.zip`` extension.
 
-These are the files to be uploaded to `PyPI`_ when releasing a new version of a
+These are the files to upload to `PyPI`_ when releasing a new version of a
 PyAnsys project.
 
 .. warning::
@@ -30,17 +30,17 @@ PyAnsys project.
 
 The interation between the maintainer and the build-system is performed using a
 build-system tool. This tool provides a frontend and a backend. The maintainers
-trigger the frontend which then calls the backend. Then the backend reads the
+trigger the frontend, which then calls the backend. The backend then reads the
 project directory and generates the artifacts, as :numref:`build system diagram`:
 
 .. include:: diagrams/build_system_diagram.rst
 
 
-The PEP 517 and PEP 518
-=======================
+PEP 517 and PEP 518
+===================
 
 For a long time, the ``setup.py`` file was the only way of specifying the
-project structure, metadata and installation workflow to be followed by `pip`_.
+project structure, metadata, and installation workflow that `pip`_ was to follow.
 However, having to execute a Python file when installing a Python package
 introduced the following problems:
 
@@ -50,22 +50,22 @@ introduced the following problems:
 - The default Python package installer, `pip`_, expected `setuptools`_ to be the
   default build system tool, excluding others like `flit`_ and `poetry`_.
 
-Previous reasons lead to the acceptance of the `PEP 517`_ and `PEP 518`_.
+These problems led to the acceptance of `PEP 517`_ and `PEP 518`_.
 
 
 PEP 517
 -------
 
-The `PEP 517` allowed Python developers to specify the build-backend tool to
-generate the artifacts. As seen in :numref:`build system diagram` figure, the
-most popular backends are provided by:
+`PEP 517` allows Python developers to specify the build-backend tool for
+generating artifacts. As seen in the :numref:`build system diagram` figure, these
+are the most popular backends:
 
-- `Setuptools`_ very popular but lacks from build time dependency declaration
-  and it is difficult to extend.
+- `Setuptools`_ , while very popular, lacks build time dependency declaration
+  and is difficult to extend.
 - `Flit`_ is a lightweight build system tool for Python.
 - `Poetry`_ focuses on dependency management and environment isolation.
 
-The `PEP 517` introduced the ``build-backend`` key inside the
+`PEP 517` introduced the ``build-backend`` key inside the
 ``[build-system]`` table in the ``pyproject.toml``.
 
 
@@ -78,13 +78,13 @@ file was to specify build time dependencies. However, some build system tools
 like `flit`_ or `poetry`_ are able to specify all the project metadata inside
 the ``pyproject.toml`` file and eliminate the usage of the ``setup.py``.
 
-To specify the build time requirements, the ``[build-system]`` table needs to be
+To specify the build time requirements, the ``[build-system]`` table must be
 declared in the ``pyproject.toml`` file. Within it, the ``requires`` key is
-assigned to a list of strings, each one of those being the build time
+assigned to a list of strings, which are the build time
 requirements.
 
-The combination of `PEP 517`_ and `PEP 518`_ leads to the following syntax in te
-``pyproject.toml`` files:
+The combination of `PEP 517`_ and `PEP 518`_ leads to the following syntax in a
+``pyproject.toml`` file:
 
 .. code:: toml
 
@@ -96,7 +96,7 @@ The combination of `PEP 517`_ and `PEP 518`_ leads to the following syntax in te
 Build-backend Tools
 ===================
 
-This section collects some of the most popular build systems available in the
+This section lists some of the most popular build systems in the
 Python ecosystem. Although all of them achieve the same goal, there are a few
 differences regarding their capabilities and the way of specifying project
 metadata.
@@ -106,17 +106,17 @@ metadata.
 Setuptools
 ----------
 
-`Setuptools`_ has been around for a long time in the Python ecosystem. Unless
-you require from a high control over the installation steps of your project,
-`flit`_ and `poetry`_ should be used.
+`Setuptools`_ has been a part of the Python ecosystem for a long time. Unless
+you require high control over your project's installation steps, you should use
+`flit`_ or `poetry`_.
 
-If you do not need from a dynamic installation process, you may consider using a
-``setup.cfg`` file. However, the ``setup.py`` is still required. This file
+If you do not need a dynamic installation process, you can consider using a
+``setup.cfg`` file. However, the ``setup.py`` file is still required. The ``setup.cfg`` file
 should have a call to the ``setup()`` function to act as the entry point of the
 build backend system.
 
-All the following `setuptools metadata fields`_ are valid ones. These need to be
-specified either in the ``setup.py`` or ``setup.cfg``.
+All of these `setuptools metadata fields`_ are valid and must be
+specified either in the ``setup.py`` or ``setup.cfg`` file.
 
 
 Flit
@@ -143,7 +143,7 @@ Because of its ``poetry.lock`` file, Poetry provides strong dependency pinning. 
 installing a package, poetry creates a virtual environment, thus ensuring an isolated
 package development environment.
 
-Nevertheless, it is possible to make Poetry ignore the ``poetry.lock`` file by running:
+Nevertheless, it is possible to make Poetry ignore the ``poetry.lock`` file with:
 
 .. code:: bash
 
@@ -156,7 +156,7 @@ Using `poetry`_ is popular because it:
 * Allows downstream packages to still consume a loose dependency specification
 * Integrates with `dependabot`_ to update the pinned version
 
-The ``[tool.poetry]`` section contains metadata and defines the project's
+The ``[tool.poetry]`` section contains metadata and defines project
 dependencies. For more information, see `poetry pyproject.toml documentation`_.
 
 
