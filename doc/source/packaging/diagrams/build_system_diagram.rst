@@ -1,4 +1,7 @@
+.. _build system diagram:
 .. mermaid::
+   :caption: Maintainers use the build system to create artifacts
+   :alt: Maintainers use the build system to create artifacts
    :align: center
 
    flowchart LR
