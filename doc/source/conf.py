@@ -30,6 +30,7 @@ extensions = [
     "sphinx_copybutton",
     "sphinx_toolbox.collapse",
     "sphinx.ext.autodoc",
+    "sphinx.ext.autosectionlabel",
     "sphinx.ext.autosummary",
     "sphinx.ext.graphviz",
     "sphinx.ext.intersphinx",
@@ -104,3 +105,6 @@ exclude_patterns = ["packaging/diagrams/*", "packaging/resources/*"]
 # See issue: https://github.com/mermaid-js/mermaid/issues/1800#issuecomment-741617143
 mermaid_output_format = "png"
 mermaid_params = ['--width', '2000']
+
+# Generate section labels up to three levels deep
+autosectionlabel_maxdepth = 3
