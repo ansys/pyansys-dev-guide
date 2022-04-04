@@ -1,4 +1,4 @@
-.. _pyproduct library structure diagram:
+.. _pyproduct library structure diag:
 .. graphviz::
     :caption: Minimum required PyAnsys project structure
     :alt: Minimum required PyAnsys project structure

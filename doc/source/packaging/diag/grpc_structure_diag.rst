@@ -1,4 +1,4 @@
-.. _grpc structure diagram:
+.. _grpc structure diag:
 .. graphviz::
     :caption: Namespace convention for gRPC interface packages 
     :alt: Namespace convention for gRPC interface packages 

@@ -1,4 +1,4 @@
-.. _python pkg lib diagram:
+.. _python pkg lib diag:
 .. graphviz::
     :caption: A Python library is a collection of packages.
     :alt: A Python library is a collection of packages.

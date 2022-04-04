@@ -30,7 +30,7 @@ PyAnsys Library
   <https://pypi.org/project/ansys-mapdl-core/>`_ is the name for the core MAPDL
   library.
 
-.. include:: diagrams/pyansys_namespace_diagram.rst
+.. include:: diag/pyansys_namespace_diag.rst
 
 The previous structure leads to the following namespace when executing the import
 statement:
@@ -51,7 +51,7 @@ Lower-level gRPC interface packages like `ansys-api-mapdl`_ should always be
 named ``ansys-api-<product/service>`` and may contain an additional level:
 ``ansys-api-<product/service>-<secondlevel>``.
 
-.. include:: diagrams/grpc_structure_diagram.rst
+.. include:: diag/grpc_structure_diag.rst
 
 The previous structure leads to the following namespace within the ``*.proto`` files:
 
@@ -92,9 +92,9 @@ Differences Between a Python Package and Library
 Although both terms are used interchangeably, there is a key difference between
 them: a Python package is a collection of Python modules and sub-packages while
 a Python Library is a collection of Python packages. Figure :numref:`python pkg
-lib diagram` exposes this.
+lib diag` exposes this.
 
-.. include:: diagrams/python_library_diagram.rst
+.. include:: diag/python_library_diag.rst
 
 
 Required Files for a PyAnsys Project
@@ -103,7 +103,7 @@ Required Files for a PyAnsys Project
 The structure of any PyAnsys library contains the following files and
 directories:
 
-.. include:: diagrams/pyproduct_library_structure_diagram.rst
+.. include:: diag/pyproduct_library_structure_diag.rst
 
 Descriptions follow for some of the directories in the structure:
 
@@ -135,10 +135,10 @@ A PyAnsys project should have the following documentation sections:
 Projects in the PyAnsys ecosystem take advantage of `Sphinx`_, a tool used for
 building documentation for Python-based projects. A ``doc/`` directory making
 use of `Sphinx`_ requires the following structure, as shown by figure
-:numref:`doc structure diagram`:
+:numref:`doc structure diag`:
 
 
-.. include:: diagrams/doc_structure_diagram.rst
+.. include:: diag/doc_structure_diag.rst
 
 - ``_build`` contains the rendered documentation in various formats: HTML,
   PDF...
@@ -179,9 +179,9 @@ There are different approaches available for creating a namespace package. For
 the ansys namespace, we use the `PEP 420`_ `native namespace packages`_ approach.
 
 Therefore, the source directory of any PyAnsys library must look like the one
-exposed by figure :numref:`src structure diagram`:
+exposed by figure :numref:`src structure diag`:
 
-.. include:: diagrams/src_structure_diagram.rst
+.. include:: diag/src_structure_diag.rst
 
 
 The ``tests/`` Directory
@@ -193,7 +193,7 @@ PyAnsys projects use the `pytest`_ testing framework.
 A good practice is to emulate the structure of the ``src/ansys/product/library``
 directory although it is not always necessary.
 
-.. include:: diagrams/tests_structure_diagram.rst
+.. include:: diag/tests_structure_diag.rst
 
 Notice the usage of ``tests_*/`` when creating new directories inside the
 ``tests/`` one. On the other hand, unit testing files are named using the

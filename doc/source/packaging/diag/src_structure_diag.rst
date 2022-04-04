@@ -1,4 +1,4 @@
-.. _src structure diagram:
+.. _src structure diag:
 .. graphviz::
     :caption: Generic structure for the src/ directory
     :alt: Generic structure for the src/ directory

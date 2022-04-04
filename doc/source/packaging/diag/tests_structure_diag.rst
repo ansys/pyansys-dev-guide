@@ -1,4 +1,4 @@
-.. _tests structure diagram:
+.. _tests structure diag:
 .. graphviz::
     :caption: Minimum required PyAnsys project structure
     :alt: Minimum required PyAnsys project structure

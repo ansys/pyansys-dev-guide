@@ -1,4 +1,4 @@
-.. _pyansys_namespace_diagram:
+.. _pyansys_namespace_diag:
 .. graphviz::
     :caption: Namespace convention for PyAnsys projects
     :alt: Namespace convention for PyAnsys projects

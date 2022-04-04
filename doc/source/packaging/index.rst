@@ -21,7 +21,7 @@ general pattern for a PyAnsys library ensures:
 
 This figure shows the general pattern that each PyAnsys library should follow:
 
-.. image:: ../images/diagram.png
+.. image:: diag/architecture_diag.png
   :alt: Overview Diagram
 
 The Ansys product or service exposes an interface that is locally

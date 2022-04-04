@@ -1,4 +1,4 @@
-.. _doc structure diagram:
+.. _doc structure diag:
 .. graphviz::
     :caption: Generic structure for the ``doc/`` directory
     :alt: Generic structure for the ``doc/`` directory
