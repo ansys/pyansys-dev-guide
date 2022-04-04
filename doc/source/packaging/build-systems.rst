@@ -12,7 +12,7 @@ users and developers.
 Artifacts
 =========
 
-The build-system allows maintainers to generate artifacts for their Python
+The build system allows maintainers to generate artifacts for their Python
 libraries. Here, `artifacts` refers to both wheel and source files:
 
 - ``Wheel files`` have the ``*.whl`` file extension.
@@ -28,7 +28,7 @@ PyAnsys project.
    files.
 
 
-The interaction between the maintainer and the build-system is performed using a
+The interaction between the maintainer and the build system is performed using a
 build-system tool. This tool provides a frontend and a backend. The maintainers
 trigger the frontend, which then calls the backend. The backend then reads the
 project directory and generates the artifacts, as :numref:`build system diag`:
@@ -60,7 +60,7 @@ PEP 517
 generating artifacts. As seen in the :numref:`build system diag` figure, these
 are the most popular backends:
 
-- `Setuptools`_ , while very popular, lacks build time dependency declaration
+- `Setuptools`_ , while very popular, lacks the ability to declare build time dependencies
   and is difficult to extend.
 - `Flit`_ is a lightweight build system tool for Python.
 - `Poetry`_ focuses on dependency management and environment isolation.
@@ -72,11 +72,11 @@ are the most popular backends:
 PEP 518
 -------
 
-In addition to the ``setup.py`` file, a new project file named
-``pyproject.toml`` file was specified by the `PEP 518`_. The main goal of this
-file was to specify build time dependencies. However, some build system tools
-like `flit`_ or `poetry`_ are able to specify all the project metadata inside
-the ``pyproject.toml`` file and eliminate the usage of the ``setup.py``.
+In addition to the ``setup.py`` file, `PEP 518`_ includes a project file named
+``pyproject.toml``. The main goal of this file is to specify build time dependencies.
+However, some build system tools like `flit`_ or `poetry`_ are able to specify all
+project metadata inside the ``pyproject.toml`` file and eliminate usage of the 
+``setup.py`` file.
 
 To specify the build time requirements, the ``[build-system]`` table must be
 declared in the ``pyproject.toml`` file. Within it, the ``requires`` key is
@@ -93,7 +93,7 @@ The combination of `PEP 517`_ and `PEP 518`_ leads to the following syntax in a
    build-backend = "flit_core.api" # Defined by PEP 517
 
 
-Build-backend Tools
+Build Backend Tools
 ===================
 
 This section lists some of the most popular build systems in the

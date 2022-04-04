@@ -84,8 +84,8 @@ changes any given branch is introducing before looking at the code.
 -  ``doc/``: for any changes only pertaining to documentation
 -  ``no-ci/``: for low-impact activity that should not trigger the CI
    routines
--  ``testing/``: improvements or changes to testing
--  ``release/``: releases (see below)
+-  ``testing/``: Improvements or changes to testing
+-  ``release/``: Releases (see below)
 
 Unit Testing
 ~~~~~~~~~~~~

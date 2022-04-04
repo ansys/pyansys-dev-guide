@@ -19,7 +19,7 @@ general pattern for a PyAnsys library ensures:
   Ansys products
 * Unit testing, release packaging, and documentation
 
-This figure shows the general pattern that each PyAnsys library should follow:
+This diagram shows the general pattern that each PyAnsys library should follow:
 
 .. image:: diag/architecture_diag.png
   :alt: Overview Diagram

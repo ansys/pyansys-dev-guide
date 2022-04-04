@@ -43,9 +43,9 @@ description, or branch protection management.
 
 Each repository is expected to follow this minimum set of standards:
 
-- Minimum code standards following PEP8. See :ref:`best_practices`.
+- PEP8 code standards. See :ref:`best_practices`.
 - CI/CD using GitHub actions or Azure DevOps to enforce coding standards.
-- Publicly hosted documentation detailing API with examples. See
+- Publicly hosted documentation describing the API and providing examples. See
   :ref:`api_documentation`.
 - Unit testing with at least 80% test coverage.
 - Infrastructure in place to deploy the library as a package on `PyPi
