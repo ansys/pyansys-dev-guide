@@ -51,7 +51,7 @@
      classDef NodeStyle stroke:black,color:black,fill:white,stroke-width:2px,font-size:12pt;
      classDef SubgraphStyle stroke:black,color:black,fill:white,stroke-width:2px,font-size:14pt,font-weight:bold;
 
-     %% Asign style to elements
+     %% Assign style to elements
      class maintainers,setuptools,flit,poetry,setuptools.build_back,flit_core.api,poetry.masonry.api,pyproject.toml,metadata,sourcefiles,*.whl,*.tar.gz NodeStyle;
      class build_system,frontend,backend,project,artifacts SubgraphStyle;
 

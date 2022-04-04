@@ -104,7 +104,7 @@ exclude_patterns = ["packaging/diag/*", "packaging/resources/*"]
 # Fix excessive margins in mermaid output.
 # See issue: https://github.com/mermaid-js/mermaid/issues/1800#issuecomment-741617143
 mermaid_output_format = "png"
-mermaid_params = ['--width', '2000']
+mermaid_params = ["--width", "2000"]
 
 # Generate section labels up to three levels deep
 autosectionlabel_maxdepth = 3

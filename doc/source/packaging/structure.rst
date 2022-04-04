@@ -168,7 +168,7 @@ build system will look when generating the wheel and source distributions.
 
 .. warning::
 
-   Folders inside the ``src/`` cannot contain spaces or hypens. Replace these
+   Folders inside the ``src/`` cannot contain spaces or hyphens. Replace these
    symbols by using the underscore '_'.
 
 The structure of the ``src/`` directory determines the namespace of the PyAnsys

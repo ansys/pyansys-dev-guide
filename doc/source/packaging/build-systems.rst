@@ -28,7 +28,7 @@ PyAnsys project.
    files.
 
 
-The interation between the maintainer and the build-system is performed using a
+The interaction between the maintainer and the build-system is performed using a
 build-system tool. This tool provides a frontend and a backend. The maintainers
 trigger the frontend, which then calls the backend. The backend then reads the
 project directory and generates the artifacts, as :numref:`build system diag`:
