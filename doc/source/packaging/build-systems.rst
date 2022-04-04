@@ -10,7 +10,7 @@ users and developers.
 
 
 Artifacts
-================
+=========
 
 The build-system allows maintainers to generate artifacts for their Python
 libraries. Here, `artifacts` refers to both wheel and source files:

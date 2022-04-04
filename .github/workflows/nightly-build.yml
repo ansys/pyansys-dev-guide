@@ -20,9 +20,8 @@ jobs:
 
       - name: Install mermaid-cli
         run: |
-          sudo apt update
-          sudo apt install graphviz
-          sudo apt install nodejs npm
+          sudo apt-get update
+          sudo apt-get install nodejs npm graphviz
           npm install -g @mermaid-js/mermaid-cli
 
       - name: Build HTML Documentation
