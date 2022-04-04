@@ -108,3 +108,7 @@ mermaid_params = ["--width", "2000"]
 
 # Generate section labels up to three levels deep
 autosectionlabel_maxdepth = 3
+
+# TODO: warning suppression is temporary till https://github.com/pyansys/dev-guide/issues/64
+# gets fully implemented.
+suppress_warnings = ["autosectionlabel.*"]
