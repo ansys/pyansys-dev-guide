@@ -45,7 +45,7 @@ public PyAnsys repositories:
 - `PyMAPDL Issues <https://github.com/pyansys/pymapdl/issues>`_
 - `PyMAPDL-Reader Issues <https://github.com/pyansys/pymapdl-reader/issues>`_
 - `OpenAPI Common Issues <https://github.com/pyansys/openapi-common/issues>`_
-- `Granta MI BoM Analytics Issues <https://github.com/pyansys/grantami-bomanalytics/issues>'_
+- `Granta MI BoM Analytics Issues <https://github.com/pyansys/grantami-bomanalytics/issues>`_
 
 Submitting Questions
 --------------------
