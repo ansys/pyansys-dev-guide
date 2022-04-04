@@ -99,7 +99,7 @@ numfig = True
 
 # Do not include the following patterns as documentation source files.
 # See issue: https://github.com/sphinx-doc/sphinx/issues/1668
-exclude_patterns = ["packaging/diag/*", "packaging/resources/*"]
+exclude_patterns = ["packaging/diag/*", "packaging/code/*"]
 
 # Fix excessive margins in mermaid output.
 # See issue: https://github.com/mermaid-js/mermaid/issues/1800#issuecomment-741617143

@@ -208,7 +208,7 @@ The ``LICENSE`` file provides the legal framework for the software. The
 recommended license for `PyAnsys`_ projects is `MIT License`_. A template for
 this license is provided below:
 
-.. include:: resources/license_mit.rst
+.. include:: code/license_mit_code.rst
 
 .. note::
 
@@ -251,35 +251,7 @@ This file is mandatory as it  allows ``pip`` to resolve the requirements for
 building the library. The following tabs expose the ``[build-system]`` section
 for some of the most popular build-system backend tools in the Python ecosystem:
 
-
-.. tabs::
-
-   .. tab:: setuptools
-
-      .. code:: toml
-
-          [build-system]
-          requires = ["setuptools", "wheel"]
-          build-backend = "setuptools.build_meta"
-
-   .. tab:: flit
-
-      .. code:: toml
-
-          # Refer to https://dev.docs.pyansys.com/packaging/build-systems#flit
-          [build-system]
-          requires = ["flit_core>=3.2,<4"]
-          build-backend = "flit_core.buildapi"
-
-
-   .. tab:: poetry
-
-      .. code:: toml
-
-          # Refer to https://dev.docs.pyansys.com/packaging/build-systems#poetry
-          [build-system]
-          requires = ["poetry"]
-          build-backend = "poetry.masonry.api"
+.. include:: code/pyproject_code.rst
 
 
 The ``setup.py`` File
@@ -291,10 +263,10 @@ file, ``setup.py`` is Python script. This means that Python code is interpreted
 when building the library. This allows to customize the building process but
 also may introduced security issues.
 
-.. tip::
+.. warning::
 
-   Consider using a ``pyproject.toml`` file instead of a ``setup.py`` when
-   possible.
+   The ``setup.py`` is only compatible with `setuptools`_. Consider using a
+   ``pyproject.toml`` file instead.
 
 
 The ``setup.py`` file is only compatible with `Setuptools`_. A ``setup.cfg`` can
@@ -309,7 +281,7 @@ As a minimum configuration for PyAnsys projects, the following ``setup.py``
 template can be used:
 
 
-.. include:: resources/setup_file_template.rst
+.. include:: code/setup_file_code.rst
 
 
 .. REFERENCES & LINKS
