@@ -87,8 +87,8 @@ changes any given branch is introducing before looking at the code.
 -  ``testing/``: improvements or changes to testing
 -  ``release/``: releases (see below)
 
-Testing
-~~~~~~~
+Unit Testing
+~~~~~~~~~~~~
 When making changes, periodically test locally before creating a PR.
 Because the following tests are executed after any commit or PR, we
 ask that you perform the following procedure locally to track down
