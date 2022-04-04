@@ -36,16 +36,16 @@ comment that explains why you have done so. If you need to contact the PyAnsys
 project support team directly, email `pyansys.support@ansys.com
 <pyansys.support@ansys.com>`_.
 
-For convenience, here are URLs for ``Issues`` pages for
-public Ansys repositories:
+For convenience, here are URLs for ``Issues`` pages for the
+public PyAnsys repositories:
 
-- `OpenAPI Common Issues <https://github.com/pyansys/openapi-common/issues>`_
 - `PyAEDT Issues <https://github.com/pyansys/pyaedt/issues>`_
 - `PyDPF-Core Issues <https://github.com/pyansys/pydpf-core/issues>`_
 - `PyDPF-Post Issues <https://github.com/pyansys/pydpf-post/issues>`_
 - `PyMAPDL Issues <https://github.com/pyansys/pymapdl/issues>`_
 - `PyMAPDL-Reader Issues <https://github.com/pyansys/pymapdl-reader/issues>`_
-
+- `OpenAPI Common Issues <https://github.com/pyansys/openapi-common/issues>`_
+- `Granta MI BoM Analytics Issues <https://github.com/pyansys/grantami-bomanalytics/issues>'_
 
 Submitting Questions
 --------------------
