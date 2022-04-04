@@ -1,7 +1,7 @@
 .. _pyproduct library structure diag:
 .. graphviz::
-    :caption: Minimum required PyAnsys project structure
-    :alt: Minimum required PyAnsys project structure
+    :caption: Minimum required PyAnsys project structure.
+    :alt: Minimum required PyAnsys project structure.
     :align: center
 
      digraph "sphinx-ext-graphviz" {

@@ -1,7 +1,7 @@
 .. _doc structure diag:
 .. graphviz::
-    :caption: Generic structure for the ``doc/`` directory
-    :alt: Generic structure for the ``doc/`` directory
+    :caption: Generic structure for the ``doc/`` directory.
+    :alt: Generic structure for the ``doc/`` directory.
     :align: center
 
      digraph "sphinx-ext-graphviz" {

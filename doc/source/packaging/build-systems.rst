@@ -29,9 +29,9 @@ PyAnsys project.
 
 
 The interaction between the maintainer and the build system is performed using a
-build-system tool. This tool provides a frontend and a backend. The maintainers
-trigger the frontend, which then calls the backend. The backend then reads the
-project directory and generates the artifacts, as :numref:`build system diag`:
+build system tool. This tool provides both a frontend and a backend. The maintainers
+trigger the frontend, which then calls the backend to read the
+project directory and generate the artifacts, as :numref:`build system diag` shows.
 
 .. include:: diag/build_system_diag.rst
 
@@ -56,9 +56,9 @@ These problems led to the acceptance of `PEP 517`_ and `PEP 518`_.
 PEP 517
 -------
 
-`PEP 517`_ allows Python developers to specify the build-backend tool for
-generating artifacts. As seen in the :numref:`build system diag` figure, these
-are the most popular backends:
+`PEP 517`_ allows Python developers to specify the build backend tool for
+generating artifacts. The previous :numref:`build system diag` diagram shows the
+most popular backends:
 
 - `Setuptools`_ , while very popular, lacks the ability to declare build time dependencies
   and is difficult to extend.

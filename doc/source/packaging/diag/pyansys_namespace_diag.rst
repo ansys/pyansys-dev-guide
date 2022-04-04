@@ -1,7 +1,7 @@
 .. _pyansys_namespace_diag:
 .. graphviz::
-    :caption: Namespace convention for PyAnsys projects
-    :alt: Namespace convention for PyAnsys projects
+    :caption: Namespace convention for PyAnsys projects.
+    :alt: Namespace convention for PyAnsys projects.
     :align: center
 
      digraph "sphinx-ext-graphviz" {

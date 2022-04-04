@@ -1,7 +1,7 @@
 .. _grpc structure diag:
 .. graphviz::
-    :caption: Namespace convention for gRPC interface packages 
-    :alt: Namespace convention for gRPC interface packages 
+    :caption: Namespace convention for gRPC interface packages.
+    :alt: Namespace convention for gRPC interface packages. 
     :align: center
 
      digraph "sphinx-ext-graphviz" {

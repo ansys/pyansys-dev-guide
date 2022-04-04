@@ -202,8 +202,8 @@ This is the preferred way of naming directories and files inside the
 The ``LICENSE`` File
 --------------------
 
-The ``LICENSE`` file provides the legal framework for the software. The
-recommended license for `PyAnsys`_ projects is `MIT License`_. A template for
+The ``LICENSE`` file provides the legal framework for the software. `PyAnsys`_ 
+projects must use `MIT License`_. A template for
 this license is provided below:
 
 .. include:: code/license_mit_code.rst
@@ -241,9 +241,8 @@ usually included in the ``long-description`` field.
 The ``pyproject.toml`` File
 ---------------------------
 
-The `PEP 518`_ introduced the usage of a new project file called
-``pyproject.toml``. More information about this file can be found in the
-REF-TO-BUILD-SYSTEMS-TOML section.
+`PEP 518`_ introduced the usage of a project file named
+``pyproject.toml``.
 
 The ``pyproject.toml`` file is mandatory because it allows ``pip`` to resolve the
 requirements for building the library. The following tabs expose the ``[build-system]`` section
@@ -261,7 +260,7 @@ distribute Python libraries. Unlike a static ``pyproject.toml`` file, the
 when building the library. This approach supports customizing the build
 process but can also introduce security issues.
 
-.. warning::
+.. note::
 
    The ``setup.py`` is only compatible with `setuptools`_. Consider using a
    ``pyproject.toml`` file instead.
