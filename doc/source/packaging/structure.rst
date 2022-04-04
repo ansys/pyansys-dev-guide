@@ -249,7 +249,7 @@ REF-TO-BUILD-SYSTEMS-TOML section.
 
 This file is mandatory as it  allows ``pip`` to resolve the requirements for
 building the library. The following tabs expose the ``[build-system]`` section
-for some of the most popular build tools in the Python ecosystem:
+for some of the most popular build-system backend tools in the Python ecosystem:
 
 
 .. tabs::
@@ -260,6 +260,7 @@ for some of the most popular build tools in the Python ecosystem:
 
           [build-system]
           requires = ["setuptools", "wheel"]
+          build-backend = "setuptools.build_meta"
 
    .. tab:: flit
 
