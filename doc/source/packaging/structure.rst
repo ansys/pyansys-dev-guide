@@ -213,7 +213,7 @@ this license is provided below:
 .. note::
 
    Just because a software does not ship with a LICENSE file, it does not mean
-   it is free or open source. If you require from using this software, contact
+   it is free or open source. If you need to use unlicensed software, contact
    its development team so they can provide you with the right license.
 
 

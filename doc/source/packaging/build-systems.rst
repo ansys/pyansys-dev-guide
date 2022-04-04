@@ -56,7 +56,7 @@ These problems led to the acceptance of `PEP 517`_ and `PEP 518`_.
 PEP 517
 -------
 
-`PEP 517` allows Python developers to specify the build-backend tool for
+`PEP 517`_ allows Python developers to specify the build-backend tool for
 generating artifacts. As seen in the :numref:`build system diag` figure, these
 are the most popular backends:
 
