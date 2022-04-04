@@ -18,6 +18,13 @@ jobs:
         with:
           python-version: 3.8
 
+      - name: Install mermaid-cli
+        run: |
+          sudo apt update
+          sudo apt install graphviz
+          sudo apt install nodejs npm
+          npm install -g @mermaid-js/mermaid-cli
+
       - name: Build HTML Documentation
         run: |
           pip install -r requirements_docs.txt --disable-pip-version-check
