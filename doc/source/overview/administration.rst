@@ -43,14 +43,14 @@ description, or branch protection management.
 
 Each repository is expected to follow this minimum set of standards:
 
-- Minimum code standards following PEP8. See :ref:`best_practices`.
-- CI/CD using GitHub actions or Azure DevOps to enforce coding standards. See :ref:`ci_cd`.
-- Publicly hosted documentation detailing API with examples. See
+- PEP8 code standards. See :ref:`best_practices`.
+- CI/CD using GitHub actions or Azure DevOps to enforce coding standards.
+- Publicly hosted documentation describing the API and providing examples. See
   :ref:`api_documentation`.
-- Unit testing with at least 80% test coverage. See :ref:`ci_cd`.
+- Unit testing with at least 80% test coverage.
 - Infrastructure in place to deploy the library as a package on `PyPi
-  <https://pypi.org/>`_.  See :ref:`packaging`.
-- Proper license file and author. See :ref:`setup_file` and :ref:`license_file`.
+  <https://pypi.org/>`_.  See :ref:`Packaging Style`.
+- Proper license file and author. See :ref:`The \`\`setup.py\`\` File` and :ref:`The \`\`LICENSE\`\` File`.
 
 
 Release Procedures and Versioning

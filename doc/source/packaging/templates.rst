@@ -1,19 +1,20 @@
-################
-Library Template
-################
+.. _templates:
 
-Starting a new project from scratch is a tedious task. For this reason, the
-`ansys-templates`_ tool was created to simplify the starting process and
-make it more dynamic. Any rendered project will be compliant with the latest
-PyAnsys coding and API style guidelines.
+#########
+Templates
+#########
 
-The ansys-templates tool
-========================
+Starting a new project from scratch is a tedious task. To simplify the starting process
+and make it more dynamic, the `ansys-templates`_ tool was created . Using this
+template ensures that any project rendered will be compliant with the latest PyAnsys
+coding and API style guidelines.
 
-The `ansys-templates`_ is a command line interface which provides you with a
-collection of templates. This tool allows you to create new PyAnsys projects
-from scratch in a dynamic way by asking you several questions before generating
-the new project.
+The ``ansys-templates`` tool
+============================
+
+The `ansys-templates`_ tool is a command line interface that provides a
+collection of templates. When you use this tool to create a new PyAnsys project, your
+responses to the several questions that are asked result in dynamic project generation.
 
 Please, follow the `ansys-templates installation guide`_ to get the latest stable
 version installed in your system.

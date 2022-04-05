@@ -19,9 +19,9 @@ general pattern for a PyAnsys library ensures:
   Ansys products
 * Unit testing, release packaging, and documentation
 
-This figure shows the general pattern that each PyAnsys library should follow:
+This diagram shows the general pattern that each PyAnsys library should follow:
 
-.. image:: ../images/diagram.png
+.. image:: diag/architecture_diag.png
   :alt: Overview Diagram
 
 The Ansys product or service exposes an interface that is locally
@@ -40,17 +40,9 @@ model and API.
    :hidden:
    :maxdepth: 3
 
-   template
-   library_structure
-   library_names
-   repo_directory_structure
-   ci_cd
-   source_organization
-   readme_file
-   setup_file
-   doc_directory
-   license
-   packaging.rst
+   templates
+   structure
+   build-systems
    
 .. _gRPC: https://grpc.io/
 .. _pythoncom: http://timgolden.me.uk/pywin32-docs/pythoncom.html

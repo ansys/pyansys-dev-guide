@@ -136,7 +136,7 @@ to :ref:`branch_naming` when you are ready to create a pull request.
 Licensing
 =========
 All contributed code will be licensed under the MIT License. For more information, see
-:ref:`license_file`. The ``LICENSE`` file containing the MIT License must be included in
+:ref:`The \`\`LICENSE\`\` File`. The ``LICENSE`` file containing the MIT License must be included in
 the root directory of a PyAnsys repository.
 
 If you did not write the code that you are contributing yourself, it is your

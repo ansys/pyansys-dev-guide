@@ -84,11 +84,11 @@ changes any given branch is introducing before looking at the code.
 -  ``doc/``: for any changes only pertaining to documentation
 -  ``no-ci/``: for low-impact activity that should not trigger the CI
    routines
--  ``testing/``: improvements or changes to testing
--  ``release/``: releases (see below)
+-  ``testing/``: Improvements or changes to testing
+-  ``release/``: Releases (see below)
 
-Testing
-~~~~~~~
+Unit Testing
+~~~~~~~~~~~~
 When making changes, periodically test locally before creating a PR.
 Because the following tests are executed after any commit or PR, we
 ask that you perform the following procedure locally to track down

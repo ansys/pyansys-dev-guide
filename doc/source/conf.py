@@ -30,10 +30,14 @@ extensions = [
     "sphinx_copybutton",
     "sphinx_toolbox.collapse",
     "sphinx.ext.autodoc",
+    "sphinx.ext.autosectionlabel",
     "sphinx.ext.autosummary",
+    "sphinx.ext.graphviz",
     "sphinx.ext.intersphinx",
     "sphinx.ext.napoleon",
     "sphinx.ext.todo",
+    "sphinxcontrib.mermaid",
+    "sphinx_tabs.tabs",
 ]
 
 # Intersphinx mapping
@@ -89,3 +93,22 @@ latex_documents = [
 #      author, 'ansys.mapdl.core', 'Pythonic interface to MAPDL using gRPC',
 #      'Engineering Software'),
 # ]
+
+# Include numerical references for the figures
+numfig = True
+
+# Do not include the following patterns as documentation source files.
+# See issue: https://github.com/sphinx-doc/sphinx/issues/1668
+exclude_patterns = ["packaging/diag/*", "packaging/code/*"]
+
+# Fix excessive margins in mermaid output.
+# See issue: https://github.com/mermaid-js/mermaid/issues/1800#issuecomment-741617143
+mermaid_output_format = "png"
+mermaid_params = ["--width", "2000"]
+
+# Generate section labels up to three levels deep
+autosectionlabel_maxdepth = 3
+
+# TODO: warning suppression is temporary till https://github.com/pyansys/dev-guide/issues/64
+# gets fully implemented.
+suppress_warnings = ["autosectionlabel.*"]
