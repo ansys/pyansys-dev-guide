@@ -13,9 +13,6 @@ functionalities such as logging, data transfer, and application APIs.
    dev_practices
    version_support
    doc_practices
-   app_interface_abstraction
-   data_transfer_and_representation
    logging
-   service_abstraction
    test_practices
    private_packaging

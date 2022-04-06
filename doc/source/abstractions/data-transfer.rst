@@ -1,5 +1,6 @@
-Data Transfer and Abstraction
-=============================
+Data Transfer
+=============
+
 Abstracted APIs should attempt to hide the implementation details of
 the remote or local API in a well organized data model.  This data
 model should avoid returning raw JSON files, gRPC messages, SWIG objects,

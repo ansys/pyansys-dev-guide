@@ -1,5 +1,6 @@
-Application Interface Abstraction
-=================================
+Application Interface
+=====================
+
 Many Ansys applications are designed around user interaction within a
 desktop GUI-based environment. Consequently, scripts are recorded
 directly from user sessions and are in the context of manipulating the

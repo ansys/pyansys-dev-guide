@@ -1,5 +1,6 @@
-Service Abstraction
-===================
+Service
+=======
+
 Some Ansys products are exposed as services that permit remote
 execution using technologies like `REST`_ or `gRPC`_.  These services
 are typically exposed in a manner where the API has already been
