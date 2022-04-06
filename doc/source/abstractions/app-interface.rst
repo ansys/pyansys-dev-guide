@@ -55,7 +55,7 @@ clear ``numpydoc`` parameters and returns, and a basic example.
 These are unavailable when directly using COM methods, preventing
 the use of contextual help from within a Python IDE.
 
-The source of the ``hfss.py`` method within`PyAEDT`_ follows. 
+The source of the ``hfss.py`` method within `PyAEDT`_ follows. 
 Note how calls to the COM object are all encapsulated 
 within this method.
 
@@ -109,5 +109,5 @@ providing (and documenting) the defaults using keyword arguments and
 placing them into the ``vars`` list, all while following the `Style
 Guide for Python Code (PEP8)`_.
 
-.. _PyAEDT: https://github.com/pyansys/PyAEDT
+.. _PyAEDT: https://github.com/pyansys/pyaedt
 .. _Style Guide for Python Code (PEP8): https://www.python.org/dev/peps/pep-0008
