@@ -1,5 +1,6 @@
-Application Interface Abstraction
-=================================
+Application Interface
+=====================
+
 Many Ansys applications are designed around user interaction within a
 desktop GUI-based environment. Consequently, scripts are recorded
 directly from user sessions and are in the context of manipulating the
@@ -14,7 +15,7 @@ open region in the active editor:
 
 +------------------------------------------------------+----------------------------------------------+
 | Using a Recorded Script from AEDT (MS COM Methods)   | Using the `PyAEDT`_ Library                  |
-+------------------------------------------------------+----------------------------------------------+
++======================================================+==============================================+
 | .. code:: python                                     | .. code:: python                             |
 |                                                      |                                              |
 |    import sys                                        |    from pyaedt import Hfss                   |
@@ -54,7 +55,7 @@ clear ``numpydoc`` parameters and returns, and a basic example.
 These are unavailable when directly using COM methods, preventing
 the use of contextual help from within a Python IDE.
 
-The source of the ``hfss.py`` method within`PyAEDT`_ follows. 
+The source of the ``hfss.py`` method within `PyAEDT`_ follows. 
 Note how calls to the COM object are all encapsulated 
 within this method.
 
@@ -108,5 +109,5 @@ providing (and documenting) the defaults using keyword arguments and
 placing them into the ``vars`` list, all while following the `Style
 Guide for Python Code (PEP8)`_.
 
-.. _PyAEDT: https://github.com/pyansys/PyAEDT
+.. _PyAEDT: https://github.com/pyansys/pyaedt
 .. _Style Guide for Python Code (PEP8): https://www.python.org/dev/peps/pep-0008

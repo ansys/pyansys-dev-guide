@@ -12,3 +12,4 @@
    packaging/index
    coding_style/index
    documentation_style/index
+   abstractions/index
