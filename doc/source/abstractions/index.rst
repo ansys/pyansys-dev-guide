@@ -9,8 +9,9 @@ data and methods within units of execution while hiding data or parameters
 in protected variables.
 
 The topics in this section demonstrate how applications and complex services
-expose functionalities that matter to users and hide all else. For example,
-background details, implementation, and hidden states can all be hidden.
+expose functionalities that matter to users and hide all else, such as conditional
+statements and algorithms. For example, background details, implementation,
+and states can all be hidden.
 
 .. toctree::
    :hidden:
