@@ -36,7 +36,7 @@ source distribution within the ``dist`` directory:
    python -m twine upload dist/* \
      -p $PYANSYS_PYPI_PRIVATE_PAT \
      -u PAT \
-     --repository-url $REPOSITORY-URL
+     --repository-url $REPOSITORY_URL
 
 Alternatively, you can use environment variables instead of CLI arguments for twine.
 
