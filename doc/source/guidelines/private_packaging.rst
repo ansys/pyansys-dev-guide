@@ -34,7 +34,7 @@ source distribution within the ``dist`` directory:
 
    REPOSITORY_URL="https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload"
    python -m twine upload dist/* \
-     -p $PYANSYS_PYPI_PRIVATE_PAT \
+     -p ${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }} \
      -u PAT \
      --repository-url $REPOSITORY_URL
 
