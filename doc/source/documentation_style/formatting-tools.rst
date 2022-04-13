@@ -15,10 +15,10 @@ Codespell
 ---------
 
 `Codespell`_ checks for common misspellings in text files. This implies that it
-is not limited to Python files but can check for any human-readable file.
+is not limited to Python files but can check any human-readable file.
 
-It is possible to ignore desired words. These need to be specified in a file,
-which can be then passed to `codespell` by running:
+It is possible to ignore words that are flagged as misspelled. You can specify these words in a
+file that can hen be passed to `codespell` by running:
 
 .. code:: bash
 
@@ -41,9 +41,9 @@ number of characters, the following configuration should be used:
 Doctest
 -------
 
-`Doctest`_ is a module from the Python Standard Library, which means it is
+`Doctest`_ is a module from the Python standard library, which means it is
 included by default with your Python installation. It is used for checking the
-examples provided inside docstrings to make sure those reflect the current usage
+examples provided inside docstrings to make sure that they reflect the current usage
 of the source code. `Doctest`_ can be integrated with ``pytest`` in :ref:`The
 \`\`pyproject.toml\`\` File`:
 
@@ -56,8 +56,8 @@ of the source code. `Doctest`_ can be integrated with ``pytest`` in :ref:`The
 Interrogate
 -----------
 
-`Interrogate`_ is a tool for checking docstring coverage. Similar to code
-coverage, this tool tests how many functions, classes and modules in a Python
+`Interrogate`_ is a tool for checking docstring coverage. Similar to source code
+coverage tools, this tool tests how many functions, classes, and modules in a Python
 library hold a docstring.
 
 .. code:: toml
@@ -67,26 +67,26 @@ library hold a docstring.
     color = true
     verbose = 2
 
-Alternate tools are to `interrogate`_ are `docstr-coverage`_ and
-`docstring-coverage`_. However, `interrogate`_ is modern, maintained and its
-output resembles to the one of `pytest-cov`_, which is the the equivalent tool
-but for source code coverage.
+Alternate tools to `interrogate`_ are `docstr-coverage`_ and
+`docstring-coverage`_. However, `interrogate`_ is modern and maintained, with
+output resembling that of `pytest-cov`_, which is the the equivalent tool
+for source code coverage.
 
 
 Pydocstyle
 ----------
 
-`Pydocstyle`_ is a tool for checking Python docstrings compliance with `PEP
+`Pydocstyle`_ is a tool for checking the compliance of Python docstrings with `PEP
 257`_.  Its configuration can be defined in the :ref:`The \`\`pyproject.toml\`\`
 File`.  By default, it will match all ``*.py`` files except those starting with
 ``test_*.py``. Default `pydocstyle`_ configuration should be enough for a
-PyAnsys project. In case additional configuration is needed, it must be included
+PyAnsys project. If additional configuration is needed, it must be included
 under the ``[tool.pydocstyle]`` entry:
 
 .. code:: toml
 
    [tool.pydocstyle]
-   # Adittional configuration
+   # Additional configuration
 
 
 .. _interrogate: https://interrogate.readthedocs.io/en/latest/
