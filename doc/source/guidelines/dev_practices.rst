@@ -275,7 +275,7 @@ Patch Release Steps
 Patch releases are for critical and important bug fixes that cannot or
 should not wait until a minor release. These are the steps for a patch release:
 
-#. Cherry-pick the necessary bug fixes from the `main` branch to the applicable
+#. Cherry-pick the necessary bug fixes from the ``main`` branch to the applicable
    release branch. This will generally be the latest release branch (for
    example, ``release/MAJOR.MINOR``).
 
