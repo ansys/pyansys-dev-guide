@@ -176,15 +176,16 @@ The branching model for a PyAnsys project enables rapid development of
 features without sacrificing stability. The model closely follows the
 `Trunk Based Development <https://trunkbaseddevelopment.com/>`_ approach:
 
-- The `main` branch is the primary development branch. All features,
+- The ``main`` branch is the primary development branch. All features,
   patches, and other branches should be merged here. While all PRs
   should pass all applicable CI checks, this branch might be functionally
   unstable if changes have introduced unintended side effects or bugs
-  that were not caught through unit testing.
+  that were not caught through unit testing. The version is always suffixed
+  with ``.dev0`` in the ``main`` branch.
 - There will be one or many ``release/`` branches based on minor
   releases (for example, ``release/0.2``) that contain a stable version
   of the code base that is also reflected on PyPI. Hotfixes from
-  ``fix/`` branches should be merged both to ``main`` and to these
+  ``fix/`` branches should be integrated both to ``main`` and to these
   branches. When creating a new patch release is necessary, these
   release branches will have their ``__version__.py`` file updated and
   be tagged with a patched semantic version (for example, ``0.2.1``).
@@ -194,10 +195,8 @@ features without sacrificing stability. The model closely follows the
   be created from ``main`` with the next incremented minor version
   (for example, ``release/0.2``). This ``release`` branch will be thoroughly
   tested. When deemed stable, it will be tagged with the version (``0.2.0``
-  in this case) and merged with ``main`` if any changes were pushed to it.
-  Feature development then continues on ``main`` and any hotfixes will now
-  be merged with this release. Older release branches should not be deleted
-  so they can be patched as needed.
+  in this case). Older release branches should not be deleted so they can be
+  patched as needed.
 
 .. _release_procedures:
 
@@ -208,8 +207,13 @@ Major and Minor Release Steps
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Release procedures follow for major and minor releases.
 
-#. Create a new branch from the ``main`` branch with the name
+Create a new branch from the ``main`` branch with the name
    ``release/MAJOR.MINOR`` (for example, ``release/0.2``).
+
+**In the ``release/MAJOR.MINOR`` branch:**
+
+#. Update the version numbers in ``ansys/<product>/<library>/_version.py`` to
+   be: ``MAJOR.MINOR.0``. Remove the ``dev0`` suffix.
 
 #. Locally run all tests as outlined in `Testing <#Testing>`_ and
    ensure that all are passing.
@@ -228,19 +232,14 @@ Release procedures follow for major and minor releases.
 #. After building the documentation, open the local build and examine
    the examples for any obvious issues.
 
-#. Update the version numbers in ``ansys/<product>/<library>/_version.py``
-   and commit this file. Push the branch to GitHub and create a new PR
-   for this release that merges it to ``main``. While effort is focused
-   on the release, development to ``main`` should be limited.
-
 #. Wait for the PyAnsys developers and community to functionally test the new
-   release. Developers and testers should locally install this branch and use
-   it in production. Any bugs that they identify should have their hotfixes
-   pushed to this release branch.
+   release. Developers and testers should locally install this branch and use it
+   in production. Any bugs that they identify should be first integrated in the
+   `main` branch, then cherry-picked into this release branch.
 
-   When the branch is deemed as stable for public release, the PR is merged
-   to ``main``, which must then be tagged with a ``MAJOR.MINOR.0`` release.
-   The release branch will not be deleted.
+   When the branch is deemed to be stable for public release, the branch must be
+   tagged with a ``MAJOR.MINOR.0`` release. The release branch will not be
+   deleted.
 
 #. Tag the release:
 
@@ -259,6 +258,14 @@ Release procedures follow for major and minor releases.
 #. Place your release notes from the previous step in ``Releases``
    in the GitHub repository. See `GitHub Releases`_.
 
+**From the ``main`` branch:**
+
+Create a branch updating the version numbers in
+``ansys/<product>/<library>/_version.py`` to the next major version and commit
+this file. The version must include the ``.dev0`` suffix. Push the branch to
+GitHub and create a new PR for this release that merges it to ``main``. While
+effort is focused on the release, development to ``main`` should be limited.
+
 .. _GitHub Releases: https://docs.github.com/en/github/administering-a-repository/releasing-projects-on-github/managing-releases-in-a-repository
 .. _GitHub's compare feature: https://github.com/pyansys/pymapdl/compare
 
@@ -268,9 +275,9 @@ Patch Release Steps
 Patch releases are for critical and important bug fixes that cannot or
 should not wait until a minor release. These are the steps for a patch release:
 
-#. Push the necessary bug fixes to the applicable release branch.
-   This will generally be the latest release branch (for example,
-   ``release/MAJOR.MINOR``).
+#. Cherry-pick the necessary bug fixes from the ``main`` branch to the applicable
+   release branch. This will generally be the latest release branch (for
+   example, ``release/MAJOR.MINOR``).
 
 #. Update the ``_version.py`` file with the next patch increment
    (``MAJOR.MINOR.PATCH``), commit it, and open a PR to merge with the
