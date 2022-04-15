@@ -237,7 +237,7 @@ Create a new branch from the ``main`` branch with the name
    in production. Any bugs that they identify should be first integrated in the
    `main` branch, then cherry-picked into this release branch.
 
-   When the branch is deemed as stable for public release, the branch must be
+   When the branch is deemed to be stable for public release, the branch must be
    tagged with a ``MAJOR.MINOR.0`` release. The release branch will not be
    deleted.
 
