@@ -496,8 +496,8 @@ Continuous Documentation Deployment
 PyAnsys libraries deploy their documentation online via `GitHub Actions`_ to
 `GitHub Pages`_. For example, this documentation is hosted on the `gh-pages`_
 branch within this repository. This is done by uploading the generated
-documentation within the `doc/_build/html/` directory directly to the
-`gh-pages` branch and then `enabling GitHub pages`_.
+documentation within the ``doc/_build/html/`` directory directly to the
+``gh-pages`` branch and then `enabling GitHub pages`_.
 
 Building Your Documentation within GitHub
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -506,65 +506,78 @@ While you could manually upload your auto-generated documentation for each
 release using your own local GitHub credentials, the best practice is to have
 your documentation build on GitHub and deployed either on release or push to
 main. You can do this via `GitHub Actions`_ by creating a new workflow that
-generates your documentation on each pull request and then deploys under certain conditions.
+generates your documentation on each pull request and then deploys under
+certain conditions.
 
-The best way to get started with this is to use the `ansys-templates`_ tool and run::
+**Documentation Workflow**
 
-   ansys-templates new pyansys-advanced
+Your documentation workflow should be within the ``.github/workflows``
+directory and should be triggered on each PR. It should use one of the
+following approaches:
 
-This will generate a new GitHub workflow file containing the following section::
+.. tabs::
 
-   docs:
-     name: Documentation
-     runs-on: ubuntu-latest
-     steps:
-       - uses: actions/checkout@v2
-       - name: Set up Python
-         uses: actions/setup-python@v2
-         with:
-           python-version: 3.7
-       - name: Install dependencies
-         run: |
-           python -m pip install --upgrade pip flit tox
-       - name: Generate the documentation with tox
-         run: tox -e doc
+   .. tab:: Using ``tox``
 
-While `tox`_ is the preferred tool for automating your documentation build, if
-you wish to avoid using `tox`_, consider the following workflow::
+      The best way to get started with this is to use the `ansys-templates`_ tool and run::
 
-  docs:
-    name: Build Documentation
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
+        ansys-templates new pyansys-advanced
 
-      - name: Install <PROJECT-NAME>
-        run: pip install -e .
+      This will generate a new GitHub workflow file containing the following section::
 
-      - name: Install documentation build requirements
-        run: pip install -r requirements/requirements_docs.txt
+         docs:
+           name: Documentation
+           runs-on: ubuntu-latest
+           steps:
+             - uses: actions/checkout@v2
+             - name: Set up Python
+               uses: actions/setup-python@v2
+               with:
+                 python-version: 3.7
+             - name: Install dependencies
+               run: |
+                 python -m pip install --upgrade pip flit tox
+             - name: Generate the documentation with tox
+               run: tox -e doc
 
-      - name: Build Documentation
-        run: |
-          make -C doc html SPHINXOPTS="-j auto -W --keep-going"
-          touch doc/_build/html/.nojekyll
-          <product>.docs.pyansys.com > doc/_build/html/CNAME
+   .. tab:: Without Using ``tox``
 
-Both of these workflows create documentation, but do not upload or deploy the
-documentation. Your next step will be to upload the documentation
-artifact. Assuming your documentation is written to ``doc/_build/html``, upload
-your documentation with::
+         While `tox`_ is the preferred tool for automating your documentation build, if
+         you wish to avoid using `tox`_, consider the following workflow::
 
-      - name: Upload HTML Documentation
-        uses: actions/upload-artifact@v2
-        with:
-          name: HTML-Documentation
-          path: doc/_build/html/
-          retention-days: 7
+           docs:
+             name: Build Documentation
+             runs-on: ubuntu-latest
+             steps:
+               - uses: actions/checkout@v2
+               - name: Setup Python
+                 uses: actions/setup-python@v2
+                 with:
+                   python-version: 3.8
+
+               - name: Install <PROJECT-NAME>
+                 run: pip install -e .
+
+               - name: Install documentation build requirements
+                 run: pip install -r requirements/requirements_docs.txt
+
+               - name: Build Documentation
+                 run: |
+                   make -C doc html SPHINXOPTS="-j auto -W --keep-going"
+                   touch doc/_build/html/.nojekyll
+                   <product>.docs.pyansys.com > doc/_build/html/CNAME
+
+
+Your next step will be to upload the documentation artifact. Assuming your
+documentation is written to ``doc/_build/html``, upload your documentation
+with::
+
+   - name: Upload HTML Documentation
+     uses: actions/upload-artifact@v2
+     with:
+       name: HTML-Documentation
+       path: doc/_build/html/
+       retention-days: 7
 
 This will allow anyone creating pull requests to download documentation build
 artifacts as a convenient zip and to open the documentation by opening
@@ -573,13 +586,13 @@ artifacts as a convenient zip and to open the documentation by opening
 Next, deploy your documentation to the ``gh-pages`` branch via using the
 ``JamesIves/github-pages-deploy-action`` action::
 
-      - name: Deploy
-        if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-        uses: JamesIves/github-pages-deploy-action@4.3.0
-        with:
-          branch: gh-pages
-          folder: doc/build/html
-          clean: true
+   - name: Deploy
+     if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+     uses: JamesIves/github-pages-deploy-action@4.3.0
+     with:
+       branch: gh-pages
+       folder: doc/build/html
+       clean: true
 
 .. note::
 
@@ -625,6 +638,7 @@ For example, the `PyMAPDL Documentation`_ is hosted at the
 `pyansys/pymapdl-docs`_ repository due to the size of the generated documentation.
 
 **Additional Tokens**
+
 To support pushing to a different repository, the GitHub workflow needs an
 additional token. This can be done with either a dedicated PAT given by a
 service account, or via a service bot. The PyAnsys organization uses the
@@ -717,7 +731,6 @@ GitHub release with::
             ./**/*.tar.gz
             ./**/*.pdf
 
-
 ..
    Links
 
@@ -734,3 +747,4 @@ GitHub release with::
 .. _Alex Kaszynski: https://teams.microsoft.com/l/chat/0/0?users=alexander.kaszynski@ansys.com
 .. _PyAnsys Bot: https://github.com/apps/pyansys-bot
 .. _PyAnsys Organization: https://github.com/pyansys
+.. _ansys-templates: https://github.com/pyansys/ansys-templates
