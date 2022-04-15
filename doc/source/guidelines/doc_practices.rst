@@ -490,3 +490,247 @@ On Windows, building a PDF is a manual process that you run locally:
    For the Table of Contents in the PDF file to generate correctly, ``index.rst`` files
    must not include child sections.
 
+
+Continuous Documentation Deployment
+-----------------------------------
+PyAnsys libraries deploy their documentation online via `GitHub Actions`_ to
+`GitHub Pages`_. For example, this documentation is hosted on the `gh-pages`_
+branch within this repository. This is done by uploading the generated
+documentation within the `doc/_build/html/` directory directly to the
+`gh-pages` branch and then `enabling GitHub pages`_.
+
+Building Your Documentation within GitHub
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+While you could manually upload your auto-generated documentation for each
+release using your own local GitHub credentials, the best practice is to have
+your documentation build on GitHub and deployed either on release or push to
+main. You can do this via `GitHub Actions`_ by creating a new workflow that
+generates your documentation on each pull request and then deploys under certain conditions.
+
+The best way to get started with this is to use the `ansys-templates`_ tool and run::
+
+   ansys-templates new pyansys-advanced
+
+This will generate a new GitHub workflow file containing the following section::
+
+   docs:
+     name: Documentation
+     runs-on: ubuntu-latest
+     steps:
+       - uses: actions/checkout@v2
+       - name: Set up Python
+         uses: actions/setup-python@v2
+         with:
+           python-version: 3.7
+       - name: Install dependencies
+         run: |
+           python -m pip install --upgrade pip flit tox
+       - name: Generate the documentation with tox
+         run: tox -e doc
+
+While `tox`_ is the preferred tool for automating your documentation build, if
+you wish to avoid using `tox`_, consider the following workflow::
+
+  docs:
+    name: Build Documentation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install <PROJECT-NAME>
+        run: pip install -e .
+
+      - name: Install documentation build requirements
+        run: pip install -r requirements/requirements_docs.txt
+
+      - name: Build Documentation
+        run: |
+          make -C doc html SPHINXOPTS="-j auto -W --keep-going"
+          touch doc/_build/html/.nojekyll
+          <product>.docs.pyansys.com > doc/_build/html/CNAME
+
+Both of these workflows create documentation, but do not upload or deploy the
+documentation. Your next step will be to upload the documentation
+artifact. Assuming your documentation is written to ``doc/_build/html``, upload
+your documentation with::
+
+      - name: Upload HTML Documentation
+        uses: actions/upload-artifact@v2
+        with:
+          name: HTML-Documentation
+          path: doc/_build/html/
+          retention-days: 7
+
+This will allow anyone creating pull requests to download documentation build
+artifacts as a convenient zip and to open the documentation by opening
+``index.html``.
+
+Next, deploy your documentation to the ``gh-pages`` branch via using the
+``JamesIves/github-pages-deploy-action`` action::
+
+      - name: Deploy
+        if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+        uses: JamesIves/github-pages-deploy-action@4.3.0
+        with:
+          branch: gh-pages
+          folder: doc/build/html
+          clean: true
+
+.. note::
+
+   Depending on your preferences, you may choose to update the documentation on
+   tags only (as done above), or on each each push. If you wish to have your
+   documentation deployed on each push to ``main``, change the conditional
+   above to::
+
+      if: github.ref == 'refs/heads/main'
+
+Enabling GitHub Pages
+~~~~~~~~~~~~~~~~~~~~~
+After deploying to the ``gh-pages`` branch, GitHub will normally automatically
+enable GitHub pages and host your documentation to the specified ``CNAME`` as
+specified in the build documentation step. If this is not automatically enabled,
+follow the directions at `enabling GitHub pages`_.
+
+Your final step is to add a ``CNAME`` to `PyAnsys DNS Zones`_. Contact `Maxime
+Rey`_ or `Roberto Pastor Muela`_ to have them add this.
+
+.. note::
+   If the repository visibility is set to ``private`` or ``internal``, the
+   created GitHub Pages will also be private or internal. In this way you can
+   test out the look and feel of your documentation without exposing it to the
+   public (if ever intended).
+
+
+Additional Considerations
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Dedicated Documentation Repository**
+
+The easiest approach is to deploy your documentation to ``gh-pages`` directly
+on the repository generating the documentation as this does not require any
+additional authorization, but there are some cases in which you may consider
+deploying to a dedicated documentation repository for the following reasons:
+
+- Size of the generated documentation makes ``git pull`` or ``git clone`` slow.
+- Separation of concerns.
+- Preference to isolate source and documentation.
+
+For example, the `PyMAPDL Documentation`_ is hosted at the
+`pyansys/pymapdl-docs`_ repository due to the size of the generated documentation.
+
+**Additional Tokens**
+To support pushing to a different repository, the GitHub workflow needs an
+additional token. This can be done with either a dedicated PAT given by a
+service account, or via a service bot. The PyAnsys organization uses the
+`PyAnsys Bot`_ to localize permissions to within GitHub workflows and limit the
+scope of the GitHub Actions to only users part of the `PyAnsys Organization`_.
+To use this in your workflow for repositories within `PyAnsys Organization`_, use::
+
+  - name: Get Bot Application Token
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+    id: get_workflow_token
+    uses: peter-murray/workflow-application-token-action@v1
+    with:
+      application_id: ${{ secrets.BOT_APPLICATION_ID }}
+      application_private_key: ${{ secrets.BOT_APPLICATION_PRIVATE_KEY }}
+
+This creates a new token ``steps.get_workflow_token.outputs.token``, which can
+only be used within this GitHub action run. Use this token by modifying your
+deployment step to use this token and deploy to a different ``repository-name``::
+
+   - name: Deploy
+     if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+     uses: JamesIves/github-pages-deploy-action@4.3.0
+     with:
+       repository-name: pyansys/<project>-docs
+       branch: gh-pages
+       token: ${{ steps.get_workflow_token.outputs.token }}
+       folder: doc/build/html
+       clean: true
+
+.. note::
+   By default, the `PyAnsys Bot`_ does not have permission to be used within
+   repositories. Contact PyAnsys administrators `Maxime Rey`_ or `Alex
+   Kaszynski`_ to permit the `PyAnsys Bot`_ to access your repositories.
+
+
+Creating PDFs
+~~~~~~~~~~~~~
+If you wish to generate PDF documentation of your project, you can add in the
+following steps within your documentation workflow::
+
+   - name: Install OS packages
+     run: |
+       sudo apt update
+       sudo apt install texlive-latex-extra latexmk
+
+   - name: Build PDF Documentation
+     working-directory: doc
+     run: make pdf
+
+   - name: Upload PDF Documentation
+     uses: actions/upload-artifact@v2
+     with:
+       name: PDF-Documentation
+       path: doc/_build/latex/*.pdf
+       retention-days: 7
+
+If you use a release step, you can use this PDF artifact and upload it to your
+GitHub release with::
+
+  Release:
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+    needs: [docs, build_test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - uses: actions/download-artifact@v2
+
+      - name: Display structure of downloaded files
+        run: ls -R
+
+      - name: Upload to Public PyPi
+        run: |
+          pip install twine
+          twine upload --skip-existing ./**/*.whl
+          twine upload --skip-existing ./**/*.tar.gz
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          generate_release_notes: true
+          files: |
+            ./**/*.whl
+            ./**/*.tar.gz
+            ./**/*.pdf
+
+
+..
+   Links
+
+.. _GitHub Pages: https://pages.github.com/
+.. _GitHub Actions: https://github.com/features/actions
+.. _PyMAPDL Documentation: https://mapdldocs.pyansys.com/
+.. _pyansys/pymapdl-docs: https://github.com/pyansys/pymapdl-docs
+.. _gh-pages: https://github.com/pyansys/dev-guide/tree/gh-pages
+.. _enabling GitHub pages: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site
+.. _tox: https://github.com/tox-dev/tox
+.. _PyAnsys DNS Zones: https://portal.azure.com/#@ansys.com/resource/subscriptions/2870ae10-53f8-46b1-8971-93761377c38b/resourceGroups/pyansys/providers/Microsoft.Network/dnszones/pyansys.com/overview
+.. _Maxime Rey: https://teams.microsoft.com/l/chat/0/0?users=maxime.rey@ansys.com
+.. _Roberto Pastor Muela: https://teams.microsoft.com/l/chat/0/0?users=roberto.pastormuela@ansys.com
+.. _Alex Kaszynski: https://teams.microsoft.com/l/chat/0/0?users=alexander.kaszynski@ansys.com
+.. _PyAnsys Bot: https://github.com/apps/pyansys-bot
+.. _PyAnsys Organization: https://github.com/pyansys
