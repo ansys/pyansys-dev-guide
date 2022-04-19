@@ -88,13 +88,4 @@ under the ``[tool.pydocstyle]`` entry:
    [tool.pydocstyle]
    # Additional configuration
 
-
-.. _interrogate: https://interrogate.readthedocs.io/en/latest/
-.. _docstr-coverage: https://docstr-coverage.readthedocs.io/en/latest/index.html
-.. _docstring-coverage: https://bitbucket.org/DataGreed/docstring-coverage/wiki/Home
-.. _pytest-cov: https://pytest-cov.readthedocs.io/en/latest/
-.. _doctest: https://docs.python.org/3/library/doctest.html
-.. _PEP 257: http://www.python.org/dev/peps/pep-0257/
-.. _docformatter: https://github.com/PyCQA/docformatter
-.. _codespell: https://github.com/codespell-project/codespell
-.. _pytest-cov: https://pytest-cov.readthedocs.io/en/latest/
+.. include:: ../links.rst

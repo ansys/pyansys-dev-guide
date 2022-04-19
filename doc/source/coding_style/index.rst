@@ -1,16 +1,9 @@
-.. _coding_style:
-
 Coding Style
 ************
 
-PyAnsys libraries are expected to follow `PEP8`_ and
+PyAnsys libraries are expected to follow `PEP 8`_ and
 be consistent in style and formatting with the 'big three'
 data science libraries: `NumPy`_, `SciPy`_, and `pandas`_.
-
-.. _NumPy: https://numpy.org/
-.. _SciPy: https://www.scipy.org/
-.. _pandas: https://pandas.pydata.org/
-.. _PEP8: https://www.python.org/dev/peps/pep-0008/
 
 
 .. todo::
@@ -27,3 +20,5 @@ data science libraries: `NumPy`_, `SciPy`_, and `pandas`_.
    pep8_best_practices
    beyond_pep8
    flake8
+
+.. include:: ../links.rst

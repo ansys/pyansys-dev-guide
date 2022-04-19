@@ -282,7 +282,6 @@ template can be used:
 .. REFERENCES & LINKS
 
 .. _MIT License: https://opensource.org/licenses/MIT
-.. _PEP 420: https://peps.python.org/pep-0420/
 .. _native namespace packages: https://packaging.python.org/en/latest/guides/packaging-namespace-packages/#native-namespace-packages
 .. _Namespace Packages: https://packaging.python.org/guides/packaging-namespace-packages/
 .. _PyAnsys: https://docs.pyansys.com/
@@ -295,7 +294,8 @@ template can be used:
 .. _ansys-api-mapdl: https://pypi.org/project/ansys-api-mapdl/
 .. _reStructuredText Markup Syntax: https://docutils.sourceforge.io/rst.html
 .. _Markdown Syntax: https://www.markdownguide.org/basic-syntax/
-.. _PEP 518: https://peps.python.org/pep-0518/
 .. _Building and Distributing Packages with Setuptools: https://setuptools.pypa.io/en/latest/setuptools.html
 .. _Configuring setuptools using setup.cfg files: https://setuptools.pypa.io/en/latest/userguide/declarative_config.html
 .. _setuptools: https://setuptools.pypa.io/en/latest/index.html
+
+.. include:: ../links.rst
