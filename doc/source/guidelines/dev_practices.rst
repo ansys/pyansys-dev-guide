@@ -1,20 +1,18 @@
-.. _development_practices:
-
 Development Practices
 =====================
 This page explains how PyAnsys development is conducted. When
 contributing to a PyAnsys repository, use these general
 coding paradigms:
 
-#. Follow the `Zen of Python <https://www.python.org/dev/peps/pep-0020/>`__.
+#. Follow the `Zen of Python`_.
    As silly as core Python developers are sometimes, there's much to be
    gained by following the basic guidelines listed in PEP 20. As suggested
    in these guidelines, focus on making your additions intuitive, novel,
    and helpful for PyAnsys users. When in doubt, use ``import this``.
-   For Ansys code quality standards, see :ref:`coding_style`.
+   For Ansys code quality standards, see :ref:`Coding Style`.
 
 #. Document your contributions. Include a docstring for any added
-   function, method, or class, following `numpydocs docstring <https://numpydoc.readthedocs.io/en/latest/format.html>`_
+   function, method, or class, following `numpydoc` docstring
    guidelines and PyAnsys documentation standards <#Documentation Standards>.
    Always provide at least one simple use case for a new feature.
 
@@ -22,30 +20,30 @@ coding paradigms:
    it's not tested, it's probably broken. At the minimum, include a unit
    test for each new feature within the ``tests`` directory. Ensure that
    each new method, class, or function has reasonable (>80%) coverage.
-   See `Testing <#Testing>`__ for automating testing.
+   See :ref:`Testing` for automating testing.
 
 #. Do not include any datasets for which a license is not available
    or commercial use is prohibited.
 
-#. Review our `Code of Conduct <https://github.com/pyansys/DPF-Core/blob/master/CODE_OF_CONDUCT.md>`_.
+#. Review our `Code of Conduct`_.
 
 Contributing Through GitHub
 ---------------------------
 To submit new code to a PyAnsys repository:
 
-#. `Fork <https://docs.github.com/en/get-started/quickstart/fork-a-repo>`_
+#. `Fork`_
    the respective GitHub repository and then clone the forked repository
    to your computer.
 
-#. In your local repository, create a branch. See :ref:`branch_naming`.
+#. In your local repository, create a branch. See :ref:`Branch Naming Conventions`.
    Comprehensive information on our model for branching is available in
-   `Branching Model <#Branching Model>`__.
+   ref:`Branching Model`.
 
 #. Add your new feature and commit it locally. Be sure to commit
    frequently as the ability to revert to past commits is often helpful,
    especially if your change is complex.
 
-#. Test often. See `Testing <#Testing>`__ for automating testing.
+#. Test often. See ref:`Testing` for automating testing.
 
 #. When you are ready to submit your code, create a pull request (PR)
    by following the steps in the next section.
@@ -66,7 +64,6 @@ If your PR branch is a ``fix/`` branch, do not delete it because it may be neces
 merge your PR branch with the current release branch. The next section explains our
 branch naming conventions.
 
-.. _branch_naming:
 
 Branch Naming Conventions
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -109,12 +106,12 @@ any new issues from your changes.
 Error Messages
 ~~~~~~~~~~~~~~
 For general information on writing good error messages, see Microsoft's
-`Error Message Guidelines <https://docs.microsoft.com/en-us/windows/win32/debug/error-message-guidelines>`_.
+`Error Message Guidelines` <https://docs.microsoft.com/en-us/windows/win32/debug/error-message-guidelines>`_.
 
 For information specific to writing Pythonic error messages, see:
 
-- `Python Exception Handling <https://www.codementor.io/@sheena/python-exception-handling-ogr0a41t7>`_
-- `7 Tips to Improve Your Error Handling in Python <https://pybit.es/articles/pythonic-exceptions/>`_
+- `Python Exception Handling`_
+- `7 Tips to Improve Your Error Handling in Python`_
 
 Additionally, ensure that you have reviewed this guide's :ref:`logging` topic.
 
@@ -143,7 +140,7 @@ While the source and content for each library's documentation differs, the docum
 itself is generated from three sources:
 
 - Docstrings from the library's classes, functions, and modules using
-  `sphinx.ext.autodoc <https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html>`_.
+  `sphinx.ext.autodoc`.
 - reStructuredText (RST) files from ``doc/``
 - Examples from ``examples/``
 
@@ -153,7 +150,7 @@ that are meant to be run as individual downloadable scripts are provided in PY f
 placed in ``examples/``.
 
 For comprehensive documentation guidelines, including how to build documentation locally,
-see :ref:`doc_practices`.
+see :ref:`API Documentation Style`.
 
 Continuous Integration and Continuous Delivery (CI/CD)
 ------------------------------------------------------
@@ -168,13 +165,12 @@ tasks:
 - Spelling and style verification
 - Documentation build
 
-.. _branching_model:
 
 Branching Model
 ---------------
 The branching model for a PyAnsys project enables rapid development of
 features without sacrificing stability. The model closely follows the
-`Trunk Based Development <https://trunkbaseddevelopment.com/>`_ approach:
+`Trunk Based Development`_ approach:
 
 - The ``main`` branch is the primary development branch. All features,
   patches, and other branches should be merged here. While all PRs
@@ -215,7 +211,7 @@ Create a new branch from the ``main`` branch with the name
 #. Update the version numbers in ``ansys/<product>/<library>/_version.py`` to
    be: ``MAJOR.MINOR.0``. Remove the ``dev0`` suffix.
 
-#. Locally run all tests as outlined in `Testing <#Testing>`_ and
+#. Locally run all tests as outlined in :ref:`Testing` and
    ensure that all are passing.
 
 #. Locally test and build the documentation with link checking to
@@ -266,9 +262,6 @@ this file. The version must include the ``.dev0`` suffix. Push the branch to
 GitHub and create a new PR for this release that merges it to ``main``. While
 effort is focused on the release, development to ``main`` should be limited.
 
-.. _GitHub Releases: https://docs.github.com/en/github/administering-a-repository/releasing-projects-on-github/managing-releases-in-a-repository
-.. _GitHub's compare feature: https://github.com/pyansys/pymapdl/compare
-
 
 Patch Release Steps
 ~~~~~~~~~~~~~~~~~~~
@@ -294,3 +287,10 @@ should not wait until a minor release. These are the steps for a patch release:
 
 #. If deemed necessary, create and add release notes as described in the
    previous section.
+
+.. LINKS AND REFERENCES
+.. include:: ../links.rst
+
+.. _Error Message Guidelines: https://docs.microsoft.com/en-us/windows/win32/debug/error-message-guidelines
+.. _Python Exception Handling: https://www.codementor.io/sheena/python-exception-handling-ogr0a41t7>`_
+.. _7 Tips to Improve Your Error Handling in Python: https://pybit.es/articles/pythonic-exceptions/>`_

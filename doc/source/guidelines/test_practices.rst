@@ -57,8 +57,6 @@ from other applications or libraries. For Python tool libraries like
 `ansys-tools-protoc-helper`_, unit testing is sufficient to get high coverage
 (> 80%) of your library while actually testing the library.
 
-.. _ansys-tools-protoc-helper: https://github.com/ansys/ansys-tools-protoc-helper
-
 These tests should be written to test a single method in isolation. For
 example, if you have a method that deserializes chunks:
 
@@ -281,11 +279,10 @@ and integration testing is complete, and they should be run outside the
 
 Testing Framework
 -----------------
-For consistency, PyAnsys tools and libraries should use either the `unittest
-<https://docs.python.org/3/library/unittest.html>`_ or `pytest
-<https://docs.pytest.org/>`_ frameworks for unit testing. As described in
-:ref:`Required Files for a PyAnsys Project`, unit tests should be placed in the ``tests``
-directory in the library's root directory::
+For consistency, PyAnsys tools and libraries should use either the `unittest`_
+or `pytest`_ frameworks for unit testing. As described in :ref:`Required Files
+for a PyAnsys Project`, unit tests should be placed in the ``tests`` directory
+in the library's root directory::
 
    tests/
        test_basic.py
@@ -347,7 +344,7 @@ Given that Python is an interpreted language, developers of Python libraries
 should aim to have high coverage for their libraries as only syntax errors can
 be caught during the almost trivial compile time. Coverage is defined as parts
 of the executable and usable source that are tested by unit tests. You can use
-the `pytest-cov <https://pytest-cov.readthedocs.io/>`_ library to view the
+the `pytest-cov`_ library to view the
 coverage for your library. For example::
 
   $ pytest --cov numpydoc_validation
@@ -395,9 +392,8 @@ Code Coverage Enforcement
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 One way of enforcing unit test coverage with a project on GitHub is to use the
 codecov.io to enforce minimum patch (and optionally project) coverage. As this
-application is already available to the `PyAnsys Organization
-<https://github.com/pyansys>`_, simply add the following to the root directory
-of your repository:
+application is already available to the `PyAnsys GitHub Organization`_, simply add the
+following to the root directory of your repository:
 
 **/codecov.yml**
 
@@ -442,11 +438,9 @@ multiple platforms, or even unit testing in general. However, with the right
 automated CI/CD, such testing can still occur and be enforced automatically.
 
 `GitHub Actions`_ is the preferred automated CI/CD platform for running Python
-library unit tests for PyAnsys, and it can be used immediately by cloning the
-project `template <https://github.com/pyansys/template/>`_. If you are
+library unit tests for PyAnsys, and it ships by default with the
+``pyansys-advanced`` template in the project `ansys-templates`_ tool. If you are
 unfamiliar with GitHub Actions, see `GitHub Actions`_ for an overview.
-
-.. _GitHub Actions: https://github.com/features/actions
 
 The following sections describe the usage of a simple GitHub workflow for a
 PyAnsys library:
@@ -551,6 +545,6 @@ Optionally, though highly recommended, upload your unit test coverage to
    - uses: codecov/codecov-action@v2
      name: 'Upload coverage to Codecov'
 
-.. _Test driven development: https://en.wikipedia.org/wiki/Test-driven_development
-.. _codecov.io: https://app.codecov.io/gh/pyansys
-.. _poetry: https://python-poetry.org
+
+.. Links and References
+.. include:: ../links.rst

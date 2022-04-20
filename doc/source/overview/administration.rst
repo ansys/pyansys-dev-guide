@@ -1,4 +1,3 @@
-######################
 Project Administration
 ######################
 
@@ -15,15 +14,14 @@ To allow for commercial use, a PyAnsys library must use the MIT
 license. Because this license falls in the BSD-style license class,
 PyAnsys libraries can be used as a shared library with no
 restrictions. This follows the pattern of including PyAnsys as a
-dependency in ``install_requires`` in the ``setup.py`` file.
+dependency in ``install_requires`` in :ref:`The \`\`setup.py\`\` file`.
 
 Should you choose to copy and include any PyAnsys project source uses,
 to make your library suitable for commercial use, you need only a copy
-of the original PyAnsys MIT license in the reused code.
+of the original PyAnsys `MIT License`_ in the reused code.
 
-To view this license, see the `LICENSE <https://github.com/pyansys/dev-guide/blob/main/LICENSE>`_ file in the root directory 
-of this repository. This file must be included in the root 
-directory of the repository of every PyAnsys library.
+To view this license, see `The \`\`LICENSE\`\` File` section. This file must be
+included in the root directory of the repository of every PyAnsys library.
 
 Project Approval
 ================
@@ -31,7 +29,6 @@ Exposing new Ansys technologies through the PyAnsys project is subject
 to an internal review and decision process. Please reach out to
 Stephane Marguerin or Alexander Kaszynski for any requests.
 
-.. _repository_management:
 
 Repository Management and Standards
 ===================================
@@ -43,13 +40,12 @@ description, or branch protection management.
 
 Each repository is expected to follow this minimum set of standards:
 
-- PEP8 code standards. See :ref:`best_practices`.
+- PEP8 code standards. See :ref:`PEP 8 Best Practices`.
 - CI/CD using GitHub actions or Azure DevOps to enforce coding standards.
 - Publicly hosted documentation describing the API and providing examples. See
-  :ref:`api_documentation`.
+  :ref:`API Documentation Style`.
 - Unit testing with at least 80% test coverage.
-- Infrastructure in place to deploy the library as a package on `PyPi
-  <https://pypi.org/>`_.  See :ref:`Packaging Style`.
+- Infrastructure in place to deploy the library as a package on `PyPI`_. See :ref:`Packaging Style`.
 - Proper license file and author. See :ref:`The \`\`setup.py\`\` File` and :ref:`The \`\`LICENSE\`\` File`.
 
 
@@ -70,12 +66,6 @@ released when any incompatible API changes are made. They are only expected to
 be released with major, globally-breaking API changes. This matches the
 versioning methodology for the "big three" data science python libraries: `NumPy`_,
 `SciPy`_, and `pandas`_.
-
-.. _Semantic Versioning: https://semver.org/
-.. _NumPy: https://numpy.org/
-.. _SciPy: https://www.scipy.org/
-.. _pandas: https://pandas.pydata.org/
-
 
 Release Definition
 ------------------
@@ -108,13 +98,16 @@ Release Management
 A release may be a major, minor, or patch release depending on the
 features, changes, or bug fixes to be released.
 
-For more information, see :ref:`release_procedures`.
+For more information, see :ref:`Release Procedures`.
 
 
 Product Version Matching
 ------------------------
 PyAnsys libraries should not match product versions. For example, the
-PyMAPDL library ``ansys-mapdl-core`` might have the version ``0.59.0``
+`PyMAPDL`_ library ``ansys-mapdl-core`` might have the version ``0.59.0``
 whereas the product version is 21.2 (2021 R2). The reason
 behind this is PyAnsys libraries are expected to be developed outside
 the product release cycle in a rapid CI/CD manner.
+
+.. LINKS AND REFERENCES
+.. include:: ../links.rst

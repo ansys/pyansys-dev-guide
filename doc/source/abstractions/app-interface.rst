@@ -106,8 +106,9 @@ the model setup object.  There's no reason why a user needs direct
 access to ``_omodelsetup``, which is why it's protected in the
 ``Hfss`` class. Additionally, calling the method is simplified by
 providing (and documenting) the defaults using keyword arguments and
-placing them into the ``vars`` list, all while following the `Style
-Guide for Python Code (PEP8)`_.
+placing them into the ``vars`` list, all while following the Style
+Guide for Python Code, defined in `PEP 8`_.
 
-.. _PyAEDT: https://github.com/pyansys/pyaedt
-.. _Style Guide for Python Code (PEP8): https://www.python.org/dev/peps/pep-0008
+
+.. LINKS AND REFERENCES
+.. include:: ../links.rst

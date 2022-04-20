@@ -1,5 +1,3 @@
-.. _style-guide-enforcement:
-
 Style Guide Enforcement
 =======================
 This topic describes the use of `flake8`_ for `PEP 8`_ style
@@ -8,11 +6,11 @@ are expected to be consistent with these guidelines.
 
 Flake8
 ~~~~~~
-`flake8`_ is a Python tool for enforcing code styling. It is a wrapper
-around the following three tools: `PyFlakes`_, `pycodestyle`_, and
-`Ned Batchelder's McCabe script for complexity`_. Flake8 runs all three tools at once,
-checking the code against a variety of style rules, such as line length,
-code complexity, and whitespace.
+`Flake8`_ is a Python tool for enforcing code styling. It is a wrapper around
+the following three tools: `PyFlakes`_, `pycodestyle`_, and `Ned Batchelder's
+McCabe script for complexity`, also known as `mccabe`_. Flake8 runs all three
+tools at once, checking the code against a variety of style rules, such as line
+length, code complexity, and whitespace.
 
 Configuring Flake8
 ------------------
@@ -36,8 +34,7 @@ library:
     statistics = True
 
 Flake8 has many options that can be set within the configuration file.
-For a list and descriptions, see this `Flake8 documentation topic
-<https://flake8.pycqa.org/en/latest/user/options.html>`__.
+For a list and descriptions, see this `Flake8 documentation topic`_.
 
 The example configuration defines the following options:
 
@@ -51,7 +48,7 @@ The example configuration defines the following options:
     check for and is not an exhaustive list.
 
     For a full list of error codes and their descriptions, see this `Flake8
-    documentation topic <https://flake8.pycqa.org/en/3.9.2/user/error-codes.html>`__.
+    documentation topic`_
 
 - ``count``
     Total number of errors to print at the end of the check.
@@ -109,8 +106,7 @@ rules.
 
 
 Optionally, it is possible to automate the use of `black`_. This can be
-done with the tool `pre-commit`_. Setting up a `pre-commit hook
-to run black <https://black.readthedocs.io/en/stable/integrations/source_version_control.html>`_
+done with the tool `pre-commit`_. Setting up a `pre-commit hook to run black`_
 will automatically format the code before committing. This simple way of
 incorporating code style checks into the development workflow to maintain
 `PEP 8`_ guidelines requires minimal manual effort.
@@ -183,12 +179,11 @@ expected in a PyAnsys library.
 
 * `E501`_ - **Line too long.**
 
-    All code lines should not exceed 100 characters. The
-    `PEP8 line length guideline <https://www.python.org/dev/peps/pep-0008/#maximum-line-length>`_
-    suggests a maximum line length of 79. Following this limit
-    is not as necessary today due to modern screen sizes. The suggested maximum
-    length of 100 can be easier to accommodate and can still support
-    viewing files side by side in code editors.
+    All code lines should not exceed 100 characters. The `PEP8 line length
+    guideline`_ suggests a maximum line length of 79. Following this limit is
+    not as necessary today due to modern screen sizes. The suggested maximum
+    length of 100 can be easier to accommodate and can still support viewing
+    files side by side in code editors.
 
 * `F401`_ - **Module imported but unused.**
 
@@ -204,7 +199,7 @@ expected in a PyAnsys library.
 * **Limit complexity of code to 10.**
 
   This is enforced by the ``max-complexity`` option described in
-  :ref:`configuring-flake8`. Limiting code complexity leads to code that
+  :ref:`PEP 8 Best Practices`. Limiting code complexity leads to code that
   is easier to understand and less risky to modify. Write low-
   complexity code when possible.
 
@@ -221,4 +216,9 @@ Your ``.flake8`` file should be:
     max-line-length = 100
     statistics = True
 
+
+.. REFERENCES AND LIKNS
 .. include:: ../links.rst
+.. _Flake8 documentation topic: https://flake8.pycqa.org/en/3.9.2/user/error-codes.html
+.. _PEP8 line length guideline: https://www.python.org/dev/peps/pep-0008/#maximum-line-length
+.. _pre-commit hook to run black: https://black.readthedocs.io/en/stable/integrations/source_version_control.html

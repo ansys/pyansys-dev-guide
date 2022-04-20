@@ -19,8 +19,8 @@ of 2022:
 +---------+-------------+-----------------------+
 
 Expect these to be the most commonly used Python versions. Note that some
-libraries like `NumPy <https://numpy.org/>`_ drop support for older versions of
-Python earlier than their end of life (EOL) as outlined in `NEP 29
+libraries like `NumPy`_ drop support for older versions of
+Python earlier than their end of life (EOL) as outlined in `NEP 29`_
 <https://numpy.org/neps/nep-0029-deprecation_policy.html#support-table>`_.
 
 Realize that users can still install the older version from PyPI via ``pip`` as
@@ -73,3 +73,5 @@ would would start with::
            run: |
              ...
 
+.. Links and References
+.. include:: ../links.rst

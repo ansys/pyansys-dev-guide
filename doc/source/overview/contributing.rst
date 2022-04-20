@@ -1,4 +1,3 @@
-############
 Contributing
 ############
 
@@ -33,19 +32,18 @@ team will use discretion as to whether to close it.
 Should it turn out that your issue is closed erroneously, perhaps because a bug
 fix implemented to resolve your issue did not work, you can re-open it with a
 comment that explains why you have done so. If you need to contact the PyAnsys
-project support team directly, email `pyansys.support@ansys.com
-<pyansys.support@ansys.com>`_.
+project support team directly, email `pyansys.support@ansys.com`_.
 
 For convenience, here are URLs for ``Issues`` pages for the
 public PyAnsys repositories:
 
-- `PyAEDT Issues <https://github.com/pyansys/pyaedt/issues>`_
-- `PyDPF-Core Issues <https://github.com/pyansys/pydpf-core/issues>`_
-- `PyDPF-Post Issues <https://github.com/pyansys/pydpf-post/issues>`_
-- `PyMAPDL Issues <https://github.com/pyansys/pymapdl/issues>`_
-- `PyMAPDL-Reader Issues <https://github.com/pyansys/pymapdl-reader/issues>`_
-- `OpenAPI Common Issues <https://github.com/pyansys/openapi-common/issues>`_
-- `Granta MI BoM Analytics Issues <https://github.com/pyansys/grantami-bomanalytics/issues>`_
+- `PyAEDT Issues`_
+- `PyDPF-Core Issues`_ 
+- `PyDPF-Post Issues`_ 
+- `PyMAPDL Issues`_ 
+- `PyMAPDL-Reader Issues`_ 
+- `OpenAPI Common Issues`_ 
+- `Granta MI BoM Analytics Issues`_ 
 
 Submitting Questions
 --------------------
@@ -80,9 +78,9 @@ Contributing New Code
 =====================
 When you are ready to start contributing code, see:
 
-- :ref:`development_practices` for information on how PyAnsys development is
+- :ref:`Development Practices` for information on how PyAnsys development is
   conducted
-- :ref:`best_practices` for information on how to style and format your
+- :ref:`PEP 8 Best Practices` for information on how to style and format your
   code to adhere to PyAnsys standards
 
 
@@ -93,7 +91,7 @@ Starting Discussions
 For general questions about development practices, you should create discussions
 rather than issues. Each PyAnsys repository has its own ``Discussions`` page.
 For example, to ask a question about a PyMAPDL development practice, you would
-create a discussion on the `PyMAPDL Discussions <https://github.com/pyansys/pymapdl/discussions>`_
+create a discussion on the `PyMAPDL Discussions`_
 page. It is possible for discussions to lead to the creation of issues.
 
 .. note::
@@ -128,10 +126,8 @@ you would run the following:
 
 If you want to eventually push a contribution to a PyAnsys repository, consider
 creating a `fork`_ of the repository. For information on how to contribute
-through GitHub, see :ref:`development_practices`, paying particular attention
-to :ref:`branch_naming` when you are ready to create a pull request.
-
-.. _fork: https://docs.github.com/en/get-started/quickstart/fork-a-repo
+through GitHub, see :ref:`Development Practices`, paying particular attention
+to :ref:`Branch Naming Conventions` when you are ready to create a pull request.
 
 Licensing
 =========
@@ -143,3 +139,6 @@ If you did not write the code that you are contributing yourself, it is your
 responsibility to ensure that the existing license for this code is compatible and
 included in the contributed files. You must obtain permission from the original
 author to relicense the code.
+
+.. LINKS AND REFERENCES
+.. include:: ../links.rst

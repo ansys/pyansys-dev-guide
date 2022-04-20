@@ -1,19 +1,18 @@
-.. _docstrings:
-
 Docstring Standards
 ###################
-When writing docstrings for PyAnsys libraries, use the `numpydoc`_
-style, regardless as to whether you are using this Sphinx extension or the 
-`napoleon <https://pypi.org/project/sphinxcontrib-napoleon/>`_ Sphinx extension
-to generate your library documentation.
+
+When writing docstrings for PyAnsys libraries, use the `numpydoc`_ style,
+regardless as to whether you are using this Sphinx extension or the `napoleon`_
+Sphinx extension to generate your library documentation.
 
 You add the extension to use for documentation generation in your ``conf.py`` file.
 For example, to use `numpydoc`_, you would add:
 
 .. code:: python
 
-  extensions = ['numpydoc',
-                # other extensions
+  extensions = [
+      'numpydoc',
+      ...
   ]
 
 For consistency within PyAnsys libraries, always use ``"""`` to introduce and conclude a
@@ -23,8 +22,8 @@ will have to resolve.
 
 A blank line signifies the start of a new paragraph. To create a bulleted or numbered list,
 ensure that there is a blank line before the first item and after the last item. Because you
-use the same markup in docstrings as you do in RST files, see this `quick reference
-<https://docutils.sourceforge.io/docs/user/rst/quickref.html>`_. 
+use the same markup in docstrings as you do in RST files, see this `quick reference`_.
+
 
 Surround any text that you want to set apart as literal text in double back ticks to render
 it in a monospace gold font. Use double back ticks to surround the names of files, folders,
@@ -210,7 +209,7 @@ This will issue the following warning for any object without a docstring::
 
 The ``"GL08"`` code is required at minimum for PyAnsys libraries.
 Other codes may be enforced at a later date. For a full listing,
-see `Validation <https://numpydoc.readthedocs.io/en/latest/validation.html#validation>`_
+see `Docstring Validation`_
 in the `numpydoc`_.
 
 
@@ -222,5 +221,8 @@ that are not covered here. For example, you use the ``note::`` directive to high
 important information and the ``warning::`` directive to point out an action that
 might result in data loss.
 
-.. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
-.. _googledoc: https://google.github.io/styleguide/
+.. LINKS AND REFERENCES
+.. include::  ../links.rst
+
+.. _quick reference: https://docutils.sourceforge.io/docs/user/rst/quickref.html
+.. _Docstring Validation: https://numpydoc.readthedocs.io/en/latest/validation.html#validation

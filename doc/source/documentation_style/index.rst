@@ -1,5 +1,3 @@
-.. _api_documentation:
-
 API Documentation Style
 #######################
 Good API documentation drives library adoption and usage and is the
@@ -24,15 +22,14 @@ The documentation for a PyAnsys library should contain:
 
 * Module, class, method, and function docstrings. See 
   :ref:`docstrings`.
-* Full gallery of examples. See `PyMAPDL Examples
-  <https://mapdldocs.pyansys.com/examples/index.html>`_.
+* Full gallery of examples. See `PyMAPDL Examples`_.
 * Developer's guide for the library.
 * Link to this developer's guide.
 
 Finally, the documentation should be public and hosted via gh-pages, either as
 a branch named ``gh-pages`` within the library repository or within a
 ``gh-pages`` branch within ``<library-repository>-docs``. For more information,
-see :ref:`documentation_deployment`.
+see :ref:`Documentation Deployment`.
 
 .. toctree::
    :hidden:
@@ -42,3 +39,6 @@ see :ref:`documentation_deployment`.
    class_documentation
    deployment
    formatting-tools
+
+.. Links and References
+.. include:: ../links.rst

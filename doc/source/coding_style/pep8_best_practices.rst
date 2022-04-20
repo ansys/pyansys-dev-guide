@@ -1,8 +1,6 @@
-.. _best_practices:
-
 PEP 8 Best Practices
 ====================
-This topic summarizes key points from `PEP8`_ and how
+This topic summarizes key points from `PEP 8`_ and how
 they apply to PyAnsys libraries. The goal is for PyAnsys libraries to
 be consistent in style and formatting with the `big three`
 data science libraries: `NumPy`_, `SciPy`_, and `pandas`_.
@@ -14,8 +12,6 @@ Imports should always be placed at the top of the file, just after any
 module comments and docstrings and before module globals and
 constants.  This reduces the likelihood of an `ImportError`_ that
 might only be discovered during runtime.
-
-.. _ImportError: https://docs.python.org/3/library/exceptions.html#ImportError
 
 Instead of:
 
@@ -95,7 +91,7 @@ Use:
 
 You should avoid using wild cards in imports because doing so
 can make it difficult to detect undefined names.  For more information,
-see `Python Anti-Patterns: using wildcard imports <(https://docs.quantifiedcode.com/python-anti-patterns/maintainability/from_module_import_all_used.html>`_.
+see `Python Anti-Patterns: using wildcard imports`_.
 
 Instead of:
 
@@ -259,7 +255,7 @@ from PyPi.
 
 Class Naming Conventions
 ~~~~~~~~~~~~~~~~~~~~~~~~
-Use `camel case <https://en.wikipedia.org/wiki/Camel_case>`_ when naming classes. Do not separate words
+Use `camel case`_ when naming classes. Do not separate words
 with underscores. 
 
 .. code:: python
@@ -433,21 +429,17 @@ same line:
 
 For a multi-line docstring, put the ending ``"""`` on a line by itself.
 
-PyAEDT follows the `numpydoc
-<https://numpydoc.readthedocs.io/en/latest/format.html>`_
-docstring style, which is used by `numpy <https://numpy.org/>`_,
-`scipy <https://www.scipy.org/>`_, `pandas
-<https://pandas.pydata.org/>`_, and a variety of other Python open
-source projects.  For more information on docstrings for PyAnsys
-libraries, see :ref:`api_documentation`.
+`PyAEDT`_ follows the `numpydoc`_ docstring style, which is used by `numpy`_
+`scipy`_, `pandas`_, and a variety of other Python open source projects.  For
+more information on docstrings for PyAnsys libraries, see
+:ref:`API Documentation Style`.
 
 
 Programming Recommendations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The following sections provide some `PEP8
-<https://www.python.org/dev/peps/pep-0008/>`_ suggestions for removing
-ambiguity and preserving consistency. They address some common pitfalls 
-when writing Python code.
+The following sections provide some `PEP 8`_ suggestions for removing ambiguity
+and preserving consistency. They address some common pitfalls when writing
+Python code.
 
 
 Booleans and Comparisons
@@ -714,6 +706,13 @@ Any library should be secure and implement good practices that avoid or mitigate
 This is especially relevant in libraries that request user input (such as web services).
 Because security is a broad topic, we recommend you review this useful Python-specific resource:
 
-* `10 Unknown Security Pitfalls for Python <https://blog.sonarsource.com/10-unknown-security-pitfalls-for-python>`_ - By Dennis Brinkrolf - Sonar source blog
+* `10 Unknown Security Pitfalls for Python`_ - By Dennis Brinkrolf - Sonar source blog
 
-.. [#] Wikipedia - `Software development security <https://en.wikipedia.org/wiki/Software_development_security>`_. 
+
+.. LINKS AND REFERENCES
+.. include:: ../links.rst
+.. [#] Wikipedia - Software development security https://en.wikipedia.org/wiki/Software_development_security
+.. _10 Unknown Security Pitfalls for Python: https://blog.sonarsource.com/10-unknown-security-pitfalls-for-python
+.. _camel case: https://en.wikipedia.org/wiki/Camel_case
+.. _ImportError: https://docs.python.org/3/library/exceptions.html#ImportError
+.. _Python Anti-Patterns\: using wildcard imports: https://docs.quantifiedcode.com/python-anti-patterns/maintainability/from_module_import_all_used.html

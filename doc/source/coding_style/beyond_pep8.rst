@@ -1,15 +1,15 @@
 Beyond PEP8
-###########
+===========
 This topic describes any delineations, clarifications, or additional procedures above and 
-beyond `PEP8 <https://www.python.org/dev/peps/pep-0008/>`__.
+beyond `PEP 8`_.
 
-For example, `Stack Overflow Answer <https://stackoverflow.com/questions/2536307>`_ 
-outlines deprecation best practices and a `Deprecation library <https://deprecation.readthedocs.io/>`_ 
-already exists. However, there is no official guidance regarding deprecating features 
-in an API within Python. This page seeks to clarify this issue and others.
+For example, `Stack Overflow Answer`_ outlines deprecation best practices and a
+`Deprecation`_ library already exists. However, there is no official guidance
+regarding deprecating features in an API within Python. This page seeks to
+clarify this issue and others.
 
 Aside from the following PyAnsys-specific directives, the best coding practice is to 
-follow established guidelines from `PEP8 <https://www.python.org/dev/peps/pep-0008/>`__.
+follow established guidelines from `PEP 8`_.
 
 
 Deprecation Best Practice
@@ -18,8 +18,7 @@ Whenever a method, class, or function is deprecated, you must provide
 an old method that both calls the new method and raises a warning. Or, 
 if the method has been removed, you must raise an ``AttributeError``. 
 
-In the docstring of the older method, provide a `Sphinx Deprecated Directive
-<https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-deprecated>`_ 
+In the docstring of the older method, provide a `Sphinx Deprecated Directive`_
 and a link to the newer method. This way, users are notified that an API change 
 has occurred and are given an opportunity to change their code. Otherwise, 
 stability concerns can cause users to stop upgrading, or worse, stop using 
@@ -50,7 +49,7 @@ an error after a minor release or two.
             raise AttributeError('assignmaterial is deprecated. Use assign_material instead.')
 
         def assign_material(self, obj, mat):
-            """Assign a material to one or more objects.
+            """Assign a material to one or more objects."""
             ...
 
 
@@ -99,7 +98,7 @@ You can then use this custom ``DeprecationError`` in place of an ``Exception``.
 
 Semantic Versioning and API Changes
 -----------------------------------
-According to `Semantic Versioning <https://semver.org/>`_, you should
+According to `Semantic Versioning`, you should
 increment the MAJOR version when you make incompatible changes.
 However, adding or eliminating methods should not be considered
 incompatible changes to a code base but rather incremental changes
@@ -110,8 +109,7 @@ should be bumped.
 To avoid constantly bumping the minor version, one approach to 
 source-control branching is to create release branches where only
 patch fixes are pushed and API changes occur between minor
-releases. See `Trunk Based Development
-<https://trunkbaseddevelopment.com/>`_.  
+releases. See `Trunk Based Development`_.
 
 In summary, the mainline branch (commonly named ``main`` or ``master``) 
 must always be ready to release, and developers should create 
@@ -275,7 +273,7 @@ If the output of some operation in an example cannot be verified exactly,
 an ellipsis (``...``) can be used in the expected output. This allows it
 to match any substring in the actual output.
 
-.. code ::
+.. code::
 
     Examples
     --------
@@ -286,7 +284,7 @@ to match any substring in the actual output.
 
 To support this, ``doctest`` must be run with the option set to allow ellipses.
 
-.. code ::
+.. code::
 
     pytest --doctest-modules -o ELLIPSIS file.py
 
@@ -298,9 +296,15 @@ This is useful for examples that cannot run within ``pytest`` or have
 side effects that will affect the other tests if they are run during 
 the ``doctest`` session.
 
-.. code :: python
+.. code:: python
 
     Examples
     --------
 
     >>> desktop = Desktop("2021.1") # doctest: +SKIP
+
+
+.. LINKS AND REFERENCES
+.. include:: ../links.rst
+.. _Sphinx Deprecated Directive: https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-deprecated
+.. _Stack Overflow Answer: htps://stackoverflow.com/questions/2536307

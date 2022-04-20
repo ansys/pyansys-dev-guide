@@ -22,12 +22,12 @@ These libraries play a vital role in:
 The libraries also include plugins and interfaces to the vast Python
 ecosystem. Examples include:
 
-- Arrays using `NumPy <https://numpy.org/>`_
-- Data structures and tables with `pandas <https://pandas.pydata.org/>`_
-- 2D visualization using `Matplotlib <https://matplotlib.org/>`_
-- 3D visualization using `PyVista <https://docs.pyvista.org/>`_
-- Advanced scientific computing using `SciPy <https://www.scipy.org/>`_
-- Machine learning using `TensorFlow <https://www.tensorflow.org/>`_
+- Arrays using `NumPy`_
+- Data structures and tables with `pandas`_
+- 2D visualization using `Matplotlib`_
+- 3D visualization using `PyVista`_
+- Advanced scientific computing using `SciPy`_
+- Machine learning using `TensorFlow`_
 
 .. note::
    If you are new to GitHub, we suggest that you visit `The ReadMe Project
@@ -43,17 +43,14 @@ ecosystem. Examples include:
    administration
    contributing
 
-.. _PyAEDT: https://github.com/pyansys/PyAEDT
-.. _PyMAPDL: https://github.com/pyansys/pymapdl
-
 
 Contributing to this Guide
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 If you would like to contribute to this development guide, we will gladly review
 all pull requests. Please feel free to submit them and follow the
-:ref:`doc_practices`.
+:ref:`API Documentation Style`.
 
-This repository uses the `pre-commit <https://pre-commit.com/>`_ library to
+This repository uses the `pre-commit`_ library to
 automate style checking. To use it, enter your Python environment and install
 it with::
 
@@ -73,3 +70,6 @@ installing a pre-commit as a git hook with::
 
 Now, each time you run ``git commit``, your commit will only be created if it
 passes the minimum style checks that will also be run on the GitHub CI/CD.
+
+.. LINKS AND REFERENCES
+.. include:: ../links.rst

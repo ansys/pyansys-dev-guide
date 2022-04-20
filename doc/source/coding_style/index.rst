@@ -1,5 +1,5 @@
 Coding Style
-************
+############
 
 PyAnsys libraries are expected to follow `PEP 8`_ and
 be consistent in style and formatting with the 'big three'

@@ -10,12 +10,11 @@ the "desktop API". In this case, remote API calls should be identical
 if the service is local or remote, with the only difference being that local
 calls are faster to execute.
 
-Consider the following code examples. The left-hand side shows the
-amount of work to start, establish a connection to, and submit an
-input file to MAPDL using auto-generated gRPC interface files. For
-more information, see `pyansys-protos-generator
-<https://github.com/pyansys/pyansys-protos-generator>`_.  The 
-right-hand side shows the same workflow but uses the `PyMAPDL`_ library.
+Consider the following code examples. The left-hand side shows the amount of
+work to start, establish a connection to, and submit an input file to MAPDL
+using auto-generated gRPC interface files. For more information, see
+`pyansys-protos-generator`_. The right-hand side shows the same workflow but
+uses the `PyMAPDL`_ library.
 
 +----------------------------------------------------------+--------------------------------------------+
 | Using the gRPC Auto-generated Interface                  | Using the `PyMAPDL`_ Library               |
@@ -78,6 +77,5 @@ At this point, because the assumption is that MAPDL is always remote, it's
 possible to issue commands to MAPDL, including those requiring 
 file transfer like ``Mapdl.input``.
 
-.. _REST: https://en.wikipedia.org/wiki/Representational_state_transfer
-.. _gRPC: https://grpc.io/
-.. _PyMAPDL: https://github.com/pyansys/pymapdl
+.. LINKS AND REFERENCES
+.. include:: ../links.rst
