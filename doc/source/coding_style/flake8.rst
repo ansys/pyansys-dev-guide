@@ -8,7 +8,7 @@ are expected to be consistent with these guidelines.
 
 Flake8
 ~~~~~~
-`Flake8`_ is a Python tool for enforcing code styling. It is a wrapper
+`flake8`_ is a Python tool for enforcing code styling. It is a wrapper
 around the following three tools: `PyFlakes`_, `pycodestyle`_, and
 `Ned Batchelder's McCabe script for complexity`_. Flake8 runs all three tools at once,
 checking the code against a variety of style rules, such as line length,
