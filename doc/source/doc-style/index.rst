@@ -39,5 +39,4 @@ see :ref:`documentation_deployment`.
 
    docstrings
    class_documentation
-   deployment
    formatting-tools
