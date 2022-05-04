@@ -1,20 +1,8 @@
-Numpydoc docstrings
+Numpydoc Docstrings
 ###################
 
 When writing docstrings for PyAnsys libraries, use the `numpydoc`_
-style, regardless as to whether you are using this Sphinx extension or the 
-`napoleon <https://pypi.org/project/sphinxcontrib-napoleon/>`_ Sphinx extension
-to generate your library documentation.
-
-You add the extension to use for documentation generation in your ``conf.py`` file.
-For example, to use `numpydoc`_, you would add:
-
-.. code:: python
-
-  extensions = [
-      'numpydoc',
-      ...
-  ]
+style. 
 
 For consistency within PyAnsys libraries, always use ``"""`` to introduce and conclude a
 docstring, keeping the line length shorter than 70 characters. Ensure that there are

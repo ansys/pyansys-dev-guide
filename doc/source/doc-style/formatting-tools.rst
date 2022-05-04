@@ -72,6 +72,41 @@ Alternate tools to `interrogate`_ are `docstr-coverage`_ and
 output resembling that of `pytest-cov`_, which is the the equivalent tool
 for source code coverage.
 
+Numpydoc Validation
+-------------------
+In order to validate the style of :ref:`Numpydoc Docstrings`, it is possible to
+take advantage of `numpydoc`_ Sphinx extension. Note that this extension will
+only check for those objcts whose docstring needs to be rendered. It is not a
+command line tool which checks all docstrings style in your source code.
+
+Because it is a Sphinx extension, it needs to be configured via through the
+``conf.py``.  see :ref:`The \`\`doc/\`\` directory`. Start by adding it to the
+list of extensions:
+
+.. code-block:: python
+
+  extensions = [
+      'numpydoc',
+      ...
+  ]
+
+Once added, you can select which `validation checks
+<https://numpydoc.readthedocs.io/en/latest/validation.html#built-in-validation-checks>`_
+need to be addressed by using the ``numpydoc_validation_checks`` dictionary:
+
+.. code-block:: python
+
+   numpydoc_validation_checks = {"GL08"}
+
+This will issue the following warning for any object without a docstring:
+
+.. code-block:: python
+
+   "The object does not have a docstring"
+
+For a complete list of available checks, please check the `full mapping of
+validation checks
+<https://numpydoc.readthedocs.io/en/latest/validation.html#built-in-validation-checks>`_.
 
 Pydocstyle
 ----------
@@ -98,3 +133,4 @@ under the ``[tool.pydocstyle]`` entry:
 .. _docformatter: https://github.com/PyCQA/docformatter
 .. _codespell: https://github.com/codespell-project/codespell
 .. _pytest-cov: https://pytest-cov.readthedocs.io/en/latest/
+.. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
