@@ -1,5 +1,5 @@
-Formatting Tools
-================
+Doc Style Tools
+===============
 
 There are plenty of tools for documentation style and coverage. This section
 presents some of the most popular ones in the Python ecosystem. A minimum
