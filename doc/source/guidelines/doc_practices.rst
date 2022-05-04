@@ -53,7 +53,7 @@ Google style docstrings, refers you to the `Google Python Style Guide
 
 Regardless of the extension that you choose for generating documentation, we
 recommend the use of numpy-style docstrings so that there is consistency
-across PyAnsys libraries. For more information, see :ref:`api_documentation`.
+across PyAnsys libraries. For more information, see :ref:`Documentation Style`.
 
 RST Files
 ~~~~~~~~~
