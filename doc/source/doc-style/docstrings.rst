@@ -1,7 +1,6 @@
-.. _docstrings:
+NumPy Docstrings
+================
 
-Docstring Standards
-###################
 When writing docstrings for PyAnsys libraries, use the `numpydoc`_
 style, regardless as to whether you are using this Sphinx extension or the 
 `napoleon <https://pypi.org/project/sphinxcontrib-napoleon/>`_ Sphinx extension
@@ -12,8 +11,9 @@ For example, to use `numpydoc`_, you would add:
 
 .. code:: python
 
-  extensions = ['numpydoc',
-                # other extensions
+  extensions = [
+      'numpydoc',
+      ...
   ]
 
 For consistency within PyAnsys libraries, always use ``"""`` to introduce and conclude a
@@ -39,8 +39,8 @@ classes, methods, and variables. For example::
    style. 
 
  
-Minimum Section Requirements
-----------------------------
+Required Docstring Sections
+---------------------------
 PyAnsys library docstrings contain these `numpydoc`_ sections as a minimum:
 
 * `Short description <https://numpydoc.readthedocs.io/en/latest/format.html#short-summary>`_

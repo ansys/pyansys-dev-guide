@@ -86,7 +86,7 @@ under the ``[tool.pydocstyle]`` entry:
 .. code:: toml
 
    [tool.pydocstyle]
-   # Additional configuration
+   convention = "numpy"
 
 
 .. _interrogate: https://interrogate.readthedocs.io/en/latest/
