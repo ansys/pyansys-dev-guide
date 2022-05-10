@@ -44,16 +44,16 @@ PyAnsys libraries, adhere to the additional style guidelines that follow.
 
 Short Summary
 -------------
-This is a single-line which goes right after the declaration of the function or
-class and provides a quick overview about the final goal of the code. The
-``short summary`` is mandatory. If not present, :ref:`Doc Style Tools` will
+This is a single-line that goes right after the declaration of the class or
+function for briefly describing what the class or function or does. The
+`short summary` is mandatory. If it is not present, :ref:`Doc Style Tools` will
 raise an error.
 
 The short summary can be declared on the same line as the opening quotes or on
-the next line. Both ways are accepted by `PEP 257
-<https://peps.python.org/pep-0257>`_ but you must be consistent across your
-project. In case you decide to declare the short summary on the same line,
-please refer to :ref:`Numpydoc Validation`, as ``"GL01"`` check needs to be
+the next line. While `PEP 257
+<https://peps.python.org/pep-0257>`_ accepts both ways, you must be consistent across your
+project. If you decide to declare the short summary on the same line,
+refer to :ref:`Numpydoc Validation` because the ``"GL01"`` check needs to be
 disabled.
 
 Depending in whether you are documenting a ``Class`` or a ``function``, you will
