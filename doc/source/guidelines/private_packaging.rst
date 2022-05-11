@@ -58,6 +58,11 @@ To download the Python package from the `PyAnsys PyPI`_, use the following:
    INDEX_URL=https://$PYANSYS_PYPI_PRIVATE_PAT@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/
    pip install ansys-<product/tool>-<library> --index-url $INDEX_URL --no-dependencies
 
+.. note::
+   An additional read-only PAT is available for individual users who only need to download the package.
+   It can be stored as an environment variable and be used just as described in the code sample above.
+   Please email the PyAnsys Core team at pyansys.core@ansys.com to get access to this PAT.
+
 .. warning::
    Take care to always use the ``--index-url`` switch rather than the
    ``--extra-index-url`` switch. As noted in the `pip Documentation`_, the
