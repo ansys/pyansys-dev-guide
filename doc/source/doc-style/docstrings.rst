@@ -227,13 +227,32 @@ Notice that if the definition of the function gets updated, this
 section needs to be updated too.
 
 
-Example Docstrings
-==================
-Methods and functions should generally be documented within the
-'Examples' section to make the usage of the method or function clear.
-Here is a sample function:
+Additional Directives
+=====================
+Since Python docstrings are written using RST syntax, it is possible to take
+advantage of some directives available in this Markup language. Among those, it
+is possible to find:
 
-.. literalinclude:: sample_func.py
+- ``.. note::`` directive is useful for highlighting important
+  information once the documentation gets rendered.
+
+- ``.. warning::`` is usually used to point out an action that might result in
+  data loss.
+
+- ``.. deprecated:: X.Y.Z`` to inform the user about the deprecated status of
+  the object or functionality.
+
+You can find additional information and examples at `numpydoc`_. Reference
+this documentation as the primary source regarding docstring styles for directives
+that are not covered here.
+
+
+Example
+=======
+
+An generic docstring example compliant with PyAnsys guidelines is shown below:
+
+.. literalinclude:: code/sample_func.py
 
 To include the docstring of a function within Sphinx, you use the
 ``autofunction::`` directive:
@@ -245,14 +264,6 @@ To include the docstring of a function within Sphinx, you use the
 This directive renders the sample function as:
 
 .. autofunction:: pyansys_sphinx_theme.sample_func.func
-
-Additional Information
-======================
-You can find additional information and examples at `numpydoc`_. Reference
-this documentation as the primary source regarding docstring styles for directives
-that are not covered here. For example, you use the ``note::`` directive to highlight
-important information and the ``warning::`` directive to point out an action that
-might result in data loss.
 
 .. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
 .. _googledoc: https://google.github.io/styleguide/
