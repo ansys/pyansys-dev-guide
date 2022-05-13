@@ -38,5 +38,4 @@ see :ref:`Continuous Documentation Deployment`.
    :maxdepth: 3
 
    docstrings
-   class_documentation
    formatting-tools
