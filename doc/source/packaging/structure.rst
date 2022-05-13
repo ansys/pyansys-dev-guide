@@ -97,8 +97,8 @@ sub-packages, while a Python Library is a collection of Python packages. Figure
 .. include:: diag/python_library_diag.rst
 
 
-Required Files for a PyAnsys Project
-====================================
+Required Files
+==============
 
 The structure of any PyAnsys library contains these files and directories:
 
@@ -197,6 +197,44 @@ Notice the use of ``tests_*/`` when creating new directories inside the
 ``tests/`` one. For unit testing files, names use the ``test_*.py`` prefix.
 This is the preferred way of naming directories and files inside the
 ``tests/`` directory.
+
+
+The ``CHANGELOG.md`` file
+-------------------------
+
+This file is used to collect the new features, fixed bugs, documentation
+improvements and new contributors. It allows to have a quick-view on the latest
+enhancements to the project.
+
+.. literalinclude:: code/changelog_file.md
+   :language: markdown
+
+
+The ``CODE_OF_CONDUCT.md`` file
+-------------------------------
+
+This file is used to specify how users, developers and maintainers should behave
+while working in the project. PyAnsys projects usually adopt the ``Contributor
+Covenant Code of Conduct``, which is very popular across open-source projects.
+
+.. literalinclude:: code/code_of_conduct_file.md
+   :language: markdown
+
+
+The ``CONTRIBUTING.md`` file
+----------------------------
+This file is used as a quick entry-point for developers wiling to contribute to
+the project. It usually provides references to:
+
+- Where the source code of the project is hosted.
+- Which steps need to be followed to install the software in "development" mode.
+- Additional ways of contributing to the source code.
+
+Ideally, the ``CONTRIBUTING.md`` file for a PyAnsys project should be pointing
+towards the `PyAnsys Developer's Guide <https://dev.docs.pyansys.com/index.html>`_.
+
+.. literalinclude:: code/contributing_file.md
+   :language: markdown
 
 
 The ``LICENSE`` File

@@ -46,12 +46,24 @@
            label="tests", shape="folder"
          ]
 
-         readme [
-           label="README.rst", shape="file"
+         changelog [
+           label="CHANGELOG.md", shape="file"
+         ]
+
+         code_of_conduct [
+           label="CODE_OF_CONDUCT.md", shape="file"
+         ]
+
+         contributing [
+           label="CONTRIBUTING.md", shape="file"
          ]
 
          license [
            label="LICENSE", shape="file"
+         ]
+
+         readme [
+           label="README.rst", shape="file"
          ]
 
          pyproject [
@@ -67,6 +79,9 @@
          pyproduct_library -> src;
          pyproduct_library -> tests;
          pyproduct_library -> license;
+         pyproduct_library -> changelog;
+         pyproduct_library -> code_of_conduct;
+         pyproduct_library -> contributing;
          pyproduct_library -> readme;
          pyproduct_library -> pyproject;
          pyproduct_library -> setup;
