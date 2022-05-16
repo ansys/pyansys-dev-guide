@@ -250,7 +250,7 @@ that are not covered here.
 Example
 =======
 
-An generic docstring example compliant with PyAnsys guidelines is shown below:
+A generic docstring example compliant with PyAnsys guidelines is shown below:
 
 .. literalinclude:: code/sample_func.py
 
