@@ -11,6 +11,19 @@ Most of the tools presented can be configured using :ref:`the
 cleaner root project directory.
 
 
+Blacken-Docs
+------------
+
+When writing documentation, it is frequent to include code-blocks which are used
+as examples. However, these code snippets cannot be tested with the usual code
+formatting tools. This is where `blacken-docs`_ comes into play. You can execute
+this tool by running:
+
+.. code:: bash
+
+   blacken-docs -l <line-length> doc/**/*.rst
+
+
 Codespell
 ---------
 
@@ -124,6 +137,7 @@ under the ``[tool.pydocstyle]`` entry:
    convention = "numpy"
 
 
+.. _blacken-docs: https://github.com/asottile/blacken-docs
 .. _interrogate: https://interrogate.readthedocs.io/en/latest/
 .. _docstr-coverage: https://docstr-coverage.readthedocs.io/en/latest/index.html
 .. _docstring-coverage: https://bitbucket.org/DataGreed/docstring-coverage/wiki/Home
