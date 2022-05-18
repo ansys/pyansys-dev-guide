@@ -321,18 +321,18 @@ Instead of:
         
            if x < y:
         
-               STATEMENTS_A
+               ...
         
            else:
         
                if x > y:
         
-                   STATEMENTS_B
+                   ...
         
                else:
         
-                   STATEMENTS_C
-        
+                   ...
+
            if x > 0 and x < 10:
         
                print("x is a positive single digit.")
@@ -342,12 +342,12 @@ Instead of:
         .. code-block:: python
         
            if x < y:
-               STATEMENTS_A
+               ...
            else:
                if x > y:
-                   STATEMENTS_B
+                   ...
                else:
-                   STATEMENTS_C
+                   ...
         
            if x > 0 and x < 10:
                print("x is a positive single digit.")
@@ -365,19 +365,24 @@ Lines longer than these recommended limits might not display properly
 on some terminals and tools or might be difficult to follow. For example,
 this line is difficult to follow:
 
-.. code:: python
 
-   employee_hours = [schedule.earliest_hour for employee in self.public_employees for schedule in employee.schedules]
+.. tabs::
 
-The line can be rewritten as:
+    .. tab:: Avoid
 
-.. code:: python
+        .. code:: python
 
-   employee_hours = [
-       schedule.earliest_hour
-       for employee in self.public_employees
-       for schedule in employee.schedules
-   ]
+            employee_hours = [schedule.earliest_hour for employee in self.public_employees for schedule in employee.schedules]
+
+    .. tab:: Use
+
+        .. code-block:: python
+        
+            employee_hours = [
+                schedule.earliest_hour
+                for employee in self.public_employees
+                for schedule in employee.schedules
+            ]
 
 Alternatively, instead of writing a list comprehension, you can use a
 classic loop.
