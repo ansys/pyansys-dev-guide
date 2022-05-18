@@ -53,7 +53,7 @@ Google style docstrings, refers you to the `Google Python Style Guide
 
 Regardless of the extension that you choose for generating documentation, we
 recommend the use of numpy-style docstrings so that there is consistency
-across PyAnsys libraries. For more information, see :ref:`Documentation Style`.
+within PyAnsys libraries. For more information, see :ref:`Documentation Style`.
 
 RST Files
 ~~~~~~~~~
@@ -249,7 +249,7 @@ For example, the Granta MI BoM Analytics
 :external+grantami-bomanalytics:doc:`Part Compliance page <api/compliance/parts>`
 first describes the
 :external+grantami-bomanalytics:class:`~ansys.grantami.bomanalytics.queries.PartComplianceQuery`
-class, and then describes the
+class, and then it describes the
 :external+grantami-bomanalytics:class:`~ansys.grantami.bomanalytics._query_results.PartComplianceQueryResult`,
 and
 :external+grantami-bomanalytics:class:`~ansys.grantami.bomanalytics._item_results.PartWithComplianceResult`

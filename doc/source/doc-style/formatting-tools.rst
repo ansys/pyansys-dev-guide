@@ -1,6 +1,5 @@
 Doc Style Tools
 ===============
-
 There are plenty of tools for documentation style and coverage. This section
 presents some of the most popular ones in the Python ecosystem. A minimum
 configuration is provided for each one so you can easily include them in your
@@ -15,7 +14,7 @@ Blacken-Docs
 ------------
 
 When writing documentation, it is frequent to include code-blocks which are used
-as examples. However, these code snippets cannot be tested with the usual code
+as examples. However, these code snippets style cannot be verified with the usual code
 formatting tools. This is where `blacken-docs`_ comes into play. You can execute
 this tool by running:
 
@@ -87,13 +86,13 @@ for source code coverage.
 
 Numpydoc Validation
 -------------------
-In order to validate the style of :ref:`Numpydoc Docstrings`, it is possible to
-take advantage of `numpydoc`_ Sphinx extension. Note that this extension will
-only check for those objcts whose docstring needs to be rendered. It is not a
-command line tool which checks all docstrings style in your source code.
+To validate the style of :ref:`Numpydoc Docstrings`, it is possible to
+take advantage of the `numpydoc`_ Sphinx extension. Note that this extension
+checks only for those objects whose docstrings must be rendered. It is not a
+command line tool that checks the style of all docstrings in your source code.
 
-Because it is a Sphinx extension, it needs to be configured via through the
-``conf.py``.  see :ref:`The \`\`doc/\`\` directory`. Start by adding it to the
+Because `numpydoc`_ is a Sphinx extension, it must be configured in the
+``conf.py`` file.  See :ref:`The \`\`doc/\`\` directory`. Start by adding it to the
 list of extensions:
 
 .. code-block:: python
@@ -103,9 +102,9 @@ list of extensions:
       ...
   ]
 
-Once added, you can select which `validation checks
+Once the `numpydoc`_ extension is added, you can select which `validation checks
 <https://numpydoc.readthedocs.io/en/latest/validation.html#built-in-validation-checks>`_
-need to be addressed by using the ``numpydoc_validation_checks`` dictionary:
+must be addressed by using the ``numpydoc_validation_checks`` dictionary:
 
 .. code-block:: python
 
@@ -117,7 +116,7 @@ This will issue the following warning for any object without a docstring:
 
    "The object does not have a docstring"
 
-For a complete list of available checks, please check the `full mapping of
+For a complete list of available checks, see the `full mapping of
 validation checks
 <https://numpydoc.readthedocs.io/en/latest/validation.html#built-in-validation-checks>`_.
 

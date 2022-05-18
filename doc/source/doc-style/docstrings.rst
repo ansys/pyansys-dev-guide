@@ -44,8 +44,8 @@ PyAnsys libraries, adhere to the additional style guidelines that follow.
 
 Short Summary
 -------------
-This is a single-line that goes right after the declaration of the class or
-function for briefly describing what the class or function or does. The
+This is a single line that goes immediately after the declaration of the class
+or function to briefly describe what the class or function does. The
 `short summary` is mandatory. If it is not present, :ref:`Doc Style Tools` will
 raise an error.
 
@@ -53,17 +53,17 @@ The short summary can be declared on the same line as the opening quotes or on
 the next line. While `PEP 257
 <https://peps.python.org/pep-0257>`_ accepts both ways, you must be consistent across your
 project. If you decide to declare the short summary on the same line,
-refer to :ref:`Numpydoc Validation` because the ``"GL01"`` check needs to be
+refer to :ref:`Numpydoc Validation` because the ``"GL01"`` check must be
 disabled.
 
-Depending in whether you are documenting a ``Class`` or a ``function``, you will
-need to apply different ``short-summary`` guidelines.
+The guidelines for documenting short summaries differ for classes versus
+functions.
 
-Short Summary for Classes
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Short Summaries for Classes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 A class is a 'noun' representing a collection of methods. For consistency within PyAnsys libraries,
 always start the brief description for a class with a verb ending in 's', followed by an extended
-summary in a new line if applicable::
+summary in a new line if additional information is needed::
 
   class FieldAnalysis3D(Analysis):
     """Manages 3D field analysis setup in HFSS, Maxwell 3D, and Q3D.
@@ -76,11 +76,11 @@ summary in a new line if applicable::
 
 Ensure that there is a line break between the end of a class docstring and the subsequent methods.
 
-Short Summary for Methods
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Short Summaries for Methods
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 A method is a 'verb' representing an action that can be performed. For consistency within PyAnsys
 libraries, always start the brief description for a method with a verb not ending in 's', followed
-by an extended summary in a new line if applicable::
+by an extended summary in a new line if additional information is needed::
 
   def export_mesh_stats(self, setup_name, variation_string="", mesh_path=None):
     """Export mesh statistics to a file.
@@ -176,7 +176,7 @@ A class does not have a ``Returns`` section. If a ``Boolean`` is returned, forma
   bool
       ``True`` when successful, ``False`` when failed.
 
-It is possible for the ``Returns`` section to look like the ``Parameters`` one
+It is possible for the ``Returns`` section to look like the ``Parameters`` section
 if variable names are provided:
 
 .. code-block:: rst
@@ -199,15 +199,15 @@ It is possible for more than one item to be returned:
 
 If a method does not have a decorator, the basic implementation of Python
 methods is used. In this case, while ``None`` is returned, you do not document it.
-Consequently, such a method does not have a 'Returns' section.
+Consequently, such a method does not have a ``Returns`` section.
 
 Examples
 --------
 
 The ``Examples`` section provides a quick reference on how to use a method or
-function. This section needs to be compliant with the `doctest
+a function. This section must be compliant with the `doctest
 <https://docs.python.org/3/library/doctest.html>`_ format and is not supposed to
-be a replacement of your test suite but a complement to it. An an example,
+replace your test suite but complement it. As an example,
 consider the following function:
 
 .. code-block:: rst
@@ -223,8 +223,8 @@ consider the following function:
    pyaedt info: Active design is set to...
 
 
-Notice that if the definition of the function gets updated, this
-section needs to be updated too.
+If the definition of the function is updated, this
+section must be updated too.
 
 
 Additional Directives
