@@ -10,6 +10,6 @@
    overview/index
    guidelines/index
    packaging/index
-   coding_style/index
+   coding-style/index
    doc-style/index
    abstractions/index
