@@ -1,20 +1,25 @@
-.. _best_practices:
+PEP 8
+=====
 
-PEP 8 Best Practices
-====================
-This topic summarizes key points from `PEP8`_ and how
-they apply to PyAnsys libraries. The goal is for PyAnsys libraries to
-be consistent in style and formatting with the `big three`
-data science libraries: `NumPy`_, `SciPy`_, and `pandas`_.
+This topic summarizes the key points from `PEP 8`_ and how they apply to PyAnsys
+libraries. `PEP 8`_ style guideline was devised by the Python community in order
+to increase the readability of Python code. `PEP 8`_ has been adopted by some of
+the most popular libraries within the Python ecosystem such us: `NumPy`_,
+`SciPy`_, and `pandas`_.
 
+.. _PEP 8: https://www.python.org/dev/peps/pep-0008/
 .. _NumPy: https://numpy.org/
 .. _SciPy: https://www.scipy.org/
 .. _pandas: https://pandas.pydata.org/
-.. _PEP8: https://www.python.org/dev/peps/pep-0008/
 
 
 Imports
-~~~~~~~
+-------
+The following lines describe the code style guidelines that apply for the
+``import`` statement.
+
+Imports Location
+~~~~~~~~~~~~~~~~
 Imports should always be placed at the top of the file, just after any
 module comments and docstrings and before module globals and
 constants.  This reduces the likelihood of an `ImportError`_ that
@@ -22,208 +27,122 @@ might only be discovered during runtime.
 
 .. _ImportError: https://docs.python.org/3/library/exceptions.html#ImportError
 
-Instead of:
+.. tabs::
 
-.. code:: python
+   .. tab:: Avoid
 
-   def compute_logbase8(x):
-       import math
-       return math.log(8, x)
+      .. code-block:: python
 
-Use:
+         def compute_logbase8(x):
+             import math
+             return math.log(8, x)
 
-.. code:: python
+   .. tab:: Use
 
-    import math
+      .. code-block:: python
 
-    def compute_logbase8(x):
-        return math.log(8, x)
+         import math
 
 
+         def compute_logbase8(x):
+             return math.log(8, x)
+
+
+Imports Order
+~~~~~~~~~~~~~
 For better readability, group imports in this order:
 
 #. Standard library imports
 #. Related third-party imports
 #. Local application- or library-specific imports
 
-Instead of:
+All imports should be performed in alphabetically order.
 
-.. code:: python
+.. tabs::
 
-   import sys
-   import subprocess
-   from mypackage import mymodule
-   import math
+   .. tab:: Avoid
 
-   def compute_logbase8(x):
-      return math.log(8, x)
+      .. code-block:: python
 
+         import sys
+         import subprocess
+         from mypackage import mymodule
+         import math
 
-Use:
 
-.. code:: python
+         def compute_logbase8(x):
+            return math.log(8, x)
 
-   import sys
-   import subprocess
-   import math
-   from mypackage import mymodule
 
-   def compute_logbase8(x):
-       return math.log(8, x)
+   .. tab:: Use
 
+      .. code-block:: python
 
-You should place imports in separate lines unless they are
-modules from the same package.
+         import math
+         import subprocess
+         import sys
 
-Instead of:
+         from mypackage import mymodule
+         
 
-.. code:: python
+         def compute_logbase8(x):
+             return math.log(8, x)
 
-   import sys, math
-   from my_package import my_module
-   from my_package import my_other_module
 
-   def compute_logbase8(x):
-       return math.log(8, x)
+Multiple Imports
+~~~~~~~~~~~~~~~~
+You should place imports in separate lines unless they are modules from the same
+package.
 
-Use:
+.. tabs::
 
-.. code:: python
+    .. tab:: Avoid
 
-   import sys
-   import math
-   from my_package import my_module, my_other_module
+        .. code-block:: python
+        
+           import math, sys
 
-   def compute_logbase8(x):
-       return math.log(8, x)
+           from my_package import my_module
+           from my_package import my_other_module
+        
 
+           def compute_logbase8(x):
+               return math.log(8, x)
+    
+    .. tab:: Use
+    
+        .. code-block:: python
+        
+           import math
+           import sys
 
-You should avoid using wild cards in imports because doing so
-can make it difficult to detect undefined names.  For more information,
-see `Python Anti-Patterns: using wildcard imports <(https://docs.quantifiedcode.com/python-anti-patterns/maintainability/from_module_import_all_used.html>`_.
+           from my_package import my_module, my_other_module
+        
 
-Instead of:
+           def compute_logbase8(x):
+               return math.log(8, x)
 
-.. code:: python
 
-    from my_package.mymodule import *
+Imports Namespace
+~~~~~~~~~~~~~~~~~
+You should avoid using wild cards in imports because doing so can make it
+difficult to detect undefined names.  For more information, see `Python
+Anti-Patterns: using wildcard imports
+<(https://docs.quantifiedcode.com/python-anti-patterns/maintainability/from_module_import_all_used.html>`_.
 
-Use:
+.. tabs::
 
-.. code:: python
-
-    from my_package.my_module import myclass
-
-
-Indentation and Line Breaks
----------------------------
-Proper and consistent indentation is important to producing
-easy-to-read and maintainable code. In Python, use four spaces per
-indentation level and avoid tabs. 
-
-Indentation should be used to emphasize:
-
- - Body of a control statement, such as a loop or a select statement
- - Body of a conditional statement
- - New scope block
-
-.. code:: python
-
-   class MyFirstClass:
-       """MyFirstClass docstring"""
-
-   class MySecondClass:
-       """MySecondClass docstring"""
-
-   def top_level_function():
-       """Top level function docstring"""
-       return
-
-For improved readability, add blank lines or wrapping lines. Two
-blank lines should be added before and after all function and class
-definitions.
-
-Inside a class, use a single line before any method definition.
-
-.. code:: python
-
-   class MyClass:
-       """MyClass docstring"""
-
-   def first_method(self):
-       """First method docstring"""
-       return
-
-   def second_method(self):
-       """Second method docstring"""
-       return
-
-To make it clear when a 'paragraph' of code is complete and a new section
-is starting, use a blank line to separate logical sections.
-
-Instead of:
-
-.. code::
-
-   if x < y:
-
-       STATEMENTS_A
-
-   else:
-
-       if x > y:
-
-           STATEMENTS_B
-
-       else:
-
-           STATEMENTS_C
-
-   if x > 0 and x < 10:
-
-       print("x is a positive single digit.")
-
-Use:
-
-.. code::
-
-   if x < y:
-       STATEMENTS_A
-   else:
-       if x > y:
-           STATEMENTS_B
-       else:
-           STATEMENTS_C
-
-   if x > 0 and x < 10:
-       print("x is a positive single digit.")
-   elif x < 0:
-       print("x is less than zero.")
-
-
-Maximum Line Length
--------------------
-For source code lines, best practice is to keep the length at or below
-100 characters. For docstrings and comments, best practice is to keep
-the length at or below 72 characters.
-
-Lines longer than these recommended limits might not display properly
-on some terminals and tools or might be difficult to follow. For example,
-this line is difficult to follow:
-
-.. code:: python
-
-   employee_hours = [schedule.earliest_hour for employee in self.public_employees for schedule in employee.schedules]
-
-The line can be rewritten as:
-
-.. code:: python
-
-   employee_hours = [schedule.earliest_hour for employee in
-                     self.public_employees for schedule in employee.schedules]
-
-Alternatively, instead of writing a list comprehension, you can use a
-classic loop.
+    .. tab:: Avoid
+    
+        .. code-block:: python
+        
+            from my_package.my_module import *
+    
+    .. tab:: Use
+    
+        .. code-block:: python
+        
+            from my_package.my_module import myclass
 
 
 Naming Conventions
@@ -240,15 +159,16 @@ global rules to determine the correct names:
 #. Avoid encodings. Do not append prefixes or type information.
 
 
-Names to Avoid
-~~~~~~~~~~~~~~
-Do not use the characters ``'l'``, ``'O'`` , or ``'I'`` as
-single-character variable names. In some fonts, these characters are
-indistinguishable from the numerals one and zero.
+Variables
+~~~~~~~~~
+
+Do not use the characters ``'l'``, ``'O'`` , or ``'I'`` as single-character
+variable names. In some fonts, these characters are indistinguishable from the
+numerals one and zero.
 
 
-Package and Module Naming Conventions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Packages and Modules
+~~~~~~~~~~~~~~~~~~~~
 Use a short, lowercase word or words for module names. Separate words
 with underscores to improve readability. For example, use ``module.py``
 or ``my_module.py``.
@@ -259,25 +179,30 @@ from PyPi.
 
 .. code::
 
-   pip install package
+   python -m pip install package
 
 
-Class Naming Conventions
-~~~~~~~~~~~~~~~~~~~~~~~~
-Use `camel case <https://en.wikipedia.org/wiki/Camel_case>`_ when naming classes. Do not separate words
-with underscores. 
+Classes
+~~~~~~~
+Use `camel case <https://en.wikipedia.org/wiki/Camel_case>`_ when naming
+classes. Do not separate words with underscores. 
 
 .. code:: python
 
    class MyClass():
        """Docstring for MyClass"""
-       pass
+       ...
 
 
-Function and Method Naming Conventions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Use a lowercase word or words for Python functions or methods. Separate
-words with underscores to improve readability. 
+Use a lowercase word or words for Python functions or methods. Separate words
+with underscores to improve readability. When naming class methods, the
+following conventions apply:
+
+- Only `dunder methods`_ must be enclosed by double underscores.
+- Methods starting with double underscores are considered to be private methods.
+- Methods starting with a single underscore are considered to be protected methods.
+
+.. _dunder methods: https://docs.python.org/3/reference/datamodel.html#special-method-names
 
 .. code:: python
 
@@ -313,20 +238,25 @@ words with underscores to improve readability.
            self._value += 2
 
 
-Variable Naming Conventions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Use a lowercase single letter, word, or words when naming
-variables. Separate words with underscores to improve readability.
+.. note:: 
+
+   Remember that functions and methods naming is just a convention. In Python
+   there are not private members, meaning that you can always access these even
+   if they start with underscores.
+
+
+Variables
+~~~~~~~~~
+Use a lowercase single letter, word, or words when naming variables. Separate
+words with underscores to improve readability.
 
 .. code:: python
 
     my_variable = 5
 
-
-Constants are variables that are set at the module level and are used
-by one or more methods within that module. Use an uppercase word or
-words for constants. Separate words with underscores to improve
-readability.
+Constants are variables that are set at the module level and are used by one or
+more methods within that module. Use an uppercase word or words for constants.
+Separate words with underscores to improve readability.
 
 .. code:: python
 
@@ -335,9 +265,128 @@ readability.
     MY_CONSTANT = 8
     MY_OTHER_CONSTANT = 1000
 
+Indentation and Line Breaks
+---------------------------
+Proper and consistent indentation is important to producing
+easy-to-read and maintainable code. In Python, use four spaces per
+indentation level and avoid tabs. 
 
-Comments
-~~~~~~~~
+Indentation should be used to emphasize:
+
+ - Body of a control statement, such as a loop or a select statement
+ - Body of a conditional statement
+ - New scope block
+
+.. code:: python
+
+   class MyFirstClass:
+       """MyFirstClass docstring"""
+
+   class MySecondClass:
+       """MySecondClass docstring"""
+
+   def top_level_function():
+       """Top level function docstring"""
+       return
+
+For improved readability, add blank lines or wrapping lines. Two
+blank lines should be added before and after all function and class
+definitions.
+
+Inside a class, use a single line before any method definition.
+
+.. code-block:: python
+
+   class MyClass:
+       """MyClass docstring"""
+
+       def first_method(self):
+           """First method docstring"""
+           return
+
+       def second_method(self):
+           """Second method docstring"""
+           return
+
+To make it clear when a 'paragraph' of code is complete and a new section
+is starting, use a blank line to separate logical sections.
+
+Instead of:
+
+.. tabs::
+
+    .. tab:: Avoid
+    
+        .. code-block::
+        
+           if x < y:
+        
+               STATEMENTS_A
+        
+           else:
+        
+               if x > y:
+        
+                   STATEMENTS_B
+        
+               else:
+        
+                   STATEMENTS_C
+        
+           if x > 0 and x < 10:
+        
+               print("x is a positive single digit.")
+    
+    .. tab:: Use
+    
+        .. code::
+        
+           if x < y:
+               STATEMENTS_A
+           else:
+               if x > y:
+                   STATEMENTS_B
+               else:
+                   STATEMENTS_C
+        
+           if x > 0 and x < 10:
+               print("x is a positive single digit.")
+           elif x < 0:
+               print("x is less than zero.")
+
+
+Maximum Line Length
+-------------------
+For source code lines, best practice is to keep the length at or below
+100 characters. For docstrings and comments, best practice is to keep
+the length at or below 72 characters.
+
+Lines longer than these recommended limits might not display properly
+on some terminals and tools or might be difficult to follow. For example,
+this line is difficult to follow:
+
+.. code:: python
+
+   employee_hours = [schedule.earliest_hour for employee in self.public_employees for schedule in employee.schedules]
+
+The line can be rewritten as:
+
+.. code:: python
+
+   employee_hours = [
+       schedule.earliest_hour
+       for employee in self.public_employees
+       for schedule in employee.schedules
+   ]
+
+Alternatively, instead of writing a list comprehension, you can use a
+classic loop.
+
+Notice that sometimes it will not be possible to keep the line length below the
+desired value without breaking the syntax rules.
+
+Comments Conventions
+--------------------
 Because a PyAnsys library generally involves multiple physics domains,
 users reading its source code do not have the same background as
 the developers who wrote it. This is why it is important for a library
@@ -434,21 +483,16 @@ same line:
 
 .. code:: python
 
-   """This is a docstring.""".  
+    """This is a docstring."""
 
 For a multi-line docstring, put the ending ``"""`` on a line by itself.
 
-PyAEDT follows the `numpydoc
-<https://numpydoc.readthedocs.io/en/latest/format.html>`_
-docstring style, which is used by `numpy <https://numpy.org/>`_,
-`scipy <https://www.scipy.org/>`_, `pandas
-<https://pandas.pydata.org/>`_, and a variety of other Python open
-source projects.  For more information on docstrings for PyAnsys
-libraries, see :ref:`Documentation Style`.
+For more information on docstrings for PyAnsys libraries, see
+:ref:`Documentation Style`.
 
 
 Programming Recommendations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------
 The following sections provide some `PEP8
 <https://www.python.org/dev/peps/pep-0008/>`_ suggestions for removing
 ambiguity and preserving consistency. They address some common pitfalls 
@@ -456,7 +500,7 @@ when writing Python code.
 
 
 Booleans and Comparisons
-------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~
 Don't compare Boolean values to ``True`` or ``False`` using the
 equivalence operator.
 
@@ -515,7 +559,7 @@ especially important when parsing arguments.
 
 
 Handling Strings
-----------------
+~~~~~~~~~~~~~~~~
 Use ``.startswith()`` and ``.endswith()`` instead of slicing.
 
 Instead of:
@@ -535,12 +579,12 @@ Use:
    if word.startswith('cat'):
        print('The word starts with "cat"')
 
-   if file_name.endswith('jpg'):
+   if file_name.endswith('.jpg'):
        print('The file is a JPEG')
 
 
 Reading the Windows Registry
-----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Never read the Windows registry or write to it because this is dangerous and 
 makes it difficult to deploy libraries on different environments or operating
 systems.
@@ -559,7 +603,7 @@ Bad practice - Example 2
 
 
 Duplicated Code
----------------
+~~~~~~~~~~~~~~~
 Follow the DRY principle, which states that "Every piece of knowledge
 must have a single, unambiguous, authoritative representation within a
 system."  Attempt to follow this principle unless it overly complicates
@@ -567,39 +611,43 @@ the code. For instance, the following example converts Fahrenheit to kelvin
 twice, which now requires the developer to maintain two separate lines
 that do the same thing.
 
-.. code:: python
 
-   temp = 55
-   new_temp = ((temp - 32) * (5 / 9)) + 273.15
+.. tabs::
 
-   temp2 = 46
-   new_temp_k = ((temp2 - 32) * (5 / 9)) + 273.15
+    .. tab:: Avoid
+    
+        .. code-block:: python
+        
+            temp = 55
+            new_temp = ((temp - 32) * (5 / 9)) + 273.15
 
-Instead, write a simple method that converts Fahrenheit to kelvin:
+            temp2 = 46
+            new_temp_k = ((temp2 - 32) * (5 / 9)) + 273.15
 
-.. code:: python
+   
+    .. tab:: Use
+    
+        .. code-block:: python
+        
+            def fahr_to_kelvin(fahr)
+                """Convert temperature in Fahrenheit to Kelvin.
 
-   def fahr_to_kelvin(fahr)
-       """Convert temperature in Fahrenheit to kelvin.
+                Parameters
+                ----------
+                fahr : int or float
+                    Temperature in Fahrenheit.
 
-       Parameters:
-       -----------
-       fahr: int or float
-           Temperature in Fahrenheit.
+                Returns
+                -------
+                kelvin : float
+                   Temperature in Kelvin.
 
-       Returns:
-       -----------
-       kelvin : float
-          Temperature in kelvin.
-       """
-       return ((fahr - 32) * (5 / 9)) + 273.15
+                """
+                return ((fahr - 32) * (5 / 9)) + 273.15
 
-Now, you can execute and get the same output with:
+            new_temp = fahr_to_kelvin(55)
+            new_temp_k = fahr_to_kelvin(46)
 
-.. code:: python
-
-   new_temp = fahr_to_kelvin(55)
-   new_temp_k = fahr_to_kelvin(46)
 
 This is a trivial example, but the approach can be applied for a
 variety of both simple and complex algorithms and workflows. Another
@@ -610,8 +658,9 @@ for this method.
 
    import numpy as np
 
+
    def test_fahr_to_kelvin():
-       assert np.isclose(12.7778, fahr_to_kelvin(55))
+       np.testing.assert_allclose(12.7778, fahr_to_kelvin(55))
 
 Now, not only do you have one line of code to verify, but you can also
 use a testing framework such as ``pytest`` to test that the method is
@@ -619,7 +668,7 @@ correct.
 
 
 Nested Blocks
--------------
+~~~~~~~~~~~~~
 Avoid deeply nested block structures (such as conditional blocks and loops)
 within one single code block. 
 
@@ -652,67 +701,86 @@ reusable and unit-testable.
 
 
 Loops
------
+~~~~~
 While there is nothing inherently wrong with nested loops, to avoid
 certain pitfalls, steer clear of having loops with more than two levels. In
 some cases, you can rely on coding mechanisms like list comprehensions 
 to circumvent nested loops. 
 
-Instead of:
+.. tabs::
 
-.. code::
+    .. tab:: Avoid
 
-   >>> squares = []
-   >>> for i in range(10):
-   ...    squares.append(i * i)
-   >>> squares
-   [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+        .. code-block:: python
+        
+           squares = []
+           for i in range(10):
+              squares.append(i * i)
+
+        .. code-block:: pycon
+
+            >>> print(f"{squares = }")
+            squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 
 
-Implement a list comprehension with:
+    .. tab:: Use
 
-.. code::
+        .. code-block:: python
 
-   >>> squares = [i*i for i in range(10)]
-   >>> squares
-   [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+            squares = [i*i for i in range(10)]
+
+
+        .. code-block:: pycon
+
+            >>> print(f"{squares = }")
+            squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 
 
 If the loop is too complicated for creating a list comprehension,
 consider creating small functions and calling these instead. For
 example, extract all consonants in a sentence:
 
-.. code:: python
+.. tabs::
 
-   >>> sentence = 'This is a sample sentence.'
-   >>> vowels = 'aeiou'
-   >>> consonants = []
-   >>> for letter in sentence:
-   ...     if letter.isalpha() and letter.lower() not in vowels:
-   ...         consonants.append(letter)
-   >>> consonants
-   ['T', 'h', 's', 's', 's', 'm', 'p', 'l', 's', 'n', 't', 'n', 'c']
-
-
-This is better implemented by creating a simple method to return if a
-letter is a consonant:
-
-   >>> def is_consonant(letter):
-   ...     """Return ``True`` when a letter is a consonant."""
-   ...     vowels = 'aeiou'
-   ...     return letter.isalpha() and letter.lower() not in vowels
-   ...
-   >>> sentence = 'This is a sample sentence.'
-   >>> consonants = [letter for letter in sentence if is_consonant(letter)]
-   >>> consonants
-   ['T', 'h', 's', 's', 's', 'm', 'p', 'l', 's', 'n', 't', 'n', 'c']
+    .. tab:: Avoid
+    
+        .. code-block:: python
+        
+            sentence = 'This is a sample sentence.'
+            vowels = 'aeiou'
+            consonants = []
+            for letter in sentence:
+                if letter.isalpha() and letter.lower() not in vowels:
+                    consonants.append(letter)
+        
+        .. code-block:: pycon 
+        
+            >>> print(f"{consonants = }")
+            consonants = ['T', 'h', 's', 's', 's', 'm', 'p', 'l', 's', 'n', 't', 'n', 'c']
+    
+    
+    .. tab:: Use
+    
+        .. code-block:: python
+    
+            def is_consonant(letter):
+                """Return ``True`` when a letter is a consonant."""
+                vowels = 'aeiou'
+                return letter.isalpha() and letter.lower() not in vowels
+       
+        .. code-block:: pycon
+    
+            >>> sentence = 'This is a sample sentence.'
+            >>> consonants = [letter for letter in sentence if is_consonant(letter)]
+            >>> print(f"{consonants = }")
+            consonants = ['T', 'h', 's', 's', 's', 'm', 'p', 'l', 's', 'n', 't', 'n', 'c']
 
 The second approach is more readable and better documented. Additionally,
 you could implement a unit test for ``is_consonant``.
 
 
 Security Considerations
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
 Security, an ongoing process involving people and practices, ensures application confidentiality, integrity, and availability [#]_.
 Any library should be secure and implement good practices that avoid or mitigate possible security risks.
