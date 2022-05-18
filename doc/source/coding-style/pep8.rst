@@ -207,7 +207,7 @@ following conventions apply:
 .. code:: python
 
    class MyClass():
-       """Docstring for MyClass"""
+       """Docstring for MyClass."""
 
        def __init__(self, value):
            """Constructor.
@@ -280,13 +280,13 @@ Indentation should be used to emphasize:
 .. code:: python
 
    class MyFirstClass:
-       """MyFirstClass docstring"""
+       """MyFirstClass docstring."""
 
    class MySecondClass:
-       """MySecondClass docstring"""
+       """MySecondClass docstring."""
 
    def top_level_function():
-       """Top level function docstring"""
+       """Top level function docstring."""
        return
 
 For improved readability, add blank lines or wrapping lines. Two
@@ -298,14 +298,14 @@ Inside a class, use a single line before any method definition.
 .. code-block:: python
 
    class MyClass:
-       """MyClass docstring"""
+       """MyClass docstring."""
 
        def first_method(self):
-           """First method docstring"""
+           """First method docstring."""
            return
 
        def second_method(self):
-           """Second method docstring"""
+           """Second method docstring."""
            return
 
 To make it clear when a 'paragraph' of code is complete and a new section
@@ -317,7 +317,7 @@ Instead of:
 
     .. tab:: Avoid
     
-        .. code-block::
+        .. code-block:: python
         
            if x < y:
         
@@ -339,7 +339,7 @@ Instead of:
     
     .. tab:: Use
     
-        .. code::
+        .. code-block:: python
         
            if x < y:
                STATEMENTS_A
@@ -607,7 +607,7 @@ Duplicated Code
 Follow the DRY principle, which states that "Every piece of knowledge
 must have a single, unambiguous, authoritative representation within a
 system."  Attempt to follow this principle unless it overly complicates
-the code. For instance, the following example converts Fahrenheit to kelvin
+the code. For instance, the following example converts Fahrenheit to Kelvin
 twice, which now requires the developer to maintain two separate lines
 that do the same thing.
 
