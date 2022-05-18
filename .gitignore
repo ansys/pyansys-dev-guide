@@ -18,4 +18,4 @@ doc/build/
 venv/
 
 # sphinx autogen
-doc/source/documentation_style/api/*
+doc/source/guidelines/api/*

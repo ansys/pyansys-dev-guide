@@ -46,7 +46,7 @@ Each repository is expected to follow this minimum set of standards:
 - PEP8 code standards. See :ref:`best_practices`.
 - CI/CD using GitHub actions or Azure DevOps to enforce coding standards.
 - Publicly hosted documentation describing the API and providing examples. See
-  :ref:`api_documentation`.
+  :ref:`Documentation Style`.
 - Unit testing with at least 80% test coverage.
 - Infrastructure in place to deploy the library as a package on `PyPi
   <https://pypi.org/>`_.  See :ref:`Packaging Style`.

@@ -1,20 +1,8 @@
-.. _docstrings:
-
-Docstring Standards
+Numpydoc Docstrings
 ###################
+
 When writing docstrings for PyAnsys libraries, use the `numpydoc`_
-style, regardless as to whether you are using this Sphinx extension or the 
-`napoleon <https://pypi.org/project/sphinxcontrib-napoleon/>`_ Sphinx extension
-to generate your library documentation.
-
-You add the extension to use for documentation generation in your ``conf.py`` file.
-For example, to use `numpydoc`_, you would add:
-
-.. code:: python
-
-  extensions = ['numpydoc',
-                # other extensions
-  ]
+style. 
 
 For consistency within PyAnsys libraries, always use ``"""`` to introduce and conclude a
 docstring, keeping the line length shorter than 70 characters. Ensure that there are
@@ -39,11 +27,12 @@ classes, methods, and variables. For example::
    style. 
 
  
-Minimum Section Requirements
-----------------------------
+Required Docstring Sections
+===========================
+
 PyAnsys library docstrings contain these `numpydoc`_ sections as a minimum:
 
-* `Short description <https://numpydoc.readthedocs.io/en/latest/format.html#short-summary>`_
+* `Short Summary <https://numpydoc.readthedocs.io/en/latest/format.html#short-summary>`_
 * `Extended Summary <https://numpydoc.readthedocs.io/en/latest/format.html#extended-summary>`_ if applicable
 * `Parameters <https://numpydoc.readthedocs.io/en/latest/format.html#parameters>`_ if applicable
 * `Returns <https://numpydoc.readthedocs.io/en/latest/format.html#returns>`_ if applicable
@@ -52,11 +41,29 @@ PyAnsys library docstrings contain these `numpydoc`_ sections as a minimum:
 These sections should follow numpydoc style. To avoid inconsistencies between
 PyAnsys libraries, adhere to the additional style guidelines that follow.
 
-Classes
-~~~~~~~
+
+Short Summary
+-------------
+This is a single line that goes immediately after the declaration of the class
+or function to briefly describe what the class or function does. The
+`short summary` is mandatory. If it is not present, :ref:`Doc Style Tools` will
+raise an error.
+
+The short summary can be declared on the same line as the opening quotes or on
+the next line. While `PEP 257
+<https://peps.python.org/pep-0257>`_ accepts both ways, you must be consistent across your
+project. If you decide to declare the short summary on the same line,
+refer to :ref:`Numpydoc Validation` because the ``"GL01"`` check must be
+disabled.
+
+The guidelines for documenting short summaries differ for classes versus
+functions.
+
+Short Summaries for Classes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 A class is a 'noun' representing a collection of methods. For consistency within PyAnsys libraries,
 always start the brief description for a class with a verb ending in 's', followed by an extended
-summary if applicable::
+summary in a new line if additional information is needed::
 
   class FieldAnalysis3D(Analysis):
     """Manages 3D field analysis setup in HFSS, Maxwell 3D, and Q3D.
@@ -67,19 +74,20 @@ summary if applicable::
     ...
     """
 
-
 Ensure that there is a line break between the end of a class docstring and the subsequent methods.
 
-Methods
-~~~~~~~
+Short Summaries for Methods
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 A method is a 'verb' representing an action that can be performed. For consistency within PyAnsys
 libraries, always start the brief description for a method with a verb not ending in 's', followed
-by an extended summary if applicable::
+by an extended summary in a new line if additional information is needed::
 
   def export_mesh_stats(self, setup_name, variation_string="", mesh_path=None):
-    """Export mesh statistics to a file."""
+    """Export mesh statistics to a file.
+    
+    ...
+    """
       
-
 Methods with a leading underscore (_) are 'protected' methods, meaning that they are not rendered in the
 documentation unless an explicit request is made to add them using Sphinx directives. However, clearly
 written descriptions for private methods are still important.
@@ -91,11 +99,14 @@ add a docstring for the setter. A setter simply exposes both the GET and SET met
 just the GET method. Examples should be included to demonstrate usage.
 
 Parameters
-~~~~~~~~~~
-Both classes and methods have parameters in their function signatures. All parameters in a function
-signature should appear in the 'Parameters' section for the class or method. 
+----------
+Functions and class methods may have parameters in their signatures. All these
+parameters should be documented in the ``Parameters`` section.
+signature should appear in the ``Parameters`` section for the class or method. 
 
-Here is an example of a 'Parameters' section for a class in PyAEDT::
+Here is an example of a ``Parameters`` section for a class in PyAEDT:
+
+.. code-block:: rst
 
   Parameters
   ----------
@@ -144,46 +155,105 @@ parameter, the description specifies the default along with any information that
 be needed about the behavior that occurs when the default is used.
   
 Returns
-~~~~~~~
-The 'Returns' section contains only the return data type and a brief description
-that concludes with a period::
+-------
+The ``Returns`` section contains only the return data type and a brief description
+that concludes with a period:
+
+.. code-block:: rst
 
   Returns
   -------
-    dict
+  dict
       Dictionary of components with their absolute paths.
  
 
-A class does not have a 'Returns' section. If a Boolean is returned, format the
-'Returns` section like this::
+A class does not have a ``Returns`` section. If a ``Boolean`` is returned, format the
+``Returns`` section like this:
+
+.. code-block:: rst
 
   Returns
-  --------
-    bool
+  -------
+  bool
       ``True`` when successful, ``False`` when failed.
 
+It is possible for the ``Returns`` section to look like the ``Parameters`` section
+if variable names are provided:
 
-It is possible for more than one item to be returned::
+.. code-block:: rst
 
   Returns
-  --------
-    type
-      Ground object.
-    str
-      Ground name.
+  -------
+  has_succeeded : bool
+      ``True`` when successful, ``False`` when failed.
 
+It is possible for more than one item to be returned:
+
+.. code-block:: rst
+
+  Returns
+  -------
+  type
+      Ground object.
+  str
+      Ground name.
 
 If a method does not have a decorator, the basic implementation of Python
 methods is used. In this case, while ``None`` is returned, you do not document it.
-Consequently, such a method does not have a 'Returns' section.
+Consequently, such a method does not have a ``Returns`` section.
 
-Example Docstrings
-------------------
-Methods and functions should generally be documented within the
-'Examples' section to make the usage of the method or function clear.
-Here is a sample function:
+Examples
+--------
 
-.. literalinclude:: sample_func.py
+The ``Examples`` section provides a quick reference on how to use a method or
+a function. This section must be compliant with the `doctest
+<https://docs.python.org/3/library/doctest.html>`_ format and is not supposed to
+replace your test suite but complement it. As an example,
+consider the following function:
+
+.. code-block:: rst
+
+   Examples
+   --------
+   Create an instance of HFSS and connect to an existing HFSS
+   design or create a new HFSS design if one does not exist.
+
+   >>> from pyaedt import Hfss
+   >>> hfss = Hfss()
+   pyaedt info: No project is defined...
+   pyaedt info: Active design is set to...
+
+
+If the definition of the function is updated, this
+section must be updated too.
+
+
+Additional Directives
+=====================
+Since Python docstrings are written using RST syntax, it is possible to take
+advantage of some directives available in this Markup language. Among those, it
+is possible to find:
+
+- ``.. note::`` directive is useful for highlighting important
+  information once the documentation gets rendered.
+
+- ``.. warning::`` is usually used to point out an action that might result in
+  data loss.
+
+- ``.. deprecated:: X.Y.Z`` to inform the user about the deprecated status of
+  the object or functionality.
+
+You can find additional information and examples at `numpydoc`_. Reference
+this documentation as the primary source regarding docstring styles for directives
+that are not covered here.
+
+
+Example
+=======
+
+A generic docstring example compliant with PyAnsys guidelines is shown below:
+
+.. literalinclude:: code/sample_func.py
 
 To include the docstring of a function within Sphinx, you use the
 ``autofunction::`` directive:
@@ -195,32 +265,6 @@ To include the docstring of a function within Sphinx, you use the
 This directive renders the sample function as:
 
 .. autofunction:: pyansys_sphinx_theme.sample_func.func
-
-
-Validation
-----------
-Enable validation of docstrings during the Sphinx build by adding the
-following line to the ``conf.py`` file::
-
-  numpydoc_validation_checks = {"GL08"}
-
-This will issue the following warning for any object without a docstring::
-
-  "The object does not have a docstring"
-
-The ``"GL08"`` code is required at minimum for PyAnsys libraries.
-Other codes may be enforced at a later date. For a full listing,
-see `Validation <https://numpydoc.readthedocs.io/en/latest/validation.html#validation>`_
-in the `numpydoc`_.
-
-
-Additional Information
-----------------------
-You can find additional information and examples at `numpydoc`_. Reference
-this documentation as the primary source regarding docstring styles for directives
-that are not covered here. For example, you use the ``note::`` directive to highlight
-important information and the ``warning::`` directive to point out an action that
-might result in data loss.
 
 .. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
 .. _googledoc: https://google.github.io/styleguide/

@@ -1,7 +1,6 @@
-.. _api_documentation:
+Documentation Style
+###################
 
-API Documentation Style
-#######################
 Good API documentation drives library adoption and usage and is the
 foundation for a good developer experience.  Even with the best
 interfaces and the most functional product, no one will adopt the API
@@ -32,13 +31,11 @@ The documentation for a PyAnsys library should contain:
 Finally, the documentation should be public and hosted via gh-pages, either as
 a branch named ``gh-pages`` within the library repository or within a
 ``gh-pages`` branch within ``<library-repository>-docs``. For more information,
-see :ref:`documentation_deployment`.
+see :ref:`Continuous Documentation Deployment`.
 
 .. toctree::
    :hidden:
    :maxdepth: 3
 
    docstrings
-   class_documentation
-   deployment
    formatting-tools

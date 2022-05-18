@@ -1,6 +1,5 @@
-Formatting Tools
-================
-
+Doc Style Tools
+===============
 There are plenty of tools for documentation style and coverage. This section
 presents some of the most popular ones in the Python ecosystem. A minimum
 configuration is provided for each one so you can easily include them in your
@@ -9,6 +8,19 @@ PyAnsys project.
 Most of the tools presented can be configured using :ref:`the
 \`\`pyproject.toml\`\` file`, avoiding dotfiles and thus leading to a much
 cleaner root project directory.
+
+
+Blacken-Docs
+------------
+
+When writing documentation, it is frequent to include code-blocks which are used
+as examples. However, these code snippets style cannot be verified with the usual code
+formatting tools. This is where `blacken-docs`_ comes into play. You can execute
+this tool by running:
+
+.. code:: bash
+
+   blacken-docs -l <line-length> doc/**/*.rst
 
 
 Codespell
@@ -72,6 +84,41 @@ Alternate tools to `interrogate`_ are `docstr-coverage`_ and
 output resembling that of `pytest-cov`_, which is the the equivalent tool
 for source code coverage.
 
+Numpydoc Validation
+-------------------
+To validate the style of :ref:`Numpydoc Docstrings`, it is possible to
+take advantage of the `numpydoc`_ Sphinx extension. Note that this extension
+checks only for those objects whose docstrings must be rendered. It is not a
+command line tool that checks the style of all docstrings in your source code.
+
+Because `numpydoc`_ is a Sphinx extension, it must be configured in the
+``conf.py`` file.  See :ref:`The \`\`doc/\`\` directory`. Start by adding it to the
+list of extensions:
+
+.. code-block:: python
+
+  extensions = [
+      'numpydoc',
+      ...
+  ]
+
+Once the `numpydoc`_ extension is added, you can select which `validation checks
+<https://numpydoc.readthedocs.io/en/latest/validation.html#built-in-validation-checks>`_
+must be addressed by using the ``numpydoc_validation_checks`` dictionary:
+
+.. code-block:: python
+
+   numpydoc_validation_checks = {"GL08"}
+
+This will issue the following warning for any object without a docstring:
+
+.. code-block:: python
+
+   "The object does not have a docstring"
+
+For a complete list of available checks, see the `full mapping of
+validation checks
+<https://numpydoc.readthedocs.io/en/latest/validation.html#built-in-validation-checks>`_.
 
 Pydocstyle
 ----------
@@ -86,9 +133,10 @@ under the ``[tool.pydocstyle]`` entry:
 .. code:: toml
 
    [tool.pydocstyle]
-   # Additional configuration
+   convention = "numpy"
 
 
+.. _blacken-docs: https://github.com/asottile/blacken-docs
 .. _interrogate: https://interrogate.readthedocs.io/en/latest/
 .. _docstr-coverage: https://docstr-coverage.readthedocs.io/en/latest/index.html
 .. _docstring-coverage: https://bitbucket.org/DataGreed/docstring-coverage/wiki/Home
@@ -98,3 +146,4 @@ under the ``[tool.pydocstyle]`` entry:
 .. _docformatter: https://github.com/PyCQA/docformatter
 .. _codespell: https://github.com/codespell-project/codespell
 .. _pytest-cov: https://pytest-cov.readthedocs.io/en/latest/
+.. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html

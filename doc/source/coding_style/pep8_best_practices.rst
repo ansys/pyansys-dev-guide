@@ -444,7 +444,7 @@ docstring style, which is used by `numpy <https://numpy.org/>`_,
 `scipy <https://www.scipy.org/>`_, `pandas
 <https://pandas.pydata.org/>`_, and a variety of other Python open
 source projects.  For more information on docstrings for PyAnsys
-libraries, see :ref:`api_documentation`.
+libraries, see :ref:`Documentation Style`.
 
 
 Programming Recommendations

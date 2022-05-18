@@ -11,5 +11,5 @@
    guidelines/index
    packaging/index
    coding_style/index
-   documentation_style/index
+   doc-style/index
    abstractions/index
