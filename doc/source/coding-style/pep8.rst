@@ -35,6 +35,7 @@ might only be discovered during runtime.
 
          def compute_logbase8(x):
              import math
+
              return math.log(8, x)
 
    .. tab:: Use
@@ -71,7 +72,7 @@ All imports should be performed in alphabetically order.
 
 
          def compute_logbase8(x):
-            return math.log(8, x)
+             return math.log(8, x)
 
 
    .. tab:: Use
@@ -83,7 +84,7 @@ All imports should be performed in alphabetically order.
          import sys
 
          from mypackage import mymodule
-         
+
 
          def compute_logbase8(x):
              return math.log(8, x)
@@ -189,8 +190,9 @@ classes. Do not separate words with underscores.
 
 .. code:: python
 
-   class MyClass():
+   class MyClass:
        """Docstring for MyClass"""
+
        ...
 
 
@@ -206,7 +208,7 @@ following conventions apply:
 
 .. code:: python
 
-   class MyClass():
+   class MyClass:
        """Docstring for MyClass."""
 
        def __init__(self, value):
@@ -282,8 +284,10 @@ Indentation should be used to emphasize:
    class MyFirstClass:
        """MyFirstClass docstring."""
 
+
    class MySecondClass:
        """MySecondClass docstring."""
+
 
    def top_level_function():
        """Top level function docstring."""
@@ -372,7 +376,11 @@ this line is difficult to follow:
 
         .. code:: python
 
-            employee_hours = [schedule.earliest_hour for employee in self.public_employees for schedule in employee.schedules]
+            employee_hours = [
+                schedule.earliest_hour
+                for employee in self.public_employees
+                for schedule in employee.schedules
+            ]
 
     .. tab:: Use
 
@@ -461,13 +469,13 @@ Instead of:
 
 .. code:: python
 
-   x = 'John Smith'  # Student Name
+   x = "John Smith"  # Student Name
 
 Use:
 
 .. code:: python
 
-    user_name = 'John Smith'
+    user_name = "John Smith"
 
 
 Docstring Conventions
@@ -509,55 +517,63 @@ Booleans and Comparisons
 Don't compare Boolean values to ``True`` or ``False`` using the
 equivalence operator.
 
-Instead of:
+.. tabs::
 
-.. code:: python
+    .. tab:: Avoid
 
-   if my_bool == True:
-       return result
+        .. code-block:: python
+        
+           if my_bool == True:
+               return result
 
-Use:
+    .. tab:: Use
 
-.. code:: python
-
-   if my_bool:
-       return result
+        .. code-block:: python
+        
+           if my_bool:
+               return result
 
 Knowing that empty sequences are evaluated to ``False``, don't compare the
 length of these objects but rather consider how they would evaluate
 by using ``bool(<object>)``.
 
-Instead of:
+.. tabs::
 
-.. code:: python
+    .. tab:: Avoid
+    
+        .. code-block:: python
+    
+            my_list = []
+            if not len(my_list):
+                raise ValueError('List is empty')
 
-   my_list = []
-   if not len(my_list):
-       raise ValueError('List is empty')
+    .. tab:: Use
+    
+        .. code-block:: python
+        
+            my_list = []
+            if not my_list:
+               raise ValueError('List is empty')
 
-Use:
-
-.. code:: python
-
-    my_list = []
-    if not my_list:
-       raise ValueError('List is empty')
 
 In ``if`` statements, use ``is not`` rather than ``not ...``. 
 
-Instead of:
+.. tabs::
 
-.. code:: python
+    .. tab:: Avoid
 
-    if not x is None:
-        return x
+        .. code-block:: python
+        
+            if not x is None:
+                return x
 
-Use:
+    .. tab:: Use
+    
+        .. code-block:: python
+        
+            if x is not None:
+                return 'x exists!'
 
-.. code:: python
-
-   if x is not None:
-       return 'x exists!'
 
 Also, avoid ``if x:`` when you mean ``if x is not None:``.  This is
 especially important when parsing arguments.
@@ -567,25 +583,28 @@ Handling Strings
 ~~~~~~~~~~~~~~~~
 Use ``.startswith()`` and ``.endswith()`` instead of slicing.
 
-Instead of:
 
-.. code:: python
+.. tabs:: 
 
-   if word[:3] == 'cat':
-       print('The word starts with "cat"')
+    .. tab:: Avoid
 
-   if file_name[-3:] == 'jpg':
-       print('The file is a JPEG')
+        .. code-block:: python
+        
+           if word[:3] == 'cat':
+               print('The word starts with "cat"')
+        
+           if file_name[-3:] == 'jpg':
+               print('The file is a JPEG')
 
-Use:
-
-.. code:: python
-
-   if word.startswith('cat'):
-       print('The word starts with "cat"')
-
-   if file_name.endswith('.jpg'):
-       print('The file is a JPEG')
+    .. tab:: Use
+    
+        .. code-block:: python
+        
+           if word.startswith('cat'):
+               print('The word starts with "cat"')
+        
+           if file_name.endswith('.jpg'):
+               print('The file is a JPEG')
 
 
 Reading the Windows Registry
@@ -594,17 +613,19 @@ Never read the Windows registry or write to it because this is dangerous and
 makes it difficult to deploy libraries on different environments or operating
 systems.
 
-Bad practice - Example 1
+.. tabs::
 
-.. code:: python
+    .. tab:: Avoid
 
-   self.sDesktopinstallDirectory = Registry.GetValue("HKEY_LOCAL_MACHINE\Software\Ansoft\ElectronicsDesktop\{}\Desktop".format(self.sDesktopVersion), "InstallationDirectory", '')
+        .. code-block:: python
 
-Bad practice - Example 2
-
-.. code:: python
-
-    EMInstall = (string)Registry.GetValue(string.Format(@"HKEY_LOCAL_MACHINE\SOFTWARE\Ansoft\ElectronicsDesktop{0}\Desktop", AnsysEmInstall.DesktopVersion), "InstallationDirectory", null);
+            self.sDesktopinstallDirectory = Registry.GetValue(
+                "HKEY_LOCAL_MACHINE\Software\Ansoft\ElectronicsDesktop\{}\Desktop".format(
+                    self.sDesktopVersion
+                ),
+                "InstallationDirectory",
+                "",
+            )
 
 
 Duplicated Code
@@ -681,8 +702,8 @@ within one single code block.
 
    def validate_something(self, a, b, c):
        if a > b:
-           if a*2 > b:
-               if a*3 < b:
+           if a * 2 > b:
+               if a * 3 < b:
                    raise ValueError
            else:
                for i in range(10):
@@ -732,7 +753,7 @@ to circumvent nested loops.
 
         .. code-block:: python
 
-            squares = [i*i for i in range(10)]
+            squares = [i * i for i in range(10)]
 
 
         .. code-block:: pycon
@@ -775,10 +796,10 @@ example, extract all consonants in a sentence:
        
         .. code-block:: pycon
     
-            >>> sentence = 'This is a sample sentence.'
-            >>> consonants = [letter for letter in sentence if is_consonant(letter)]
-            >>> print(f"{consonants = }")
-            consonants = ['T', 'h', 's', 's', 's', 'm', 'p', 'l', 's', 'n', 't', 'n', 'c']
+    >>> sentence = "This is a sample sentence."
+    >>> consonants = [letter for letter in sentence if is_consonant(letter)]
+    >>> print(f"{consonants = }")
+    consonants = ['T', 'h', 's', 's', 's', 'm', 'p', 'l', 's', 'n', 't', 'n', 'c']
 
 The second approach is more readable and better documented. Additionally,
 you could implement a unit test for ``is_consonant``.
