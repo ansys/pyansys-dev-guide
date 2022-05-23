@@ -1,10 +1,10 @@
 PEP 8
 =====
 
-This topic summarizes the key points from `PEP 8`_ and how they apply to PyAnsys
-libraries. `PEP 8`_ style guideline was devised by the Python community in order
+This section summarizes the key points from `PEP 8`_ and how they apply to PyAnsys
+libraries. `PEP 8`_ style guideline were devised by the Python community
 to increase the readability of Python code. `PEP 8`_ has been adopted by some of
-the most popular libraries within the Python ecosystem such us: `NumPy`_,
+the most popular libraries within the Python ecosystem, including: `NumPy`_,
 `SciPy`_, and `pandas`_.
 
 .. _PEP 8: https://www.python.org/dev/peps/pep-0008/
@@ -15,11 +15,10 @@ the most popular libraries within the Python ecosystem such us: `NumPy`_,
 
 Imports
 -------
-The following lines describe the code style guidelines that apply for the
-``import`` statement.
+Code style guidelines follow for ``import`` statements.
 
-Imports Location
-~~~~~~~~~~~~~~~~
+Import Location
+~~~~~~~~~~~~~~~
 Imports should always be placed at the top of the file, just after any
 module comments and docstrings and before module globals and
 constants.  This reduces the likelihood of an `ImportError`_ that
@@ -55,9 +54,9 @@ For better readability, group imports in this order:
 
 #. Standard library imports
 #. Related third-party imports
-#. Local application- or library-specific imports
+#. Local application-specific or library-specific imports
 
-All imports should be performed in alphabetically order.
+All imports within each import grouping should be performed in alphabetical order.
 
 .. tabs::
 
@@ -124,9 +123,9 @@ package.
                return math.log(8, x)
 
 
-Imports Namespace
+Import Namespaces
 ~~~~~~~~~~~~~~~~~
-You should avoid using wild cards in imports because doing so can make it
+You should avoid using wildcards in imports because doing so can make it
 difficult to detect undefined names.  For more information, see `Python
 Anti-Patterns: using wildcard imports
 <(https://docs.quantifiedcode.com/python-anti-patterns/maintainability/from_module_import_all_used.html>`_.
@@ -162,7 +161,6 @@ global rules to determine the correct names:
 
 Variables
 ~~~~~~~~~
-
 Do not use the characters ``'l'``, ``'O'`` , or ``'I'`` as single-character
 variable names. In some fonts, these characters are indistinguishable from the
 numerals one and zero.
@@ -200,9 +198,9 @@ Use a lowercase word or words for Python functions or methods. Separate words
 with underscores to improve readability. When naming class methods, the
 following conventions apply:
 
-- Only `dunder methods`_ must be enclosed by double underscores.
-- Methods starting with double underscores are considered to be private methods.
-- Methods starting with a single underscore are considered to be protected methods.
+- Enclose only `dunder methods`_ with double underscores.
+- Start a method that is to be considered private with double underscores.
+- Start a method that is to be considered protected with a single underscore.
 
 .. _dunder methods: https://docs.python.org/3/reference/datamodel.html#special-method-names
 
@@ -242,10 +240,9 @@ following conventions apply:
 
 .. note:: 
 
-   Remember that functions and methods naming is just a convention. In Python
-   there are not private members, meaning that you can always access these even
-   if they start with underscores.
-
+   Remember that these are only conventions for naming functions and methods. In Python
+   there are no private or protected members, meaning that you can always access even
+   those members that start with underscores.
 
 Variables
 ~~~~~~~~~
@@ -294,7 +291,7 @@ Indentation should be used to emphasize:
        return
 
 For improved readability, add blank lines or wrapping lines. Two
-blank lines should be added before and after all function and class
+blank lines should be added before and after all class and function
 definitions.
 
 Inside a class, use a single line before any method definition.
@@ -398,8 +395,8 @@ classic loop.
 Notice that sometimes it will not be possible to keep the line length below the
 desired value without breaking the syntax rules.
 
-Comments Conventions
---------------------
+Comments
+--------
 Because a PyAnsys library generally involves multiple physics domains,
 users reading its source code do not have the same background as
 the developers who wrote it. This is why it is important for a library
@@ -510,7 +507,7 @@ Programming Recommendations
 ---------------------------
 The following sections provide some `PEP8
 <https://www.python.org/dev/peps/pep-0008/>`_ suggestions for removing
-ambiguity and preserving consistency. They address some common pitfalls 
+ambiguity and preserving consistency. They also address some common pitfalls 
 when writing Python code.
 
 
@@ -592,21 +589,21 @@ Use ``.startswith()`` and ``.endswith()`` instead of slicing.
 
         .. code-block:: python
         
-           if word[:3] == 'cat':
-               print('The word starts with "cat"')
+           if word[:3] == "cat":
+               print("The word starts with 'cat'.")
         
-           if file_name[-3:] == 'jpg':
-               print('The file is a JPEG')
+           if file_name[-4:] == ".jpg":
+               print("The file is a JPEG.")
 
     .. tab:: Use
     
         .. code-block:: python
         
-           if word.startswith('cat'):
-               print('The word starts with "cat"')
+           if word.startswith("cat"):
+               print("The word starts with 'cat'.")
         
-           if file_name.endswith('.jpg'):
-               print('The file is a JPEG')
+           if file_name.endswith(".jpg"):
+               print("The file is a JPEG.")
 
 
 Reading the Windows Registry
@@ -634,7 +631,7 @@ Duplicated Code
 ~~~~~~~~~~~~~~~
 Follow the DRY principle, which states that "Every piece of knowledge
 must have a single, unambiguous, authoritative representation within a
-system."  Attempt to follow this principle unless it overly complicates
+system."  Follow this principle unless it overly complicates
 the code. For instance, the following example converts Fahrenheit to Kelvin
 twice, which now requires the developer to maintain two separate lines
 that do the same thing.
@@ -690,8 +687,8 @@ for this method.
    def test_fahr_to_kelvin():
        np.testing.assert_allclose(12.7778, fahr_to_kelvin(55))
 
-Now, not only do you have one line of code to verify, but you can also
-use a testing framework such as ``pytest`` to test that the method is
+Now, you have only one line of code to verify and can also use
+a testing framework such as ``pytest`` to test that the method is
 correct.
 
 
@@ -766,7 +763,7 @@ to circumvent nested loops.
 
 If the loop is too complicated for creating a list comprehension,
 consider creating small functions and calling these instead. For
-example, extract all consonants in a sentence:
+example to extract all consonants in a sentence:
 
 .. tabs::
 
