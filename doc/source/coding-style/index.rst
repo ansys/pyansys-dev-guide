@@ -20,6 +20,7 @@ formatting with the 'big three' data science libraries: `NumPy`_, `SciPy`_, and
 
    pep8
    formatting-tools
+   required-standard
 
 
 .. LINKS AND REFERENCES
