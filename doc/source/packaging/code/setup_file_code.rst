@@ -1,9 +1,9 @@
 .. code:: python
 
     """Installation file for ansys-mapdl-core."""
-    
+
     from setuptools import find_namespace_packages, setup
-    
+
     setup(
         name="ansys-<product>-<library>",
         packages=find_namespace_packages(where="src", include="ansys*"),

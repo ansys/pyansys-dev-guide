@@ -373,11 +373,7 @@ this line is difficult to follow:
 
         .. code:: python
 
-            employee_hours = [
-                schedule.earliest_hour
-                for employee in self.public_employees
-                for schedule in employee.schedules
-            ]
+            employee_hours = [schedule.earliest_hour for employee in self.public_employees for schedule in employee.schedules]
 
     .. tab:: Use
 
