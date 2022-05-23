@@ -64,6 +64,34 @@ The configuration for `flake8`_ must be specified in a ``.flake8`` file.
    max-line-length = 88
    extend-ignore = E203
 
+Flake8 has many options that can be set within the configuration file.
+For a list and descriptions, see this `Flake8 documentation topic
+<https://flake8.pycqa.org/en/latest/user/options.html>`__.
+
+The example configuration defines the following options:
+
+- ``exclude``
+    Denotes subdirectories and files to be excluded from the check.
+
+- ``select``
+    Sequence of error codes that Flake8 will report errors
+    for. The set in the above configuration is a basic set of errors to
+    check for and is not an exhaustive list.
+
+    For a full list of error codes and their descriptions, see this `Flake8
+    documentation topic <https://flake8.pycqa.org/en/3.9.2/user/error-codes.html>`__.
+
+- ``count``
+    Total number of errors to print at the end of the check.
+
+- ``max-complexity``
+    Sets the maximum allowed McCabe complexity value for a block of code.
+    The value of 10 was chosen because it is a common default.
+
+- ``statistics``
+    Number of occurrences of each error or warning code
+    to be printed as a report at the end of the check.
+
 
 Pre-commit
 ----------
