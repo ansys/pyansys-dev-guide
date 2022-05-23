@@ -25,7 +25,7 @@ The minimum `black`_ configuration for a PyAnsys project should look like this:
 .. code-block:: toml
 
     [tool.black]
-    line-length: "<length>"
+    line-length: <length>
 
 
 Isort
@@ -42,7 +42,7 @@ tools so that no conflicts appear. To do so, make sure you take advantage of the
    [tool.isort]
    profile = "black"
    force_sort_within_sections = true
-   line_length = "<length>"
+   line_length = <length>
    default_section = "THIRDPARTY"
    src_paths = ["doc", "src", "tests"]
 
@@ -93,6 +93,27 @@ The example configuration defines the following options:
     to be printed as a report at the end of the check.
 
 
+Code Coverage
+-------------
+Code coverage allows to check the percetange of codebase tested by the test
+suite. Code coverage should be as high as possible to guarantee that every piece
+of code has been tested.
+
+For ``PyAnsys``, code coverage is done using `pytest-cov`_, a `pytest`_ plugin
+which will trigger the code coverage analysis once your test suite has executed.
+
+Considering the layout presented in :ref:`Required Files`, the following
+configuration for code coverage is the minimum one required for a ``PyAnsys``
+project:
+
+.. code-block:: toml
+
+   [tool.coverage.run]
+   source = ["ansys.<product>"]
+
+   [tool.coverage.report]
+   show_missing = true
+
 Pre-commit
 ----------
 To ensure that every commit you make is compliant with the code style
@@ -101,7 +122,7 @@ Every time you stage some changes and try to commit them, `pre-commit`_ will
 only allow you to do this only if all defined hooks succeed.
 
 The configuration for `pre-commit`_ must be defined in a
-`.pre-commit-config.yaml` file. The following lines present a minimum
+``.pre-commit-config.yaml`` file. The following lines present a minimum
 `pre-commit`_ configuration that includes both code and documentation
 formatting tools.
 
@@ -167,10 +188,6 @@ If you want to manually run ``pre-commit``, you can run:
 This command will show the current and expected style of the code if any of
 the hooks fail.
 
-
-Using ``pre-commit``
-~~~~~~~~~~~~~~~~~~~~
-
 Tox
 ---
 A tool you might consider using in your project is `tox`_. While this automation
@@ -181,48 +198,16 @@ virtual environment. Being able to test your package in isolation rather than in
 Configuration for `tox`_ is stored in a ``tox.ini`` file. The minimum
 configuration for a PyAnsys ``py<product>-<library>`` project should be:
 
-.. code-block:: ini
 
-    [tox]
-    description = Default tox environments list
-    envlist =
-        style,{py37,py38,py39,py310}{,-coverage},doc
-    skip_missing_interpreters = true
-    isolated_build = true
-    isolated_build_env = build
-    
-    [testenv]
-    description = Checks for project unit tests and coverage (if desired)
-    basepython =
-        py37: python3.7
-        py38: python3.8
-        py39: python3.9
-        py310: python3.10
-        py: python3
-        {style,reformat,doc,build}: python3
-    setenv =
-        PYTHONUNBUFFERED = yes
-        coverage: PYTEST_EXTRA_ARGS = --cov=ansys.product --cov-report=term --cov-report=xml --cov-report=html
-    deps =
-        -r{toxinidir}/requirements/requirements_tests.txt
-    commands =
-        pytest {env:PYTEST_MARKERS:} {env:PYTEST_EXTRA_ARGS:} {posargs:-vv}
-    
-    [testenv:style]
-    description = Checks project code style
-    skip_install = true
-    deps =
-        pre-commit
-    commands =
-        pre-commit install
-        pre-commit run --all-files --show-diff-on-failure
-    
-    [testenv:doc]
-    description = Check if documentation generates properly
-    deps =
-        -r{toxinidir}/requirements/requirements_doc.txt
-    commands =
-        sphinx-build -d "{toxworkdir}/doc_doctree" doc/source "{toxworkdir}/doc_out" --color -vW -bhtml
+.. tabs::
+
+    .. tab:: Tox with Flit
+
+        .. include:: code/tox-flit.rst
+
+    .. tab:: Tox with Poetry
+
+        .. include:: code/tox-poetry.rst
 
 
 This minimum configuration assumes that you have a ``requirements/`` directory that
@@ -246,13 +231,12 @@ Using ``tox``
 to make it highly customizable. Descriptions follow of some of the most
 widely used environments:
 
-- ``style``: for checking the code style of your project.
-- ``py``: for running your test suite.
-- ``doc``: for building the documentation of your project.
+- ``tox -e style`` checks the code style of your project.
+- ``tox -e py`` runs your test suite.
+- ``tox -e doc`` builds the documentation of your project.
 
-Execute any of the previous environments by running ``tox -e <env-name>``. You
-can run multiple environments by separating them with commas ``tox -e
-<env-name0>,<env-name1>,...```.  To run all available environments, simply
+It is possible to run multiple environments by separating them with commas ``tox
+-e <env-name0>,<env-name1>,...```.  To run all available environments, simply
 run ``tox``.
 
 
@@ -262,6 +246,8 @@ run ``tox``.
 .. _isort: https://pycqa.github.io/isort/
 .. _flake8: https://flake8.pycqa.org/en/latest/
 .. _pre-commit: https://pre-commit.com/
+.. _pytest: https://docs.pytest.org/en/latest/
+.. _pytest-cov: https://pytest-cov.readthedocs.io/en/latest/
 .. _tox: https://tox.wiki/en/latest/
 .. _PEP 8: https://www.python.org/dev/peps/pep-0008/
 .. _make: https://www.gnu.org/software/make/
