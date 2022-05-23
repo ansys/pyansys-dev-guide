@@ -734,9 +734,9 @@ to circumvent nested loops.
 
         .. code-block:: python
         
-           squares = []
-           for i in range(10):
-              squares.append(i * i)
+            squares = []
+            for i in range(10):
+               squares.append(i * i)
 
         .. code-block:: pycon
 
@@ -791,10 +791,10 @@ example to extract all consonants in a sentence:
        
         .. code-block:: pycon
     
-    >>> sentence = "This is a sample sentence."
-    >>> consonants = [letter for letter in sentence if is_consonant(letter)]
-    >>> print(f"{consonants = }")
-    consonants = ['T', 'h', 's', 's', 's', 'm', 'p', 'l', 's', 'n', 't', 'n', 'c']
+            >>> sentence = "This is a sample sentence."
+            >>> consonants = [letter for letter in sentence if is_consonant(letter)]
+            >>> print(f"{consonants = }")
+            consonants = ['T', 'h', 's', 's', 's', 'm', 'p', 'l', 's', 'n', 't', 'n', 'c']
 
 The second approach is more readable and better documented. Additionally,
 you could implement a unit test for ``is_consonant``.
