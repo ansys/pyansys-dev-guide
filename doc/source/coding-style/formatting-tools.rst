@@ -25,7 +25,7 @@ The minimum `black`_ configuration for a PyAnsys project should look like this:
 .. code-block:: toml
 
     [tool.black]
-    line-length: <length>
+    line-length: "<length>"
 
 
 Isort
@@ -42,7 +42,7 @@ tools so that no conflicts appear. To do so, make sure you take advantage of the
    [tool.isort]
    profile = "black"
    force_sort_within_sections = true
-   line_length = <length>
+   line_length = "<length>"
    default_section = "THIRDPARTY"
    src_paths = ["doc", "src", "tests"]
 
