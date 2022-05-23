@@ -465,17 +465,19 @@ avoided:
 Focus on writing self-documenting code and using short but
 descriptive variable names.  
 
-Instead of:
+.. tabs::
 
-.. code:: python
+    .. tab:: Avoid
 
-   x = "John Smith"  # Student Name
+        .. code:: python
+        
+           x = "John Smith"  # Student Name
 
-Use:
-
-.. code:: python
-
-    user_name = "John Smith"
+    .. tab:: Use
+    
+        .. code:: python
+        
+            user_name = "John Smith"
 
 
 Docstring Conventions
