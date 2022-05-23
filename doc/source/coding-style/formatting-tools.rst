@@ -1,26 +1,26 @@
 Code Style Tools
 ================
 
-There are plenty of tools for checking code style. This section presents some of
+There are many tools for checking code style. This section presents some of
 the most popular ones in the Python ecosystem. A minimum configuration is
-provided for each one so you can easily include them in your PyAnsys project.
+provided for each one so that you can easily include them in your PyAnsys project.
 
 Most of the tools presented can be configured using :ref:`the
-\`\`pyproject.toml\`\` file`, avoiding dotfiles and thus leading to a much
+\`\`pyproject.toml\`\` file`. Avoiding dotfiles leads to a much
 cleaner root project directory.
 
 
 Black
 -----
-`Black`_ is the most popular code formatter in the Python community, as it is
-being maintained by the Python Software Foundation. It allows for a minimum
-configuration to ensure that Python code format looks almost the same across
+`Black`_ is the most popular code formatter in the Python community because it is
+maintained by the Python Software Foundation. It allows for a minimum
+configuration to ensure that the Python code format looks almost the same across
 projects. 
 
-Unlike `PEP 8`_, the default line length imposed by `black`_ is 88 and not 79
-characters.
+While `PEP 8`_ imposes a default line length of 79 characters, `black`_ has
+a default line length of  88 characters.
 
-The minimum black configuration for a PyAnsys project should look like:
+The minimum `black`_ configuration for a PyAnsys project should look like this:
 
 .. code-block:: toml
 
@@ -31,11 +31,10 @@ The minimum black configuration for a PyAnsys project should look like:
 Isort
 -----
 The goal of `isort`_  is to properly format ``import`` statements by making sure
-they follow the standard library, third party libraries and custom library
-order.
+that they follow the standard order: library, third-party libraries, and custom library.
 
 When using `isort`_ with `black`_, it is important to properly configure both
-tools so no conflicts appear. To do so, make sure you take advantage of the
+tools so that no conflicts appear. To do so, make sure you take advantage of the
 ``--porfile black`` flag in `isort`_.
 
 .. code-block:: toml
@@ -50,12 +49,12 @@ tools so no conflicts appear. To do so, make sure you take advantage of the
 
 Flake8
 ------
-The goal of `flake8` is to act as a `PEP 8`_ compliance checker. Again, it is
-important to make sure that if this tool is being used with `black`_, no
+The goal of `flake8` is to act as a `PEP 8`_ compliance checker. Again, if
+this tool is being used with `black`_, it is important to make sure that no
 conflicts arise.
 
-The following configuration is the minimum one to setup `flake8`_ together with
-`black`_ one.
+The following configuration is the minimum one to set up `flake8`_ together with
+`black`_.
 
 The configuration for `flake8`_ must be specified in a ``.flake8`` file.
 
@@ -68,14 +67,14 @@ The configuration for `flake8`_ must be specified in a ``.flake8`` file.
 
 Pre-commit
 ----------
-To make sure that every commit you made is compliant with the code style
-guidelines of PyAnsys, you can take advantage of `pre-commit`_ in your project.
-Every time you stage some changes and once you commit those, `pre-commit`_ will
-only allow you to do so if all the defined hooks succeedd.
+To ensure that every commit you make is compliant with the code style
+guidelines for PyAnsys, you can take advantage of `pre-commit`_ in your project.
+Every time you stage some changes and try to commit them, `pre-commit`_ will
+only allow you to do this only if all defined hooks succeed.
 
 The configuration for `pre-commit`_ must be defined in a
 `.pre-commit-config.yaml` file. The following lines present a minimum
-`pre-commit`_ configuration which includes both code and documentation
+`pre-commit`_ configuration that includes both code and documentation
 formatting tools.
 
 
@@ -126,18 +125,18 @@ Then, make sure you install it as a ``Git hook`` by running:
 
 Using ``pre-commit``
 ~~~~~~~~~~~~~~~~~~~~
-From then on, pre-commit will automatically trigger every time you try to commit
-a change. If any of the hooks defined in `.pre-commit-config.yaml` fails, you
-will need to fix the failing files, stage the new changes and try to commit
-those again.
+One installed as described, ``pre-commit`` will automatically trigger every time
+that you try to commit a change. If any of the hooks defined in `.pre-commit-config.yaml`
+fails, you must fix the failing files, stage the new changes, and try to commit
+them again.
 
-If you want to manually run ``pre-commit``, you can execute:
+If you want to manually run ``pre-commit``, you can run:
 
 .. code-block:: bash
 
     pre-commit run --all-files --show-diff-on-failure
 
-Previous command will show the current and expected style of the code if any of
+This command will show the current and expected style of the code if any of
 the hooks fail.
 
 
@@ -146,11 +145,10 @@ Using ``pre-commit``
 
 Tox
 ---
-A tool you may consider to use in your project is `tox`_. This tool is an
-automation tool similar to `Make`_ but with the advantage of allowing to test
-your package in a temporary virtual environment. This guarantees reproducible
-builds, as your package is no longer tested in "local" mode but in isolated
-form.
+A tool you might consider using in your project is `tox`_. While this automation
+tool is similar to `Make`_, it supports testing of your package in a temporary
+virtual environment. Being able to test your package in isolation rather than in
+"local"  mode guarantees reproducible builds.
 
 Configuration for `tox`_ is stored in a ``tox.ini`` file. The minimum
 configuration for a PyAnsys ``py<product>-<library>`` project should be:
@@ -199,14 +197,14 @@ configuration for a PyAnsys ``py<product>-<library>`` project should be:
         sphinx-build -d "{toxworkdir}/doc_doctree" doc/source "{toxworkdir}/doc_out" --color -vW -bhtml
 
 
-Previous configuration assumes that you have a ``requirements/`` directory that
-contains a ``requirements_tests.txt`` and a ``requirements_doc.txt``. In
-addition, the ``style`` environment will execute pre-commit, which guarantees
+This minimum configuration assumes that you have a ``requirements/`` directory that
+contains ``requirements_tests.txt`` and ``requirements_doc.txt``. In
+addition, the ``style`` environment will execute ``pre-commit``, which guarantees
 the usage of this tool in your project.
 
 Installing ``tox``
 ~~~~~~~~~~~~~~~~~~
-You can install this tool as any other Python one by running:
+You can install ``tox`` like any other Python package:
 
 .. code-block:: bash
 
@@ -216,18 +214,18 @@ You can install this tool as any other Python one by running:
 Using ``tox``
 ~~~~~~~~~~~~~
 
-The core concept behind `tox`_ are ``environments``. These are similar to
-``Makefile`` rules and highly customizable. Previous configuration ships with
-different environments among which you can find:
+`tox`_ uses ``environments``, which are similar to ``Makefile`` rules,
+to make it highly customizable. Descriptions follow of some of the most
+widely used environments:
 
 - ``style``: for checking the code style of your project.
-- ``py``: which will run your test suite.
+- ``py``: for running your test suite.
 - ``doc``: for building the documentation of your project.
 
 Execute any of the previous environments by running ``tox -e <env-name>``. You
-can run multiple environments by specifying those with commas ``tox -e
+can run multiple environments by separating them with commas ``tox -e
 <env-name0>,<env-name1>,...```.  To run all available environments, simply
-execute ``tox``.
+run ``tox``.
 
 
 .. LINKS AND REFERENCES
