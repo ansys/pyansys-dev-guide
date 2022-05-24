@@ -18,7 +18,7 @@ configuration to ensure that the Python code format looks almost the same across
 projects. 
 
 While `PEP 8`_ imposes a default line length of 79 characters, `black`_ has
-a default line length of  88 characters.
+a default line length of 88 characters.
 
 The minimum `black`_ configuration for a PyAnsys project should look like this:
 
@@ -31,10 +31,10 @@ The minimum `black`_ configuration for a PyAnsys project should look like this:
 Isort
 -----
 The goal of `isort`_  is to properly format ``import`` statements by making sure
-that they follow the standard order: library, third-party libraries, and custom library.
+that they follow the standard order: library, third-party libraries, and custom libraries.
 
 When using `isort`_ with `black`_, it is important to properly configure both
-tools so that no conflicts appear. To do so, make sure you take advantage of the
+tools so that no conflicts arise. To accomplish this, use the
 ``--porfile black`` flag in `isort`_.
 
 .. code-block:: toml
@@ -65,16 +65,16 @@ The configuration for `flake8`_ must be specified in a ``.flake8`` file.
    extend-ignore = E203
 
 Flake8 has many options that can be set within the configuration file.
-For a list and descriptions, see this `Flake8 documentation topic
+For more information, see this `Flake8 documentation topic
 <https://flake8.pycqa.org/en/latest/user/options.html>`__.
 
-The example configuration defines the following options:
+The example configuration defines these options:
 
 - ``exclude``
-    Denotes subdirectories and files to be excluded from the check.
+    Subdirectories and files to exclude from the check.
 
 - ``select``
-    Sequence of error codes that Flake8 will report errors
+    Sequence of error codes that Flake8 is to report errors
     for. The set in the above configuration is a basic set of errors to
     check for and is not an exhaustive list.
 
@@ -85,22 +85,22 @@ The example configuration defines the following options:
     Total number of errors to print at the end of the check.
 
 - ``max-complexity``
-    Sets the maximum allowed McCabe complexity value for a block of code.
+   Maximum allowed McCabe complexity value for a block of code.
     The value of 10 was chosen because it is a common default.
 
 - ``statistics``
     Number of occurrences of each error or warning code
-    to be printed as a report at the end of the check.
+    to print as a report at the end of the check.
 
 
 Code Coverage
 -------------
-Code coverage allows to check the percetange of codebase tested by the test
+Code coverage indicates the percentage of the codebase tested by the test
 suite. Code coverage should be as high as possible to guarantee that every piece
 of code has been tested.
 
 For ``PyAnsys``, code coverage is done using `pytest-cov`_, a `pytest`_ plugin
-which will trigger the code coverage analysis once your test suite has executed.
+that triggers the code coverage analysis once your test suite has executed.
 
 Considering the layout presented in :ref:`Required Files`, the following
 configuration for code coverage is the minimum one required for a ``PyAnsys``
@@ -118,8 +118,8 @@ Pre-commit
 ----------
 To ensure that every commit you make is compliant with the code style
 guidelines for PyAnsys, you can take advantage of `pre-commit`_ in your project.
-Every time you stage some changes and try to commit them, `pre-commit`_ will
-only allow you to do this only if all defined hooks succeed.
+Every time you stage some changes and try to commit them, `pre-commit`_ only
+allows them to be committed if all defined hooks succeed.
 
 The configuration for `pre-commit`_ must be defined in a
 ``.pre-commit-config.yaml`` file. The following lines present a minimum
@@ -166,7 +166,7 @@ You can install ``pre-commit`` by running:
 
     python -m pip install pre-commit
 
-Then, make sure you install it as a ``Git hook`` by running:
+Then, ensure that you install it as a ``Git hook`` by running:
 
 .. code-block:: bash
 
@@ -174,8 +174,8 @@ Then, make sure you install it as a ``Git hook`` by running:
 
 Using ``pre-commit``
 ~~~~~~~~~~~~~~~~~~~~
-One installed as described, ``pre-commit`` will automatically trigger every time
-that you try to commit a change. If any of the hooks defined in `.pre-commit-config.yaml`
+One installed as described, ``pre-commit`` automatically triggers every time
+that you try to commit a change. If any hook defined in `.pre-commit-config.yaml`
 fails, you must fix the failing files, stage the new changes, and try to commit
 them again.
 
@@ -190,10 +190,10 @@ the hooks fail.
 
 Tox
 ---
-A tool you might consider using in your project is `tox`_. While this automation
+You might consider using `tox`_ in your project. While this automation
 tool is similar to `Make`_, it supports testing of your package in a temporary
 virtual environment. Being able to test your package in isolation rather than in
-"local"  mode guarantees reproducible builds.
+"local" mode guarantees reproducible builds.
 
 Configuration for `tox`_ is stored in a ``tox.ini`` file. The minimum
 configuration for a PyAnsys ``py<product>-<library>`` project should be:
@@ -212,7 +212,7 @@ configuration for a PyAnsys ``py<product>-<library>`` project should be:
 
 This minimum configuration assumes that you have a ``requirements/`` directory that
 contains ``requirements_tests.txt`` and ``requirements_doc.txt``. In
-addition, the ``style`` environment will execute ``pre-commit``, which guarantees
+addition, the ``style`` environment must execute ``pre-commit``, which guarantees
 the usage of this tool in your project.
 
 Installing ``tox``

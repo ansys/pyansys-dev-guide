@@ -1,7 +1,7 @@
-Required Standard
-=================
+Required Standards
+==================
 
-This section collects the required standard for any ``PyAnsys`` project.  The
+This section collects the required standards for any ``PyAnsys`` project.  The
 individual configurations for the tools presented in :ref:`Code Style Tools` and
 :ref:`Doc Style Tools` are combined together.
 
@@ -39,7 +39,7 @@ Required ``pyproject.toml`` Config
 
 Required ``.flake8`` Config
 ---------------------------
-Also, the following ``.flake8`` file is required:
+The following ``.flake8`` file is also required:
 
 .. code-block:: toml
 
@@ -50,7 +50,7 @@ Also, the following ``.flake8`` file is required:
 
 Required ``pre-commit`` Config
 ------------------------------
-You can take advantage of :ref:`Pre-Commit`, and include a
+You can take advantage of :ref:`Pre-Commit` by including a
 ``.pre-commit-config.yaml`` file like the following one in your project:
 
 
@@ -89,7 +89,7 @@ You can take advantage of :ref:`Pre-Commit`, and include a
 GitHub CI/CD integration
 ------------------------
 Finally, you can take advantage of :ref:`Unit Testing on GitHub via CI/CD` and
-add create a ``style.yml`` workflow file in ``.github/workflows/``:
+create a ``style.yml`` workflow file in ``.github/workflows/``:
 
 .. code-block:: yaml
 

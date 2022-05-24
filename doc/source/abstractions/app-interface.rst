@@ -64,7 +64,7 @@ within this method.
     def create_open_region(
         self, frequency="1GHz", boundary="Radiation", apply_infinite_gp=False, gp_axis="-z"
     ):
-        """Create an open region on the active editor.
+        """Create an open region in the active editor.
 
         Parameters
         ----------
