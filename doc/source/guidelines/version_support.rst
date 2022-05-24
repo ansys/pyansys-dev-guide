@@ -34,10 +34,7 @@ required Python version within ``setup.py`` with:
 
    [...]
 
-   setup(name="my_package_name",
-         python_requires='>3.6',
-   [...]
-   )
+   setup(name="my_package_name", python_requires=">3.6", [...])
 
 This helps ``pip`` to know which versions of your library
 support which versions of Python. You can also impose an upper limit if you're

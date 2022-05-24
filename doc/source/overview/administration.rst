@@ -43,7 +43,7 @@ description, or branch protection management.
 
 Each repository is expected to follow this minimum set of standards:
 
-- PEP8 code standards. See :ref:`best_practices`.
+- PEP8 code standards. See :ref:`PEP 8`.
 - CI/CD using GitHub actions or Azure DevOps to enforce coding standards.
 - Publicly hosted documentation describing the API and providing examples. See
   :ref:`Documentation Style`.

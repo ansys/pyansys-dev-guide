@@ -61,45 +61,49 @@ within this method.
 
 .. code:: python
 
-    def create_open_region(self, frequency="1GHz", boundary="Radiation",
-                           apply_infinite_gp=False, gp_axis="-z"):
-       """Create an open region on the active editor.
+    def create_open_region(
+        self, frequency="1GHz", boundary="Radiation", apply_infinite_gp=False, gp_axis="-z"
+    ):
+        """Create an open region in the active editor.
 
-       Parameters
-       ----------
-       frequency : str, optional
-           Frequency with units. The  default is ``"1GHz"``.
-       boundary : str, optional
-           Type of the boundary. The default is ``"Radiation"``.
-       apply_infinite_gp : bool, optional
-           Whether to apply an infinite ground plane. The default is ``False``.
-       gp_axis : str, optional
-           The default is ``"-z"``.
+        Parameters
+        ----------
+        frequency : str, optional
+            Frequency with units. The  default is ``"1GHz"``.
+        boundary : str, optional
+            Type of the boundary. The default is ``"Radiation"``.
+        apply_infinite_gp : bool, optional
+            Whether to apply an infinite ground plane. The default is ``False``.
+        gp_axis : str, optional
+            The default is ``"-z"``.
 
-       Returns
-       -------
-       bool
-           ``True`` when successful, ``False`` when failed.
+        Returns
+        -------
+        bool
+            ``True`` when successful, ``False`` when failed.
 
-       Examples
-       --------
-       Create an open region in the active editor at 1 GHz.
+        Examples
+        --------
+        Create an open region in the active editor at 1 GHz.
 
-       >>> hfss.create_open_region(frequency="1GHz")
-        
-       """
-       vars = [
-           "NAME:Settings",
-           "OpFreq:=", frequency,
-           "Boundary:=", boundary,
-           "ApplyInfiniteGP:=", apply_infinite_gp
-       ]
-       if apply_infinite_gp:
-           vars.append("Direction:=")
-           vars.append(gp_axis)
+        >>> hfss.create_open_region(frequency="1GHz")
 
-       self._omodelsetup.CreateOpenRegion(vars)
-       return True
+        """
+        vars = [
+            "NAME:Settings",
+            "OpFreq:=",
+            frequency,
+            "Boundary:=",
+            boundary,
+            "ApplyInfiniteGP:=",
+            apply_infinite_gp,
+        ]
+        if apply_infinite_gp:
+            vars.append("Direction:=")
+            vars.append(gp_axis)
+
+        self._omodelsetup.CreateOpenRegion(vars)
+        return True
 
 Here, the COM ``CreateOpenRegion`` method is abstracted, encapsulating
 the model setup object.  There's no reason why a user needs direct

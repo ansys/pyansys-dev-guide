@@ -82,7 +82,7 @@ When you are ready to start contributing code, see:
 
 - :ref:`development_practices` for information on how PyAnsys development is
   conducted
-- :ref:`best_practices` for information on how to style and format your
+- :ref:`PEP 8` for information on how to style and format your
   code to adhere to PyAnsys standards
 
 

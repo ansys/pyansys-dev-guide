@@ -11,7 +11,7 @@ coding paradigms:
    gained by following the basic guidelines listed in PEP 20. As suggested
    in these guidelines, focus on making your additions intuitive, novel,
    and helpful for PyAnsys users. When in doubt, use ``import this``.
-   For Ansys code quality standards, see :ref:`coding_style`.
+   For Ansys code quality standards, see :ref:`Coding Style`.
 
 #. Document your contributions. Include a docstring for any added
    function, method, or class, following `numpydocs docstring <https://numpydoc.readthedocs.io/en/latest/format.html>`_

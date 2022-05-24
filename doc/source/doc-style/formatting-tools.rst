@@ -97,10 +97,7 @@ list of extensions:
 
 .. code-block:: python
 
-  extensions = [
-      'numpydoc',
-      ...
-  ]
+  extensions = ["numpydoc", ...]
 
 Once the `numpydoc`_ extension is added, you can select which `validation checks
 <https://numpydoc.readthedocs.io/en/latest/validation.html#built-in-validation-checks>`_
