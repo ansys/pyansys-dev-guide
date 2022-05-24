@@ -8,7 +8,7 @@
    :maxdepth: 3
 
    overview/index
-   guidelines/index
+   how-to/index
    packaging/index
    coding-style/index
    doc-style/index
