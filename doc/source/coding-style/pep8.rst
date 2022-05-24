@@ -21,7 +21,7 @@ Import Location
 ~~~~~~~~~~~~~~~
 Imports should always be placed at the top of the file, just after any
 module comments and docstrings and before module globals and
-constants.  This reduces the likelihood of an `ImportError`_ that
+constants. This reduces the likelihood of an `ImportError`_ that
 might only be discovered during runtime.
 
 .. _ImportError: https://docs.python.org/3/library/exceptions.html#ImportError
@@ -48,8 +48,8 @@ might only be discovered during runtime.
              return math.log(8, x)
 
 
-Imports Order
-~~~~~~~~~~~~~
+Import Order
+~~~~~~~~~~~~
 For better readability, group imports in this order:
 
 #. Standard library imports
@@ -126,7 +126,7 @@ package.
 Import Namespaces
 ~~~~~~~~~~~~~~~~~
 You should avoid using wildcards in imports because doing so can make it
-difficult to detect undefined names.  For more information, see `Python
+difficult to detect undefined names. For more information, see `Python
 Anti-Patterns: using wildcard imports
 <(https://docs.quantifiedcode.com/python-anti-patterns/maintainability/from_module_import_all_used.html>`_.
 
@@ -226,7 +226,7 @@ following conventions apply:
            """This method should only be called from ``MyClass``.
 
            Protected methods can be called from inherited classes,
-           unlike private methods, which names are 'mangled' to avoid
+           For private methods, which names are 'mangled' to prevent
            these methods from being called from inherited classes.
 
            """
@@ -274,7 +274,7 @@ Indentation should be used to emphasize:
 
  - Body of a control statement, such as a loop or a select statement
  - Body of a conditional statement
- - New scope block
+ - New scope blocks
 
 .. code:: python
 
@@ -287,7 +287,7 @@ Indentation should be used to emphasize:
 
 
    def top_level_function():
-       """Top level function docstring."""
+       """Top-level function docstring."""
        return
 
 For improved readability, add blank lines or wrapping lines. Two
@@ -424,9 +424,8 @@ For example, the following comment is not needed:
    # increment the counter
    i += 1
 
-However, an important portion of the behavior that is not self-apparent
-should include a note from the developer writing it. Otherwise,
-future developers may remove what they see as unnecessary. 
+However, if code behavior is not self-apparent, it should be documented.
+Otherwise, future developers might remove code that they see as unnecessary.
 
 .. code:: python
 
@@ -502,9 +501,9 @@ For more information on docstrings for PyAnsys libraries, see
 Programming Recommendations
 ---------------------------
 The following sections provide some `PEP8
-<https://www.python.org/dev/peps/pep-0008/>`_ suggestions for removing
-ambiguity and preserving consistency. They also address some common pitfalls 
-when writing Python code.
+<https://www.python.org/dev/peps/pep-0008/>`_ recommendations for removing
+ambiguity and preserving consistency. Additionally, they address some common
+pitfalls that occur when writing Python code.
 
 
 Booleans and Comparisons
@@ -683,7 +682,7 @@ for this method.
    def test_fahr_to_kelvin():
        np.testing.assert_allclose(12.7778, fahr_to_kelvin(55))
 
-Now, you have only one line of code to verify and can also use
+Now, you have only one line of code to verify. You can also use
 a testing framework such as ``pytest`` to test that the method is
 correct.
 
@@ -759,7 +758,7 @@ to circumvent nested loops.
 
 If the loop is too complicated for creating a list comprehension,
 consider creating small functions and calling these instead. For
-example to extract all consonants in a sentence:
+example, to extract all consonants in a sentence:
 
 .. tabs::
 
@@ -806,7 +805,7 @@ Security Considerations
 Security, an ongoing process involving people and practices, ensures application confidentiality, integrity, and availability [#]_.
 Any library should be secure and implement good practices that avoid or mitigate possible security risks.
 This is especially relevant in libraries that request user input (such as web services).
-Because security is a broad topic, we recommend you review this useful Python-specific resource:
+Because security is a broad topic, you should review this useful Python-specific resource:
 
 * `10 Unknown Security Pitfalls for Python <https://blog.sonarsource.com/10-unknown-security-pitfalls-for-python>`_ - By Dennis Brinkrolf - Sonar source blog
 
