@@ -9,4 +9,4 @@ functionalities such as logging, data transfer, and application APIs.
 .. toctree::
    :maxdepth: 3
 
-   setup
+   setting-up
