@@ -43,6 +43,12 @@ popular build systems:
    .. tab:: poetry
 
       .. code-block::
+         ...
+         [tool.poetry.dependencies]
+         matplotlib = {version = "^3.5", optional = true}
+         pyvista = {version = "^0.32", optional = true}
+         pyside = {version = "^1.2", optional = true}
+         ...
 
          [tool.poetry.extras]
          all = [
