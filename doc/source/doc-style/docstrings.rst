@@ -234,9 +234,9 @@ By default, Sphinx renders `type hints <https://peps.python.org/pep-0484/>`_ as 
 of the function signature. This can become difficult to read, because the signature
 becomes very long.
 
-Instead, we can render the type hints as part of each parameter's description. For
-this, the ``sphinx.ext.autodoc.typehints``, ``sphinx.ext.napoleon``, and
-``numpydoc`` extensions need to be combined as follows (in ``conf.py``):
+Instead, we can render the type hints as part of each parameter's description. To
+accomplish this, the ``sphinx.ext.autodoc.typehints``, ``sphinx.ext.napoleon``, and
+``numpydoc`` extensions must be combined in the ``conf.py`` file in this order:
 
 .. code:: python
 
