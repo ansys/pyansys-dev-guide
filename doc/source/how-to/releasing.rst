@@ -190,9 +190,9 @@ not ready to be hosted to the public `PyPI`_. For example, if a PyAnsys library
 requires auto-generated gRPC interface files from an as-of-yet private feature
 or service, this package should be hosted on a private PyPI repository.
 
-ANSYS has a private repository at `PyAnsys PyPI`_, and access is controlled via
-a secret ``Personal Access Token (PAT)``, specified in the GitHub secret
-``PYANSYS_PYPI_PRIVATE_PAT`` which is only available to repositories within the
+ANSYS has a private repository at `PyAnsys PyPI`_. Access is controlled via
+a secret ``Personal Access Token (PAT)`` that is specified in the GitHub secret
+``PYANSYS_PYPI_PRIVATE_PAT``, which is available only to repositories within
 `PyAnsys`_.
 
 .. admonition:: A note on secrets access in forked repositories
@@ -208,8 +208,8 @@ bash script. If you are operating out of a GitHub CI pipeline, email the
 PyAnsys Core team at pyansys.core@ansys.com for the ``PAT``,
 ``PYANSYS_PYPI_PRIVATE_PAT``.
 
-Assuming you are already in a Python repository containing your wheels and/or
-source distribution within the ``dist`` directory:
+Assuming that you are already in a Python repository's ``dist`` directory that contains
+your wheel, source distribution, or both, you can upload to the private repository with :
 
 .. code::
 
@@ -221,7 +221,7 @@ source distribution within the ``dist`` directory:
      -u PAT \
      --repository-url $REPOSITORY_URL
 
-Alternatively, you can use environment variables instead of CLI arguments for twine.
+Alternatively, you can use environment variables instead of CLI arguments for Twine.
 
 .. code::
 
@@ -234,7 +234,7 @@ Alternatively, you can use environment variables instead of CLI arguments for tw
 
 Download
 ++++++++
-To download the Python package from the `PyAnsys PyPI`_, use the following:
+You download a Python package from `PyAnsys PyPI`_, with:
 
 .. code::
 
@@ -242,22 +242,22 @@ To download the Python package from the `PyAnsys PyPI`_, use the following:
    pip install ansys-<product/tool>-<library> --index-url $INDEX_URL --no-dependencies
 
 .. note::
-   An additional read-only PAT is available for individual users who only need to download the package.
-   It can be stored as an environment variable and be used just as described in the code sample above.
-   Please email the PyAnsys Core team at pyansys.core@ansys.com to get access to this PAT.
+   A read-only PAT is available for users who need only to download the package. It
+   can be stored as an environment variable and be used as described in the code sample above.
+   To get access to this PAT, email the PyAnsys Core team at `pyansys.core@ansys.com <pyansys.core@ansys.com>`.
 
 .. warning::
    Take care to always use the ``--index-url`` switch rather than the
-   ``--extra-index-url`` switch. As noted in the `pip Documentation`_, the
-   ``--index-url`` switch changes the Python Package Index, and forces ``pip``
-   to only use packages from that package index.
+   ``--extra-index-url`` switch. As noted in `pip Documentation`_, the
+   ``--index-url`` switch changes the Python Package Index, which forces ``pip``
+   to use only packages from that package index.
 
-   Our package index uses PyPI upstream, and therefore other users cannot
+   Our package index uses PyPI upstream. Therefore other users cannot
    inject packages from PyPI that would supersede our packages, even if they
    are of a higher version.
 
-   This is not the case if you use ``--extra-index-url``, which adds rather
-   than replaces the default package index. For security do not use
+   This is not the case if you use ``--extra-index-url``, which adds to rather
+   than replaces the default package index. For security, do not use
    ``--extra-index-url``.
 
 

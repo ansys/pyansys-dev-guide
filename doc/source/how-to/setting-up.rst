@@ -513,11 +513,10 @@ Windows Terminal
     <br>
 
 The `Windows Terminal <https://docs.microsoft.com/en-us/windows/terminal/>`_ is
-an application that integrates multiple shells into a single console.
-Considering that Windows ships by default with two shells (``CMD`` and
-``PowerShell``). If :ref:`WSL2` is installed, a Linux shell is added too.
-Hence, the goal of the ``Windows Terminal`` is to collect and manage all shell
-sessions in a single program. 
+an application that integrates multiple shells into a single console.  Windows
+ships by default with two shells (``CMD`` and ``PowerShell``). If :ref:`WSL2` is
+installed, a Linux shell is added.  Hence, the goal of the ``Windows Terminal``
+is to collect and manage all shell sessions in a single program. 
 
 Installation
 ~~~~~~~~~~~~
