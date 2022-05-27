@@ -236,20 +236,22 @@ becomes very long.
 
 Instead, we can render the type hints as part of each parameter's description. To
 accomplish this, the ``sphinx.ext.autodoc.typehints``, ``sphinx.ext.napoleon``, and
-``numpydoc`` extensions must be combined in the ``conf.py`` file in this order:
+``numpydoc`` extensions must be combined in the ``conf.py`` file:
 
 .. code:: python
 
-  extensions = [
-      ...
-      "sphinx.ext.autodoc.typehints",
-      "sphinx.ext.napoleon",
-      "numpydoc",
-      ...
-  ]
-  autodoc_typehints = "description"
+   extensions = [
+       ...
+       "sphinx.ext.autodoc.typehints",
+       "sphinx.ext.napoleon",
+       "numpydoc",
+       ...
+   ]
+   autodoc_typehints = "description"
 
-Note that the order in which the extensions are included matters.
+.. note::
+
+   The order in which the extensions are included matters.
 
 When using type hints in this way, the type information in the ``Parameters``
 and ``Returns`` sections can be omitted.
