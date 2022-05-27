@@ -145,7 +145,7 @@ Here is an example of a ``Parameters`` section for a class in PyAEDT:
         is ``False``.
 
 The name of each parameter is followed by a space, a colon, a space, and then
-the data type. A parameter is optional if its keyword argument has a default shown
+the data type. A parameter is optional if its keyword argument displays a default
 in the function signature. For an optional parameter, the data type is followed by a
 comma and ``optional``.
 
