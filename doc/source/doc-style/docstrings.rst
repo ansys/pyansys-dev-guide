@@ -2,7 +2,7 @@ Numpydoc Docstrings
 ###################
 
 When writing docstrings for PyAnsys libraries, use the `numpydoc`_
-style. 
+style.
 
 For consistency within PyAnsys libraries, always use ``"""`` to introduce and conclude a
 docstring, keeping the line length shorter than 70 characters. Ensure that there are
@@ -12,7 +12,7 @@ will have to resolve.
 A blank line signifies the start of a new paragraph. To create a bulleted or numbered list,
 ensure that there is a blank line before the first item and after the last item. Because you
 use the same markup in docstrings as you do in RST files, see this `quick reference
-<https://docutils.sourceforge.io/docs/user/rst/quickref.html>`_. 
+<https://docutils.sourceforge.io/docs/user/rst/quickref.html>`_.
 
 Surround any text that you want to set apart as literal text in double back ticks to render
 it in a monospace gold font. Use double back ticks to surround the names of files, folders,
@@ -23,10 +23,10 @@ classes, methods, and variables. For example::
 
 .. note::
    The PyAnsys style uses two back ticks to surround the names of classes, methods, and
-   variables, not the single back tick that is recommended by `numpydoc`_ 
-   style. 
+   variables, not the single back tick that is recommended by `numpydoc`_
+   style.
 
- 
+
 Required Docstring Sections
 ===========================
 
@@ -84,10 +84,10 @@ by an extended summary in a new line if additional information is needed::
 
   def export_mesh_stats(self, setup_name, variation_string="", mesh_path=None):
     """Export mesh statistics to a file.
-    
+
     ...
     """
-      
+
 Methods with a leading underscore (_) are 'protected' methods, meaning that they are not rendered in the
 documentation unless an explicit request is made to add them using Sphinx directives. However, clearly
 written descriptions for private methods are still important.
@@ -100,9 +100,8 @@ just the GET method. Examples should be included to demonstrate usage.
 
 Parameters
 ----------
-Functions and class methods may have parameters in their signatures. All these
-parameters should be documented in the ``Parameters`` section.
-signature should appear in the ``Parameters`` section for the class or method. 
+Functions may have parameters in their signatures. All these parameters should be documented in
+the ``Parameters`` section.
 
 Here is an example of a ``Parameters`` section for a class in PyAEDT:
 
@@ -143,17 +142,17 @@ Here is an example of a ``Parameters`` section for a class in PyAEDT:
     student_version : bool, optional
         Whether to enable the student version of AEDT. The default
         is ``False``.
-    
+
 The name of each parameter is followed by a space, a colon, a space, and then
-the data type. A parameter is optional if its keyword argument has a default shown
+the data type. A parameter is optional if its keyword argument displays a default
 in the function signature. For an optional parameter, the data type is followed by a
 comma and ``optional``.
 
-The brief description for a parameter is generally a sentence fragment. However, 
+The brief description for a parameter is generally a sentence fragment. However,
 additional information is provided in clear, complete sentences. For an optional
 parameter, the description specifies the default along with any information that might
 be needed about the behavior that occurs when the default is used.
-  
+
 Returns
 -------
 The ``Returns`` section contains only the return data type and a brief description
@@ -165,7 +164,7 @@ that concludes with a period:
   -------
   dict
       Dictionary of components with their absolute paths.
- 
+
 
 A class does not have a ``Returns`` section. If a ``Boolean`` is returned, format the
 ``Returns`` section like this:
@@ -227,6 +226,34 @@ consider the following function:
 If the definition of the function is updated, this
 section must be updated too.
 
+Type Hints
+==========
+
+By default, Sphinx renders `type hints <https://peps.python.org/pep-0484/>`_ as part
+of the function signature. This can become difficult to read, because the signature
+becomes very long.
+
+Instead, we can render the type hints as part of each parameter's description. To
+accomplish this, the ``sphinx.ext.autodoc.typehints``, ``sphinx.ext.napoleon``, and
+``numpydoc`` extensions must be combined in the ``conf.py`` file:
+
+.. code:: python
+
+   extensions = [
+       ...
+       "sphinx.ext.autodoc.typehints",
+       "sphinx.ext.napoleon",
+       "numpydoc",
+       ...
+   ]
+   autodoc_typehints = "description"
+
+.. note::
+
+   The order in which the extensions are included matters.
+
+When using type hints in this way, the type information in the ``Parameters``
+and ``Returns`` sections can be omitted.
 
 Additional Directives
 =====================
