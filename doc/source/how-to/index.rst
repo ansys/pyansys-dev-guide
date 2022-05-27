@@ -10,5 +10,6 @@ functionalities such as logging, data transfer, and application APIs.
    :maxdepth: 3
 
    setting-up
+   contributing
    continuous-integration
    releasing
