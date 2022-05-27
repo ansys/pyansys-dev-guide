@@ -100,9 +100,8 @@ just the GET method. Examples should be included to demonstrate usage.
 
 Parameters
 ----------
-Functions and class methods may have parameters in their signatures. All these
-parameters should be documented in the ``Parameters`` section.
-signature should appear in the ``Parameters`` section for the class or method.
+Functions may have parameters in their signatures. All these parameters should be documented in
+the ``Parameters`` section.
 
 Here is an example of a ``Parameters`` section for a class in PyAEDT:
 
