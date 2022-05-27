@@ -211,6 +211,7 @@ To activate a virtual environment, run this command:
 Deactivate
 ~~~~~~~~~~
 To deactivate a virtual environment, run this command:
+
 .. tabs:: 
 
     .. group-tab:: Windows CMD
@@ -385,7 +386,23 @@ configuration represent. For example, ``.gitconfig-ansys`` and
 
 Each one of these files may look like this:
 
+Finally, taking advantage of `Git Conditional Includes
+<https://git-scm.com/docs/git-config#_conditional_includes>`_, it is possible to
+control which :ref:`Git` configuration will be applied depending on whether the
+project is located in your system:
+
 .. tabs::
+
+    .. tab:: .gitconfig
+
+        .. code-block:: text
+
+            [includeIf "gitdir:path/to/your/ansys/folder/of/projects"]
+              path = path/to/.gitconfig-ansys
+
+            [includeIf "gitdir:path/to/your/personal/folder/of/projects"]
+              path = path/to/.gitconfig-personal
+
 
     .. tab:: .gitconfig-ansys
 
@@ -397,6 +414,7 @@ Each one of these files may look like this:
               email = <Ansys Email>
               signingkey = <Ansys GPG Key>
 
+
     .. tab:: .gitconfig-personal
 
         .. code-block:: text
@@ -406,21 +424,6 @@ Each one of these files may look like this:
               name = <Name or Nickname>
               email = <Personal Email>
               signingkey = <Personal GPG Key>
-
-Finally, taking advantage of `Git Conditional Includes
-<https://git-scm.com/docs/git-config#_conditional_includes>`_, it is possible to
-control which :ref:`Git` configuration will be applied depending on whether the
-project is located in your system:
-
-.. code-block:: text
-
-    # Select git configuration in .gitconfig file
-
-    [includeIf "gitdir:path/to/your/ansys/folder/of/projects"]
-      path = path/to/.gitconfig-ansys
-
-    [includeIf "gitdir:path/to/your/personal/folder/of/projects"]
-      path = path/to/.gitconfig-personal
 
 
 Signing Commits

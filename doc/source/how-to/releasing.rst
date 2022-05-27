@@ -194,30 +194,31 @@ not ready to be hosted to the public `PyPI`_. For example, if a PyAnsys library
 requires auto-generated gRPC interface files from an as-of-yet private feature
 or service, this package should be hosted on a private PyPI repository.
 
-ANSYS has a private repository at `PyAnsys PyPI`_. Access is controlled via
-a secret ``Personal Access Token (PAT)`` that is specified in the GitHub secret
-``PYANSYS_PYPI_PRIVATE_PAT``, which is available only to repositories within
-`PyAnsys`_.
+ANSYS, Inc. has a private repository at `PyAnsys PyPI`_. Access is controlled
+via a ``Personal Access Token (PAT)`` and a ``PYANSYS_PYPI_PRIVATE_PAT``
+password in the form of a GitHub secret which is available only to repositories
+within `PyAnsys`_.
 
 .. admonition:: A note on secrets access in forked repositories
 
    Forked GitHub repositories do not have access to GitHub secrets. This is
    designed to protect against PRs that could potentially scrape tokens from
-   our CI/CD.
+   PyAnsys CI/CD.
 
 Upload
 ++++++
-Packages can be uploaded to the private repository with the following short
-bash script. If you are operating out of a GitHub CI pipeline, email the
-PyAnsys Core team at pyansys.core@ansys.com for the ``PAT``,
-``PYANSYS_PYPI_PRIVATE_PAT``.
+Packages can be uploaded to the private repository with the following short bash
+script. If you are operating out of a GitHub CI pipeline, email the PyAnsys Core
+team at `pyansys.core@ansys.com <mailto:pyansys.core@ansys.com>`_ for the
+required ``PAT`` user name and ``PYANSYS_PYPI_PRIVATE_PAT`` password.
 
-Assuming that you are already in a Python repository's ``dist`` directory that contains
-your wheel, source distribution, or both, you can upload to the private repository with :
+Assuming that you are already in a Python repository's ``dist/`` directory that
+contains your wheel, source distribution, or both, you can upload to the private
+repository with:
 
-.. code::
+.. code-block:: bash
 
-   pip install build twine pip -U
+   pip install -U pip build twine
 
    REPOSITORY_URL="https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload"
    python -m twine upload dist/* \
@@ -238,7 +239,7 @@ Alternatively, you can use environment variables instead of CLI arguments for Tw
 
 Download
 ++++++++
-You download a Python package from `PyAnsys PyPI`_, with:
+You can download a Python package from `PyAnsys PyPI`_, with:
 
 .. code::
 
@@ -271,10 +272,26 @@ Libraries`. Publishing to `PyPI`_ requires a ``PYPI_TOKEN`` for your project. To
 generate and get access to this token:
 
 - Contact `Alexander Kaszynski <mailto:alexander.kaszynski@ansys.com>`_
-  requesting for the ``PYPI_TOKEN``.
+  requesting access to the ``PYPI_TOKEN``. The value of this token is different
+  depending on whether is the :ref:`First Time Publishing to PyPI` or :ref:`After
+  First Publishing to PyPI`. 
 
 - Add this token to the ``Secrets/Actions`` section in your repository.
 
+First Time Publishing to PyPI
++++++++++++++++++++++++++++++
+If it is the first time you try to publish your project in `PyPI`_, then you
+will need the global ``PYPI_TOKEN`` for the `PyAnsys`_ user in
+`PyPI`. Make sure you inform `Alexander Kaszynski
+<mailto:alexander.kaszynski@ansys.com>`_ about this situation.
+
+After First Publishing to PyPI
+++++++++++++++++++++++++++++++
+If you plan to do a new publishing of your project in `PyPI`, then you no longer
+need the global ``PYPI_TOKEN`` but a unique one for your project. Again, contact
+`Alexander Kaszynski <mailto:alexander.kaszynski@ansys.com>`_ requesting for a
+unique token for your project. Update its value in the ``Secrets/Actions``
+section.
 
 Publishing to GitHub
 ~~~~~~~~~~~~~~~~~~~~
@@ -283,7 +300,6 @@ in the ``https://github.com/pyansys/project-name/releases`` section.
 Publishing manually a :ref:`Artifacts` into GitHub must be avoided to reduce
 human-error.  Instead, refer to :ref:`Automating Release Process` for more
 information.
-
 
 Automating Release Process
 --------------------------
