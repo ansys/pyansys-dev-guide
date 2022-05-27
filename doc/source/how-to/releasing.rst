@@ -182,6 +182,10 @@ Documentation in the form of PDF and HTML are also considered artifacts.
    Refer to :ref:`Project Approval` for more information about requesting
    approval for publishing your project.
 
+Manual release processes are discouraged and should be avoided. This allows to
+minimize human-error and alleviate workload on teams, see :ref:`Automating
+Release Process`.
+
 
 Publishing to Private PyPI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -259,23 +263,43 @@ You download a Python package from `PyAnsys PyPI`_, with:
    This is not the case if you use ``--extra-index-url``, which adds to rather
    than replaces the default package index. For security, do not use
    ``--extra-index-url``.
+ 
+Publishing to PyPI
+~~~~~~~~~~~~~~~~~~
+Publishing :ref:`Artifacts` to `PyPI`_ is the way of distributing :ref:`Python
+Libraries`. Publishing to `PyPI`_ requires a ``PYPI_TOKEN`` for your project. To
+generate and get access to this token:
+
+- Contact `Alexander Kaszynski <mailto:alexander.kaszynski@ansys.com>`_
+  requesting for the ``PYPI_TOKEN``.
+
+- Add this token to the ``Secrets/Actions`` section in your repository.
+
+
+Publishing to GitHub
+~~~~~~~~~~~~~~~~~~~~
+Publishing :ref:`Artifacts` to GitHub is also possible. These will be available
+in the ``https://github.com/pyansys/project-name/releases`` section.
+Publishing manually a :ref:`Artifacts` into GitHub must be avoided to reduce
+human-error.  Instead, refer to :ref:`Automating Release Process` for more
+information.
+
+
+Automating Release Process
+--------------------------
+Automating release process is a good practice which minimizes human-error and
+alleviates the workload on the developers side. 
+
+The following GitHub actions code triggers every time a new ``tag`` gets pushed
+tool your project repository. Please, not that this workflow depends on the
+success of the style, tests, docs and build workflows. These are provided in
+:ref:`Workflow Examples`.
+
+.. literalinclude:: code/release.yml
+   :language: yaml
 
 
 .. _PyPI: https://pypi.org/
 .. _PyAnsys PyPI: https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi
 .. _PyAnsys: https://github.com/pyansys
 .. _pip Documentation: https://pip.pypa.io/en/stable/cli/pip_install/
-
-
-
-
-
-
-
- 
-Publishing to PyPI
-~~~~~~~~~~~~~~~~~~
-
-
-Publishing to GitHub
-~~~~~~~~~~~~~~~~~~~~
