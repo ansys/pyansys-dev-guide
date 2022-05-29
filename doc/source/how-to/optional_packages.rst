@@ -43,6 +43,7 @@ popular build systems:
    .. tab:: poetry
 
       .. code-block::
+
          ...
          [tool.poetry.dependencies]
          matplotlib = {version = "^3.5", optional = true}
