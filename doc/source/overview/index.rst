@@ -41,7 +41,6 @@ ecosystem. Examples include:
 
    basic
    administration
-   contributing
 
 .. _PyAEDT: https://github.com/pyansys/PyAEDT
 .. _PyMAPDL: https://github.com/pyansys/pymapdl
@@ -51,7 +50,7 @@ Contributing to this Guide
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 If you would like to contribute to this development guide, we will gladly review
 all pull requests. Please feel free to submit them and follow the
-:ref:`doc_practices`.
+:ref:`Documentation Style`.
 
 This repository uses the `pre-commit <https://pre-commit.com/>`_ library to
 automate style checking. To use it, enter your Python environment and install
