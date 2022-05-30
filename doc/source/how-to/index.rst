@@ -12,5 +12,6 @@ functionalities such as logging, data transfer, and application APIs.
    setting-up
    supporting-python-versions
    contributing
+   logging
    continuous-integration
    releasing
