@@ -10,6 +10,7 @@ functionalities such as logging, data transfer, and application APIs.
    :maxdepth: 3
 
    setting-up
+   supporting-python-versions
    contributing
    continuous-integration
    releasing
