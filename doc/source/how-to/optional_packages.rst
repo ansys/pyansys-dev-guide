@@ -157,7 +157,7 @@ installed, this is one of the best ways of handling it. Otherwise, the PyAnsys
 library might fail to import because the optional package might not be installed.
 
 Also note how this code snippet adds a helpful `ModuleNotFoundError
-<https://docs.python.org/3/library/exceptions.html#ModuleNotFoundError`_ rather
+<https://docs.python.org/3/library/exceptions.html#ModuleNotFoundError>`_ rather
 than simply allowing the error to be raised. This lets the user know that this
 error is expected because the feature relies on an optional dependency.
 
