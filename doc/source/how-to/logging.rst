@@ -1,5 +1,5 @@
-Logging in PyAnsys Libraries
-============================
+Logging
+=======
 This section provides guidelines for logging in PyAnsys libraries. These
 guidelines are best practices discovered through implementing logging services
 and modules within PyAnsys libraries. We welcome suggestions and improvements.

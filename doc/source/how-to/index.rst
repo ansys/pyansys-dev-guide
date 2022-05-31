@@ -14,5 +14,6 @@ functionalities such as logging, data transfer, and application APIs.
    contributing
    logging
    documenting
+   testing
    continuous-integration
    releasing

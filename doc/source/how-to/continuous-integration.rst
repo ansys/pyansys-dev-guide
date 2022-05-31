@@ -2,12 +2,10 @@ Using Continuous Integration
 ============================
 
 
-
 Workflow Examples
 -----------------
-Various workflow examples are provided for checking :ref:`Coding Style`,
-:ref:`Testing`, :ref:`Packaging Style`, `Documentation Style`, and
-:ref:`Automating Release Process`.
+Workflow examples are provided for checking :ref:`Coding Style`,
+:ref:`Documenting`, :ref:`Testing`, :ref:`Automating Release Process`.
 
 .. tabs::
 

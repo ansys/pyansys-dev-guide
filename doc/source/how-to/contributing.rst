@@ -1,5 +1,5 @@
-Contributing to PyAnsys
-=======================
+Contributing
+============
 This page explains how PyAnsys development is conducted. When contributing to a
 PyAnsys repository, use these general coding paradigms:
 
@@ -167,7 +167,7 @@ To install a Python library in editable mode follow these steps:
 
 3. Install the library using:
 
-    .. code-block:: bash
+   .. code-block:: bash
 
        python -m pip install --editable .
 

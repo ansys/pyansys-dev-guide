@@ -1,5 +1,5 @@
-Documenting PyAnsys Libraries
-=============================
+Documenting
+===========
 PyAnsys documentation must not only be written but also maintained. If you are
 new to writing developer documentation, see the `Google Developer Documentation
 Style Guide <https://developers.google.com/style>`_. It provides
