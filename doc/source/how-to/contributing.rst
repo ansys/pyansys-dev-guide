@@ -18,7 +18,7 @@ PyAnsys repository, use these general coding paradigms:
 #. Test your contribution. Because Python is an interpreted language, if
    it's not tested, it's probably broken. At the minimum, include a unit
    test for each new feature within the ``tests`` directory. Ensure that
-   each new method, class, or function has reasonable (>80%) coverage.
+   each new method, class, or function has a reasonable (>80%) coverage.
    See :ref:`Testing` for automating testing.
 
 #. Do not include any datasets for which a license is not available

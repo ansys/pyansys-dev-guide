@@ -59,7 +59,7 @@ Verifying Support
 -----------------
 The best way to validate whether a Python library supports a version of Python
 is to validate by :ref:`Using Continuous Integration`. An example GitHub
-workflow testing Python 3.7 through Python 3.10 on Windows and Linux would would
+workflow testing Python 3.7 through Python 3.10 on Windows and Linux would
 start with:
 
 .. code-block:: yaml

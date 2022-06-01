@@ -22,7 +22,7 @@ Permissions`` in ``Settings -> Actions -> General``.
 
 Using GitHub Actions
 --------------------
-Actions to be executed in the CI process must be decalred in a ``YML`` and
+Actions to be executed in the CI process must be declared in a ``YML`` and
 stored in the ``.github/workflows/`` directory. Although each action is
 different, they all have a common structure:
 
@@ -46,7 +46,7 @@ Required Workflows
 The following workflows are required for any ``PyAnsys`` project:
 
 - :ref:`Coding Style` workflow.
-- :ref:`Documentation Style`, :ref:`Building Documentation`, and `Deploying Documentation` Workflows.
+- :ref:`Documentation Style`, :ref:`Building Documentation`, and :ref:`Deploying Documentation` Workflows.
 - :ref:`Testing` and :ref:`Testing Code Coverage` workflows.
 - :ref:`Releasing and Publishing` workflow.
 
