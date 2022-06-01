@@ -24,8 +24,8 @@ There are multiple ways to install a Python package on your local machine:
 
 .. warning:: 
 
-  Ensure that you install Python from an official channel. Do not trust
-   third-party websites or download executable content from them.
+    Ensure that you install Python from an official channel. Do not trust
+    third-party websites or download executable content from them.
 
 .. tabs::
 
