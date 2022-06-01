@@ -38,7 +38,6 @@ extensions = [
     "sphinx.ext.todo",
     "sphinxcontrib.mermaid",
     "sphinx_tabs.tabs",
-    "ansys_sphinx_theme"
 ]
 
 # Intersphinx mapping
