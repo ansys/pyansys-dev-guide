@@ -406,14 +406,12 @@ configuration profiles for working with ``Ansys`` and personal projects.
 
 Create two files and name those such that you recognize which :ref:`Git`
 configuration represent. For example, ``.gitconfig-ansys`` and
-``.gitconfig-personal``.
-
-Each one of these files may look like this:
-
-Finally, taking advantage of `Git Conditional Includes
+``.gitconfig-personal``. Finally, taking advantage of `Git Conditional Includes
 <https://git-scm.com/docs/git-config#_conditional_includes>`_, it is possible to
 control which :ref:`Git` configuration will be applied depending on whether the
 project is located in your system:
+
+Each one of these files may look like this:
 
 .. tabs::
 
