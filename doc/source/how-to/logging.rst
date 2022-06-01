@@ -158,7 +158,7 @@ of the global and instance loggers.
 
 .. _logging_in_pymapdl_figure:
 
-.. figure:: images/Guidelines_chart.png
+.. figure:: images/guidelines_chart.png
     :align: center
     :alt: Logging in PyMAPDL
     :figclass: align-center
