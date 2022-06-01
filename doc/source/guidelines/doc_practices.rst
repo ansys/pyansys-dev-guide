@@ -201,39 +201,39 @@ or ``autosummary`` directive.
 
 For simple classes, use the ``autoclass`` directive::
 
-   .. autoclass:: pyansys_sphinx_theme.samples.ExampleClass
+   .. autoclass:: ansys_sphinx_theme.samples.ExampleClass
        :members:
 
 In the documentation, this is rendered as:
 
-.. autoclass:: pyansys_sphinx_theme.samples.ExampleClass
+.. autoclass:: ansys_sphinx_theme.samples.ExampleClass
     :members:
 
 For complex classes with many methods, use the
 ``autosummary`` directive::
 
-   .. autoclass:: pyansys_sphinx_theme.samples.Complex
+   .. autoclass:: ansys_sphinx_theme.samples.Complex
 
    .. autosummary::
       :toctree: api/
 
-      pyansys_sphinx_theme.samples.Complex.real
-      pyansys_sphinx_theme.samples.Complex.imag
-      pyansys_sphinx_theme.samples.Complex.abs
+      ansys_sphinx_theme.samples.Complex.real
+      ansys_sphinx_theme.samples.Complex.imag
+      ansys_sphinx_theme.samples.Complex.abs
 
 
 The above code generates the following documentation, with each
 method or attribute on its own page.
 
-.. autoclass:: pyansys_sphinx_theme.samples.Complex
+.. autoclass:: ansys_sphinx_theme.samples.Complex
 
 
 .. autosummary::
    :toctree: api/
 
-   pyansys_sphinx_theme.samples.Complex.real
-   pyansys_sphinx_theme.samples.Complex.imag
-   pyansys_sphinx_theme.samples.Complex.abs
+   ansys_sphinx_theme.samples.Complex.real
+   ansys_sphinx_theme.samples.Complex.imag
+   ansys_sphinx_theme.samples.Complex.abs
 
 
 Documenting Multiple Classes Together
