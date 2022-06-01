@@ -61,7 +61,7 @@ and Python versions. Notice that, this leads to:
 
 .. math::
 
-    \text{# Workflows} = \text{# Operating Systems} \times \text{# Python Versions}
+    \text{Num. Workflows} = \text{Num. Operating Systems} \times \text{Num. Python Versions}
 
 The most common operating systems are ``Windows``, ``macOS``, and ``Linux``. For
 Python version, visit :ref:`Supporting Python Versions`.
