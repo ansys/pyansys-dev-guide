@@ -451,7 +451,7 @@ Each one of these files may look like this:
 Signing Commits
 ~~~~~~~~~~~~~~~
 To verify that some code changes were actually made by you, signing the commit
-is required. To do so, you will need generate a ``GPG`` key, associate it with
+is required. To do so, you will need to generate a ``GPG`` key, associate it with
 ``GitHub`` and specify it in your ``Git`` :ref:`Configuration`.
 
 The whole process is explained in the ``GitHub`` documentation chapter `Verify
