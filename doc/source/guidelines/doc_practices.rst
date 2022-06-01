@@ -22,7 +22,7 @@ Understanding Documentation Sources
 ------------------------------------
 The generation of PyAnsys documentation uses `Sphinx
 <https://www.sphinx-doc.org/en/master/>`__ and an Ansys-branded theme
-(`pyansys-sphinx-theme <https://github.com/pyansys/pyansys-sphinx-theme>`_) to
+(`ansys-sphinx-theme <https://github.com/pyansys/ansys-sphinx-theme>`_) to
 assemble content in:
 
 - Docstrings
@@ -308,7 +308,7 @@ To use Windows PowerShell to clone a GitHub repository:
 
    Because the list of repositories is quite long, you can use the ``Find
    a repository`` option to search for the repository that you want to clone. For
-   example, you can search for "theme" to find the ``pyansys-sphinx-theme`` repository.  
+   example, you can search for "theme" to find the ``ansys-sphinx-theme`` repository.  
 
 #. In the upper right corner of the repository, click the green ``Code`` button to
    drop down a list of options.
@@ -336,11 +336,11 @@ To use Git Bash to clone a GitHub repository:
 #. Type ``git clone`` followed by the address of the repo to clone.
 
 
-For example, you clone the ``pyansys-sphinx-theme`` repository with:
+For example, you clone the ``ansys-sphinx-theme`` repository with:
   
 .. code::
   
-  git clone https://github.com/pyansys/pyansys-sphinx-theme
+  git clone https://github.com/pyansys/ansys-sphinx-theme
 
 .. _push_changes:
 
@@ -479,13 +479,13 @@ and running.
 
 #. Clone the PyAnsys library's GitHub repository. For more information, see :ref:`cloning`.
 
-#. If you have not yet cloned the `pyansys-sphinx-theme <https://github.com/pyansys/pyansys-sphinx-theme>`_
+#. If you have not yet cloned the `ansys-sphinx-theme <https://github.com/pyansys/ansys-sphinx-theme>`_
    repository, clone it.
 
 Installing Build Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 You can build documentation for the `dev_guide <https://github.com/pyansys/dev-guide>`_
-and `pyansys-sphinx-theme <https://github.com/pyansys/pyansys-sphinx-theme>`_ repositories without
+and `ansys-sphinx-theme <https://github.com/pyansys/ansys-sphinx-theme>`_ repositories without
 installing a PyAnsys library in development mode. However, for many other PyAnsys libraries, when
 you push changes that you have made in a local branch to the library's GitHub repository, CI checks
 typically require that the full library is installed.
