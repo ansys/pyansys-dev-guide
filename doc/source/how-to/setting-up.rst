@@ -73,17 +73,21 @@ Once your Python installation is complete, verify it with:
 
 .. tabs::
 
-    .. group-tab:: Windows CMD
+    .. group-tab:: Windows
 
-        .. code-block:: text
+        .. tabs::
 
-            py --version
+            .. group-tab:: CMD
 
-    .. group-tab:: Windows PowerShell
+                .. code-block:: text
 
-        .. code-block:: text
+                    py --version
 
-            py --version
+            .. group-tab:: PowerShell
+
+                .. code-block:: text
+
+                    py --version
 
     .. group-tab:: macOS
 
@@ -116,17 +120,21 @@ to check if you are already working with one:
 
 .. tabs::
 
-    .. group-tab:: Windows CMD
+    .. group-tab:: Windows
 
-        .. code-block:: text
+        .. tabs::
 
-            where.exe python
+            .. group-tab:: CMD
 
-    .. group-tab:: Windows PowerShell
+                .. code-block:: text
 
-        .. code-block:: text
+                    where.exe python
 
-            where.exe python
+            .. group-tab:: PowerShell
+
+                .. code-block:: text
+
+                    where.exe python
 
     .. group-tab:: macOS
 
@@ -152,17 +160,21 @@ To create a virtual environment named `<venv>`, run this command:
 
 .. tabs::
 
-    .. group-tab:: Windows CMD
+    .. group-tab:: Windows
 
-        .. code-block:: text
+        .. tabs::
 
-            py -m venv <venv>
+            .. group-tab:: CMD
 
-    .. group-tab:: Windows PowerShell
+                .. code-block:: text
 
-        .. code-block:: text
+                    py -m venv <venv>
 
-            py -m venv <venv>
+            .. group-tab:: PowerShell
+
+                .. code-block:: text
+
+                    py -m venv <venv>
 
     .. group-tab:: macOS
 
@@ -184,17 +196,21 @@ To activate a virtual environment, run this command:
 
 .. tabs::
 
-    .. group-tab:: Windows CMD
+    .. group-tab:: Windows
 
-        .. code-block:: text
+        .. tabs::
 
-            <venv>\Scripts\activate.bat
+            .. group-tab:: CMD
 
-    .. group-tab:: Windows PowerShell
+                .. code-block:: text
 
-        .. code-block:: text
+                    <venv>\Scripts\activate.bat
 
-            <venv>\Scripts\Activate.ps1
+            .. group-tab:: PowerShell
+
+                .. code-block:: text
+
+                    <venv>\Scripts\Activate.ps1
 
     .. group-tab:: macOS
 
@@ -214,17 +230,21 @@ To deactivate a virtual environment, run this command:
 
 .. tabs:: 
 
-    .. group-tab:: Windows CMD
+    .. group-tab:: Windows
 
-        .. code-block:: text
+        .. tabs::
 
-            deactivate
+            .. group-tab:: CMD
 
-    .. group-tab:: Windows PowerShell
+                .. code-block:: text
 
-        .. code-block:: text
+                    deactivate
 
-            deactivate
+            .. group-tab:: PowerShell
+
+                .. code-block:: text
+
+                    deactivate
 
     .. group-tab:: macOS
 
@@ -287,17 +307,21 @@ running:
 
 .. tabs:: 
 
-    .. group-tab:: Windows CMD
+    .. group-tab:: Windows
 
-        .. code-block:: text
+        .. tabs::
 
-            git --version
+            .. group-tab:: CMD
 
-    .. group-tab:: Windows PowerShell
+                .. code-block:: text
 
-        .. code-block:: text
+                    git --version
 
-            git --version
+            .. group-tab:: PowerShell
+
+                .. code-block:: text
+
+                    git --version
 
     .. group-tab:: macOS
 
