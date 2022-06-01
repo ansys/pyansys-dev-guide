@@ -236,7 +236,8 @@ write permission will merge your PR and then delete your PR branch.
 .. admonition:: Always delete your PR branch after merging it into main branch
 
    Deleting merged branches is a good practice which ensures that origin
-   branches do not get cluttered.
+   branches do not get cluttered. Automatic deletion of branches can be setup in
+   ``Settings -> General -> Pull Requests`` section.
 
 
 Using GitHub CLI
