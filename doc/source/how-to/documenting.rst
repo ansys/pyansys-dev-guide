@@ -18,6 +18,13 @@ code:
 
 Documentation Sources
 ---------------------
+.. raw:: html
+    
+    <div align="center">
+      <img src="https://github.com/sphinx-doc/sphinx/raw/5.x/doc/_static/sphinx.png">
+    </div>
+    <br>
+
 The generation of PyAnsys documentation uses `Sphinx
 <https://www.sphinx-doc.org/en/master/>`__ and an Ansys-branded theme
 (`pyansys-sphinx-theme <https://github.com/pyansys/pyansys-sphinx-theme>`_) to
@@ -356,41 +363,127 @@ where in previous tabs, ``<builder>`` can be ``html``, ``latex`` or ``pdf``.
 
 Deploying Documentation
 -----------------------
-To host the HTML documentation related to a PyAnsys project, an easy way to go
-is to use GitHub Pages. This GitHub feature do not require any database to be
-setup nor to configure any server.
+PyAnsys libraries deploy their documentation online via `GitHub Actions`_ to
+`GitHub Pages`_. For example, this documentation is hosted on the `gh-pages`_
+branch within this repository. This is done by uploading the generated
+documentation within the ``doc/_build/html/`` directory directly to the
+``gh-pages`` branch and then `enabling GitHub pages`_.
 
-The following workflow provides the general steps to be executed for building
-and deploying a PyAnsys project documentation when :ref:`Using Continuous
-Integration`.
+Building Your Documentation within GitHub
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+While you could manually upload your auto-generated documentation for each
+release using your own local GitHub credentials, the best practice is to have
+your documentation build on GitHub and deployed either on release or push to
+main. You can do this via `GitHub Actions`_ by creating a new workflow that
+generates your documentation on each pull request and then deploys under
+certain conditions.
 
-.. literalinclude:: code/docs.yml
-   :language: yaml
+**Documentation Workflow**
 
-GitHub will serve the documentation related to the project from a URL tied to
-PyAnsys organization.
+Your documentation workflow should be within the ``.github/workflows``
+directory and should be triggered on each PR. It should use one of the
+following approaches:
 
-The standard name for this URL can be such as:
+.. tabs::
 
-.. code-block:: text
+    .. tab:: Using ``tox``
 
-    https://www.<product_name>.docs.pyansys.com
+        The best way to get started with this is to use the `ansys-templates`_ tool and run:
 
-For instance: `https://www.grantami.docs.pyansys.com <https://grantami.docs.pyansys.com>`_
+        .. code-block:: text
 
-Regarding the documentation dedicated to a specific feature of the product or an
-example, the URL is formatted like this:
+            ansys-templates new pyansys-advanced
 
-.. code-block:: text
+        This will generate a new GitHub workflow file containing the following section:
 
-    https://www.<extra>.<product_name>.docs.pyansys.com
+        .. code-block:: yaml
 
-Once the URL name has been decided, it must be specified in the ``Settings ->
-Pages -> Custom domain``, in the :ref:`GitHub Repository Sections`.
+            docs:
+              name: Documentation
+              runs-on: ubuntu-latest
+              steps:
+                - uses: actions/checkout@v2
+                - name: Set up Python
+                  uses: actions/setup-python@v2
+                  with:
+                    python-version: 3.7
+                - name: Install dependencies
+                  run: |
+                    python -m pip install --upgrade pip flit tox
+                - name: Generate the documentation with tox
+                  run: tox -e doc
 
-Then, the URL has to be registered using Microsoft Azure to set the DNS properly
-and link it to the ANSYS organization. This action will be performed by one of
-the Ansys administrator of Microsoft Azure account.
+    .. tab:: Without Using ``tox``
+
+        While `tox`_ is the preferred tool for automating your documentation build, if
+        you wish to avoid using `tox`_, consider the following workflow:
+
+        .. code-block:: yaml
+
+            docs:
+              name: Build Documentation
+              runs-on: ubuntu-latest
+              steps:
+                - uses: actions/checkout@v2
+                - name: Setup Python
+                  uses: actions/setup-python@v2
+                  with:
+                    python-version: 3.8
+
+                - name: Install <PROJECT-NAME>
+                  run: pip install -e .
+
+                - name: Install documentation build requirements
+                  run: pip install -r requirements/requirements_docs.txt
+
+                - name: Build Documentation
+                  run: |
+                    make -C doc html SPHINXOPTS="-j auto -W --keep-going"
+                    touch doc/_build/html/.nojekyll
+                    <product>.docs.pyansys.com > doc/_build/html/CNAME
+
+
+Your next step will be to upload the documentation artifact. Assuming your
+documentation is written to ``doc/_build/html``, upload your documentation
+with:
+
+.. code-block:: yaml
+
+    - name: Upload HTML Documentation
+      uses: actions/upload-artifact@v2
+      with:
+        name: HTML-Documentation
+        path: doc/_build/html/
+        retention-days: 7
+
+This will allow anyone creating pull requests to download documentation build
+artifacts as a convenient zip and to open the documentation by opening
+``index.html``.
+
+Next, deploy your documentation to the ``gh-pages`` branch via using the
+``JamesIves/github-pages-deploy-action`` action:
+
+.. code-block:: yaml
+
+    - name: Deploy
+      if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+      uses: JamesIves/github-pages-deploy-action@4.3.0
+      with:
+        branch: gh-pages
+        folder: doc/build/html
+        clean: true
+
+.. note::
+
+   Depending on your preferences, you may choose to update the documentation on
+   tags only (as done above), or on each each push. If you wish to have your
+   documentation deployed on each push to ``main``, change the conditional
+   above to:
+
+   .. code-block:: yaml
+
+       if: github.ref == 'refs/heads/main'
+
 
 Accessing Online Documentation
 ------------------------------
