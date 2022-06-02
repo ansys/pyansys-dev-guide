@@ -268,12 +268,12 @@ For simple classes, use the ``autoclass`` directive.
 
         .. code-block:: rst
 
-            .. autoclass:: pyansys_sphinx_theme.samples.ExampleClass
+            .. autoclass:: ansys_sphinx_theme.samples.ExampleClass
                :members:
 
     .. tab:: Rendered Doc
 
-        .. autoclass:: pyansys_sphinx_theme.samples.ExampleClass
+        .. autoclass:: ansys_sphinx_theme.samples.ExampleClass
             :members:
 
 
@@ -286,24 +286,24 @@ For complex classes with many methods, use the
 
         .. code-block:: rst
 
-            .. autoclass:: pyansys_sphinx_theme.samples.Complex
+            .. autoclass:: ansys_sphinx_theme.samples.Complex
 
             .. autosummary::
                :toctree: api/
 
-               pyansys_sphinx_theme.samples.Complex.real
-               pyansys_sphinx_theme.samples.Complex.imag
-               pyansys_sphinx_theme.samples.Complex.abs
+               ansys_sphinx_theme.samples.Complex.real
+               ansys_sphinx_theme.samples.Complex.imag
+               ansys_sphinx_theme.samples.Complex.abs
 
     .. tab:: Rendered Doc
 
-        .. autoclass:: pyansys_sphinx_theme.samples.Complex
+        .. autoclass:: ansys_sphinx_theme.samples.Complex
         
         .. autosummary::
 
-           pyansys_sphinx_theme.samples.Complex.real
-           pyansys_sphinx_theme.samples.Complex.imag
-           pyansys_sphinx_theme.samples.Complex.abs
+           ansys_sphinx_theme.samples.Complex.real
+           ansys_sphinx_theme.samples.Complex.imag
+           ansys_sphinx_theme.samples.Complex.abs
 
 
 Documenting Multiple Classes
