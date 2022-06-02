@@ -1,8 +1,8 @@
 Supporting Python Versions
 ==========================
-As it happens with other programming languages, Python evolves with time. New
-features get added to the language and others get deprecated over time. For a
-quick reference, visit `Status of Python branches
+Like other programming languages, Python evolves with time. New
+features get added to the language, and others get deprecated. For
+more information, see `Status of Python branches
 <https://devguide.python.org/#status-of-python-branches>`_.
 
 +---------+------------+-------------+-----------------------+--------+
@@ -25,20 +25,20 @@ quick reference, visit `Status of Python branches
 .. _PEP 569: https://peps.python.org/pep-0569/
 .. _PEP 537: https://peps.python.org/pep-0537/
 
-.. admonition:: Consider supporting stable Python versions
+.. admonition:: Consider supporting stable Python versions.
 
    Stable Python versions are labeled as ``stable`` and only receive security
-   fixes. Those labeled as ``dev`` are still receiving bugfixes.
+   fixes. Versions labeled as ``dev`` are still receiving bug fixes.
 
-Expect these to be the most commonly used Python versions. Note that some
+Expect stable versions to be the most commonly used Python versions. Note that some
 libraries like `NumPy <https://numpy.org/>`_ drop support for older versions of
 Python earlier than their end of life (EOL) as outlined in `NEP 29
 <https://numpy.org/neps/nep-0029-deprecation_policy.html#support-table>`_.
 
-Realize that users can still install the older version from PyPI via ``pip`` as
-the package manager (``pip``). When ``pip`` is used, it downloads and installs
+You can still install an older version from PyPI using ``pip`` as
+your package manager. When ``pip`` is used, it downloads and installs
 the most recent version of the library that supports your version of Python. You
-can enforce a minimum- required Python version within ``setup.py`` with:
+can enforce a minimum-required Python version within ``setup.py`` with:
 
 .. code:: python
 
