@@ -1,8 +1,8 @@
 """Sphinx documentation configuration file for the pyansys developer's guide."""
 from datetime import datetime
 
-from pyansys_sphinx_theme import __version__
-from pyansys_sphinx_theme import pyansys_logo_black
+from ansys_sphinx_theme import __version__
+from ansys_sphinx_theme import pyansys_logo_black
 
 # Project information
 project = "PyAnsys Developer's Guide"
@@ -11,7 +11,7 @@ author = "Ansys Inc."
 release = version = "0.3.dev0"
 
 html_logo = pyansys_logo_black
-html_theme = "pyansys_sphinx_theme"
+html_theme = "ansys_sphinx_theme"
 
 html_theme_options = {
     "github_url": "https://github.com/pyansys/dev-guide",

@@ -287,11 +287,11 @@ To include the docstring of a function within Sphinx, you use the
 
 .. code::
 
-   .. autofunction:: pyansys_sphinx_theme.sample_func.func
+   .. autofunction:: ansys_sphinx_theme.sample_func.func
 
 This directive renders the sample function as:
 
-.. autofunction:: pyansys_sphinx_theme.sample_func.func
+.. autofunction:: ansys_sphinx_theme.sample_func.func
 
 .. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
 .. _googledoc: https://google.github.io/styleguide/
