@@ -27,7 +27,7 @@ Documentation Sources
 
 The generation of PyAnsys documentation uses `Sphinx
 <https://www.sphinx-doc.org/en/master/>`__ and an Ansys-branded theme
-(`pyansys-sphinx-theme <https://github.com/pyansys/pyansys-sphinx-theme>`_) to
+(`ansys-sphinx-theme <https://github.com/ansys/Sansys-sphinx-theme>`_) to
 assemble content in:
 
 - Docstrings
