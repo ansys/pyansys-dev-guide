@@ -361,6 +361,33 @@ rendered documentation types are available such as ``HTML``, ``LaTeX`` or
 where in previous tabs, ``<builder>`` can be ``html``, ``latex`` or ``pdf``.
 
 
+Latex customization for troubled builds.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To avoid the interaction of latex to get user input and stops building 
+in between while building with ``make latex`` or ``make latexpdf``, customize
+the Makefile with a sphinx build enabling the non-interaction mode.
+
+.. tabs::
+
+    .. tab:: Makefile
+
+        .. code-block:: bash
+            
+            pdf:
+	            @$(SPHINXBUILD) -M latex "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	            cd build/latex && latexmk -r latexmkrc -pdf *.tex -interaction=nonstopmode || true
+	            (test -f build/latex/*.pdf && echo pdf exists) || exit 1
+
+    .. tab:: make.bat
+
+        .. code-block:: bash
+
+          :pdf
+	          %SPHINXBUILD% -M latex %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+	          cd "%BUILDDIR%\latex"
+	          pdflatex *.tex --interaction=nonstopmode
+
+
 Deploying Documentation
 -----------------------
 PyAnsys libraries deploy their documentation online via `GitHub Actions`_ to
