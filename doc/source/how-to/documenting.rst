@@ -342,53 +342,83 @@ in the ``source/`` directory inside :ref:`The \`\`doc/\`\` Directory`.
 This directory also contains a ``Makefile`` and a ``make.bat`` files for
 automating the building process. Different builders resulting in different
 rendered documentation types are available such as ``HTML``, ``LaTeX`` or
-``PDF``. The builder name needs to be specified together at building time.
+``PDF``. 
+
+Building HTML documentation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+For building the ``HTML`` documentation, the following command need to be
+executed:
 
 .. tabs::
 
-    .. tab:: Makefile
+    .. group-tab:: Makefile
 
         .. code-block:: bash
 
-            make <builder>
+            make html
 
-    .. tab:: make.bat
+    .. group-tab:: make.bat
 
         .. code-block:: bash
 
-            make.bat <builder>
+            make.bat html
 
-where in previous tabs, ``<builder>`` can be ``html``, ``latex`` or ``pdf``.
+The resultant ``HTML`` files can be found inside the ``_build/html`` directory,
+located in :ref:`The \`\`doc/\`\` Directory`. To display this documentation, run:
 
+.. code-block:: text
 
-Latex customization for troubled builds.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-To avoid the interaction of latex to get user input
-and the error or warning while building, customize the
-``Makefile`` and  ``make.bat`` by enabling the non-interaction mode.
+    <browser> doc/_build/html/index.html
+
+Building PDF Documentation
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+For building the ``PDF`` documentation, the following rules need to be added to
+``Makefile`` and ``make.bat`` files:
 
 .. tabs::
 
-    .. tab:: Makefile
+    .. group-tab:: Makefile
 
-        .. code-block:: bash
+        .. code-block:: text
             
             pdf:
 	            @$(SPHINXBUILD) -M latex "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	            cd build/latex && latexmk -r latexmkrc -pdf *.tex -interaction=nonstopmode || true
 	            (test -f build/latex/*.pdf && echo pdf exists) || exit 1
 
-    .. tab:: make.bat
+    .. group-tab:: make.bat
+
+        .. code-block:: text
+
+           :pdf
+                   %SPHINXBUILD% -M latex %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+	           cd "%BUILDDIR%\latex"
+	           pdflatex *.tex --interaction=nonstopmode
+
+Previous rules can be called by running:
+
+.. tabs::
+
+    .. group-tab:: Makefile
 
         .. code-block:: bash
 
-          :pdf
-	          %SPHINXBUILD% -M latex %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
-	          cd "%BUILDDIR%\latex"
-	          pdflatex *.tex --interaction=nonstopmode
+            make pdf
 
-Later builder ``pdf`` will build the PDF file even if 
-if there are errors, and then check if a PDF is created or not.
+    .. group-tab:: make.bat
+
+        .. code-block:: bash
+
+            make.bat pdf
+
+The resultant document together with its LaTeX files can be found in the
+``_build/latex`` folder, located in :ref:`The \`\`doc/\`\` Directory`.
+
+.. admonition:: Always check the content of your PDF
+
+   Since warnings and errors during LaTeX building and rendering process are
+   ignored, it may be possible that the resultant PDF file has text formatting
+   errors.
 
 Deploying Documentation
 -----------------------
