@@ -363,9 +363,9 @@ where in previous tabs, ``<builder>`` can be ``html``, ``latex`` or ``pdf``.
 
 Latex customization for troubled builds.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-To avoid the interaction of latex to get user input and stops building 
-in between while building with ``make latex`` or ``make latexpdf``, customize
-the Makefile with a sphinx build enabling the non-interaction mode.
+To avoid the interaction of latex to get user input
+and the error or warning while building, customize the
+``Makefile`` and  ``make.bat`` by enabling the non-interaction mode.
 
 .. tabs::
 
@@ -387,6 +387,8 @@ the Makefile with a sphinx build enabling the non-interaction mode.
 	          cd "%BUILDDIR%\latex"
 	          pdflatex *.tex --interaction=nonstopmode
 
+Later builder ``pdf`` will build the PDF file even if 
+if there are errors, and then check if a PDF is created or not.
 
 Deploying Documentation
 -----------------------
