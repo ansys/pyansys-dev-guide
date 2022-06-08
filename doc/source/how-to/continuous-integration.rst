@@ -1,13 +1,13 @@
 Using Continuous Integration
 ============================
 Continuous Integration (CI) is the process of merging new changes into the main
-code-base while making sure these are functional and do not break the existing
+code base while ensuring that these changes are functional and do not break the existing
 logic. 
 
-This process is automated as much as possible to alleviate developer's workload
-and ensuring a quick development workflow.
+This process is automated as much as possible to alleviate the developer's workload
+and ensure a quick development workflow.
 
-Since ``PyAnsys`` projects are hosted in `GitHub <https://github.com>`_, the
+Because ``PyAnsys`` projects are hosted in `GitHub <https://github.com>`_, the
 `GitHub Actions <https://docs.github.com/en/actions>`_ framework is used.
 
  
@@ -16,7 +16,7 @@ Enabling GitHub Actions
 By default, ``Actions`` are enabled in new repositories and can be accessed
 using the associated :ref:`GitHub Repository Sections`.
 
-In case ``Actions`` are not enabled, you can enable those by changing ``Actions
+If ``Actions`` are not enabled, you can enable them by changing ``Actions
 Permissions`` in ``Settings -> Actions -> General``.
 
 
@@ -27,7 +27,7 @@ stored in the ``.github/workflows/`` directory. Although each action is
 different, they all have a common structure:
 
 - A ``name`` identifying the action.
-- A collection of ``triggering events`` which run the action when required.
+- A collection of ``triggering events`` that run the action when required.
 - A collection of ``jobs`` with different steps to be followed during the CI process. 
 
 .. code-block:: yaml
@@ -45,31 +45,31 @@ Required Workflows
 ------------------
 The following workflows are required for any ``PyAnsys`` project:
 
-- :ref:`Coding Style` workflow.
-- :ref:`Documentation Style`, :ref:`Building Documentation`, and :ref:`Deploying Documentation` Workflows.
-- :ref:`Testing` and :ref:`Testing Code Coverage` workflows.
-- :ref:`Releasing and Publishing` workflow.
+- :ref:`Coding Style` workflow
+- :ref:`Documentation Style`, :ref:`Building Documentation`, and :ref:`Deploying Documentation` Workflows
+- :ref:`Testing` and :ref:`Testing Code Coverage` workflows
+- :ref:`Releasing and Publishing` workflow
 
-It is recommended that all these workflows are collected under a common
-``ci.yml`` file. Visit :ref:`Workflow Examples` for a quick reference
+All workflows should be collected under a common
+``ci.yml`` file. For more information, see :ref:`Workflow Examples`.
 
 
 Parametrizing Workflows
 -----------------------
-It is convenient to test a ``PyAnsys`` library in different operating systems
-and Python versions. Notice that, this leads to:
+It is important to test a ``PyAnsys`` library on different operating systems
+using different Python versions. This leads to:
 
 .. math::
 
     \text{Num. Workflows} = \text{Num. Operating Systems} \times \text{Num. Python Versions}
 
 The most common operating systems are ``Windows``, ``macOS``, and ``Linux``. For
-Python version, visit :ref:`Supporting Python Versions`.
+Python versions, see :ref:`Supporting Python Versions`.
 
-Since having a ``YML`` file per workflow would be a tedious task, ``GitHub
-Actions`` provides the ``matrix`` parameter inside the ``strategy``, see `Using
-a Matrix for your Jobs
-<https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs>`_
+Because having a ``YML`` file for each workflow would be tedious, ``GitHub
+Actions`` provides the ``matrix`` parameter inside the ``strategy``. For more
+information, see `Using a Matrix for your Jobs
+<https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs>`_.
 
 As an example of usage, consider the following workflow:
 
@@ -110,7 +110,7 @@ As an example of usage, consider the following workflow:
 Workflow Examples
 -----------------
 Workflow examples are provided for checking :ref:`Coding Style`,
-:ref:`Documenting`, :ref:`Testing`, :ref:`Automating Release Process`.
+:ref:`Documenting`, :ref:`Testing`, and :ref:`Automating Release Process`.
 
 .. tabs::
 
