@@ -113,7 +113,7 @@ exclude_patterns = [
 mermaid_output_format = "png"
 mermaid_params = ["--width", "2000"]
 
-# Generate section labels up to three levels deep
+# Generate section labels up to four levels deep
 autosectionlabel_maxdepth = 4
 
 # TODO: warning suppression is temporary till https://github.com/pyansys/dev-guide/issues/64

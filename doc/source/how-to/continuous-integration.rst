@@ -110,7 +110,7 @@ As an example of usage, consider the following workflow:
 Workflow Examples
 -----------------
 Workflow examples are provided for checking :ref:`Coding Style`,
-:ref:`Documenting`, :ref:`Testing`, and :ref:`Automating Release Process`.
+:ref:`Documenting`, :ref:`Testing`, and :ref:`Automating The Release Process`.
 
 .. tabs::
 

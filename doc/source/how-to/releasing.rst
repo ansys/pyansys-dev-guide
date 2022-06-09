@@ -82,8 +82,8 @@ features without sacrificing stability. The model closely follows the
 
 Releasing Major and Minor Versions
 ----------------------------------
-To create a new major or minor version, make sure your ``origin main`` branch is
-up to date by running:
+To create a new major or minor version, ensure your ``origin main`` branch is
+up to date with:
 
 .. code-block:: text
 
@@ -93,7 +93,7 @@ If you encounter any issues when running previous command, solve those before
 continuing with the release. Make sure your style, tests and documentation
 checks are passing too.
 
-Create a new branch for the version you want to release:
+Create a new branch for the version you want to release with:
 
 .. code-block:: text
 
@@ -106,19 +106,19 @@ Check all locations, including
 :ref:`The \`\`setup.py\`\` File`, :ref:`The \`\`pyproject.toml\`\` File`, and any
 ``__init__.py`` or ``__version__.py`` your project may contain.
 
-Stash and commit previous changes:
+Stash and commit previous changes with:
 
 .. code-block:: text
 
    git add . && git commit -m "Bump version X.Y.0 version"
 
-Tag previous commit by running:
+Tag the previous commit with:
 
 .. code-block:: text
 
    git tag vX.Y.0
 
-Push the commit and the tag:
+Push the commit and the tag with:
 
 .. code-block:: text
 
@@ -128,43 +128,43 @@ Push the commit and the tag:
 Releasing Patched Versions
 --------------------------
 Patched versions allow you to fix issues discovered in published releases by
-cherry-picking these fixes from ``main`` branch.
+cherry-picking these fixes from the ``main`` branch.
 
-To create a patched version, you need to identify first which ``release/X.Y``
-branch it does belong to. Make sure your local ``release/X.Y`` is up to date
-with origin one, as other patched versions may have been introduced before.
+To create a patched version, you must first identify which ``release/X.Y``
+branch it belongs to. Then, ensure your local ``release/X.Y`` is up to date
+with the origin one because other patched versions may have been introduced.
 
 .. code-block:: text
 
    git checkout release/X.Y && git fetch origin release/X.Y && git rebase origin/release/X.Y
 
-If you encounter any issues when running previous command, solve those before
+If you encounter any issues when running this command, solve them before
 continuing with the release. 
 
 Now, `cherry-pick <https://git-scm.com/docs/git-cherry-pick>`_ the fix commit
-from ``main`` which solves for the bug. Do not merge changes from main into the
-release branch, always cherry-pick them.
+from ``main``, which solves for the bug. Do not merge changes from ``main`` into the
+release branch. Always cherry-pick them.
 
 .. code-block:: text
    
    git cherry-pick <commit hash>
 
-Make sure your style, tests and documentation checks are passing too.
+Ensure that your style, tests, and documentation checks are also passing.
 
 Increase by one unit the value of ``Z`` in your project version. Stash and
-amend these new changes using:
+amend these new changes with:
 
 .. code-block:: text
 
    git add . && git commit --amend -m "Bump version X.Y.Z version"
 
-Tag previous commit by running:
+Tag the previous commit with:
 
 .. code-block:: text
 
    git tag vX.Y.Z
 
-Push the commit and the tag:
+Push the commit and the tag with:
 
 .. code-block:: text
 
@@ -175,24 +175,24 @@ Publishing Artifacts
 --------------------
 When a new version is released, some artifacts are provided with it. In Python,
 these :ref:`Artifacts` are typically the ``Wheel`` and ``Source`` files.
-Documentation in the form of PDF and HTML are also considered artifacts.
+Documentation in the form of PDF and HTML files are also considered artifacts.
 
-.. admonition:: Do not distribute artifacts without approval
+.. admonition:: Do not distribute artifacts without approval. 
 
-   Refer to :ref:`Project Approval` for more information about requesting
-   approval for publishing your project.
+   For more information about requesting approval for publishing your project,
+   see :ref:`Project Approval`.
 
-Manual release processes are discouraged and should be avoided. This allows to
-minimize human-error and alleviate workload on teams, see :ref:`Automating
-Release Process`.
+Manual release processes are discouraged and should be avoided. Automated
+release processes minimize human-error and alleviate workload on teams. For more
+information, see :ref: `Automating Release Process`.
 
 
-Publishing to Private PyPI
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-There are cases in which it is necessary to host and pull packages that are
-not ready to be hosted to the public `PyPI`_. For example, if a PyAnsys library
-requires auto-generated gRPC interface files from an as-of-yet private feature
-or service, this package should be hosted on a private PyPI repository.
+Publishing Privately on PyPI
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+It is sometimes necessary to host and pull packages that are not ready to be
+hosted on the public `PyPI`_. For example, if a PyAnsys library requires
+auto-generated gRPC' interface files from a feature or service that is still
+private, this package should be hosted on a private PyPI repository.
 
 ANSYS, Inc. has a private repository at `PyAnsys PyPI`_. Access is controlled
 via a ``Personal Access Token (PAT)`` and a ``PYANSYS_PYPI_PRIVATE_PAT``
@@ -207,7 +207,7 @@ within `PyAnsys`_.
 
 Upload
 ++++++
-Packages can be uploaded to the private repository with the following short bash
+You can upload packages to the private repository with the following short bash
 script. If you are operating out of a GitHub CI pipeline, email the PyAnsys Core
 team at `pyansys.core@ansys.com <mailto:pyansys.core@ansys.com>`_ for the
 required ``PAT`` user name and ``PYANSYS_PYPI_PRIVATE_PAT`` password.
@@ -226,7 +226,7 @@ repository with:
      -u PAT \
      --repository-url $REPOSITORY_URL
 
-Alternatively, you can use environment variables instead of CLI arguments for Twine.
+Alternatively, instead of CLI arguments for Twine, you can use environment variables:
 
 .. code::
 
@@ -239,7 +239,7 @@ Alternatively, you can use environment variables instead of CLI arguments for Tw
 
 Download
 ++++++++
-You can download a Python package from `PyAnsys PyPI`_, with:
+You can download a Python package from `PyAnsys PyPI`_ with:
 
 .. code::
 
@@ -248,7 +248,7 @@ You can download a Python package from `PyAnsys PyPI`_, with:
 
 .. note::
    A read-only PAT is available for users who need only to download the package. It
-   can be stored as an environment variable and be used as described in the code sample above.
+   can be stored as an environment variable and be used as described in the code example above.
    To get access to this PAT, email the PyAnsys Core team at `pyansys.core@ansys.com <pyansys.core@ansys.com>`.
 
 .. warning::
@@ -257,7 +257,7 @@ You can download a Python package from `PyAnsys PyPI`_, with:
    ``--index-url`` switch changes the Python Package Index, which forces ``pip``
    to use only packages from that package index.
 
-   Our package index uses PyPI upstream. Therefore other users cannot
+   The Ansys package index uses PyPI upstream. This prevents other users from being able to
    inject packages from PyPI that would supersede our packages, even if they
    are of a higher version.
 
@@ -272,44 +272,42 @@ Libraries`. Publishing to `PyPI`_ requires a ``PYPI_TOKEN`` for your project. To
 generate and get access to this token:
 
 - Contact `Alexander Kaszynski <mailto:alexander.kaszynski@ansys.com>`_
-  requesting access to the ``PYPI_TOKEN``. The value of this token is different
-  depending on whether is the :ref:`First Time Publishing to PyPI` or :ref:`After
-  First Publishing to PyPI`. 
+  requesting access to the ``PYPI_TOKEN``. The value of this token depends
+  on whether you are :ref:`Initially Publishing to PyPI` or :ref:`Republishing
+  to PyPI`. 
 
 - Add this token to the ``Secrets/Actions`` section in your repository.
 
-First Time Publishing to PyPI
-+++++++++++++++++++++++++++++
-If it is the first time you try to publish your project in `PyPI`_, then you
-will need the global ``PYPI_TOKEN`` for the `PyAnsys`_ user in
-`PyPI`. Make sure you inform `Alexander Kaszynski
-<mailto:alexander.kaszynski@ansys.com>`_ about this situation.
+Initially Publishing to PyPI
+++++++++++++++++++++++++++++
+If it is the first time that you are publishing your project to `PyPI`_,
+you must obtain the global ``PYPI_TOKEN`` for the `PyAnsys`_ user in
+`PyPI` by contacting `Alexander Kaszynski <mailto:alexander.kaszynski@ansys.com>`_.
 
-After First Publishing to PyPI
-++++++++++++++++++++++++++++++
-If you plan to do a new publishing of your project in `PyPI`, then you no longer
-need the global ``PYPI_TOKEN`` but a unique one for your project. Again, contact
-`Alexander Kaszynski <mailto:alexander.kaszynski@ansys.com>`_ requesting for a
-unique token for your project. Update its value in the ``Secrets/Actions``
-section.
+Republishing to PyPI
+++++++++++++++++++++
+If you are republishing your project to `PyPI`, you no longer need to have
+the global ``PYPI_TOKEN`` but rather an unique project token. To
+obtain your unique project token, contact `Alexander Kaszynski
+<mailto:alexander.kaszynski@ansys.com>`_. Once you have received it,
+update the token value in the ``Secrets/Actions`` section.
 
 Publishing to GitHub
 ~~~~~~~~~~~~~~~~~~~~
 Publishing :ref:`Artifacts` to GitHub is also possible. These will be available
 in the ``https://github.com/pyansys/project-name/releases`` section.
 Publishing manually a :ref:`Artifacts` into GitHub must be avoided to reduce
-human-error.  Instead, refer to :ref:`Automating Release Process` for more
+human-error.  Instead, refer to :ref:`Automating The Release Process` for more
 information.
 
-Automating Release Process
---------------------------
-Automating release process is a good practice which minimizes human-error and
-alleviates the workload on the developers side. 
+Automating the Release Process
+------------------------------
+Automating the release process is a good practice because it minimizes human error and
+alleviates the workload on the developer's side. 
 
-The following GitHub actions code triggers every time a new ``tag`` gets pushed
-tool your project repository. Please, not that this workflow depends on the
-success of the style, tests, docs and build workflows. These are provided in
-:ref:`Workflow Examples`.
+The following GitHub Actions code triggers every time a new ``tag`` gets pushed
+to your project repository. This workflow depends on the success of the style, tests,
+docs, and build workflows. For more information, see :ref:`Workflow Examples`.
 
 .. literalinclude:: code/release.yml
    :language: yaml

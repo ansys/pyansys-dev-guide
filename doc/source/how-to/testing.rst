@@ -1,6 +1,6 @@
 Testing
 =======
-Unit and integration testing is critical for the successful continuous
+Unit testing and integration testing are critical for the successful continuous
 integration and delivery of any program or libraries belonging to the PyAnsys
 project.
 
@@ -12,8 +12,8 @@ last test. Furthermore, all test cases do not have to be implemented at once but
 rather gradually as the code evolves. TDD was created by Kent Beck in the
 1990s as part of the Extreme Programming software development process.
 
-We recommend that you follow TDD when developing your PyAnsys project. This
-topic contains examples and best practices to help you write them.
+You should follow TDD when developing your PyAnsys project. Examples
+and best practices for unit tests follow.
 
 Testing Framework
 -----------------
@@ -25,8 +25,8 @@ Testing Framework
 
 For consistency, PyAnsys tools and libraries should use either the `unittest
 <https://docs.python.org/3/library/unittest.html>`_ or `pytest
-<https://docs.pytest.org/>`_ frameworks for unit testing. This last framework is
-recommended unless any constraint prevents you from using it in your project.  As
+<https://docs.pytest.org/>`_ framework for unit testing. This last framework is
+recommended unless any constraint in your project prevents you from using it.  As
 described in :ref:`Required Files`, unit tests should be placed in :ref:`The
 \`\`tests/\`\` Directory` in the library's root directory.
 
@@ -35,8 +35,8 @@ Adding Testing Dependencies
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Requirements for testing dependencies should be included either in :ref:`The
 \`\`setup.py\`\` File`, :ref:`The \`\`pyproject.toml\`\` File` or in a
-``requirements_tests.txt`` file. Notice that only ``pytest`` and ``pytest-cov``
-need to be specified as third-party dependencies because``unittest`` is included
+``requirements_tests.txt`` file. Only ``pytest`` and ``pytest-cov``
+must be specified as third-party dependencies because``unittest`` is included
 in `The Python Standard Library <https://docs.python.org/3/library/>`_.
 
 .. tabs::
@@ -98,7 +98,7 @@ These dependencies can be installed using ``pip``:
 
 Organizing Test Files
 ~~~~~~~~~~~~~~~~~~~~~
-Test files must be collected in :ref:`The \`\`tests/\`\` Directory`. To
+You must collect test files in :ref:`The \`\`tests/\`\` Directory`. To
 guarantee that tests are run against the library source code, follow a ``src/``
 layout as explained in :ref:`The \`\`src/\`\` Directory` rather than
 having your Python library source located directly in the repository root directory. 
@@ -112,8 +112,7 @@ This helps you to:
 
 Running Tests
 -------------
-Once you have installed ``pytest``, you can execute the test suite by
-running:
+Once you have installed ``pytest``, you can execute the test suite with:
 
 .. code-block:: text
 
@@ -193,12 +192,12 @@ file would be:
         .. code-block:: python
            
             def parse_chunks(chunks):
-                """Deserialize gRPC chunks into a numpy array.
+                """Deserialize gRPC chunks into a Numpy array.
         
                 Parameters
                 ----------
                 chunks : generator
-                    Generator from gRPC.  Each chunk contains a bytes payload.
+                    Generator from gRPC. Each chunk contains a bytes payload.
         
                 dtype : np.dtype
                     Numpy data type to interpert chunks as.
@@ -206,7 +205,7 @@ file would be:
                 Returns
                 -------
                 array : np.ndarray
-                    Deserialized numpy array.
+                    Deserialized Numpy array.
         
                 """
                 arrays = []
@@ -356,7 +355,7 @@ Python function. If the Python library wraps this gRPC method with a
                assert srv.get_node(node_index) == node_coord
 
 The goal of the unit test should be to test the API rather than the product or
-service itself. In the case of ``GetNode``, this method should have already
+service. In the case of ``GetNode``, this method should have already
 been tested when designing and developing the service.
 
 
@@ -411,7 +410,7 @@ Functional Testing
 ~~~~~~~~~~~~~~~~~~
 Functional testing should test the Python library using scripts or examples
 that are expected to be executed by the user. Unlike unit or integration
-testing, these functional tests are testing the library as a whole by calling
+testing, functional tests are testing the library as a whole by calling
 several methods to accomplish a task. You should run these tests only after unit
 and integration testing is complete. Ideally, you should run them outside the
 ``pytest`` framework while building documentation with `sphinx-gallery`_.
@@ -426,9 +425,9 @@ and integration testing is complete. Ideally, you should run them outside the
 
 Testing Code Coverage
 ---------------------
-Given that Python is an interpreted language, developers of Python libraries
-should aim to have high coverage for their libraries because only syntax errors can
-be caught during the almost trivial compile time. Coverage is defined as parts
+Because Python is an interpreted language, syntax errors can only be
+caught during the almost trivial compile times. Thus, developers of Python libraries
+should aim to have high coverage for their libraries. Coverage is defined as parts
 of the executable and usable source that are tested by unit tests. You can use
 the `pytest-cov <https://pytest-cov.readthedocs.io/>`_ library to view the
 coverage for your library.
@@ -436,11 +435,11 @@ coverage for your library.
 
 Configuring Code Coverage
 ~~~~~~~~~~~~~~~~~~~~~~~~~
-Code coverage must be properly configured. Otherwise, the resulting report will
+If you do not configure code coverage properly. the resulting report will
 not be showing the real scope covered by the test suite.
 
 Assuming that a ``PyAnsys`` project follows :ref:`The \`\`src/\`\` Directory` layout,
-the following flag must be passed when :ref:`Running Tests`:
+you must pass the following flag when :ref:`Running Tests`:
 
 .. code-block:: text
 
@@ -453,10 +452,10 @@ located in :ref:`The \`\`tests/\`\` Directory`.
 
 While 100% coverage is ideal, the law of diminishing returns applies to
 the coverage of a Python library. Consequently, achieving 80-90% coverage is
-often sufficient.  For parts of your library that are difficult or impossible
+often sufficient. For parts of your library that are difficult or impossible
 to test, consider using ``# pragma: no cover`` at the end of the method
 definition, branch, or line to denote that part of the code cannot be
-reasonably tested.  For example, if part of your module performs a simple
+reasonably tested. For example, if part of your module performs a simple
 ``import`` test of ``matplotlib`` and raises an error when the library is not
 installed, it is not reasonable to attempt to test this and assume full
 coverage:

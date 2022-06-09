@@ -27,10 +27,10 @@ more information, see `Status of Python branches
 
 .. admonition:: Consider supporting stable Python versions.
 
-   Stable Python versions are labeled as ``stable`` and only receive security
+   Python versions labeled as ``stable`` receive only security
    fixes. Versions labeled as ``dev`` are still receiving bug fixes.
 
-Expect stable versions to be the most commonly used Python versions. Note that some
+Expect stable versions to be the most commonly used Python versions. Some
 libraries like `NumPy <https://numpy.org/>`_ drop support for older versions of
 Python earlier than their end of life (EOL) as outlined in `NEP 29
 <https://numpy.org/neps/nep-0029-deprecation_policy.html#support-table>`_.
@@ -52,13 +52,13 @@ can enforce a minimum-required Python version within ``setup.py`` with:
 This helps ``pip`` to know which versions of your library
 support which versions of Python. You can also impose an upper limit if you're
 sure you don't support certain versions of Python. For example, if you only
-support Python 3.6 through 3.9: ``python_requires='>=3.6, <3.10'``.
+support Python 3.6 through 3.9, your command would look like this: ``python_requires='>=3.6, <3.10'``.
 
 
 Verifying Support
 -----------------
 The best way to validate whether a Python library supports a version of Python
-is to validate by :ref:`Using Continuous Integration`. An example GitHub
+is by :ref:`Using Continuous Integration`. An example GitHub
 workflow testing Python 3.7 through Python 3.10 on Windows and Linux would
 start with:
 
