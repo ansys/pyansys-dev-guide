@@ -22,6 +22,14 @@
            label="tests_package_A", shape="folder"
          ];
 
+         conftest [
+           label="conftest.py", shape="file"
+         ]
+
+         pytest_ini [
+           label="pytest.ini", shape="file"
+         ]
+
          test_module_foo [
            label="test_module_foo.py", shape="file"
          ]
@@ -32,6 +40,8 @@
 
          tests -> tests_package_A;
          tests -> test_module_foo;
+         tests -> conftest;
+         tests -> pytest_ini;
          tests_package_A -> test_module_bar;
 
      }

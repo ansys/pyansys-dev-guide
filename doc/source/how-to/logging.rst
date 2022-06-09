@@ -1,20 +1,19 @@
-.. _logging:
+Logging
+=======
+This section provides guidelines for logging in PyAnsys libraries. These
+guidelines are best practices discovered through implementing logging services
+and modules within PyAnsys libraries. We welcome suggestions and improvements.
 
-Logging Guidelines
-##################
+Visit the `Official Python Logging Tutorial
+<https://docs.python.org/es/3/howto/logging.html>`_ for logging techniques. In
+particular, check the:
 
-This section provides guidelines for logging in PyAnsys libraries.
-These guidelines are best practices discovered through implementing logging
-services and modules within PyAnsys libraries. We welcome suggestions and
-improvements.
-
-Also see external resources for `basic
-<https://docs.python-guide.org/writing/logging/>`__ and `advanced
-<https://coralogix.com/blog/python-logging-best-practices-tips/>`__ techniques.
+- `Python Basic Logging Tutorial <https://docs.python.org/3/howto/logging.html#basic-logging-tutorial>`_
+- `Python Advanced Logging Tutorial <https://docs.python.org/3/howto/logging.html#basic-logging-tutorial>`_
 
 
 Description and Usage
-=====================
+---------------------
 Logging helps to track events occurring in the application. A log record is 
 created for each event. This record contains detailed information about the
 current application operation. Whenever information must be exposed, displayed,
@@ -23,9 +22,9 @@ and shared, logging is the way to do it.
 Logging is beneficial to both users and application developers. It serves several
 purposes:
 
-  - Extracts some valuable data for the final users to know the status of their work
-  - Tracks the progress and the course of the application usage
-  - Provides the developer with as much information as possible if an issue happens
+- Extracts some valuable data for the final users to know the status of their work
+- Tracks the progress and the course of the application usage
+- Provides the developer with as much information as possible if an issue happens
   
 The message logged can contain generic information or embed data specific to the
 current session. Message content is associated to a severity level, such as info,
@@ -34,24 +33,28 @@ For example, an info message is directed to the user, while a debug message is d
 to the developer.
 
 Logging Best Practices
-======================
+----------------------
 The logging capabilities in PyAnsys libraries should be built upon the `standard
 logging <https://docs.python.org/3/library/logging.html>`__ library. A PyAnsys
 library should not replace the standard logging library but rather provide a
 standardized way for the built-in :mod:`logging` library and the PyAnsys library
 to interact. Subsequent sections provide some best practices.
 
-Avoid Printing to the Console
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Avoiding Printing to the Console
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 A common habit while prototyping a new feature is to print a message into the
-command line executable. Instead of using the common ``Print()`` method, we
-recommend using a ``Stream-Handler`` and redirecting its content. This will
-allow messages to be filtered based on their severity level and apply formatting
-properly. To accomplish this, add a Boolean argument in the initializer
-of the ``Logger`` class that specifies how to handle the stream.
+command line executable. Instead of using the common `print
+<https://github.com/pyansys/pyansys-tools-report>`_ method, we recommend using a
+`StreamHandler
+<https://docs.python.org/3/library/logging.handlers.html#logging.StreamHandler>`_
+and redirecting its content. This will allow messages to be filtered based on
+their severity level and apply formatting properly. To accomplish this, add a
+Boolean argument in the initializer of the `Logger
+<https://docs.python.org/3/library/logging.html#logging.Logger>`_ class that
+specifies how to handle the stream.
 
-Enable/disable Handlers
-~~~~~~~~~~~~~~~~~~~~~~~
+Enabling and Disabling Handlers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 You might sometimes want to disable a specific handler, such as a file
 handler where log messages are written. If so, you must property close 
 and remove the existing handler. Otherwise, you might be denied file access
@@ -59,7 +62,7 @@ later when you try to write new log content.
 
 Here is an example of how to close a log handler:
 
-.. code:: python
+.. code-block:: python
 
     for handler in design_logger.handlers:
         if isinstance(handler, logging.FileHandler):
@@ -67,27 +70,38 @@ Here is an example of how to close a log handler:
             design_logger.removeHandler(handler)
 
 
-Use App Filters
-~~~~~~~~~~~~~~~
+Using App Filters
+~~~~~~~~~~~~~~~~~
 An app filter shows all its value when the content of a message depends on some
 conditions. It injects contextual information in the core of the message.
 This can be used to harmonize message rendering when the application
 output varies based on the data processed.
 
-Using an app filter requires the creation of a class based on the ``logging.Filter``
-and the implementation of the ``filter`` method. This method will contain all
-modified content to send to the stream:
+Using an app filter requires the creation of a class based on the
+`logging.Filter
+<https://docs.python.org/3/library/logging.html#filter-objects>`_ and the
+implementation of the `filter
+<https://docs.python.org/3/library/logging.html#logging.Filter.filter>`_ method.
+This method will contain all modified content to send to the stream:
 
 .. code:: python
 
     class AppFilter(logging.Filter):
 
-        def __init__(self, destination="Global", extra=""):
-            self._destination = destination
-            self._extra = extra
+        def __init__(self, destination=None, extra=None):
+            if not destination:
+                self._destination = "Global"
+            if not extra:
+                self._extra = ""
 
         def filter(self, record):
-            """Modify the record sent to the stream.""""
+            """Modify the record sent to the stream.
+            
+            Parameters
+            ----------
+            record : 
+                
+            """
 
             record.destination = self._destination
 
@@ -125,8 +139,8 @@ errors occur, they will be reported as logging errors and will not halt code.
     logger.info("Project %s has been opened.", project.GetName())
 
 
-'Application' and 'Service' Logging Modules
-===========================================
+Application and Service Logging Modules
+---------------------------------------
 PyAnsys libraries use 'Application' and 'Service' logging modules to extend
 or expose features from an Ansys application, product, or service, which may
 be local or remote.
@@ -144,7 +158,7 @@ of the global and instance loggers.
 
 .. _logging_in_pymapdl_figure:
 
-.. figure:: images/Guidelines_chart.png
+.. figure:: images/guidelines_chart.png
     :align: center
     :alt: Logging in PyMAPDL
     :figclass: align-center
@@ -168,7 +182,7 @@ in the above code are shown in this collapsible section:
 
 
 Global Logger
-=============
+-------------
 
 A global logger named ``py*_global`` is created when importing
 ``ansys.product.service`` (``ansys.product.service.__init__``). This logger
@@ -225,7 +239,7 @@ library.
 
 To log using the global logger, simply call the desired method as a normal logger:
 
-.. code:: python
+.. code:: pycon
 
     >>> import logging
     >>> from ansys.mapdl.core.logging import Logger
@@ -237,7 +251,7 @@ To log using the global logger, simply call the desired method as a normal logge
 
 
 Instance Logger
-===============
+---------------
 An instance logger is created every time that the class ``_MapdlCore`` is
 instantiated. Using this instance logger is recommended when using the ``pool``
 library or when using multiple instances of ``Mapdl``. The main feature of the instance
@@ -273,7 +287,7 @@ Here is an example of how to use an instance logger:
 
 
 Ansys Product Loggers
-=====================
+---------------------
 An Ansys product, due to its architecture, can have several loggers. The
 ``logging`` library features support working with a finite number of loggers. The
 factory function ``logging.getLogger()`` helps to access each logger by its name. In
@@ -290,15 +304,15 @@ autonomously. The project will take advantage of the entire set of features expo
 in the standard logger and all the upcoming improvements.
 
 Custom Log Handlers
-===================
+-------------------
 You might need to catch Ansys product messages and redirect them to another
 logger. For example, Ansys Electronics Desktop (AEDT) has its own internal
 logger called the *message manager*, which has three main destinations: 
 
-  - *Global*, which is for the entire project manager
-  - *Project*, which is related to the project
-  - *Design*, which is related to the design, making it the most specific
-    destination of the three loggers
+- *Global*, which is for the entire project manager
+- *Project*, which is related to the project
+- *Design*, which is related to the design, making it the most specific
+   destination of the three loggers
 
 The message manager does not use the standard Python logging module, which
 can be a problem when exporting messages and data from it to a common tool.

@@ -1,0 +1,56 @@
+name: CI
+on:
+  pull_request:
+  push:
+    tags:
+      - "*"
+    branches:
+      - main
+
+env:
+  MAIN_PYTHON_VERSION: 3.9
+
+jobs:
+  build:
+    name: Docs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ env.MAIN_PYTHON_VERSION }}
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential zip pandoc texlive-latex-extra latexmk texlive-pstricks
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          <additional doc dependencies>
+          
+      - name: Build documentation
+        run: |
+          make -C doc/ clean html
+          touch 'doc/_build/html/.nojekyll'
+          echo '<product_name>.docs.pyansys.com' > 'doc/_build/html/CNAME'
+
+      - name: Upload documentation artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: Documentation
+          path: doc/_build/html/
+
+      - name: Deploy to gh-pages
+        if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+        uses: JamesIves/github-pages-deploy-action@4.3.3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: doc/_build/html/
+          CLEAN: true
+          SINGLE_COMMIT: true

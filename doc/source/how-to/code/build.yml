@@ -1,0 +1,39 @@
+name: CI
+on:
+  pull_request:
+  push:
+    tags:
+      - "*"
+    branches:
+      - main
+
+env:
+  MAIN_PYTHON_VERSION: 3.9
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ env.MAIN_PYTHON_VERSION }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip build twine
+
+      - name: Build wheel and sdist
+        run: |
+          python -m build && python -m twine check dist/*
+
+      - name: Upload wheel and sdist to CI session
+        uses: actions/upload-artifact@v2
+        with:
+          name: pyasys-templates-packages
+          path: dist/
+          retention-days: 7

@@ -99,15 +99,22 @@ numfig = True
 
 # Do not include the following patterns as documentation source files.
 # See issue: https://github.com/sphinx-doc/sphinx/issues/1668
-exclude_patterns = ["packaging/diag/*", "packaging/code/*"]
+exclude_patterns = [
+    "packaging/diag/*",
+    "packaging/code/*",
+    "how-to/diag/*",
+    "how-to/api/ansys_sphinx_theme.samples.Complex.abs.rst",
+    "how-to/api/ansys_sphinx_theme.samples.Complex.imag.rst",
+    "how-to/api/ansys_sphinx_theme.samples.Complex.real.rst",
+]
 
 # Fix excessive margins in mermaid output.
 # See issue: https://github.com/mermaid-js/mermaid/issues/1800#issuecomment-741617143
 mermaid_output_format = "png"
 mermaid_params = ["--width", "2000"]
 
-# Generate section labels up to three levels deep
-autosectionlabel_maxdepth = 3
+# Generate section labels up to four levels deep
+autosectionlabel_maxdepth = 4
 
 # TODO: warning suppression is temporary till https://github.com/pyansys/dev-guide/issues/64
 # gets fully implemented.
