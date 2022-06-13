@@ -1,10 +1,10 @@
 Releasing and Publishing
 ========================
-Releasing a new version is a critical procedure. It should automated as much as
+Releasing a new version is a critical procedure. It should be automated as much as
 possible to avoid human error.
 
 This sections explains in detail the :ref:`Git` workflow to be followed together
-with the different steps that developers need to follow to make a successful
+with the different steps that developers need to follow to create a successful
 release.
 
 
@@ -287,9 +287,10 @@ you must obtain the global ``PYPI_TOKEN`` for the `PyAnsys`_ user in
 Republishing to PyPI
 ++++++++++++++++++++
 If you are republishing your project to `PyPI`, you no longer need to have
-the global ``PYPI_TOKEN`` but rather an unique project token. To
+the global ``PYPI_TOKEN`` but rather a unique project token. To
 obtain your unique project token, contact `Alexander Kaszynski
-<mailto:alexander.kaszynski@ansys.com>`_. Once you have received it,
+<mailto:alexander.kaszynski@ansys.com>`_ or `Maxime Rey
+<mailto:maxime.rey@ansys.com>`_. Once you have received it,
 update the token value in the ``Secrets/Actions`` section.
 
 Publishing to GitHub
@@ -303,9 +304,9 @@ information.
 Automating the Release Process
 ------------------------------
 Automating the release process is a good practice because it minimizes human error and
-alleviates the workload on the developer's side. 
+alleviates the developer's workload. 
 
-The following GitHub Actions code triggers every time a new ``tag`` gets pushed
+The following GitHub Actions code is triggered every time a new ``tag`` gets pushed
 to your project repository. This workflow depends on the success of the style, tests,
 docs, and build workflows. For more information, see :ref:`Workflow Examples`.
 
