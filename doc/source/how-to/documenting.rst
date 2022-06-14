@@ -437,15 +437,15 @@ main. You can do this via `GitHub Actions`_ by creating a new workflow that
 generates your documentation on each pull request and then deploys under
 certain conditions.
 
-**Documentation Workflow**
-
+Documentation Workflow
+++++++++++++++++++++++
 Your documentation workflow should be within the ``.github/workflows``
 directory and should be triggered on each PR. It should use one of the
 following approaches:
 
 .. tabs::
 
-    .. tab:: Using ``tox``
+    .. group-tab:: Using ``tox``
 
         The best way to get started with this is to use the `ansys-templates`_ tool and run:
 
@@ -472,7 +472,7 @@ following approaches:
                 - name: Generate the documentation with tox
                   run: tox -e doc
 
-    .. tab:: Without Using ``tox``
+    .. group-tab:: Without Using ``tox``
 
         While `tox`_ is the preferred tool for automating your documentation build, if
         you wish to avoid using `tox`_, consider the following workflow:
@@ -490,7 +490,7 @@ following approaches:
                     python-version: 3.8
 
                 - name: Install <PROJECT-NAME>
-                  run: pip install -e .
+                  run: pip install .
 
                 - name: Install documentation build requirements
                   run: pip install -r requirements/requirements_docs.txt
@@ -506,14 +506,29 @@ Your next step will be to upload the documentation artifact. Assuming your
 documentation is written to ``doc/_build/html``, upload your documentation
 with:
 
-.. code-block:: yaml
+.. tabs::
 
-    - name: Upload HTML Documentation
-      uses: actions/upload-artifact@v2
-      with:
-        name: HTML-Documentation
-        path: doc/_build/html/
-        retention-days: 7
+    .. group-tab:: Using ``tox``
+
+        .. code-block:: yaml
+        
+            - name: Upload HTML Documentation
+              uses: actions/upload-artifact@v2
+              with:
+                name: HTML-Documentation
+                path: .tox/doc_out/
+                retention-days: 7
+
+    .. group-tab:: Without Using ``tox``
+
+        .. code-block:: yaml
+        
+            - name: Upload HTML Documentation
+              uses: actions/upload-artifact@v2
+              with:
+                name: HTML-Documentation
+                path: doc/_build/html
+                retention-days: 7
 
 This will allow anyone creating pull requests to download documentation build
 artifacts as a convenient zip and to open the documentation by opening
@@ -522,15 +537,47 @@ artifacts as a convenient zip and to open the documentation by opening
 Next, deploy your documentation to the ``gh-pages`` branch via using the
 ``JamesIves/github-pages-deploy-action`` action:
 
-.. code-block:: yaml
+.. tabs::
 
-    - name: Deploy
-      if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-      uses: JamesIves/github-pages-deploy-action@4.3.0
-      with:
-        branch: gh-pages
-        folder: doc/build/html
-        clean: true
+    .. group-tab:: Using ``tox``
+
+        .. code-block:: yaml
+        
+            - name: Deploy
+              if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+              uses: JamesIves/github-pages-deploy-action@4.3.0
+              with:
+                github-token: ${{ secrets.GITHUB_TOKEN }}
+                branch: gh-pages
+                folder: .tox/doc_out
+                clean: true
+
+    .. group-tab:: Without Using ``tox``
+
+        .. code-block:: yaml
+
+            - name: Deploy
+              if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+              uses: JamesIves/github-pages-deploy-action@4.3.0
+              with:
+                github-token: ${{ secrets.GITHUB_TOKEN }}
+                branch: gh-pages
+                folder: doc/_build/html
+                clean: true
+
+Notice that for previous job steps, a ``GITHUB_TOKEN`` is required. This repo
+needs ``write`` rights and SSO access if you plan to deploy to the ``gh-pages``
+of another branch.
+
+To create the ``TOKEN``, go to the ``Settings`` section in your GitHub profile.
+In the left side bar, select the ``Developer Settings`` section and then
+``Personal access tokens``. Finally, click on ``Generate new token`` and give it
+``write`` permissions. You will be prompted with the value of the ``TOKEN``.
+Finally, click on ``Configure SSO`` to allow using it with the PyAnsys
+repositories you have access to.
+
+Paste the value of the token in the ``Settings/Secrets/Actions`` path under a
+new secret named ``GITHUB_TOKEN`` in the repository of the project.
 
 .. note::
 
