@@ -170,7 +170,7 @@ and in the ``dev_guide`` repository at `pyansys_logging.py
 
 .. collapse:: Example PyAnsys Custom Logger Module
 
-    .. literalinclude:: ../../../logging/pyansys_logging.py
+    .. literalinclude:: code/pyansys_logging.py
 
 
 Some unit tests demonstrating how to use the PyAnsys custom logger module implemented 
@@ -178,7 +178,7 @@ in the above code are shown in this collapsible section:
 
 .. collapse:: How to Use the PyAnsys Custom Logger Module
 
-    .. literalinclude:: ../../../logging/test_pyansys_logging.py
+    .. literalinclude:: code/test_pyansys_logging.py
 
 
 Global Logger
