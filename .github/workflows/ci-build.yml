@@ -1,4 +1,4 @@
-name: Documentation Build
+name: CI
 
 on:
   pull_request:
@@ -8,70 +8,62 @@ on:
     branches:
       - main
 
-jobs:
-  pre-commit:
-    name: Pre-commit checks
-    runs-on: ubuntu-latest
+env:
+  MAIN_PYTHON_VERSION: '3.10'
 
+jobs:
+
+  style:
+    name: Code style
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.10'
-      - name: Install pre-commit requirements
+          python-version: ${{ env.MAIN_PYTHON_VERSION }}
+      - name: Install dependencies
         run: |
-          pip install pre-commit~=2.16.0
+          python -m pip install --upgrade pip tox
+      - name: Test with tox
+        run: tox -e style
 
-      - name: Run pre-commit
-        run: |
-          pre-commit run --all-files || ( git status --short ; git diff ; exit 1 )
-
-  docs_build:
+  docs:
+    name: Documentation
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup Python
-        uses: actions/setup-python@v2.2.2
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
-          python-version: 3.8
+          python-version: ${{ env.MAIN_PYTHON_VERSION }}
 
-      - name: Install diagrams dependencies
+      - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install nodejs npm graphviz
+          sudo apt-get install -y texlive-latex-extra latexmk nodejs npm graphviz
           npm install -g @mermaid-js/mermaid-cli
 
-      - name: Build HTML Documentation
+      - name: Install Python dependencies
         run: |
-          pip install -r requirements_docs.txt --disable-pip-version-check
-          make -C doc html SPHINXOPTS="-W"
-          touch doc/build/html/.nojekyll
-          echo "dev.docs.pyansys.com" > doc/build/html/CNAME
+          python -m pip install --upgrade pip tox
 
-      - name: Deploy to gh-pages on main
-        if: github.ref == 'refs/heads/main'
-        uses: JamesIves/github-pages-deploy-action@4.1.5
-        with:
-          token: ${{ secrets.github_token }}
-          branch: gh-pages
-          folder: doc/build/html
-          clean: true
-          single-commit: true
-  
+      - name: Build HTML documentation
+        run: tox -e doc
+
       - name: Build PDF Documentation
         run: |
           sudo apt update
           sudo apt-get install -y texlive-latex-extra latexmk
+          python -m pip install -r requirements/requirements_doc.txt
           make -C doc latexpdf
 
-      - name: Upload HTML Documentation
+      - name: Upload HTML documentation
         uses: actions/upload-artifact@v2.2.4
         with:
           name: HTML-Documentation
-          path: doc/build/html
+          path: .tox/doc_out_html/
           retention-days: 7
 
       - name: Upload PDF Documentation
@@ -81,9 +73,19 @@ jobs:
           path: doc/build/latex/*.pdf
           retention-days: 7
 
-  Release:
+      - name: Deploy to gh-pages
+        if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: .tox/doc_out_html/
+          CLEAN: true
+          SINGLE_COMMIT: true
+
+  release:
     if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-    needs: docs_build
+    needs: [style, docs]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -91,7 +93,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v1
         with:
-          python-version: 3.8
+          python-version: ${{ env.MAIN_PYTHON_VERSION }}
 
       - uses: actions/download-artifact@v2
 

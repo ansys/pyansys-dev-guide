@@ -1,47 +1,50 @@
 name: Nightly Documentation Build
 
-
 on:
   schedule:  # UTC at 0400
     - cron:  '0 4 * * */2' # To run every 3 days
   workflow_dispatch:
 
-jobs:
-  nightly_docs_build:
-    runs-on: ubuntu-latest
+env:
+  MAIN_PYTHON_VERSION: '3.10'
 
+jobs:
+  nightly-docs:
+    name: Nightly documentation
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup Python
-        uses: actions/setup-python@v2.2.2
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
-          python-version: 3.8
+          python-version: ${{ env.MAIN_PYTHON_VERSION }}
 
-      - name: Install mermaid-cli
+      - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install nodejs npm graphviz
+          sudo apt-get install -y texlive-latex-extra latexmk nodejs npm graphviz
           npm install -g @mermaid-js/mermaid-cli
 
-      - name: Build HTML Documentation
+      - name: Install Python dependencies
         run: |
-          pip install -r requirements_docs.txt --disable-pip-version-check
-          make -C doc html SPHINXOPTS="-W"
-          touch doc/build/html/.nojekyll
-          echo "dev.docs.pyansys.com" > doc/build/html/CNAME
-  
+          python -m pip install --upgrade pip tox
+
+      - name: Build HTML documentation
+        run: tox -e doc
+
       - name: Build PDF Documentation
         run: |
           sudo apt update
           sudo apt-get install -y texlive-latex-extra latexmk
+          python -m pip install -r requirements/requirements_doc.txt
           make -C doc latexpdf
 
-      - name: Upload HTML Documentation
+      - name: Upload HTML documentation
         uses: actions/upload-artifact@v2.2.4
         with:
           name: HTML-Documentation
-          path: doc/build/html
+          path: .tox/doc_out_html/
           retention-days: 7
 
       - name: Upload PDF Documentation
@@ -52,10 +55,11 @@ jobs:
           retention-days: 7
 
       - name: Deploy to gh-pages
-        uses: JamesIves/github-pages-deploy-action@4.1.5
+        if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+        uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
-          token: ${{ secrets.github_token }}
-          branch: gh-pages
-          folder: doc/build/html
-          clean: true
-          single-commit: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: .tox/doc_out_html/
+          CLEAN: true
+          SINGLE_COMMIT: true
