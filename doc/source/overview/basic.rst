@@ -2,17 +2,17 @@
 PyAnsys Project Organization
 ############################
 
-The PyAnsys project is hosted on GitHub at `PyAnsys
+The `PyAnsys Project <https://docs.pyansys.com/>`_ is hosted on GitHub at `PyAnsys
 <https://github.com/pyansys>`_. It contains several repositories with 
 Python libraries that interface with Ansys products or services. 
 To try out a library, visit one of these links:
 
-* `PyAnsys Project <https://docs.pyansys.com/>`_
+* * `PyAEDT`_
+* `PyDPF-Core <https://github.com/pyansys/DPF-Core>`_
+* `PyDPF-Post <https://github.com/pyansys/DPF-Post>`_
 * `PyMAPDL`_
-* `PyAEDT`_
-* `DPF-Core <https://github.com/pyansys/DPF-Core>`_
-* `DPF-Post <https://github.com/pyansys/DPF-Post>`_
-* `Legacy PyMAPDL Reader <https://github.com/pyansys/pymapdl-reader>`_
+* `PyMAPDL Legacy Reader <https://github.com/pyansys/pymapdl-reader>`_
+* `PyPIM <https://github.com/pyansys/pypim>` _
 
 If you want to create, develop, or contribute to a PyAnsys library, 
 visit these links:
