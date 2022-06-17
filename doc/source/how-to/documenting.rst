@@ -439,7 +439,7 @@ certain conditions.
 
 Documentation Workflow
 ++++++++++++++++++++++
-Your documentation workflow should be within the ``.github/workflows``
+Your documentation workflow should be in the ``.github/workflows``
 directory and should be triggered on each PR. It should use one of the
 following approaches:
 
@@ -447,7 +447,7 @@ following approaches:
 
     .. group-tab:: Using ``tox``
 
-        The best way to get started with this is to use the `ansys-templates`_ tool and run:
+        The best way to get started with ``tox`` is to use the `ansys-templates`_ tool and run:
 
         .. code-block:: text
 
@@ -475,7 +475,7 @@ following approaches:
     .. group-tab:: Without Using ``tox``
 
         While `tox`_ is the preferred tool for automating your documentation build, if
-        you wish to avoid using `tox`_, consider the following workflow:
+        you want to avoid using `tox`_, consider the following workflow:
 
         .. code-block:: yaml
 
@@ -530,7 +530,7 @@ with:
                 path: doc/_build/html
                 retention-days: 7
 
-This will allow anyone creating pull requests to download documentation build
+This allows anyone creating pull requests to download documentation build
 artifacts as a convenient zip and to open the documentation by opening
 ``index.html``.
 
@@ -566,13 +566,14 @@ Next, deploy your documentation to the ``gh-pages`` branch via using the
                 clean: true
 
 Notice that for previous job steps, a ``GITHUB_TOKEN`` is required. This repo
-needs ``write`` rights and SSO access if you plan to deploy to the ``gh-pages``
-of another branch.
+needs ``write`` permission and SSO access if you plan to deploy to the ``gh-pages``
+or to another branch.
 
 To create the ``TOKEN``, go to the ``Settings`` section in your GitHub profile.
 In the left side bar, select the ``Developer Settings`` section and then
-``Personal access tokens``. Finally, click on ``Generate new token`` and give it
+``Personal access tokens``. Finally, click ``Generate new token`` and give it
 ``write`` permissions. You will be prompted with the value of the ``TOKEN``.
+Make sure to copy the value of the ``TOKEN`` as you will not be able to retrieve it later.
 Finally, click on ``Configure SSO`` to allow using it with the PyAnsys
 repositories you have access to.
 
