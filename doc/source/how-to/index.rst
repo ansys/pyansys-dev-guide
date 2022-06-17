@@ -12,6 +12,7 @@ functionalities such as logging, data transfer, and application APIs.
    setting-up
    supporting-python-versions
    contributing
+   packaging
    logging
    documenting
    testing
