@@ -12,7 +12,7 @@ To try out a library, visit one of these links:
 * `PyDPF-Post <https://github.com/pyansys/DPF-Post>`_
 * `PyMAPDL`_
 * `PyMAPDL Legacy Reader <https://github.com/pyansys/pymapdl-reader>`_
-* `PyPIM <https://github.com/pyansys/pypim>` _
+* `PyPIM <https://github.com/pyansys/pypim>`_
 
 If you want to create, develop, or contribute to a PyAnsys library, 
 visit these links:
