@@ -534,8 +534,21 @@ This allows anyone creating pull requests to download documentation build
 artifacts as a convenient zip and to open the documentation by opening
 ``index.html``.
 
+
+Deploying to GitHub Pages
++++++++++++++++++++++++++
 Next, deploy your documentation to the ``gh-pages`` branch via using the
-``JamesIves/github-pages-deploy-action`` action:
+``JamesIves/github-pages-deploy-action`` action.
+
+.. admonition:: Deploying to another repository.
+
+   If you are planning to deploy documentation to another repository rather than
+   the one for your project, make sure you create this new repo before deploying
+   for the first time your documentation.
+
+The following job step shows the logic for deploying. If you wish to deploy to
+another repository, make sure to uncomment the ``repository-name`` line and
+declare the name of your documentation repository:
 
 .. tabs::
 
@@ -548,6 +561,7 @@ Next, deploy your documentation to the ``gh-pages`` branch via using the
               uses: JamesIves/github-pages-deploy-action@4.3.0
               with:
                 github-token: ${{ secrets.GITHUB_TOKEN }}
+                # repository-name: pyansys/repository-name
                 branch: gh-pages
                 folder: .tox/doc_out
                 clean: true
@@ -561,6 +575,7 @@ Next, deploy your documentation to the ``gh-pages`` branch via using the
               uses: JamesIves/github-pages-deploy-action@4.3.0
               with:
                 github-token: ${{ secrets.GITHUB_TOKEN }}
+                # repository-name: pyansys/repository-name
                 branch: gh-pages
                 folder: doc/_build/html
                 clean: true
@@ -601,7 +616,8 @@ repositories you have access to.
 Paste the value of the token in the ``Settings/Secrets/Actions`` path under a
 new secret named ``GITHUB_TOKEN`` in the repository of the project.
 
-.. note::
+Deploying when Tagging
+++++++++++++++++++++++
 
    Depending on your preferences, you may choose to update the documentation on
    tags only (as done above), or on each each push. If you wish to have your
