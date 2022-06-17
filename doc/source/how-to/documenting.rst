@@ -538,7 +538,7 @@ artifacts as a convenient zip and to open the documentation by opening
 Deploying to GitHub Pages
 +++++++++++++++++++++++++
 Next, deploy your documentation to the ``gh-pages`` branch via using the
-``JamesIves/github-pages-deploy-action`` action.
+`JamesIves/github-pages-deploy-action <https://github.com/JamesIves/github-pages-deploy-action>`_ action.
 
 .. admonition:: Deploying to another repository.
 
@@ -560,7 +560,7 @@ declare the name of your documentation repository:
               if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
               uses: JamesIves/github-pages-deploy-action@4.3.0
               with:
-                github-token: ${{ secrets.GITHUB_TOKEN }}
+                token: ${{ secrets.GITHUB_TOKEN }}
                 # repository-name: pyansys/repository-name
                 branch: gh-pages
                 folder: .tox/doc_out
@@ -574,20 +574,117 @@ declare the name of your documentation repository:
               if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
               uses: JamesIves/github-pages-deploy-action@4.3.0
               with:
-                github-token: ${{ secrets.GITHUB_TOKEN }}
+                token: ${{ secrets.GITHUB_TOKEN }}
                 # repository-name: pyansys/repository-name
                 branch: gh-pages
                 folder: doc/_build/html
                 clean: true
 
-Notice that for previous job steps, a ``GITHUB_TOKEN`` is required. This repo
-needs ``write`` permission and SSO access if you plan to deploy to the ``gh-pages``
-or to another branch.
+Notice that for previous job steps, a ``GITHUB_TOKEN`` is required. 
+Github automatically generates the token ``GITHUB_TOKEN`` which you can use as ``token``
+for deploying documentation to the same repo.
+However, if you are planning to deploy to another repo this token does not have the
+permissions to do it.
 
-To create the ``TOKEN``, go to the ``Settings`` section in your GitHub profile.
+In that case, there are two options for documentation deployment, using a bot and using
+a personal access token (PAT).
+Depending on your profile (how many organizations you work in, the rights in the different
+repositories, etc), using a PAT can be potentially dangerous because PAT are not restricted
+to defined repositories, rather have general permissions.
+This means that a PAT with `repository-write` permission can write in any repo in any
+organization that the PAT creator can access.
+
+Therefore, the recommended approach is to **use a Bot**. However, you are free to use a PAT
+if you feel it fits your needs better.
+
+**Documentation Deployment using a bot**
+
+To deploy documentation to repo different than the one where the documentation is generated,
+you need permissions to access (*read/write*) this second repo. 
+These permissions can be handled using a specifically created bot.
+In PyAnsys organization, there is
+`PyAnsys bot <https://github.com/organizations/pyansys/settings/installations/22012868>`_
+which has read and write permission across some repositories and can be used for this purpose.
+
+.. admonition:: Organization approval to use PyAnsys bot
+
+    You need internal approval to use PyAnsys bot as your repo needs to added to
+    its list of repositories.
+    Please email `PyAnsys Support <pyansys.support@ansys.com>`_.
+
+
+Once your repository has been added to the bot repositories white-list, you need to add the
+following code to your CICD YAML file for the authentication:
+
+.. tabs::
+
+    .. group-tab:: Using ``tox``
+
+        .. code-block:: yaml
+
+          - name: Get Bot Application Token
+            if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+            id: get_workflow_token
+            uses: peter-murray/workflow-application-token-action@v1
+            with:
+              application_id: ${{ secrets.BOT_APPLICATION_ID }}
+              application_private_key: ${{ secrets.BOT_APPLICATION_PRIVATE_KEY }}
+
+
+    .. group-tab:: Without Using ``tox``
+
+        .. code-block:: yaml
+
+          - name: Get Bot Application Token
+            if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+            id: get_workflow_token
+            uses: peter-murray/workflow-application-token-action@v1
+            with:
+              application_id: ${{ secrets.BOT_APPLICATION_ID }}
+              application_private_key: ${{ secrets.BOT_APPLICATION_PRIVATE_KEY }}
+
+
+and the following for the documentation deployment:
+
+.. tabs::
+
+    .. group-tab:: Using ``tox``
+
+        .. code-block:: yaml
+        
+            - name: Deploy
+              if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+              uses: JamesIves/github-pages-deploy-action@4.3.0
+              with:
+                token: ${{ steps.get_workflow_token.outputs.token }}
+                repository-name: pyansys/repository-name
+                branch: gh-pages
+                folder: .tox/doc_out
+                clean: true
+
+    .. group-tab:: Without Using ``tox``
+
+        .. code-block:: yaml
+
+            - name: Deploy
+              if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+              uses: JamesIves/github-pages-deploy-action@4.3.0
+              with:
+                token: ${{ steps.get_workflow_token.outputs.token }}
+                repository-name: pyansys/repository-name
+                branch: gh-pages
+                folder: doc/_build/html
+                clean: true
+
+
+**Documentation Deployment using a Personal Access Token (PAT)**
+
+To setup the documentation deployment using a PAT, you need to 
+create a personal access token first in the ``Settings`` section in your GitHub profile.
 In the left side bar, select the ``Developer Settings`` section and then
 ``Personal access tokens``. Finally, click ``Generate new token`` and give it
-``write`` permissions. You will be prompted with the value of the ``TOKEN``.
+``write`` permissions on ``Repositories`` at least. 
+You will be prompted with the value of the ``TOKEN``.
 Make sure to copy the value of the ``TOKEN`` as you will not be able to retrieve it later.
 Finally, click ``Configure SSO`` to allow using it with the PyAnsys
 repositories you have access to.
@@ -614,7 +711,40 @@ repositories you have access to.
       
 
 Paste the value of the token in the ``Settings/Secrets/Actions`` path under a
-new secret named ``GITHUB_TOKEN`` in the repository of the project.
+new secret named ``DEPLOY_DOCS_PAT`` in the repository of the project.
+Use this secret in your CI/CD:
+
+.. tabs::
+
+    .. group-tab:: Using ``tox``
+
+        .. code-block:: yaml
+        
+            - name: Deploy
+              if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+              uses: JamesIves/github-pages-deploy-action@4.3.0
+              with:
+                token: ${{ secrets.DEPLOY_DOCS_PAT }}
+                repository-name: pyansys/repository-name
+                branch: gh-pages
+                folder: .tox/doc_out
+                clean: true
+
+    .. group-tab:: Without Using ``tox``
+
+        .. code-block:: yaml
+
+            - name: Deploy
+              if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+              uses: JamesIves/github-pages-deploy-action@4.3.0
+              with:
+                token: ${{ secrets.DEPLOY_DOCS_PAT }}
+                repository-name: pyansys/repository-name
+                branch: gh-pages
+                folder: doc/_build/html
+                clean: true
+
+
 
 Deploying when Tagging
 ++++++++++++++++++++++
