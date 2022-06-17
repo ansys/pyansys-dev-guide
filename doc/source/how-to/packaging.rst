@@ -1,48 +1,139 @@
-.. _optional_packages:
+Packaging
+=========
+Packaging is the process for distributing software to guarantee that final users
+can use it. By packaging Python libraries, it is possible to declare which
+source code or binary files need to be distributed, project metadata and third
+party dependencies.
 
-Handling Optional Packages
-==========================
 
-The ``setuptools``, ``flit``, and ``poetry`` build systems all allow you to
-declare dependencies that only get installed under specific circumstances. This
-makes it convenient to declare dependencies for ancillary functions such as
-"plotting", "tests", or "docs". You can programmatically integrate
-dependencies that can be installed as optional requirements rather
-than individual packages.
+The fundamentals of Python packaging together with the packaging style
+guidelines that apply to PyAnsys projects are collected in :ref:`Packaging
+Style` chapter.
 
-You may want to have optional packages for your PyAnsys library for a variety
-of reasons, including:
+
+Specifying Dependencies
+-----------------------
+It is common to take advantage of third party libraries in order to simplify
+source code. The formal way of doing so is by specifying these third party
+libraries as dependencies. There are two types of dependencies: :ref:`Required
+Dependencies` and :ref:`Optional Dependencies`.
+
+Required Dependencies
+~~~~~~~~~~~~~~~~~~~~~
+Required dependencies are third party libraries that a software requires to
+properly function. If these dependencies are not installed or present, the
+software will not work as expected.
+
+Required dependencies need to be declared in :ref:`The \`\`setup.py\`\` File` or
+in :ref:`The \`\`pyproject.toml\`\` File`, according to the selected :ref:`Build
+System`:
+
+
+.. tabs::
+
+    .. group-tab:: flit
+
+        .. code-block:: toml
+
+            [project]
+            dependencies = [
+                "matplotlib >= 3.5.2",
+                "numpy",
+                ...
+            ]
+
+    .. group-tab:: poetry
+
+        .. code-block:: toml
+
+            [tool.poetry.dependencies]
+            matplotlib = "^3.5.2"
+            numpy = "*"
+            ...
+
+    .. group-tab:: setuptools
+
+        .. code-block:: python
+
+            from setuptools import setup
+
+            setup(
+                ...
+                install_requires=[
+                    "matplotlib >= 3.5.2",
+                    "numpy",
+                    ...
+                ]
+            )
+
+
+Optional Dependencies
+~~~~~~~~~~~~~~~~~~~~~
+Optional dependencies are third party libraries without which a software is not
+able to execute particular features. This makes it convenient to declare
+dependencies for ancillary functions such as "plotting", "tests", or "docs". You
+can programmatically integrate dependencies that can be installed as optional
+requirements rather than individual packages.
+
+You may want to have optional packages for your PyAnsys library for a variety of
+reasons, including:
 
 - **Not all users will want to use the feature.** - For example, you might want
   to make using `matplotlib <https://matplotlib.org/>`_ or `pyvista
-  <https://docs.pyvista.org/>`_ optional if you expect your PyAnsys library is to be used
-  primarily for headless scripting rather than visualization.
+  <https://docs.pyvista.org/>`_ optional if you expect your PyAnsys library is
+  to be used primarily for headless scripting rather than visualization.
+
 - **Not all users can install the optional package.** - For certain less popular
-  or obscure environments, some binary wheels may not be available or
-  compatible with the user's environment. For example, if a user of CentOS
-  6.9 needs to have ``manylinux1`` but the package only supports ``manylinux2014``
-  (CentOS 7+) or newer, the user's environment wouldn't be able to run the PyAnsys
+  or obscure environments, some binary wheels may not be available or compatible
+  with the user's environment. For example, if a user of CentOS 6.9 needs to
+  have ``manylinux1`` but the package only supports ``manylinux2014`` (CentOS
+  7+) or newer, the user's environment wouldn't be able to run the PyAnsys
   library.
-- **Reducing Dependency Bloat** - Removing the package as a "required"
-  dependency reduces the number of packages installed at installation -time,
-  speeding up the install and reducing the possibility of dependency conflicts. The
-  trade-off here is any user who wants to access features that require the
-  optional package will have to install it piecemeal.
+
+- **Reducing dependency bloat** - Removing the package as a "required"
+  dependency reduces the number of packages to install at installation -time,
+  speeding up the installation and reducing the possibility of dependency
+  conflicts. The trade-off here is any user who wants to access features that
+  require the optional package will have to install it piecemeal.
 
 If you choose to implement optional packages for your PyAnsys library, here are
-some helpful best-practices to follow.
+some helpful best practices to follow.
 
 
 Implementing Optional Packages in the Build System
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+++++++++++++++++++++++++++++++++++++++++++++++++++
 Here's how to implement and use optional requirements for the three most
 popular build systems:
 
 .. tabs::
 
-   .. tab:: poetry
+   .. group-tab:: flit
 
-      .. code-block::
+      .. code-block:: toml
+
+         [project.optional-dependencies]
+         all = [
+             "matplotlib",
+             "pyvista",
+             "pyside",
+         ]
+         plotting = [
+             "matplotlib",
+             "pyvista",
+         ]
+         qt = [
+             "pyside",
+         ]
+
+      Install ``package-name`` with the optional ``qt`` packages with:
+
+      .. code-block:: text
+
+          pip install package-name --extras=all
+
+   .. group-tab:: poetry
+
+      .. code-block:: toml
 
          ...
          [tool.poetry.dependencies]
@@ -65,37 +156,14 @@ popular build systems:
              "pyside",
          ]
 
-         Install ``package-name`` with the optional ``qt`` packages with:
+      Install ``package-name`` with the optional ``qt`` packages with:
 
-         .. code-block::
+      .. code-block:: text
 
-            poetry install --extras "plotting qt"
+          poetry install --extras "plotting qt"
 
-   .. tab:: flit
 
-      .. code-block::
-
-         [project.optional-dependencies]
-         all = [
-             "matplotlib",
-             "pyvista",
-             "pyside",
-         ]
-         plotting = [
-             "matplotlib",
-             "pyvista",
-         ]
-         qt = [
-             "pyside",
-         ]
-
-         Install ``package-name`` with the optional ``qt`` packages with:
-
-         .. code-block::
-
-            pip install package-name --extras=all
-
-   .. tab:: setuptools
+   .. group-tab:: setuptools
 
       .. code-block:: python
 
@@ -111,15 +179,15 @@ popular build systems:
              ...
          )
 
-         Install ``package-name`` with the optional ``qt`` packages with:
+      Install ``package-name`` with the optional ``qt`` packages with:
 
-         .. code-block::
+      .. code-block:: text
 
-            pip install package-name[qt]
+          pip install package-name[qt]
 
 
 Implementing Optional Libraries in Features
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++++++++++++++++++++++++++++++++++++++++++++
 One of the best ways to implement an optional dependency is to execute a "lazy
 import" at runtime for the feature in question. For example, if your library
 has an optional dependency on ``matplotlib``, you can implement it with:
@@ -243,7 +311,7 @@ You use the decorator with a method with:
 In practice, if the user does not have ``matplotlib`` installed, this is the
 behavior that the user would expect:
 
-.. code:: python
+.. code-block:: pycon
 
    >>> my_inst = MyClass(10)
    >>> my_inst.plot()
