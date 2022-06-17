@@ -574,8 +574,29 @@ In the left side bar, select the ``Developer Settings`` section and then
 ``Personal access tokens``. Finally, click ``Generate new token`` and give it
 ``write`` permissions. You will be prompted with the value of the ``TOKEN``.
 Make sure to copy the value of the ``TOKEN`` as you will not be able to retrieve it later.
-Finally, click on ``Configure SSO`` to allow using it with the PyAnsys
+Finally, click ``Configure SSO`` to allow using it with the PyAnsys
 repositories you have access to.
+
+.. note::
+
+    In some cases, the authentication might need specific approval. 
+    If you do still get authentication errors like those that follow,
+    click the link in the log to authorize the workflow.
+    
+    .. code-block:: text
+        :emphasize-lines: 1,2,9
+        
+        remote: The `pyansys' organization has enabled or enforced SAML SSO. To access
+        remote: this repository, visit https://github.com/orgs/pyansys/sso?            authorization_request=AGWYQUM5VKPHAQHRS2H3JNTCVBNE7A5PN5ZGOYLONF5GC5DJN5XF62LEZYB663VUVVRX      EZLEMVXHI2LBNRPWSZGOGU33VEFPMNZGKZDFNZ2GSYLML52HS4DFVNHWC5LUNBAWGY3FONZQ
+        remote: and try your request again.
+        fatal: unable to access 'https://github.com/pyansys/pynexus-dev-docs.git/': The requested URL returned error: 403
+        Running post deployment cleanup jobs… 🗑️
+        /usr/bin/git checkout -B github-pages-deploy-action/x00pqaqlu
+        Reset branch 'github-pages-deploy-action/x00pqaqlu'
+        /usr/bin/chmod -R 777 github-pages-deploy-action-temp-deployment-folder
+        /usr/bin/git worktree remove github-pages-deploy-action-temp-deployment-folder --force
+        Error: The deploy step encountered an error: The process '/usr/bin/git' failed with exit code 128 ❌
+      
 
 Paste the value of the token in the ``Settings/Secrets/Actions`` path under a
 new secret named ``GITHUB_TOKEN`` in the repository of the project.
