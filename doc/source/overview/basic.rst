@@ -7,7 +7,7 @@ The `PyAnsys Project <https://docs.pyansys.com/>`_ is hosted on GitHub at `PyAns
 Python libraries that interface with Ansys products or services. 
 To try out a library, visit one of these links:
 
-* * `PyAEDT`_
+* `PyAEDT`_
 * `PyDPF-Core <https://github.com/pyansys/DPF-Core>`_
 * `PyDPF-Post <https://github.com/pyansys/DPF-Post>`_
 * `PyMAPDL`_
