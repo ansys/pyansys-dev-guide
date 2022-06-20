@@ -68,14 +68,13 @@ Directory` directory. The ``index.rst`` file in the ``doc/source`` directory
 defines the first level of your documentation hierarchy.  The ``toctree``
 directive (which stands for "table of contents tree") indicates the maximum
 number of heading levels that the documentation is to display. Below this
-directive are the directory names for your documentation sections.  Each
-documentation chapter has its own ``index.rst`` file, as shown by figure
-:numref:`proposed doc layout`.
+directive are the directory names for your documentation sections.
 
 .. include:: diag/doc_layout.rst
 
-Previous documentation layout can be modelled using the following code in each
-one of the ``index.rst`` files.
+Each documentation chapter has its own ``index.rst`` file, as shown by figure
+:numref:`proposed doc layout`. Previous documentation layout can be modelled
+using the following code in each one of the ``index.rst`` files.
 
 .. tabs::
 

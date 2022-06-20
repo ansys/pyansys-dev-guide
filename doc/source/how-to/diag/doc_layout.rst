@@ -1,8 +1,8 @@
+.. _proposed doc layout
 .. graphviz::
     :caption: Generic structure for the PyAnsys library documentation.
     :alt: Generic structure for the PyAnsys library documentation.
     :align: center
-    :name: propsed doc layout
 
      digraph "sphinx-ext-graphviz" {
          size="8,6";
