@@ -536,7 +536,7 @@ artifacts as a convenient zip and to open the documentation by opening
 
 Deploying to GitHub Pages
 +++++++++++++++++++++++++
-Next, deploy your documentation to the ``gh-pages`` branch via using the
+Next, deploy your documentation to the ``gh-pages`` branch with:
 `JamesIves/github-pages-deploy-action
 <https://github.com/JamesIves/github-pages-deploy-action>`_ action.
 
