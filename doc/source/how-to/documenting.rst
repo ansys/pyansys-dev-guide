@@ -751,7 +751,7 @@ Deploying when Tagging
 ++++++++++++++++++++++
 
 Depending on your preferences, you may choose to update the documentation on
-tags only (as done above), or on each each push. If you wish to have your
+tags only (as done above), or on each push. If you wish to have your
 documentation deployed on each push to ``main``, change the conditional above
 to:
 
