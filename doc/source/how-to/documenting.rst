@@ -72,9 +72,9 @@ directive are the directory names for your documentation sections.
 
 .. include:: diag/doc_layout.rst
 
-Each documentation chapter has its own ``index.rst`` file, as shown by figure
-:numref:`proposed doc layout`. Previous documentation layout can be modelled
-using the following code in each one of the ``index.rst`` files.
+Each documentation chapter has its own ``index.rst`` file, as shown by previous
+figure. The documentation layout can be modelled using the following code in
+each one of the ``index.rst`` files.
 
 .. tabs::
 
