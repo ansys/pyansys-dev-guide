@@ -22,3 +22,9 @@ help:
 # customized clean due to examples gallery
 clean:
 	rm -rf build
+
+# customized pdf fov svg format images
+pdf:
+	@$(SPHINXBUILD) -M latex "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	cd build/latex && latexmk -r latexmkrc -pdf *.tex -interaction=nonstopmode || true
+	(test -f build/latex/ansys_sphinx*.pdf && echo pdf exists) || exit 1
