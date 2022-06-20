@@ -609,7 +609,7 @@ some repositories and can be used for this purpose.
 
 .. admonition:: Organization approval to use PyAnsys bot
 
-    You need internal approval to use PyAnsys bot as your repo needs to added to
+    You need internal approval to use PyAnsys bot as your repo needs to be added to
     its list of repositories.
     Please email `PyAnsys Support <pyansys.support@ansys.com>`_.
 
