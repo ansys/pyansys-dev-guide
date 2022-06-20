@@ -530,7 +530,7 @@ with:
                 retention-days: 7
 
 This allows anyone creating pull requests to download documentation build
-artifacts as a convenient zip and to open the documentation by opening
+artifacts as a convenient zip file and to open the documentation by opening
 ``index.html``.
 
 
