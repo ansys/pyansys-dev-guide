@@ -581,7 +581,7 @@ declare the name of your documentation repository:
                 clean: true
 
 
-Notice that for previous job steps, a ``GITHUB_TOKEN`` is required. Github
+Notice that for previous job steps, a ``GITHUB_TOKEN`` is required. GitHub
 automatically generates the token ``GITHUB_TOKEN`` which you can use as
 ``token`` for deploying documentation to the same repo. However, if you are
 planning to deploy to another repo this token does not have the permissions to
