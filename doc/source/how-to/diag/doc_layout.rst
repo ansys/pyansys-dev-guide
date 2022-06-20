@@ -1,4 +1,4 @@
-.. _proposed_doc_layout:
+.. _proposed doc layout:
 .. graphviz::
     :caption: Generic structure for the PyAnsys library documentation.
     :alt: Generic structure for the PyAnsys library documentation.
