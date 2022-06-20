@@ -1,8 +1,7 @@
 """Sphinx documentation configuration file for the pyansys developer's guide."""
 from datetime import datetime
 
-from ansys_sphinx_theme import __version__
-from ansys_sphinx_theme import pyansys_logo_black
+from ansys_sphinx_theme import __version__, pyansys_logo_black
 
 # Project information
 project = "PyAnsys Developer's Guide"
