@@ -394,7 +394,7 @@ To  build ``PDF`` documentation, the following rules must be added to
            :pdf
                    %SPHINXBUILD% -M latex %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
 	           cd "%BUILDDIR%\latex"
-	           pdflatex *.tex --interaction=nonstopmode
+	           pdflatex \*.tex --interaction=nonstopmode
 
 You can call previous rules by running:
 
