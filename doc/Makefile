@@ -27,4 +27,4 @@ clean:
 pdf:
 	@$(SPHINXBUILD) -M latex "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	cd build/latex && latexmk -r latexmkrc -pdf *.tex -interaction=nonstopmode || true
-	(test -f build/latex/ansys_sphinx*.pdf && echo pdf exists) || exit 1
+	(test -f build/latex/pyansys*.pdf && echo pdf exists) || exit 1

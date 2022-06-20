@@ -63,8 +63,6 @@ source_suffix = ".rst"
 # The master toctree document.
 master_doc = "index"
 
-latex_elements = {}
-
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).

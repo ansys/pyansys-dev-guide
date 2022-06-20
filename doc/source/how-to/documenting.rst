@@ -679,7 +679,7 @@ Additionally, you must add the following code for the documentation deployment:
 
 
 Deploying by Using a Personal Access Token
-"""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""
 To set up the documentation deployment using a Personal Access Token (PAT), you
 must first create a PAT in the ``Settings`` section in your
 GitHub profile. In the left side bar, select the ``Developer Settings`` section
