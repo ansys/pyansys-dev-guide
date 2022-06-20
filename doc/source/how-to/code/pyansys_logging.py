@@ -1,12 +1,8 @@
-import logging
-import sys
 from copy import copy
 from datetime import datetime
-from logging import CRITICAL
-from logging import DEBUG
-from logging import ERROR
-from logging import INFO
-from logging import WARN
+import logging
+from logging import CRITICAL, DEBUG, ERROR, INFO, WARN
+import sys
 
 # Default configuration
 LOG_LEVEL = logging.DEBUG
