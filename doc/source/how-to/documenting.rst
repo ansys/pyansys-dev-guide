@@ -67,12 +67,12 @@ editor to create ReStructured Text (RST) files that you then place in :ref:`The 
 Directory` directory. The ``index.rst`` file in the ``doc/source`` directory
 defines the first level of your documentation hierarchy.  The ``toctree``
 directive (which stands for "table of contents tree") indicates the maximum
-number of heading levels that the documentation is to display. Below this
+number of heading levels that the documentation is to display. Following this
 directive are the directory names for your documentation sections.
 
 .. include:: diag/doc_layout.rst
 
-Each documentation chapter has its own ``index.rst`` file, as shown by previous
+Each documentation chapter has its own ``index.rst`` file, as shown by the preceding
 figure. The documentation layout can be modeled using the following code in
 each one of the ``index.rst`` files.
 
@@ -542,9 +542,9 @@ Next, deploy your documentation to the ``gh-pages`` branch with:
 
 .. admonition:: Deploying to another repository.
 
-   If you are planning to deploy documentation to another repository rather than
-   the one for your project, make sure you create this new repo before deploying
-   for the first time your documentation.
+   If you are planning to deploy documentation to repository other than
+   the one for your project, make sure you create this new repository before deploying
+   your documentation for the first time.
 
 The following job step shows the logic for deploying. If you want to deploy to
 another repository, make sure to uncomment the ``repository-name`` line and
@@ -583,39 +583,38 @@ declare the name of your documentation repository:
 
 Notice that for previous job steps, a ``GITHUB_TOKEN`` is required. GitHub
 automatically generates the token ``GITHUB_TOKEN`` which you can use as
-``token`` for deploying documentation to the same repo. However, if you are
-planning to deploy to another repo this token does not have the permissions to
-do it.
+``token`` for deploying documentation to the same repository. However, if you are
+planning to deploy to another repository, this token does not have the necessary permissions.
 
-In that case, there are two options for documentation deployment, using a bot
-and using a personal access token (PAT). Depending on your profile (how many
-organizations you work in, the rights in the different repositories, etc.), using
-a PAT can be potentially dangerous because PAT are not restricted to defined
-repositories, rather have general permissions. This means that a PAT with
-`repository-write` permission can write in any repo in any organization that the
+In this case, there are two options for documentation deployment, using a bot
+and using a personal access token (PAT). Depending on your profile (such as how many
+organizations you work in and your permissions for different repositories), using
+a PAT can be potentially dangerous because a PAT is not restricted to defined
+repositories but rather has general permissions. This means that a PAT with
+`repository-write` permission can write in any repository in any organization that the
 PAT creator can access.
 
-Therefore, the recommended approach is to **use a Bot**. However, you are free
-to use a PAT if you feel it fits your needs better.
+Therefore, the recommended approach is to **use a bot**. However, you can use a
+PAT if you feel it fits your needs better.
 
 
 Deploying by Using a Bot
 """"""""""""""""""""""""
-To deploy documentation to repo different than the one where the documentation
-is generated, you need permissions to access (*read/write*) this second repo.
-These permissions can be handled using a specifically created bot. In PyAnsys
-organization, there is `PyAnsys Bot`_ which has read and write permission across
+To deploy documentation to a repository other than the one where the documentation
+is generated, you must have permissions to access (*read/write*) this second repository.
+These permissions can be handled using a specifically created bot. In the PyAnsys
+organization, there is `PyAnsys Bot`_, which has read and write permission across
 some repositories and can be used for this purpose.
 
 .. admonition:: Organization approval to use PyAnsys bot
 
-    You need internal approval to use PyAnsys bot as your repo needs to be added to
-    its list of repositories.
-    Please email `PyAnsys Support <pyansys.support@ansys.com>`_.
+    You must have internal approval to use the PyAnsys bot because your repository must
+    be added to its list of repositories. For more information, email
+    `PyAnsys Support <pyansys.support@ansys.com>`_.
 
 
-Once your repository has been added to the bot repositories white-list, you need to add the
-following code to your CICD YAML file for the authentication:
+Once your repository has been added to the white-list for the the bot repositories, you must
+add the following code to your CICD YAML file for the authentication:
 
 .. tabs::
 
@@ -645,7 +644,7 @@ following code to your CICD YAML file for the authentication:
               application_private_key: ${{ secrets.BOT_APPLICATION_PRIVATE_KEY }}
 
 
-and the following for the documentation deployment:
+Additionally, you must add the following code for the documentation deployment:
 
 .. tabs::
 
@@ -679,15 +678,15 @@ and the following for the documentation deployment:
 
 
 
-Deployin by Using a Personal Access Token
+Deploying by Using a Personal Access Token
 """""""""""""""""""""""""""""""""""""""""
-To setup the documentation deployment using a Personal Access Token (PAT), you
-need to create a personal access token first in the ``Settings`` section in your
+To set up the documentation deployment using a Personal Access Token (PAT), you
+must first create a PAT in the ``Settings`` section in your
 GitHub profile. In the left side bar, select the ``Developer Settings`` section
 and then ``Personal access tokens``. Finally, click ``Generate new token`` and
-give it ``write`` permissions on ``Repositories`` at least. You will be prompted
+give it ``write`` permissions on ``Repositories`` at least. You are then prompted
 with the value of the ``TOKEN``. Make sure to copy the value of the ``TOKEN`` as
-you will not be able to retrieve it later. Finally, click ``Configure SSO`` to
+you are not be able to retrieve it later. Finally, click ``Configure SSO`` to
 allow using it with the PyAnsys repositories you have access to.
 
 .. note::
@@ -750,9 +749,9 @@ secret in your CI/CD:
 Deploying when Tagging
 ++++++++++++++++++++++
 
-Depending on your preferences, you may choose to update the documentation on
-tags only (as done above), or on each push. If you wish to have your
-documentation deployed on each push to ``main``, change the conditional above
+Depending on your preferences, you can choose to update the documentation on
+tags only (as done earlier) or on each push. If you want to have your
+documentation deployed on each push to ``main``, change the preceding conditional
 to:
 
 .. code-block:: yaml
