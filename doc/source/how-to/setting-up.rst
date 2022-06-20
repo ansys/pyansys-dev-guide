@@ -281,7 +281,7 @@ Installation
 
         To install Git on a machine running Windows:
         
-        1. Download the `latest stable standalone Git version for Windows <https://www.python.org/downloads/win/>`_.
+        1. Download the `latest stable standalone Git version for Windows <https://git-scm.com/download/win>`_.
         2. Execute the installer and follow the installation instructions.
 
     .. group-tab:: macOS
