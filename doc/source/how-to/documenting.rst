@@ -546,7 +546,7 @@ Next, deploy your documentation to the ``gh-pages`` branch with:
    the one for your project, make sure you create this new repo before deploying
    for the first time your documentation.
 
-The following job step shows the logic for deploying. If you wish to deploy to
+The following job step shows the logic for deploying. If you want to deploy to
 another repository, make sure to uncomment the ``repository-name`` line and
 declare the name of your documentation repository:
 
