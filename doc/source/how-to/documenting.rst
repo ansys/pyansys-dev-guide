@@ -589,7 +589,7 @@ do it.
 
 In that case, there are two options for documentation deployment, using a bot
 and using a personal access token (PAT). Depending on your profile (how many
-organizations you work in, the rights in the different repositories, etc), using
+organizations you work in, the rights in the different repositories, etc.), using
 a PAT can be potentially dangerous because PAT are not restricted to defined
 repositories, rather have general permissions. This means that a PAT with
 `repository-write` permission can write in any repo in any organization that the
