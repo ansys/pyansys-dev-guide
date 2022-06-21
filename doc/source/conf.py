@@ -1,7 +1,14 @@
 """Sphinx documentation configuration file for the pyansys developer's guide."""
 from datetime import datetime
 
-from ansys_sphinx_theme import __version__, pyansys_logo_black
+from ansys_sphinx_theme import (
+    __version__,
+    ansys_logo_white,
+    ansys_logo_white_cropped,
+    pyansys_logo_black,
+    watermark,
+)
+from ansys_sphinx_theme.latex import generate_preamble
 
 # Project information
 project = "PyAnsys Developer's Guide"
@@ -55,8 +62,6 @@ source_suffix = ".rst"
 
 # The master toctree document.
 master_doc = "index"
-
-latex_elements = {}
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
@@ -118,3 +123,7 @@ autosectionlabel_maxdepth = 4
 # TODO: warning suppression is temporary till https://github.com/pyansys/dev-guide/issues/64
 # gets fully implemented.
 suppress_warnings = ["autosectionlabel.*"]
+
+# Generate the LaTeX preamble
+latex_additional_files = [watermark, ansys_logo_white, ansys_logo_white_cropped]
+latex_elements = {"preamble": generate_preamble(html_title)}

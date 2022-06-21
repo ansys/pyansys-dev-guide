@@ -57,7 +57,7 @@ jobs:
           sudo apt update
           sudo apt-get install -y texlive-latex-extra latexmk
           python -m pip install -r requirements/requirements_doc.txt
-          make -C doc latexpdf
+          make -C doc pdf
 
       - name: Upload HTML documentation
         uses: actions/upload-artifact@v2.2.4
@@ -70,7 +70,7 @@ jobs:
         uses: actions/upload-artifact@v2.2.4
         with:
           name: PDF-Documentation
-          path: doc/build/latex/*.pdf
+          path: doc/build/latex/pyansys*.pdf
           retention-days: 7
 
       - name: Deploy to gh-pages
