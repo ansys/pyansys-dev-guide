@@ -174,7 +174,7 @@ or ``my_module.py``.
 
 For a package name, use a short, lowercase word or words. Avoid
 underscores as these must be represented as dashes when installing
-from PyPi.
+from PyPI.
 
 .. code::
 

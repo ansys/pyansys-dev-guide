@@ -2,7 +2,7 @@
 
    # Changelog
    
-   ## <pyproduct-library> <version X.Y.Z> - <Release Date YYYY-MM-DD>
+   ## <pyproduct-library> <version X.Y.Z>, <Release Date YYYY-MM-DD>
    
    ### Bugs fixed
    
@@ -20,4 +20,4 @@
    
    * <Name of the contributor> - <Email of the contributor>
    
-   ## <pyproduct-library> <version X.Y.Z> - <Release Date YYYY-MM-DD>
+   ## <pyproduct-library> <version X.Y.Z>, <Release Date YYYY-MM-DD>

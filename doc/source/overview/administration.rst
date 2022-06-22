@@ -49,7 +49,7 @@ Each repository is expected to follow this minimum set of standards:
 - Publicly hosted documentation describing the API and providing examples. See
   :ref:`Documentation Style`.
 - Unit testing with at least 80% test coverage.
-- Infrastructure in place to deploy the library as a package on `PyPi
+- Infrastructure in place to deploy the library as a package on `PyPI
   <https://pypi.org/>`_.  See :ref:`Packaging Style`.
 - Proper license file and author. See :ref:`The \`\`setup.py\`\` File` and :ref:`The \`\`LICENSE\`\` File`.
 - :ref:`Semantic Versioning` for :ref:`Releasing and Publishing`.

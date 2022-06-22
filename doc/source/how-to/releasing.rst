@@ -74,7 +74,7 @@ features without sacrificing stability. The model closely follows the
   integrated both to ``main`` and to these branches. When creating a new patch
   release is necessary, these release branches have their version updated
   and are tagged with a patched :ref:`Semantic Versioning` (for example,
-  ``0.2.1``).  This triggers CI to push to PyPi so that hotfixes for past
+  ``0.2.1``).  This triggers CI to push to PyPI so that hotfixes for past
   versions can be rapidly push without having to worry about untested features.
 
   .. include:: diag/release_branch.rst
