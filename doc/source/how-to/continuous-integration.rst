@@ -54,7 +54,7 @@ Handling hardware resources is a big deal, especially when running with self-hos
 you are using the public GitHub hardware for running your workflows, you should also try to care
 about the environment and sustainability.
 
-Disabling concurrent CI workflows is a good way to do so. For example, imagine the following situtation:
+Disabling concurrent CI workflows is a good way to do so. For example, imagine the following situation:
 
 * You push some changes to your branch.
 * The CI workflow kicks in and starts executing the different stages.
