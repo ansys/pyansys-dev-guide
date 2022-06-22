@@ -28,6 +28,9 @@ different, they all have a common structure:
 
 - A ``name`` identifying the action.
 - A collection of ``triggering events`` that run the action when required.
+- A collection of ``concurrent`` workflows conditions to, for example, avoid running
+  several workflows for one same branch (multiple consecutive pushes could lead to
+  multiple ongoing workflows, and we would only want the last one to be run).
 - A collection of ``jobs`` with different steps to be followed during the CI process. 
 
 .. code-block:: yaml
@@ -37,8 +40,40 @@ different, they all have a common structure:
     on:
       <Trigering events and conditions>
 
+    concurrency:
+      <Avoid concurrent workflows to be run>
+
     jobs:
       <All jobs must be defined below this line>
+
+
+Disabling concurrent workflows
+------------------------------
+
+Handling hardware resources is a big deal, especially when running with self-hosted agents. And if
+you are using the public GitHub hardware for running your workflows, you should also try to care
+about the environment and sustainability.
+
+Disabling concurrent CI workflows is a good way to do so. For example, imagine the following situtation:
+
+* You push some changes to your branch.
+* The CI workflow kicks in and starts executing the different stages.
+* You suddenly realize that there is a typo/file missing.
+* You push the new commit to your PR.
+* A new CI workflow kicks in and starts running.
+
+At this moment, it is most probable that you will have two parallel workflows running at the same time,
+though you will only be interested in the results from the last one.
+
+One way to solve this is cancelling by hand the oldest workflow. But it is also possible to cancel
+automatically pre-existing workflows for a certain branch/PR. In order to do so, you should add to
+your workflow the following lines (prior to the ``jobs`` section):
+
+.. code-block:: yaml
+
+  concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
 
 
 Required Workflows
