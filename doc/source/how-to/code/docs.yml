@@ -10,6 +10,10 @@ on:
 env:
   MAIN_PYTHON_VERSION: 3.9
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     name: Docs
