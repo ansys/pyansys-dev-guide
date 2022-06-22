@@ -1,4 +1,4 @@
-Supporting Python Versions
+Supporting Python versions
 ==========================
 Like other programming languages, Python evolves with time. New
 features get added to the language, and others get deprecated. For
@@ -55,14 +55,14 @@ sure you don't support certain versions of Python. For example, if you only
 support Python 3.6 through 3.9, your command would look like this: ``python_requires='>=3.6, <3.10'``.
 
 
-Verifying Support
+Verifying support
 -----------------
 The best way to validate whether a Python library supports a version of Python
 is by :ref:`Using Continuous Integration`. An example GitHub
 workflow testing Python 3.7 through Python 3.10 on Windows and Linux would
 start with:
 
-.. code-block:: yaml
+.. code:: yaml
    :linenos:
    :emphasize-lines: 8, 13-16
 
@@ -85,4 +85,5 @@ start with:
 
          - name: Unit testing
            run: |
-             ...
+
+The workflow would then list the tests to run.

@@ -1,7 +1,7 @@
-Required Standards
+Required standards
 ==================
 
-This section collects the required standards for any ``PyAnsys`` project.  The
+This section collects the required standards for any ``PyAnsys`` project. The
 individual configurations for the tools presented in :ref:`Code Style Tools` and
 :ref:`Doc Style Tools` are combined together.
 
@@ -9,8 +9,8 @@ The following lines should be included in :ref:`The \`\`pyproject.toml\`\` File`
 to indicate the configuration of the different code and documentation style tools.
 
 
-Required ``pyproject.toml`` Config
-----------------------------------
+Required ``pyproject.toml`` configuration
+-----------------------------------------
 
 .. code-block:: toml
 
@@ -37,8 +37,8 @@ Required ``pyproject.toml`` Config
     convention = "numpy"
 
 
-Required ``.flake8`` Config
----------------------------
+Required ``.flake8`` configuration
+----------------------------------
 The following ``.flake8`` file is also required:
 
 .. code-block:: toml
@@ -48,10 +48,10 @@ The following ``.flake8`` file is also required:
    extend-ignore = E203
 
 
-Required ``pre-commit`` Config
-------------------------------
+Required ``pre-commit`` configuration
+-------------------------------------
 You can take advantage of :ref:`Pre-Commit` by including a
-``.pre-commit-config.yaml`` file like the following one in your project:
+``.pre-commit-config.yaml`` file like this one in your project:
 
 
 .. code-block:: yaml

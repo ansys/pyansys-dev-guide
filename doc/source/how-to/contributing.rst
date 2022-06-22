@@ -24,7 +24,7 @@ coding paradigms being used for PyAnsys development.
 #. Do not include any datasets for which a license is not available
    or commercial use is prohibited.
 
-#. Review our `Code of Conduct
+#. Review the Ansys `Code of Conduct
    <https://github.com/pyansys/.github/blob/main/CODE_OF_CONDUCT.md>`_.
 
 
@@ -46,13 +46,13 @@ Creating a GitHub account
 To use GitHub, start by creating an account for the platform. Follow the
 `GitHub Join Process <https://github.com/join>`_. If you require access to the
 `PyAnsys Organization <https://github.com/pyansys>`_, email your request to `Alexander
-Kaszinsky <mailto:alexander.kaszinsky@ansys.com>`_.
+Kaszinski <mailto:alexander.kaszinski@ansys.com>`_.
 
-GitHub Repository Sections
+GitHub repository sections
 --------------------------
 
 Once you have a GitHub account and access to the `PyAnsys` organization,
-you will be able to interact with the different repositories. While each
+you are able to interact with the different repositories. While each
 repository contains all tabbed sections that are shown and described below,
 your access level determines tabbed sections you can see.
 
@@ -71,7 +71,7 @@ your access level determines tabbed sections you can see.
 * ``Insights``: General information about the repository and its contributors
 * ``Settings``: Configurations for access and integration with third-party tools
 
-Creating an Issue
+Creating an issue
 -----------------
 You create an issue to either report a bug or request help or a new feature. Commenting
 allows you to interact with other users, developers, and project maintainers.
@@ -84,7 +84,7 @@ GitHub issues require the usage of Markdown files instead of ReStructured Text
 files. For more information, see `Basic Writing and Formatting Syntax
 <https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax>`_.
 
-Requesting New Features
+Requesting new features
 ~~~~~~~~~~~~~~~~~~~~~~~
 If you would like a new feature to be added to a PyAnsys library, you open a
 new issue and select either the template for code enhancements or a
@@ -99,7 +99,7 @@ feature idea. In the issue, you then do the following:
 - Add any references that could help during the development process.
 
 
-Reporting Bugs
+Reporting bugs
 ~~~~~~~~~~~~~~
 If you encounter a bug in the code, you open a new issue and select the template
 for creating a bug report. In the bug report, try to:
@@ -111,7 +111,7 @@ for creating a bug report. In the bug report, try to:
 - Add any additional information that you consider useful for fixing the bug.
 
 
-Forking a Repository
+Forking a repository
 --------------------
 Forking a repository is like copying and pasting a project into your own GitHub
 profile. Notice that only ``public`` labeled repositories can be forked. You
@@ -121,12 +121,12 @@ To fork a repository, click the ``Fork`` button at the top of the project's
 ``Code`` tabbed section.
 
 
-Cloning a Repository
+Cloning a repository
 --------------------
 Cloning a repository means downloading it to your local machine. While there are two ways of
 doing this (``HTTPS`` or ``SSH``), to force the usage of ``SSH``, only this method is explained.
 
-Cloning Using SSH
+Cloning using SSH
 ~~~~~~~~~~~~~~~~~
 Cloning using ``SSH`` requires :ref:`Enabling SSH`. After that, you can
 clone a repository by running:
@@ -135,17 +135,17 @@ clone a repository by running:
 
     git clone git@github.com:<user>/<repository-name>.git
 
-For example, to clone the `PyMAPDL <https://github.com/pyansys/pymapdl/>`_
-project, run:
+For example, clone the `PyMAPDL <https://github.com/pyansys/pymapdl/>`_
+project with:
 
 .. code-block:: bash
 
     git clone git@github.com:pyansys/pymapdl.git
 
 
-Installing in Editable Mode 
+Installing in editable mode 
 ---------------------------
-You can install a Python library in "editable mode", which
+You can install a Python library in *editable mode*, which
 allows you to modify the source code and have these new changes
 reflected in your Python environment.
 
@@ -167,7 +167,7 @@ To install a Python library in editable mode:
        python -m pip install --editable .
 
 
-Creating a Branch
+Creating a branch
 -----------------
 It is likely that the default branch name is ``main`` or ``master``. This is the
 development branch for PyAnsys projects. For more information, see :ref:`Branching Model`. 
@@ -181,7 +181,7 @@ You create a branch with:
 
     git checkout -b <new branch name>
 
-Branch Naming Conventions
+Branch naming conventions
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 The following requirements for naming branches helps to streamline
 development. They help core developers know what kind of
@@ -201,7 +201,7 @@ changes any given branch is introducing before looking at the code.
 -  ``release/``: Releases (see below)
 
 
-Pushing a New Branch
+Pushing a new branch
 --------------------
 Once you have implemented new changes and committed them, you push your
 branch, which uploads your changes to the repository. These changes are only
@@ -211,32 +211,32 @@ visible in the branch that you just pushed.
 
    git push -u origin <new branch name>
 
-Creating a Pull Request
+Creating a pull request
 -----------------------
-Once you have tested your branch locally, create a pull-request (PR) and target your merge to
-``main``. This will automatically run CI testing and verify that your changes
-will work across all supported platforms. For detailed procedural information, see `Creating a pull request
+Once you have tested your branch locally, create a pull request (PR) and target your merge to
+``main``. This automatically runs CI testing and verifies that your changes
+work across all supported platforms. For procedural information, see `Creating a pull request
 <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request>`_
 in the GitHub documentation.
 
-After you submit your pull request, someone from the PyAnsys development team will review
+After you submit your PR, someone from the PyAnsys development team reviews
 your code to verify that it meets the :ref:`Packaging Style`, :ref:`Coding
 Style`, and :ref:`Documentation Style`.
 
-Once your code is approved, if you have write permission, you may merge the PR
-and then delete the PR branch. If you don't have write permission, the reviewer or someone else with
-write permission will merge your PR and then delete your PR branch.
+Once your code is approved, if you have write permission, you can merge the PR
+and then delete the PR branch. If you don't have write permission, the reviewer
+or someone else with write permission must merge your PR and then delete your PR branch.
 
 .. admonition:: Always delete your PR branch after merging it into the main branch.
 
    You can set up automatic deletion
-   of branches in ``Settings -> General -> Pull Requests``.
+   of branches in **Settings -> General -> Pull Requests**.
 
 Using GitHub CLI
 ----------------
-Because developers find not leaving their terminals useful when working in projects,
-`GitHub CLI <https://cli.github.com/>`_ was devised.
+Because developers do not like leaving their terminals when working in projects,
+GitHub offers a `command-line interface (CLI) <https://cli.github.com/>`_.
 
 This program allows you to interact with most of the features available in the
-web version of Github. For a full list of available commands, see the
+web version of GitHub. For available commands, see the
 `official GitHub CLI manual <https://cli.github.com/manual/gh>`_.

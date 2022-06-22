@@ -30,9 +30,9 @@ ecosystem. Examples include:
 - Machine learning using `TensorFlow <https://www.tensorflow.org/>`_
 
 .. note::
-   If you are new to GitHub, we suggest that you visit `The ReadMe Project
+   If you are new to GitHub, you should visit `The ReadMe Project
    <https://github.com/readme>`_.  It is a dedicated platform for highlighting
-   the best from the open source software community.  Each monthly newletter
+   the best from the open source software community. Each monthly newsletter
    provides links to feature articles, developer stories, guides, and podcasts.
 
 .. toctree::
@@ -46,11 +46,11 @@ ecosystem. Examples include:
 .. _PyMAPDL: https://github.com/pyansys/pymapdl
 
 
-Contributing to this Guide
+Contributing to this guide
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-If you would like to contribute to this development guide, we will gladly review
-all pull requests. Please feel free to submit them and follow the
-:ref:`Documentation Style`.
+If you would like to contribute to this development guide, maintainers gladly review
+your pull requests. Feel free to submit them, following the
+:ref:`Documentation style`.
 
 This repository uses the `pre-commit <https://pre-commit.com/>`_ library to
 automate style checking. To use it, enter your Python environment and install
@@ -70,5 +70,5 @@ installing a pre-commit as a git hook with::
 
   pre-commit install
 
-Now, each time you run ``git commit``, your commit will only be created if it
-passes the minimum style checks that will also be run on the GitHub CI/CD.
+Now, each time you run ``git commit``, your commit is only created if it
+passes the minimum style checks that also run on the GitHub CI/CD.

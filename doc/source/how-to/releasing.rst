@@ -1,4 +1,4 @@
-Releasing and Publishing
+Releasing and publishing
 ========================
 Releasing a new version is a critical procedure. It should be automated as much as
 possible to avoid human error.
@@ -8,7 +8,7 @@ with the different steps that developers need to follow to create a successful
 release.
 
 
-Semantic Versioning
+Semantic versioning
 -------------------
 PyAnsys library releases are managed through both automated and manual review
 processes.
@@ -18,13 +18,13 @@ form of ``X.Y.Z``, where each letter corresponds to an integer value. This
 notation can also be understand as ``MAJOR.MINOR.PATCH``:
 
 * **Major** version when you make incompatible API changes.
-* **Minor** version when you add functionality in a backwards compatible manner.
+* **Minor** version when you add a feature in a backwards-compatible manner.
 * **Patch** version when you make backwards compatible bug fixes.
 
 One exception exists. ``MAJOR`` versions are not expected to be regularly released
 when any incompatible API changes are made. They are only expected to be
-released with major, globally-breaking API changes. This matches the versioning
-methodology for the "big three" data science python libraries: `NumPy`_,
+released with major, globally breaking API changes. This matches the versioning
+methodology for the "big three" data science Python libraries: `NumPy`_,
 `SciPy`_, and `pandas`_.
 
 .. _Semantic Versioning: https://semver.org/
@@ -43,7 +43,7 @@ to be much more stable.
     this is PyAnsys libraries are expected to be developed outside the product
     release cycle in a rapid CI/CD manner.
 
-Branching Model
+Branching model
 ---------------
 The branching model for a PyAnsys project enables rapid development of
 features without sacrificing stability. The model closely follows the
@@ -60,29 +60,29 @@ features without sacrificing stability. The model closely follows the
   .. include:: diag/main_branch.rst
 
 
-- When a minor release candidate is ready, a new ``release`` branch will
-  be created from ``main`` with the next incremented minor version
-  (for example, ``release/0.2``). This ``release`` branch will be thoroughly
-  tested. When deemed stable, it will be tagged with the version (``0.2.0``
-  in this case). Older release branches should not be deleted so they can be
+- When a minor release candidate is ready, a new ``release`` branch is
+  created from ``main`` with the next incremented minor version
+  (for example, ``release/0.2``). This ``release`` branch is thoroughly
+  tested. When deemed stable, it is tagged with the version (``0.2.0``
+  in this case). Older release branches should not be deleted so that they can be
   patched as needed.
 
 
-- There will be one or many ``release/`` branches based on minor releases (for
+- There is one or more ``release/`` branches based on minor releases (for
   example, ``release/0.2``) that contain a stable version of the code base that
   is also reflected on PyPI. Hotfixes from ``fix/`` branches should be
   integrated both to ``main`` and to these branches. When creating a new patch
-  release is necessary, these release branches will have their version updated
-  and be tagged with a patched :ref:`Semantic Versioning` (for example,
-  ``0.2.1``).  This triggers CI to push to PyPi and allow us to rapidly push
-  hotfixes for past versions without having to worry about untested features.
+  release is necessary, these release branches have their version updated
+  and are tagged with a patched :ref:`Semantic Versioning` (for example,
+  ``0.2.1``).  This triggers CI to push to PyPi so that hotfixes for past
+  versions can be rapidly push without having to worry about untested features.
 
   .. include:: diag/release_branch.rst
 
 
-Releasing Major and Minor Versions
+Releasing major and minor versions
 ----------------------------------
-To create a new major or minor version, ensure your ``origin main`` branch is
+When creating a new major or minor version, ensure your ``origin main`` branch is
 up to date with:
 
 .. code-block:: text
@@ -90,7 +90,7 @@ up to date with:
    git checkout main && git fetch origin main && git rebase origin/main
 
 If you encounter any issues when running previous command, solve those before
-continuing with the release. Make sure your style, tests and documentation
+continuing with the release. Ensure that your style, tests, and documentation
 checks are passing too.
 
 Create a new branch for the version you want to release with:
@@ -125,7 +125,7 @@ Push the commit and the tag with:
    git push -u origin release/X.Y && git push origin vX.Y.0
 
 
-Releasing Patched Versions
+Releasing patched versions
 --------------------------
 Patched versions allow you to fix issues discovered in published releases by
 cherry-picking these fixes from the ``main`` branch.
@@ -171,7 +171,7 @@ Push the commit and the tag with:
    git push -u origin release/X.Y && git push origin vX.Y.Z
 
 
-Publishing Artifacts
+Publishing artifacts
 --------------------
 When a new version is released, some artifacts are provided with it. In Python,
 these :ref:`Artifacts` are typically the ``Wheel`` and ``Source`` files.
@@ -187,7 +187,7 @@ release processes minimize human-error and alleviate workload on teams. For more
 information, see :ref: `Automating Release Process`.
 
 
-Publishing Privately on PyPI
+Publishing privately on PyPI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 It is sometimes necessary to host and pull packages that are not ready to be
 hosted on the public `PyPI`_. For example, if a PyAnsys library requires
@@ -226,7 +226,7 @@ repository with:
      -u PAT \
      --repository-url $REPOSITORY_URL
 
-Alternatively, instead of CLI arguments for Twine, you can use environment variables:
+Alternatively, instead of command-line tool arguments for Twine, you can use environment variables:
 
 .. code::
 
@@ -248,7 +248,7 @@ You can download a Python package from `PyAnsys PyPI`_ with:
 
 .. note::
    A read-only PAT is available for users who need only to download the package. It
-   can be stored as an environment variable and be used as described in the code example above.
+   can be stored as an environment variable and be used as described in the preceding code example.
    To get access to this PAT, email the PyAnsys Core team at `pyansys.core@ansys.com <pyansys.core@ansys.com>`.
 
 .. warning::
@@ -258,7 +258,7 @@ You can download a Python package from `PyAnsys PyPI`_ with:
    to use only packages from that package index.
 
    The Ansys package index uses PyPI upstream. This prevents other users from being able to
-   inject packages from PyPI that would supersede our packages, even if they
+   inject packages from PyPI that would supersede Ansys packages, even if they
    are of a higher version.
 
    This is not the case if you use ``--extra-index-url``, which adds to rather
@@ -278,7 +278,7 @@ generate and get access to this token:
 
 - Add this token to the ``Secrets/Actions`` section in your repository.
 
-Initially Publishing to PyPI
+Initially publishing to PyPI
 ++++++++++++++++++++++++++++
 If it is the first time that you are publishing your project to `PyPI`_,
 you must obtain the global ``PYPI_TOKEN`` for the `PyAnsys`_ user in
@@ -295,13 +295,12 @@ update the token value in the ``Secrets/Actions`` section.
 
 Publishing to GitHub
 ~~~~~~~~~~~~~~~~~~~~
-Publishing :ref:`Artifacts` to GitHub is also possible. These will be available
+Publishing :ref:`Artifacts` to GitHub is also possible. These are available
 in the ``https://github.com/pyansys/project-name/releases`` section.
-Publishing manually a :ref:`Artifacts` into GitHub must be avoided to reduce
-human-error.  Instead, refer to :ref:`Automating The Release Process` for more
-information.
+Publishing :ref:`Artifacts` into GitHub manually must be avoided to reduce
+human-error. For more information, see :ref:`Automating The Release Process`.
 
-Automating the Release Process
+Automating the release process
 ------------------------------
 Automating the release process is a good practice because it minimizes human error and
 alleviates the developer's workload. 

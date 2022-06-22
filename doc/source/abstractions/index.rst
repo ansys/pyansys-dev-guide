@@ -2,7 +2,7 @@ Abstractions
 ############
 
 Abstraction in Python is the process of hiding the real implementation
-of an application from the user and emphasizing only usage.
+of an app from the user and emphasizing only usage.
 
 One of the main objectives of PyAnsys libraries is to wrap (encapsulate) 
 data and methods within units of execution while hiding data or parameters 

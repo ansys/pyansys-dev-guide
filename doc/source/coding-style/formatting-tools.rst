@@ -1,4 +1,4 @@
-Code Style Tools
+Code style tools
 ================
 
 There are many tools for checking code style. This section presents some of
@@ -71,18 +71,18 @@ For more information, see this `Flake8 documentation topic
 The example configuration defines these options:
 
 - ``exclude``
-    Subdirectories and files to exclude from the check.
+    Subdirectories and files to exclude when checking.
 
 - ``select``
     Sequence of error codes that Flake8 is to report errors
-    for. The set in the above configuration is a basic set of errors to
-    check for and is not an exhaustive list.
+    for. The set in the preceding configuration is a basic set of errors
+    for checking and is not an exhaustive list.
 
     For a full list of error codes and their descriptions, see this `Flake8
     documentation topic <https://flake8.pycqa.org/en/3.9.2/user/error-codes.html>`__.
 
 - ``count``
-    Total number of errors to print at the end of the check.
+    Total number of errors to print when checking ends.
 
 - ``max-complexity``
    Maximum allowed McCabe complexity value for a block of code.
@@ -90,10 +90,10 @@ The example configuration defines these options:
 
 - ``statistics``
     Number of occurrences of each error or warning code
-    to print as a report at the end of the check.
+    to print as a report when checking ends.
 
 
-Code Coverage
+Code coverage
 -------------
 Code coverage indicates the percentage of the codebase tested by the test
 suite. Code coverage should be as high as possible to guarantee that every piece
@@ -185,7 +185,7 @@ If you want to manually run ``pre-commit``, you can run:
 
     pre-commit run --all-files --show-diff-on-failure
 
-This command will show the current and expected style of the code if any of
+This command shows the current and expected style of the code if any of
 the hooks fail.
 
 Tox

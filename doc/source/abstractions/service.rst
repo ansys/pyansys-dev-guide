@@ -6,7 +6,7 @@ execution using technologies like `REST`_ or `gRPC`_.  These services
 are typically exposed in a manner where the API has already been
 abstracted because not all methods can be exposed through a remote API.
 Here, the abstraction of the service is as crucial as in the case of
-the "desktop API". In this case, remote API calls should be identical
+the *desktop API*. In this case, remote API calls should be identical
 if the service is local or remote, with the only difference being that local
 calls are faster to execute.
 
@@ -57,7 +57,7 @@ The approach on the right has a number of advantages, including:
 
 To properly abstract a service, users must have the option to
 either launch the service and connect to it locally if the software exists on
-their machines or connect to a remote instance of the service.  One
+their machines or connect to a remote instance of the service. One
 way to do this is to include a function to launch the service.
 
 This example includes ``launch_mapdl``, which brokers a connection via the 

@@ -1,5 +1,5 @@
 ############################
-PyAnsys Project Organization
+PyAnsys project organization
 ############################
 
 The `PyAnsys Project <https://docs.pyansys.com/>`_ is hosted on GitHub at `PyAnsys
@@ -30,7 +30,7 @@ PROTO files, create coverage reports, and report on system coverage:
 * `system-reporting-tool <https://github.com/pyansys/system-reporting-tool>`_
 
 #################
-Quick Start Guide
+Quick start guide
 #################
 
 This is a brief overview on how to get started right away with your own PyAnsys
@@ -42,9 +42,9 @@ project for a particular PyAnsys library.
    Be sure that the `repository visibility`_ is initially private.
    
 #. **Rename the package:** Rename ``ansys/product/library`` to match
-   your product or library.  For example, the package name for
+   your product or library. For example, the package name for
    PyMAPDL is ``ansys/mapdl/core``. Do the
-   same renaming in ``setup.py``. Do this as a pull request.  In fact, only add
+   same renaming in ``setup.py``. Do this as a pull request. In fact, only add
    code as pull requests. Do not push to ``main``.)
 
 #. **Add source:** Add your source files to
@@ -53,11 +53,11 @@ project for a particular PyAnsys library.
    sufficient coverage when adding your library. See `pytest-cov`_.
 
    .. note::
-      If your tests require an active service, application, or product,
-      be sure to set up this application to run in an automated manner.
+      If your tests require an active service, app, or product,
+      be sure to set up this app to run in an automated manner.
 
-#. **Update documentation:** The documentation source and content will
-   vary from repository to _repository. In ``doc/``, there are folders for
+#. **Update documentation:** The documentation source and content 
+   vary from repository to repository. In ``doc/``, there are folders for
    different types of documentation, which can include guides, examples,
    and API. Ensure that all documentation is updated. See :ref:`Documentation
    Style`.

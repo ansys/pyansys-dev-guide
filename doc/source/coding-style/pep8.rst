@@ -17,10 +17,10 @@ Imports
 -------
 Code style guidelines follow for ``import`` statements.
 
-Import Location
+Import location
 ~~~~~~~~~~~~~~~
 Imports should always be placed at the top of the file, just after any
-module comments and docstrings and before module globals and
+module comments and docstrings and before module global variables and
 constants. This reduces the likelihood of an `ImportError`_ that
 might only be discovered during runtime.
 
@@ -48,13 +48,13 @@ might only be discovered during runtime.
              return math.log(8, x)
 
 
-Import Order
+Import order
 ~~~~~~~~~~~~
 For better readability, group imports in this order:
 
 #. Standard library imports
 #. Related third-party imports
-#. Local application-specific or library-specific imports
+#. Local app-specific or library-specific imports
 
 All imports within each import grouping should be performed in alphabetical order.
 
@@ -89,7 +89,7 @@ All imports within each import grouping should be performed in alphabetical orde
              return math.log(8, x)
 
 
-Multiple Imports
+Multiple imports
 ~~~~~~~~~~~~~~~~
 You should place imports in separate lines unless they are modules from the same
 package.
@@ -123,7 +123,7 @@ package.
                return math.log(8, x)
 
 
-Import Namespaces
+Import namespaces
 ~~~~~~~~~~~~~~~~~
 You should avoid using wildcards in imports because doing so can make it
 difficult to detect undefined names. For more information, see `Python
@@ -145,7 +145,7 @@ Anti-Patterns: using wildcard imports
             from my_package.my_module import myclass
 
 
-Naming Conventions
+Naming conventions
 ------------------
 To achieve readable and maintainable code, use concise and descriptive names for classes,
 methods, functions, and constants. Regardless of the programming language, you must follow these
@@ -166,7 +166,7 @@ variable names. In some fonts, these characters are indistinguishable from the
 numerals one and zero.
 
 
-Packages and Modules
+Packages and modules
 ~~~~~~~~~~~~~~~~~~~~
 Use a short, lowercase word or words for module names. Separate words
 with underscores to improve readability. For example, use ``module.py``
@@ -264,7 +264,7 @@ Separate words with underscores to improve readability.
     MY_CONSTANT = 8
     MY_OTHER_CONSTANT = 1000
 
-Indentation and Line Breaks
+Indentation and line breaks
 ---------------------------
 Proper and consistent indentation is important to producing
 easy-to-read and maintainable code. In Python, use four spaces per
@@ -356,7 +356,7 @@ Instead of:
                print("x is less than zero.")
 
 
-Maximum Line Length
+Maximum line length
 -------------------
 For source code lines, best practice is to keep the length at or below
 100 characters. For docstrings and comments, best practice is to keep
@@ -388,7 +388,7 @@ this line is difficult to follow:
 Alternatively, instead of writing a list comprehension, you can use a
 classic loop.
 
-Notice that sometimes it will not be possible to keep the line length below the
+Notice that sometimes it is not be possible to keep the line length below the
 desired value without breaking the syntax rules.
 
 Comments
@@ -435,7 +435,7 @@ Otherwise, future developers might remove code that they see as unnecessary.
    obj.write(filename)
 
 
-Inline Comments
+Inline comments
 ~~~~~~~~~~~~~~~
 Use inline comments sparingly. An inline comment is a comment on the
 same line as a statement.
@@ -472,7 +472,7 @@ descriptive variable names.
             user_name = "John Smith"
 
 
-Docstring Conventions
+Docstring conventions
 ~~~~~~~~~~~~~~~~~~~~~
 A docstring is a string literal that occurs as the first statement in
 a module, function, class, or method definition. A docstring becomes
@@ -498,7 +498,7 @@ For more information on docstrings for PyAnsys libraries, see
 :ref:`Documentation Style`.
 
 
-Programming Recommendations
+Programming recommendations
 ---------------------------
 The following sections provide some `PEP8
 <https://www.python.org/dev/peps/pep-0008/>`_ recommendations for removing
@@ -506,7 +506,7 @@ ambiguity and preserving consistency. Additionally, they address some common
 pitfalls that occur when writing Python code.
 
 
-Booleans and Comparisons
+Booleans and comparisons
 ~~~~~~~~~~~~~~~~~~~~~~~~
 Don't compare Boolean values to ``True`` or ``False`` using the
 equivalence operator.
@@ -573,7 +573,7 @@ Also, avoid ``if x:`` when you mean ``if x is not None:``.  This is
 especially important when parsing arguments.
 
 
-Handling Strings
+Handling strings
 ~~~~~~~~~~~~~~~~
 Use ``.startswith()`` and ``.endswith()`` instead of slicing.
 
@@ -601,7 +601,7 @@ Use ``.startswith()`` and ``.endswith()`` instead of slicing.
                print("The file is a JPEG.")
 
 
-Reading the Windows Registry
+Reading the Windows registry
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Never read the Windows registry or write to it because this is dangerous and 
 makes it difficult to deploy libraries on different environments or operating
@@ -622,7 +622,7 @@ systems.
             )
 
 
-Duplicated Code
+Duplicated code
 ~~~~~~~~~~~~~~~
 Follow the DRY principle, which states that "Every piece of knowledge
 must have a single, unambiguous, authoritative representation within a
@@ -687,7 +687,7 @@ a testing framework such as ``pytest`` to test that the method is
 correct.
 
 
-Nested Blocks
+Nested blocks
 ~~~~~~~~~~~~~
 Avoid deeply nested block structures (such as conditional blocks and loops)
 within one single code block. 
@@ -799,10 +799,10 @@ The second approach is more readable and better documented. Additionally,
 you could implement a unit test for ``is_consonant``.
 
 
-Security Considerations
+Security considerations
 -----------------------
 
-Security, an ongoing process involving people and practices, ensures application confidentiality, integrity, and availability [#]_.
+Security, an ongoing process involving people and practices, ensures app confidentiality, integrity, and availability [#]_.
 Any library should be secure and implement good practices that avoid or mitigate possible security risks.
 This is especially relevant in libraries that request user input (such as web services).
 Because security is a broad topic, you should review this useful Python-specific resource:

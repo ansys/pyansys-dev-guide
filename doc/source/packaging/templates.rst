@@ -6,7 +6,7 @@ Templates
 
 Starting a new project from scratch is a tedious task. To simplify the starting process
 and make it more dynamic, the `ansys-templates`_ tool was created . Using this
-template ensures that any project rendered will be compliant with the latest PyAnsys
+template ensures that any project rendered is compliant with the latest PyAnsys
 coding and API style guidelines.
 
 The ``ansys-templates`` tool
@@ -30,19 +30,19 @@ version installed in your system.
    problem during the installation or usage of the tool.
 
 
-PyAnsys Available Templates
+PyAnsys available templates
 ===========================
 
-There are two templates which can be used as basis for creating new PyAnsys
-projects. These are the ``pyansys`` and the ``pyansys-advanced`` templates. 
+There are two templates that can be used as the basis for creating new PyAnsys
+projects ``pyansys`` and ``pyansys-advanced``. 
 
 .. important::
 
-   Install `ansys-templates`_ to access these templates. Refer to the
-   `ansys-templates user guide`_ for more information on how to use this tool.
+   Install `ansys-templates`_ to access these templates. For more information on
+   how to use this tool, see `ansys-templates user guide`_.
 
 
-PyAnsys Template 
+PyAnsys template 
 ----------------
 
 The ``pyansys`` template ships only with the required directories and files to
@@ -62,18 +62,18 @@ Create a new project based on the ``pyansys`` template by running:
    ansys-templates new pyansys
 
 
-PyAnsys Advanced Template
+PyAnsys advanced template
 -------------------------
 
-The ``pyansys-advanced`` is an enhanced version of the ``pyansys`` template. It
-ships with the same files as this last template except:
+The ``pyansys-advanced`` template is an enhanced version of the ``pyansys`` template.
+It ships with the same files as this last template, except it:
 
 - Allows you to select the project file (``setup.py`` or ``pyproject.toml``)
-- Uses `Tox`_ for testing and tasks automation
-- Includes GitHub actions for CI purposes
+- Uses `Tox`_ for testing and task automation
+- Includes GitHub Actions for CI purposes
 - Uses `pre-commit`_ for checking coding style
 
-Create a new project based on the ``pyansys-advanced`` template by running:
+Create a project based on the ``pyansys-advanced`` template with:
 
 .. code:: bash
 
