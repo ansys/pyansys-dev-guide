@@ -71,4 +71,3 @@ Marguerin
 Maxime
 Stephane
 grpc_chunk_stream_demo
-
