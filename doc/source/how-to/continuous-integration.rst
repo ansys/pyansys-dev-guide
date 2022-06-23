@@ -14,7 +14,7 @@ Because ``PyAnsys`` projects are hosted in `GitHub <https://github.com>`_, the
 Enabling GitHub actions
 -----------------------
 By default, ``Actions`` are enabled in new repositories and can be accessed
-using the associated :ref:`GitHub Repository Sections`.
+using the associated :ref:`GitHub repository sections`.
 
 If ``Actions`` are not enabled, you can enable them by changing ``Actions
 Permissions`` in ``Settings -> Actions -> General``.
@@ -80,13 +80,13 @@ Required workflows
 ------------------
 These workflows are required for any ``PyAnsys`` project:
 
-- :ref:`Coding Style` workflow
-- :ref:`Documentation Style`, :ref:`Building Documentation`, and :ref:`Deploying Documentation` Workflows
-- :ref:`Testing` and :ref:`Testing Code Coverage` workflows
-- :ref:`Releasing and Publishing` workflow
+- :ref:`Coding style` workflow
+- :ref:`Documentation style`, :ref:`Building documentation`, and :ref:`Deploying documentation` Workflows
+- :ref:`Testing` and :ref:`Testing code coverage` workflows
+- :ref:`Releasing and publishing` workflow
 
 You should collect all workflows under a common
-``ci.yml`` file. For more information, see :ref:`Workflow Examples`.
+``ci.yml`` file. For more information, see :ref:`Workflow examples`.
 
 
 Parametrizing workflows
@@ -99,7 +99,7 @@ using different Python versions:
     \text{Num. Workflows} = \text{Num. Operating Systems} \times \text{Num. Python Versions}
 
 The most common operating systems are ``Windows``, ``macOS``, and ``Linux``. For
-Python versions, see :ref:`Supporting Python Versions`.
+Python versions, see :ref:`Supporting Python versions`.
 
 Because having a ``YML`` file for each workflow would be tedious, ``GitHub
 Actions`` provides the ``matrix`` parameter inside the ``strategy``. For more
@@ -144,8 +144,8 @@ Consider this example of a parametrized workflow example:
 
 Workflow examples
 -----------------
-Workflow examples are provided for checking :ref:`Coding Style`,
-:ref:`Documenting`, :ref:`Testing`, and :ref:`Automating The Release Process`.
+Workflow examples are provided for checking :ref:`Coding style`,
+:ref:`Documenting`, :ref:`Testing`, and :ref:`Automating the release process`.
 
 .. tabs::
 

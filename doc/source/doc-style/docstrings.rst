@@ -53,7 +53,7 @@ The short summary can be declared on the same line as the opening quotes or on
 the next line. While `PEP 257
 <https://peps.python.org/pep-0257>`_ accepts both ways, you must be consistent across your
 project. If you decide to declare the short summary on the same line,
-refer to :ref:`Numpydoc Validation` because ``"GL01"`` checking must be
+refer to :ref:`Numpydoc validation` because ``"GL01"`` checking must be
 turned off.
 
 The guidelines for documenting short summaries differ for classes versus

@@ -5,7 +5,7 @@ This section collects the required standards for any ``PyAnsys`` project. The
 individual configurations for the tools presented in :ref:`Code style tools` and
 :ref:`Documentation style tools` are combined together.
 
-The following lines should be included in :ref:`The \`\`pyproject.toml\`\` File`
+The following lines should be included in :ref:`The \`\`pyproject.toml\`\` file`
 to indicate the configuration of the different code and documentation style tools.
 
 
@@ -50,7 +50,7 @@ The following ``.flake8`` file is also required:
 
 Required ``pre-commit`` configuration
 -------------------------------------
-You can take advantage of :ref:`Pre-Commit` by including a
+You can take advantage of :ref:`Pre-commit` by including a
 ``.pre-commit-config.yaml`` file like this one in your project:
 
 
@@ -88,7 +88,7 @@ You can take advantage of :ref:`Pre-Commit` by including a
 
 GitHub CI/CD integration
 ------------------------
-Finally, you can take advantage of :ref:`Testing Using GitHub Actions` and
+Finally, you can take advantage of :ref:`Testing using GitHub actions` and
 create a ``style.yml`` workflow file in ``.github/workflows/``:
 
 .. code-block:: yaml

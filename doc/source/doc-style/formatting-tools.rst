@@ -57,7 +57,7 @@ Doctest
 included by default with your Python installation. It is used for checking the
 examples provided inside docstrings to make sure that they reflect the current usage
 of the source code. `Doctest`_ can be integrated with ``pytest`` in :ref:`The
-\`\`pyproject.toml\`\` File`:
+\`\`pyproject.toml\`\` file`:
 
 .. code:: toml
 
@@ -86,7 +86,7 @@ for source code coverage.
 
 Numpydoc validation
 -------------------
-To validate the style of :ref:`Numpydoc Docstrings`, you can
+To validate the style of :ref:`Numpydoc docstrings`, you can
 take advantage of the `numpydoc`_ Sphinx extension. Note that this extension
 checks only for those objects whose docstrings must be rendered. It is not a
 command line tool that checks the style of all docstrings in your source code.
@@ -122,7 +122,7 @@ Pydocstyle
 
 `Pydocstyle`_ is a tool for checking the compliance of Python docstrings with `PEP
 257`_.  Its configuration can be defined in the :ref:`The \`\`pyproject.toml\`\`
-File`.  By default, `Pydocstyle`_ matches all ``*.py`` files except those starting with
+file`.  By default, `Pydocstyle`_ matches all ``*.py`` files except those starting with
 ``test_*.py``. The default configuration should be enough for a PyAnsys project.
 However, if additional configuration is needed, it must be included
 it under the ``[tool.pydocstyle]`` entry:

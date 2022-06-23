@@ -8,7 +8,7 @@ party dependencies.
 
 The fundamentals of Python packaging together with the packaging style
 guidelines that apply to PyAnsys projects are collected in the :ref:`Packaging
-Style` section.
+style` section.
 
 
 Specifying dependencies
@@ -16,7 +16,7 @@ Specifying dependencies
 It is common to take advantage of third party libraries to simplify
 source code. The formal way of doing so is by specifying these third party
 libraries as dependencies. There are two types of dependencies: :ref:`Required
-Dependencies` and :ref:`Optional Dependencies`.
+dependencies` and :ref:`Optional dependencies`.
 
 Required dependencies
 ~~~~~~~~~~~~~~~~~~~~~
@@ -24,9 +24,9 @@ Required dependencies are third party libraries that a software requires to
 properly function. If these dependencies are not installed or present, the
 software does not work as expected.
 
-Required dependencies need to be declared in :ref:`The \`\`setup.py\`\` File` or
-in :ref:`The \`\`pyproject.toml\`\` File`, according to the selected :ref:`Build
-System`:
+Required dependencies need to be declared in :ref:`The \`\`setup.py\`\` file` or
+in :ref:`The \`\`pyproject.toml\`\` file`, according to the selected :ref:`Build
+system`:
 
 
 .. tabs::

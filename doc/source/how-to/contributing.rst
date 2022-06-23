@@ -8,11 +8,11 @@ coding paradigms being used for PyAnsys development.
    gained by following the basic guidelines listed in PEP 20. As suggested
    in these guidelines, focus on making your additions intuitive, novel,
    and helpful for PyAnsys users. When in doubt, use ``import this``.
-   For Ansys code quality standards, see :ref:`Coding Style`.
+   For Ansys code quality standards, see :ref:`Coding style`.
 
 #. Document your contributions. Include a docstring for any added function,
-   method, or class, following :ref:`Numpydoc Docstrings` as specified by
-   PyAnsys :ref:`Documentation Style`. Always provide at least one simple use
+   method, or class, following :ref:`Numpydoc docstrings` as specified by
+   PyAnsys :ref:`Documentation style`. Always provide at least one simple use
    case for a new feature.
 
 #. Test your contribution. Because Python is an interpreted language, if
@@ -76,12 +76,12 @@ Creating an issue
 You create an issue to either report a bug or request help or a new feature. Commenting
 allows you to interact with other users, developers, and project maintainers.
 
-To open an issue, select the ``Issues`` tab in the :ref:`GitHub Repository
-Sections` and click ``New Issue``. Then, select a template for the type of issue
+To open an issue, select the ``Issues`` tab in the :ref:`GitHub repository
+sections` and click ``New Issue``. Then, select a template for the type of issue
 to open.
 
 GitHub issues require the usage of Markdown files instead of ReStructured Text
-files. For more information, see `Basic Writing and Formatting Syntax
+files. For more information, see `Basic writing and formatting syntax
 <https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax>`_.
 
 Requesting new features
@@ -152,7 +152,7 @@ reflected in your Python environment.
 To install a Python library in editable mode:
 
 1. Ensure that you :ref:`Create` and :ref:`Activate` a Python virtual environment,
-   as explained in the :ref:`Virtual Environments` section.
+   as explained in the :ref:`Virtual environments` section.
 
 2. Update `pip` with:
 
@@ -170,10 +170,10 @@ To install a Python library in editable mode:
 Creating a branch
 -----------------
 It is likely that the default branch name is ``main`` or ``master``. This is the
-development branch for PyAnsys projects. For more information, see :ref:`Branching Model`. 
+development branch for PyAnsys projects. For more information, see :ref:`Branching model`. 
 
 You must implement new contributions in a different branch and then merge
-these changes into the ``main`` branch by :ref:`Creating a Pull Request`.
+these changes into the ``main`` branch by :ref:`Creating a pull request`.
 
 You create a branch with:
 
@@ -220,8 +220,8 @@ work across all supported platforms. For procedural information, see `Creating a
 in the GitHub documentation.
 
 After you submit your PR, someone from the PyAnsys development team reviews
-your code to verify that it meets the :ref:`Packaging Style`, :ref:`Coding
-Style`, and :ref:`Documentation Style`.
+your code to verify that it meets the :ref:`Packaging style`, :ref:`Coding
+style`, and :ref:`Documentation style`.
 
 Once your code is approved, if you have write permission, you can merge the PR
 and then delete the PR branch. If you don't have write permission, the reviewer

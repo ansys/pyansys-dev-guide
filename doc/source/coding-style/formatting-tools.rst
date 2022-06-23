@@ -102,7 +102,7 @@ of code has been tested.
 For ``PyAnsys``, code coverage is done using `pytest-cov`_, a `pytest`_ plugin
 that triggers the code coverage analysis once your test suite has executed.
 
-Considering the layout presented in :ref:`Required Files`, the following
+Considering the layout presented in :ref:`Required files`, the following
 configuration for code coverage is the minimum one required for a ``PyAnsys``
 project:
 

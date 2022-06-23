@@ -27,14 +27,14 @@ For consistency, PyAnsys tools and libraries should use either the `unittest
 <https://docs.python.org/3/library/unittest.html>`_ or `pytest
 <https://docs.pytest.org/>`_ framework for unit testing. This last framework is
 recommended unless any constraint in your project prevents you from using it. As
-described in :ref:`Required Files`, unit tests should be placed in :ref:`The
-\`\`tests/\`\` Directory` in the library's root directory.
+described in :ref:`Required files`, unit tests should be placed in :ref:`The
+\`\`tests/\`\` directory` in the library's root directory.
 
 
 Adding testing dependencies
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Requirements for testing dependencies should be included either in :ref:`The
-\`\`setup.py\`\` File`, :ref:`The \`\`pyproject.toml\`\` File` or in a
+\`\`setup.py\`\` file`, :ref:`The \`\`pyproject.toml\`\` file` or in a
 ``requirements_tests.txt`` file. Only ``pytest`` and ``pytest-cov``
 must be specified as third-party dependencies because``unittest`` is included
 in `The Python Standard Library <https://docs.python.org/3/library/>`_.
@@ -98,9 +98,9 @@ These dependencies can be installed using ``pip``:
 
 Organizing test files
 ~~~~~~~~~~~~~~~~~~~~~
-You must collect test files in :ref:`The \`\`tests/\`\` Directory`. To
+You must collect test files in :ref:`The \`\`tests/\`\` directory`. To
 guarantee that tests are run against the library source code, follow a ``src/``
-layout as explained in :ref:`The \`\`src/\`\` Directory` rather than
+layout as explained in :ref:`The \`\`src/\`\` directory` rather than
 having your Python library source located directly in the repository root directory. 
 
 This helps you to:
@@ -145,11 +145,11 @@ Testing methodology
 You should consider three levels of testing for your PyAnsys library: unit,
 integration, and functional.
 
-* :ref:`Unit Testing` validates your library at the lowest possible level, isolating
+* :ref:`Unit testing` validates your library at the lowest possible level, isolating
   individual classes and methods without any communication with other libraries
   or services.
 
-* :ref:`Integration Testing` validates that your library works in the context of an
+* :ref:`Integration testing` validates that your library works in the context of an
   app or software stack. For example, if your library extends or wraps
   the features of an external service, you must test that service
   in conjunction with your library. On GitHub, the ideal approach for this would
@@ -158,7 +158,7 @@ integration, and functional.
   multiple libraries or services interact. This is mandatory for testing APIs and
   is preferred over mocking the service.
 
-* :ref:`Functional Testing` should be used for validating workflows or long-running
+* :ref:`Functional testing` should be used for validating workflows or long-running
   examples. Assume that you have a library that wraps a CAD service. You
   would validate that you can create complex geometry while directly interfacing
   with the service. Functional tests are great at discovering edge cases that are
@@ -438,8 +438,8 @@ Configuring code coverage
 If you do not configure code coverage properly, the resulting report does
 not show the real scope covered by the test suite.
 
-Assuming that a ``PyAnsys`` project follows :ref:`The \`\`src/\`\` Directory` layout,
-you must pass the following flag when :ref:`Running Tests`:
+Assuming that a ``PyAnsys`` project follows :ref:`The \`\`src/\`\` directory` layout,
+you must pass the following flag when :ref:`Running tests`:
 
 .. code-block:: text
 
@@ -447,7 +447,7 @@ you must pass the following flag when :ref:`Running Tests`:
 
 This command tells ``pytest-cov`` to look for source code in the
 ``src/ansys/<product>`` directory and generate a terminal report for all tests
-located in :ref:`The \`\`tests/\`\` Directory`.
+located in :ref:`The \`\`tests/\`\` directory`.
 
 
 While 100% coverage is ideal, the law of diminishing returns applies to

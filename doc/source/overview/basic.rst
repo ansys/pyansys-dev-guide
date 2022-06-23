@@ -60,7 +60,7 @@ project for a particular PyAnsys library.
    vary from repository to repository. In ``doc/``, there are folders for
    different types of documentation, which can include guides, examples,
    and API. Ensure that all documentation is updated. See :ref:`Documentation
-   Style`.
+   style`.
 
 #. **Prepare the package for release:** When you are ready to release
    your package publicly, email `pyansys.support@ansys.com <pyansys.support@ansys.com>`_

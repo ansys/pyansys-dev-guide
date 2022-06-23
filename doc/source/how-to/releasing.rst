@@ -73,7 +73,7 @@ features without sacrificing stability. The model closely follows the
   is also reflected on PyPI. Hotfixes from ``fix/`` branches should be
   integrated both to ``main`` and to these branches. When creating a new patch
   release is necessary, these release branches have their version updated
-  and are tagged with a patched :ref:`Semantic Versioning` (for example,
+  and are tagged with a patched :ref:`Semantic versioning` (for example,
   ``0.2.1``).  This triggers CI to push to PyPI so that hotfixes for past
   versions can be rapidly push without having to worry about untested features.
 
@@ -103,7 +103,7 @@ Update ``X`` or ``Y`` version numbers in your project and replace the ``dev0``
 with a ``0``.
 
 Check all locations, including
-:ref:`The \`\`setup.py\`\` File`, :ref:`The \`\`pyproject.toml\`\` File`, and any
+:ref:`The \`\`setup.py\`\` file`, :ref:`The \`\`pyproject.toml\`\` file`, and any
 ``__init__.py`` or ``__version__.py`` your project may contain.
 
 Stash and commit previous changes with:
@@ -180,7 +180,7 @@ Documentation in the form of PDF and HTML files are also considered artifacts.
 .. admonition:: Do not distribute artifacts without approval. 
 
    For more information about requesting approval for publishing your project,
-   see :ref:`Project Approval`.
+   see :ref:`Project approval`.
 
 Manual release processes are discouraged and should be avoided. Automated
 release processes minimize human-error and alleviate workload on teams. For more
@@ -268,12 +268,12 @@ You can download a Python package from `PyAnsys PyPI`_ with:
 Publishing to PyPI
 ~~~~~~~~~~~~~~~~~~
 Publishing :ref:`Artifacts` to `PyPI`_ is the way of distributing :ref:`Python
-Libraries`. Publishing to `PyPI`_ requires a ``PYPI_TOKEN`` for your project. To
+libraries`. Publishing to `PyPI`_ requires a ``PYPI_TOKEN`` for your project. To
 generate and get access to this token:
 
 - Contact `Alexander Kaszynski <mailto:alexander.kaszynski@ansys.com>`_
   requesting access to the ``PYPI_TOKEN``. The value of this token depends
-  on whether you are :ref:`Initially Publishing to PyPI` or :ref:`Republishing
+  on whether you are :ref:`Initially publishing to PyPI` or :ref:`Republishing
   to PyPI`. 
 
 - Add this token to the ``Secrets/Actions`` section in your repository.
@@ -298,7 +298,7 @@ Publishing to GitHub
 Publishing :ref:`Artifacts` to GitHub is also possible. These are available
 in the ``https://github.com/pyansys/project-name/releases`` section.
 Publishing :ref:`Artifacts` into GitHub manually must be avoided to reduce
-human-error. For more information, see :ref:`Automating The Release Process`.
+human-error. For more information, see :ref:`Automating the release process`.
 
 Automating the release process
 ------------------------------
@@ -307,7 +307,7 @@ alleviates the developer's workload.
 
 The following GitHub Actions code is triggered every time a new ``tag`` gets pushed
 to your project repository. This workflow depends on the success of the style, tests,
-docs, and build workflows. For more information, see :ref:`Workflow Examples`.
+docs, and build workflows. For more information, see :ref:`Workflow examples`.
 
 .. literalinclude:: code/release.yml
    :language: yaml

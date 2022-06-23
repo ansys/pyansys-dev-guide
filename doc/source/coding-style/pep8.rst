@@ -495,7 +495,7 @@ same line:
 For a multi-line docstring, put the ending ``"""`` on a line by itself.
 
 For more information on docstrings for PyAnsys libraries, see
-:ref:`Documentation Style`.
+:ref:`Documentation style`.
 
 
 Programming recommendations

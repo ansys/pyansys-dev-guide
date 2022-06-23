@@ -58,13 +58,13 @@ Google style docstrings, refers you to the `Google Python Style Guide
 
 Regardless of the extension that you choose for generating documentation, using
 numpy-style docstrings ensures that there is consistency within PyAnsys libraries.
-For more information, see :ref:`Documentation Style`.
+For more information, see :ref:`Documentation style`.
 
 RST files
 ~~~~~~~~~
 To provide general usage information in your documentation, use your favorite
 editor to create RST (ReStructured Text) files that you then place in :ref:`The \`\`doc/\`\`
-Directory` directory. The ``index.rst`` file in the ``doc/source`` directory
+directory` directory. The ``index.rst`` file in the ``doc/source`` directory
 defines the first level of your documentation hierarchy. The ``toctree``
 directive (which stands for "table of contents tree") indicates the maximum
 number of heading levels that the documentation is to display. Following this
@@ -126,7 +126,7 @@ structure, the index file referenced for each section must be named
 ``index.rst``.
 
 After you build documentation locally as described in :ref:`Building
-Documentation`, the first-level heading in the ``index.rst`` file for each
+documentation`, the first-level heading in the ``index.rst`` file for each
 section is shown as a clickable link in the header of the
 documentation's generated HTML output. For more information on defining a
 documentation structure, see the `Sphinx Getting Started
@@ -199,7 +199,7 @@ reference key
 Documenting Python code
 -----------------------
 You can use `sphinx.ext.autodoc` to document your Python code. When using this
-extension, you can include the following directives in your :ref:`RST Files`:
+extension, you can include the following directives in your :ref:`RST files`:
 
 * ``automodule`` for documenting modules
 * ``autoclass`` for documenting classes
@@ -335,7 +335,7 @@ Building documentation
 ----------------------
 `Sphinx <https://www.sphinx-doc.org/en/master/>`_ is used to build the documentation.
 You configure the entire build process in the ``conf.py`` file, located in the
-``source/`` directory in :ref:`The \`\`doc/\`\` Directory`.
+``source/`` directory in :ref:`The \`\`doc/\`\` directory`.
 
 This directory also contains a ``Makefile`` file and a ``make.bat`` file for
 automating the building process. Different builders render different
@@ -361,7 +361,7 @@ You build ``HTML`` documentation with:
             make.bat html
 
 The resulting ``HTML`` files are created in the ``_build/html`` directory,
-located in :ref:`The \`\`doc/\`\` Directory`.
+located in :ref:`The \`\`doc/\`\` directory`.
 
 You can display the HTML documentation with:
 
@@ -411,7 +411,7 @@ You can call previous rules by running:
             make.bat pdf
 
 The resulting PDF and intermediate LaTeX files are created in the
-``_build/latex`` folder, located in :ref:`The \`\`doc/\`\` Directory`.
+``_build/latex`` folder, located in :ref:`The \`\`doc/\`\` directory`.
 
 .. admonition:: Always verify the content of your PDF file.
 
@@ -775,11 +775,11 @@ automatically kept up-to-date via GitHub actions.
 
 To make documentation changes, you create a branch with a name that begins with
 a prefix of ``doc/`` that is then followed by a short description of what you
-are changing. For more information, see :ref:`Branching Model`.
+are changing. For more information, see :ref:`Branching model`.
 
 As you are making changes in this branch, you want to periodically generate the
 documentation locally so that you can test your changes before you create a
-GitHub pull request. For more information, see :ref:`Building Documentation`.
+GitHub pull request. For more information, see :ref:`Building documentation`.
 
 
 ..

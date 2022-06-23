@@ -58,7 +58,7 @@ support Python 3.6 through 3.9, your command would look like this: ``python_requ
 Verifying support
 -----------------
 The best way to validate whether a Python library supports a version of Python
-is by :ref:`Using Continuous Integration`. An example GitHub
+is by :ref:`Using continuous integration`. An example GitHub
 workflow testing Python 3.7 through Python 3.10 on Windows and Linux would
 start with:
 

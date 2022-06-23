@@ -21,7 +21,7 @@ Should you choose to copy and include any PyAnsys project source uses,
 to make your library suitable for commercial use, you need only a copy
 of the original PyAnsys MIT license in the reused code.
 
-To view this license, see the :ref:`The \`\`LICENSE\`\` File` file in the root
+To view this license, see the :ref:`The \`\`LICENSE\`\` file` file in the root
 directory of this repository. This file must be included in the root directory
 of the repository of every PyAnsys library.
 
@@ -47,9 +47,9 @@ Each repository is expected to follow this minimum set of standards:
 - PEP8 code standards. See :ref:`PEP 8`.
 - CI/CD using GitHub actions or Azure DevOps to enforce coding standards.
 - Publicly hosted documentation describing the API and providing examples. See
-  :ref:`Documentation Style`.
+  :ref:`Documentation style`.
 - Unit testing with at least 80% test coverage.
 - Infrastructure in place to deploy the library as a package on `PyPI
-  <https://pypi.org/>`_.  See :ref:`Packaging Style`.
-- Proper license file and author. See :ref:`The \`\`setup.py\`\` File` and :ref:`The \`\`LICENSE\`\` File`.
-- :ref:`Semantic Versioning` for :ref:`Releasing and Publishing`.
+  <https://pypi.org/>`_.  See :ref:`Packaging style`.
+- Proper license file and author. See :ref:`The \`\`setup.py\`\` file` and :ref:`The \`\`LICENSE\`\` file`.
+- :ref:`Semantic versioning` for :ref:`Releasing and publishing`.
