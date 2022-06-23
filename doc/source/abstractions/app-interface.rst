@@ -1,10 +1,10 @@
-Application Interface
+Application interface
 =====================
 
 Many Ansys applications are designed around user interaction within a
 desktop GUI-based environment. Consequently, scripts are recorded
 directly from user sessions and are in the context of manipulating the
-desktop application. Instead, scripts should be written for an API 
+desktop app. Instead, scripts should be written for an API 
 that is structured around data represented as classes and methods.
 
 PyAnsys seeks to make the API a "first class citizen" in regard to
@@ -44,7 +44,7 @@ Besides length and readability, the biggest difference between the two
 approaches is how the methods and attributes from the ``Hfss`` class
 are encapsulated. For example, AEDT no longer needs to be
 explicitly instantiated and is hidden as a protected attribute
-``_desktop``. The connection to the application takes place
+``_desktop``. The connection to the app takes place
 automatically when ``Hfss`` is instantiated, and the active AEDT 
 project, editor, and module are automatically used to create the 
 open region.
@@ -106,7 +106,7 @@ within this method.
         return True
 
 Here, the COM ``CreateOpenRegion`` method is abstracted, encapsulating
-the model setup object.  There's no reason why a user needs direct
+the model setup object. There's no reason why a user needs direct
 access to ``_omodelsetup``, which is why it's protected in the
 ``Hfss`` class. Additionally, calling the method is simplified by
 providing (and documenting) the defaults using keyword arguments and

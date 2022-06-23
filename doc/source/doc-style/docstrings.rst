@@ -1,4 +1,4 @@
-Numpydoc Docstrings
+Numpydoc docstrings
 ###################
 
 When writing docstrings for PyAnsys libraries, use the `numpydoc`_
@@ -6,8 +6,8 @@ style.
 
 For consistency within PyAnsys libraries, always use ``"""`` to introduce and conclude a
 docstring, keeping the line length shorter than 70 characters. Ensure that there are
-no blank spaces at the end of a line because they will cause errors in build checks that you
-will have to resolve.
+no blank spaces at the end of a line because they cause errors in build checks that you
+must then resolve.
 
 A blank line signifies the start of a new paragraph. To create a bulleted or numbered list,
 ensure that there is a blank line before the first item and after the last item. Because you
@@ -15,7 +15,7 @@ use the same markup in docstrings as you do in RST files, see this `quick refere
 <https://docutils.sourceforge.io/docs/user/rst/quickref.html>`_.
 
 Surround any text that you want to set apart as literal text in double back ticks to render
-it in a monospace gold font. Use double back ticks to surround the names of files, folders,
+it in a gold monospaced font. Use double back ticks to surround the names of files, folders,
 classes, methods, and variables. For example::
 
   """Initialize the ``Desktop`` class with the version of AEDT to use."""
@@ -27,7 +27,7 @@ classes, methods, and variables. For example::
    style.
 
 
-Required Docstring Sections
+Required docstring sections
 ===========================
 
 PyAnsys library docstrings contain these `numpydoc`_ sections as a minimum:
@@ -42,26 +42,26 @@ These sections should follow numpydoc style. To avoid inconsistencies between
 PyAnsys libraries, adhere to the additional style guidelines that follow.
 
 
-Short Summary
+Short summary
 -------------
 This is a single line that goes immediately after the declaration of the class
 or function to briefly describe what the class or function does. The
-`short summary` is mandatory. If it is not present, :ref:`Doc Style Tools` will
-raise an error.
+`short summary` is mandatory. If it is not present, :ref:`Documentation style tools`
+raises an error.
 
 The short summary can be declared on the same line as the opening quotes or on
 the next line. While `PEP 257
 <https://peps.python.org/pep-0257>`_ accepts both ways, you must be consistent across your
 project. If you decide to declare the short summary on the same line,
-refer to :ref:`Numpydoc Validation` because the ``"GL01"`` check must be
-disabled.
+refer to :ref:`Numpydoc validation` because ``"GL01"`` checking must be
+turned off.
 
 The guidelines for documenting short summaries differ for classes versus
 functions.
 
-Short Summaries for Classes
+Short summaries for classes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-A class is a 'noun' representing a collection of methods. For consistency within PyAnsys libraries,
+A class is a *noun* representing a collection of methods. For consistency within PyAnsys libraries,
 always start the brief description for a class with a verb ending in 's', followed by an extended
 summary in a new line if additional information is needed::
 
@@ -76,9 +76,9 @@ summary in a new line if additional information is needed::
 
 Ensure that there is a line break between the end of a class docstring and the subsequent methods.
 
-Short Summaries for Methods
+Short summaries for methods
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-A method is a 'verb' representing an action that can be performed. For consistency within PyAnsys
+A method is a *verb* representing an action that can be performed. For consistency within PyAnsys
 libraries, always start the brief description for a method with a verb not ending in 's', followed
 by an extended summary in a new line if additional information is needed::
 
@@ -88,15 +88,15 @@ by an extended summary in a new line if additional information is needed::
     ...
     """
 
-Methods with a leading underscore (_) are 'protected' methods, meaning that they are not rendered in the
+Methods with a leading underscore (_) are *protected* methods, meaning that they are not rendered in the
 documentation unless an explicit request is made to add them using Sphinx directives. However, clearly
 written descriptions for private methods are still important.
 
 If a method has the decorator ``@property``, it is turned into a property, which is described as a
-'noun' rather than a 'verb'. Because the resulting property cannot have parameters, you remove
-the 'Parameters' section for this method. If a setter follows the decorator ``@property``, do not
+noun rather than a verb. Because the resulting property cannot have parameters, you remove
+the ``Parameters`` section for this method. If a setter follows the decorator ``@property``, do not
 add a docstring for the setter. A setter simply exposes both the GET and SET methods rather
-just the GET method. Examples should be included to demonstrate usage.
+just the GET method. You should include examples to demonstrate usage.
 
 Parameters
 ----------
@@ -208,7 +208,7 @@ The ``Examples`` section provides a quick reference on how to use a method or
 a function. This section must be compliant with the `doctest
 <https://docs.python.org/3/library/doctest.html>`_ format and is not supposed to
 replace your test suite but complement it. As an example,
-consider the following function:
+consider this function:
 
 .. code-block:: rst
 
@@ -226,16 +226,16 @@ consider the following function:
 If the definition of the function is updated, this
 section must be updated too.
 
-Type Hints
+Type hints
 ==========
 
 By default, Sphinx renders `type hints <https://peps.python.org/pep-0484/>`_ as part
 of the function signature. This can become difficult to read, because the signature
 becomes very long.
 
-Instead, we can render the type hints as part of each parameter's description. To
-accomplish this, the ``sphinx.ext.autodoc.typehints``, ``sphinx.ext.napoleon``, and
-``numpydoc`` extensions must be combined in the ``conf.py`` file:
+Instead, you should render type hints as part of each parameter's description. To
+accomplish this, you must combine the ``sphinx.ext.autodoc.typehints``, ``sphinx.ext.napoleon``, and
+``numpydoc`` extensions in the ``conf.py`` file:
 
 .. code:: python
 
@@ -250,25 +250,23 @@ accomplish this, the ``sphinx.ext.autodoc.typehints``, ``sphinx.ext.napoleon``, 
 
 .. note::
 
-   The order in which the extensions are included matters.
+   The order in which you include these extensions matters.
 
 When using type hints in this way, the type information in the ``Parameters``
 and ``Returns`` sections can be omitted.
 
-Additional Directives
+Additional directives
 =====================
-Since Python docstrings are written using RST syntax, it is possible to take
-advantage of some directives available in this Markup language. Among those, it
-is possible to find:
+Because Python docstrings are written using RST syntax, it is possible to take
+advantage of some directives available in this Markup language. Commonly used
+directives include:
 
-- ``.. note::`` directive is useful for highlighting important
-  information once the documentation gets rendered.
+- ``.. note::`` highlights important information in the rendered documentation.
 
-- ``.. warning::`` is usually used to point out an action that might result in
-  data loss.
+- ``.. warning::`` typically points out an action that might result in data loss.
 
-- ``.. deprecated:: X.Y.Z`` to inform the user about the deprecated status of
-  the object or functionality.
+- ``.. deprecated:: X.Y.Z`` informs the user about the deprecated status of
+  the object or feature.
 
 You can find additional information and examples at `numpydoc`_. Reference
 this documentation as the primary source regarding docstring styles for directives

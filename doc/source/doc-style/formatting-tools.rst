@@ -1,5 +1,5 @@
-Doc Style Tools
-===============
+Documentation style tools
+=========================
 There are plenty of tools for documentation style and coverage. This section
 presents some of the most popular ones in the Python ecosystem. A minimum
 configuration is provided for each one so you can easily include them in your
@@ -27,10 +27,10 @@ Codespell
 ---------
 
 `Codespell`_ checks for common misspellings in text files. This implies that it
-is not limited to Python files but can check any human-readable file.
+is not limited to Python files but can run checks on any human-readable file.
 
 It is possible to ignore words that are flagged as misspelled. You can specify these words in a
-file that can hen be passed to `codespell` by running:
+file that can hen be passed to `Codespell` by running:
 
 .. code:: bash
 
@@ -40,9 +40,9 @@ file that can hen be passed to `codespell` by running:
 Docformatter
 ------------
 
-`Docformatter`_ allows you to automatically format Python docstrings according
-to `PEP 257`_. To make sure `docformatter`_ wraps your docstrings at a given
-number of characters, the following configuration should be used:
+`Docformatter`_ automatically formats Python docstrings according
+to `PEP 257`_. To make sure `Docformatter`_ wraps your docstrings at a given
+number of characters, use the following configuration:
 
 
 .. code:: bash
@@ -57,7 +57,7 @@ Doctest
 included by default with your Python installation. It is used for checking the
 examples provided inside docstrings to make sure that they reflect the current usage
 of the source code. `Doctest`_ can be integrated with ``pytest`` in :ref:`The
-\`\`pyproject.toml\`\` File`:
+\`\`pyproject.toml\`\` file`:
 
 .. code:: toml
 
@@ -81,18 +81,18 @@ library hold a docstring.
 
 Alternate tools to `interrogate`_ are `docstr-coverage`_ and
 `docstring-coverage`_. However, `interrogate`_ is modern and maintained, with
-output resembling that of `pytest-cov`_, which is the the equivalent tool
+output resembling that of `pytest-cov`_, which is the equivalent tool
 for source code coverage.
 
-Numpydoc Validation
+Numpydoc validation
 -------------------
-To validate the style of :ref:`Numpydoc Docstrings`, it is possible to
+To validate the style of :ref:`Numpydoc docstrings`, you can
 take advantage of the `numpydoc`_ Sphinx extension. Note that this extension
 checks only for those objects whose docstrings must be rendered. It is not a
 command line tool that checks the style of all docstrings in your source code.
 
 Because `numpydoc`_ is a Sphinx extension, it must be configured in the
-``conf.py`` file.  See :ref:`The \`\`doc/\`\` directory`. Start by adding it to the
+``conf.py`` file. See :ref:`The \`\`doc/\`\` directory`. Start by adding it to the
 list of extensions:
 
 .. code-block:: python
@@ -107,7 +107,7 @@ must be addressed by using the ``numpydoc_validation_checks`` dictionary:
 
    numpydoc_validation_checks = {"GL08"}
 
-This will issue the following warning for any object without a docstring:
+This issues the following warning for any object without a docstring:
 
 .. code-block:: python
 
@@ -122,10 +122,10 @@ Pydocstyle
 
 `Pydocstyle`_ is a tool for checking the compliance of Python docstrings with `PEP
 257`_.  Its configuration can be defined in the :ref:`The \`\`pyproject.toml\`\`
-File`.  By default, it will match all ``*.py`` files except those starting with
-``test_*.py``. Default `pydocstyle`_ configuration should be enough for a
-PyAnsys project. If additional configuration is needed, it must be included
-under the ``[tool.pydocstyle]`` entry:
+file`.  By default, `Pydocstyle`_ matches all ``*.py`` files except those starting with
+``test_*.py``. The default configuration should be enough for a PyAnsys project.
+However, if additional configuration is needed, it must be included
+it under the ``[tool.pydocstyle]`` entry:
 
 .. code:: toml
 

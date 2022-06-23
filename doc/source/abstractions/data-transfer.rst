@@ -1,8 +1,8 @@
-Data Transfer
+Data transfer
 =============
 
 Abstracted APIs should attempt to hide the implementation details of
-the remote or local API in a well organized data model.  This data
+the remote or local API in a well organized data model. This data
 model should avoid returning raw JSON files, gRPC messages, SWIG objects,
 or .NET objects. It should preferably return standard Python objects
 like lists, strings, dictionaries when useful, and `NumPy <https://numpy.org/>`_
@@ -47,7 +47,7 @@ While raw byte streams are vastly more efficient, one major disadvantage
 is that the structure of the data is lost when serializing the array. 
 This should be considered when deciding how to write your API.
 
-Regardless of the serialization or message format, users will
+Regardless of the serialization or message format, users
 expect Python native types (or a common type for a common library like
 ``pandas.DataFrame`` or ``numpy.ndarray``).  Here, within `PyMAPDL`_,
 the nodes of the mesh are accessible as the ``nodes`` attribute within
@@ -66,16 +66,16 @@ within the MAPDL database.
           [0.75, 0.5 , 0.5 ]])
 
 
-REST Versus RPC Data and Model Abstraction
+REST versus RPC data and model abstraction
 ------------------------------------------
-Because of the nature of most Ansys products, our applications and
-services can either fit into the RPC interface, where the API is
-centered around operations and commands, or the REST model, where
-the API is centered around resources. Regardless of the the interface
-style, there are several items to consider.
+Because of the nature of most Ansys products, apps and
+services can either fit into the Remote Procedure Call (RPC) interface,
+where the API is centered around operations and commands, or the
+REST model, where the API is centered around resources. Regardless of
+the interface style, there are several items to consider.
 
 
-API Chattiness
+API chattiness
 ~~~~~~~~~~~~~~
 APIs must be efficient to avoid creating chatty input and output.
 Because many Ansys products fit well with the RPC API implementation,
@@ -90,7 +90,7 @@ for data exchange. Another approach is to encapsulate the data model
 entirely on the server to avoid data transfer whenever possible and
 expose only a limited number of RPC methods in the front-facing API.
 
-Compatibility and Efficiency
+Compatibility and efficiency
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 APIs should be designed to be compatible with as many languages and
 platforms as possible.  `gRPC`_ for RPC-like interfaces should be one

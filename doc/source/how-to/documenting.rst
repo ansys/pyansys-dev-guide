@@ -16,7 +16,7 @@ code:
 - Support contributions from both inside and outside of the development team.
 - Perform periodic reviews.
 
-Documentation Sources
+Documentation sources
 ---------------------
 .. raw:: html
     
@@ -52,27 +52,27 @@ structure where everything needed to solve a certain problem can be shown on one
 The ``numpydoc`` extension provides its own `style guide
 <https://numpydoc.readthedocs.io/en/latest/format.html>`_ and a `user guide
 <https://numpydoc.readthedocs.io/en/latest/>`_ that explains how to use the
-extension with Sphinx. The ``napoleon`` extension, which parses both numpy and
+extension with Sphinx. The ``napoleon`` extension, which parses both numpydoc and
 Google style docstrings, refers you to the `Google Python Style Guide
 <https://google.github.io/styleguide/pyguide.html>`_.
 
 Regardless of the extension that you choose for generating documentation, using
 numpy-style docstrings ensures that there is consistency within PyAnsys libraries.
-For more information, see :ref:`Documentation Style`.
+For more information, see :ref:`Documentation style`.
 
-ReStructured Text Files
-~~~~~~~~~~~~~~~~~~~~~~~
+RST files
+~~~~~~~~~
 To provide general usage information in your documentation, use your favorite
-editor to create ReStructured Text (RST) files that you then place in :ref:`The \`\`doc/\`\`
-Directory` directory. The ``index.rst`` file in the ``doc/source`` directory
-defines the first level of your documentation hierarchy.  The ``toctree``
+editor to create RST (ReStructured Text) files that you then place in :ref:`The \`\`doc/\`\`
+directory` directory. The ``index.rst`` file in the ``doc/source`` directory
+defines the first level of your documentation hierarchy. The ``toctree``
 directive (which stands for "table of contents tree") indicates the maximum
 number of heading levels that the documentation is to display. Following this
 directive are the directory names for your documentation sections.
 
 .. include:: diag/doc_layout.rst
 
-Each documentation chapter has its own ``index.rst`` file, as shown by the preceding
+Each documentation section has its own ``index.rst`` file, as shown by the preceding
 figure. The documentation layout can be modeled using the following code in
 each one of the ``index.rst`` files.
 
@@ -89,17 +89,17 @@ each one of the ``index.rst`` files.
 
             .. toctree::
 
-                chapter_A/index
-                chapter_B/index
+                section_A/index
+                section_B/index
 
-    .. tab:: chapter_A/index.rst
+    .. tab:: section_A/index.rst
 
         .. code-block:: rst
 
-            Chapter A
+            Section A
             #########
 
-            This is the content of the `chapter_A/index.rst` file.
+            This is the content of the `section_A/index.rst` file.
 
             .. toctree::
 
@@ -107,14 +107,14 @@ each one of the ``index.rst`` files.
                 section_2
                 ...
 
-    .. tab:: chapter_B/index.rst
+    .. tab:: section_B/index.rst
 
         .. code-block:: rst
 
-            Chapter B
+            Section B
             #########
 
-            This is the content of the `chapter_B/index.rst` file.
+            This is the content of the `section_B/index.rst` file.
 
             .. toctree::
 
@@ -122,17 +122,17 @@ each one of the ``index.rst`` files.
                 ...
 
 While you do not include the ``.rst`` extension when defining the section
-structure, the index file referenced for each chapter must be named
+structure, the index file referenced for each section must be named
 ``index.rst``.
 
 After you build documentation locally as described in :ref:`Building
-Documentation`, the first-level heading in the ``index.rst`` file for each
-documentation chapter is shown as a clickable link in the header of the
+documentation`, the first-level heading in the ``index.rst`` file for each
+section is shown as a clickable link in the header of the
 documentation's generated HTML output. For more information on defining a
 documentation structure, see the `Sphinx Getting Started
 <https://www.sphinx-doc.org/en/master/usage/quickstart.html>`_ guide.
 
-Indicating RST Titles
+Indicating RST titles
 +++++++++++++++++++++
 Within RST files, heading titles are followed by a line having a string of
 characters that is the same length as the heading title. If the length of the
@@ -142,10 +142,10 @@ title, Sphinx generates a warning.
 For consistency within PyAnsys libraries, the use of these special characters
 is recommended for headings but is not enforced:
 
-- For chapter-level headings, use ``###``.
-- For section-level headings, use ``===``.
-- For subsection-level headings, use ``---``.
-- For subsubsection-level headings, use ``~~~``. 
+- For section-level headings, use ``###``.
+- For subsection-level headings, use ``===``.
+- For subsubsection-level headings, use ``---``.
+- For subsubsubsection-level headings, use ``~~~``. 
 - For paragraph-level headings, use ``+++``. 
 
 For comprehensive syntax information, see the `reStrucutredText Markup Specification
@@ -153,14 +153,14 @@ For comprehensive syntax information, see the `reStrucutredText Markup Specifica
 
 Because you need to be familiar with the content in the `PyAnsys Developer's
 Guide <dev.docs.pyansys.com/>`_, page through its HTML pages and then explore
-the RST files in its repository. This will help you to understand the syntax and
+the RST files in its repository. This should help you to understand the syntax and
 see how RST files have been nested to create this developer's guide.
 
-Recommended Chapters
+Recommended sections
 ++++++++++++++++++++
 Although each project is different, documentation has the same goal: providing
-instructions and guidelines for users. Thus, some common chapters can be
-found across software projects. Try to include these chapters in your project:
+instructions and guidelines for users. Thus, some common sections can be
+found across software projects. Try to include these top-level sections in your project:
 
 - ``Getting Started`` contains guidelines on how to install and set up the library.
 - ``User Guide`` demonstrates some of the basic features of the library.
@@ -172,14 +172,14 @@ Examples
 ~~~~~~~~
 Examples come in two formats:
 
-- Basic code snippets demonstrating functionality
+- Basic code snippets demonstrating the feature
 - Full-fledged standalone examples that are meant to be run as downloadable scripts
 
 Place basic code snippets in the ``doc/source/`` directory.
 Place full-fledged standalone examples in the ``examples/`` directory
 at the root of the repository. All of these examples, which should be compliant
 with :ref:`PEP 8`, are compiled dynamically during the build process. Always ensure
-that your examples run properly locally because they will be verified through
+that your examples run properly locally because they are verified through
 the CI performed via GitHub Actions.
 
 Adding a new standalone example consists of placing it in an applicable
@@ -196,11 +196,10 @@ reference key
 <https://mapdldocs.pyansys.com/examples/03-tips-n-tricks/00-example-template.html#ref-how-to-add-an-example-reference-key>`_. 
 
 
-Documenting Python Code
+Documenting Python code
 -----------------------
 You can use `sphinx.ext.autodoc` to document your Python code. When using this
-extension, you can include the following directives in your :ref:`ReStructured
-Text Files`:
+extension, you can include the following directives in your :ref:`RST files`:
 
 * ``automodule`` for documenting modules
 * ``autoclass`` for documenting classes
@@ -210,7 +209,7 @@ For a full list of auto-directives, see `Include Documentation From Docstrings
 <https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html>`_.
 
 
-Documenting Classes
+Documenting classes
 ~~~~~~~~~~~~~~~~~~~
 There are two main ways of using Sphinx to document a class:
 
@@ -220,7 +219,7 @@ There are two main ways of using Sphinx to document a class:
 * Automatically generate documentation for classes using the ``autoclass`` or
   ``autosummary`` directive.
 
-Manual Documentation
+Manual documentation
 ++++++++++++++++++++
 To manually describe 'how' and 'why' to exercise a class, use the ``code-block``
 directive:
@@ -253,7 +252,7 @@ directive:
            >>> my_obj.parm1
            'apple'
 
-Auto-generated Documentation
+Auto-generated documentation
 ++++++++++++++++++++++++++++
 To automatically generate class descriptions, use either the ``autoclass``
 or ``autosummary`` directive.
@@ -305,10 +304,10 @@ For complex classes with many methods, use the
            ansys_sphinx_theme.samples.Complex.abs
 
 
-Documenting Multiple Classes
+Documenting multiple classes
 ++++++++++++++++++++++++++++
 To document a set of small but highly cohesive classes, an option is to combine
-the two approaches described above. This is done by including multiple
+the two preceding approaches. This is done by including multiple
 ``autoclass`` directives on the same page with headings and text blocks as
 necessary to describe the relationships between the classes.
 
@@ -332,11 +331,11 @@ classes are shared across multiple queries. Consequently, they are
 documented separately.
 
 
-Building Documentation
+Building documentation
 ----------------------
 `Sphinx <https://www.sphinx-doc.org/en/master/>`_ is used to build the documentation.
 You configure the entire build process in the ``conf.py`` file, located in the
-``source/`` directory in :ref:`The \`\`doc/\`\` Directory`.
+``source/`` directory in :ref:`The \`\`doc/\`\` directory`.
 
 This directory also contains a ``Makefile`` file and a ``make.bat`` file for
 automating the building process. Different builders render different
@@ -362,7 +361,7 @@ You build ``HTML`` documentation with:
             make.bat html
 
 The resulting ``HTML`` files are created in the ``_build/html`` directory,
-located in :ref:`The \`\`doc/\`\` Directory`.
+located in :ref:`The \`\`doc/\`\` directory`.
 
 You can display the HTML documentation with:
 
@@ -370,7 +369,7 @@ You can display the HTML documentation with:
 
     <browser> doc/_build/html/index.html
 
-Building PDF Documentation
+Building PDF documentation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 To  build ``PDF`` documentation, the following rules must be added to
 ``Makefile`` and ``make.bat`` files:
@@ -412,14 +411,14 @@ You can call previous rules by running:
             make.bat pdf
 
 The resulting PDF and intermediate LaTeX files are created in the
-``_build/latex`` folder, located in :ref:`The \`\`doc/\`\` Directory`.
+``_build/latex`` folder, located in :ref:`The \`\`doc/\`\` directory`.
 
-.. admonition:: Always check the content of your PDF file.
+.. admonition:: Always verify the content of your PDF file.
 
    Because warnings and errors that occur during the LaTeX building and rendering
    processes are ignored, it is possible that the PDF file has text formatting errors.
 
-Deploying Documentation
+Deploying documentation
 -----------------------
 PyAnsys libraries deploy their documentation online via `GitHub Actions`_ to
 `GitHub Pages`_. For example, this documentation is hosted on the `gh-pages`_
@@ -427,7 +426,7 @@ branch within this repository. This is done by uploading the generated
 documentation within the ``doc/_build/html/`` directory directly to the
 ``gh-pages`` branch and then `enabling GitHub pages`_.
 
-Building Your Documentation within GitHub
+Building your documentation within GitHub
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 While you could manually upload your auto-generated documentation for each
 release using your own local GitHub credentials, the best practice is to have
@@ -436,7 +435,7 @@ main. You can do this via `GitHub Actions`_ by creating a new workflow that
 generates your documentation on each pull request and then deploys under
 certain conditions.
 
-Documentation Workflow
+Documentation workflow
 ++++++++++++++++++++++
 Your documentation workflow should be in the ``.github/workflows``
 directory and should be triggered on each PR. It should use one of the
@@ -452,7 +451,7 @@ following approaches:
 
             ansys-templates new pyansys-advanced
 
-        This will generate a new GitHub workflow file containing the following section:
+        This generates a new GitHub workflow file containing this section:
 
         .. code-block:: yaml
 
@@ -471,7 +470,7 @@ following approaches:
                 - name: Generate the documentation with tox
                   run: tox -e doc
 
-    .. group-tab:: Without Using ``tox``
+    .. group-tab:: Without using ``tox``
 
         While `tox`_ is the preferred tool for automating your documentation build, if
         you want to avoid using `tox`_, consider the following workflow:
@@ -501,7 +500,7 @@ following approaches:
                     <product>.docs.pyansys.com > doc/_build/html/CNAME
 
 
-Your next step will be to upload the documentation artifact. Assuming your
+Your next step would be to upload the documentation artifact. Assuming your
 documentation is written to ``doc/_build/html``, upload your documentation
 with:
 
@@ -518,7 +517,7 @@ with:
                 path: .tox/doc_out/
                 retention-days: 7
 
-    .. group-tab:: Without Using ``tox``
+    .. group-tab:: Without using ``tox``
 
         .. code-block:: yaml
         
@@ -534,9 +533,9 @@ artifacts as a convenient zip file and to open the documentation by opening
 ``index.html``.
 
 
-Deploying to GitHub Pages
+Deploying to GitHub pages
 +++++++++++++++++++++++++
-Next, deploy your documentation to the ``gh-pages`` branch with:
+Next, deploy your documentation to the ``gh-pages`` branch with the
 `JamesIves/github-pages-deploy-action
 <https://github.com/JamesIves/github-pages-deploy-action>`_ action.
 
@@ -566,7 +565,7 @@ declare the name of your documentation repository:
                 folder: .tox/doc_out
                 clean: true
 
-    .. group-tab:: Without Using ``tox``
+    .. group-tab:: Without using ``tox``
 
         .. code-block:: yaml
 
@@ -598,7 +597,7 @@ Therefore, the recommended approach is to **use a bot**. However, you can use a
 PAT if you feel it fits your needs better.
 
 
-Deploying by Using a Bot
+Deploying by using a bot
 """"""""""""""""""""""""
 To deploy documentation to a repository other than the one where the documentation
 is generated, you must have permissions to access (*read/write*) this second repository.
@@ -613,7 +612,7 @@ some repositories and can be used for this purpose.
     `PyAnsys Support <pyansys.support@ansys.com>`_.
 
 
-Once your repository has been added to the white-list for the the bot repositories, you must
+Once your repository has been added to the white-list for the bot repositories, you must
 add the following code to your CICD YAML file for the authentication:
 
 .. tabs::
@@ -631,7 +630,7 @@ add the following code to your CICD YAML file for the authentication:
               application_private_key: ${{ secrets.BOT_APPLICATION_PRIVATE_KEY }}
 
 
-    .. group-tab:: Without Using ``tox``
+    .. group-tab:: Without using ``tox``
 
         .. code-block:: yaml
 
@@ -662,7 +661,7 @@ Additionally, you must add the following code for the documentation deployment:
                 folder: .tox/doc_out
                 clean: true
 
-    .. group-tab:: Without Using ``tox``
+    .. group-tab:: Without using ``tox``
 
         .. code-block:: yaml
 
@@ -678,9 +677,9 @@ Additionally, you must add the following code for the documentation deployment:
 
 
 
-Deploying by Using a Personal Access Token
-""""""""""""""""""""""""""""""""""""""""""
-To set up the documentation deployment using a Personal Access Token (PAT), you
+Deploying by using a personal access token (PAT)
+""""""""""""""""""""""""""""""""""""""""""""""""
+To set up the documentation deployment using a PAT, you
 must first create a PAT in the ``Settings`` section in your
 GitHub profile. In the left side bar, select the ``Developer Settings`` section
 and then ``Personal access tokens``. Finally, click ``Generate new token`` and
@@ -691,7 +690,7 @@ allow using it with the PyAnsys repositories you have access to.
 
 .. note::
 
-    In some cases, the authentication might need specific approval. If you do
+    In some cases, the authentication might need specific approval. If you
     still get authentication errors like those that follow, click the link in
     the log to authorize the workflow.
     
@@ -730,7 +729,7 @@ secret in your CI/CD:
                 folder: .tox/doc_out
                 clean: true
 
-    .. group-tab:: Without Using ``tox``
+    .. group-tab:: Without using ``tox``
 
         .. code-block:: yaml
 
@@ -746,7 +745,7 @@ secret in your CI/CD:
 
 
 
-Deploying when Tagging
+Deploying when tagging
 ++++++++++++++++++++++
 
 Depending on your preferences, you can choose to update the documentation on
@@ -759,7 +758,7 @@ to:
     if: github.ref == 'refs/heads/main'
 
 
-Accessing Online Documentation
+Accessing online documentation
 ------------------------------
 Documentation for the latest stable release of a PyAnsys library is accessible
 from its repository. You can generally access the latest development version of
@@ -776,11 +775,11 @@ automatically kept up-to-date via GitHub actions.
 
 To make documentation changes, you create a branch with a name that begins with
 a prefix of ``doc/`` that is then followed by a short description of what you
-are changing. For more information, see :ref:`Branching Model`.
+are changing. For more information, see :ref:`Branching model`.
 
 As you are making changes in this branch, you want to periodically generate the
 documentation locally so that you can test your changes before you create a
-GitHub pull request. For more information, see :ref:`Building Documentation`.
+GitHub pull request. For more information, see :ref:`Building documentation`.
 
 
 ..

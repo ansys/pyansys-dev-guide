@@ -1,13 +1,13 @@
-Coding Style
+Coding style
 ############
 
 Coding style refers to the different rules defined in a software project that
 must be followed when writing source code. These rules ensure that all
-the source code will look the same across the different files of the
+the source code looks the same across different files of the
 project.
 
 Because the PyAnsys ecosystem consists of many projects, coding style rules
-are critical to ensuring that the source code will look the same across different
+are critical to ensuring that the source code looks the same across different
 projects.
 
 PyAnsys libraries are expected to follow `PEP 8`_ and be consistent in style and

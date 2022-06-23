@@ -1,22 +1,22 @@
 .. _ref_project_structure:
 
 #################
-Project Structure
+Project structure
 #################
 
 Most of the projects in the PyAnsys ecosystem ship in the form of a Python
 library with other additional files. All these files form what it is called a
-"project". A project can be uploaded to a repository to better track the changes
+*project*. A project can be uploaded to a repository to better track the changes
 applied to it.
 
 
-Naming Convention
+Naming convention
 =================
 
 Large organizations providing Python packages follow a consistent naming
 pattern. Ansys follows two naming conventions, depending on the nature of the project.
 
-PyAnsys Library
+PyAnsys library
 ---------------
 
 - The project name is to be ``Py<project>``. For example, ``PyMAPDL`` is the
@@ -41,11 +41,11 @@ statement:
 
 Using long Python library names provides two primary advantages:
 
-- `Namespace Packages`_ can be used to designate official Ansys packages.
+- `Namespace packages`_ can be used to designate official Ansys packages.
 - Consistent branding and style can be applied to PyAnsys libraries.
 
 
-gRPC Interface Package
+gRPC interface package
 ----------------------
 Lower-level gRPC interface packages like `ansys-api-mapdl`_ should always be
 named ``ansys-api-<product/service>`` and may contain an additional level:
@@ -60,7 +60,7 @@ This structure leads to the following namespace within ``*.proto`` files:
    package ansys.api.<product/service>.v0;
 
 
-Python Libraries
+Python libraries
 ================
 
 A Python library is the formal way of distributing Python source code. It allows
@@ -74,7 +74,7 @@ is compliant with the `Python Packaging Authority`_ and PyAnsys recommendations.
    PyAnsys guidelines are built on top of PyPA guidelines.
 
 
-Scripts, Modules, Sub-packages, and Packages
+Scripts, modules, subpackages, and packages
 --------------------------------------------
 
 To understand the structure of a Python Library, it is important to know
@@ -86,7 +86,7 @@ the difference between Python scripts, modules, sub-packages, and packages.
 * ``Package``: Any directory containing Python modules and sub-packages
 
 
-Differences Between a Python Package and Library
+Differences between a Python package and library
 ------------------------------------------------
 
 Although the terms *package* and *library* are often used interchangeably, there is
@@ -97,7 +97,7 @@ sub-packages, while a Python Library is a collection of Python packages. Figure
 .. include:: diag/python_library_diag.rst
 
 
-Required Files
+Required files
 ==============
 
 The structure of any PyAnsys library contains these files and directories:
@@ -115,7 +115,7 @@ Descriptions follow for some of the directories in the structure:
 - ``setup.py`` or ``pyproject.toml`` is the project file.
 
 
-The ``doc/`` Directory
+The ``doc/`` directory
 ----------------------
 
 When distributing software, it is important to document it. Documenting software
@@ -141,8 +141,7 @@ building documentation for Python-based projects. As shown in :numref:`doc struc
 - ``_build`` contains the rendered documentation in various formats, such as HTML
   and PDF.
 
-- ``source`` contains the RST files that will be rendered when building the
-  documentation.
+- ``source`` contains the RST files that are used to render the documentation.
 
 - ``make.bat`` and ``Makefile`` are used to automate cleaning and building
   commands. You use ``make.bat`` when running on Windows and ``Makefile``
@@ -158,11 +157,11 @@ If you would like to include images or documents, add them in the ``_static/``
 directory.
 
 
-The ``src/`` Directory
+The ``src/`` directory
 ----------------------
 
 All the Python source code must be located in the ``src/`` directory. This is where the
-build system will look when generating the wheel and source distributions.
+build system looks when generating the wheel and source distributions.
 
 .. warning::
 
@@ -173,16 +172,16 @@ The structure of the ``src/`` directory determines the namespace of the PyAnsys
 library. A namespace allow you to easily split sub-packages from a package into
 single, independent distributions.
 
-There are different approaches available for creating a namespace package. For
-the Ansys namespace, we use the `PEP 420`_ `native namespace packages`_ approach.
+There are different approaches available for creating a namespace package.
+Ansys namespaces use the `PEP 420`_ `native namespace packages`_ approach.
 
 Therefore, the source directory of any PyAnsys library must look like the one
-shown in diagram :numref:`src structure diag`:
+shown in the diagram :numref:`src structure diag`:
 
 .. include:: diag/src_structure_diag.rst
 
 
-The ``tests/`` Directory
+The ``tests/`` directory
 ------------------------
 
 To guarantee the integrity of a PyAnsys project, a good test suite is required.
@@ -213,9 +212,9 @@ enhancements to the project.
 The ``CODE_OF_CONDUCT.md`` file
 -------------------------------
 
-This file is used to specify how users, developers and maintainers should behave
+This file is used to specify how users, developers, and maintainers should behave
 while working in the project. PyAnsys projects usually adopt the ``Contributor
-Covenant Code of Conduct``, which is very popular across open-source projects.
+Covenant Code of Conduct``, which is very popular across open source projects.
 
 .. literalinclude:: code/code_of_conduct_file.md
    :language: markdown
@@ -237,7 +236,7 @@ towards the `PyAnsys Developer's Guide <https://dev.docs.pyansys.com/index.html>
    :language: markdown
 
 
-The ``LICENSE`` File
+The ``LICENSE`` file
 --------------------
 
 The ``LICENSE`` file provides the legal framework for the software. `PyAnsys`_ 
@@ -253,13 +252,13 @@ this license is provided below:
    its development team so they can provide you with the correct license.
 
 
-The ``README.rst`` File
+The ``README.rst`` file
 -----------------------
 
 Each PyAnsys library should have a ``README.rst`` file in the root directory.
 
 The preferred format of this file is `reStructuredText Markup Syntax`_,
-although `Markdown Syntax`_ can be used too.  While Markdown syntax has better
+although `Markdown Syntax`_ can be used too. While Markdown syntax has better
 GitHub support, ReStructured Text (RST) files can be reused within Sphinx documentation.
 This avoids duplication between the ``README.rst`` and the main ``index.rst`` in
 the ``doc/source/`` directory.
@@ -276,7 +275,7 @@ The ``README.rst`` file is also reused within the project file metadata. It is
 usually included in the ``long-description`` field.
 
 
-The ``pyproject.toml`` File
+The ``pyproject.toml`` file
 ---------------------------
 
 `PEP 518`_ introduced the usage of a project file named
@@ -289,7 +288,7 @@ for some of the most popular build-system backend tools in the Python ecosystem:
 .. include:: code/pyproject_code.rst
 
 
-The ``setup.py`` File
+The ``setup.py`` file
 ---------------------
 
 For a long time, the ``setup.py`` file was generally used to build and
@@ -322,7 +321,7 @@ template can be used:
 .. _MIT License: https://opensource.org/licenses/MIT
 .. _PEP 420: https://peps.python.org/pep-0420/
 .. _native namespace packages: https://packaging.python.org/en/latest/guides/packaging-namespace-packages/#native-namespace-packages
-.. _Namespace Packages: https://packaging.python.org/guides/packaging-namespace-packages/
+.. _Namespace packages: https://packaging.python.org/guides/packaging-namespace-packages/
 .. _PyAnsys: https://docs.pyansys.com/
 .. _Python Packaging User Guide: https://packaging.python.org/en/latest/
 .. _Python Packaging Authority: https://www.pypa.io/en/latest/

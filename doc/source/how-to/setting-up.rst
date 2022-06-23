@@ -1,4 +1,4 @@
-Setting Up Your Development Environment
+Setting up your development environment
 =======================================
 Before you can contribute to any PyAnsys project, you must set up
 your developer environment.
@@ -102,7 +102,7 @@ Once your Python installation is complete, verify it with:
             python --version
 
 
-Virtual Environments
+Virtual environments
 --------------------
 When working in multiple Python projects, it is likely each of these projects has its
 own requirements. Sometimes, requirements across projects can be incompatible.
@@ -110,13 +110,13 @@ Virtual environments were devised to isolate Python environments, which guarante
 that you do not face dependency problems when working in multiple projects.
 
 For information on the most fundamental commands for manipulating and
-interacting with Python virtual environments, see the `official Python documentation on
+interacting with a Python virtual environment, see the `official Python documentation on
 the venv module <https://docs.python.org/3/library/venv.html>`_.
 
 Check
 ~~~~~
-Before creating a new virtual environment, you must run the following command
-to check if you are already working with one:
+Before creating a new virtual environment, you must run this code to see if you are already
+working with one:
 
 .. tabs::
 
@@ -148,7 +148,7 @@ to check if you are already working with one:
 
             which python
 
-This command will return the path to the Python environment that your system is currently using. 
+This command returns the path to the Python virtual environment that your system is currently using. 
 
 Ensure that it points to your default installation and not to a virtual
 environment. If it points to a virtual environment, see :ref:`Deactivate` for
@@ -191,7 +191,7 @@ You can create a virtual environment named `<venv>` with:
 
 Activate
 ~~~~~~~~
-You would activate the above virtual environment with:
+You would activate the preceding virtual environment with:
 
 .. tabs::
 
@@ -225,7 +225,7 @@ You would activate the above virtual environment with:
 
 Deactivate
 ~~~~~~~~~~
-To deactivate a virtual environment, run this command:
+You would deactivate a virtual environment with:
 
 .. tabs:: 
 
@@ -267,9 +267,9 @@ Git
       <br><br>
     </div>
 
-`Git <https://git-scm.com/>`_ is an open-source version control system (VCS). It
+`Git <https://git-scm.com/>`_ is an open source version control system (VCS). It
 is used to track changes and register new content in software-related projects. Git
-will register the author and date of the changes so that accurate tracking of the
+registers the author and date of the changes so that accurate tracking of the
 software's evolution is available.
 
 Installation
@@ -409,7 +409,7 @@ Conditional Includes
 :ref:`Git` configuration is applied based on whether the project is located in
 your system.
 
-Each one of these files may look like this:
+Each one of these files can look like this:
 
 .. tabs::
 
@@ -446,7 +446,7 @@ Each one of these files may look like this:
               signingkey = <Personal GPG Key>
 
 
-Signing Commits
+Signing commits
 ~~~~~~~~~~~~~~~
 To verify which code changes were made by you, signing the commit
 is required. To sign a commit, you must generate a ``GPG`` key, associate it with
@@ -460,8 +460,8 @@ Enabling SSH
 ~~~~~~~~~~~~
 Working with ``Secure Shell Protocol (SSH)`` is not only a good practice but
 also required for contributing to PyAnsys projects. Without an ``SSH`` key,
-you will not be able to clone ``internal`` or ``private`` repositories or
-push new changes.
+you are not able to clone *internal* or *private* repositories or
+to push new changes.
 
 For information on setting up ``SSH`` with ``GitHub``, in the ``GitHub`` documentation,
 see `Connecting to GitHub with SSH
@@ -499,7 +499,7 @@ Verify your WSL version with:
 
    wsl --list -v
 
-Linux Distribution
+Linux distribution
 ~~~~~~~~~~~~~~~~~~
 After WSL2 is installed, install a Linux distribution.
 Get a list of available distributions with:
@@ -525,7 +525,7 @@ the distributions that you would like to use with WSL2 with:
    wsl -d <distribution name>
 
 
-Windows Terminal
+Windows terminal
 ----------------
 .. image:: images/windows_terminal.png
     :align: center
@@ -536,9 +536,9 @@ Windows Terminal
     <br>
 
 The `Windows Terminal <https://docs.microsoft.com/en-us/windows/terminal/>`_ is
-an application that integrates multiple shells into a single console. Windows
+an app that integrates multiple shells into a single console. Windows
 ships by default with two shells: ``CMD`` and ``PowerShell``. If :ref:`WSL2` is
-installed, a Linux shell is added.  Hence, the goal of the ``Windows Terminal``
+installed, a Linux shell is added. Hence, the goal of the ``Windows Terminal``
 is to collect and manage all shell sessions in a single program. 
 
 Installation

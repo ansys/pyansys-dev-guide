@@ -1,5 +1,5 @@
 ###############
-Packaging Style
+Packaging style
 ###############
 
 A PyAnsys library eliminates the need to share snippets of code that
@@ -12,7 +12,7 @@ products, APIs, and PyAnsys client libraries.
 To avoid the anti-pattern of providing single-use scripts, the 
 general pattern for a PyAnsys library ensures:
 
-* Clear, open-source APIs that are consistent with community standards 
+* Clear, open source APIs that are consistent with community standards 
   are hosted on GitHub
 * Reusable packages can be updated and patched outside of the
   Ansys release schedule, while still being directly dependent on
@@ -31,7 +31,7 @@ accessible (`REST`_ or `gRPC`_).  This interface is referred to as the
 API (Application Programming Interface).  While this API can be
 directly accessed, this often results in unreadable and unmaintainable
 code that forces users to rewrite setup boilerplate and other methods
-from scratch.  Therefore, the best practice is to create a Python layer
+from scratch. Therefore, the best practice is to create a Python layer
 that maps the raw API into a carefully designed, object-oriented data
 model and API.
 

@@ -7,26 +7,26 @@ party dependencies.
 
 
 The fundamentals of Python packaging together with the packaging style
-guidelines that apply to PyAnsys projects are collected in :ref:`Packaging
-Style` chapter.
+guidelines that apply to PyAnsys projects are collected in the :ref:`Packaging
+style` section.
 
 
-Specifying Dependencies
+Specifying dependencies
 -----------------------
-It is common to take advantage of third party libraries in order to simplify
+It is common to take advantage of third party libraries to simplify
 source code. The formal way of doing so is by specifying these third party
 libraries as dependencies. There are two types of dependencies: :ref:`Required
-Dependencies` and :ref:`Optional Dependencies`.
+dependencies` and :ref:`Optional dependencies`.
 
-Required Dependencies
+Required dependencies
 ~~~~~~~~~~~~~~~~~~~~~
 Required dependencies are third party libraries that a software requires to
 properly function. If these dependencies are not installed or present, the
-software will not work as expected.
+software does not work as expected.
 
-Required dependencies need to be declared in :ref:`The \`\`setup.py\`\` File` or
-in :ref:`The \`\`pyproject.toml\`\` File`, according to the selected :ref:`Build
-System`:
+Required dependencies need to be declared in :ref:`The \`\`setup.py\`\` file` or
+in :ref:`The \`\`pyproject.toml\`\` file`, according to the selected :ref:`Build
+system`:
 
 
 .. tabs::
@@ -67,40 +67,40 @@ System`:
             )
 
 
-Optional Dependencies
+Optional dependencies
 ~~~~~~~~~~~~~~~~~~~~~
-Optional dependencies are third party libraries without which a software is not
+Optional dependencies are third-party libraries without which a software is not
 able to execute particular features. This makes it convenient to declare
-dependencies for ancillary functions such as "plotting", "tests", or "docs". You
-can programmatically integrate dependencies that can be installed as optional
+dependencies for ancillary functions such as *plotting*, *tests*, or *docs*. You
+can programmatically integrate dependencies that are to be installed as optional
 requirements rather than individual packages.
 
 You may want to have optional packages for your PyAnsys library for a variety of
 reasons, including:
 
-- **Not all users will want to use the feature.** - For example, you might want
+- **Not all users want to use the feature.** - For example, you might want
   to make using `matplotlib <https://matplotlib.org/>`_ or `pyvista
   <https://docs.pyvista.org/>`_ optional if you expect your PyAnsys library is
   to be used primarily for headless scripting rather than visualization.
 
 - **Not all users can install the optional package.** - For certain less popular
-  or obscure environments, some binary wheels may not be available or compatible
+  or obscure environments, some binary wheels might not be available or compatible
   with the user's environment. For example, if a user of CentOS 6.9 needs to
   have ``manylinux1`` but the package only supports ``manylinux2014`` (CentOS
   7+) or newer, the user's environment wouldn't be able to run the PyAnsys
   library.
 
 - **Reducing dependency bloat** - Removing the package as a "required"
-  dependency reduces the number of packages to install at installation -time,
+  dependency reduces the number of packages to install at installation time,
   speeding up the installation and reducing the possibility of dependency
-  conflicts. The trade-off here is any user who wants to access features that
-  require the optional package will have to install it piecemeal.
+  conflicts. The trade-off here is that any user who wants to access features that
+  require the optional package must install it separately.
 
-If you choose to implement optional packages for your PyAnsys library, here are
-some helpful best practices to follow.
+If you choose to implement optional packages for your PyAnsys library, some helpful
+best practices follow.
 
 
-Implementing Optional Packages in the Build System
+Implementing optional packages in the build system
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 Here's how to implement and use optional requirements for the three most
 popular build systems:
@@ -186,10 +186,10 @@ popular build systems:
           pip install package-name[qt]
 
 
-Implementing Optional Libraries in Features
+Implementing optional libraries in features
 +++++++++++++++++++++++++++++++++++++++++++
-One of the best ways to implement an optional dependency is to execute a "lazy
-import" at runtime for the feature in question. For example, if your library
+One of the best ways to implement an optional dependency is to execute a *lazy
+import* at runtime for the feature in question. For example, if your library
 has an optional dependency on ``matplotlib``, you can implement it with:
 
 .. code:: python

@@ -1,7 +1,7 @@
 .. _ref_build_system:
 
 ############
-Build System
+Build system
 ############
 
 The build system is a fundamental tool for packaging Python
@@ -93,7 +93,7 @@ The combination of `PEP 517`_ and `PEP 518`_ leads to the following syntax in a
    build-backend = "flit_core.api" # Defined by PEP 517
 
 
-Build Backend Tools
+Build backend tools
 ===================
 
 This section lists some of the most popular build systems in the
@@ -112,7 +112,7 @@ you require high control over your project's installation steps, you should use
 
 If you do not need a dynamic installation process, you can consider using a
 ``setup.cfg`` file. However, the ``setup.py`` file is still required. The ``setup.cfg`` file
-should have a call to the ``setup()`` function to act as the entry point of the
+should have a call to the ``setup`` function to act as the entry point of the
 build backend system.
 
 All of these `setuptools metadata fields`_ are valid and must be
