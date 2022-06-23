@@ -63,6 +63,7 @@ workflow testing Python 3.7 through Python 3.10 on Windows and Linux would
 start with:
 
 .. code:: yaml
+
    :linenos:
    :emphasize-lines: 8, 13-16
 

@@ -46,7 +46,7 @@ Short summary
 -------------
 This is a single line that goes immediately after the declaration of the class
 or function to briefly describe what the class or function does. The
-`short summary` is mandatory. If it is not present, :ref:`Doc Style Tools`
+`short summary` is mandatory. If it is not present, :ref:`Documentation style tools`
 raises an error.
 
 The short summary can be declared on the same line as the opening quotes or on

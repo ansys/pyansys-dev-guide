@@ -29,7 +29,6 @@ hotfixes
 initializer
 Isort
 isort
-linenos
 Matplotlib
 matplotlib
 monospaced

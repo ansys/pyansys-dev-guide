@@ -199,8 +199,7 @@ reference key
 Documenting Python code
 -----------------------
 You can use `sphinx.ext.autodoc` to document your Python code. When using this
-extension, you can include the following directives in your :ref:`ReStructured
-Text Files`:
+extension, you can include the following directives in your :ref:`RST Files`:
 
 * ``automodule`` for documenting modules
 * ``autoclass`` for documenting classes

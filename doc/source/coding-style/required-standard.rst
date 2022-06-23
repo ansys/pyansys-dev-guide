@@ -2,8 +2,8 @@ Required standards
 ==================
 
 This section collects the required standards for any ``PyAnsys`` project. The
-individual configurations for the tools presented in :ref:`Code Style Tools` and
-:ref:`Doc Style Tools` are combined together.
+individual configurations for the tools presented in :ref:`Code style tools` and
+:ref:`Documentation style tools` are combined together.
 
 The following lines should be included in :ref:`The \`\`pyproject.toml\`\` File`
 to indicate the configuration of the different code and documentation style tools.
