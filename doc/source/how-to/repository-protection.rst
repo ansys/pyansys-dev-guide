@@ -12,12 +12,11 @@ General configuration
 ---------------------
 
 Being an owner/admin of a repository gives you access to the ``Settings`` menu.
-If one accesses:
+One accesses the *General configuration* of the repository by:
 
     ``Repository`` >> ``Settings`` >> ``General``
 
-That way, one accesses the *General configuration* of the repository. The PyAnsys
-team recommends the following measures in the **Pull Requests** (PRs) section:
+The PyAnsys team recommends the following measures in the **Pull Requests** (PRs) section:
 
 * **Only allow for** ``Squash merging``: this option forces all commits of a PR
   to be condensed into a single commit. That way, in case a PR was not successful
