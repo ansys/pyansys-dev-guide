@@ -18,3 +18,4 @@ functionalities such as logging, data transfer, and app APIs.
    testing
    continuous-integration
    releasing
+   repository-protection
