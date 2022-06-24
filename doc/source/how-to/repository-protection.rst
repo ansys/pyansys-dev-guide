@@ -100,10 +100,18 @@ Finally, workflows can also be protected.
 Once inside, focus should be set on the ``Fork pull request workflows from outside collaborators``.
 In this case, the PyAnsys team suggests the following:
 
+Preferred option for public repositories: 
+
 * **Enable the** ``Require approval for all outside collaborators`` **checkbox when going public**.
+
+Minimum option for public repositories:
+
 * **Enable the** ``Require approval for first-time contributors`` **while still internal/private**.
 
 Workflows contain sensitive information and it is important to preserve security and control over it.
 However, these rules are more flexible. For example, if you have a common outside collaborator, which
 has been contributing for a time doing you may consider adding it as a member/collaborator of the
 repository so that its PR workflows do not have to be accepted every time he is intending to run it.
+
+Internal and private repositories are only available to organization users and repository members,
+respectively. Thus, no specific rules for outside collaborators are needed.
