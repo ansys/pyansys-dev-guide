@@ -19,7 +19,7 @@ code:
 Documentation sources
 ---------------------
 .. raw:: html
-    
+
     <div align="center">
       <img src="https://github.com/sphinx-doc/sphinx/raw/5.x/doc/_static/sphinx.png">
     </div>
@@ -38,7 +38,7 @@ Docstrings
 ~~~~~~~~~~
 Docstrings must be formatted so that Sphinx can parse them. You can use either
 of these Sphinx extensions:
- 
+
 - `numpydoc <https://pypi.org/project/numpydoc/>`_
 - `napoleon <https://pypi.org/project/sphinxcontrib-napoleon/>`_
 
@@ -145,8 +145,8 @@ is recommended for headings but is not enforced:
 - For section-level headings, use ``###``.
 - For subsection-level headings, use ``===``.
 - For subsubsection-level headings, use ``---``.
-- For subsubsubsection-level headings, use ``~~~``. 
-- For paragraph-level headings, use ``+++``. 
+- For subsubsubsection-level headings, use ``~~~``.
+- For paragraph-level headings, use ``+++``.
 
 For comprehensive syntax information, see the `reStrucutredText Markup Specification
 <https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html>`_.
@@ -193,7 +193,7 @@ follow its `coding guidelines
 
 PyMAPDL provides a self-demonstrating example of how to `add an example
 reference key
-<https://mapdldocs.pyansys.com/examples/03-tips-n-tricks/00-example-template.html#ref-how-to-add-an-example-reference-key>`_. 
+<https://mapdldocs.pyansys.com/examples/03-tips-n-tricks/00-example-template.html#ref-how-to-add-an-example-reference-key>`_.
 
 
 Documenting Python code
@@ -229,12 +229,12 @@ directive:
     .. tab:: Doc Source Code
 
         .. code-block:: rst
-        
+
             Initialize ``my_module.MyClass`` with initial parameters. These
             parameters are automatically assigned to the class.
-        
+
             .. code-block:: pycon
-        
+
                >>> from my_module import MyClass
                >>> my_obj = MyClass(parm1='apple', parm2='orange')
                >>> my_obj.parm1
@@ -244,9 +244,9 @@ directive:
 
         Initialize ``my_module.MyClass`` with initial parameters. These
         parameters are automatically assigned to the class.
-        
+
         .. code-block:: pycon
-        
+
            >>> from my_module import MyClass
            >>> my_obj = MyClass(parm1='apple', parm2='orange')
            >>> my_obj.parm1
@@ -278,7 +278,7 @@ For simple classes, use the ``autoclass`` directive:
 For complex classes with many methods, use the
 ``autosummary`` directive:
 
-.. tabs:: 
+.. tabs::
 
     .. tab:: Doc Source Code
 
@@ -296,7 +296,7 @@ For complex classes with many methods, use the
     .. tab:: Rendered Doc
 
         .. autoclass:: ansys_sphinx_theme.samples.Complex
-        
+
         .. autosummary::
 
            ansys_sphinx_theme.samples.Complex.real
@@ -340,7 +340,7 @@ You configure the entire build process in the ``conf.py`` file, located in the
 This directory also contains a ``Makefile`` file and a ``make.bat`` file for
 automating the building process. Different builders render different
 documentation output, such as ``HTML``, ``LaTeX`` or
-``PDF``. 
+``PDF``.
 
 Building HTML documentation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -379,7 +379,7 @@ To  build ``PDF`` documentation, the following rules must be added to
     .. group-tab:: Makefile
 
         .. code-block:: text
-            
+
             pdf:
 	            @$(SPHINXBUILD) -M latex "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	            cd build/latex && latexmk -r latexmkrc -pdf *.tex -interaction=nonstopmode || true
@@ -509,7 +509,7 @@ with:
     .. group-tab:: Using ``tox``
 
         .. code-block:: yaml
-        
+
             - name: Upload HTML Documentation
               uses: actions/upload-artifact@v2
               with:
@@ -520,7 +520,7 @@ with:
     .. group-tab:: Without using ``tox``
 
         .. code-block:: yaml
-        
+
             - name: Upload HTML Documentation
               uses: actions/upload-artifact@v2
               with:
@@ -554,10 +554,10 @@ declare the name of your documentation repository:
     .. group-tab:: Using ``tox``
 
         .. code-block:: yaml
-        
+
             - name: Deploy
               if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-              uses: JamesIves/github-pages-deploy-action@4.3.0
+              uses: JamesIves/github-pages-deploy-action@v4.3.0
               with:
                 token: ${{ secrets.GITHUB_TOKEN }}
                 # repository-name: pyansys/repository-name
@@ -571,7 +571,7 @@ declare the name of your documentation repository:
 
             - name: Deploy
               if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-              uses: JamesIves/github-pages-deploy-action@4.3.0
+              uses: JamesIves/github-pages-deploy-action@v4.3.0
               with:
                 token: ${{ secrets.GITHUB_TOKEN }}
                 # repository-name: pyansys/repository-name
@@ -650,10 +650,10 @@ Additionally, you must add the following code for the documentation deployment:
     .. group-tab:: Using ``tox``
 
         .. code-block:: yaml
-        
+
             - name: Deploy
               if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-              uses: JamesIves/github-pages-deploy-action@4.3.0
+              uses: JamesIves/github-pages-deploy-action@v4.3.0
               with:
                 token: ${{ steps.get_workflow_token.outputs.token }}
                 repository-name: pyansys/repository-name
@@ -667,7 +667,7 @@ Additionally, you must add the following code for the documentation deployment:
 
             - name: Deploy
               if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-              uses: JamesIves/github-pages-deploy-action@4.3.0
+              uses: JamesIves/github-pages-deploy-action@v4.3.0
               with:
                 token: ${{ steps.get_workflow_token.outputs.token }}
                 repository-name: pyansys/repository-name
@@ -693,10 +693,10 @@ allow using it with the PyAnsys repositories you have access to.
     In some cases, the authentication might need specific approval. If you
     still get authentication errors like those that follow, click the link in
     the log to authorize the workflow.
-    
+
     .. code-block:: text
         :emphasize-lines: 1,2,9
-        
+
         remote: The `pyansys' organization has enabled or enforced SAML SSO. To access
         remote: this repository, visit https://github.com/orgs/pyansys/sso?            authorization_request=AGWYQUM5VKPHAQHRS2H3JNTCVBNE7A5PN5ZGOYLONF5GC5DJN5XF62LEZYB663VUVVRX      EZLEMVXHI2LBNRPWSZGOGU33VEFPMNZGKZDFNZ2GSYLML52HS4DFVNHWC5LUNBAWGY3FONZQ
         remote: and try your request again.
@@ -707,7 +707,7 @@ allow using it with the PyAnsys repositories you have access to.
         /usr/bin/chmod -R 777 github-pages-deploy-action-temp-deployment-folder
         /usr/bin/git worktree remove github-pages-deploy-action-temp-deployment-folder --force
         Error: The deploy step encountered an error: The process '/usr/bin/git' failed with exit code 128 ❌
-      
+
 
 Paste the value of the token in the ``Settings/Secrets/Actions`` path under a
 new secret named ``DEPLOY_DOCS_PAT`` in the repository of the project. Use this
@@ -718,10 +718,10 @@ secret in your CI/CD:
     .. group-tab:: Using ``tox``
 
         .. code-block:: yaml
-        
+
             - name: Deploy
               if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-              uses: JamesIves/github-pages-deploy-action@4.3.0
+              uses: JamesIves/github-pages-deploy-action@v4.3.0
               with:
                 token: ${{ secrets.DEPLOY_DOCS_PAT }}
                 repository-name: pyansys/repository-name
@@ -735,7 +735,7 @@ secret in your CI/CD:
 
             - name: Deploy
               if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-              uses: JamesIves/github-pages-deploy-action@4.3.0
+              uses: JamesIves/github-pages-deploy-action@v4.3.0
               with:
                 token: ${{ secrets.DEPLOY_DOCS_PAT }}
                 repository-name: pyansys/repository-name
