@@ -29,7 +29,7 @@ to look.
 This file should be located in the ``.github`` folder of your repository for
 GitHub to detect it automatically. As it can be seen there are several main options:
 
-* **package-ecosystem**: which lets Dependabot know what is your package manager.
+* **package-ecosystem**: which lets Dependabot know what your package manager is.
   PyAnsys projects typically use ``pip``, but another example could be ``conda``.
 * **directory**: which lets Dependabot where your requirement files are located.
   PyAnsys projects typically contain all their requirements inside a ``requirements``
