@@ -798,4 +798,4 @@ GitHub pull request. For more information, see :ref:`Building documentation`.
 .. _Alex Kaszynski: https://teams.microsoft.com/l/chat/0/0?users=alexander.kaszynski@ansys.com
 .. _PyAnsys Bot: https://github.com/apps/pyansys-bot
 .. _PyAnsys Organization: https://github.com/pyansys
-.. _ansys-templates: https://github.com/pyansys/ansys-templates
+.. _ansys-templates: https://github.com/ansys/ansys-templates

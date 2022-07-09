@@ -170,4 +170,4 @@ dependencies. For more information, see `poetry pyproject.toml documentation`_.
 .. _setuptools metadata fields: https://setuptools.pypa.io/en/latest/userguide/declarative_config.html#declarative-config
 .. _flit pyproject.toml guidelines: https://flit.readthedocs.io/en/latest/pyproject_toml.html
 .. _dependabot: https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates
-.. _ansys-templates tool: https://github.com/pyansys/ansys-templates
+.. _ansys-templates tool: https://github.com/ansys/ansys-templates
