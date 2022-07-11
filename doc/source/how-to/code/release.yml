@@ -33,7 +33,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip build wine
+          python -m pip install --upgrade pip build twine
 
       - name: Build artifacts
         run: |
