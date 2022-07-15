@@ -117,6 +117,9 @@ exclude_patterns = [
 mermaid_output_format = "png"
 mermaid_params = ["--width", "2000", "--backgroundColor", "white"]
 
+# Graphviz diagrams configuration
+graphviz_output_format = "png"
+
 # Generate section labels up to four levels deep
 autosectionlabel_maxdepth = 4
 
