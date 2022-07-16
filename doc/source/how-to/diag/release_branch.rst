@@ -5,7 +5,7 @@
 
      digraph "sphinx-ext-graphviz" {
          size="8,6";
-         bgcolor="transparent";
+         bgcolor="white";
          rankdir="LR";
          node[width=0.15, height=0.15, shape=point, color=black];
          edge[weight=2, arrowhead=none, color=black];
