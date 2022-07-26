@@ -49,6 +49,7 @@ pyaedt
 PyAnsys
 pyansys
 Pydocstyle
+APIs
 PyMAPDL
 pymapdl
 PyPI
