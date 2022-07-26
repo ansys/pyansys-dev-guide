@@ -276,7 +276,7 @@ that are not covered here.
 Example
 =======
 
-A generic docstring example compliant with PyAnsys guidelines is shown below:
+Here is a generic docstring example compliant with PyAnsys guidelines:
 
 .. literalinclude:: code/sample_func.py
 
