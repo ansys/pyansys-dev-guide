@@ -35,7 +35,7 @@ that they follow the standard order: library, third-party libraries, and custom 
 
 When using `isort`_ with `black`_, it is important to properly configure both
 tools so that no conflicts arise. To accomplish this, use the
-``--porfile black`` flag in `isort`_.
+``--profile black`` flag in `isort`_.
 
 .. code-block:: toml
 

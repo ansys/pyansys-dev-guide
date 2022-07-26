@@ -19,9 +19,9 @@ responses to the several questions that are asked result in dynamic project gene
 Please, follow the `ansys-templates installation guide`_ to get the latest stable
 version installed in your system.
 
-- **Repository**: https://github.com/pyansys/ansys-templates
-- **Documentation**: https://github.com/pyansys/ansys-templates
-- **Issues board**: https://github.com/pyansys/ansys-templates/issues
+- **Repository**: https://github.com/ansys/ansys-templates
+- **Documentation**: https://github.com/ansys/ansys-templates
+- **Issues board**: https://github.com/ansys/ansys-templates/issues
 
 
 .. note::
@@ -82,7 +82,7 @@ Create a project based on the ``pyansys-advanced`` template with:
 .. _ansys-templates: https://templates.pyansys.com/index.html
 .. _ansys-templates installation guide: https://templates.pyansys.com/getting_started/index.html
 .. _ansys-templates user guide: https://templates.pyansys.com/user_guide/index.html
-.. _ansys-templates issues board:  https://github.com/pyansys/ansys-templates/issues
+.. _ansys-templates issues board:  https://github.com/ansys/ansys-templates/issues
 .. _flit: https://flit.readthedocs.io/en/latest/
 .. _poetry: https://python-poetry.org/
 .. _pre-commit: https://pre-commit.com/

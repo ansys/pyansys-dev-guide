@@ -7,6 +7,7 @@
      digraph "sphinx-ext-graphviz" {
          size="8,6";
          rankdir="LR";
+         bgcolor="white";
          graph [
            fontname="Verdana", fontsize="10", color="black", fillcolor="white", splines=ortho
          ];

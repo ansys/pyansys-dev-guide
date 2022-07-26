@@ -115,7 +115,10 @@ exclude_patterns = [
 # Fix excessive margins in mermaid output.
 # See issue: https://github.com/mermaid-js/mermaid/issues/1800#issuecomment-741617143
 mermaid_output_format = "png"
-mermaid_params = ["--width", "2000"]
+mermaid_params = ["--width", "2000", "--backgroundColor", "white"]
+
+# Graphviz diagrams configuration
+graphviz_output_format = "png"
 
 # Generate section labels up to four levels deep
 autosectionlabel_maxdepth = 4

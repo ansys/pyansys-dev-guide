@@ -8,6 +8,7 @@ CLI
 Codespell
 dataframes
 dependabot
+Dependabot
 Dev
 Docformatter
 Docstring

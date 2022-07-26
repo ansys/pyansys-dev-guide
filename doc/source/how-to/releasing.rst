@@ -110,7 +110,7 @@ Stash and commit previous changes with:
 
 .. code-block:: text
 
-   git add . && git commit -m "Bump version X.Y.0 version"
+   git add . && git commit -m "Bump version X.Y.0"
 
 Tag the previous commit with:
 
@@ -156,7 +156,7 @@ amend these new changes with:
 
 .. code-block:: text
 
-   git add . && git commit --amend -m "Bump version X.Y.Z version"
+   git add . && git commit --amend -m "Bump version X.Y.Z"
 
 Tag the previous commit with:
 
