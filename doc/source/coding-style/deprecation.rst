@@ -11,7 +11,7 @@ Whenever you deprecate a method, class, or function, you must either:
 
 - Have the old method call the new method and raise a warning
 - Raise an ``AttributeError`` if you remove the method entirely
-e
+
 In the docstring of the old method, provide a `Sphinx Deprecated Directive
 <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-deprecated>`_
 that links to the new method. This way, you notify your users when you make
