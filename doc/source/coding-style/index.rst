@@ -12,7 +12,8 @@ projects.
 
 PyAnsys libraries are expected to follow `PEP 8`_ and be consistent in style and
 formatting with the 'big three' data science libraries: `NumPy`_, `SciPy`_, and
-`pandas`_.
+`pandas`_. PyAnsys libraries are also expected to follow deprecation best
+practices.
 
 .. toctree::
    :hidden:
@@ -21,6 +22,7 @@ formatting with the 'big three' data science libraries: `NumPy`_, `SciPy`_, and
    pep8
    formatting-tools
    required-standard
+   deprecation
 
 
 .. LINKS AND REFERENCES

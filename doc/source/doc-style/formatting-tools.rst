@@ -12,7 +12,6 @@ cleaner root project directory.
 
 Blacken-Docs
 ------------
-
 When writing documentation, it is frequent to include code-blocks which are used
 as examples. However, these code snippets style cannot be verified with the usual code
 formatting tools. This is where `blacken-docs`_ comes into play. You can execute
@@ -25,12 +24,11 @@ this tool by running:
 
 Codespell
 ---------
-
 `Codespell`_ checks for common misspellings in text files. This implies that it
 is not limited to Python files but can run checks on any human-readable file.
 
 It is possible to ignore words that are flagged as misspelled. You can specify these words in a
-file that can hen be passed to `Codespell` by running:
+file that can then be passed to `Codespell` by running:
 
 .. code:: bash
 
@@ -39,7 +37,6 @@ file that can hen be passed to `Codespell` by running:
 
 Docformatter
 ------------
-
 `Docformatter`_ automatically formats Python docstrings according
 to `PEP 257`_. To make sure `Docformatter`_ wraps your docstrings at a given
 number of characters, use the following configuration:
@@ -52,7 +49,6 @@ number of characters, use the following configuration:
 
 Doctest
 -------
-
 `Doctest`_ is a module from the Python standard library, which means it is
 included by default with your Python installation. It is used for checking the
 examples provided inside docstrings to make sure that they reflect the current usage
@@ -67,7 +63,6 @@ of the source code. `Doctest`_ can be integrated with ``pytest`` in :ref:`The
 
 Interrogate
 -----------
-
 `Interrogate`_ is a tool for checking docstring coverage. Similar to source code
 coverage tools, this tool tests how many functions, classes, and modules in a Python
 library hold a docstring.
@@ -119,7 +114,6 @@ validation checks
 
 Pydocstyle
 ----------
-
 `Pydocstyle`_ is a tool for checking the compliance of Python docstrings with `PEP
 257`_.  Its configuration can be defined in the :ref:`The \`\`pyproject.toml\`\`
 file`.  By default, `Pydocstyle`_ matches all ``*.py`` files except those starting with
@@ -133,12 +127,51 @@ it under the ``[tool.pydocstyle]`` entry:
    convention = "numpy"
 
 
+Vale
+----
+`Vale`_ is a tool for maintaining a consistent style and voice in your documentation.
+Its configuration is defined in a ``.vale.ini`` file in the library's ``doc`` folder.
+For PyAnsys libraries, ``Vale`` is configured to apply the guidelines in the
+`Google developer documentation style guide <https://developers.google.com/style/>`_,
+along with any custom Ansys rules and terminology lists, to reStructuredText (RST)
+and Markdown (MD) files.
+
+After a PyAnsys team member implements ``Vale`` in your PyAnsys library, you can check
+any content changes that you make in supported files locally.
+
+In the library's ``doc`` folder, download the package with:
+
+.. code-block:: bash
+
+   vale sync
+
+Check all files in the ``doc`` folder with:
+
+.. code-block:: bash
+
+   vale .
+
+Check all files in the repository, by going to the ``root`` directory and running:
+
+.. code-block:: bash
+
+   vale --config=doc/.vale.ini .
+
+Check all files in only a particular folder by with  ``vale`` followed by the
+name of the folder.
+
+Address any warnings and issues that display by either editing the
+file to fix or adding a term to the ``accept.txt`` file under the 
+``doc`` folder in ``styles\Vocab\ANSYS``.
+
+
 .. _blacken-docs: https://github.com/asottile/blacken-docs
 .. _interrogate: https://interrogate.readthedocs.io/en/latest/
 .. _docstr-coverage: https://docstr-coverage.readthedocs.io/en/latest/index.html
 .. _docstring-coverage: https://bitbucket.org/DataGreed/docstring-coverage/wiki/Home
 .. _pytest-cov: https://pytest-cov.readthedocs.io/en/latest/
 .. _doctest: https://docs.python.org/3/library/doctest.html
+.. _vale: https://vale.sh/
 .. _PEP 257: http://www.python.org/dev/peps/pep-0257/
 .. _docformatter: https://github.com/PyCQA/docformatter
 .. _codespell: https://github.com/codespell-project/codespell

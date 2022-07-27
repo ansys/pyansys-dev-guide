@@ -1,4 +1,4 @@
-How-To
+How-to
 ######
 
 This section describes several guidelines and best practices for creating

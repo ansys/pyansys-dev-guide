@@ -28,6 +28,20 @@ The documentation for a PyAnsys library should contain:
 * Developer's guide for the library.
 * Link to this developer's guide.
 
+To ensure clear and consistent documentation, all PyAnsys libraries are to
+follow the guidelines in the `Google developer documentation style guide
+<https://developers.google.com/style/>`_. Key guidelines include using:
+
+- Sentence case for headings and titles
+- Active voice
+- Present tense
+- Short, clear sentences
+
+To help you follow the Google guidelines and any custom rules
+developed by Ansys, `Vale <https://vale.sh/>`_, a command-line tool that
+brings code-like linting to prose, is one of the many documentation style
+tools that can be implemented. For more information, see :ref:`Vale`.
+
 Finally, the documentation should be public and hosted via gh-pages, either as
 a branch named ``gh-pages`` within the library repository or within a
 ``gh-pages`` branch within ``<library-repository>-docs``. For more information,
