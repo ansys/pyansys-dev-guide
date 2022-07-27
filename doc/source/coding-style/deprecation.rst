@@ -17,7 +17,7 @@ In the docstring of the old method, provide a `Sphinx Deprecated Directive
 that links to the new method. This way, you notify your users when you make
 an API change and give them a chance to change their code. Otherwise,
 users stop upgrading, or worse, stop using your API, due to stability concerns.
-For this reason, it's best to use a warning first and then use an error after
+For this reason, it is best to use a warning first and then use an error after
 a minor release or two.
 
 .. code:: python
@@ -48,7 +48,7 @@ a minor release or two.
             """
 
 
-If you remove a method entirely, there's no reason to provide a link to the old
+If you remove a method entirely, there is no reason to provide a link to the old
 method. Simply raise an ``AttributeError`` as part of the class or raise an ``Exception``.
 
 .. code:: python
@@ -74,7 +74,7 @@ approach is to create a custom ``DeprecationError``.
             """Empty init."""
             RuntimeError.__init__(self, message)
 
-You then use his custom ``DeprecationError`` in place of an ``Exception``.
+You then use this custom ``DeprecationError`` in place of an ``Exception``.
 
 .. code:: python
 

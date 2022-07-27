@@ -129,7 +129,7 @@ it under the ``[tool.pydocstyle]`` entry:
 
 Vale
 ----
-`Vale` is a tool for maintaining a consistent style and voice in your documentation.
+`Vale`_ is a tool for maintaining a consistent style and voice in your documentation.
 Its configuration is defined in a ``.vale.ini`` file in the library's ``doc`` folder.
 For PyAnsys libraries, ``Vale`` is configured to apply the guidelines in the
 `Google developer documentation style guide <https://developers.google.com/style/>`_,
@@ -141,21 +141,21 @@ any content changes that you make in supported files locally.
 
 In the library's ``doc`` folder, download the package with:
 
-.. code-block:: python
+.. code-block:: bash
 
    vale sync
 
 Check all files in the ``doc`` folder with:
 
-.. code-block:: python
+.. code-block:: bash
 
    vale .
 
-Check all files in the repository with:
+Check all files in the repository, by going to the ``root`` directory and running:
 
-.. code-block:: python
+.. code-block:: bash
 
-   vale doc --config=doc/.vale.ini
+   vale --config=doc/.vale.ini .
 
 Check all files in only a particular folder by with  ``vale`` followed by the
 name of the folder.
