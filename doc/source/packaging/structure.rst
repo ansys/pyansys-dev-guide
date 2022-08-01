@@ -138,18 +138,21 @@ building documentation for Python-based projects. As shown in :numref:`doc struc
 
 .. include:: diag/doc_structure_diag.rst
 
-- ``_build`` contains the rendered documentation in various formats, such as HTML
+- ``_build/`` contains the rendered documentation in various formats, such as HTML
   and PDF.
 
-- ``source`` contains the RST files that are used to render the documentation.
+- ``source/`` contains the RST files that are used to render the documentation.
 
 - ``make.bat`` and ``Makefile`` are used to automate cleaning and building
   commands. You use ``make.bat`` when running on Windows and ``Makefile``
-  when running on MacOS or Linux.
+  when running on MacOS or Linux. The required configuration for these files is
+  explained in the :ref:`Automation files` section.
 
 The ``source/`` directory must contain at least these files:
 
 - ``conf.py`` is a Python script used to declare the configuration of `Sphinx`_.
+  The minimum required configuration for this file is explained in :ref:`The
+  \`\`conf.py\`\` file`.
 - ``index.rst`` is the index page of the documentation. In this file, try to reuse the
   ``README.rst`` file to avoid duplication.
 

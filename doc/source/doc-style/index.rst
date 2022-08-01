@@ -51,5 +51,6 @@ see :ref:`Deploying documentation`.
    :hidden:
    :maxdepth: 3
 
+   doc-configuration  
    docstrings
    formatting-tools
