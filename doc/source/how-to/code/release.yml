@@ -41,12 +41,11 @@ jobs:
 
       - name: Publish to private PyPI
         env:
-          REPOSITORY_URL: 'https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload'
+          TWINE_USERNAME: PAT
+          TWINE_PASSWORD: ${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }}
+          TWINE_REPOSITORY_URL: https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload
         run: |
           python -m twine upload dist/* \
-         -u PAT \
-         -p ${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }} \
-         --repository-url $REPOSITORY_URL
 
       - name: Publish to PyPI
         env:

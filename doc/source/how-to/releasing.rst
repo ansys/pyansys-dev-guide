@@ -227,14 +227,14 @@ the ``dist/`` directory to the private PyPI. It is expected to be included when
 
 .. code-block:: yaml
 
-    - name: Pyblish to private PyPI
+    - name: Publish to private PyPI
       env:
-        REPOSITORY_URL: 'https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload'
+        TWINE_USERNAME: PAT
+        TWINE_PASSWORD: ${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }}
+        TWINE_REPOSITORY_URL: https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload
       run: |
+        pip install twine
         python -m twine upload dist/* \
-       -u PAT \
-       -p ${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }} \
-       --repository-url $REPOSITORY_URL
 
 
 Notice that ``PYANSYS_PYPI_PRIVATE_PAT`` needs to be added as a repository
