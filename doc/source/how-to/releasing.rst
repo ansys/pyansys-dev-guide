@@ -221,10 +221,9 @@ Install this tool by running:
 
 Uploading to private PyPI using GitHub actions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-A good practice is to publish a new release of your project to both public and
-internal PyPI. The following code allows to publish any Python :ref:`Artifacts`
-contained in the ``dist/`` directory to the private PyPI. It is expected to be
-included when :ref:`Using GitHub actions`:
+The following code allows to publish any Python :ref:`Artifacts` contained in
+the ``dist/`` directory to the private PyPI. It is expected to be included when
+:ref:`Using GitHub actions`:
 
 .. code-block:: yaml
 
