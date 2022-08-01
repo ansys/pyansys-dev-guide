@@ -212,39 +212,134 @@ script. If you are operating out of a GitHub CI pipeline, email the PyAnsys Core
 team at `pyansys.core@ansys.com <mailto:pyansys.core@ansys.com>`_ for the
 required ``PAT`` user name and ``PYANSYS_PYPI_PRIVATE_PAT`` password.
 
-Assuming that you are already in a Python repository's ``dist/`` directory that
-contains your wheel, source distribution, or both, you can upload to the private
-repository with:
+For uploading packages, `Twine <https://pypi.org/project/twine/>`_ is required.
+Install this tool by running:
 
-.. code-block:: bash
+.. code-block:: text
 
-   pip install -U pip build twine
+    python -m pip install twine
 
-   REPOSITORY_URL="https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload"
-   python -m twine upload dist/* \
-     -p ${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }} \
-     -u PAT \
-     --repository-url $REPOSITORY_URL
+Uploading to private PyPI using GitHub actions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+A good practice is to publish a new release of your project to both public and
+internal PyPI. The following code allows to publish any Python :ref:`Artifacts`
+contained in the ``dist/`` directory to the private PyPI. It is expected to be
+included when :ref:`Using GitHub actions`:
 
+.. code-block:: yaml
+
+    - name: Pyblish to private PyPI
+      env:
+        REPOSITORY_URL: 'https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload'
+      run: |
+        python -m twine upload dist/* \
+       -u PAT \
+       -p ${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }} \
+       --repository-url $REPOSITORY_URL
+
+
+Notice that ``PYANSYS_PYPI_PRIVATE_PAT`` needs to be added as a repository
+secret so its value is available during the execution of previous instructions.
+
+Uploading to private PyPI using the command-line
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Alternatively, instead of command-line tool arguments for Twine, you can use environment variables:
 
-.. code::
+.. tabs::
 
-   export TWINE_USERNAME=PAT
-   export TWINE_PASSWORD=$PYANSYS_PYPI_PRIVATE_PAT
-   export TWINE_REPOSITORY_URL="https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload"
+    .. group-tab:: Windows
+
+        .. tabs::
+
+            .. group-tab:: CMD
+
+                .. code-block:: text
+
+                    set TWINE_USERNAME=<PAT>
+                    set TWINE_PASSWORD=<PYANSYS_PYPI_PRIVATE_PAT>
+                    set TWINE_REPOSITORY_URL='https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload'
+
+            .. group-tab:: PowerShell
+
+                .. code-block:: text
+
+                    $env:TWINE_USERNAME=<PAT>
+                    $env:TWINE_PASSWORD=<PYANSYS_PYPI_PRIVATE_PAT>
+                    $env:TWINE_REPOSITORY_URL='https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload'
+
+    .. group-tab:: macOS
+
+        .. code-block:: text
+
+            export TWINE_USERNAME=<PAT>
+            export TWINE_PASSWORD=<PYANSYS_PYPI_PRIVATE_PAT>
+            export TWINE_REPOSITORY_URL="https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload"
+
+    .. group-tab:: Linux/UNIX
+
+        .. code-block:: text
+
+            export TWINE_USERNAME=<PAT>
+            export TWINE_PASSWORD=<PYANSYS_PYPI_PRIVATE_PAT>
+            export TWINE_REPOSITORY_URL="https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload"
+
+
+Finally, execute the following command:
+.. code-block:: text
 
    python -m twine upload dist/*
 
 
 Download
 ++++++++
-You can download a Python package from `PyAnsys PyPI`_ with:
+You can download a Python package from `PyAnsys PyPI`_ by running:
 
-.. code::
+.. tabs::
 
-   INDEX_URL=https://$PYANSYS_PYPI_PRIVATE_PAT@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/
-   pip install ansys-<product/tool>-<library> --index-url $INDEX_URL --no-dependencies
+    .. group-tab:: Windows
+
+        .. tabs::
+
+            .. group-tab:: CMD
+
+                .. code-block:: text
+
+                    set INDEX_URL='https://$PYANSYS_PYPI_PRIVATE_PAT@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/'
+
+                    python -m pip install ansys-<product/tool>-<library> \
+                    --index-url %INDEX_URL% \
+                    --no-dependencies
+
+            .. group-tab:: PowerShell
+
+                .. code-block:: text
+
+                    $env:INDEX_URL='https://$PYANSYS_PYPI_PRIVATE_PAT@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/'
+
+                    python -m pip install ansys-<product/tool>-<library> \
+                    --index-url $env:INDEX_URL \
+                    --no-dependencies
+
+    .. group-tab:: macOS
+
+        .. code-block:: text
+
+            export INDEX_URL='https://$PYANSYS_PYPI_PRIVATE_PAT@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/'
+
+            python -m pip install ansys-<product/tool>-<library> \
+            --index-url $INDEX_URL \
+            --no-dependencies
+
+    .. group-tab:: Linux/UNIX
+
+        .. code-block:: text
+
+            export INDEX_URL='https://$PYANSYS_PYPI_PRIVATE_PAT@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/'
+
+            python -m pip install ansys-<product/tool>-<library> \
+            --index-url $INDEX_URL \
+            --no-dependencies
+
 
 .. note::
    A read-only PAT is available for users who need only to download the package. It
