@@ -39,6 +39,14 @@ jobs:
         run: |
           python -m build && python -m twine check dist/*
 
+      - name: Publish to private PyPI
+        env:
+          TWINE_USERNAME: PAT
+          TWINE_PASSWORD: ${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }}
+          TWINE_REPOSITORY_URL: https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload
+        run: |
+          python -m twine upload dist/* \
+
       - name: Publish to PyPI
         env:
           TWINE_USERNAME: __token__
