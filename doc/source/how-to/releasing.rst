@@ -215,7 +215,7 @@ required ``PAT`` user name and ``PYANSYS_PYPI_PRIVATE_PAT`` password.
 For uploading packages, `Twine <https://pypi.org/project/twine/>`_ is required.
 Install this tool by running:
 
-.. code-block:: text
+.. code-block:: shell
 
     python -m pip install twine
 
