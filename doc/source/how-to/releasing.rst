@@ -219,6 +219,12 @@ Install this tool by running:
 
     python -m pip install twine
 
+
+.. note:: 
+
+   Once a library has been made public, there is no need to keep uploading new
+   versions of it to the private PyPI.
+
 Uploading to private PyPI using GitHub actions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The following code allows to publish any Python :ref:`Artifacts` contained in
