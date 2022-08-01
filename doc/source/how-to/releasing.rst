@@ -302,7 +302,7 @@ You can download a Python package from `PyAnsys PyPI`_ by running:
 
             .. group-tab:: CMD
 
-                .. code-block:: text
+                .. code-block:: bat
 
                     set INDEX_URL='https://$PYANSYS_PYPI_PRIVATE_PAT@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/'
 
@@ -312,7 +312,7 @@ You can download a Python package from `PyAnsys PyPI`_ by running:
 
             .. group-tab:: PowerShell
 
-                .. code-block:: text
+                .. code-block:: powershell
 
                     $env:INDEX_URL='https://$PYANSYS_PYPI_PRIVATE_PAT@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/'
 
@@ -332,7 +332,7 @@ You can download a Python package from `PyAnsys PyPI`_ by running:
 
     .. group-tab:: Linux/UNIX
 
-        .. code-block:: text
+        .. code-block:: console
 
             export INDEX_URL='https://$PYANSYS_PYPI_PRIVATE_PAT@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/'
 
