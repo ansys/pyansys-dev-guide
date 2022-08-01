@@ -227,7 +227,7 @@ Install this tool by running:
 
 Uploading to private PyPI using GitHub actions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The following code allows to publish any Python :ref:`Artifacts` contained in
+The following code allows you to publish any Python :ref:`Artifacts` contained in
 the ``dist/`` directory to the private PyPI. It is expected to be included when
 :ref:`Using GitHub actions`:
 
@@ -243,10 +243,10 @@ the ``dist/`` directory to the private PyPI. It is expected to be included when
         python -m twine upload dist/* \
 
 
-Notice that ``PYANSYS_PYPI_PRIVATE_PAT`` needs to be added as a repository
-secret so its value is available during the execution of previous instructions.
+Notice that ``PYANSYS_PYPI_PRIVATE_PAT`` must be added as a repository
+secret so that its value is available during the execution of the previous instructions.
 
-Uploading to private PyPI using the command-line
+Uploading to private PyPI using the command line
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Alternatively, instead of command-line tool arguments for Twine, you can use environment variables:
 
@@ -289,7 +289,7 @@ Alternatively, instead of command-line tool arguments for Twine, you can use env
             export TWINE_REPOSITORY_URL="https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload"
 
 
-Finally, execute the following command:
+Finally, run the following command:
 .. code-block:: text
 
    python -m twine upload dist/*
