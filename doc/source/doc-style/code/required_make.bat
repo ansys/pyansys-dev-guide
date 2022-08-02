@@ -12,6 +12,7 @@ set BUILDDIR=build
 set SPHINXOPTS=-j auto -W --keep-going
 
 if "%1" == "" goto help
+if "%1" == "clean" goto clean
 if "%1" == "pdf" goto pdf
 
 %SPHINXBUILD% >NUL 2>NUL
@@ -32,6 +33,11 @@ goto end
 
 :help
 %SPHINXBUILD% -M help %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+
+:clean
+rmdir /s /q %BUILDDIR% > /NUL 2>&1 
+for /d /r %SOURCEDIR% %%d in (_autosummary) do @if exist "%%d" rmdir /s /q "%%d"
+goto end
 
 :pdf
 	%SPHINXBUILD% -M latex %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
