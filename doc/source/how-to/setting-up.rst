@@ -467,6 +467,41 @@ For information on setting up ``SSH`` with ``GitHub``, in the ``GitHub`` documen
 see `Connecting to GitHub with SSH
 <https://docs.github.com/en/authentication/connecting-to-github-with-ssh>`_.
 
+Handling line endings
+~~~~~~~~~~~~~~~~~~~~~
+Every time you introduce a new line by pressing the `return` key, an invisible
+character is introduced to represent a line ending. Each operating system manages
+these end of line (EOL) characters in their own way. For Windows, the EOL is
+also known as ``CRLF`` while in Linux its name is ``LF``.
+
+To avoid problems between developers working in the same repository but using
+different operating systems, it is possible to specify a EOL policy by using a
+file named `.gitattributes`.
+
+By creating a `.gitattributes` file and committing to a project, it is possible
+to customiza the type of EOL developers are expected to use. Git manages in an
+automated way the EOL characters so developers do not need to worry about those.
+As an example, consider the one presented in `Configuring Git to handle line
+endings
+<https://docs.github.com/en/get-started/getting-started-with-git/configuring-git-to-handle-line-endings#example>`_:
+
+.. code:: text
+
+   # Set the default behavior, in case people don't have core.autocrlf set.
+   * text=auto
+
+   # Explicitly declare text files you want to always be normalized and converted
+   # to native line endings on checkout.
+   *.c text
+   *.h text
+
+   # Declare files that will always have CRLF line endings on checkout.
+   *.sln text eol=crlf
+
+   # Denote all files that are truly binary and should not be modified.
+   *.png binary
+   *.jpg binary
+
 
 WSL2
 ----
