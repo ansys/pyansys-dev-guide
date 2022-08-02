@@ -31,10 +31,10 @@ The minimum `black`_ configuration for a PyAnsys project should look like this:
 Isort
 -----
 The goal of `isort`_  is to properly format ``import`` statements by making sure
-that they follow the standard order:
-- library
-- third-party libraries
-- custom libraries.
+that they follow the standard order: 
+ #. library
+ #. third-party libraries
+ #. custom libraries
 
 
 When using `isort`_ with `black`_, it is important to properly configure both
