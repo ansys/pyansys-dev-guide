@@ -3,11 +3,11 @@ Required Sphinx configuration
 The following page explains the minimum required `Sphinx`_ configuration for
 building the documentation of a PyAnsys project.
 
-When installing `Sphinx`_, a program named ``sphinx-build`` gets intalled too.
-This program is in chager of collecting, parsing and rendering all the
+When installing `Sphinx`_, a program named ``sphinx-build`` gets installed too.
+This program is in charge of collecting, parsing and rendering all the
 ReStructured Text files in :ref:`The \`\`doc/\`\` directory`.
 
-The behaviour of ``sphinx-build`` is controlled through a ``Makefile`` (to be
+The behavior of ``sphinx-build`` is controlled through a ``Makefile`` (to be
 used in POSIX systems) or a ``make.bat`` file (used in Windows systems). Once
 the ``sphinx-build`` command is triggered, the configuration declared in the
 ``conf.py`` is applied when rendering the documentation pages. 
@@ -25,7 +25,7 @@ projects.
 Automation files
 ----------------
 As introduced at the beginning of this section, the ``sphinx-build`` program and
-all its options and arguments can be automated trhought the usage of a
+all its options and arguments can be automated trough the usage of a
 ``Makefile`` file or a `make.bat`` file. These files should be placed at the
 first level of :ref:`The \`\`doc/\`\` directory`, next to the ``source/``
 directory.
