@@ -157,7 +157,7 @@ Check all files in the repository, by going to the ``root`` directory and runnin
 
    vale --config=doc/.vale.ini .
 
-Check all files in only a particular folder by with  ``vale`` followed by the
+Check all files in only a particular folder with ``vale`` followed by the
 name of the folder.
 
 Address any warnings and issues that display by either editing the

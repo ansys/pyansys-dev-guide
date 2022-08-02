@@ -138,7 +138,7 @@ Here is an example of a ``Parameters`` section for a class in PyAEDT:
         another instance of the ``specified_version`` is active on the
         machine. The default is ``True``.
     close_on_exit : bool, optional
-        Whether to release  AEDT on exit. The default is ``False``.
+        Whether to release AEDT on exit. The default is ``False``.
     student_version : bool, optional
         Whether to enable the student version of AEDT. The default
         is ``False``.
