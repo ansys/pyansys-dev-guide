@@ -36,7 +36,6 @@ that they follow the standard order:
  #. third-party libraries
  #. custom libraries
 
-
 When using `isort`_ with `black`_, it is important to properly configure both
 tools so that no conflicts arise. To accomplish this, use the
 ``--profile black`` flag in `isort`_.
