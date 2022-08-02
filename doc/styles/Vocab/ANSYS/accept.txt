@@ -71,5 +71,7 @@ worktree
 Kaszynski
 Marguerin
 Maxime
+Sphinx
+sphinx
 Stephane
 grpc_chunk_stream_demo
