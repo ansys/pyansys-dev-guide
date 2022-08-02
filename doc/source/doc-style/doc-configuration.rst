@@ -1,5 +1,7 @@
+<!-- vale off -->
 Required Sphinx configuration
 =============================
+<!-- vale on -->
 The following page explains the minimum required `Sphinx`_ configuration for
 building the documentation of a PyAnsys project.
 
@@ -25,7 +27,7 @@ projects.
 Automation files
 ----------------
 As introduced at the beginning of this section, the ``sphinx-build`` program and
-all its options and arguments can be automated trough the usage of a
+all its options and arguments can be automated through the usage of a
 ``Makefile`` file or a `make.bat`` file. These files should be placed at the
 first level of :ref:`The \`\`doc/\`\` directory`, next to the ``source/``
 directory.
