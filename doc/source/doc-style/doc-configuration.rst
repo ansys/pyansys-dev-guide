@@ -1,5 +1,7 @@
+<!-- vale off -->
 Required Sphinx configuration
 =============================
+<!-- vale on -->
 The following page explains the minimum required `Sphinx`_ configuration for
 building the documentation of a PyAnsys project.
 
