@@ -469,7 +469,7 @@ see `Connecting to GitHub with SSH
 
 Handling line endings
 ~~~~~~~~~~~~~~~~~~~~~
-Every time you introduce a new line by pressing the `return` key, an invisible
+Every time you introduce a new line by pressing the **Enter** key, an invisible
 character is introduced to represent a line ending. Each operating system manages
 these end-of-line (EOL) characters in its own way. For Windows, the EOL is
 also known as a `CRLF`, while in Linux it is known as a `LF`.
