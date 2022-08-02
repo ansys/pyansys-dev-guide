@@ -22,6 +22,8 @@ a minor release or two.
 
 .. code:: python
 
+    import warnings
+
     class FieldAnalysis2D():
         """Class docstring"""
 
