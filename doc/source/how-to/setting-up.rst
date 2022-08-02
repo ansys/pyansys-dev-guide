@@ -471,18 +471,17 @@ Handling line endings
 ~~~~~~~~~~~~~~~~~~~~~
 Every time you introduce a new line by pressing the `return` key, an invisible
 character is introduced to represent a line ending. Each operating system manages
-these end of line (EOL) characters in their own way. For Windows, the EOL is
-also known as ``CRLF`` while in Linux its name is ``LF``.
+these end-of-line (EOL) characters in its own way. For Windows, the EOL is
+also known as a `CRLF`, while in Linux it is known as a `LF`.
 
 To avoid problems between developers working in the same repository but using
-different operating systems, it is possible to specify a EOL policy by using a
-file named `.gitattributes`.
+different operating systems, you can specify an EOL policy in a ``.gitattributes`` file.
 
-By creating a `.gitattributes` file and committing to a project, it is possible
-to customize the type of EOL developers are expected to use. Git manages in an
-automated way the EOL characters so developers do not need to worry about those.
-As an example, consider the one presented in `Configuring Git to handle line
-endings
+In a ``.gitattributes`` file that you have committed to your repository, you can
+customize the type of EOL characters that you expect developers to use. Git
+then automatically manages these EOL characters so that developers do not
+need to worry about them. Consider this example presented in `Configuring
+ Git to handle line endings
 <https://docs.github.com/en/get-started/getting-started-with-git/configuring-git-to-handle-line-endings#example>`_:
 
 .. code:: text
