@@ -479,7 +479,7 @@ different operating systems, it is possible to specify a EOL policy by using a
 file named `.gitattributes`.
 
 By creating a `.gitattributes` file and committing to a project, it is possible
-to customiza the type of EOL developers are expected to use. Git manages in an
+to customize the type of EOL developers are expected to use. Git manages in an
 automated way the EOL characters so developers do not need to worry about those.
 As an example, consider the one presented in `Configuring Git to handle line
 endings
