@@ -6,7 +6,7 @@ The PyAnsys project allows you to create your own workflows and
 interfaces to Ansys products using Ansys APIs. While using PyAnsys 
 libraries requires that the relevant Ansys products are licensed 
 either directly or indirectly, you can distribute your custom-made 
-applications and workflows internally or externally.
+apps and workflows internally or externally.
 
 
 Licensing and approval
@@ -28,9 +28,8 @@ of the repository of every PyAnsys library.
 Project approval
 ================
 Exposing new Ansys technologies through the PyAnsys project is subject
-to an internal review and decision process. For requests, email the PyAnsys Core
-team at `Stephane Marguerin <mailto:stephane.marguerin@ansys.com>`_
-or `Alexander Kaszynski <mailto:alexander.kaszynski@ansys.com>`_.
+to an internal review and decision process. For requests, email
+`pyansys.support@ansys.com <pyansys.support@ansys.com>`_.
 
 .. _repository_management:
 

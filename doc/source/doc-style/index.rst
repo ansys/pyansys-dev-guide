@@ -25,8 +25,8 @@ The documentation for a PyAnsys library should contain:
   :ref:`docstrings`.
 * Full gallery of examples. See `PyMAPDL Examples
   <https://mapdldocs.pyansys.com/examples/index.html>`_.
-* Developer's guide for the library.
-* Link to this developer's guide.
+* General content on installing, using, and contributing.
+* Link to the library's documentation from the repository's README file.
 
 To ensure clear and consistent documentation, all PyAnsys libraries are to
 follow the guidelines in the `Google developer documentation style guide
@@ -38,14 +38,16 @@ follow the guidelines in the `Google developer documentation style guide
 - Short, clear sentences
 
 To help you follow the Google guidelines and any custom rules
-developed by Ansys, `Vale <https://vale.sh/>`_, a command-line tool that
-brings code-like linting to prose, is one of the many documentation style
-tools that can be implemented. For more information, see :ref:`Vale`.
+developed by Ansys, you can implement `Vale <https://vale.sh/>`_.
+This command-line tool brings code-like linting to prose. For more
+information, see :ref:`Vale`.
 
 Finally, the documentation should be public and hosted via gh-pages, either as
 a branch named ``gh-pages`` within the library repository or within a
-``gh-pages`` branch within ``<library-repository>-docs``. For more information,
-see :ref:`Deploying documentation`.
+``gh-pages`` branch within ``<library-repository>-docs``. 
+
+For procedural information related to crafting, building, and deploying
+documentation, see :ref:`Documenting` in the How-to section.
 
 .. toctree::
    :hidden:

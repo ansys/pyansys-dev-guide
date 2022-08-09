@@ -45,8 +45,8 @@ Creating a GitHub account
 -------------------------
 To use GitHub, start by creating an account for the platform. Follow the
 `GitHub Join Process <https://github.com/join>`_. If you require access to the
-`PyAnsys Organization <https://github.com/pyansys>`_, email your request to `Alexander
-Kaszynski <mailto:alexander.kaszynski@ansys.com>`_.
+`PyAnsys Organization <https://github.com/pyansys>`_, email
+`pyansys.support@ansys.com <pyansys.support@ansys.com>`_.
 
 GitHub repository sections
 --------------------------

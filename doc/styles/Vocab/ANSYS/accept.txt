@@ -30,12 +30,10 @@ hotfixes
 initializer
 Isort
 isort
-Matplotlib
 matplotlib
 monospaced
 Namespace
 namespace
-NumPy
 numpy
 Numpydoc
 numpydoc
@@ -57,9 +55,9 @@ pytest
 Python
 python
 pythoncom
-PyVista
 pyvista
 RPC
+scipy
 Setuptools
 setuptools
 SSH
@@ -68,10 +66,6 @@ uncomment
 unittest
 venv
 worktree
-Kaszynski
-Marguerin
-Maxime
 Sphinx
 sphinx
-Stephane
-grpc_chunk_stream_demo
+tensorflow

@@ -31,7 +31,7 @@ more information, see `Status of Python branches
    fixes. Versions labeled as ``dev`` are still receiving bug fixes.
 
 Expect stable versions to be the most commonly used Python versions. Some
-libraries like `NumPy <https://numpy.org/>`_ drop support for older versions of
+packages like `numpy <https://numpy.org/>`_ drop support for older versions of
 Python earlier than their end of life (EOL) as outlined in `NEP 29
 <https://numpy.org/neps/nep-0029-deprecation_policy.html#support-table>`_.
 

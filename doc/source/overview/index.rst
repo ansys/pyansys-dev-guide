@@ -19,15 +19,15 @@ These libraries play a vital role in:
 - Workflow orchestration
 - Data manipulation and export
 
-The libraries also include plugins and interfaces to the vast Python
+The libraries also include plugins and interfaces to packages in the vast Python
 ecosystem. Examples include:
 
-- Arrays using `NumPy <https://numpy.org/>`_
+- Arrays using `numpy <https://numpy.org/>`_
 - Data structures and tables with `pandas <https://pandas.pydata.org/>`_
-- 2D visualization using `Matplotlib <https://matplotlib.org/>`_
-- 3D visualization using `PyVista <https://docs.pyvista.org/>`_
-- Advanced scientific computing using `SciPy <https://www.scipy.org/>`_
-- Machine learning using `TensorFlow <https://www.tensorflow.org/>`_
+- 2D visualization using `matplotlib <https://matplotlib.org/>`_
+- 3D visualization using `pyvista <https://docs.pyvista.org/>`_
+- Advanced scientific computing using `scipy <https://www.scipy.org/>`_
+- Machine learning using `tensorflow <https://www.tensorflow.org/>`_
 
 .. note::
    If you are new to GitHub, you should visit `The ReadMe Project

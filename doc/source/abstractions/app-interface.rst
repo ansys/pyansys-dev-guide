@@ -1,7 +1,7 @@
-Application interface
-=====================
+App interface
+=============
 
-Many Ansys applications are designed around user interaction within a
+Many Ansys apps are designed around user interaction within a
 desktop GUI-based environment. Consequently, scripts are recorded
 directly from user sessions and are in the context of manipulating the
 desktop app. Instead, scripts should be written for an API 

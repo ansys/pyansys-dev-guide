@@ -3,17 +3,15 @@ Releasing and publishing
 Releasing a new version is a critical procedure. It should be automated as much as
 possible to avoid human error.
 
-This sections explains in detail the :ref:`Git` workflow to be followed together
-with the different steps that developers need to follow to create a successful
-release.
-
+This sections explains the :ref:`Git` workflow and steps that must be followed
+to create a successful release.
 
 Semantic versioning
 -------------------
 PyAnsys library releases are managed through both automated and manual review
 processes.
 
-PyAnsys follows the `Semantic Versioning`_, which produces release names in the
+PyAnsys follows `Semantic Versioning`_, which produces release names in the
 form of ``X.Y.Z``, where each letter corresponds to an integer value. This
 notation can also be understand as ``MAJOR.MINOR.PATCH``:
 
@@ -21,15 +19,14 @@ notation can also be understand as ``MAJOR.MINOR.PATCH``:
 * **Minor** version when you add a feature in a backwards-compatible manner.
 * **Patch** version when you make backwards compatible bug fixes.
 
-One exception exists. ``MAJOR`` versions are not expected to be regularly released
-when any incompatible API changes are made. They are only expected to be
-released with major, globally breaking API changes. This matches the versioning
-methodology for the "big three" data science Python libraries: `NumPy`_,
-`SciPy`_, and `pandas`_.
+To match the versioning methodology used by the 'big three' data science Python
+packages, `numpy`_, `scipy`_, and `pandas`_, ``MAJOR`` versions of PyAnsys
+packages are not released when any incompatible API change is made but rather
+when major, globally breaking API changes are made. 
 
 .. _Semantic Versioning: https://semver.org/
-.. _NumPy: https://numpy.org/
-.. _SciPy: https://www.scipy.org/
+.. _numpy: https://numpy.org/
+.. _scipy: https://www.scipy.org/
 .. _pandas: https://pandas.pydata.org/
 
 Note that ``0.MINOR.PATCH`` packages are expected to have fluid APIs and should
@@ -39,7 +36,7 @@ to be much more stable.
 .. admonition:: PyAnsys libraries should not match product versions.
 
     For example, the PyMAPDL library ``ansys-mapdl-core`` might have the version
-    ``0.59.0`` whereas the product version is 21.2 (2021 R2). The reason behind
+    ``0.59.0`` whereas the product version is 22.2 (2022 R2). The reason behind
     this is PyAnsys libraries are expected to be developed outside the product
     release cycle in a rapid CI/CD manner.
 
@@ -89,7 +86,7 @@ up to date with:
 
    git checkout main && git fetch origin main && git rebase origin/main
 
-If you encounter any issues when running previous command, solve those before
+If you encounter any issues when running the preceding command, solve them before
 continuing with the release. Ensure that your style, tests, and documentation
 checks are passing too.
 
@@ -372,8 +369,8 @@ Publishing :ref:`Artifacts` to `PyPI`_ is the way of distributing :ref:`Python
 libraries`. Publishing to `PyPI`_ requires a ``PYPI_TOKEN`` for your project. To
 generate and get access to this token:
 
-- Contact `Alexander Kaszynski <mailto:alexander.kaszynski@ansys.com>`_
-  requesting access to the ``PYPI_TOKEN``. The value of this token depends
+- Email `pyansys.support@ansys.com <pyansys.support@ansys.com>`_ to 
+  request access to the ``PYPI_TOKEN``. The value of this token depends
   on whether you are :ref:`Initially publishing to PyPI` or :ref:`Republishing
   to PyPI`. 
 
@@ -383,15 +380,15 @@ Initially publishing to PyPI
 ++++++++++++++++++++++++++++
 If it is the first time that you are publishing your project to `PyPI`_,
 you must obtain the global ``PYPI_TOKEN`` for the `PyAnsys`_ user in
-`PyPI` by contacting `Alexander Kaszynski <mailto:alexander.kaszynski@ansys.com>`_.
+`PyPI` by emailing
+`pyansys.support@ansys.com <pyansys.support@ansys.com>`_.
 
 Republishing to PyPI
 ++++++++++++++++++++
 If you are republishing your project to `PyPI`, you no longer need to have
 the global ``PYPI_TOKEN`` but rather a unique project token. To
-obtain your unique project token, contact `Alexander Kaszynski
-<mailto:alexander.kaszynski@ansys.com>`_ or `Maxime Rey
-<mailto:maxime.rey@ansys.com>`_. Once you have received it,
+obtain your unique project token, email
+`pyansys.support@ansys.com <pyansys.support@ansys.com>`_. Once you have received it,
 update the token value in the ``Secrets/Actions`` section.
 
 Publishing to GitHub
