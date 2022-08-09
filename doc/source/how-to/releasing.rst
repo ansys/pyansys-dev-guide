@@ -338,7 +338,7 @@ You can download a Python package from `PyAnsys PyPI`_ by running:
 
     .. group-tab:: Linux/UNIX
 
-        .. code-block:: console
+        .. code-block:: text
 
             export INDEX_URL='https://$PYANSYS_PYPI_PRIVATE_PAT@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/'
 
