@@ -262,7 +262,7 @@ Alternatively, instead of command-line tool arguments for Twine, you can use env
 
                     set TWINE_USERNAME=<PAT>
                     set TWINE_PASSWORD=<PYANSYS_PYPI_PRIVATE_PAT>
-                    set TWINE_REPOSITORY_URL='https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload'
+                    set TWINE_REPOSITORY_URL=https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload
 
             .. group-tab:: PowerShell
 
@@ -270,7 +270,7 @@ Alternatively, instead of command-line tool arguments for Twine, you can use env
 
                     $env:TWINE_USERNAME=<PAT>
                     $env:TWINE_PASSWORD=<PYANSYS_PYPI_PRIVATE_PAT>
-                    $env:TWINE_REPOSITORY_URL='https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload'
+                    $env:TWINE_REPOSITORY_URL=https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload
 
     .. group-tab:: macOS
 
@@ -290,6 +290,7 @@ Alternatively, instead of command-line tool arguments for Twine, you can use env
 
 
 Finally, run the following command:
+
 .. code-block:: text
 
    python -m twine upload dist/*
@@ -337,7 +338,7 @@ You can download a Python package from `PyAnsys PyPI`_ by running:
 
     .. group-tab:: Linux/UNIX
 
-        .. code-block:: console
+        .. code-block:: text
 
             export INDEX_URL='https://$PYANSYS_PYPI_PRIVATE_PAT@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/'
 
