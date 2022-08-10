@@ -439,7 +439,7 @@ If you do not configure code coverage properly, the resulting report does
 not show the real scope covered by the test suite.
 
 Assuming that a ``PyAnsys`` project follows :ref:`The \`\`src/\`\` directory` layout,
-you must pass the following flag when :ref:`Running tests`:
+you must pass the following flag when :ref:`Run tests`:
 
 .. code-block:: text
 
@@ -473,8 +473,8 @@ classes, including edge cases, can be reasonably tested. Even parts of your code
 that raise errors like ``TypeError`` or ``ValueError`` when users input the
 wrong data type or value can be reasonably tested.
 
-Code coverage enforcement
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Enforce code coverage
+~~~~~~~~~~~~~~~~~~~~~
 One way of enforcing unit test coverage with a project on GitHub is to use
 ``codecov.io`` to enforce minimum patch (and optionally project) coverage. Because
 this app is already available to the `PyAnsys Organization
