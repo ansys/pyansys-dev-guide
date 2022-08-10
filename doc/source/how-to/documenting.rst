@@ -221,7 +221,7 @@ There are two main ways of using Sphinx to document a class:
 * Manually describe 'how' and 'why' you use a class in :ref:`RST files`.
 
 * Automatically generate documentation for classes using the ``autoclass`` or
-  ``autosummary`` directive in .
+  ``autosummary`` directive in :ref:`RST files`.
 
 Manually generate documentation
 +++++++++++++++++++++++++++++++
