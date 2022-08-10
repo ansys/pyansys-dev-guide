@@ -82,7 +82,7 @@ These workflows are required for any ``PyAnsys`` project:
 
 - :ref:`Coding style` workflow
 - :ref:`Documentation style`, :ref:`Build documentation`, and :ref:`Deploy documentation` Workflows
-- :ref:`Testing` and :ref:`Testing code coverage` workflows
+- :ref:`Testing` and :ref:`Test code coverage` workflows
 - :ref:`Releasing and publishing` workflow
 
 You should collect all workflows under a common
@@ -145,7 +145,7 @@ Consider this example of a parametrized workflow example:
 Workflow examples
 -----------------
 Workflow examples are provided for checking :ref:`Coding style`,
-:ref:`Documenting`, :ref:`Testing`, and :ref:`Automating the release process`.
+:ref:`Documenting`, :ref:`Testing`, and :ref:`Automate the release process`.
 
 .. tabs::
 
