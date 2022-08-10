@@ -125,7 +125,7 @@ While you do not include the ``.rst`` extension when defining the section
 structure, the index file referenced for each section must be named
 ``index.rst``.
 
-After you build documentation locally as described in :ref:`Building
+After you build documentation locally as described in :ref:`Build
 documentation`, the first-level heading in the ``index.rst`` file for each
 section is shown as a clickable link in the header of the
 documentation's generated HTML output. For more information on defining a
@@ -787,7 +787,7 @@ are changing. For more information, see :ref:`Branching model`.
 
 As you are making changes in this branch, you want to periodically generate the
 documentation locally so that you can test your changes before you create a
-GitHub pull request. For more information, see :ref:`Building documentation`.
+GitHub pull request. For more information, see :ref:`Build documentation`.
 
 
 ..
