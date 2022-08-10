@@ -266,8 +266,8 @@ library. If you did, you could exclude it from ``test_parse_chunks.py``.
 
 Integration testing
 ~~~~~~~~~~~~~~~~~~~
-This section explains :ref:`Wrapped service methods` and :ref:`Remote method
-invocation testing`. 
+This section explains :ref:`Wrapped service methods` and how to
+:ref:`Test using remote method invocation`. 
 
 Wrapped service methods
 +++++++++++++++++++++++
