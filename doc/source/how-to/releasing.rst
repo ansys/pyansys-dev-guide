@@ -40,8 +40,8 @@ to be much more stable.
     this is PyAnsys libraries are expected to be developed outside the product
     release cycle in a rapid CI/CD manner.
 
-Branching model
----------------
+Branch model
+-------------
 The branching model for a PyAnsys project enables rapid development of
 features without sacrificing stability. The model closely follows the
 `Trunk Based Development <https://trunkbaseddevelopment.com/>`_ approach:
@@ -77,8 +77,8 @@ features without sacrificing stability. The model closely follows the
   .. include:: diag/release_branch.rst
 
 
-Releasing major and minor versions
-----------------------------------
+Release major and minor versions
+--------------------------------
 When creating a new major or minor version, ensure your ``origin main`` branch is
 up to date with:
 
@@ -122,8 +122,8 @@ Push the commit and the tag with:
    git push -u origin release/X.Y && git push origin vX.Y.0
 
 
-Releasing patched versions
---------------------------
+Release patched versions
+------------------------
 Patched versions allow you to fix issues discovered in published releases by
 cherry-picking these fixes from the ``main`` branch.
 
@@ -168,8 +168,8 @@ Push the commit and the tag with:
    git push -u origin release/X.Y && git push origin vX.Y.Z
 
 
-Publishing artifacts
---------------------
+Publish artifacts
+-----------------
 When a new version is released, some artifacts are provided with it. In Python,
 these :ref:`Artifacts` are typically the ``Wheel`` and ``Source`` files.
 Documentation in the form of PDF and HTML files are also considered artifacts.
@@ -181,11 +181,11 @@ Documentation in the form of PDF and HTML files are also considered artifacts.
 
 Manual release processes are discouraged and should be avoided. Automated
 release processes minimize human-error and alleviate workload on teams. For more
-information, see :ref: `Automating Release Process`.
+information, see :ref: `Automate release process`.
 
 
-Publishing privately on PyPI
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Publish privately on PyPI
+~~~~~~~~~~~~~~~~~~~~~~~~~
 It is sometimes necessary to host and pull packages that are not ready to be
 hosted on the public `PyPI`_. For example, if a PyAnsys library requires
 auto-generated gRPC' interface files from a feature or service that is still
@@ -222,11 +222,11 @@ Install this tool by running:
    Once a library has been made public, there is no need to keep uploading new
    versions of it to the private PyPI.
 
-Uploading to private PyPI using GitHub actions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Upload to private PyPI using GitHub actions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 The following code allows you to publish any Python :ref:`Artifacts` contained in
 the ``dist/`` directory to the private PyPI. It is expected to be included when
-:ref:`Using GitHub actions`:
+:ref:`Use GitHub actions`:
 
 .. code-block:: yaml
 
@@ -243,8 +243,8 @@ the ``dist/`` directory to the private PyPI. It is expected to be included when
 Notice that ``PYANSYS_PYPI_PRIVATE_PAT`` must be added as a repository
 secret so that its value is available during the execution of the previous instructions.
 
-Uploading to private PyPI using the command line
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Upload to private PyPI using the command line
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Alternatively, instead of command-line tool arguments for Twine, you can use environment variables:
 
 .. tabs::
@@ -363,43 +363,42 @@ You can download a Python package from `PyAnsys PyPI`_ by running:
    than replaces the default package index. For security, do not use
    ``--extra-index-url``.
  
-Publishing to PyPI
-~~~~~~~~~~~~~~~~~~
+Publish to PyPI
+~~~~~~~~~~~~~~~
 Publishing :ref:`Artifacts` to `PyPI`_ is the way of distributing :ref:`Python
 libraries`. Publishing to `PyPI`_ requires a ``PYPI_TOKEN`` for your project. To
 generate and get access to this token:
 
 - Email `pyansys.support@ansys.com <pyansys.support@ansys.com>`_ to 
   request access to the ``PYPI_TOKEN``. The value of this token depends
-  on whether you are :ref:`Initially publishing to PyPI` or :ref:`Republishing
-  to PyPI`. 
+  on whether its an :ref:`Initial publish to PyPI` or a :ref:`Republish to PyPI`. 
 
 - Add this token to the ``Secrets/Actions`` section in your repository.
 
-Initially publishing to PyPI
-++++++++++++++++++++++++++++
+Initial publish to PyPI
++++++++++++++++++++++++
 If it is the first time that you are publishing your project to `PyPI`_,
 you must obtain the global ``PYPI_TOKEN`` for the `PyAnsys`_ user in
 `PyPI` by emailing
 `pyansys.support@ansys.com <pyansys.support@ansys.com>`_.
 
-Republishing to PyPI
-++++++++++++++++++++
+Republish to PyPI
++++++++++++++++++
 If you are republishing your project to `PyPI`, you no longer need to have
 the global ``PYPI_TOKEN`` but rather a unique project token. To
 obtain your unique project token, email
 `pyansys.support@ansys.com <pyansys.support@ansys.com>`_. Once you have received it,
 update the token value in the ``Secrets/Actions`` section.
 
-Publishing to GitHub
+Publish to GitHub
 ~~~~~~~~~~~~~~~~~~~~
 Publishing :ref:`Artifacts` to GitHub is also possible. These are available
 in the ``https://github.com/pyansys/project-name/releases`` section.
 Publishing :ref:`Artifacts` into GitHub manually must be avoided to reduce
-human-error. For more information, see :ref:`Automating the release process`.
+human-error. For more information, see :ref:`Automate the release process`.
 
-Automating the release process
-------------------------------
+Automate the release process
+----------------------------
 Automating the release process is a good practice because it minimizes human error and
 alleviates the developer's workload. 
 
