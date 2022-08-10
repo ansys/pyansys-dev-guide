@@ -783,7 +783,7 @@ automatically kept up-to-date via GitHub actions.
 
 To make documentation changes, you create a branch with a name that begins with
 a prefix of ``doc/`` that is then followed by a short description of what you
-are changing. For more information, see :ref:`Branching model`.
+are changing. For more information, see :ref:`Branch model`.
 
 As you are making changes in this branch, you want to periodically generate the
 documentation locally so that you can test your changes before you create a
