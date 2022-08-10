@@ -128,7 +128,7 @@ doing this (``HTTPS`` or ``SSH``), to force the usage of ``SSH``, only this meth
 
 Clone using SSH
 ~~~~~~~~~~~~~~~
-Cloning using ``SSH`` requires that you :ref:`Enable SSH`. After that, you can
+Cloning using ``SSH`` requires :ref:`Enabling SSH`. After that, you can
 clone a repository by running:
 
 .. code-block:: bash
