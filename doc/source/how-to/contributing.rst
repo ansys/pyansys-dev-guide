@@ -42,7 +42,7 @@ boards.
 
 
 Create a GitHub account
--------------------------
+-----------------------
 To use GitHub, start by creating an account for the platform. Follow the
 `GitHub Join Process <https://github.com/join>`_. If you require access to the
 `PyAnsys Organization <https://github.com/pyansys>`_, email
@@ -212,7 +212,7 @@ visible in the branch that you just pushed.
    git push -u origin <new branch name>
 
 Create a pull request
------------------------
+---------------------
 Once you have tested your branch locally, create a pull request (PR) and target your merge to
 ``main``. This automatically runs CI testing and verifies that your changes
 work across all supported platforms. For procedural information, see `Creating a pull request

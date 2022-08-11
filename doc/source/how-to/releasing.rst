@@ -41,7 +41,7 @@ to be much more stable.
     release cycle in a rapid CI/CD manner.
 
 Branch model
--------------
+------------
 The branching model for a PyAnsys project enables rapid development of
 features without sacrificing stability. The model closely follows the
 `Trunk Based Development <https://trunkbaseddevelopment.com/>`_ approach:
@@ -181,14 +181,14 @@ Documentation in the form of PDF and HTML files are also considered artifacts.
 
 Manual release processes are discouraged and should be avoided. Automated
 release processes minimize human-error and alleviate workload on teams. For more
-information, see :ref: `Automate release process`.
+information, see :ref:`Automate release process`.
 
 
 Publish privately on PyPI
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 It is sometimes necessary to host and pull packages that are not ready to be
 hosted on the public `PyPI`_. For example, if a PyAnsys library requires
-auto-generated gRPC' interface files from a feature or service that is still
+auto-generated gRPC interface files from a feature or service that is still
 private, this package should be hosted on a private PyPI repository.
 
 ANSYS, Inc. has a private repository at `PyAnsys PyPI`_. Access is controlled
@@ -391,7 +391,7 @@ obtain your unique project token, email
 update the token value in the ``Secrets/Actions`` section.
 
 Publish to GitHub
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
 Publishing :ref:`Artifacts` to GitHub is also possible. These are available
 in the ``https://github.com/pyansys/project-name/releases`` section.
 Publishing :ref:`Artifacts` into GitHub manually must be avoided to reduce

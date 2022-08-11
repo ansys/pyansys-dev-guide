@@ -424,7 +424,7 @@ and integration testing is complete. Ideally, you should run them outside the
 
 
 Test code coverage
----------------------
+------------------
 Because Python is an interpreted language, syntax errors can only be
 caught during the almost trivial compile times. Thus, developers of Python libraries
 should aim to have high coverage for their libraries. Coverage is defined as parts
@@ -434,7 +434,7 @@ coverage for your library.
 
 
 Configure code coverage
-~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 If you do not configure code coverage properly, the resulting report does
 not show the real scope covered by the test suite.
 
@@ -511,7 +511,7 @@ source added to the repository (unless ignored) must be covered by unit tests.
 
 
 Test using GitHub Actions
-----------------------------
+-------------------------
 Effective CI/CD assumes that unit testing is developed during feature
 development or bug fixes. However, given the limited scope of the local
 development environment, it is often not possible to enforce testing on
