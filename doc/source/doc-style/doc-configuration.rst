@@ -1,62 +1,63 @@
 Required Sphinx configuration
 =============================
 The following page explains the minimum required `Sphinx`_ configuration for
-building the documentation of a PyAnsys project.
+building the documentation of a PyAnsys library.
 
-When installing `Sphinx`_, a program named ``sphinx-build`` gets installed too.
-This program is in charge of collecting, parsing and rendering all the
-ReStructured Text files in :ref:`The \`\`doc/\`\` directory`.
+When installing `Sphinx`_, a program named ``sphinx-build`` also gets installed.
+This program is in charge of collecting, parsing, and rendering all
+ReStructuredText (RST) files in :ref:`The \`\`doc/\`\` directory`.
 
-The behavior of ``sphinx-build`` is controlled through a ``Makefile`` (to be
-used in POSIX systems) or a ``make.bat`` file (used in Windows systems). Once
-the ``sphinx-build`` command is triggered, the configuration declared in the
-``conf.py`` is applied when rendering the documentation pages. 
+The behavior of the ``sphinx-build`` program is controlled through either
+a ``Makefile`` (for POSIX systems) or a ``make.bat`` file (for Windows systems).
+Once the ``sphinx-build`` command is triggered, the configuration declared in the
+``conf.py`` file is applied when rendering the documentation pages. 
 
 
 The ``conf.py`` file
 --------------------
-The following code snippet collects the minimum required configuration for a
-``conf.py`` file. Custom additions should be done on top of this configuration
-to guarantee that a minimum consistency applies across different PyAnsys
-projects.
+The following ``conf.py`` file provides the minimum required configuration for a
+PyAnsys library. To guarantee consistency across PyAnsys libraries, you should
+only make custom additions on top of this configuration.
 
 .. literalinclude:: code/required_conf.py
 
 Automation files
 ----------------
-As introduced at the beginning of this section, the ``sphinx-build`` program and
-all its options and arguments can be automated through the usage of a
+As indicated earlier in this topic, the ``sphinx-build`` program and
+all its options and arguments can be automated by using a
 ``Makefile`` file or a `make.bat`` file. These files should be placed at the
 first level of :ref:`The \`\`doc/\`\` directory`, next to the ``source/``
 directory.
 
-Notice that both files contain a ``SPHINXOPTS`` variable containing the ``-j auto -W --keep-going``:
+Notice that both files contain a ``SPHINXOPTS`` variable with these flags: ``-j``,
+``-W``, and ``--keep-going``.
 
-- The ``-j`` flag indicates the number of "jobs" (i.e. the number of cores to be
-  used). Default value is ``auto``, so it automatically detects the amount of
-  cores of a CPU.
+- The ``-j`` flag indicates the number of jobs (number of cores) to use. 
+  The default value is ``auto``, which means that the number of cores in
+  the CPU is to be automatically detected.
 
 - The ``-W`` flag turns warnings into errors. This guarantees that documentation
-  health is maximum.
+  health is maximized.
 
-- The ``--keep-going`` flag is used to render the whole documentation even if a
-  warning was found, so developers are aware about the full set of warnings.
+- The ``--keep-going`` flag specifies whether to render the whole documentation,
+  even if a warning is found. This flag enables developers to be aware of the
+  full set of warnings.
 
 A special rule named ``pdf`` is also included. This rule is in charge of
-generating the ``PDF`` documentation of the project.
+generating a PDF file for the library's documentation.
 
 
-Example ``Makefile``
-^^^^^^^^^^^^^^^^^^^^
-The following code collects the required options and automation rules to be used
-in a ``Makefile`` for building the documentation of a PyAnsys project:
+Example for ``Makefile``
+^^^^^^^^^^^^^^^^^^^^^^^^
+The following code collects the required options and automation rules for the
+``Makefile`` program to use when building documentation for a PyAnsys library:
 
 .. literalinclude:: code/required_makefile
 
-Example ``make.bat``
-^^^^^^^^^^^^^^^^^^^^
-The following code collects the required options and automation rules to be used
-in a ``make.bat`` for building the documentation of a PyAnsys project:
+Example for ``make.bat``
+^^^^^^^^^^^^^^^^^^^^^^^^
+The following code collects the required options and automation rules for the
+``make.bat`` program to use when building documentation for a PyAnsys project:
 
 .. literalinclude:: code/required_make.bat
 
