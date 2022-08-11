@@ -88,7 +88,7 @@ You can take advantage of :ref:`Pre-commit` by including a
 
 GitHub CI/CD integration
 ------------------------
-Finally, you can take advantage of :ref:`Testing using GitHub actions` and
+Finally, you can :ref:`Test using GitHub actions` and
 create a ``style.yml`` workflow file in ``.github/workflows/``:
 
 .. code-block:: yaml

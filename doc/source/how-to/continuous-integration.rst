@@ -11,8 +11,8 @@ Because ``PyAnsys`` projects are hosted in `GitHub <https://github.com>`_, the
 `GitHub Actions <https://docs.github.com/en/actions>`_ framework is used.
 
  
-Enabling GitHub actions
------------------------
+Enable GitHub actions
+---------------------
 By default, ``Actions`` are enabled in new repositories and can be accessed
 using the associated :ref:`GitHub repository sections`.
 
@@ -20,8 +20,8 @@ If ``Actions`` are not enabled, you can enable them by changing ``Actions
 Permissions`` in ``Settings -> Actions -> General``.
 
 
-Using GitHub actions
---------------------
+Use GitHub actions
+------------------
 Actions to be executed in the CI process must be declared in a ``YML`` and
 stored in the ``.github/workflows/`` directory. Although each action is
 different, they all have a common structure:
@@ -47,8 +47,8 @@ different, they all have a common structure:
       <All jobs must be defined below this line>
 
 
-Disabling concurrent workflows
-------------------------------
+Disable concurrent workflows
+----------------------------
 
 Handling hardware resources is a big deal, especially when running with self-hosted agents.
 Also, if you are using public GitHub hardware for running your workflows, you should try to
@@ -81,16 +81,16 @@ Required workflows
 These workflows are required for any ``PyAnsys`` project:
 
 - :ref:`Coding style` workflow
-- :ref:`Documentation style`, :ref:`Building documentation`, and :ref:`Deploying documentation` Workflows
-- :ref:`Testing` and :ref:`Testing code coverage` workflows
+- :ref:`Documentation style`, :ref:`Build documentation`, and :ref:`Deploy documentation` Workflows
+- :ref:`Testing` and :ref:`Test code coverage` workflows
 - :ref:`Releasing and publishing` workflow
 
 You should collect all workflows under a common
 ``ci.yml`` file. For more information, see :ref:`Workflow examples`.
 
 
-Parametrizing workflows
------------------------
+Parametrize workflows
+---------------------
 It is important to test a ``PyAnsys`` library on different operating systems
 using different Python versions:
 
@@ -145,7 +145,7 @@ Consider this example of a parametrized workflow example:
 Workflow examples
 -----------------
 Workflow examples are provided for checking :ref:`Coding style`,
-:ref:`Documenting`, :ref:`Testing`, and :ref:`Automating the release process`.
+:ref:`Documenting`, :ref:`Testing`, and :ref:`Automate the release process`.
 
 .. tabs::
 

@@ -15,8 +15,8 @@ of the Extreme Programming software development process.
 You should follow TDD when developing your PyAnsys project. Examples
 and best practices for unit tests follow.
 
-Testing framework
------------------
+Test framework
+--------------
 .. raw:: html
     
     <div align="center">
@@ -31,8 +31,8 @@ described in :ref:`Required files`, unit tests should be placed in :ref:`The
 \`\`tests/\`\` directory` in the library's root directory.
 
 
-Adding testing dependencies
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Add testing dependencies
+~~~~~~~~~~~~~~~~~~~~~~~~
 Requirements for testing dependencies should be included either in :ref:`The
 \`\`setup.py\`\` file`, :ref:`The \`\`pyproject.toml\`\` file` or in a
 ``requirements_tests.txt`` file. Only ``pytest`` and ``pytest-cov``
@@ -96,8 +96,8 @@ These dependencies can be installed using ``pip``:
             python -m pip install -r requirements_tests.txt
 
 
-Organizing test files
-~~~~~~~~~~~~~~~~~~~~~
+Organize test files
+~~~~~~~~~~~~~~~~~~~
 You must collect test files in :ref:`The \`\`tests/\`\` directory`. To
 guarantee that tests are run against the library source code, follow a ``src/``
 layout as explained in :ref:`The \`\`src/\`\` directory` rather than
@@ -110,16 +110,16 @@ This helps you to:
   C extensions or additional internal packages.
 
 
-Running tests
--------------
+Run tests
+---------
 Once you have installed ``pytest``, you can execute the test suite with:
 
 .. code-block:: text
 
     pytest -v tests/
 
-Filtering tests
-~~~~~~~~~~~~~~~
+Filter tests
+~~~~~~~~~~~~
 To run a subset of all available tests, you can taking advantage
 of the ``keywords`` and ``markers`` flags:
 
@@ -266,8 +266,8 @@ library. If you did, you could exclude it from ``test_parse_chunks.py``.
 
 Integration testing
 ~~~~~~~~~~~~~~~~~~~
-This section explains :ref:`Wrapped service methods` and :ref:`Remote method
-invocation testing`. 
+This section explains :ref:`Wrapped service methods` and how to
+:ref:`Test using remote method invocation`. 
 
 Wrapped service methods
 +++++++++++++++++++++++
@@ -359,8 +359,8 @@ service. In the case of ``GetNode``, this method should have already
 been tested when designing and developing the service.
 
 
-Remote method invocation testing
-++++++++++++++++++++++++++++++++
+Test using remote method invocation
++++++++++++++++++++++++++++++++++++
 For a Remote Method Invocation (RMI)-like method, it is only
 necessary to test the method with a basic case and potentially with any edge
 cases. A RMI-like API might send and receive strings that are executed on the
@@ -423,8 +423,8 @@ and integration testing is complete. Ideally, you should run them outside the
 
 
 
-Testing code coverage
----------------------
+Test code coverage
+------------------
 Because Python is an interpreted language, syntax errors can only be
 caught during the almost trivial compile times. Thus, developers of Python libraries
 should aim to have high coverage for their libraries. Coverage is defined as parts
@@ -433,13 +433,13 @@ the `pytest-cov <https://pytest-cov.readthedocs.io/>`_ library to view the
 coverage for your library.
 
 
-Configuring code coverage
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Configure code coverage
+~~~~~~~~~~~~~~~~~~~~~~~
 If you do not configure code coverage properly, the resulting report does
 not show the real scope covered by the test suite.
 
 Assuming that a ``PyAnsys`` project follows :ref:`The \`\`src/\`\` directory` layout,
-you must pass the following flag when :ref:`Running tests`:
+you must pass the following flag when :ref:`Run tests`:
 
 .. code-block:: text
 
@@ -473,8 +473,8 @@ classes, including edge cases, can be reasonably tested. Even parts of your code
 that raise errors like ``TypeError`` or ``ValueError`` when users input the
 wrong data type or value can be reasonably tested.
 
-Code coverage enforcement
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Enforce code coverage
+~~~~~~~~~~~~~~~~~~~~~
 One way of enforcing unit test coverage with a project on GitHub is to use
 ``codecov.io`` to enforce minimum patch (and optionally project) coverage. Because
 this app is already available to the `PyAnsys Organization
@@ -510,8 +510,8 @@ Using a ``codecov.yml`` file requires that each PR has a patch coverage of 90%, 
 source added to the repository (unless ignored) must be covered by unit tests.
 
 
-Testing using GitHub Actions
-----------------------------
+Test using GitHub Actions
+-------------------------
 Effective CI/CD assumes that unit testing is developed during feature
 development or bug fixes. However, given the limited scope of the local
 development environment, it is often not possible to enforce testing on

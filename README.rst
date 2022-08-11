@@ -11,12 +11,13 @@ document for:
 - Anyone who is interested in learning more about the PyAnsys 
   project and PyAnsys libraries
 
-A link to the latest web-based version of this guide is available in the **About**
-area of the repository. In the `Releases
-<https://github.com/pyansys/about/releases>`_ area of the repository, you can
-view information about all releases of this guide. In the **Assets**  area for
-any release, you can download a PDF of the guide for this release.
+This guide describes the PyAnsys project organization and administration.
+It also provides how-to information and summarizes packaging, coding, and
+documentation styles.It concludes with an abstractions section that explains
+how apps and complex services expose functionalities that matter to users and
+hide all else.
 
-This guide provides an overview that describes the PyAnsys project organization,
-project administration, and how to contribute. It also provides guidelines and best
-practices, and it summarizes coding and documentation styles.
+From the **About** area for the repository, you can click the link for the latest web-based
+version of this guide. In the `Releases <https://github.com/pyansys/about/releases>`_
+area, you can view information about all releases of this guide. In the **Assets**  area for
+any release, you can download a PDF of the guide for this release.

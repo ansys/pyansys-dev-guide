@@ -1,15 +1,14 @@
 PEP 8
 =====
-
-This section summarizes the key points from `PEP 8`_ and how they apply to PyAnsys
-libraries. `PEP 8`_ style guideline were devised by the Python community
-to increase the readability of Python code. `PEP 8`_ has been adopted by some of
-the most popular libraries within the Python ecosystem, including: `NumPy`_,
-`SciPy`_, and `pandas`_.
+This section summarizes important coding style guidelines from `PEP 8`_
+and how they apply to PyAnsys libraries. The Python community devised `PEP 8`_ 
+to increase the readability of Python code. Some of the most popular
+packages within the Python ecosystem have adopted `PEP 8`_,
+including `numpy`_, `scipy`_, and `pandas`_.
 
 .. _PEP 8: https://www.python.org/dev/peps/pep-0008/
-.. _NumPy: https://numpy.org/
-.. _SciPy: https://www.scipy.org/
+.. _numpy: https://numpy.org/
+.. _scipy: https://www.scipy.org/
 .. _pandas: https://pandas.pydata.org/
 
 
@@ -56,7 +55,8 @@ For better readability, group imports in this order:
 #. Related third-party imports
 #. Local app-specific or library-specific imports
 
-All imports within each import grouping should be performed in alphabetical order.
+All imports within each import grouping should be performed in alphabetical order
+so that they are easily searchable.
 
 .. tabs::
 
@@ -121,6 +121,27 @@ package.
 
            def compute_logbase8(x):
                return math.log(8, x)
+
+
+Absolute versus relative imports
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+You should use absolute imports over relative imports because they are 
+more readable and reliable.
+
+. tabs::
+
+    .. tab:: Avoid
+
+        .. code-block:: python
+
+           from .core.plotting import general_plotter
+
+    
+    .. tab:: Use
+    
+        .. code-block:: python
+            
+           from ansys.mapdl.core.plotting import general_plotter
 
 
 Import namespaces
@@ -194,9 +215,12 @@ classes. Do not separate words with underscores.
        ...
 
 
-Use a lowercase word or words for Python functions or methods. Separate words
-with underscores to improve readability. When naming class methods, the
-following conventions apply:
+Functions and methods
+~~~~~~~~~~~~~~~~~~~~~
+Use a lowercase word or words when naming Python functions or methods. To
+improve readability, separate words with underscores.
+
+When naming methods, follow these conventions:
 
 - Enclose only `dunder methods`_ with double underscores.
 - Start a method that is to be considered private with double underscores.
@@ -246,8 +270,8 @@ following conventions apply:
 
 Variables
 ~~~~~~~~~
-Use a lowercase single letter, word, or words when naming variables. Separate
-words with underscores to improve readability.
+Use a lowercase single letter, word, or words when naming variables. To improve
+readability, separate words with underscores.
 
 .. code:: python
 
@@ -255,7 +279,7 @@ words with underscores to improve readability.
 
 Constants are variables that are set at the module level and are used by one or
 more methods within that module. Use an uppercase word or words for constants.
-Separate words with underscores to improve readability.
+To improve readability, separate words with underscores.
 
 .. code:: python
 
@@ -290,11 +314,11 @@ Indentation should be used to emphasize:
        """Top-level function docstring."""
        return
 
-For improved readability, add blank lines or wrapping lines. Two
-blank lines should be added before and after all class and function
+To improve readability, add blank lines and wrap lines. You
+should add two blank lines before and after all class and function
 definitions.
 
-Inside a class, use a single line before any method definition.
+Inside a class, add a single blank line before any method definition.
 
 .. code-block:: python
 
@@ -358,7 +382,7 @@ Instead of:
 
 Maximum line length
 -------------------
-For source code lines, best practice is to keep the length at or below
+For source code, best practice is to keep the line length at or below
 100 characters. For docstrings and comments, best practice is to keep
 the length at or below 72 characters.
 
@@ -394,7 +418,7 @@ desired value without breaking the syntax rules.
 Comments
 --------
 Because a PyAnsys library generally involves multiple physics domains,
-users reading its source code do not have the same background as
+people reading its source code do not have the same background as
 the developers who wrote it. This is why it is important for a library
 to have well commented and documented source code. Comments that
 contradict the code are worse than no comments. Always make a priority
@@ -472,8 +496,8 @@ descriptive variable names.
             user_name = "John Smith"
 
 
-Docstring conventions
-~~~~~~~~~~~~~~~~~~~~~
+Docstrings
+~~~~~~~~~~
 A docstring is a string literal that occurs as the first statement in
 a module, function, class, or method definition. A docstring becomes
 the doc special attribute of the object.
@@ -669,7 +693,7 @@ that do the same thing.
             new_temp_k = fahr_to_kelvin(46)
 
 
-This is a trivial example, but the approach can be applied for a
+This is a trivial example, but you can apply this approach for a
 variety of both simple and complex algorithms and workflows. Another
 advantage of this approach is that you can implement unit testing
 for this method.

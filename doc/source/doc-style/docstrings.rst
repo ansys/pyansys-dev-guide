@@ -204,11 +204,11 @@ Consequently, such a method does not have a ``Returns`` section.
 Examples
 --------
 
-The ``Examples`` section provides a quick reference on how to use a method or
-a function. This section must be compliant with the `doctest
-<https://docs.python.org/3/library/doctest.html>`_ format and is not supposed to
-replace your test suite but complement it. As an example,
-consider this function:
+The ``Examples`` section provides one or more small code samples that make usage
+of a method or function clear. They provide an easy place to start when
+trying out the API.
+
+Here is a sample ``Examples`` section from a Python file for PyAEDT.
 
 .. code-block:: rst
 
@@ -223,19 +223,29 @@ consider this function:
    pyaedt info: Active design is set to...
 
 
-If the definition of the function is updated, this
-section must be updated too.
+Code supplied in an ``Examples`` section must be compliant with the
+`doctest <https://docs.python.org/3/library/doctest.html>`_ format. This allows
+the code to be used through `pytest <https://docs.pytest.org/en/latest/>`_ to
+perform regression testing to verify that the code is executing as expected. 
+
+If the definition of a method or function is updated, the code in the ``Examples`` section
+must be updated. Any change within the API without a corresponding change
+in the example code triggers a ``doctest`` failure.
+
+Examples are not meant to replace a test suite but rather complement it. Because
+examples must always match the API that they are documenting, they are an important
+feature of maintainable documentation.
 
 Type hints
 ==========
 
 By default, Sphinx renders `type hints <https://peps.python.org/pep-0484/>`_ as part
-of the function signature. This can become difficult to read, because the signature
+of the function signature. This can become difficult to read because the signature
 becomes very long.
 
 Instead, you should render type hints as part of each parameter's description. To
-accomplish this, you must combine the ``sphinx.ext.autodoc.typehints``, ``sphinx.ext.napoleon``, and
-``numpydoc`` extensions in the ``conf.py`` file:
+accomplish this, you must combine the ``sphinx.ext.autodoc.typehints``, ``sphinx.ext.napoleon``,
+and ``numpydoc`` extensions in the ``conf.py`` file:
 
 .. code:: python
 

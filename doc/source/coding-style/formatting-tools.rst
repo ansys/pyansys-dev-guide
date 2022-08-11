@@ -104,8 +104,8 @@ Code coverage indicates the percentage of the codebase tested by the test
 suite. Code coverage should be as high as possible to guarantee that every piece
 of code has been tested.
 
-For ``PyAnsys``, code coverage is done using `pytest-cov`_, a `pytest`_ plugin
-that triggers the code coverage analysis once your test suite has executed.
+For PyAnsys libraries, code coverage is done using `pytest-cov`_, a `pytest`_ plugin
+that triggers code coverage analysis once your test suite has executed.
 
 Considering the layout presented in :ref:`Required files`, the following
 configuration for code coverage is the minimum one required for a ``PyAnsys``
