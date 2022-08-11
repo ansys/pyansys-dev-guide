@@ -181,7 +181,7 @@ Documentation in the form of PDF and HTML files are also considered artifacts.
 
 Manual release processes are discouraged and should be avoided. Automated
 release processes minimize human-error and alleviate workload on teams. For more
-information, see :ref:`Automate release process`.
+information, see :ref:`Automate the release process`.
 
 
 Publish privately on PyPI
