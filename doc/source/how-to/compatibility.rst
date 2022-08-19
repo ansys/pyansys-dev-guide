@@ -35,7 +35,7 @@ Most Ansys products provide forwards compatibility, meaning that whatever featur
 introduced in a previous version, is typically supported in upcoming versions
 as well. In case that a feature was decided to be suppressed, this would lead to
 backwards compatibility issues. The same would happen with the PyAnsys servers wrapping
-the Ansys products. Thus, for this cases, it would also be necessary to create a
+the Ansys products. Thus, for this case, it would also be necessary to create a
 similar data structure, but in this case for a **maximum version**. Though there are
 no implementations yet of this feature, the way it should work would be analogous to
 the way the **minimum version** mechanism does.
