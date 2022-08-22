@@ -43,8 +43,8 @@ in the same way as the minimum version mechanism works.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The ``@version_requires`` decorator applies version logic to the different
 functionalities and methods available in the client. You can see how this
-decorator is used in the `PyMAPDL check_version.py module`_ and
-`PyDPF-Core check_version.py module`_. Here is a generalized example:
+decorator is used in `ansys/mapdl/core/check_version.py`_ and
+`ansys/dpf/core/check_version.py`_. Here is a generalized example:
 
 
 .. code:: python
