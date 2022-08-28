@@ -52,8 +52,8 @@ ecosystem. Examples include:
 
 Contributing to this guide
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-If you would like to contribute to this development guide, maintainers will gladly 
-review your pull requests. Please follow the :ref:`Documentation style`.
+If you would like to contribute to this development guide, maintainers gladly 
+review all pull requests. Please follow the :ref:`Documentation style`.
 
 This repository uses the `pre-commit <https://pre-commit.com/>`_ library to
 automate style checking. To use it, enter your Python environment and install
