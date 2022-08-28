@@ -1,0 +1,44 @@
+.. _componentization:
+
+Componentizing Ansys packages
+=============================
+
+API creation will naturally align to publishing packages that mimic the scope of existing 
+Ansys products. Componentization is the process of subdividing the functionality of large 
+applications into multiple self-contained services with independent APIs. The 
+componentization of Ansys solvers and tools within product verticals enables prescribed 
+packaging options that significantly improves the developer experience. An Ansys-wide 
+holistic approach to API abstraction will lead to smaller component libraries and 
+services that are more compatible and reusable across the entire Ansys portfolio.
+
+Many Ansys products already have a scripting solution in place, and wrapping that execution 
+environment with a '''RunScript''' API endpoint is a low-barrier option to gain access to 
+remote, programmatic execution. This solution lacks API granularity, as the abstraction is 
+simply an unvalidated script input and some blob output that must be parsed and evaluated 
+without a prescribed response definition. Each script execution request could be doing 
+anything within the application, so there remains a significant cognitive disconnect when 
+consuming this API abstraction. In addition to API clarity, the underlying product keeps a 
+very large installation footprint that is a burden in modern, flexible cloud deployments. 
+Avoiding rearchitecting a product in the short-term can give a quick win, but in most cases 
+should only be used as a stopgap solution, providing a window of opportunity to learn more 
+about how the user prefers to consume the individual functionalities of a product.
+
+Creating well-architected component libraries maximizes product usage with these key benefits:
+
+- :ref:'API quality'
+- :ref:'Package size reduction'
+- :ref:'Product compatibility and composibility'
+- :ref:'Optimized on-demand user solution deployments'
+
+API quality
+~~~~~~~~~~~
+
+Package size reduction
+~~~~~~~~~~~~~~~~~~~~~~
+
+Product compatibility and composibility
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Optimized on-demand user solution deployments
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
