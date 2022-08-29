@@ -39,7 +39,7 @@ Discuss:
 - Object-oriented developer experience
 - Separation of concern from underlying service implementation
 - Top-level documentation
-- Developer driven control of Data
+- Developer-driven control of data
 
 Package size reduction
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -59,7 +59,7 @@ Discuss:
 - Data transfer compatibility between high-level APIs vs separate desktop installations
 - Working with individual components from multiple existing products
 - Organizing common functionality to share across the portfolio (meshing, geometry modeling, materials, etc)
-- Easier compatibility with 3rd party tools outside a walled installation
+- Easier compatibility with third party tools outside a walled installation
 
 
 Optimized, on-demand user solutions
