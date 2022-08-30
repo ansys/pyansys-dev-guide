@@ -2,15 +2,18 @@
 Overview
 ########
 
-Through the PyAnsys project, Ansys provides Python libraries that
-expose Ansys technologies to the Python ecosystem. These libraries
-are more than reusable scripts. They are clear, concise, and
-maintainable APIs and interfaces. Their useful functions, classes,
-and plugins eliminate the need to write scripts interfacing with low
-level APIs, allowing you to now interact with the product or service
-at a high level in an object-orientated manner.
+The PyAnsys project exposes Ansys technologies via libraries in the 
+Python ecosystem. Each library provides clear, concise, and
+maintainable APIs. Useful Pythonic functions, classes, and plugins 
+allow users to interact with targeted products and services in a 
+high-level, object-orientated approach.
 
-These libraries play a vital role in:
+The PyAnsys ecosystem refines the :doc:`component-level interaction 
+with Ansys solvers and tools <componentization>`, and eliminates the 
+inconsistent and restrictive scripting environments found within product 
+installations.
+
+These component libraries play a vital role in:
 
 - Application automation
 - Machine learning
@@ -41,6 +44,7 @@ ecosystem. Examples include:
 
    basic
    administration
+   componentization
 
 .. _PyAEDT: https://github.com/pyansys/PyAEDT
 .. _PyMAPDL: https://github.com/pyansys/pymapdl
@@ -48,9 +52,8 @@ ecosystem. Examples include:
 
 Contributing to this guide
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-If you would like to contribute to this development guide, maintainers gladly review
-your pull requests. Feel free to submit them, following the
-:ref:`Documentation style`.
+If you would like to contribute to this development guide, maintainers gladly 
+review all pull requests. Please follow the :ref:`Documentation style`.
 
 This repository uses the `pre-commit <https://pre-commit.com/>`_ library to
 automate style checking. To use it, enter your Python environment and install
