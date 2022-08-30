@@ -12,7 +12,7 @@ apart larger monolithic desktop applications into subsets of functionality, with
 expectation of compatibility and reusability across the entire Ansys portfolio.
 
 Many Ansys products already have a scripting solution in place, and wrapping that execution 
-environment with a '''RunScript''' API endpoint is a low-barrier option to gain access to 
+environment with a ``RunScript`` API endpoint is a low-barrier option to gain access to 
 remote, programmatic execution. This solution lacks API granularity, as the abstraction is 
 simply an unvalidated script input and some blob output that must be parsed and evaluated 
 without a prescribed response definition. The documentation for the scripting environment 
