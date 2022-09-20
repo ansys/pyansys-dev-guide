@@ -27,9 +27,9 @@ There are multiple ways to install a Python package on your local machine:
     Ensure that you install Python from an official channel. Do not trust
     third-party websites or download executable content from them.
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: Windows
+    .. tab-item:: Windows
 
         To install Python on a machine running Windows:
         
@@ -38,7 +38,7 @@ There are multiple ways to install a Python package on your local machine:
            Windows <https://docs.python.org/3/using/windows.html>`_ for
            detailed installation instructions.
 
-    .. group-tab:: macOS
+    .. tab-item:: macOS
 
         To install Python on a machine running the macOS:
         
@@ -52,7 +52,7 @@ There are multiple ways to install a Python package on your local machine:
             It is likely that your macOS distribution already comes with some
             version of Python installed. For more information, see :ref:`Verification`.
 
-    .. group-tab:: Linux/UNIX
+    .. tab-item:: Linux/UNIX
 
         To install Python on a machine running Linux/UNIX:
         
@@ -71,31 +71,31 @@ Verification
 ~~~~~~~~~~~~
 Once your Python installation is complete, verify it with:
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: Windows
+    .. tab-item:: Windows
 
-        .. tabs::
+        .. tab-set::
 
-            .. group-tab:: CMD
-
-                .. code-block:: text
-
-                    py --version
-
-            .. group-tab:: PowerShell
+            .. tab-item:: CMD
 
                 .. code-block:: text
 
                     py --version
 
-    .. group-tab:: macOS
+            .. tab-item:: PowerShell
+
+                .. code-block:: text
+
+                    py --version
+
+    .. tab-item:: macOS
 
         .. code-block:: text
 
             python --version
 
-    .. group-tab:: Linux/UNIX
+    .. tab-item:: Linux/UNIX
 
         .. code-block:: text
 
@@ -118,31 +118,31 @@ Check
 Before creating a new virtual environment, you must run this code to see if you are already
 working with one:
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: Windows
+    .. tab-item:: Windows
 
-        .. tabs::
+        .. tab-set::
 
-            .. group-tab:: CMD
-
-                .. code-block:: text
-
-                    where.exe python
-
-            .. group-tab:: PowerShell
+            .. tab-item:: CMD
 
                 .. code-block:: text
 
                     where.exe python
 
-    .. group-tab:: macOS
+            .. tab-item:: PowerShell
+
+                .. code-block:: text
+
+                    where.exe python
+
+    .. tab-item:: macOS
 
         .. code-block:: text
 
             which python
 
-    .. group-tab:: Linux/UNIX
+    .. tab-item:: Linux/UNIX
 
         .. code-block:: text
 
@@ -159,31 +159,31 @@ Create
 Usually, virtual environments are named ``venv`` or ``.venv``.
 You can create a virtual environment named `<venv>` with:
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: Windows
+    .. tab-item:: Windows
 
-        .. tabs::
+        .. tab-set::
 
-            .. group-tab:: CMD
-
-                .. code-block:: text
-
-                    py -m venv <venv>
-
-            .. group-tab:: PowerShell
+            .. tab-item:: CMD
 
                 .. code-block:: text
 
                     py -m venv <venv>
 
-    .. group-tab:: macOS
+            .. tab-item:: PowerShell
+
+                .. code-block:: text
+
+                    py -m venv <venv>
+
+    .. tab-item:: macOS
 
         .. code-block:: text
 
             python -m venv <venv>
 
-    .. group-tab:: Linux/UNIX
+    .. tab-item:: Linux/UNIX
 
         .. code-block:: text
             
@@ -193,31 +193,31 @@ Activate
 ~~~~~~~~
 You would activate the preceding virtual environment with:
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: Windows
+    .. tab-item:: Windows
 
-        .. tabs::
+        .. tab-set::
 
-            .. group-tab:: CMD
+            .. tab-item:: CMD
 
                 .. code-block:: text
 
                     <venv>\Scripts\activate.bat
 
-            .. group-tab:: PowerShell
+            .. tab-item:: PowerShell
 
                 .. code-block:: text
 
                     <venv>\Scripts\Activate.ps1
 
-    .. group-tab:: macOS
+    .. tab-item:: macOS
 
         .. code-block:: text
 
             source <venv>/bin/activate
 
-    .. group-tab:: Linux/UNIX
+    .. tab-item:: Linux/UNIX
 
         .. code-block:: text
 
@@ -227,31 +227,31 @@ Deactivate
 ~~~~~~~~~~
 You would deactivate a virtual environment with:
 
-.. tabs:: 
+.. tab-set:: 
 
-    .. group-tab:: Windows
+    .. tab-item:: Windows
 
-        .. tabs::
+        .. tab-set::
 
-            .. group-tab:: CMD
-
-                .. code-block:: text
-
-                    deactivate
-
-            .. group-tab:: PowerShell
+            .. tab-item:: CMD
 
                 .. code-block:: text
 
                     deactivate
 
-    .. group-tab:: macOS
+            .. tab-item:: PowerShell
+
+                .. code-block:: text
+
+                    deactivate
+
+    .. tab-item:: macOS
 
         .. code-block:: text
 
             deactivate
 
-    .. group-tab:: Linux/UNIX
+    .. tab-item:: Linux/UNIX
 
         .. code-block:: text
 
@@ -275,23 +275,23 @@ software's evolution is available.
 Installation
 ~~~~~~~~~~~~
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: Windows
+    .. tab-item:: Windows
 
         To install Git on a machine running Windows:
         
         1. Download the `latest stable standalone Git version for Windows <https://git-scm.com/download/win>`_.
         2. Execute the installer and follow the installation instructions.
 
-    .. group-tab:: macOS
+    .. tab-item:: macOS
 
         To install Git on a machine running the macOS:
         
         1. Check the `latest stable Git version for macOS <https://git-scm.com/download/mac>`_.
         2. Run the installation command for your package manager.
 
-    .. group-tab:: Linux/UNIX
+    .. tab-item:: Linux/UNIX
 
         To install Git on a machine running Linux/UNIX:
         
@@ -303,31 +303,31 @@ Verification
 ~~~~~~~~~~~~
 Once your installation process is complete, verify your Git installation with:
 
-.. tabs:: 
+.. tab-set:: 
 
-    .. group-tab:: Windows
+    .. tab-item:: Windows
 
-        .. tabs::
+        .. tab-set::
 
-            .. group-tab:: CMD
-
-                .. code-block:: text
-
-                    git --version
-
-            .. group-tab:: PowerShell
+            .. tab-item:: CMD
 
                 .. code-block:: text
 
                     git --version
 
-    .. group-tab:: macOS
+            .. tab-item:: PowerShell
+
+                .. code-block:: text
+
+                    git --version
+
+    .. tab-item:: macOS
 
         .. code-block:: text
 
             git --version
 
-    .. group-tab:: Linux/UNIX
+    .. tab-item:: Linux/UNIX
 
         .. code-block:: text
 
@@ -411,9 +411,9 @@ your system.
 
 Each one of these files can look like this:
 
-.. tabs::
+.. tab-set::
 
-    .. tab:: .gitconfig
+    .. tab-item:: .gitconfig
 
         .. code-block:: text
 
@@ -424,7 +424,7 @@ Each one of these files can look like this:
               path = path/to/.gitconfig-personal
 
 
-    .. tab:: .gitconfig-ansys
+    .. tab-item:: .gitconfig-ansys
 
         .. code-block:: text
 
@@ -435,7 +435,7 @@ Each one of these files can look like this:
               signingkey = <Ansys GPG Key>
 
 
-    .. tab:: .gitconfig-personal
+    .. tab-item:: .gitconfig-personal
 
         .. code-block:: text
 

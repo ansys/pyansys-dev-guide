@@ -247,13 +247,13 @@ Upload to private PyPI using the command line
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Alternatively, instead of command-line tool arguments for Twine, you can use environment variables:
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: Windows
+    .. tab-item:: Windows
 
-        .. tabs::
+        .. tab-set::
 
-            .. group-tab:: CMD
+            .. tab-item:: CMD
 
                 .. code-block:: text
 
@@ -261,7 +261,7 @@ Alternatively, instead of command-line tool arguments for Twine, you can use env
                     set TWINE_PASSWORD=<PYANSYS_PYPI_PRIVATE_PAT>
                     set TWINE_REPOSITORY_URL=https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload
 
-            .. group-tab:: PowerShell
+            .. tab-item:: PowerShell
 
                 .. code-block:: text
 
@@ -269,7 +269,7 @@ Alternatively, instead of command-line tool arguments for Twine, you can use env
                     $env:TWINE_PASSWORD=<PYANSYS_PYPI_PRIVATE_PAT>
                     $env:TWINE_REPOSITORY_URL=https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload
 
-    .. group-tab:: macOS
+    .. tab-item:: macOS
 
         .. code-block:: text
 
@@ -277,7 +277,7 @@ Alternatively, instead of command-line tool arguments for Twine, you can use env
             export TWINE_PASSWORD=<PYANSYS_PYPI_PRIVATE_PAT>
             export TWINE_REPOSITORY_URL="https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload"
 
-    .. group-tab:: Linux/UNIX
+    .. tab-item:: Linux/UNIX
 
         .. code-block:: text
 
@@ -297,13 +297,13 @@ Download
 ++++++++
 You can download a Python package from `PyAnsys PyPI`_ by running:
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: Windows
+    .. tab-item:: Windows
 
-        .. tabs::
+        .. tab-set::
 
-            .. group-tab:: CMD
+            .. tab-item:: CMD
 
                 .. code-block:: bat
 
@@ -313,7 +313,7 @@ You can download a Python package from `PyAnsys PyPI`_ by running:
                     --index-url %INDEX_URL% \
                     --no-dependencies
 
-            .. group-tab:: PowerShell
+            .. tab-item:: PowerShell
 
                 .. code-block:: powershell
 
@@ -323,7 +323,7 @@ You can download a Python package from `PyAnsys PyPI`_ by running:
                     --index-url $env:INDEX_URL \
                     --no-dependencies
 
-    .. group-tab:: macOS
+    .. tab-item:: macOS
 
         .. code-block:: text
 
@@ -333,7 +333,7 @@ You can download a Python package from `PyAnsys PyPI`_ by running:
             --index-url $INDEX_URL \
             --no-dependencies
 
-    .. group-tab:: Linux/UNIX
+    .. tab-item:: Linux/UNIX
 
         .. code-block:: text
 

@@ -39,9 +39,9 @@ Requirements for testing dependencies should be included either in :ref:`The
 must be specified as third-party dependencies because``unittest`` is included
 in `The Python Standard Library <https://docs.python.org/3/library/>`_.
 
-.. tabs::
+.. tab-set::
 
-    .. tab:: Flit
+    .. tab-item:: Flit
 
         .. code-block:: toml
 
@@ -51,7 +51,7 @@ in `The Python Standard Library <https://docs.python.org/3/library/>`_.
                 "pytest-cov",
             ]
 
-    .. tab:: Poetry
+    .. tab-item:: Poetry
 
         .. code-block:: toml
 
@@ -59,7 +59,7 @@ in `The Python Standard Library <https://docs.python.org/3/library/>`_.
             pytest = "*"
             pytest-cov = "*"
 
-    .. tab:: Setuptools
+    .. tab-item:: Setuptools
 
         .. code-block:: python
 
@@ -71,7 +71,7 @@ in `The Python Standard Library <https://docs.python.org/3/library/>`_.
                 },
             )
 
-    .. tab:: Requirements
+    .. tab-item:: Requirements
 
         .. code-block:: text
 
@@ -81,15 +81,15 @@ in `The Python Standard Library <https://docs.python.org/3/library/>`_.
 
 These dependencies can be installed using ``pip``:
 
-.. tabs::
+.. tab-set::
 
-    .. tab:: From setup.py or pyproject.toml
+    .. tab-item:: From setup.py or pyproject.toml
 
         .. code-block:: text
 
             python -m pip install .[test]
 
-    .. tab:: From requirements_tests.txt
+    .. tab-item:: From requirements_tests.txt
 
         .. code-block:: text
 
@@ -185,9 +185,9 @@ These tests should be written to test a single method in isolation. For
 example, if you have a method that deserializes chunks, the associated test
 file would be:
 
-.. tabs:: 
+.. tab-set:: 
 
-    .. tab:: parse_chunks.py
+    .. tab-item:: parse_chunks.py
     
         .. code-block:: python
            
@@ -216,7 +216,7 @@ file would be:
         
                 return np.hstack(arrays)
     
-    .. tab:: test_parse_chunks.py
+    .. tab-item:: test_parse_chunks.py
     
         .. code-block:: python
         
@@ -281,9 +281,9 @@ Python function. If the Python library wraps this gRPC method with a
 ``tests/test_nodes.py``:
 
 
-.. tabs::
+.. tab-set:::
 
-    .. tab:: gRPC Code
+    .. tab-item:: gRPC Code
 
         .. code-block:: rust
         
@@ -309,7 +309,7 @@ Python function. If the Python library wraps this gRPC method with a
              // other methods
            }
 
-    .. tab:: Python Code
+    .. tab-item:: Python Code
 
         .. code-block:: python
         
@@ -342,7 +342,7 @@ Python function. If the Python library wraps this gRPC method with a
                return resp.x, resp.y, resp.z
 
 
-    .. tab:: Unit Test
+    .. tab-item:: Unit Test
 
         .. code-block:: python
         
@@ -370,15 +370,15 @@ service.
 For example, if a method has a RMI service definition named ``SendCommand()`` and
 a Python wrapping named ``send_command``, the example test would be:
 
-.. tabs::
+.. tab-set::
 
-    .. tab:: gRPC Code
+    .. tab-item:: gRPC Code
 
         .. code-block:: rust
         
            message SendCommand()
 
-    .. tab:: Python Code
+    .. tab-item:: Python Code
 
         .. code-block:: python
         
@@ -392,7 +392,7 @@ a Python wrapping named ``send_command``, the example test would be:
         
                """
 
-    .. tab:: Unit Test
+    .. tab-item:: Unit Test
     
         .. code-block:: python
         

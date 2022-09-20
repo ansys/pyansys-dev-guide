@@ -76,9 +76,9 @@ Each documentation section has its own ``index.rst`` file, as shown by the prece
 figure. The documentation layout can be modeled using the following code in
 each one of the ``index.rst`` files.
 
-.. tabs::
+.. tab-set::
 
-    .. tab:: index.rst
+    .. tab-item:: index.rst
 
         .. code-block:: rst
 
@@ -92,7 +92,7 @@ each one of the ``index.rst`` files.
                 section_A/index
                 section_B/index
 
-    .. tab:: section_A/index.rst
+    .. tab-item:: section_A/index.rst
 
         .. code-block:: rst
 
@@ -107,7 +107,7 @@ each one of the ``index.rst`` files.
                 section_2
                 ...
 
-    .. tab:: section_B/index.rst
+    .. tab-item:: section_B/index.rst
 
         .. code-block:: rst
 
@@ -228,9 +228,9 @@ Manually generate documentation
 To describe 'why' and 'how' you use a class within :ref:`RST files`, use the
 ``code-block`` directive:
 
-.. tabs::
+.. tab-set::
 
-    .. tab:: Doc Source Code
+    .. tab-item:: Doc Source Code
 
         .. code-block:: rst
 
@@ -244,7 +244,7 @@ To describe 'why' and 'how' you use a class within :ref:`RST files`, use the
                >>> my_obj.parm1
                'apple'
 
-    .. tab:: Rendered Doc
+    .. tab-item:: Rendered Doc
 
         Initialize ``my_module.MyClass`` with initial parameters. These
         parameters are automatically assigned to the class.
@@ -266,16 +266,16 @@ sections, see  :ref:`Numpydoc docstrings`.
 For simple classes, use the ``autoclass`` directive:
 
 
-.. tabs::
+.. tab-set::
 
-    .. tab:: Doc Source Code
+    .. tab-item:: Doc Source Code
 
         .. code-block:: rst
 
             .. autoclass:: ansys_sphinx_theme.samples.ExampleClass
                :members:
 
-    .. tab:: Rendered Doc
+    .. tab-item:: Rendered Doc
 
         .. autoclass:: ansys_sphinx_theme.samples.ExampleClass
             :members:
@@ -284,9 +284,9 @@ For simple classes, use the ``autoclass`` directive:
 For complex classes with many methods, use the
 ``autosummary`` directive:
 
-.. tabs::
+.. tab-set::
 
-    .. tab:: Doc Source Code
+    .. tab-item:: Doc Source Code
 
         .. code-block:: rst
 
@@ -299,7 +299,7 @@ For complex classes with many methods, use the
                ansys_sphinx_theme.samples.Complex.imag
                ansys_sphinx_theme.samples.Complex.abs
 
-    .. tab:: Rendered Doc
+    .. tab-item:: Rendered Doc
 
         .. autoclass:: ansys_sphinx_theme.samples.Complex
 
@@ -354,15 +354,15 @@ Build HTML documentation
 ~~~~~~~~~~~~~~~~~~~~~~~~
 You build ``HTML`` documentation with:
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: Makefile
+    .. tab-item:: Makefile
 
         .. code-block:: bash
 
             make html
 
-    .. group-tab:: make.bat
+    .. tab-item:: make.bat
 
         .. code-block:: bash
 
@@ -382,9 +382,9 @@ Build PDF documentation
 To  build ``PDF`` documentation, the following rules must be added to
 ``Makefile`` and ``make.bat`` files:
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: Makefile
+    .. tab-item:: Makefile
 
         .. code-block:: text
 
@@ -393,7 +393,7 @@ To  build ``PDF`` documentation, the following rules must be added to
 	            cd build/latex && latexmk -r latexmkrc -pdf *.tex -interaction=nonstopmode || true
 	            (test -f build/latex/*.pdf && echo pdf exists) || exit 1
 
-    .. group-tab:: make.bat
+    .. tab-item:: make.bat
 
         .. code-block:: text
 
@@ -404,15 +404,15 @@ To  build ``PDF`` documentation, the following rules must be added to
 
 You can call previous rules by running:
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: Makefile
+    .. tab-item:: Makefile
 
         .. code-block:: bash
 
             make pdf
 
-    .. group-tab:: make.bat
+    .. tab-item:: make.bat
 
         .. code-block:: bash
 
@@ -449,9 +449,9 @@ Your documentation workflow should be in the ``.github/workflows``
 directory and should be triggered on each PR. It should use one of the
 following approaches:
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: Using ``tox``
+    .. tab-item:: Using ``tox``
 
         The best way to get started with ``tox`` is to use the `ansys-templates`_ tool and run:
 
@@ -478,7 +478,7 @@ following approaches:
                 - name: Generate the documentation with tox
                   run: tox -e doc
 
-    .. group-tab:: Without using ``tox``
+    .. tab-item:: Without using ``tox``
 
         While `tox`_ is the preferred tool for automating your documentation build, if
         you want to avoid using `tox`_, consider the following workflow:
@@ -512,9 +512,9 @@ Your next step would be to upload the documentation artifact. Assuming your
 documentation is written to ``doc/_build/html``, upload your documentation
 with:
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: Using ``tox``
+    .. tab-item:: Using ``tox``
 
         .. code-block:: yaml
 
@@ -525,7 +525,7 @@ with:
                 path: .tox/doc_out/
                 retention-days: 7
 
-    .. group-tab:: Without using ``tox``
+    .. tab-item:: Without using ``tox``
 
         .. code-block:: yaml
 
@@ -557,9 +557,9 @@ The following job step shows the logic for deploying. If you want to deploy to
 another repository, make sure to uncomment the ``repository-name`` line and
 declare the name of your documentation repository:
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: Using ``tox``
+    .. tab-item:: Using ``tox``
 
         .. code-block:: yaml
 
@@ -573,7 +573,7 @@ declare the name of your documentation repository:
                 folder: .tox/doc_out
                 clean: true
 
-    .. group-tab:: Without using ``tox``
+    .. tab-item:: Without using ``tox``
 
         .. code-block:: yaml
 
@@ -623,9 +623,9 @@ some repositories and can be used for this purpose.
 Once your repository has been added to the white-list for the bot repositories, you must
 add the following code to your CICD YAML file for the authentication:
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: Using ``tox``
+    .. tab-item:: Using ``tox``
 
         .. code-block:: yaml
 
@@ -638,7 +638,7 @@ add the following code to your CICD YAML file for the authentication:
               application_private_key: ${{ secrets.BOT_APPLICATION_PRIVATE_KEY }}
 
 
-    .. group-tab:: Without using ``tox``
+    .. tab-item:: Without using ``tox``
 
         .. code-block:: yaml
 
@@ -653,9 +653,9 @@ add the following code to your CICD YAML file for the authentication:
 
 Additionally, you must add the following code for the documentation deployment:
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: Using ``tox``
+    .. tab-item:: Using ``tox``
 
         .. code-block:: yaml
 
@@ -669,7 +669,7 @@ Additionally, you must add the following code for the documentation deployment:
                 folder: .tox/doc_out
                 clean: true
 
-    .. group-tab:: Without using ``tox``
+    .. tab-item:: Without using ``tox``
 
         .. code-block:: yaml
 
@@ -721,9 +721,9 @@ Paste the value of the token in the ``Settings/Secrets/Actions`` path under a
 new secret named ``DEPLOY_DOCS_PAT`` in the repository of the project. Use this
 secret in your CI/CD:
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: Using ``tox``
+    .. tab-item:: Using ``tox``
 
         .. code-block:: yaml
 
@@ -737,7 +737,7 @@ secret in your CI/CD:
                 folder: .tox/doc_out
                 clean: true
 
-    .. group-tab:: Without using ``tox``
+    .. tab-item:: Without using ``tox``
 
         .. code-block:: yaml
 
