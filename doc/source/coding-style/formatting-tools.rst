@@ -204,13 +204,13 @@ Configuration for `tox`_ is stored in a ``tox.ini`` file. The minimum
 configuration for a PyAnsys ``py<product>-<library>`` project should be:
 
 
-.. tabs::
+.. tab-set::
 
-    .. tab:: Tox with Flit
+    .. tab-item:: Tox with Flit
 
         .. include:: code/tox-flit.rst
 
-    .. tab:: Tox with Poetry
+    .. tab-item:: Tox with Poetry
 
         .. include:: code/tox-poetry.rst
 

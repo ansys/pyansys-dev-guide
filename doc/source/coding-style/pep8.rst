@@ -25,9 +25,9 @@ might only be discovered during runtime.
 
 .. _ImportError: https://docs.python.org/3/library/exceptions.html#ImportError
 
-.. tabs::
+.. tab-set::
 
-   .. tab:: Avoid
+   .. tab-item:: Avoid
 
       .. code-block:: python
 
@@ -36,7 +36,7 @@ might only be discovered during runtime.
 
              return math.log(8, x)
 
-   .. tab:: Use
+   .. tab-item:: Use
 
       .. code-block:: python
 
@@ -58,9 +58,9 @@ For better readability, group imports in this order:
 All imports within each import grouping should be performed in alphabetical order
 so that they are easily searchable.
 
-.. tabs::
+.. tab-set::
 
-   .. tab:: Avoid
+   .. tab-item:: Avoid
 
       .. code-block:: python
 
@@ -74,7 +74,7 @@ so that they are easily searchable.
              return math.log(8, x)
 
 
-   .. tab:: Use
+   .. tab-item:: Use
 
       .. code-block:: python
 
@@ -94,9 +94,9 @@ Multiple imports
 You should place imports in separate lines unless they are modules from the same
 package.
 
-.. tabs::
+.. tab-set::
 
-    .. tab:: Avoid
+    .. tab-item:: Avoid
 
         .. code-block:: python
         
@@ -109,7 +109,7 @@ package.
            def compute_logbase8(x):
                return math.log(8, x)
     
-    .. tab:: Use
+    .. tab-item:: Use
     
         .. code-block:: python
         
@@ -128,16 +128,16 @@ Absolute versus relative imports
 You should use absolute imports over relative imports because they are 
 more readable and reliable.
 
-. tabs::
+. tab-set::
 
-    .. tab:: Avoid
+    .. tab-item:: Avoid
 
         .. code-block:: python
 
            from .core.plotting import general_plotter
 
     
-    .. tab:: Use
+    .. tab-item:: Use
     
         .. code-block:: python
             
@@ -151,15 +151,15 @@ difficult to detect undefined names. For more information, see `Python
 Anti-Patterns: using wildcard imports
 <(https://docs.quantifiedcode.com/python-anti-patterns/maintainability/from_module_import_all_used.html>`_.
 
-.. tabs::
+.. tab-set::
 
-    .. tab:: Avoid
+    .. tab-item:: Avoid
     
         .. code-block:: python
         
             from my_package.my_module import *
     
-    .. tab:: Use
+    .. tab-item:: Use
     
         .. code-block:: python
         
@@ -338,9 +338,9 @@ is starting, use a blank line to separate logical sections.
 
 Instead of:
 
-.. tabs::
+.. tab-set::
 
-    .. tab:: Avoid
+    .. tab-item:: Avoid
     
         .. code-block:: python
         
@@ -362,7 +362,7 @@ Instead of:
         
                print("x is a positive single digit.")
     
-    .. tab:: Use
+    .. tab-item:: Use
     
         .. code-block:: python
         
@@ -391,15 +391,15 @@ on some terminals and tools or might be difficult to follow. For example,
 this line is difficult to follow:
 
 
-.. tabs::
+.. tab-set::
 
-    .. tab:: Avoid
+    .. tab-item:: Avoid
 
         .. code:: python
 
             employee_hours = [schedule.earliest_hour for employee in self.public_employees for schedule in employee.schedules]
 
-    .. tab:: Use
+    .. tab-item:: Use
 
         .. code-block:: python
         
@@ -481,15 +481,15 @@ avoided:
 Focus on writing self-documenting code and using short but
 descriptive variable names.  
 
-.. tabs::
+.. tab-set::
 
-    .. tab:: Avoid
+    .. tab-item:: Avoid
 
         .. code:: python
         
            x = "John Smith"  # Student Name
 
-    .. tab:: Use
+    .. tab-item:: Use
     
         .. code:: python
         
@@ -535,16 +535,16 @@ Booleans and comparisons
 Don't compare Boolean values to ``True`` or ``False`` using the
 equivalence operator.
 
-.. tabs::
+.. tab-set::
 
-    .. tab:: Avoid
+    .. tab-item:: Avoid
 
         .. code-block:: python
         
            if my_bool == True:
                return result
 
-    .. tab:: Use
+    .. tab-item:: Use
 
         .. code-block:: python
         
@@ -555,9 +555,9 @@ Knowing that empty sequences are evaluated to ``False``, don't compare the
 length of these objects but rather consider how they would evaluate
 by using ``bool(<object>)``.
 
-.. tabs::
+.. tab-set::
 
-    .. tab:: Avoid
+    .. tab-item:: Avoid
     
         .. code-block:: python
     
@@ -565,7 +565,7 @@ by using ``bool(<object>)``.
             if not len(my_list):
                 raise ValueError('List is empty')
 
-    .. tab:: Use
+    .. tab-item:: Use
     
         .. code-block:: python
         
@@ -576,16 +576,16 @@ by using ``bool(<object>)``.
 
 In ``if`` statements, use ``is not`` rather than ``not ...``. 
 
-.. tabs::
+.. tab-set::
 
-    .. tab:: Avoid
+    .. tab-item:: Avoid
 
         .. code-block:: python
         
             if not x is None:
                 return x
 
-    .. tab:: Use
+    .. tab-item:: Use
     
         .. code-block:: python
         
@@ -602,9 +602,9 @@ Handling strings
 Use ``.startswith()`` and ``.endswith()`` instead of slicing.
 
 
-.. tabs:: 
+.. tab-set:: 
 
-    .. tab:: Avoid
+    .. tab-item:: Avoid
 
         .. code-block:: python
         
@@ -614,7 +614,7 @@ Use ``.startswith()`` and ``.endswith()`` instead of slicing.
            if file_name[-4:] == ".jpg":
                print("The file is a JPEG.")
 
-    .. tab:: Use
+    .. tab-item:: Use
     
         .. code-block:: python
         
@@ -631,9 +631,9 @@ Never read the Windows registry or write to it because this is dangerous and
 makes it difficult to deploy libraries on different environments or operating
 systems.
 
-.. tabs::
+.. tab-set::
 
-    .. tab:: Avoid
+    .. tab-item:: Avoid
 
         .. code-block:: python
 
@@ -656,9 +656,9 @@ twice, which now requires the developer to maintain two separate lines
 that do the same thing.
 
 
-.. tabs::
+.. tab-set::
 
-    .. tab:: Avoid
+    .. tab-item:: Avoid
     
         .. code-block:: python
         
@@ -669,7 +669,7 @@ that do the same thing.
             new_temp_k = ((temp2 - 32) * (5 / 9)) + 273.15
 
    
-    .. tab:: Use
+    .. tab-item:: Use
     
         .. code-block:: python
         
@@ -751,9 +751,9 @@ certain pitfalls, steer clear of having loops with more than two levels. In
 some cases, you can rely on coding mechanisms like list comprehensions 
 to circumvent nested loops. 
 
-.. tabs::
+.. tab-set::
 
-    .. tab:: Avoid
+    .. tab-item:: Avoid
 
         .. code-block:: python
         
@@ -767,7 +767,7 @@ to circumvent nested loops.
             squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 
 
-    .. tab:: Use
+    .. tab-item:: Use
 
         .. code-block:: python
 
@@ -784,9 +784,9 @@ If the loop is too complicated for creating a list comprehension,
 consider creating small functions and calling these instead. For
 example, to extract all consonants in a sentence:
 
-.. tabs::
+.. tab-set::
 
-    .. tab:: Avoid
+    .. tab-item:: Avoid
     
         .. code-block:: python
         
@@ -803,7 +803,7 @@ example, to extract all consonants in a sentence:
             consonants = ['T', 'h', 's', 's', 's', 'm', 'p', 'l', 's', 'n', 't', 'n', 'c']
     
     
-    .. tab:: Use
+    .. tab-item:: Use
     
         .. code-block:: python
     

@@ -31,6 +31,14 @@ html_theme_options = {
 # necessary for proper breadcrumb title
 html_short_title = html_title = project
 
+html_static_path = ["_static"]
+
+
+html_css_files = [
+    "css/ansys.css",
+]
+
+
 # Sphinx extensions
 extensions = [
     "sphinx_copybutton",
@@ -43,7 +51,7 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinx.ext.todo",
     "sphinxcontrib.mermaid",
-    "sphinx_tabs.tabs",
+    "sphinx_design",
 ]
 
 # Intersphinx mapping

@@ -1,0 +1,28 @@
+@import "../design-style.4045f2051d55cab465a707391d5b2007.min.css";
+@import "../ansys-sphinx-theme.css";
+
+.sd-tab-set>input:not(.focus-visible)+label {
+    outline: none;
+    font-size: large;
+    -webkit-tap-highlight-color: transparent;
+    color: var(--pst-color-text-base);
+}
+
+
+.sd-tab-set>input:checked+label+.sd-tab-content {
+    display: block;
+    font-size: medium;
+}
+
+.sd-tab-set>input:checked+label+.sd-tab-content {
+    display: block;
+    font-size: .9rem;
+}
+
+.sd-tab-content {
+    font-family: var(--pst-font-family-base);
+}
+
+.bd-content .sd-tab-set>input:checked+label, .bd-content .sd-tab-set>input:not(:checked)+label:hover {
+    color: var(--pst-color-text-base);
+}

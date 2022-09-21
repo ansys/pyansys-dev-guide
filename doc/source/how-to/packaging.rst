@@ -29,9 +29,9 @@ in :ref:`The \`\`pyproject.toml\`\` file`, according to the selected :ref:`Build
 system`:
 
 
-.. tabs::
+.. tab-set::
 
-    .. group-tab:: flit
+    .. tab-item:: flit
 
         .. code-block:: toml
 
@@ -42,7 +42,7 @@ system`:
                 ...
             ]
 
-    .. group-tab:: poetry
+    .. tab-item:: poetry
 
         .. code-block:: toml
 
@@ -51,7 +51,7 @@ system`:
             numpy = "*"
             ...
 
-    .. group-tab:: setuptools
+    .. tab-item:: setuptools
 
         .. code-block:: python
 
@@ -105,9 +105,9 @@ Implementing optional packages in the build system
 Here's how to implement and use optional requirements for the three most
 popular build systems:
 
-.. tabs::
+.. tab-set::
 
-   .. group-tab:: flit
+   .. tab-item:: flit
 
       .. code-block:: toml
 
@@ -131,7 +131,7 @@ popular build systems:
 
           pip install package-name --extras=all
 
-   .. group-tab:: poetry
+   .. tab-item:: poetry
 
       .. code-block:: toml
 
@@ -163,7 +163,7 @@ popular build systems:
           poetry install --extras "plotting qt"
 
 
-   .. group-tab:: setuptools
+   .. tab-item:: setuptools
 
       .. code-block:: python
 

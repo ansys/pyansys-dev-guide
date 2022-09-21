@@ -108,9 +108,9 @@ information, see `Using a Matrix for your Jobs
 
 Consider this example of a parametrized workflow example:
 
-.. tabs::
+.. tab-set::
 
-    .. tab:: Workflow File
+    .. tab-item:: Workflow File
 
         .. code-block:: yaml
         
@@ -124,7 +124,7 @@ Consider this example of a parametrized workflow example:
                 steps:
                   - echo 'Running Python ${{ matrix.python }} in ${{ matrix.os }}'
 
-    .. tab:: Actions Log File
+    .. tab-item:: Actions Log File
 
         .. code-block:: text
 
@@ -147,32 +147,32 @@ Workflow examples
 Workflow examples are provided for checking :ref:`Coding style`,
 :ref:`Documenting`, :ref:`Testing`, and :ref:`Automate the release process`.
 
-.. tabs::
+.. tab-set::
 
-    .. tab:: style.yml
+    .. tab-item:: style.yml
         
         .. literalinclude:: code/style.yml     
            :language: yaml
 
-    .. tab:: tests.yml
+    .. tab-item:: tests.yml
         
         .. literalinclude:: code/tests.yml     
            :language: yaml
 
 
-    .. tab:: docs.yml
+    .. tab-item:: docs.yml
         
         .. literalinclude:: code/docs.yml     
            :language: yaml
 
 
-    .. tab:: build.yml
+    .. tab-item:: build.yml
         
         .. literalinclude:: code/build.yml     
            :language: yaml
 
 
-    .. tab:: release.yml
+    .. tab-item:: release.yml
         
         .. literalinclude:: code/release.yml     
            :language: yaml

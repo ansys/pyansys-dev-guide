@@ -1,13 +1,13 @@
-.. tabs::
+.. tab-set::
 
-   .. tab:: setuptools
+   .. tab-item:: setuptools
 
       .. include:: code/pyproject_setuptools_code.rst
 
-   .. tab:: flit
+   .. tab-item:: flit
 
       .. include:: code/pyproject_flit_code.rst
 
-   .. tab:: poetry
+   .. tab-item:: poetry
 
       .. include:: code/pyproject_poetry_code.rst
