@@ -11,7 +11,7 @@
 
 .sd-tab-set>input:checked+label+.sd-tab-content {
     display: block;
-    font-size: large;
+    font-size: medium;
 }
 
 .sd-tab-set>input:checked+label+.sd-tab-content {
