@@ -196,7 +196,7 @@ built using the `Sphinx-Gallery
 follow its `coding guidelines
 <https://sphinx-gallery.github.io/stable/index.html>`_.
 
-Using python, here is the simple example of how to :ref:`ref_example_gallery`
+Using python, here is the simple example of how to :ref:`ref_example_gallery`.
 
 
 Document Python code

@@ -9,7 +9,6 @@ from ansys_sphinx_theme import (
     watermark,
 )
 from ansys_sphinx_theme.latex import generate_preamble
-
 from sphinx_gallery.sorting import FileNameSortKey
 
 # Project information
@@ -54,7 +53,7 @@ extensions = [
     "sphinx.ext.todo",
     "sphinxcontrib.mermaid",
     "sphinx_design",
-    'sphinx_gallery.gen_gallery',
+    "sphinx_gallery.gen_gallery",
 ]
 
 # -- Sphinx Gallery Options ---------------------------------------------------
