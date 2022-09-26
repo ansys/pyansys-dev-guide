@@ -2,13 +2,14 @@
 This is example-script
 ======================
 
-This example doesn't do much, it is addition of elements in a list.
+This example is addition of elements in a list and basic plotting.
 """
 ###############################################################################
 # 1. Creating a List
 # ~~~~~~~~~~~~~~~~~~
 
 print("1. Creating a List")
+# This will print the output in out code cell.
 List = []
 print("Initial blank List: ")
 print(List)
