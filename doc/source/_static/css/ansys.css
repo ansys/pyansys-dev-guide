@@ -26,3 +26,19 @@
 .bd-content .sd-tab-set>input:checked+label, .bd-content .sd-tab-set>input:not(:checked)+label:hover {
     color: var(--pst-color-text-base);
 }
+
+.sd-row-cols-lg-4>* {
+    flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    width: 25%;
+}
+
+.sd-sphinx-override, .sd-sphinx-override * {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: var(--pst-color-background)!important;
+    font-family: var(--pst-font-family-base)!important;
+    font-size: small;
+    color: var(--pst-color-text-base)!important;
+}
