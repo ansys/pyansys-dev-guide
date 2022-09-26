@@ -35,55 +35,32 @@ print("List after Addition of elements from 1-3: ")
 print(List)
 
 ###############################################################################
-# Addition of List to a List
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-print("4. Addition of List to a List")
-List2 = ["Stars", "Moon"]
-List.append(List2)
-print("List after Addition of a List: ")
-print(List)
-
-###############################################################################
-# Addition of Element at specific Position (using Insert Method)
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-print("5. Addition of Element at specific Position (using Insert Method)")
-List.insert(3, 12)
-List2.insert(0, "Terminator")
-print("List after performing Insert Operation: ")
-print(List)
-
-###############################################################################
-# Addition of multiple elements to the List at the end (using Extend Method)
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-print("6. Addition of multiple elements to the List at the end (using Extend Method)")
-List.extend([8, "Diode", "Transistor"])
-print("List after performing Extend Operation: ")
-print(List)
-
-###############################################################################
-# Adding Tuples to the List
-# ~~~~~~~~~~~~~~~~~~~~~~~~~
-print("7. Adding Tuples to the List")
-List.append((5, 6))
-print("List after Addition of a Tuple: ")
-print(List)
-
-
-###############################################################################
-# Plotting sin function
-# ~~~~~~~~~~~~~~~~~~~~~
+# Plotting figure using matplotlib
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 import matplotlib.pyplot as plt
-import numpy as np
 
-# You can use modules local to the example being run, here we import
+# You can use local modules to import for the example being run.
 
-x = np.linspace(0, 2 * np.pi, 100)
-y = np.sin(x)
+# Create Figure and Subplots
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4), sharey=True, dpi=120)
 
-plt.plot(x, y)
-plt.xlabel(r"$x$")
-plt.ylabel(r"$\sin(x)$")
+# Plot
+ax1.plot([1, 2, 3, 4, 5], [1, 2, 3, 4, 10], "go")  # greendots
+ax2.plot([1, 2, 3, 4, 5], [2, 3, 4, 5, 11], "b*")  # bluestart
+
+# Title, X and Y labels, X and Y Lim
+ax1.set_title("Scatterplot Greendots")
+ax2.set_title("Scatterplot Bluestars")
+ax1.set_xlabel("X")
+ax2.set_xlabel("X")  # x label
+ax1.set_ylabel("Y")
+ax2.set_ylabel("Y")  # y label
+ax1.set_xlim(0, 6)
+ax2.set_xlim(0, 6)  # x axis limits
+ax1.set_ylim(0, 12)
+ax2.set_ylim(0, 12)  # y axis limits
+
+# ax2.yaxis.set_ticks_position('none')
+plt.tight_layout()
 plt.show()
