@@ -75,6 +75,8 @@ instance/
 
 # Sphinx documentation
 doc/_build/
+doc/source/_automodule/examples/
+doc/source/examples/gallery_examples
 
 # PyBuilder
 .pybuilder/

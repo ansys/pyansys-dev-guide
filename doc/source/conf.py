@@ -10,6 +10,8 @@ from ansys_sphinx_theme import (
 )
 from ansys_sphinx_theme.latex import generate_preamble
 
+from sphinx_gallery.sorting import FileNameSortKey
+
 # Project information
 project = "PyAnsys Developer's Guide"
 copyright = f"(c) {datetime.now().year} ANSYS, Inc. All rights reserved"
@@ -55,8 +57,28 @@ extensions = [
     'sphinx_gallery.gen_gallery',
 ]
 
+# -- Sphinx Gallery Options ---------------------------------------------------
 sphinx_gallery_conf = {
-     'examples_dirs': 'examples',   # path to your example scripts
+    # convert rst to md for ipynb
+    "pypandoc": True,
+    # path to your examples scripts
+    "examples_dirs": ["examples"],  # ["../../examples/"],
+    # path where to save gallery generated examples
+    "gallery_dirs": ["_automodule/examples"],
+    # Patter to search for example files
+    "filename_pattern": r"\.py",
+    # Remove the "Download all examples" button from the top level gallery
+    "download_all_examples": False,
+    # Sort gallery example by file name instead of number of lines (default)
+    "within_subsection_order": FileNameSortKey,
+    # directory where function granular galleries are stored
+    "backreferences_dir": None,
+    # Modules for which function level galleries are created.  In
+    "doc_module": "examples",
+    # "image_scrapers": ("pyvista", "matplotlib"),
+    "image_scrapers": ("matplotlib"),
+    "ignore_pattern": "flycheck*",
+    "thumbnail_size": (350, 350),
 }
 
 # Intersphinx mapping

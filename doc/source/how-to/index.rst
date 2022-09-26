@@ -20,4 +20,3 @@ functionalities such as logging, data transfer, and app APIs.
    releasing
    repository-protection
    compatibility
-   add-examples

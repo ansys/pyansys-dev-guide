@@ -1,12 +1,7 @@
 """
-This is an example
-==================
-Problem Descrption:
-
+Addition of elements in a list
+==============================
 """
-# Python program to demonstrate Addition of elements in a List
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 ###############################################################################
 # 1. Creating a List
 # ~~~~~~~~~~~~~~~~~~
@@ -71,4 +66,20 @@ print(List)
 print("\n7. Adding Tuples to the List") 
 List.append((5, 6)) 
 print("\nList after Addition of a Tuple: ") 
-print(List) 
+print(List)
+
+
+###############################################################################
+# Plotting sin function
+# ~~~~~~~~~~~~~~~~~~~~~
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0, 2 * np.pi, 100)
+y = np.sin(x)
+
+plt.plot(x, y)
+plt.xlabel(r'$x$')
+plt.ylabel(r'$\sin(x)$')
+plt.show()
