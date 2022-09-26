@@ -64,7 +64,7 @@ sphinx_gallery_conf = {
     # path to your examples scripts
     "examples_dirs": ["examples"],  # ["../../examples/"],
     # path where to save gallery generated examples
-    "gallery_dirs": ["_automodule/examples"],
+    "gallery_dirs": ["build/examples"],
     # Patter to search for example files
     "filename_pattern": r"\.py",
     # Remove the "Download all examples" button from the top level gallery

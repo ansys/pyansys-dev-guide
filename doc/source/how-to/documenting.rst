@@ -196,11 +196,7 @@ built using the `Sphinx-Gallery
 follow its `coding guidelines
 <https://sphinx-gallery.github.io/stable/index.html>`_.
 
-PyMAPDL provides a self-demonstrating example of how to `add an example
-reference key
-<https://mapdldocs.pyansys.com/examples/03-tips-n-tricks/00-example-template.html#ref-how-to-add-an-example-reference-key>`_.
-
-:ref:`ref_example_gallery`
+Using python, here is the simple example of how to :ref:`ref_example_gallery`
 
 
 Document Python code

@@ -1,8 +1,8 @@
 .. _ref_example_gallery:
 
-========
-Examples
-========
+============
+Add Examples
+============
 Here are an example using sphinx gallery.
 
 .. toctree::
