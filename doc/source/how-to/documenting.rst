@@ -200,6 +200,8 @@ PyMAPDL provides a self-demonstrating example of how to `add an example
 reference key
 <https://mapdldocs.pyansys.com/examples/03-tips-n-tricks/00-example-template.html#ref-how-to-add-an-example-reference-key>`_.
 
+:ref:`ref_example_gallery`
+
 
 Document Python code
 --------------------

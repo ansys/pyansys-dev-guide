@@ -52,7 +52,12 @@ extensions = [
     "sphinx.ext.todo",
     "sphinxcontrib.mermaid",
     "sphinx_design",
+    'sphinx_gallery.gen_gallery',
 ]
+
+sphinx_gallery_conf = {
+     'examples_dirs': 'examples',   # path to your example scripts
+}
 
 # Intersphinx mapping
 intersphinx_mapping = {
