@@ -1,4 +1,6 @@
-.. _ref_example_gallery:
+.. toctree::
+   :hidden:
+   :maxdepth: 2
 
 ============
 Add examples
@@ -123,7 +125,3 @@ This gallery consists of introductory example.
     plt.show()
 
 The rendered gallery of the above example Python file is shown below :
-
-.. toctree::
-   :hidden:
-   :maxdepth: 2
