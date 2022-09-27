@@ -1,5 +1,6 @@
 """Sphinx documentation configuration file for the pyansys developer's guide."""
 from datetime import datetime
+import os
 
 from ansys_sphinx_theme import (
     __version__,
@@ -9,7 +10,16 @@ from ansys_sphinx_theme import (
     watermark,
 )
 from ansys_sphinx_theme.latex import generate_preamble
+import pyvista
 from sphinx_gallery.sorting import FileNameSortKey
+
+# Ensure that offscreen rendering is used for docs generation
+pyvista.OFF_SCREEN = True  # Not necessary - simply an insurance policy
+# Preferred plotting style for documentation
+
+# necessary when building the sphinx gallery
+pyvista.BUILDING_GALLERY = True
+os.environ["PYVISTA_BUILDING_GALLERY"] = "true"
 
 # Project information
 project = "PyAnsys Developer's Guide"
@@ -66,13 +76,20 @@ sphinx_gallery_conf = {
     "filename_pattern": r"\.py",
     # Remove the "Download all examples" button from the top level gallery
     "download_all_examples": False,
+    # Remove sphinx configuration comments from code blocks
+    "remove_config_comments": True,
     # Sort gallery example by file name instead of number of lines (default)
     "within_subsection_order": FileNameSortKey,
     # directory where function granular galleries are stored
     "backreferences_dir": None,
-    "image_scrapers": ("matplotlib"),
-    "ignore_pattern": "flycheck*",
-    "thumbnail_size": (350, 350),
+    # Modules for which function level galleries are created.  In
+    "doc_module": "dev-guide",
+    "image_scrapers": ("pyvista", "matplotlib"),
+    "first_notebook_cell": (
+        "%matplotlib inline\n"
+        "from pyvista import set_plot_theme\n"
+        "set_plot_theme('document')\n"
+    ),
 }
 
 # Intersphinx mapping
