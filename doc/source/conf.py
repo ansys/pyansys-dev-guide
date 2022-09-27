@@ -59,9 +59,9 @@ extensions = [
 # -- Sphinx Gallery Options ---------------------------------------------------
 sphinx_gallery_conf = {
     # path to your examples scripts
-    "examples_dirs": ["examples"],  # ["../../examples/"],
+    "examples_dirs": ["../../examples"],  # ["../../examples/"],
     # path where to save gallery generated examples
-    "gallery_dirs": ["examples/gallery_examples"],
+    "gallery_dirs": ["examples"],
     # Patter to search for example files
     "filename_pattern": r"\.py",
     # Remove the "Download all examples" button from the top level gallery
@@ -70,9 +70,6 @@ sphinx_gallery_conf = {
     "within_subsection_order": FileNameSortKey,
     # directory where function granular galleries are stored
     "backreferences_dir": None,
-    # Modules for which function level galleries are created.  In
-    "doc_module": "examples",
-    # "image_scrapers": ("pyvista", "matplotlib"),
     "image_scrapers": ("matplotlib"),
     "ignore_pattern": "flycheck*",
     "thumbnail_size": (350, 350),
