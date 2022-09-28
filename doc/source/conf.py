@@ -16,7 +16,16 @@ from sphinx_gallery.sorting import FileNameSortKey
 # Ensure that offscreen rendering is used for docs generation
 pyvista.OFF_SCREEN = True  # Not necessary - simply an insurance policy
 # Preferred plotting style for documentation
-
+pyvista.set_plot_theme("document")
+pyvista.global_theme.window_size = [1024, 768]
+pyvista.global_theme.font.size = 22
+pyvista.global_theme.font.label_size = 22
+pyvista.global_theme.font.title_size = 22
+pyvista.global_theme.return_cpos = False
+# Save figures in specified directory
+pyvista.FIGURE_PATH = os.path.join(os.path.abspath("./images/"), "auto-generated/")
+if not os.path.exists(pyvista.FIGURE_PATH):
+    os.makedirs(pyvista.FIGURE_PATH)
 # necessary when building the sphinx gallery
 pyvista.BUILDING_GALLERY = True
 os.environ["PYVISTA_BUILDING_GALLERY"] = "true"
