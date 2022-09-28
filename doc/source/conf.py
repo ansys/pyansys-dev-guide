@@ -85,11 +85,6 @@ sphinx_gallery_conf = {
     # Modules for which function level galleries are created.  In
     "doc_module": "dev-guide",
     "image_scrapers": ("pyvista", "matplotlib"),
-    "first_notebook_cell": (
-        "%matplotlib inline\n"
-        "from pyvista import set_plot_theme\n"
-        "set_plot_theme('document')\n"
-    ),
 }
 
 # Intersphinx mapping
