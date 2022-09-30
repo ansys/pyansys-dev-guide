@@ -10,7 +10,7 @@ Each example should have a reference tag/key in the form:
 ``.. _<example-name>_example:``
 The ``.. _`` is necessary. Everything that follows is your reference tag, which
 can potentially be used within a docstring. As convention, we keep all
-references all in ``snake_case``.
+references in ``snake_case``.
 This section should give a brief overview of what the example is about and/or
 demonstrates.  The title should be changed to reflect the topic your example
 covers.
@@ -18,7 +18,7 @@ New examples should be added as python scripts to:
 ``examples/<index>-<directory-name>/<some-example>.py``
 .. note::
 
-   Avoid creating new directories unless absolutely necessary.If you *must*
+   Avoid creating new directories unless absolutely necessary. If you *must*
    create a new folder, make sure to add a ``README.txt`` containing a
    reference, a title and a single sentence description of the folder.
    Otherwise the new folder will be ignored by Sphinx.
@@ -36,7 +36,7 @@ import pyvista as pv
 # Code blocks can be broken up with text "sections" which are interpreted as
 # restructured text.
 #
-# This will also be translated into a markdown cell in the generated jupyter
+# This will also be translated into a markdown cell in the generated Jupyter
 # notebook or the HTML page.
 #
 # Sections can contain any information you may have regarding the example
@@ -46,7 +46,7 @@ import pyvista as pv
 # block, output will be generated and printed to the screen according to its
 # ``__repr__`` method.  Otherwise, you can use ``print()`` to output text.
 
-# Create a dataset and exercise it's repr method
+# Create a dataset and exercise its repr method
 dataset = pv.Sphere()
 dataset
 
@@ -109,6 +109,6 @@ pl.close()
 #
 # .. note::
 #
-#    You only need to create the Python source example (``*.py``).  The jupyter
+#    You only need to create the Python source example (``*.py``).  The Jupyter
 #    notebook and the example HTML will be auto-generated via `sphinx-gallery
 #    <https://sphinx-gallery.github.io/>`_.

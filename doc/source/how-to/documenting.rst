@@ -225,7 +225,7 @@ to be ``../examples`` and the `output` directory to be ``examples``:
 
     sphinx_gallery_conf = {
      'examples_dirs': '../examples',   # path to your example scripts
-     'gallery_dirs': 'examples',  # path to where to save gallery generated output
+     'gallery_dirs': 'examples',  # path where the gallery generated output will be saved
     }
 
 Because these examples are
