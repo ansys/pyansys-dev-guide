@@ -70,10 +70,8 @@ jobs:
 
       - name: Build HTML documentation
         run: |
-          python -m pip install -r requirements/requirements_doc.txt
           Xvfb&         
-          xvfb-run make -C doc html SPHINXOPTS="-W"
-
+          xvfb-run tox -e doc
       - name: Build PDF Documentation
         run: |
           sudo apt update
