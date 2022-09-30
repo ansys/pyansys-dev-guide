@@ -69,7 +69,10 @@ jobs:
           python -m pip install --upgrade pip tox
 
       - name: Build HTML documentation
-        run: tox -e doc
+        run: |
+          python -m pip install -r requirements/requirements_doc.txt
+          Xvfb&         
+          xvfb-run make -C doc html SPHINXOPTS="-W"
 
       - name: Build PDF Documentation
         run: |
