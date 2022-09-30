@@ -85,7 +85,7 @@ jobs:
         uses: actions/upload-artifact@v2.2.4
         with:
           name: HTML-Documentation
-          path: .tox/doc_out_html/
+          path: doc/build/html/
           retention-days: 7
 
       - name: Upload PDF Documentation
@@ -101,7 +101,7 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: .tox/doc_out_html/
+          FOLDER: doc/build/html
           CLEAN: true
           SINGLE_COMMIT: true
 
