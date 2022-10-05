@@ -9,6 +9,8 @@ from ansys_sphinx_theme import (
     watermark,
 )
 from ansys_sphinx_theme.latex import generate_preamble
+import pyvista
+from sphinx_gallery.sorting import FileNameSortKey
 
 # Project information
 project = "PyAnsys Developer's Guide"
@@ -53,12 +55,39 @@ extensions = [
     "sphinx.ext.todo",
     "sphinxcontrib.mermaid",
     "sphinx_design",
+    "sphinx_gallery.gen_gallery",
 ]
 
 typehints_defaults = "comma"
 simplify_optional_unions = False
 
 numpydoc_validate = True
+
+# -- Sphinx Gallery Options ---------------------------------------------------
+sphinx_gallery_conf = {
+    # path to your examples scripts
+    "examples_dirs": ["../../examples"],  # ["../../examples/"],
+    # path where to save gallery generated examples
+    "gallery_dirs": ["examples"],
+    # Patter to search for example files
+    "filename_pattern": r"\.py",
+    # Remove the "Download all examples" button from the top level gallery
+    "download_all_examples": False,
+    # Remove sphinx configuration comments from code blocks
+    "remove_config_comments": True,
+    # Sort gallery example by file name instead of number of lines (default)
+    "within_subsection_order": FileNameSortKey,
+    # directory where function granular galleries are stored
+    "backreferences_dir": None,
+    # Modules for which function level galleries are created.  In
+    "doc_module": "dev-guide",
+    "image_scrapers": ("pyvista", "matplotlib"),
+}
+
+# Ensure that offscreen rendering is used for docs generation
+# Preferred plotting style for documentation
+pyvista.BUILDING_GALLERY = True
+pyvista.OFF_SCREEN = True
 
 # Intersphinx mapping
 intersphinx_mapping = {

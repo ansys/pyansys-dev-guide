@@ -190,16 +190,51 @@ verified through the CI performed via GitHub Actions.
 Adding a new standalone example consists of placing it in an applicable
 subdirectory in the ``examples/`` directory. If none of the existing directories
 match the category of your example, create a new subdirectory with a
-``README.txt`` file describing the new category. Because these examples are
+``README.txt`` file describing the new category which implies 
+the Python project has the following structure:
+
+.. code:: rst
+
+    ├── doc
+    │   ├── conf.py
+    │   ├── index.rst
+    |   ├── make.bat
+    │   └── Makefile
+    ├── my_python_module
+    │   ├── __init__.py
+    │   └── mod.py
+    └── examples
+        ├── plot_example.py
+        ├── example.py
+        └── README.txt (or .rst)
+
+
+Enable the Sphinx-Gallery in the Sphinx doc/conf.py file with:
+
+.. code:: Python
+
+    extensions = [
+        ...
+        'sphinx_gallery.gen_gallery',
+        ]
+
+The following configuration declares the location of the `examples` directory 
+to be ``../examples`` and the `output` directory to be ``examples``:
+
+.. code:: Python
+
+    sphinx_gallery_conf = {
+     'examples_dirs': '../examples',   # path to your example scripts
+     'gallery_dirs': 'examples',  # path where the gallery generated output will be saved
+    }
+
+Because these examples are
 built using the `Sphinx-Gallery
 <https://sphinx-gallery.github.io/stable/index.html>`_ extension, you must
 follow its `coding guidelines
 <https://sphinx-gallery.github.io/stable/index.html>`_.
 
-PyMAPDL provides a self-demonstrating example of how to `add an example
-reference key
-<https://mapdldocs.pyansys.com/examples/03-tips-n-tricks/00-example-template.html#ref-how-to-add-an-example-reference-key>`_.
-
+Using python, here is a :ref:`General example` using sphinx gallery.
 
 Document Python code
 --------------------
