@@ -49,10 +49,16 @@ extensions = [
     "sphinx.ext.graphviz",
     "sphinx.ext.intersphinx",
     "sphinx.ext.napoleon",
+    "sphinx_autodoc_typehints",
     "sphinx.ext.todo",
     "sphinxcontrib.mermaid",
     "sphinx_design",
 ]
+
+typehints_defaults = "comma"
+simplify_optional_unions = False
+
+numpydoc_validate = True
 
 # Intersphinx mapping
 intersphinx_mapping = {

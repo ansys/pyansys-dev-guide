@@ -243,24 +243,45 @@ By default, Sphinx renders `type hints <https://peps.python.org/pep-0484/>`_ as 
 of the function signature. This can become difficult to read because the signature
 becomes very long.
 
-Instead, you should render type hints as part of each parameter's description. To
-accomplish this, you must combine the ``sphinx.ext.autodoc.typehints``, ``sphinx.ext.napoleon``,
-and ``numpydoc`` extensions in the ``conf.py`` file:
+Instead, you may want to render type hints as part of each parameter's description. The
+``sphinx-autodoc-typehints`` extension (see `doc <https://pypi.org/project/sphinx-autodoc-typehints/>`_) 
+can be specified in the ``conf.py`` in the extensions list to accomplish that. Additional options 
+for this extension can be also be added. Find below an example of the extension added in the list
+with the two recommended configuration parameters.
 
 .. code:: python
 
-   extensions = [
-       ...
-       "sphinx.ext.autodoc.typehints",
-       "sphinx.ext.napoleon",
-       "numpydoc",
-       ...
-   ]
-   autodoc_typehints = "description"
+    extensions = [
+        ...
+        "sphinx_autodoc_typehints"
+        ...
+    ]
+
+   typehints_defaults = "comma"
+   simplify_optional_unions = False
+
+With this configuration, the following test function
+
+.. literalinclude:: ../../../example/func_example.py
+
+would be rendered as:
+
+.. autofunction:: ansys_sphinx_theme.func_example.test_function
 
 .. note::
+   
+   As stated in the `documentation <https://pypi.org/project/sphinx-autodoc-typehints/>`_,
+   the order of the extensions can affect the overall behaviour when used in conjunction 
+   with ``sphinx.ext.napoleon``. In this case, the extensions list should look like this:
 
-   The order in which you include these extensions matters.
+   .. code:: python
+
+        extensions = [
+        ...
+            "sphinx.ext.napoleon",
+            "sphinx_autodoc_typehints",
+        ...
+        ]
 
 When using type hints in this way, the type information in the ``Parameters``
 and ``Returns`` sections can be omitted.
