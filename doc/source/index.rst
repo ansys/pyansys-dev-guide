@@ -37,7 +37,7 @@
        :link: abstractions/index
        :link-type: doc
 
-        Deep explanations behind PyAnsys architecture designs.
+        Detailed explanations of the PyAnsys architecture.
 
 
 .. toctree::
