@@ -47,7 +47,7 @@ a branch named ``gh-pages`` within the library repository or within a
 ``gh-pages`` branch within ``<library-repository>-docs``. 
 
 For procedural information related to crafting, building, and deploying
-documentation, see :ref:`Documenting` in the :ref`How-to` section.
+documentation, see :ref:`Documenting` in the :ref:`How-to` section.
 
 .. toctree::
    :hidden:
