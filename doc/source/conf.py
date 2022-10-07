@@ -3,6 +3,7 @@ from datetime import datetime
 
 from ansys_sphinx_theme import (
     __version__,
+    ansys_favicon,
     ansys_logo_white,
     ansys_logo_white_cropped,
     pyansys_logo_black,
@@ -20,6 +21,7 @@ release = version = "0.3.dev0"
 
 html_logo = pyansys_logo_black
 html_theme = "ansys_sphinx_theme"
+html_favicon = ansys_favicon
 
 html_theme_options = {
     "github_url": "https://github.com/pyansys/dev-guide",
