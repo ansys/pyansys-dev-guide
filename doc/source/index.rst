@@ -29,7 +29,7 @@
        :link: doc-style/index
        :link-type: doc
 
-        Tips and advices for writing documentation.
+        Best practices for writing documentation.
 
 .. grid:: 1
 
