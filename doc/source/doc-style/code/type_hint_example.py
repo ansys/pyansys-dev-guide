@@ -1,7 +1,7 @@
 from typing import Union
 
 
-def test_function(
+def type_hint_func(
     param1: int = 1, param2: str = "test", param3: Union[int, float] = 1
 ) -> bool:
     """Function description.
@@ -22,4 +22,5 @@ def test_function(
     param3 :
         Parameter that can be either int or float using Union (typing).
     """
+
     return True
