@@ -31,7 +31,9 @@ jobs:
           python -m pip install --upgrade pip tox
 
       - name: Build HTML documentation
-        run: tox -e doc
+        run: |
+          Xvfb&
+          xvfb-run tox -e doc
 
       - name: Build PDF Documentation
         run: |
