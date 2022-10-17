@@ -48,6 +48,13 @@ jobs:
           path: .tox/doc_out_html/
           retention-days: 7
 
+      - name: Upload PDF Documentation
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: PDF-Documentation
+          path: doc/build/latex/pyansys*.pdf
+          retention-days: 7
+
       - name: Deploy to gh-pages
         if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
         uses: JamesIves/github-pages-deploy-action@3.7.1
