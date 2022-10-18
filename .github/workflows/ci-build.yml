@@ -61,7 +61,7 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive-latex-extra latexmk nodejs npm graphviz
+          sudo apt-get install -y xvfb texlive-latex-extra latexmk nodejs npm graphviz
           npm install -g @mermaid-js/mermaid-cli
 
       - name: Install Python dependencies
@@ -70,7 +70,6 @@ jobs:
 
       - name: Build HTML documentation
         run: |
-          Xvfb&
           xvfb-run tox -e doc
       - name: Build PDF Documentation
         run: |

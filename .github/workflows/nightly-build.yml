@@ -23,7 +23,7 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive-latex-extra latexmk nodejs npm graphviz
+          sudo apt-get install -y xvfb texlive-latex-extra latexmk nodejs npm graphviz
           npm install -g @mermaid-js/mermaid-cli
 
       - name: Install Python dependencies
@@ -32,7 +32,6 @@ jobs:
 
       - name: Build HTML documentation
         run: |
-          Xvfb&
           xvfb-run tox -e doc
 
       - name: Build PDF Documentation
@@ -40,7 +39,7 @@ jobs:
           sudo apt update
           sudo apt-get install -y texlive-latex-extra latexmk
           python -m pip install -r requirements/requirements_doc.txt
-          make -C doc latexpdf
+          make -C doc pdf
 
       - name: Upload HTML documentation
         uses: actions/upload-artifact@v2.2.4
@@ -53,7 +52,7 @@ jobs:
         uses: actions/upload-artifact@v2.2.4
         with:
           name: PDF-Documentation
-          path: doc/build/latex/*.pdf
+          path: doc/build/latex/pyansys*.pdf
           retention-days: 7
 
       - name: Deploy to gh-pages
