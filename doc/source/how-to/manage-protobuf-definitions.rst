@@ -1,9 +1,9 @@
-Manage Protobuf Definitions
+Manage Protobuf definitions
 ===========================
 
 Protobuf service definitions provide the API specification for underlying
 server implementations, so that each consuming client library has a clear
-contract for gRPC data messages. Ideally, the proto files have a single
+contract for gRPC data messages. Ideally, the .proto files have a single
 repository established as the source of truth for the .proto files,
 organized by API version increment as the API definition expands and changes.
 Since most client libraries are custom implementations enhancing the developer
@@ -20,8 +20,8 @@ GitHub organization. Every update of the Protobuf files follows a standard
 pull request process as a sanity-check for API definition accuracy. Language
 specific packages can be generated for each merge or on a set cadence.
 
-Managing proto definitions for Python clients
----------------------------------------------
+Managing Protobuf definitions for Python clients
+------------------------------------------------
 
 Building Python stub classes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
