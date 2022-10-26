@@ -13,6 +13,7 @@ functionalities such as logging, data transfer, and app APIs.
    supporting-python-versions
    contributing
    packaging
+   manage-protobuf-definitions
    logging
    documenting
    testing
