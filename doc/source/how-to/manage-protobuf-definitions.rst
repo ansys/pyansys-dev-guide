@@ -14,8 +14,8 @@ layer they choose to do so.
 Maintain API definition repository
 ----------------------------------
 
-Since the definition of the service is language agnostic, the repository
-containing the protobuf files should live within the top-level Ansys
+The Protobuf definition of the service is language agnostic, so the repository
+containing the protobuf files can be created within the top-level Ansys
 GitHub organization. Every update of the protobuf files will go through
 a standard pull request process. Language specific packages are generated
 for each merge or on a regular cadence.
@@ -23,8 +23,8 @@ for each merge or on a regular cadence.
 Managing proto definitions for Python clients
 ---------------------------------------------
 
-Build Python stub classes
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Building Python stub classes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The API repository will need a python project definition that can be utilized
 within the CI/CD build pipeline.
@@ -50,8 +50,8 @@ build pipeline:
     pip install build
     python -m build
 
-Publish Python API package
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Publishing Python API package
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 PyPi is the common package manager where API packages are released.
 
@@ -120,8 +120,8 @@ Example nightly build pipeline publishing the python stub package:
             retention-days: 7
 
 
-Consume API package within Python client
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Consuming the API package within Python
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Once a the api package has been published to pypi, a reference can be 
 included within the client library dependencies.
