@@ -15,10 +15,10 @@ Maintain API definition repository
 ----------------------------------
 
 The Protobuf definition of the service is language agnostic, so the repository
-containing the protobuf files can be created within the top-level Ansys
-GitHub organization. Every update of the protobuf files will go through
-a standard pull request process. Language specific packages are generated
-for each merge or on a regular cadence.
+containing the Protobuf files can be created within the top-level Ansys
+GitHub organization. Every update of the Protobuf files follows a standard
+pull request process as a sanity-check for API definition accuracy. Language
+specific packages can be generated for each merge or on a set cadence.
 
 Managing proto definitions for Python clients
 ---------------------------------------------
@@ -26,7 +26,7 @@ Managing proto definitions for Python clients
 Building Python stub classes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The API repository will need a python project definition that can be utilized
+Add a python project definition to the API repository that can be utilized
 within the CI/CD build pipeline.
 
 A common tool to help build python stub classes is available and maintained
@@ -53,7 +53,7 @@ build pipeline:
 Publishing Python API package
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-PyPi is the common package manager where API packages are released.
+PyPI is the common package manager where API packages are released.
 
 Example nightly build pipeline publishing the python stub package:
 
@@ -102,15 +102,15 @@ Example nightly build pipeline publishing the python stub package:
             cd tmp
             python -c "import ansys.api.<api-name>.v0; print('Successfully imported ansys.api.<api-name>.v0')"
             python -c "from ansys.api.<api-name> import __version__; print(__version__)"
-        - name: Upload to PyPi
+        - name: Upload to PyPI
             run: |
             pip install twine
             twine upload --skip-existing ./**/*.whl
             twine upload --skip-existing ./**/*.tar.gz
             env:
             TWINE_USERNAME: PAT
-            TWINE_PASSWORD: ${{ secrets.PYANSYS_PYPI_PAT }} 
-            TWINE_REPOSITORY_URL: https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload
+            TWINE_PASSWORD: ${{ secrets.PYANSYS_PyPI_PAT }} 
+            TWINE_REPOSITORY_URL: https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/PyPI/upload
     
         - name: Upload packages
             uses: actions/upload-artifact@v3
@@ -119,16 +119,16 @@ Example nightly build pipeline publishing the python stub package:
             path: dist/
             retention-days: 7
 
-Pypi packages follow semantic versioning while gRPC protobuf API versions typically follow a simplified v*
-versioning pattern. It is not expected to synchronize pypi package version with protobuf API version.
-There is no methodology to correlate pypi package version with exposed gRPC API versions included within
+PyPI packages follow semantic versioning while gRPC Protobuf API versions typically follow a simplified v*
+versioning pattern. It is not expected to synchronize PyPI package version with Protobuf API version.
+There is no methodology to correlate PyPI package version with exposed gRPC API versions included within
 the package.
 
 
 Consuming the API package within Python
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Once the api package has been published to pypi, a reference can be included within
+Once the API package has been published to PyPI, a reference can be included within
 the client library build dependencies.
 
 Example poetry configuration:
@@ -137,7 +137,7 @@ Example poetry configuration:
 
     [tool.poetry.dependencies]
     python = ">=3.7,<4.0"
-    ansys-api-<api-name> = {version = "==*.*.*", source = "pypi"}
+    ansys-api-<api-name> = {version = "==*.*.*", source = "PyPI"}
 
 The stub imports follow a standard pattern. For each API service, there is a ***_pb2
 module which defines all of the messages defined within that specific service file and
