@@ -123,8 +123,8 @@ Example nightly build pipeline publishing the python stub package:
 Consuming the API package within Python
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Once a the api package has been published to pypi, a reference can be 
-included within the client library dependencies.
+Once the api package has been published to pypi, a reference can be included within
+the client library build dependencies.
 
 Example poetry configuration:
 
@@ -136,7 +136,7 @@ Example poetry configuration:
 
 The stub imports follow a standard pattern. For each API service, there is a ***_pb2
 module which defines all of the messages defined within that specific service file and
-a ***_pb2_grpc module that defines a Stub class with encapsulating all service methods.
+a ***_pb2_grpc module that defines a Stub class that encapsulates all service methods.
 
 Example grpc imports within the wrapping client library:
 
@@ -148,3 +148,8 @@ Example grpc imports within the wrapping client library:
         SaveAsDocumentRequest,
     )
     from ansys.api.geometry.v0.designs_pb2_grpc import DesignsStub
+
+The best practice is to create a pythonic client library that organizes the service methods
+in a very user-friendly manner and at a minimum acts as a facade layer wrapping the
+service calls so that the pythonic API can have a consistent abstraction, independent of
+underlying implementations.
