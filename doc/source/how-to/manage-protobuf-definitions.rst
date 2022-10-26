@@ -119,6 +119,11 @@ Example nightly build pipeline publishing the python stub package:
             path: dist/
             retention-days: 7
 
+Pypi packages follow semantic versioning while gRPC protobuf API versions typically follow a simplified v*
+versioning pattern. It is not expected to synchronize pypi package version with protobuf API version.
+There is no methodology to correlate pypi package version with exposed gRPC API versions included within
+the package.
+
 
 Consuming the API package within Python
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -153,3 +158,6 @@ The best practice is to create a pythonic client library that organizes the serv
 in a very user-friendly manner and at a minimum acts as a facade layer wrapping the
 service calls so that the pythonic API can have a consistent abstraction, independent of
 underlying implementations.
+
+For each client library release, only a single gRPC API version should be wrapped in order
+to maintain a consistent API abstraction expectation for the supporting server instances.
