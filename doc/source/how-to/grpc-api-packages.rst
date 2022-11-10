@@ -204,24 +204,25 @@ Consuming the API package within Python
 Once the API package has been published to PyPI, a reference can be included within
 the client library build dependencies.
 
-Example ``poetry`` configuration
-++++++++++++++++++++++++++++++++
+.. tab-set::
 
-.. code-block:: toml
+    .. tab-item:: flit
 
-    [tool.poetry.dependencies]
-    python = ">=3.7,<4.0"
-    ansys-api-<api-name> = "==*.*.*"
+        .. code-block:: toml
 
-Example ``flit`` configuration
-++++++++++++++++++++++++++++++
+            [project]
+            dependencies = [
+                ansys-api-<api-name>==X.Y.Z,
+            ]
 
-.. code-block:: toml
+    .. tab-item:: poetry
 
-    dependencies = [
-        ansys-api-<api-name>==*.*.*,
-        ...
-    ]
+        .. code-block:: toml
+
+            [tool.poetry.dependencies]
+            python = ">=3.7,<4.0"
+            ansys-api-<api-name> = "==X.Y.Z"
+
 
 Using the API package within the Python client
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
