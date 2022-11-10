@@ -2,22 +2,22 @@ Manage Protobuf definitions
 ===========================
 
 Protobuf service definitions provide the API specification for underlying
-server implementations, so that each consuming client library has a clear
-contract for gRPC data messages. Ideally, the .proto files have a single
-repository established as the source of truth for the .proto files,
+server implementations so that each consuming client library has a clear
+contract for gRPC data messages. Ideally, the PROTO files have a single
+repository established as the source of truth for the ``.proto`` files,
 organized by API version increment as the API definition expands and changes.
-Since most client libraries are custom implementations enhancing the developer
+Because most client libraries are custom implementations enhancing the developer
 experience when consuming the service, releasing the Protobuf definitions
-publicly gives full flexibility to the developer to operate at the abstraction
-layer they choose to do so.
+publicly gives full flexibility to developers to operate at the abstraction
+layer they choose.
 
 Maintain API definition repository
 ----------------------------------
 
-The Protobuf definition of the service is language agnostic, so the repository
+Because the Protobuf definition of the service is language agnostic, the repository
 containing the Protobuf files can be created within the top-level Ansys
 GitHub organization. Every update of the Protobuf files follows a standard
-pull request process as a sanity-check for API definition accuracy. Language
+pull request process as a sanity check for API definition accuracy. Language-
 specific packages can be generated for each merge or on a set cadence.
 
 Managing Protobuf definitions for Python clients
@@ -26,22 +26,22 @@ Managing Protobuf definitions for Python clients
 Building Python stub classes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Add a python project definition to the API repository that can be utilized
+Add a Python project definition to the API repository that can be utilized
 within the CI/CD build pipeline.
 
-A common tool to help build python stub classes is available and maintained
+A common tool to help build Python stub classes is available and maintained
 within Ansys:
 
 `ansys-tools-protoc-helper <https://github.com/ansys/ansys-tools-protoc-helper/>`_
 
-Example inclusion within pyproject.toml build dependency configuration:
+Here is an example of how to include this tool in the ``pyproject.toml`` file as a build dependency:
 
 .. code-block:: toml
 
     [build-system]
     requires = ["setuptools >= 42.0.0", "wheel", "ansys_tools_protoc_helper"]
 
-Basic python project build step that can be executed locally or within a
+The following basic Python steps for building a project can be executed locally or within a
 build pipeline:
 
 .. code-block:: python
@@ -55,7 +55,7 @@ Publishing Python API package
 
 PyPI is the common package manager where API packages are released.
 
-Example nightly build pipeline publishing the python stub package:
+Here is an example of a nightly build pipeline publishing the Python stub package:
 
 .. code-block:: yml
 
@@ -102,6 +102,7 @@ Example nightly build pipeline publishing the python stub package:
             cd tmp
             python -c "import ansys.api.<api-name>.v0; print('Successfully imported ansys.api.<api-name>.v0')"
             python -c "from ansys.api.<api-name> import __version__; print(__version__)"
+
         - name: Upload to PyPI
             run: |
             pip install twine
@@ -120,8 +121,8 @@ Example nightly build pipeline publishing the python stub package:
             retention-days: 7
 
 PyPI packages follow semantic versioning while gRPC Protobuf API versions typically follow a simplified v*
-versioning pattern. It is not expected to synchronize PyPI package version with Protobuf API version.
-There is no methodology to correlate PyPI package version with exposed gRPC API versions included within
+versioning pattern. It is not expected to synchronize the PyPI package version with the Protobuf API version.
+There is no methodology to correlate the PyPI package version with exposed gRPC API versions included within
 the package.
 
 
@@ -140,8 +141,8 @@ Example poetry configuration:
     ansys-api-<api-name> = {version = "==*.*.*", source = "PyPI"}
 
 The stub imports follow a standard pattern. For each API service, there is a ***_pb2
-module which defines all of the messages defined within that specific service file and
-a ***_pb2_grpc module that defines a Stub class that encapsulates all service methods.
+module that defines all messages within a specific service file and
+a ***_pb2_grpc module that defines a ``Stub`` class that encapsulates all service methods.
 
 Example grpc imports within the wrapping client library:
 
@@ -154,9 +155,9 @@ Example grpc imports within the wrapping client library:
     )
     from ansys.api.geometry.v0.designs_pb2_grpc import DesignsStub
 
-The best practice is to create a pythonic client library that organizes the service methods
-in a very user-friendly manner and at a minimum acts as a facade layer wrapping the
-service calls so that the pythonic API can have a consistent abstraction, independent of
+The best practice is to create a Pythonic client library that organizes the service methods
+in a user-friendly manner. At a minimum, this library should act as a facade layer wrapping the
+service calls so that the Pythonic API can have a consistent abstraction, independent of
 underlying implementations.
 
 For each client library release, only a single gRPC API version should be wrapped in order
