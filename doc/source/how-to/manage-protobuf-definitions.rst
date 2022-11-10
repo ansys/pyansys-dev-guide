@@ -42,7 +42,7 @@ packages to be consumed by the PyAnsys clients.
 
 In order to set up an API repository as ``ansys-api-mapdl``, there is a template
 repository available known as `ansys-api-template <https://github.com/ansys/ansys-api-template>`_.
-Follow the instructions on the `Expected usage <https://github.com/ansys/ansys-api-template#expected-usage>`__version__
+Follow the instructions on the `Expected usage <https://github.com/ansys/ansys-api-template#expected-usage>`_
 section to understand how to use the template repository.
 
 Building Python stub classes
@@ -80,7 +80,7 @@ PyPI is the common package manager where API packages are released.
 Here is an example of a workflow pipeline for building and publishing the Python stub package.
 In this example, the :
 
-.. code-block:: yml
+.. code-block:: yaml
 
     name: GitHub CI
 
@@ -183,7 +183,7 @@ team at `pyansys.core@ansys.com`_ for the required ``PYANSYS_PYPI_PRIVATE_PAT`` 
 
 In this last case, the workflow section ``Upload to Public PyPi`` should be replaced by this one:
 
-.. code-block:: yml
+.. code-block:: yaml
 
     - name: Upload to Private PyPi
         run: |
