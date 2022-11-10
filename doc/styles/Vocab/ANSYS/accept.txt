@@ -42,6 +42,7 @@ parametrizing
 PAT
 Postprocessing
 postprocessing
+Protobuf
 PyAEDT
 pyaedt
 PyAnsys
