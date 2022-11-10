@@ -212,7 +212,7 @@ the client library build dependencies.
 
             [project]
             dependencies = [
-                ansys-api-<api-name>==X.Y.Z,
+              ansys-api-service==X.Y.Z
             ]
 
     .. tab-item:: poetry
@@ -221,7 +221,7 @@ the client library build dependencies.
 
             [tool.poetry.dependencies]
             python = ">=3.7,<4.0"
-            ansys-api-<api-name> = "==X.Y.Z"
+            ansys-api-service = "==X.Y.Z"
 
 
 Using the API package within the Python client
