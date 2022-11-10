@@ -177,7 +177,7 @@ it is uploaded to the public PyPI. In order to do so, it is necessary to have ac
 this Python package. Please contact the PyAnsys Core team at
 `pyansys.core@ansys.com <mailto:pyansys.core@ansys.com>`_ in order to get the needed credentials.
 
-If the repo cannot be uploaded to the public PyPI yet, but your Python client library needs to consume this
+If the repository cannot be uploaded to the public PyPI yet, but your Python client library needs to consume this
 Python API package, it can also be uploaded to the private PyAnsys PyPI. Email the PyAnsys Core
 team at `pyansys.core@ansys.com`_ for the required ``PYANSYS_PYPI_PRIVATE_PAT`` password.
 
@@ -253,7 +253,7 @@ Public vs private Python API package
 
 Making these ``.proto`` files repositories public or private is up to the owner of each repository.
 
-In terms of intelectual property (IP) concerns, the ``.proto`` files are typically not an
+In terms of intellectual property (IP) concerns, the ``.proto`` files are typically not an
 issue since they do not expose any critical service logic or knowledge - and in most cases
 the APIs being exposed through the ``.proto`` files are already exposed through other
 mechanisms publicly.
@@ -265,12 +265,12 @@ main reasons behind are:
   workflow. It is best to keep the workflows as standard and simple as possible. That
   implies making all its dependencies public - including this API Python package.
 
-* The API Python package generated will eventually have to be uploaded to the public PyPI, so
+* The API Python package generated eventually has to be uploaded to the public PyPI, so
   that it can be consumed by its corresponding Python client library (when it is publicly released).
   So, better make it public sooner than later if there are no issues with it.
 
 * Once the Python API package is publicly released to PyPI, there is no reason behind keeping the
-  repository private since all users which consume the Python API package will have direct access
+  repository private since all users which consume the Python API package have direct access
   to the ``.proto`` files that are in the repository.
 
 However, before making any repository public with the `Ansys GitHub organization`_, please review
