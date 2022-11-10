@@ -1,5 +1,5 @@
-Manage Protobuf definitions
-===========================
+gRPC API Packages
+=================
 
 Protobuf service definitions provide the API specification for underlying
 server implementations so that each consuming client library has a clear
