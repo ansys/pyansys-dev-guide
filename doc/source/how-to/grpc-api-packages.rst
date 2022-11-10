@@ -78,7 +78,9 @@ Publishing Python API package
 PyPI is the common package manager where API packages are released.
 
 Here is an example of a workflow pipeline for building and publishing the Python stub package.
-In this example, the :
+In this example, the ``ansys-api-geometry`` workflow is shown. However, this workflow can be
+easily copied and adapted. Only the ``PYTHON_PACKAGE_IMPORT`` environment variable
+would have to be changed:
 
 .. code-block:: yaml
 
