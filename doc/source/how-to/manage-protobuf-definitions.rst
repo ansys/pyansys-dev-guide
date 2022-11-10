@@ -24,6 +24,27 @@ specific packages can be generated for each merge or on a set cadence.
 Managing Protobuf definitions for Python clients
 ------------------------------------------------
 
+Within Ansys, and more specifically in the PyAnsys environment, most client libraries
+have a dedicated Python package containing the needed ``.proto`` files compiled as
+Python source code. These are typically consumed by the PyAnsys client libraries
+for being able to communicate with their respective services.
+
+For example, `PyMAPDL <https://github.com/pyansys/pymapdl>`_ consumes the
+``ansys-api-mapdl`` package, which is build in the following
+`ansys-api-mapdl repository <https://github.com/ansys/ansys-api-mapdl>`_.
+
+How to build an ``ansys-api-<service>`` repository
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The `Ansys GitHub organization`_ has a dedicated template repository for creating
+these ``.proto`` file repositories and the needed files to generate the Python API
+packages to be consumed by the PyAnsys clients.
+
+In order to set up an API repository as ``ansys-api-mapdl``, there is a template
+repository available known as `ansys-api-template <https://github.com/ansys/ansys-api-template>`_.
+Follow the instructions on the `Expected usage <https://github.com/ansys/ansys-api-template#expected-usage>`__version__
+section to understand how to use the template repository.
+
 Building Python stub classes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -56,75 +77,123 @@ Publishing Python API package
 
 PyPI is the common package manager where API packages are released.
 
-Here is an example of a nightly build pipeline publishing the Python stub package:
+Here is an example of a workflow pipeline for building and publishing the Python stub package.
+In this example, the :
 
 .. code-block:: yml
 
-    name: Nightly dev release
-  
+    name: GitHub CI
+
     on:
-      schedule: # UTC at 0300
-        - cron: "0 5 * * *"
-      workflow_dispatch:
-          
+      pull_request:
+      push:
+        tags:
+          - "*"
+        branches:
+          - main
+
     env:
       MAIN_PYTHON_VERSION: '3.10'
-    
+      PYTHON_PACKAGE_IMPORT: 'ansys.api.geometry.v0'
+
     jobs:
-    nightly-release:
-        name: Nightly release package
-        if: github.ref == 'refs/heads/main'
+      build:
+        name: Build package
         runs-on: ubuntu-latest
         steps:
-        - uses: actions/checkout@v3
-    
-        - name: Append date to version tags
-            run: |
-            PACKAGE_DATE=$(date +'%Y%m%d%H%M')
-            sed -i "1s/.$/$PACKAGE_DATE/" ansys/api/<api-name>/VERSION
-        - name: Set up Python
+          - uses: actions/checkout@v3
+
+          - name: Setup Python
             uses: actions/setup-python@v4
             with:
-            python-version: ${{ env.MAIN_PYTHON_VERSION }}
-    
-        - name: Install build requirements
+              python-version: ${{ env.MAIN_PYTHON_VERSION }}
+
+          - name: Install build requirements
             run: |
-            pip install -U pip
-            pip install build
-        - name: Build
+              pip install -U pip
+              pip install build
+
+          - name: Build
             run: python -m build
     
-        - name: Install
+          - name: Install
             run: pip install dist/*.whl
     
-        - name: Test import
+          - name: Test import
             run: |
-            mkdir tmp
-            cd tmp
-            python -c "import ansys.api.<api-name>.v0; print('Successfully imported ansys.api.<api-name>.v0')"
-            python -c "from ansys.api.<api-name> import __version__; print(__version__)"
-
-        - name: Upload to PyPI
-            run: |
-            pip install twine
-            twine upload --skip-existing ./**/*.whl
-            twine upload --skip-existing ./**/*.tar.gz
-            env:
-            TWINE_USERNAME: PAT
-            TWINE_PASSWORD: ${{ secrets.PYANSYS_PyPI_PAT }} 
-            TWINE_REPOSITORY_URL: https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/PyPI/upload
+              mkdir tmp
+              cd tmp
+              python -c "import ${{ env.PYTHON_PACKAGE_IMPORT }}; print('Successfully imported ${{ env.PYTHON_PACKAGE_IMPORT }}')"
+              python -c "from  import __version__; print(__version__)"
     
-        - name: Upload packages
+          - name: Upload packages
             uses: actions/upload-artifact@v3
             with:
-            name: ansys-api-<api-name>-packages
-            path: dist/
-            retention-days: 7
+              name: ansys-api-package
+              path: dist/
+              retention-days: 7
+    
+      release:
+        name: Release package
+        if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+        needs: [build]
+        runs-on: ubuntu-latest
+        steps:
+          - name: Set up Python
+            uses: actions/setup-python@v4
+            with:
+              python-version: ${{ env.MAIN_PYTHON_VERSION }}
+
+          - uses: actions/download-artifact@v3
+
+          - name: Display structure of downloaded files
+            run: ls -R
+
+          - name: Upload to Public PyPi
+            run: |
+              pip install twine
+              twine upload --skip-existing ./**/*.whl
+              twine upload --skip-existing ./**/*.tar.gz
+            env:
+              TWINE_USERNAME: __token__
+              TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }} 
+
+          - name: Release
+            uses: softprops/action-gh-release@v1
+            with:
+              generate_release_notes: true
+              files: |
+                ./**/*.whl
+                ./**/*.tar.gz
+                ./**/*.pdf
 
 PyPI packages follow semantic versioning while gRPC Protobuf API versions typically follow a simplified ``v*``
 versioning pattern. It is not expected to synchronize the PyPI package version with the Protobuf API version.
 There is no methodology to correlate the PyPI package version with exposed gRPC API versions included within
 the package.
+
+As it may be seen in the ``release`` section of the previous workflow, once the Python API package is compiled
+it is uploaded to the public PyPI. In order to do so, it is necessary to have access to the ``PYPI_TOKEN`` for
+this Python package. Please contact the PyAnsys Core team at
+`pyansys.core@ansys.com <mailto:pyansys.core@ansys.com>`_ in order to get the needed credentials.
+
+If the repo cannot be uploaded to the public PyPI yet, but your Python client library needs to consume this
+Python API package, it can also be uploaded to the private PyAnsys PyPI. Email the PyAnsys Core
+team at `pyansys.core@ansys.com`_ for the required ``PYANSYS_PYPI_PRIVATE_PAT`` password.
+
+In this last case, the workflow section ``Upload to Public PyPi`` should be replaced by this one:
+
+.. code-block:: yml
+
+    - name: Upload to Private PyPi
+        run: |
+          pip install twine
+          twine upload --skip-existing ./**/*.whl
+          twine upload --skip-existing ./**/*.tar.gz
+        env:
+          TWINE_USERNAME: PAT
+          TWINE_PASSWORD: ${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }} 
+          TWINE_REPOSITORY_URL: https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload
 
 
 Consuming the API package within Python
@@ -134,20 +203,33 @@ Once the API package has been published to PyPI, a reference can be included wit
 the client library build dependencies.
 
 Example ``poetry`` configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+++++++++++++++++++++++++++++++++
 
 .. code-block:: toml
 
     [tool.poetry.dependencies]
     python = ">=3.7,<4.0"
-    ansys-api-<api-name> = {version = "==*.*.*", source = "PyPI"}
+    ansys-api-<api-name> = "==*.*.*"
 
-The stub imports follow a standard pattern. For each API service, there is a ***_pb2
+Example ``flit`` configuration
+++++++++++++++++++++++++++++++
+
+.. code-block:: toml
+
+    dependencies = [
+        ansys-api-<api-name>==*.*.*,
+        ...
+    ]
+
+Using the API package within the Python client
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The stub imports follow a standard pattern. For each API service, there is a ``*_pb2``
 module that defines all messages within a specific service file and
 a ``*_pb2_grpc`` module that defines a ``Stub`` class that encapsulates all service methods.
 
 Example gRPC imports within the wrapping client library
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 .. code-block:: python
 
@@ -165,3 +247,32 @@ underlying implementations.
 
 For each client library release, only a single gRPC API version should be wrapped
 to maintain a consistent API abstraction expectation for the supporting server instances.
+
+Public vs private Python API package
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Making these ``.proto`` files repositories public or private is up to the owner of each repository.
+
+In terms of intelectual property (IP) concerns, the ``.proto`` files are typically not an
+issue since they do not expose any critical service logic or knowledge - and in most cases
+the APIs being exposed through the ``.proto`` files are already exposed through other
+mechanisms publicly.
+
+Thus, the general recommendation is to make these repositories public as soon as possible. The
+main reasons behind are:
+
+* Private Python package dependencies usually involve workarounds when setting up the
+  workflow. It is best to keep the workflows as standard and simple as possible. That
+  implies making all its dependencies public - including this API Python package.
+
+* The API Python package generated will eventually have to be uploaded to the public PyPI, so
+  that it can be consumed by its corresponding Python client library (when it is publicly released).
+  So, better make it public sooner than later if there are no issues with it.
+
+* Once the Python API package is publicly released to PyPI, there is no reason behind keeping the
+  repository private since all users which consume the Python API package will have direct access
+  to the ``.proto`` files that are in the repository.
+
+However, before making any repository public with the `Ansys GitHub organization`_, please review
+the `Ansys open-source guide documentation <https://supreme-invention-8c3992a9.pages.github.io/index.html>`_
+to verify that the repository is compliant with all the needed requirements.
