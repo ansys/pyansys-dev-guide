@@ -3,11 +3,11 @@ Manage Protobuf definitions
 
 Protobuf service definitions provide the API specification for underlying
 server implementations so that each consuming client library has a clear
-contract for gRPC data messages. Ideally, the PROTO files have a single
-repository established as the source of truth for the ``.proto`` files,
-organized by API version increment as the API definition expands and changes.
-Because most client libraries are custom implementations enhancing the developer
-experience when consuming the service, releasing the Protobuf definitions
+contract for gRPC data messages. Ideally, the ``.proto`` files have a single
+repository established as the source of truth, organized by API version
+increment as the API definition expands and changes. Because most client
+libraries are custom implementations enhancing the developer experience
+when consuming the service, releasing the Protobuf definitions
 publicly gives full flexibility to developers to operate at the abstraction
 layer they choose.
 
@@ -15,8 +15,9 @@ Maintain API definition repository
 ----------------------------------
 
 Because the Protobuf definition of the service is language agnostic, the repository
-containing the Protobuf files can be created within the top-level Ansys
-GitHub organization. Every update of the Protobuf files follows a standard
+containing the Protobuf files can be created within the top-level
+`Ansys GitHub organization <https://github.com/ansys/>`_.
+Every update of the Protobuf files follows a standard
 pull request process as a sanity check for API definition accuracy. Language-
 specific packages can be generated for each merge or on a set cadence.
 
@@ -26,8 +27,8 @@ Managing Protobuf definitions for Python clients
 Building Python stub classes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Add a Python project definition to the API repository that can be utilized
-within the CI/CD build pipeline.
+Add a Python project definition to the API repository that can be consumed by
+the Pythonic client of the service this API repository refers to.
 
 A common tool to help build Python stub classes is available and maintained
 within Ansys:
@@ -120,7 +121,7 @@ Here is an example of a nightly build pipeline publishing the Python stub packag
             path: dist/
             retention-days: 7
 
-PyPI packages follow semantic versioning while gRPC Protobuf API versions typically follow a simplified v*
+PyPI packages follow semantic versioning while gRPC Protobuf API versions typically follow a simplified ``v*``
 versioning pattern. It is not expected to synchronize the PyPI package version with the Protobuf API version.
 There is no methodology to correlate the PyPI package version with exposed gRPC API versions included within
 the package.
@@ -132,7 +133,8 @@ Consuming the API package within Python
 Once the API package has been published to PyPI, a reference can be included within
 the client library build dependencies.
 
-Example poetry configuration:
+Example ``poetry`` configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: toml
 
@@ -142,9 +144,10 @@ Example poetry configuration:
 
 The stub imports follow a standard pattern. For each API service, there is a ***_pb2
 module that defines all messages within a specific service file and
-a ***_pb2_grpc module that defines a ``Stub`` class that encapsulates all service methods.
+a ``*_pb2_grpc`` module that defines a ``Stub`` class that encapsulates all service methods.
 
-Example grpc imports within the wrapping client library:
+Example gRPC imports within the wrapping client library
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: python
 
@@ -160,5 +163,5 @@ in a user-friendly manner. At a minimum, this library should act as a facade lay
 service calls so that the Pythonic API can have a consistent abstraction, independent of
 underlying implementations.
 
-For each client library release, only a single gRPC API version should be wrapped in order
+For each client library release, only a single gRPC API version should be wrapped
 to maintain a consistent API abstraction expectation for the supporting server instances.
