@@ -40,7 +40,9 @@ The `Ansys GitHub organization`_ has a dedicated template repository for creatin
 these ``.proto`` file repositories and the needed files to generate the Python API
 packages to be consumed by the PyAnsys clients.
 
-In order to set up an API repository like `ansys-api-mapdl <https://github.com/ansys/ansys-api-mapdl>`_, select the `ansys-api-template <https://github.com/ansys/ansys-api-template>`_ repository when creating a new repository within the `Ansys GitHub organization`_.
+In order to set up an API repository like `ansys-api-mapdl <https://github.com/ansys/ansys-api-mapdl>`_,
+select the `ansys-api-template <https://github.com/ansys/ansys-api-template>`_ repository
+when creating a new repository within the `Ansys GitHub organization`_.
 
 Follow the instructions on the `ansys-api-template - Expected usage <https://github.com/ansys/ansys-api-template#expected-usage>`_
 section to understand how to use the template repository.
@@ -48,7 +50,8 @@ section to understand how to use the template repository.
 Building Python stub classes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The template repository uses the `ansys-tools-protoc-helper <https://github.com/ansys/ansys-tools-protoc-helper/>`_ library to auto-generate Python wheels that can be consumed by downstream Python client libraries.
+The template repository uses the `ansys-tools-protoc-helper <https://github.com/ansys/ansys-tools-protoc-helper/>`_
+library to auto-generate Python wheels that can be consumed by downstream Python client libraries.
 
 To use this, include this tool in the ``pyproject.toml`` file as a build dependency:
 
@@ -168,7 +171,7 @@ Versioning
 PyPI packages follow semantic versioning while gRPC Protobuf API versions
 typically follow a simplified ``v*`` versioning pattern. It is not expected to
 synchronize the PyPI package version with the Protobuf API version, and
-multiple public APIs can be exposed similtaniously. For example, if you have a
+multiple public APIs can be exposed simultaneously. For example, if you have a
 ``v0`` for MAPDL exposed, you can access it via:
 
 .. code:: python
@@ -183,7 +186,7 @@ While if the API has a ``v1`` API exposed, a different library could also use:
 
 Ansys follows `Microsoft's gRPC versioning
 <https://learn.microsoft.com/en-us/aspnet/core/grpc/versioning>`_
-recommendations which stipulates that incrementing the gRPC proto version is
+recommendations which stipulates that incrementing the gRPC Protobuf version is
 only necessary when making a backwards breaking change. Non-breaking changes
 include:
 
@@ -191,7 +194,7 @@ include:
 * Adding a new method to a service
 * Adding a field to a request message
 
-However, this only applies to the ``vN`` gRPC protobuf API. Python packages
+However, this only applies to the ``vN`` gRPC Protobuf API. Python packages
 tend to follow semantic versioning, and PyAnsys packages follow that
 approach. Therefore, these Python gRPC API packages should also follow semantic
 versioning. Plan on releasing a new minor version when:
@@ -205,13 +208,13 @@ Release a patch release when:
 Only plan on releasing a major release once the API is stable and you plan no
 major in the near future.
 
-This way, you can expose a ``v0`` and/or ``v1`` gRPC proto API and release
+This way, you can expose a ``v0`` and/or ``v1`` gRPC Protobuf API and release
 frequent updates using semantic versioning.
 
 Releasing
 ^^^^^^^^^
 
-As shown in the in the ``release`` section of GitHub workflow, once the Python
+As shown in the ``release`` section of GitHub workflow, once the Python
 API package is compiled it is then uploaded to the public PyPI. In order to do
 so, it is necessary to have access to the ``PYPI_TOKEN`` within the GitHub
 repository. Please contact the PyAnsys Core team at `pyansys.core@ansys.com
