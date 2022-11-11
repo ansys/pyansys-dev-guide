@@ -276,7 +276,7 @@ module that defines all messages within a specific service file and
 a ``*_pb2_grpc`` module that defines a ``Stub`` class that encapsulates all service methods.
 
 Example gRPC imports within the wrapping client library
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: python
 
