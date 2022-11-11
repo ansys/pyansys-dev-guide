@@ -186,7 +186,7 @@ While if the API has a ``v1`` API exposed, a different library could also use:
 
 Ansys follows `Microsoft's gRPC versioning
 <https://learn.microsoft.com/en-us/aspnet/core/grpc/versioning>`_
-recommendations which stipulates that incrementing the gRPC Protobuf version is
+recommendations which stipulate that incrementing the gRPC Protobuf version is
 only necessary when making a backwards breaking change. Non-breaking changes
 include:
 
