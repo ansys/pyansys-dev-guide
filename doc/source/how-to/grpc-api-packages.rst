@@ -1,4 +1,4 @@
-gRPC API Packages
+gRPC API packages
 =================
 
 Protobuf service definitions provide the API specification for underlying
