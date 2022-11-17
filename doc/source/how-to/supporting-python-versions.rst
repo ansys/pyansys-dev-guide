@@ -62,8 +62,7 @@ is by :ref:`Using continuous integration`. An example GitHub
 workflow testing Python 3.7 through Python 3.10 on Windows and Linux would
 start with:
 
-.. code:: yaml
-
+.. code-block:: yaml
    :linenos:
    :emphasize-lines: 8, 13-16
 
@@ -75,16 +74,10 @@ start with:
          matrix:
            os: [windows-latest, ubuntu-latest]
            python-version: ['3.7', '3.8', '3.9', '3.10']
-
        steps:
-         - uses: actions/checkout@v3
-
-         - name: Set up Python ${{ matrix.python-version }}
-           uses: actions/setup-python@v4
+         - name: "Run tests using pytest"
+           run: pyansys/actions/test-pytest@v1
            with:
-             python-version: ${{ matrix.python-version }}
-
-         - name: Unit testing
-           run: |
+             python-version: ${{ matrix.os }}
 
 The workflow would then list the tests to run.
