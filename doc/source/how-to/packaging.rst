@@ -37,6 +37,7 @@ system`:
 
             [project]
             dependencies = [
+                "ansys-api-service==X.Y.Z",
                 "matplotlib >= 3.5.2",
                 "numpy",
                 ...
@@ -47,6 +48,7 @@ system`:
         .. code-block:: toml
 
             [tool.poetry.dependencies]
+            ansys-api-service = "^X.Y.Z"
             matplotlib = "^3.5.2"
             numpy = "*"
             ...
@@ -60,6 +62,7 @@ system`:
             setup(
                 ...
                 install_requires=[
+                    "ansys-api-service==X.Y.Z",
                     "matplotlib >= 3.5.2",
                     "numpy",
                     ...
