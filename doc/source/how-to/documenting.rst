@@ -21,7 +21,7 @@ Documentation sources
 .. raw:: html
 
     <div align="center">
-      <img src="https://github.com/sphinx-doc/sphinx/raw/5.x/doc/_static/sphinx.png">
+      <img src="https://www.sphinx-doc.org/en/master/_static/sphinxheader.png">
     </div>
     <br>
 
@@ -193,8 +193,9 @@ match the category of your example, create a new subdirectory with a
 ``README.txt`` file describing the new category which implies 
 the Python project has the following structure:
 
-.. code:: rst
+.. code-block:: text
 
+    .
     ├── doc
     │   ├── conf.py
     │   ├── index.rst
@@ -469,349 +470,115 @@ branch within this repository. This is done by uploading the generated
 documentation within the ``doc/_build/html/`` directory directly to the
 ``gh-pages`` branch and then `enabling GitHub pages`_.
 
-Build documentation within GitHub
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. admonition:: Consider using pyansys/actions for deploying documentation.
+
+   By using `pyansys/actions <https://github/pyansys/actions>`_, a project can
+   take advantage of multi-version documentation. This allows developers and
+   users to keep better track of the latest features and bug fixes within a
+   library.
+
+
+Deploying to ``gh-pages`` of the repository
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 While you could manually upload your auto-generated documentation for each
 release using your own local GitHub credentials, the best practice is to have
 your documentation build on GitHub and deployed either on release or push to
-main. You can do this via `GitHub Actions`_ by creating a new workflow that
-generates your documentation on each pull request and then deploys under
-certain conditions.
-
-Documentation workflow
-++++++++++++++++++++++
-Your documentation workflow should be in the ``.github/workflows``
-directory and should be triggered on each PR. It should use one of the
-following approaches:
-
-.. tab-set::
-
-    .. tab-item:: Using ``tox``
-
-        The best way to get started with ``tox`` is to use the `ansys-templates`_ tool and run:
-
-        .. code-block:: text
-
-            ansys-templates new pyansys-advanced
-
-        This generates a new GitHub workflow file containing this section:
-
-        .. code-block:: yaml
-
-            docs:
-              name: Documentation
-              runs-on: ubuntu-latest
-              steps:
-                - uses: actions/checkout@v3
-                - name: Set up Python
-                  uses: actions/setup-python@v4
-                  with:
-                    python-version: 3.7
-                - name: Install dependencies
-                  run: |
-                    python -m pip install --upgrade pip flit tox
-                - name: Generate the documentation with tox
-                  run: tox -e doc
-
-    .. tab-item:: Without using ``tox``
-
-        While `tox`_ is the preferred tool for automating your documentation build, if
-        you want to avoid using `tox`_, consider the following workflow:
-
-        .. code-block:: yaml
-
-            docs:
-              name: Build Documentation
-              runs-on: ubuntu-latest
-              steps:
-                - uses: actions/checkout@v3
-                - name: Setup Python
-                  uses: actions/setup-python@v4
-                  with:
-                    python-version: 3.8
-
-                - name: Install <PROJECT-NAME>
-                  run: pip install .
-
-                - name: Install documentation build requirements
-                  run: pip install -r requirements/requirements_docs.txt
-
-                - name: Build Documentation
-                  run: |
-                    make -C doc html SPHINXOPTS="-j auto -W --keep-going"
-                    touch doc/_build/html/.nojekyll
-                    <product>.docs.pyansys.com > doc/_build/html/CNAME
-
-
-Your next step would be to upload the documentation artifact. Assuming your
-documentation is written to ``doc/_build/html``, upload your documentation
-with:
-
-.. tab-set::
-
-    .. tab-item:: Using ``tox``
-
-        .. code-block:: yaml
-
-            - name: Upload HTML Documentation
-              uses: actions/upload-artifact@v2
-              with:
-                name: HTML-Documentation
-                path: .tox/doc_out/
-                retention-days: 7
-
-    .. tab-item:: Without using ``tox``
-
-        .. code-block:: yaml
-
-            - name: Upload HTML Documentation
-              uses: actions/upload-artifact@v2
-              with:
-                name: HTML-Documentation
-                path: doc/_build/html
-                retention-days: 7
-
-This allows anyone creating pull requests to download documentation build
-artifacts as a convenient ZIP file and to open the documentation by opening
-``index.html``.
-
-
-Deploy to GitHub pages
-++++++++++++++++++++++
-Next, deploy your documentation to the ``gh-pages`` branch with the
-`JamesIves/github-pages-deploy-action
-<https://github.com/JamesIves/github-pages-deploy-action>`_ action.
-
-.. admonition:: Deploying to another repository.
-
-   If you are planning to deploy documentation to repository other than
-   the one for your project, make sure you create this new repository before deploying
-   your documentation for the first time.
-
-The following job step shows the logic for deploying. If you want to deploy to
-another repository, make sure to uncomment the ``repository-name`` line and
-declare the name of your documentation repository:
-
-.. tab-set::
-
-    .. tab-item:: Using ``tox``
-
-        .. code-block:: yaml
-
-            - name: Deploy
-              if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-              uses: JamesIves/github-pages-deploy-action@v4.3.0
-              with:
-                token: ${{ secrets.GITHUB_TOKEN }}
-                # repository-name: pyansys/repository-name
-                branch: gh-pages
-                folder: .tox/doc_out
-                clean: true
-
-    .. tab-item:: Without using ``tox``
-
-        .. code-block:: yaml
-
-            - name: Deploy
-              if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-              uses: JamesIves/github-pages-deploy-action@v4.3.0
-              with:
-                token: ${{ secrets.GITHUB_TOKEN }}
-                # repository-name: pyansys/repository-name
-                branch: gh-pages
-                folder: doc/_build/html
-                clean: true
-
-
-Notice that for previous job steps, a ``GITHUB_TOKEN`` is required. GitHub
-automatically generates the token ``GITHUB_TOKEN`` which you can use as
-``token`` for deploying documentation to the same repository. However, if you are
-planning to deploy to another repository, this token does not have the necessary permissions.
-
-In this case, there are two options for documentation deployment, using a bot
-and using a personal access token (PAT). Depending on your profile (such as how many
-organizations you work in and your permissions for different repositories), using
-a PAT can be potentially dangerous because a PAT is not restricted to defined
-repositories but rather has general permissions. This means that a PAT with
-`repository-write` permission can write in any repository in any organization that the
-PAT creator can access.
-
-Therefore, the recommended approach is to **use a bot**. However, you can use a
-PAT if you feel it fits your needs better.
-
-
-Deploy using a bot
-""""""""""""""""""
-To deploy documentation to a repository other than the one where the documentation
-is generated, you must have permissions to access (*read/write*) this second repository.
-These permissions can be handled using a specifically created bot. In the PyAnsys
-organization, there is `PyAnsys Bot`_, which has read and write permission across
-some repositories and can be used for this purpose.
-
-.. admonition:: Organization approval to use PyAnsys bot
-
-    You must have internal approval to use the PyAnsys bot because your repository must
-    be added to its list of repositories. For more information, email
-    `PyAnsys Support <pyansys.support@ansys.com>`_.
-
-
-Once your repository has been added to the white-list for the bot repositories, you must
-add the following code to your CICD YAML file for the authentication:
-
-.. tab-set::
-
-    .. tab-item:: Using ``tox``
-
-        .. code-block:: yaml
-
-          - name: Get Bot Application Token
-            if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-            id: get_workflow_token
-            uses: peter-murray/workflow-application-token-action@v1
-            with:
-              application_id: ${{ secrets.BOT_APPLICATION_ID }}
-              application_private_key: ${{ secrets.BOT_APPLICATION_PRIVATE_KEY }}
-
-
-    .. tab-item:: Without using ``tox``
-
-        .. code-block:: yaml
-
-          - name: Get Bot Application Token
-            if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-            id: get_workflow_token
-            uses: peter-murray/workflow-application-token-action@v1
-            with:
-              application_id: ${{ secrets.BOT_APPLICATION_ID }}
-              application_private_key: ${{ secrets.BOT_APPLICATION_PRIVATE_KEY }}
-
-
-Additionally, you must add the following code for the documentation deployment:
-
-.. tab-set::
-
-    .. tab-item:: Using ``tox``
-
-        .. code-block:: yaml
-
-            - name: Deploy
-              if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-              uses: JamesIves/github-pages-deploy-action@v4.3.0
-              with:
-                token: ${{ steps.get_workflow_token.outputs.token }}
-                repository-name: pyansys/repository-name
-                branch: gh-pages
-                folder: .tox/doc_out
-                clean: true
-
-    .. tab-item:: Without using ``tox``
-
-        .. code-block:: yaml
-
-            - name: Deploy
-              if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-              uses: JamesIves/github-pages-deploy-action@v4.3.0
-              with:
-                token: ${{ steps.get_workflow_token.outputs.token }}
-                repository-name: pyansys/repository-name
-                branch: gh-pages
-                folder: doc/_build/html
-                clean: true
-
-
-
-Deploy using a PAT
-""""""""""""""""""
-To set up the documentation deployment using a PAT (personal access token), you
-must first create a PAT in the ``Settings`` section in your
-GitHub profile. In the left side bar, select the ``Developer Settings`` section
-and then ``Personal access tokens``. Finally, click ``Generate new token`` and
-give it ``write`` permissions on ``Repositories`` at least. You are then prompted
-with the value of the ``TOKEN``. Make sure to copy the value of the ``TOKEN`` as
-you are not be able to retrieve it later. Finally, click ``Configure SSO`` to
-allow using it with the PyAnsys repositories you have access to.
-
-.. note::
-
-    In some cases, the authentication might need specific approval. If you
-    still get authentication errors like those that follow, click the link in
-    the log to authorize the workflow.
-
-    .. code-block:: text
-        :emphasize-lines: 1,2,9
-
-        remote: The `pyansys' organization has enabled or enforced SAML SSO. To access
-        remote: this repository, visit https://github.com/orgs/pyansys/sso?            authorization_request=AGWYQUM5VKPHAQHRS2H3JNTCVBNE7A5PN5ZGOYLONF5GC5DJN5XF62LEZYB663VUVVRX      EZLEMVXHI2LBNRPWSZGOGU33VEFPMNZGKZDFNZ2GSYLML52HS4DFVNHWC5LUNBAWGY3FONZQ
-        remote: and try your request again.
-        fatal: unable to access 'https://github.com/pyansys/pynexus-dev-docs.git/': The requested URL returned error: 403
-        Running post deployment cleanup jobs… 🗑️
-        /usr/bin/git checkout -B github-pages-deploy-action/x00pqaqlu
-        Reset branch 'github-pages-deploy-action/x00pqaqlu'
-        /usr/bin/chmod -R 777 github-pages-deploy-action-temp-deployment-folder
-        /usr/bin/git worktree remove github-pages-deploy-action-temp-deployment-folder --force
-        Error: The deploy step encountered an error: The process '/usr/bin/git' failed with exit code 128 ❌
-
-
-Paste the value of the token in the ``Settings/Secrets/Actions`` path under a
-new secret named ``DEPLOY_DOCS_PAT`` in the repository of the project. Use this
-secret in your CI/CD:
-
-.. tab-set::
-
-    .. tab-item:: Using ``tox``
-
-        .. code-block:: yaml
-
-            - name: Deploy
-              if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-              uses: JamesIves/github-pages-deploy-action@v4.3.0
-              with:
-                token: ${{ secrets.DEPLOY_DOCS_PAT }}
-                repository-name: pyansys/repository-name
-                branch: gh-pages
-                folder: .tox/doc_out
-                clean: true
-
-    .. tab-item:: Without using ``tox``
-
-        .. code-block:: yaml
-
-            - name: Deploy
-              if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-              uses: JamesIves/github-pages-deploy-action@v4.3.0
-              with:
-                token: ${{ secrets.DEPLOY_DOCS_PAT }}
-                repository-name: pyansys/repository-name
-                branch: gh-pages
-                folder: doc/_build/html
-                clean: true
-
-
-
-Deploy when tagging
-+++++++++++++++++++
-
-Depending on your preferences, you can choose to update the documentation on
-tags only (as done earlier) or on each push. If you want to have your
-documentation deployed on each push to ``main``, change the preceding conditional
-to:
+main. You can do this via `GitHub Actions`_ by taking advantage of
+``pyansys/actions`` reusable workflows.
+
+Generated documentation gets published in the ``gh-pages`` branch of the
+repository of the project. On top of that, two artifacts named
+``documentation-html`` and ``documentation-pdf`` get generated at the end of the
+workflow.
+
+Add the following workflow job to build and deploy development and stable
+documentation in an automated way.
 
 .. code-block:: yaml
 
-    if: github.ref == 'refs/heads/main'
+    doc-build:
+      name: "Building documentation"
+      runs-on: ubuntu-latest
+      steps:
+        - name: "Run Ansys documentation building action"
+          uses: pyansys/actions/doc-build@v1
+    
+    doc-deploy-dev:
+      name: "Deploy developers documentation"
+      if: github.event_name == 'push'
+      runs-on: ubuntu-latest
+      needs: doc-build
+      steps:
+        - name: "Deploy the latest documentation"
+          uses: pyansys/actions/doc-deploy-dev@main
+          with:
+              cname: "<library>.docs.pyansys.com"
+              token: ${{ secrets.GITHUB_TOKEN }}
+    
+    doc-deploy-stable:
+      name: "Deploy stable documentation"
+      if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+      runs-on: ubuntu-latest
+      needs: doc-deploy-dev
+      steps:
+        - name: "Deploy the stable documentation"
+          uses: pyansys/actions/doc-deploy-stable@main
+          with:
+              cname: "<library>.docs.pyansys.com"
+              token: ${{ secrets.GITHUB_TOKEN }}
 
+
+Deploying to ``gh-pages`` of another repository
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+If you are planning to deploy documentation to repository other than
+the one for your project, make sure you create this new repository before deploying
+your documentation for the first time.
+
+.. warning::
+
+    Deploying your documentation to another repository is discouraged. It
+    translates to more mainteinance work and does not support the multi-version
+    documentation.
+
+For deploying the documentation to another repository, use the following workflow:
+
+.. code-block:: yaml
+
+    doc-deploy:
+      name: "Deploy documentation to a different repo"
+      runs-on: ubuntu-latest
+      needs: doc-build
+      steps:
+        - name: "Deploy documentation"
+          uses: pyansys/actions/doc-deploy-to-repo@main
+          with:
+            cname: "<library>.docs.pyansys.com"
+            repository: "<owner>/<repository-name>"
+            bot-id: ${{ secrets.BOT_APPLICATION_ID }}
+            bot-token: ${{ secrets.BOT_APPLICATION_PRIVATE_KEY }}
 
 Access online documentation
 ---------------------------
 Documentation for the latest stable release of a PyAnsys library is accessible
-from its repository. You can generally access the latest development version of
-the documentation tracking the ``main`` branch by adding the prefix ``dev.`` to
-the URL for the latest stable release.
+from its repository. The canonical name for the documentation of the project is
+constructed using the following structure:
+
+``https://<product>.docs.pyansys.com``
+
+You can generally access the latest development version of the documentation by
+adding the prefix ``dev.`` to the URL for the latest stable release.
+
+.. warning::
+
+    PyAnsys projects support now multi-version documentation, meaning that
+    stable and development versions are collected under the same webpage. A
+    drop-down button for selecting desired version should be available in the
+    top right corner of the navigation bar in the documentation page.
 
 For example, consider PyAEDT documentation:
 
-- The URL for documentation of the latest stable release is `<https://aedtdocs.pyansys.com/>`_.
-- The URL for documentation of the latest development version is `<https://dev.aedtdocs.pyansys.com/>`_.
+- The URL for documentation of the latest stable release is `<https://aedt.docs.pyansys.com/>`_.
+- The URL for documentation of the latest development version is `<https://dev.aedt.docs.pyansys.com/>`_.
 
 The latest development versions of both the library and its documentation are
 automatically kept up-to-date via GitHub actions.
