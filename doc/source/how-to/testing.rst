@@ -523,9 +523,24 @@ library unit tests for PyAnsys. It can be used immediately by cloning the
 project `template <https://github.com/pyansys/template/>`_. If you are
 unfamiliar with GitHub Actions, see `GitHub Actions`_ for an overview.
 
+.. admonition:: Consider using pyansys/actions in your project.
 
-.. literalinclude:: code/tests.yml     
-   :language: yaml
+   Using `pyansys/actions <https://github.com/pyansys/actions/>`_ allows to
+   simplify your CI/CD workflows and ensures they are compliant with the latest
+   PyAnsys guidelines.
+
+
+.. tab-set::
+
+   .. tab-item:: Using pyansys/actions
+
+      .. literalinclude:: code/tests_with_pyansys_actions.yml     
+         :language: yaml
+
+   .. tab-item:: Using raw GitHub actions
+
+      .. literalinclude:: code/tests.yml     
+         :language: yaml
 
 
 .. _GitHub Actions: https://github.com/features/actions
