@@ -339,7 +339,7 @@ Dependabot version updates are performed by checking a ``dependabot.yml``
 configuration file into your repository. In this file, one should specify the
 location of the project's requirement files, so that Dependabot knows where to
 look. The following code snippets show the required configuration for
-Dependabot acoording to the type of file in which the dependencies are
+Dependabot according to the type of file in which the dependencies are
 specified:
 
 .. tab-set::

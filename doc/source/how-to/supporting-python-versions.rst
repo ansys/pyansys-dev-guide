@@ -64,11 +64,11 @@ start with:
 
 .. code-block:: yaml
    :linenos:
-   :emphasize-lines: 8, 13-16
+   :emphasize-lines: 8, 13
 
    jobs:
-     unittest:
-       name: Unit Testing
+     tests:
+       name: "Tests"
        runs-on: ${{ matrix.os }}
        strategy:
          matrix:
