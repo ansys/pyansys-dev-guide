@@ -510,7 +510,7 @@ documentation in an automated way.
       needs: doc-build
       steps:
         - name: "Deploy the latest documentation"
-          uses: pyansys/actions/doc-deploy-dev@main
+          uses: pyansys/actions/doc-deploy-dev@v1
           with:
               cname: "<library>.docs.pyansys.com"
               token: ${{ secrets.GITHUB_TOKEN }}
@@ -522,7 +522,7 @@ documentation in an automated way.
       needs: doc-deploy-dev
       steps:
         - name: "Deploy the stable documentation"
-          uses: pyansys/actions/doc-deploy-stable@main
+          uses: pyansys/actions/doc-deploy-stable@v1
           with:
               cname: "<library>.docs.pyansys.com"
               token: ${{ secrets.GITHUB_TOKEN }}
