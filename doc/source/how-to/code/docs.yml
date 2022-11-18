@@ -16,7 +16,7 @@ doc-deploy-dev:
     - name: "Deploy the latest documentation"
       uses: pyansys/actions/doc-deploy-dev@v1
       with:
-        cname: "<library>.docs.pyansys.com"
+        cname: ${{ env.CNAME }}
         token: ${{ secrets.GITHUB_TOKEN }}
 
 doc-deploy-stable:
@@ -30,4 +30,3 @@ doc-deploy-stable:
       with:
         cname: ${{ env.CNAME }}
         token: ${{ secrets.GITHUB_TOKEN }}
-        python-version: ${{ env.MAIN_PYTHON_VERSION }}
