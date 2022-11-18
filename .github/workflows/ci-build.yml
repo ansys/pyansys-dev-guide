@@ -90,7 +90,7 @@ jobs:
       uses: vimtor/action-zip@v1
       with:
         files: documentation-pdf
-        dest: documentation-pdf.zip
+        dest: documentation-pdf
 
     - name: "Display the structure of downloaded files"
       shell: bash
@@ -101,4 +101,4 @@ jobs:
       with:
         files: |
           documentation-html.zip
-          documentation-pdf.zip
+          documentation-pdf
