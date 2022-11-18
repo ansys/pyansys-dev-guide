@@ -475,7 +475,8 @@ documentation within the ``doc/_build/html/`` directory directly to the
    By using `pyansys/actions <https://github/pyansys/actions>`_, a project can
    take advantage of multi-version documentation. This allows developers and
    users to keep better track of the latest features and bug fixes within a
-   library.
+   library. To enable support for multi-version documentation, refer to
+   :ref:`Supporting multi-version documentation`.
 
 
 Deploying to ``gh-pages`` of the repository
@@ -556,6 +557,26 @@ For deploying the documentation to another repository, use the following workflo
             repository: "<owner>/<repository-name>"
             bot-id: ${{ secrets.BOT_APPLICATION_ID }}
             bot-token: ${{ secrets.BOT_APPLICATION_PRIVATE_KEY }}
+
+
+Supporting multi-version documentation
+--------------------------------------
+With the release of `pyansys/actions@v1
+<https://actions.docs.pyansys.com/release/0.1/index.html>`_, projects can
+benefit from multi-version documentation. Projects taking advantage of this
+feature need to apply different configurations according to their level of
+maturity.
+
+Common configuration
+~~~~~~~~~~~~~~~~~~~~
+Follow these steps to use the multi-version documentation:
+
+- Create a ``gh-pages`` branch in the repository of your project.
+- In this branch, include a ``CNAME`` containing the canonical name of the 
+
+
+
+
 
 Access online documentation
 ---------------------------
