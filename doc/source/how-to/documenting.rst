@@ -550,7 +550,7 @@ For deploying the documentation to another repository, use the following workflo
       needs: doc-build
       steps:
         - name: "Deploy documentation"
-          uses: pyansys/actions/doc-deploy-to-repo@main
+          uses: pyansys/actions/doc-deploy-to-repo@v1
           with:
             cname: "<library>.docs.pyansys.com"
             repository: "<owner>/<repository-name>"
