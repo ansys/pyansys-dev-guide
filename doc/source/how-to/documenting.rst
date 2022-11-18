@@ -572,10 +572,84 @@ Common configuration
 Follow these steps to use the multi-version documentation:
 
 - Create a ``gh-pages`` branch in the repository of your project.
-- In this branch, include a ``CNAME`` containing the canonical name of the 
+- In this branch, include a ``CNAME`` containing the canonical name for the webpage hosting the documentation.
+- Create also a ``.nojekyll`` file to indicate GitHub about the nature of the website.
+- Create a ``release/`` directory and a ``versions.json`` file inside of it.
+
+The content of the ``version.json`` file should read as follows:
+
+.. code-block:: json
+
+    [
+      {
+        "version": "dev",
+        "url": "<cname>"
+      }
+    ]
 
 
+- Update the version for the ``ansys-sphinx-theme`` to support ``>=0.7``.
+- Include the following lines in :ref:`The \`\`conf.py\`\` file`:
 
+
+.. code-block:: python
+
+    import os
+
+
+    cname = os.environ.get(DOC_CNAME, "<DEFAULT_CNAME>")
+    """The canonical name of the webpage hosting the documentation."""
+
+
+    def get_version_match(semver):
+        """Evaluate the version match for the multi-documentation."""
+        if semver.endswith("dev0"):
+            return "dev"
+        major, minor, _ = semver.split(".")
+        return ".".join([major, minor])
+
+
+    html_theme_options = {
+        "switcher": {
+            "json_url": f"{cname}/release/versions.json",
+            "version_match": get_version_match(__version__),
+        },
+        "navbar_end": ["version-switcher", "theme-switcher", "navbar-icon-links"],
+        ...
+    }
+
+
+- Contact ``pyansys-core team`` by sending an e-mail to ``support@pyansys.com`` in case you need to remove your old development ``CNAME``.
+
+
+With all previous configuration, your project is ready to use multi-version
+documentation in an automated way. This means that, every time you release a
+new version, it will be added to the drop-down button in the documentation page
+of the project.
+
+.. note::
+
+    Only the development together with the latest three stable versions are
+    shown by default in the documentation drop-down.
+
+
+Mature projects configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The term *mature* projects denotes those libraries which already released
+several versions. Developers of mature projects should apply previous changes
+in the ``main`` branch of their project and then *cherry-pick* these changes in
+the latests three stable release branches. This ensures that the multi-version
+documentation is able to function as desired.
+
+For future releases of your project, since the new ``release/X.Y`` branches are
+created from ``main`` with the new configuration, no additional changes are
+required.
+
+.. note::
+
+    If you require support for migrating to the multi-version documentation,
+    please contact the ``pyansys-core team`` by writing an e-mail to
+    ``support@pyansys.com``.
 
 
 Access online documentation
