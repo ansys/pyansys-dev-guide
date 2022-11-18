@@ -537,7 +537,7 @@ your documentation for the first time.
 .. warning::
 
     Deploying your documentation to another repository is discouraged. It
-    translates to more mainteinance work and does not support the multi-version
+    translates to more maintenance work and does not support the multi-version
     documentation.
 
 For deploying the documentation to another repository, use the following workflow:
