@@ -61,7 +61,7 @@ jobs:
           cname: ${{ env.CNAME }}
           token: ${{ secrets.GITHUB_TOKEN }}
 
-  release-gitub:
+  release-github:
     name: "Release to GitHub"
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
