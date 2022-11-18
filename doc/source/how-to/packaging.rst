@@ -338,9 +338,11 @@ The ``dependabot.yml`` file
 Dependabot version updates are performed by checking a ``dependabot.yml``
 configuration file into your repository. In this file, one should specify the
 location of the project's requirement files, so that Dependabot knows where to
-look. The following code snippets show the required configuration for
-Dependabot according to the type of file in which the dependencies are
-specified:
+look. On top of that, Dependabot is also capable of updating ``GitHub actions``
+versions.
+
+The following code snippets show the required configuration for Dependabot
+according to the type of file in which the dependencies are specified:
 
 .. tab-set::
 
@@ -354,6 +356,10 @@ specified:
                 directory: "/requirements" # Location of package manifests
                 schedule:
                     interval: "daily"
+            - package-ecosystem: "github-actions"
+              directory: "/"
+              schedule:
+                interval: "daily"
 
     .. tab-item:: With pyproject.toml
 
@@ -365,6 +371,10 @@ specified:
                 directory: "pyproject.toml" # Location of package manifests
                 schedule:
                     interval: "daily"
+            - package-ecosystem: "github-actions"
+              directory: "/"
+              schedule:
+                interval: "daily"
 
     .. tab-item:: With setup.py
 
@@ -376,6 +386,10 @@ specified:
                 directory: "setup.py" # Location of package manifests
                 schedule:
                     interval: "daily"
+            - package-ecosystem: "github-actions"
+              directory: "/"
+              schedule:
+                interval: "daily"
 
         
 This file should be located in the ``.github`` folder of your repository for
