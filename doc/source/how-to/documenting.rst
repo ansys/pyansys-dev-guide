@@ -530,7 +530,7 @@ documentation in an automated way.
 
 Deploying to ``gh-pages`` of another repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-If you are planning to deploy documentation to repository other than
+If you are planning to deploy documentation to a repository other than
 the one for your project, make sure you create this new repository before deploying
 your documentation for the first time.
 
