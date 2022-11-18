@@ -28,7 +28,7 @@ jobs:
     name: "Documentation style"
     runs-on: ubuntu-latest
     steps:
-      - name: "Code style checks"
+      - name: "Documentation style checks"
         uses: pyansys/actions/doc-style@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
