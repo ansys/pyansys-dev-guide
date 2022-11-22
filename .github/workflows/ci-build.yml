@@ -17,9 +17,9 @@ jobs:
     name: Code style
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
       - name: Install dependencies
@@ -51,17 +51,17 @@ jobs:
     needs: [style, docs-style]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
 
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive-latex-extra latexmk nodejs npm graphviz
+          sudo apt-get install -y xvfb texlive-latex-extra latexmk nodejs npm graphviz
           npm install -g @mermaid-js/mermaid-cli
 
       - name: Install Python dependencies
@@ -70,7 +70,6 @@ jobs:
 
       - name: Build HTML documentation
         run: |
-          Xvfb&         
           xvfb-run tox -e doc
       - name: Build PDF Documentation
         run: |
@@ -108,7 +107,7 @@ jobs:
     needs: [style, docs-style, docs]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v1
