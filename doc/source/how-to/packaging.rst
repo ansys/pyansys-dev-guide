@@ -336,9 +336,9 @@ The ``dependabot.yml`` file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Dependabot version updates are performed by checking a ``dependabot.yml``
-configuration file into your repository. In this file, one should specify the
-location of the project's requirement files, so that Dependabot knows where to
-look. On top of that, Dependabot is also capable of updating ``GitHub actions``
+configuration file into your repository. In this file, you should specify the
+location of the project's requirement files so that Dependabot knows where to
+look. On top of that, Dependabot is capable of updating ``GitHub actions``
 versions.
 
 The following code snippets show the required configuration for Dependabot
@@ -445,6 +445,6 @@ Dependabot security updates make it easier for you to fix vulnerable dependencie
 repository. If you enable this feature, when a Dependabot alert is raised for a vulnerable
 dependency in the dependency graph of your repository, Dependabot automatically tries to fix it.
 
-In order to enable security updates and notifications for your repository, please go to
+To enable security updates and notifications for your repository, go to
 `Enabling or disabling Dependabot security updates for an individual repository
 <https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#enabling-or-disabling-dependabot-security-updates-for-an-individual-repository>`_.

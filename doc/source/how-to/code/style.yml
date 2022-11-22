@@ -9,7 +9,7 @@ doc-style:
   name: Doc style
   runs-on: ubuntu-latest
   steps:
-    - name: "Run Ansys documentation style checks"
+    - name: "Run PyAnsys documentation style checks"
       uses: pyansys/actions/doc-style@v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}

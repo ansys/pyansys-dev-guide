@@ -247,7 +247,7 @@ Consuming the API package within Python
 
 Once the API package has been published to PyPI, a reference can be included
 within the client library build dependencies. To know how to specify project
-required dependencies, refer to the :ref:`Required Dependencies` section.
+dependencies, see :ref:`Required Dependencies`.
 
 Using the API package within the Python client
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

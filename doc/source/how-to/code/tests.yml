@@ -13,7 +13,7 @@ tests:
         pytest-markers: "-k 'mocked'"
         pytest-extra-args: "--cov=ansys.<library> --cov-report=term --cov-report=xml:.cov/coverage.xml --cov-report=html:.cov/html"
 
-    - name: "Upload Coverage Results"
+    - name: "Upload coverage results"
       uses: actions/upload-artifact@v3
       if: matrix.python-version == ${{ env.MAIN_PYTHON_VERSION }}
       with:
