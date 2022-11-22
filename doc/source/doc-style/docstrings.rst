@@ -226,7 +226,7 @@ Here is a sample ``Examples`` section from a Python file for PyAEDT.
 Code supplied in an ``Examples`` section must be compliant with the
 `doctest <https://docs.python.org/3/library/doctest.html>`_ format. This allows
 the code to be used through `pytest <https://docs.pytest.org/en/latest/>`_ to
-perform regression testing to verify that the code is executing as expected. 
+perform regression testing to verify that the code is executing as expected.
 
 If the definition of a method or function is updated, the code in the ``Examples`` section
 must be updated. Any change within the API without a corresponding change
@@ -244,8 +244,8 @@ of the function signature. This can become difficult to read because the signatu
 becomes very long.
 
 Instead, you may want to render type hints as part of each parameter's description. The
-``sphinx-autodoc-typehints`` extension (see `doc <https://pypi.org/project/sphinx-autodoc-typehints/>`_) 
-can be specified in the ``conf.py`` in the extensions list to accomplish that. Additional options 
+``sphinx-autodoc-typehints`` extension (see `doc <https://pypi.org/project/sphinx-autodoc-typehints/>`_)
+can be specified in the ``conf.py`` in the extensions list to accomplish that. Additional options
 for this extension can be also be added. Find below an example of the extension added in the list
 with the two recommended configuration parameters.
 
@@ -262,16 +262,16 @@ with the two recommended configuration parameters.
 
 With this configuration, the following test function
 
-.. automodule:: ansys_sphinx_theme.type_hint_example
+.. literalinclude:: ../../../venv/Lib/site-packages/ansys_sphinx_theme/type_hint_example.py
 
 would be rendered as:
 
 .. autofunction:: ansys_sphinx_theme.type_hint_example.type_hint_func
 
 .. note::
-   
+
    As stated in the `documentation <https://pypi.org/project/sphinx-autodoc-typehints/>`_,
-   the order of the extensions can affect the overall behaviour when used in conjunction 
+   the order of the extensions can affect the overall behaviour when used in conjunction
    with ``sphinx.ext.napoleon``. In this case, the extensions list should look like this:
 
    .. code:: python
