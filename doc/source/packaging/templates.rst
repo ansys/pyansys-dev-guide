@@ -20,7 +20,7 @@ Please, follow the `ansys-templates installation guide`_ to get the latest stabl
 version installed in your system.
 
 - **Repository**: https://github.com/ansys/ansys-templates
-- **Documentation**: https://github.com/ansys/ansys-templates
+- **Documentation**: https://templates.ansys.com
 - **Issues board**: https://github.com/ansys/ansys-templates/issues
 
 
@@ -79,9 +79,9 @@ Create a project based on the ``pyansys-advanced`` template with:
 
    ansys-templates new pyansys-advanced
 
-.. _ansys-templates: https://templates.pyansys.com/index.html
-.. _ansys-templates installation guide: https://templates.pyansys.com/getting_started/index.html
-.. _ansys-templates user guide: https://templates.pyansys.com/user_guide/index.html
+.. _ansys-templates: https://templates.ansys.com/index.html
+.. _ansys-templates installation guide: https://templates.ansys.com/getting_started/index.html
+.. _ansys-templates user guide: https://templates.ansys.com/user_guide/index.html
 .. _ansys-templates issues board:  https://github.com/ansys/ansys-templates/issues
 .. _flit: https://flit.readthedocs.io/en/latest/
 .. _poetry: https://python-poetry.org/
