@@ -122,7 +122,7 @@ Consider this example of a parametrized workflow example:
                     os: [windows-latest, macos-latest, ubuntu-latest]
                 
                 steps:
-                  - echo 'Running Python ${{ matrix.python }} in ${{ matrix.os }}'
+                  - echo "Running Python ${{ matrix.python }} in ${{ matrix.os }}"
 
     .. tab-item:: Actions Log File
 

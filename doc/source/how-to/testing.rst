@@ -521,8 +521,7 @@ automated CI/CD, such testing can still occur and be enforced automatically.
 `GitHub Actions`_ is the preferred automated CI/CD platform for running Python
 library unit tests for PyAnsys. It can be used immediately by cloning the
 project `template <https://github.com/pyansys/template/>`_. If you are
-unfamiliar with GitHub Actions, see `GitHub Actions`_ for an overview.
-
+unfamiliar with GitHub actions, see `GitHub Actions`_ for an overview.
 
 .. literalinclude:: code/tests.yml     
    :language: yaml

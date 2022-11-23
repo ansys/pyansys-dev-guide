@@ -37,6 +37,7 @@ system`:
 
             [project]
             dependencies = [
+                "ansys-api-service==X.Y.Z",
                 "matplotlib >= 3.5.2",
                 "numpy",
                 ...
@@ -47,6 +48,7 @@ system`:
         .. code-block:: toml
 
             [tool.poetry.dependencies]
+            ansys-api-service = "^X.Y.Z"
             matplotlib = "^3.5.2"
             numpy = "*"
             ...
@@ -60,6 +62,7 @@ system`:
             setup(
                 ...
                 install_requires=[
+                    "ansys-api-service==X.Y.Z",
                     "matplotlib >= 3.5.2",
                     "numpy",
                     ...
@@ -334,23 +337,61 @@ The ``dependabot.yml`` file
 
 Dependabot version updates are performed by checking a ``dependabot.yml``
 configuration file into your repository. In this file, one should specify the
-location of the project's requirement files, so that Dependabot knows where
-to look.
+location of the project's requirement files, so that Dependabot knows where to
+look. On top of that, Dependabot is also capable of updating GitHub actions
+versions.
 
-.. code:: yaml
+The following code snippets show the required configuration for Dependabot
+according to the type of file in which the dependencies are specified:
 
-    # To get started with Dependabot version updates, you'll need to specify which
-    # package ecosystems to update and where the package manifests are located.
-    # Please see the documentation for all configuration options:
-    # https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+.. tab-set::
 
-    version: 2
-    updates:
-    - package-ecosystem: "pip" # See documentation for possible values
-        directory: "/requirements" # Location of package manifests
-        schedule:
-            interval: "daily"
+    .. tab-item:: With requirements/\*.txt
 
+        .. code:: yaml
+    
+            version: 2
+            updates:
+            - package-ecosystem: "pip" # See documentation for possible values
+                directory: "/requirements" # Location of package manifests
+                schedule:
+                    interval: "daily"
+            - package-ecosystem: "github-actions"
+              directory: "/"
+              schedule:
+                interval: "daily"
+
+    .. tab-item:: With pyproject.toml
+
+        .. code:: yaml
+
+            version: 2
+            updates:
+            - package-ecosystem: "pip" # See documentation for possible values
+                directory: "pyproject.toml" # Location of package manifests
+                schedule:
+                    interval: "daily"
+            - package-ecosystem: "github-actions"
+              directory: "/"
+              schedule:
+                interval: "daily"
+
+    .. tab-item:: With setup.py
+
+        .. code:: yaml
+
+            version: 2
+            updates:
+            - package-ecosystem: "pip" # See documentation for possible values
+                directory: "setup.py" # Location of package manifests
+                schedule:
+                    interval: "daily"
+            - package-ecosystem: "github-actions"
+              directory: "/"
+              schedule:
+                interval: "daily"
+
+        
 This file should be located in the ``.github`` folder of your repository for
 GitHub to detect it automatically. As it can be seen there are several main options:
 
@@ -361,14 +402,6 @@ GitHub to detect it automatically. As it can be seen there are several main opti
   folder. Other directories could be provided.
 * **schedule**: which lets Dependabot know the frequency at which its subroutines
   should be performed for checking for updates.
-
-.. caution::
-
-    At the moment, Dependabot only works for requirement files. Support for ``setup.py``
-    and ``pyproject.toml`` files is not yet enabled, as it can be seen in this issue
-    opened some time ago: `Standard Python support <https://github.com/dependabot/dependabot-core/issues/3290>`_.
-    While this feature is still coming, remember to update whatever dependencies are
-    defined in other package configuration files **by hand**.
 
 Dependabot updates
 ~~~~~~~~~~~~~~~~~~
@@ -412,6 +445,6 @@ Dependabot security updates make it easier for you to fix vulnerable dependencie
 repository. If you enable this feature, when a Dependabot alert is raised for a vulnerable
 dependency in the dependency graph of your repository, Dependabot automatically tries to fix it.
 
-In order to enable security updates and notifications for your repository, please go to
+To enable security updates and notifications for your repository, go to
 `Enabling or disabling Dependabot security updates for an individual repository
 <https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#enabling-or-disabling-dependabot-security-updates-for-an-individual-repository>`_.
