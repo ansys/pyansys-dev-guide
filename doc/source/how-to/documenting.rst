@@ -588,7 +588,7 @@ The content of the ``version.json`` file should read as follows:
     ]
 
 
-- Update the version for the ``ansys-sphinx-theme`` to support ``>=0.7``.
+- Update the version for the ``ansys-sphinx-theme`` to support ``>=0.8``.
 - Include the following lines in :ref:`The \`\`conf.py\`\` file`:
 
 
@@ -596,18 +596,11 @@ The content of the ``version.json`` file should read as follows:
 
     import os
 
+    from ansys_sphinx_theme import get_version_match
+
 
     cname = os.environ.get(DOC_CNAME, "<DEFAULT_CNAME>")
     """The canonical name of the webpage hosting the documentation."""
-
-
-    def get_version_match(semver):
-        """Evaluate the version match for the multi-documentation."""
-        if semver.endswith("dev0"):
-            return "dev"
-        major, minor, _ = semver.split(".")
-        return ".".join([major, minor])
-
 
     html_theme_options = {
         "switcher": {
