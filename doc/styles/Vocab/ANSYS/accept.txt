@@ -31,6 +31,7 @@ hotfixes
 initializer
 Isort
 isort
+linenos
 matplotlib
 monospaced
 Namespace
