@@ -631,7 +631,7 @@ Mature projects configuration
 The term *mature* projects denotes those libraries which already released
 several versions. Developers of mature projects should apply previous changes
 in the ``main`` branch of their project and then *cherry-pick* these changes in
-the latests three stable release branches. This ensures that the multi-version
+the latest three stable release branches. This ensures that the multi-version
 documentation is able to function as desired.
 
 For future releases of your project, since the new ``release/X.Y`` branches are
