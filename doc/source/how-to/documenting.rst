@@ -559,33 +559,41 @@ in an automated way.
 
 .. code-block:: yaml
 
-    doc-deploy-dev:
-      name: "Deploy development documentation"
-      # Deploy development only when merging to main
-      if: github.event_name == 'push'
-      runs-on: ubuntu-latest
-      needs: doc-build
-      steps:
-        - name: "Deploy the latest documentation"
-          uses: pyansys/actions/doc-deploy-dev@v2
-          with:
-              doc-artifact-name: '<html-artifact-name>'
-              cname: "<library>.docs.pyansys.com"
-              token: ${{ secrets.GITHUB_TOKEN }}
+    env:
+      DOCUMENTATION_CNAME: '<library>.docs.pyansys.com'
+
+    jobs:
+
+        # Artifacts for HTML documentation need to be generated before 
+        # executing the deployment jobs
     
-    doc-deploy-stable:
-      name: "Deploy stable documentation"
-      # Deploy release documentation when creating a new tag
-      if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-      runs-on: ubuntu-latest
-      needs: doc-deploy-dev
-      steps:
-        - name: "Deploy the stable documentation"
-          uses: pyansys/actions/doc-deploy-stable@v2
-          with:
-              doc-artifact-name: '<html-artifact-name>'
-              cname: "<library>.docs.pyansys.com"
-              token: ${{ secrets.GITHUB_TOKEN }}
+        doc-deploy-dev:
+          name: "Deploy development documentation"
+          # Deploy development only when merging to main
+          if: github.event_name == 'push'
+          runs-on: ubuntu-latest
+          needs: doc-build
+          steps:
+            - name: "Deploy the latest documentation"
+              uses: pyansys/actions/doc-deploy-dev@v2
+              with:
+                  doc-artifact-name: '<html-artifact-name>'
+                  cname: ${{ env.DOCUMENTATION_CNAME }}
+                  token: ${{ secrets.GITHUB_TOKEN }}
+        
+        doc-deploy-stable:
+          name: "Deploy stable documentation"
+          # Deploy release documentation when creating a new tag
+          if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+          runs-on: ubuntu-latest
+          needs: doc-deploy-dev
+          steps:
+            - name: "Deploy the stable documentation"
+              uses: pyansys/actions/doc-deploy-stable@v2
+              with:
+                  doc-artifact-name: '<html-artifact-name>'
+                  cname: ${{ env.DOCUMENTATION_CNAME }}
+                  token: ${{ secrets.GITHUB_TOKEN }}
 
 
 Deploying to another repository
