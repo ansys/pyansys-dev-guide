@@ -498,9 +498,9 @@ Follow these steps to enable multi-version documentation in your project:
   
   .. admonition:: About the ``DCOUMENTATION_CNAME`` environment variable
   
-      The ``DOCUMENTATION_CNAME`` environmental variable is expected to be
+      The ``DOCUMENTATION_CNAME`` environment variable is expected to be
       declared in the YML file controlling the deployment of the documentation.
-      The idea is that the canonical name (CNAME) is only define in a single
+      The idea is that the canonical name (CNAME) is only defined in a single
       place, so it can be easily changed if required.
 
 
@@ -522,14 +522,14 @@ Follow these steps to enable multi-version documentation in your project:
 
 
 
-With all previous configuration, your project is ready to use multi-version
+With all the previous configuration, your project is ready to use multi-version
 documentation in an automated way. This means that, every time you release a
 new version, it will be added to the drop-down button in the documentation page
 of the project.
 
 .. admonition:: Controlling the desired amount of versions showing up in the drop-down
 
-    Only the development together with the latest three stable versions are
+    Only the development branch and the latest three stable versions are
     shown by default in the documentation drop-down. For showing more versions,
     use the ``render-last`` variable in the `pyansys/actions/doc-deploy-stable
     action
@@ -554,7 +554,7 @@ repository of the project. Documentation deployment is done by uploading the
 HTML documentation artifact to the `gh-pages`_ branch of the repository, see
 `enabling GitHub pages`_.
 
-Add the following workflow job to deploy development and stable documentation
+Add the following workflow job to deploy both development and stable documentation
 in an automated way.
 
 .. code-block:: yaml
