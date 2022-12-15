@@ -81,7 +81,7 @@ Required workflows
 These workflows are required for any ``PyAnsys`` project:
 
 - :ref:`Coding style` workflow
-- :ref:`Documentation style`, :ref:`Build documentation`, and :ref:`Deploy documentation` Workflows
+- :ref:`Documentation style`, :ref:`Build documentation`, and :ref:`Deploying documentation` Workflows
 - :ref:`Testing` and :ref:`Test code coverage` workflows
 - :ref:`Releasing and publishing` workflow
 
