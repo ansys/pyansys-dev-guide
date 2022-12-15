@@ -462,75 +462,134 @@ The resulting PDF and intermediate LaTeX files are created in the
    Because warnings and errors that occur during the LaTeX building and rendering
    processes are ignored, it is possible that the PDF file has text formatting errors.
 
-Deploy documentation
---------------------
+Enabling multi-version documentation
+------------------------------------
+With the release of `pyansys/actions@v2
+<https://actions.docs.pyansys.com/release/2.0/index.html>`_, projects can
+benefit from multi-version documentation. Projects taking advantage of this
+feature need to apply different configurations according to their level of
+maturity.
+
+Follow these steps to enable multi-version documentation in your project:
+
+- Use ``ansys-sphinx-theme>=0.8`` for building the documentation in your project.
+- Include the following lines in :ref:`The \`\`conf.py\`\` file`:
+
+
+  .. code-block:: python
+  
+      import os
+  
+      from ansys_sphinx_theme import get_version_match
+  
+  
+      cname = os.getenv("DOCUMENTATION_CNAME", "<DEFAULT_CNAME>")
+      """The canonical name of the webpage hosting the documentation."""
+  
+      html_theme_options = {
+          "switcher": {
+              "json_url": f"https://{cname}/release/versions.json",
+              "version_match": get_version_match(__version__),
+          },
+          "navbar_end": ["version-switcher", "theme-switcher", "navbar-icon-links"],
+          ...
+      }
+  
+  
+  .. admonition:: About the ``DCOUMENTATION_CNAME`` environment variable
+  
+      The ``DOCUMENTATION_CNAME`` environment variable is expected to be
+      declared in the YML file controlling the deployment of the documentation.
+      The idea is that the canonical name (CNAME) is only defined in a single
+      place, so it can be easily changed if required.
+
+
+- Create a ``gh-pages`` branch in the repository of your project.
+
+- Create a ``release/`` directory and a ``versions.json`` containing:
+
+  .. code-block:: json
+  
+      [
+        {
+          "version": "dev",
+          "url": "https://<cname>/dev"
+        }
+      ]
+
+- Enable documentation deployment for development and stable versions, see
+  :ref:`Deploying documentation`.
+
+
+
+With all the previous configuration, your project is ready to use multi-version
+documentation in an automated way. This means that, every time you release a
+new version, it will be added to the drop-down button in the documentation page
+of the project.
+
+.. admonition:: Controlling the desired amount of versions showing up in the drop-down
+
+    Only the development branch and the latest three stable versions are
+    shown by default in the documentation drop-down. For showing more versions,
+    use the ``render-last`` variable in the `pyansys/actions/doc-deploy-stable
+    action
+    <https://actions.docs.pyansys.com/release/2.0/doc-actions/index.html#doc-deploy-stable-action>`_.
+
+.. warning::
+
+    After enabling multi-version documentation, only new releases will be
+    automatically added to the ``versions.json`` file. **To show old releases,
+    multi-version documentation needs to be enabled in old release branches.**
+
+
+If you require support for migrating to the multi-version documentation, please
+contact ``support@pyansys.com``.
+
+
+Deploying documentation
+-----------------------
 PyAnsys libraries deploy their documentation online via `GitHub Actions`_ to
-`GitHub Pages`_. For example, this documentation is hosted on the `gh-pages`_
-branch within this repository. This is done by uploading the generated
-documentation within the ``doc/_build/html/`` directory directly to the
-``gh-pages`` branch and then `enabling GitHub pages`_.
+`GitHub Pages`_. This documentation is hosted on the `gh-pages`_ branch of the
+repository of the project. Documentation deployment is done by uploading the
+HTML documentation artifact to the `gh-pages`_ branch of the repository, see
+`enabling GitHub pages`_.
 
-.. admonition:: Consider using pyansys/actions for deploying documentation.
-
-   By using `pyansys/actions <https://github/pyansys/actions>`_, a project can
-   take advantage of multi-version documentation. This allows developers and
-   users to keep better track of the latest features and bug fixes within a
-   library. To enable support for multi-version documentation, refer to
-   :ref:`Supporting multi-version documentation`.
-
-
-Deploying to ``gh-pages`` of the repository
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-While you could manually upload your auto-generated documentation for each
-release using your own local GitHub credentials, the best practice is to have
-your documentation build on GitHub and deployed either on release or push to
-main. You can do this via `GitHub Actions`_ by taking advantage of
-``pyansys/actions`` reusable workflows.
-
-Generated documentation gets published in the ``gh-pages`` branch of the
-repository of the project. On top of that, two artifacts named
-``documentation-html`` and ``documentation-pdf`` get generated at the end of the
-workflow.
-
-Add the following workflow job to build and deploy development and stable
-documentation in an automated way.
+Add the following workflow job to deploy both development and stable documentation
+in an automated way.
 
 .. code-block:: yaml
 
-    doc-build:
-      name: "Building documentation"
-      runs-on: ubuntu-latest
-      steps:
-        - name: "Run Ansys documentation building action"
-          uses: pyansys/actions/doc-build@v1
-    
     doc-deploy-dev:
-      name: "Deploy developers documentation"
+      name: "Deploy development documentation"
+      # Deploy development only when merging to main
       if: github.event_name == 'push'
       runs-on: ubuntu-latest
       needs: doc-build
       steps:
         - name: "Deploy the latest documentation"
-          uses: pyansys/actions/doc-deploy-dev@v1
+          uses: pyansys/actions/doc-deploy-dev@v2
           with:
+              doc-artifact-name: '<html-artifact-name>'
               cname: "<library>.docs.pyansys.com"
               token: ${{ secrets.GITHUB_TOKEN }}
     
     doc-deploy-stable:
       name: "Deploy stable documentation"
+      # Deploy release documentation when creating a new tag
       if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
       runs-on: ubuntu-latest
       needs: doc-deploy-dev
       steps:
         - name: "Deploy the stable documentation"
-          uses: pyansys/actions/doc-deploy-stable@v1
+          uses: pyansys/actions/doc-deploy-stable@v2
           with:
+              doc-artifact-name: '<html-artifact-name>'
               cname: "<library>.docs.pyansys.com"
               token: ${{ secrets.GITHUB_TOKEN }}
 
 
-Deploying to ``gh-pages`` of another repository
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Deploying to another repository
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 If you are planning to deploy documentation to a repository other than
 the one for your project, make sure you create this new repository before deploying
 your documentation for the first time.
@@ -551,98 +610,12 @@ For deploying the documentation to another repository, use the following workflo
       needs: doc-build
       steps:
         - name: "Deploy documentation"
-          uses: pyansys/actions/doc-deploy-to-repo@v1
+          uses: pyansys/actions/doc-deploy-to-repo@v2
           with:
             cname: "<library>.docs.pyansys.com"
             repository: "<owner>/<repository-name>"
             bot-id: ${{ secrets.BOT_APPLICATION_ID }}
             bot-token: ${{ secrets.BOT_APPLICATION_PRIVATE_KEY }}
-
-
-Supporting multi-version documentation
---------------------------------------
-With the release of `pyansys/actions@v1
-<https://actions.docs.pyansys.com/release/0.1/index.html>`_, projects can
-benefit from multi-version documentation. Projects taking advantage of this
-feature need to apply different configurations according to their level of
-maturity.
-
-Common configuration
-~~~~~~~~~~~~~~~~~~~~
-Follow these steps to use the multi-version documentation:
-
-- Create a ``gh-pages`` branch in the repository of your project.
-- In this branch, include a ``CNAME`` containing the canonical name for the webpage hosting the documentation.
-- Create also a ``.nojekyll`` file to indicate GitHub about the nature of the website.
-- Create a ``release/`` directory and a ``versions.json`` file inside of it.
-
-The content of the ``version.json`` file should read as follows:
-
-.. code-block:: json
-
-    [
-      {
-        "version": "dev",
-        "url": "<cname>"
-      }
-    ]
-
-
-- Update the version for the ``ansys-sphinx-theme`` to support ``>=0.8``.
-- Include the following lines in :ref:`The \`\`conf.py\`\` file`:
-
-
-.. code-block:: python
-
-    import os
-
-    from ansys_sphinx_theme import get_version_match
-
-
-    cname = os.environ.get(DOC_CNAME, "<DEFAULT_CNAME>")
-    """The canonical name of the webpage hosting the documentation."""
-
-    html_theme_options = {
-        "switcher": {
-            "json_url": f"{cname}/release/versions.json",
-            "version_match": get_version_match(__version__),
-        },
-        "navbar_end": ["version-switcher", "theme-switcher", "navbar-icon-links"],
-        ...
-    }
-
-
-- Contact ``pyansys-core team`` by sending an e-mail to ``support@pyansys.com`` in case you need to remove your old development ``CNAME``.
-
-
-With all previous configuration, your project is ready to use multi-version
-documentation in an automated way. This means that, every time you release a
-new version, it will be added to the drop-down button in the documentation page
-of the project.
-
-.. note::
-
-    Only the development together with the latest three stable versions are
-    shown by default in the documentation drop-down.
-
-
-Mature projects configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The term *mature* projects denotes those libraries which already released
-several versions. Developers of mature projects should apply previous changes
-in the ``main`` branch of their project and then *cherry-pick* these changes in
-the latest three stable release branches. This ensures that the multi-version
-documentation is able to function as desired.
-
-For future releases of your project, since the new ``release/X.Y`` branches are
-created from ``main`` with the new configuration, no additional changes are
-required.
-
-.. note::
-
-    If you require support for migrating to the multi-version documentation,
-    please contact the ``pyansys-core team`` by writing an e-mail to
-    ``support@pyansys.com``.
 
 
 Access online documentation
@@ -659,7 +632,7 @@ adding the prefix ``dev.`` to the URL for the latest stable release.
 .. warning::
 
     PyAnsys projects support now multi-version documentation, meaning that
-    stable and development versions are collected under the same webpage. A
+    stable and development versions are collected under the same website. A
     drop-down button for selecting desired version should be available in the
     top right corner of the navigation bar in the documentation page.
 
