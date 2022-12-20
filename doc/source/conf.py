@@ -30,6 +30,13 @@ html_theme_options = {
     "additional_breadcrumbs": [
         ("PyAnsys", "https://docs.pyansys.com/"),
     ],
+    "icon_links": [
+        {
+            "name": "Contribute",
+            "url": "https://dev.docs.pyansys.com/how-to/contributing.html",
+            "icon": "fa fa-wrench",
+        },
+    ],
 }
 
 # necessary for proper breadcrumb title
