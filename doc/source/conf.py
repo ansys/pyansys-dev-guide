@@ -22,11 +22,18 @@ release = version = "0.3.dev0"
 html_logo = pyansys_logo_black
 html_theme = "ansys_sphinx_theme"
 html_favicon = ansys_favicon
+html_context = {
+    "github_user": "pyansys",
+    "github_repo": "dev-guide",
+    "github_version": "main",
+    "doc_path": "doc/source",
+}
 
 html_theme_options = {
     "github_url": "https://github.com/pyansys/dev-guide",
     "show_prev_next": False,
     "show_breadcrumbs": True,
+    "use_edit_page_button": True,
     "additional_breadcrumbs": [
         ("PyAnsys", "https://docs.pyansys.com/"),
     ],
