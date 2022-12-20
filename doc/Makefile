@@ -22,6 +22,7 @@ help:
 # customized clean due to examples gallery
 clean:
 	rm -rf build
+	rm -rf source/examples/
 
 # customized pdf fov svg format images
 pdf:
