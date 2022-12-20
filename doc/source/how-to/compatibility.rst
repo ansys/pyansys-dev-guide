@@ -22,7 +22,7 @@ to provides support for certain operations. For implementation examples, see the
 ``check_version.py`` files for the following PyAnsys libraries:
 
 * `ansys/mapdl/core/check_version.py <https://github.com/pyansys/pymapdl/blob/main/src/ansys/mapdl/core/check_version.py>`_
-* `ansys/dpf/core/check_version.py <https://github.com/pyansys/pydpf-core/blob/master/ansys/dpf/core/check_version.py>`_
+* `ansys/dpf/core/check_version.py <https://github.com/pyansys/pydpf-core/blob/master/src/ansys/dpf/core/check_version.py>`_
 
 One of the easiest ways to keep track of the versions supported is setting up a
 **minimum version** data structure, in which forward compatibility is ensured.
