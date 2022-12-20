@@ -57,6 +57,7 @@ jobs:
   doc-deploy:
     name: "Deploy development documentation"
     runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/main' }}
     needs: doc-build
     steps:
       - name: "Deploy development documentation"
