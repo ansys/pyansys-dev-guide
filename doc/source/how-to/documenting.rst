@@ -524,7 +524,7 @@ Follow these steps to enable multi-version documentation in your project:
 
 With all the previous configuration, your project is ready to use multi-version
 documentation in an automated way. This means that every time you release a
-new version is it added to the drop-down button in the documentation page
+new version, it is added to the drop-down button in the documentation page
 of the project.
 
 .. admonition:: Controlling the desired amount of versions showing up in the drop-down
