@@ -276,7 +276,7 @@ To describe 'why' and 'how' you use a class within :ref:`RST files`, use the
             .. code-block:: pycon
 
                >>> from my_module import MyClass
-               >>> my_obj = MyClass(parm1='apple', parm2='orange')
+               >>> my_obj = MyClass(parm1="apple", parm2="orange")
                >>> my_obj.parm1
                'apple'
 
@@ -288,7 +288,7 @@ To describe 'why' and 'how' you use a class within :ref:`RST files`, use the
         .. code-block:: pycon
 
            >>> from my_module import MyClass
-           >>> my_obj = MyClass(parm1='apple', parm2='orange')
+           >>> my_obj = MyClass(parm1="apple", parm2="orange")
            >>> my_obj.parm1
            'apple'
 

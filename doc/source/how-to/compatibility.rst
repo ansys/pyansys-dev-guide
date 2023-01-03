@@ -49,7 +49,7 @@ decorator is used in `ansys/mapdl/core/check_version.py`_ and
 
 .. code:: python
 
-    class Client():
+    class Client:
         def __init__(self):
             """Connect to a fake server."""
             self._server = FakeServer()

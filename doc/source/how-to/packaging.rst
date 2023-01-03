@@ -60,13 +60,13 @@ system`:
             from setuptools import setup
 
             setup(
-                ...
+                ...,
                 install_requires=[
                     "ansys-api-service==X.Y.Z",
                     "matplotlib >= 3.5.2",
                     "numpy",
-                    ...
-                ]
+                    ...,
+                ],
             )
 
 
@@ -173,13 +173,13 @@ popular build systems:
          from setuptools import setup
 
          setup(
-             ...
+             ...,
              extras_require={
-                'all': ['matplotlib', 'pyvista', 'pyside'],
-                'plotting': ['matplotlib', 'pyvista'],
-                'qt': ['pyside'],
+                 "all": ["matplotlib", "pyvista", "pyside"],
+                 "plotting": ["matplotlib", "pyvista"],
+                 "qt": ["pyside"],
              },
-             ...
+             ...,
          )
 
       Install ``package-name`` with the optional ``qt`` packages with:
@@ -293,12 +293,11 @@ You use the decorator with a method with:
 .. code:: python
 
     class MyClass:
-
         def __init__(self, sz):
             self._a = np.arange(sz)
             self._b = np.arange(sz)
 
-        @requires_package('emoo')
+        @requires_package("emoo")
         def plot(self):
             """Plot the internal arrays ``_a`` and ``_b``.
 
@@ -308,6 +307,7 @@ You use the decorator with a method with:
 
             """
             import matplotlib.pyplot as plt
+
             plt.plot(self._a, self._b)
 
 

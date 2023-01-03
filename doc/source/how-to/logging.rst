@@ -86,7 +86,6 @@ This method contains all modified content to send to the stream:
 .. code:: python
 
     class AppFilter(logging.Filter):
-
         def __init__(self, destination=None, extra=None):
             if not destination:
                 self._destination = "Global"
@@ -95,11 +94,11 @@ This method contains all modified content to send to the stream:
 
         def filter(self, record):
             """Modify the record sent to the stream.
-            
+
             Parameters
             ----------
-            record : 
-                
+            record :
+
             """
 
             record.destination = self._destination
@@ -115,7 +114,6 @@ This method contains all modified content to send to the stream:
 .. code:: python
 
     class CustomLogger(object):
-
         def __init__(self, messenger, level=logging.DEBUG, to_stdout=False):
 
             if to_stdout:
@@ -209,9 +207,9 @@ You can change the output to a different error level with:
 
 .. code:: python
 
-   LOG.logger.setLevel('DEBUG')
-   LOG.file_handler.setLevel('DEBUG')  # if present
-   LOG.stdout_handler.setLevel('DEBUG')  # if present
+   LOG.logger.setLevel("DEBUG")
+   LOG.file_handler.setLevel("DEBUG")  # if present
+   LOG.stdout_handler.setLevel("DEBUG")  # if present
 
 
 Alternatively, you can use this approach to ensure that all
@@ -219,7 +217,7 @@ handlers are set to the desired log level:
 
 .. code:: python
 
-   LOG.setLevel('DEBUG')
+   LOG.setLevel("DEBUG")
 
 
 By default, the global logger does not log to a file. However, you can
@@ -229,7 +227,8 @@ a file handler:
 .. code:: python
 
    import os
-   file_path = os.path.join(os.getcwd(), 'pylibrary.log')
+
+   file_path = os.path.join(os.getcwd(), "pylibrary.log")
    LOG.log_to_file(file_path)
 
 If you want to change the characteristics of the global logger from the beginning of
@@ -243,7 +242,8 @@ To log using the global logger, simply call the desired method as a normal logge
     >>> import logging
     >>> from ansys.mapdl.core.logging import Logger
     >>> LOG = Logger(level=logging.DEBUG, to_file=False, to_stdout=True)
-    >>> LOG.debug('This is LOG debug message.')
+    >>> LOG.debug("This is LOG debug message.")
+
     | Level    | Instance        | Module           | Function             | Message
     |----------|-----------------|------------------|----------------------|--------------------------------------------------------
     | DEBUG    |                 |  __init__        | <module>             | This is LOG debug message.
@@ -273,11 +273,11 @@ the global logger. If you want to add a file handler, use the method
 
 Here is an example of how to use an instance logger:
 
-.. code:: python
+.. code:: pycon
     
     >>> from ansys.mapdl.core import launch_mapdl
     >>> mapdl = launch_mapdl()
-    >>> mapdl._log.info('This is an useful message')
+    >>> mapdl._log.info("This is an useful message")
 
     | Level    | Instance        | Module           | Function             | Message
     |----------|-----------------|------------------|----------------------|--------------------------------------------------------
@@ -332,7 +332,6 @@ logging service with the AEDT message manager.
 .. code:: python
 
     class LogHandler(logging.Handler):
-
         def __init__(self, internal_app_messenger, log_destination, level=logging.INFO):
             logging.Handler.__init__(self, level)
             # destination is used if when the internal message manager

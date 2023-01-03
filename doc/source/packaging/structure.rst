@@ -37,7 +37,7 @@ statement:
 
 .. code:: python
 
-   import ansys.product import library
+   from ansys.product import library
 
 Using long Python library names provides two primary advantages:
 

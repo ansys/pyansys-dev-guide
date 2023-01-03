@@ -247,14 +247,16 @@ Instead, you should render type hints as part of each parameter's description. T
 accomplish this, you must combine the ``sphinx.ext.autodoc.typehints``, ``sphinx.ext.napoleon``,
 and ``numpydoc`` extensions in the ``conf.py`` file:
 
+
+
 .. code:: python
 
    extensions = [
-       ...
+       ...,
        "sphinx.ext.autodoc.typehints",
        "sphinx.ext.napoleon",
        "numpydoc",
-       ...
+       ...,
    ]
    autodoc_typehints = "description"
 

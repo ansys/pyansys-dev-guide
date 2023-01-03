@@ -136,7 +136,6 @@ more readable and reliable.
     .. tab-item:: Use
     
         .. code-block:: python
-            
            from ansys.mapdl.core.plotting import general_plotter
 
     .. tab-item:: Avoid
@@ -370,11 +369,11 @@ Instead of:
            else:
 
                if x > y:
-        
+
                    ...
 
                else:
-        
+
                    ...
 
            if x > 0 and x < 10:
@@ -407,9 +406,13 @@ this line is difficult to follow:
 
     .. tab-item:: Avoid
 
-        .. code:: python
+        .. code-block:: python
+
+            # fmt: off
 
             employee_hours = [schedule.earliest_hour for employee in self.public_employees for schedule in employee.schedules]
+
+            # fmt: on
 
 Alternatively, instead of writing a list comprehension, you can use a
 classic loop.
@@ -794,12 +797,13 @@ example, to extract all consonants in a sentence:
                 """Return ``True`` when a letter is a consonant."""
                 vowels = 'aeiou'
                 return letter.isalpha() and letter.lower() not in vowels
-       
+        
         .. code-block:: pycon
-    
+            
             >>> sentence = "This is a sample sentence."
             >>> consonants = [letter for letter in sentence if is_consonant(letter)]
             >>> print(f"{consonants = }")
+
             consonants = ['T', 'h', 's', 's', 's', 'm', 'p', 'l', 's', 'n', 't', 'n', 'c']
 
     .. tab-item:: Avoid
@@ -816,6 +820,7 @@ example, to extract all consonants in a sentence:
         .. code-block:: pycon 
         
             >>> print(f"{consonants = }")
+
             consonants = ['T', 'h', 's', 's', 's', 'm', 'p', 'l', 's', 'n', 't', 'n', 'c']
 
 The second approach is more readable and better documented. Additionally,
