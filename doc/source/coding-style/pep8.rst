@@ -27,15 +27,6 @@ might only be discovered during runtime.
 
 .. tab-set::
 
-   .. tab-item:: Avoid
-
-      .. code-block:: python
-
-         def compute_logbase8(x):
-             import math
-
-             return math.log(8, x)
-
    .. tab-item:: Use
 
       .. code-block:: python
@@ -45,6 +36,17 @@ might only be discovered during runtime.
 
          def compute_logbase8(x):
              return math.log(8, x)
+
+   .. tab-item:: Avoid
+
+      .. code-block:: python
+
+         def compute_logbase8(x):
+             import math
+
+             return math.log(8, x)
+
+
 
 
 Import order
@@ -60,19 +62,6 @@ so that they are easily searchable.
 
 .. tab-set::
 
-   .. tab-item:: Avoid
-
-      .. code-block:: python
-
-         import sys
-         import subprocess
-         from mypackage import mymodule
-         import math
-
-
-         def compute_logbase8(x):
-             return math.log(8, x)
-
 
    .. tab-item:: Use
 
@@ -88,6 +77,19 @@ so that they are easily searchable.
          def compute_logbase8(x):
              return math.log(8, x)
 
+   .. tab-item:: Avoid
+
+      .. code-block:: python
+
+         import sys
+         import subprocess
+         from mypackage import mymodule
+         import math
+
+
+         def compute_logbase8(x):
+             return math.log(8, x)
+
 
 Multiple imports
 ~~~~~~~~~~~~~~~~
@@ -95,6 +97,19 @@ You should place imports in separate lines unless they are modules from the same
 package.
 
 .. tab-set::
+
+    .. tab-item:: Use
+    
+        .. code-block:: python
+        
+           import math
+           import sys
+
+           from my_package import my_module, my_other_module
+        
+
+           def compute_logbase8(x):
+               return math.log(8, x)
 
     .. tab-item:: Avoid
 
@@ -109,19 +124,6 @@ package.
            def compute_logbase8(x):
                return math.log(8, x)
     
-    .. tab-item:: Use
-    
-        .. code-block:: python
-        
-           import math
-           import sys
-
-           from my_package import my_module, my_other_module
-        
-
-           def compute_logbase8(x):
-               return math.log(8, x)
-
 
 Absolute versus relative imports
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -130,18 +132,18 @@ more readable and reliable.
 
 . tab-set::
 
-    .. tab-item:: Avoid
 
-        .. code-block:: python
-
-           from .core.plotting import general_plotter
-
-    
     .. tab-item:: Use
     
         .. code-block:: python
             
            from ansys.mapdl.core.plotting import general_plotter
+
+    .. tab-item:: Avoid
+
+        .. code-block:: python
+
+           from .core.plotting import general_plotter
 
 
 Import namespaces
@@ -153,18 +155,18 @@ Anti-Patterns: using wildcard imports
 
 .. tab-set::
 
-    .. tab-item:: Avoid
-    
-        .. code-block:: python
-        
-            from my_package.my_module import *
-    
+
     .. tab-item:: Use
     
         .. code-block:: python
         
             from my_package.my_module import myclass
 
+    .. tab-item:: Avoid
+    
+        .. code-block:: python
+        
+            from my_package.my_module import *
 
 Naming conventions
 ------------------
@@ -340,32 +342,10 @@ Instead of:
 
 .. tab-set::
 
-    .. tab-item:: Avoid
-    
-        .. code-block:: python
-        
-           if x < y:
-        
-               ...
-        
-           else:
-        
-               if x > y:
-        
-                   ...
-        
-               else:
-        
-                   ...
-
-           if x > 0 and x < 10:
-        
-               print("x is a positive single digit.")
-    
     .. tab-item:: Use
     
         .. code-block:: python
-        
+
            if x < y:
                ...
            else:
@@ -373,12 +353,34 @@ Instead of:
                    ...
                else:
                    ...
-        
+
            if x > 0 and x < 10:
                print("x is a positive single digit.")
            elif x < 0:
                print("x is less than zero.")
 
+    .. tab-item:: Avoid
+    
+        .. code-block:: python
+
+           if x < y:
+
+               ...
+
+           else:
+
+               if x > y:
+        
+                   ...
+
+               else:
+        
+                   ...
+
+           if x > 0 and x < 10:
+
+               print("x is a positive single digit.")
+    
 
 Maximum line length
 -------------------
@@ -393,21 +395,21 @@ this line is difficult to follow:
 
 .. tab-set::
 
-    .. tab-item:: Avoid
-
-        .. code:: python
-
-            employee_hours = [schedule.earliest_hour for employee in self.public_employees for schedule in employee.schedules]
-
     .. tab-item:: Use
 
         .. code-block:: python
-        
+
             employee_hours = [
                 schedule.earliest_hour
                 for employee in self.public_employees
                 for schedule in employee.schedules
             ]
+
+    .. tab-item:: Avoid
+
+        .. code:: python
+
+            employee_hours = [schedule.earliest_hour for employee in self.public_employees for schedule in employee.schedules]
 
 Alternatively, instead of writing a list comprehension, you can use a
 classic loop.
@@ -483,17 +485,17 @@ descriptive variable names.
 
 .. tab-set::
 
-    .. tab-item:: Avoid
-
-        .. code:: python
-        
-           x = "John Smith"  # Student Name
-
     .. tab-item:: Use
     
         .. code:: python
         
             user_name = "John Smith"
+
+    .. tab-item:: Avoid
+
+        .. code:: python
+        
+           x = "John Smith"  # Student Name
 
 
 Docstrings
@@ -537,13 +539,6 @@ equivalence operator.
 
 .. tab-set::
 
-    .. tab-item:: Avoid
-
-        .. code-block:: python
-        
-           if my_bool == True:
-               return result
-
     .. tab-item:: Use
 
         .. code-block:: python
@@ -551,19 +546,18 @@ equivalence operator.
            if my_bool:
                return result
 
+    .. tab-item:: Avoid
+
+        .. code-block:: python
+        
+           if my_bool == True:
+               return result
+
 Knowing that empty sequences are evaluated to ``False``, don't compare the
 length of these objects but rather consider how they would evaluate
 by using ``bool(<object>)``.
 
 .. tab-set::
-
-    .. tab-item:: Avoid
-    
-        .. code-block:: python
-    
-            my_list = []
-            if not len(my_list):
-                raise ValueError('List is empty')
 
     .. tab-item:: Use
     
@@ -573,17 +567,18 @@ by using ``bool(<object>)``.
             if not my_list:
                raise ValueError('List is empty')
 
+    .. tab-item:: Avoid
+    
+        .. code-block:: python
+    
+            my_list = []
+            if not len(my_list):
+                raise ValueError('List is empty')
+
 
 In ``if`` statements, use ``is not`` rather than ``not ...``. 
 
 .. tab-set::
-
-    .. tab-item:: Avoid
-
-        .. code-block:: python
-        
-            if not x is None:
-                return x
 
     .. tab-item:: Use
     
@@ -591,6 +586,13 @@ In ``if`` statements, use ``is not`` rather than ``not ...``.
         
             if x is not None:
                 return 'x exists!'
+
+    .. tab-item:: Avoid
+
+        .. code-block:: python
+        
+            if not x is None:
+                return x
 
 
 Also, avoid ``if x:`` when you mean ``if x is not None:``.  This is
@@ -604,16 +606,6 @@ Use ``.startswith()`` and ``.endswith()`` instead of slicing.
 
 .. tab-set:: 
 
-    .. tab-item:: Avoid
-
-        .. code-block:: python
-        
-           if word[:3] == "cat":
-               print("The word starts with 'cat'.")
-        
-           if file_name[-4:] == ".jpg":
-               print("The file is a JPEG.")
-
     .. tab-item:: Use
     
         .. code-block:: python
@@ -622,6 +614,16 @@ Use ``.startswith()`` and ``.endswith()`` instead of slicing.
                print("The word starts with 'cat'.")
         
            if file_name.endswith(".jpg"):
+               print("The file is a JPEG.")
+
+    .. tab-item:: Avoid
+
+        .. code-block:: python
+        
+           if word[:3] == "cat":
+               print("The word starts with 'cat'.")
+        
+           if file_name[-4:] == ".jpg":
                print("The file is a JPEG.")
 
 
@@ -658,17 +660,6 @@ that do the same thing.
 
 .. tab-set::
 
-    .. tab-item:: Avoid
-    
-        .. code-block:: python
-        
-            temp = 55
-            new_temp = ((temp - 32) * (5 / 9)) + 273.15
-
-            temp2 = 46
-            new_temp_k = ((temp2 - 32) * (5 / 9)) + 273.15
-
-   
     .. tab-item:: Use
     
         .. code-block:: python
@@ -691,6 +682,16 @@ that do the same thing.
 
             new_temp = fahr_to_kelvin(55)
             new_temp_k = fahr_to_kelvin(46)
+
+    .. tab-item:: Avoid
+    
+        .. code-block:: python
+        
+            temp = 55
+            new_temp = ((temp - 32) * (5 / 9)) + 273.15
+
+            temp2 = 46
+            new_temp_k = ((temp2 - 32) * (5 / 9)) + 273.15
 
 
 This is a trivial example, but you can apply this approach for a
@@ -753,7 +754,19 @@ to circumvent nested loops.
 
 .. tab-set::
 
-    .. tab-item:: Avoid
+   .. tab-item:: Use
+
+        .. code-block:: python
+
+            squares = [i * i for i in range(10)]
+
+
+        .. code-block:: pycon
+
+            >>> print(f"{squares = }")
+            squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+   .. tab-item:: Avoid
 
         .. code-block:: python
         
@@ -767,24 +780,27 @@ to circumvent nested loops.
             squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 
 
-    .. tab-item:: Use
-
-        .. code-block:: python
-
-            squares = [i * i for i in range(10)]
-
-
-        .. code-block:: pycon
-
-            >>> print(f"{squares = }")
-            squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
-
-
 If the loop is too complicated for creating a list comprehension,
 consider creating small functions and calling these instead. For
 example, to extract all consonants in a sentence:
 
 .. tab-set::
+
+    .. tab-item:: Use
+    
+        .. code-block:: python
+    
+            def is_consonant(letter):
+                """Return ``True`` when a letter is a consonant."""
+                vowels = 'aeiou'
+                return letter.isalpha() and letter.lower() not in vowels
+       
+        .. code-block:: pycon
+    
+            >>> sentence = "This is a sample sentence."
+            >>> consonants = [letter for letter in sentence if is_consonant(letter)]
+            >>> print(f"{consonants = }")
+            consonants = ['T', 'h', 's', 's', 's', 'm', 'p', 'l', 's', 'n', 't', 'n', 'c']
 
     .. tab-item:: Avoid
     
@@ -799,23 +815,6 @@ example, to extract all consonants in a sentence:
         
         .. code-block:: pycon 
         
-            >>> print(f"{consonants = }")
-            consonants = ['T', 'h', 's', 's', 's', 'm', 'p', 'l', 's', 'n', 't', 'n', 'c']
-    
-    
-    .. tab-item:: Use
-    
-        .. code-block:: python
-    
-            def is_consonant(letter):
-                """Return ``True`` when a letter is a consonant."""
-                vowels = 'aeiou'
-                return letter.isalpha() and letter.lower() not in vowels
-       
-        .. code-block:: pycon
-    
-            >>> sentence = "This is a sample sentence."
-            >>> consonants = [letter for letter in sentence if is_consonant(letter)]
             >>> print(f"{consonants = }")
             consonants = ['T', 'h', 's', 's', 's', 'm', 'p', 'l', 's', 'n', 't', 'n', 'c']
 
