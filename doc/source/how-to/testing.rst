@@ -190,6 +190,7 @@ file would be:
     .. tab-item:: parse_chunks.py
     
         .. code-block:: python
+        
            def parse_chunks(chunks):
                """Deserialize gRPC chunks into a Numpy array.
 
@@ -216,7 +217,6 @@ file would be:
     .. tab-item:: test_parse_chunks.py
     
         .. code-block:: python
-        
         
             from ansys.api.mapdl.v0 import ansys_kernel_pb2 as anskernel
             import numpy as np
