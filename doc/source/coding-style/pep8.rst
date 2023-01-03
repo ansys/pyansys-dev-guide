@@ -136,7 +136,6 @@ more readable and reliable.
     .. tab-item:: Use
     
         .. code-block:: python
-            
            from ansys.mapdl.core.plotting import general_plotter
 
     .. tab-item:: Avoid
@@ -370,11 +369,11 @@ Instead of:
            else:
 
                if x > y:
-        
+
                    ...
 
                else:
-        
+
                    ...
 
            if x > 0 and x < 10:
@@ -408,8 +407,11 @@ this line is difficult to follow:
     .. tab-item:: Avoid
 
         .. code:: python
+            # fmt: off
 
             employee_hours = [schedule.earliest_hour for employee in self.public_employees for schedule in employee.schedules]
+
+            # fmt: on
 
 Alternatively, instead of writing a list comprehension, you can use a
 classic loop.
@@ -797,26 +799,26 @@ example, to extract all consonants in a sentence:
        
         .. code-block:: pycon
     
-            >>> sentence = "This is a sample sentence."
-            >>> consonants = [letter for letter in sentence if is_consonant(letter)]
-            >>> print(f"{consonants = }")
-            consonants = ['T', 'h', 's', 's', 's', 'm', 'p', 'l', 's', 'n', 't', 'n', 'c']
+    >>> sentence = "This is a sample sentence."
+    >>> consonants = [letter for letter in sentence if is_consonant(letter)]
+    >>> print(f"{consonants = }")
+    consonants = ['T', 'h', 's', 's', 's', 'm', 'p', 'l', 's', 'n', 't', 'n', 'c']
 
-    .. tab-item:: Avoid
-    
-        .. code-block:: python
-        
-            sentence = 'This is a sample sentence.'
-            vowels = 'aeiou'
-            consonants = []
-            for letter in sentence:
-                if letter.isalpha() and letter.lower() not in vowels:
-                    consonants.append(letter)
-        
-        .. code-block:: pycon 
-        
-            >>> print(f"{consonants = }")
-            consonants = ['T', 'h', 's', 's', 's', 'm', 'p', 'l', 's', 'n', 't', 'n', 'c']
+    tem:: Avoid
+
+    ode-block:: python
+
+    sentence = 'This is a sample sentence.'
+    vowels = 'aeiou'
+    consonants = []
+    for letter in sentence:
+        if letter.isalpha() and letter.lower() not in vowels:
+            consonants.append(letter)
+
+    ode-block:: pycon 
+
+    >>> print(f"{consonants = }")
+    consonants = ['T', 'h', 's', 's', 's', 'm', 'p', 'l', 's', 'n', 't', 'n', 'c']
 
 The second approach is more readable and better documented. Additionally,
 you could implement a unit test for ``is_consonant``.

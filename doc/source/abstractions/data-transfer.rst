@@ -12,10 +12,10 @@ For example, consider a simple mesh in MAPDL:
 
 .. code:: python
 
-   >>> mapdl.prep7()
-   >>> mapdl.block(0, 1, 0, 1, 0, 1)
-   >>> mapdl.et(1, 186)
-   >>> mapdl.vmesh('ALL')
+   mapdl.prep7()
+   mapdl.block(0, 1, 0, 1, 0, 1)
+   mapdl.et(1, 186)
+   mapdl.vmesh("ALL")
 
 At this point, there are only two ways within MAPDL to access the nodes and
 connectivity of the mesh, You can either print it using the ``NLIST``
@@ -29,13 +29,14 @@ methods are remarkably inefficient, requiring:
   
 This example prints node coordinates using the ``NLIST`` command:
 
-.. code:: python
+.. code:: pycon
 
    >>> print(mapdl.nlist())
-       NODE        X             Y             Z
-        1   0.0000        1.0000        0.0000
-        2   0.0000        0.0000        0.0000
-        3   0.0000       0.75000        0.0000
+
+   NODE        X             Y             Z
+    1   0.0000        1.0000        0.0000
+    2   0.0000        0.0000        0.0000
+    3   0.0000       0.75000        0.0000
 
 It's more efficient to transfer the node array as either a
 series of repeated ``Node`` messages or, better yet, to serialize 
@@ -54,7 +55,7 @@ the nodes of the mesh are accessible as the ``nodes`` attribute within
 the ``mesh`` attribute, which provides an encapsulation of the mesh
 within the MAPDL database.
 
-.. code:: python
+.. code:: pycon
 
    >>> mapdl.mesh.nodes
    array([[0.  , 1.  , 0.  ],

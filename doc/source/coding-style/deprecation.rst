@@ -24,7 +24,8 @@ a minor release or two.
 
     import warnings
 
-    class FieldAnalysis2D():
+
+    class FieldAnalysis2D:
         """Class docstring"""
 
         def assignmaterial(self, obj, mat):
@@ -37,12 +38,16 @@ a minor release or two.
             # one of the following:
 
             # raise a DeprecationWarning. User won't have to change anything
-            warnings.warn('`assignmaterial` is deprecated. Use `assign_material` instead.',
-                          DeprecationWarning)
+            warnings.warn(
+                "`assignmaterial` is deprecated. Use `assign_material` instead.",
+                DeprecationWarning,
+            )
             self.assign_material(obj, mat)
 
             # or raise an AttributeError (could also make a custom DeprecationError)
-            raise AttributeError('`assignmaterial` is deprecated. Use `assign_material` instead.')
+            raise AttributeError(
+                "`assignmaterial` is deprecated. Use `assign_material` instead."
+            )
 
         def assign_material(self, obj, mat):
             """Assign a material to one or more objects.
@@ -62,17 +67,17 @@ method. Simply raise an ``AttributeError`` as part of the class or raise an ``Ex
             This function has been deprecated.
 
         """
-        raise Exception('`my_function` has been deprecated')
+        raise Exception("`my_function` has been deprecated")
 
-Because there is no built-in depreciation error within Python, an alternate
+Because there is no built-in deprecation error within Python, an alternate
 approach is to create a custom ``DeprecationError``.
 
 .. code:: python
 
     class DeprecationError(RuntimeError):
-        """Used for depreciated methods and functions."""
+        """Used for deprecated methods and functions."""
 
-        def __init__(self, message='This feature has been depreciated.'):
+        def __init__(self, message="This feature has been deprecated."):
             """Empty init."""
             RuntimeError.__init__(self, message)
 

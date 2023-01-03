@@ -190,29 +190,26 @@ file would be:
     .. tab-item:: parse_chunks.py
     
         .. code-block:: python
-           
-            def parse_chunks(chunks):
-                """Deserialize gRPC chunks into a Numpy array.
-        
-                Parameters
-                ----------
-                chunks : generator
-                    Generator from gRPC. Each chunk contains a bytes payload.
-        
-                dtype : np.dtype
-                    Numpy data type to interpret chunks as.
-        
-                Returns
-                -------
-                array : np.ndarray
-                    Deserialized Numpy array.
-        
-                """
-                arrays = []
-                for chunk in chunks:
-                    arrays.append(
-                        np.frombuffer(chunk.payload, ANSYS_VALUE_TYPE[chunk.value_type])
-                    )
+           def parse_chunks(chunks):
+               """Deserialize gRPC chunks into a Numpy array.
+
+               Parameters
+               ----------
+               chunks : generator
+                   Generator from gRPC. Each chunk contains a bytes payload.
+
+               dtype : np.dtype
+                   Numpy data type to interpret chunks as.
+
+               Returns
+               -------
+               array : np.ndarray
+                   Deserialized Numpy array.
+
+               """
+               arrays = []
+               for chunk in chunks:
+                   arrays.append(np.frombuffer(chunk.payload, ANSYS_VALUE_TYPE[chunk.value_type]))
         
                 return np.hstack(arrays)
     

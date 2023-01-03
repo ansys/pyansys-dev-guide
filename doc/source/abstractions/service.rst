@@ -63,11 +63,12 @@ way to do this is to include a function to launch the service.
 This example includes ``launch_mapdl``, which brokers a connection via the 
 ``Mapdl`` class:
 
-.. code:: python
+.. code:: pycon
 
    >>> from ansys.mapdl.core import Mapdl
-   >>> mapdl = Mapdl(ip=<IP Address>, port=<Port>)
+   >>> mapdl = Mapdl(ip=whatever_ip, port=whatever_port)
    >>> print(mapdl)
+
    Product:             Ansys Mechanical Enterprise
    MAPDL Version:       21.2
    ansys.mapdl Version: 0.59.dev0
