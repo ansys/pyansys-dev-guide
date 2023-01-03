@@ -18,22 +18,12 @@ permissions:
 
 jobs:
 
-  code-style:
-    name: "Check code style"
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Check code style"
-        uses: pyansys/actions/code-style@v1
-        with:
-          python-version: ${{ env.MAIN_PYTHON_VERSION }}
-          use-python-cache: false
-
   doc-style:
     name: "Check documentation style"
     runs-on: ubuntu-latest
     steps:
       - name: "Check documentation style"
-        uses: pyansys/actions/doc-style@v1
+        uses: pyansys/actions/doc-style@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -46,7 +36,7 @@ jobs:
         run: npm install -g @mermaid-js/mermaid-cli
 
       - name: "Build project documentation"
-        uses: pyansys/actions/doc-build@v1
+        uses: pyansys/actions/doc-build@v2
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
           use-python-cache: false
@@ -61,7 +51,7 @@ jobs:
     needs: doc-build
     steps:
       - name: "Deploy development documentation"
-        uses: pyansys/actions/doc-deploy-dev@v1
+        uses: pyansys/actions/doc-deploy-dev@v2
         with:
           cname: ${{ env.CNAME }}
           token: ${{ secrets.GITHUB_TOKEN }}
