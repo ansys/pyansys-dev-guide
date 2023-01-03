@@ -406,7 +406,8 @@ this line is difficult to follow:
 
     .. tab-item:: Avoid
 
-        .. code:: python
+        .. code-block:: python
+
             # fmt: off
 
             employee_hours = [schedule.earliest_hour for employee in self.public_employees for schedule in employee.schedules]
