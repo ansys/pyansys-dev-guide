@@ -2,13 +2,13 @@ repos:
 
 
 - repo: https://github.com/psf/black
-  rev: 22.3.0
+  rev: 22.12.0
   hooks:
   - id: black
     args: ["doc/source/conf.py"]
 
 - repo: https://github.com/pycqa/isort
-  rev: 5.10.1
+  rev: 5.11.4
   hooks:
   - id: isort
     args: [
@@ -18,24 +18,24 @@ repos:
     ]
 
 - repo: https://github.com/PyCQA/flake8
-  rev: 5.0.4
+  rev: 6.0.0
   hooks:
   - id: flake8
 
 - repo: https://github.com/codespell-project/codespell
-  rev: v2.1.0
+  rev: v2.2.2
   hooks:
   - id: codespell
     args: [--ignore-words=ignore_words.txt, -S \*.pyc\,\*.xml\,\*.txt\,\*.gif\,\*.png\,\*.jpg\,\*.js\,\*.html\,\*.doctree\,\*.ttf\,\*.woff\,\*.woff2\,\*.eot\,\*.mp4\,\*.inv\,\*.pickle\,\*.ipynb\,flycheck\*\,./.git/\*\,./.hypothesis/\*\,\*.yml\,./doc/build/\*\,./doc/images/\*\,./dist/\*\,\*~\,.hypothesis\*\,./doc/source/examples/\*\,\*cover\,\*.dat\,\*.mac]
 
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v4.1.0
+  rev: v4.4.0
   hooks:
   - id: check-merge-conflict
   - id: debug-statements
 
 - repo: https://github.com/python-jsonschema/check-jsonschema
-  rev: 0.16.0
+  rev: 0.19.2
   hooks:
     - id: check-github-workflows
       name: "Check GitHub workflows"

@@ -200,7 +200,7 @@ file would be:
                     Generator from gRPC. Each chunk contains a bytes payload.
         
                 dtype : np.dtype
-                    Numpy data type to interpert chunks as.
+                    Numpy data type to interpret chunks as.
         
                 Returns
                 -------
