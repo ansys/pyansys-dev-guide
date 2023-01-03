@@ -7,6 +7,12 @@ repos:
   - id: black
     args: ["doc/source/conf.py"]
 
+- repo: https://github.com/adamchainz/blacken-docs
+  rev: v1.12.1
+  hooks:
+  - id: blacken-docs
+    additional_dependencies: [black==22.12.0]
+
 - repo: https://github.com/pycqa/isort
   rev: 5.11.4
   hooks:
