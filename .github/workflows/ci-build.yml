@@ -29,7 +29,7 @@ jobs:
 
   doc-build:
     name: "Build project documentation"
-    needs: [code-style, doc-style]
+    needs: doc-style
     runs-on: ubuntu-latest
     steps:
       - name: "Install mermaid-cli"
