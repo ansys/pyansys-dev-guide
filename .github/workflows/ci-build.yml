@@ -12,6 +12,10 @@ env:
   MAIN_PYTHON_VERSION: '3.10'
   CNAME: 'dev.docs.pyansys.com'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: write
   pull-requests: write
