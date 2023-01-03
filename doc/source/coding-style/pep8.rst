@@ -796,29 +796,31 @@ example, to extract all consonants in a sentence:
                 """Return ``True`` when a letter is a consonant."""
                 vowels = 'aeiou'
                 return letter.isalpha() and letter.lower() not in vowels
-       
+        
         .. code-block:: pycon
+            
+            >>> sentence = "This is a sample sentence."
+            >>> consonants = [letter for letter in sentence if is_consonant(letter)]
+            >>> print(f"{consonants = }")
+
+            consonants = ['T', 'h', 's', 's', 's', 'm', 'p', 'l', 's', 'n', 't', 'n', 'c']
+
+    .. tab-item:: Avoid
     
-    >>> sentence = "This is a sample sentence."
-    >>> consonants = [letter for letter in sentence if is_consonant(letter)]
-    >>> print(f"{consonants = }")
-    consonants = ['T', 'h', 's', 's', 's', 'm', 'p', 'l', 's', 'n', 't', 'n', 'c']
+        .. code-block:: python
+        
+            sentence = 'This is a sample sentence.'
+            vowels = 'aeiou'
+            consonants = []
+            for letter in sentence:
+                if letter.isalpha() and letter.lower() not in vowels:
+                    consonants.append(letter)
+        
+        .. code-block:: pycon 
+        
+            >>> print(f"{consonants = }")
 
-    tem:: Avoid
-
-    ode-block:: python
-
-    sentence = 'This is a sample sentence.'
-    vowels = 'aeiou'
-    consonants = []
-    for letter in sentence:
-        if letter.isalpha() and letter.lower() not in vowels:
-            consonants.append(letter)
-
-    ode-block:: pycon 
-
-    >>> print(f"{consonants = }")
-    consonants = ['T', 'h', 's', 's', 's', 'm', 'p', 'l', 's', 'n', 't', 'n', 'c']
+            consonants = ['T', 'h', 's', 's', 's', 'm', 'p', 'l', 's', 'n', 't', 'n', 'c']
 
 The second approach is more readable and better documented. Additionally,
 you could implement a unit test for ``is_consonant``.
