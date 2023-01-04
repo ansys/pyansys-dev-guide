@@ -39,6 +39,11 @@ jobs:
       - name: "Install mermaid-cli"
         run: npm install -g @mermaid-js/mermaid-cli
 
+      - name: "Install GraphViz"
+        shell: bash
+        run: |
+          sudo apt-get install graphviz
+
       - name: "Build project documentation"
         uses: pyansys/actions/doc-build@v2
         with:
@@ -46,7 +51,7 @@ jobs:
           use-python-cache: false
           skip-install: true
           requires-xvfb: true
-          dependencies: 'xvfb texlive-latex-extra latexmk nodejs npm graphviz'
+          dependencies: 'xvfb texlive-latex-extra latexmk nodejs npm'
   
   doc-deploy:
     name: "Deploy development documentation"
