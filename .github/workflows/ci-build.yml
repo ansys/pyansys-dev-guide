@@ -39,7 +39,7 @@ jobs:
       - name: "Install mermaid-cli"
         run: npm install -g @mermaid-js/mermaid-cli
 
-      - name: "Install LaTeX"
+      - name: "Install GraphViz manually"
         shell: bash
         run: |
           sudo apt-get install graphviz
