@@ -3,7 +3,7 @@ doc-build:
   runs-on: ubuntu-latest
   steps:
     - name: "Build project documentation"
-      uses: pyansys/actions/doc-build@v1
+      uses: pyansys/actions/doc-build@v3
       with:
         python-version: ${{ env.MAIN_PYTHON_VERSION }}
 
@@ -14,7 +14,7 @@ doc-deploy-dev:
   needs: doc-build
   steps:
     - name: "Deploy development documentation"
-      uses: pyansys/actions/doc-deploy-dev@v1
+      uses: pyansys/actions/doc-deploy-dev@v3
       with:
         cname: ${{ env.CNAME }}
         token: ${{ secrets.GITHUB_TOKEN }}
@@ -26,7 +26,7 @@ doc-deploy-stable:
   needs: doc-deploy-dev
   steps:
     - name: "Deploy stable documentation"
-      uses: pyansys/actions/doc-deploy-stable@v1
+      uses: pyansys/actions/doc-deploy-stable@v3
       with:
         cname: ${{ env.CNAME }}
         token: ${{ secrets.GITHUB_TOKEN }}
