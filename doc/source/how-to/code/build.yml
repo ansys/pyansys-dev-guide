@@ -7,7 +7,7 @@ build-wheelhouse:
          python-version: ['3.7', '3.8', '3.9', '3.10']
   steps:
     - name: "Build a wheelhouse of the Python library"
-      uses: pyansys/actions/build-wheelhouse@v1
+      uses: pyansys/actions/build-wheelhouse@v3
       with:
         library-name: ${{ env.LIBRARY_NAME }}
         library-namespace: ${{ env.LIBRARY_NAMESPACE }}
@@ -19,6 +19,6 @@ build-library:
   runs-on: ubuntu-latest
   steps:
     - name: "Build library source and wheel artifacts"
-      uses: pyansys/actions/build-library@v1
+      uses: pyansys/actions/build-library@v3
       with:
         library-name: ${{ env.LIBRARY_NAME }}

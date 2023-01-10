@@ -464,7 +464,7 @@ The resulting PDF and intermediate LaTeX files are created in the
 
 Enabling multi-version documentation
 ------------------------------------
-With the release of `pyansys/actions@v2
+With the release of `pyansys/actions@v3
 <https://actions.docs.pyansys.com/release/2.0/index.html>`_, projects can
 benefit from multi-version documentation. Projects taking advantage of this
 feature need to apply different configurations according to their level of
@@ -575,7 +575,7 @@ in an automated way.
           needs: doc-build
           steps:
             - name: "Deploy the latest documentation"
-              uses: pyansys/actions/doc-deploy-dev@v2
+              uses: pyansys/actions/doc-deploy-dev@v3
               with:
                   doc-artifact-name: '<html-artifact-name>'
                   cname: ${{ env.DOCUMENTATION_CNAME }}
@@ -589,7 +589,7 @@ in an automated way.
           needs: doc-deploy-dev
           steps:
             - name: "Deploy the stable documentation"
-              uses: pyansys/actions/doc-deploy-stable@v2
+              uses: pyansys/actions/doc-deploy-stable@v3
               with:
                   doc-artifact-name: '<html-artifact-name>'
                   cname: ${{ env.DOCUMENTATION_CNAME }}
@@ -618,7 +618,7 @@ For deploying the documentation to another repository, use the following workflo
       needs: doc-build
       steps:
         - name: "Deploy documentation"
-          uses: pyansys/actions/doc-deploy-to-repo@v2
+          uses: pyansys/actions/doc-deploy-to-repo@v3
           with:
             cname: "<library>.docs.pyansys.com"
             repository: "<owner>/<repository-name>"
