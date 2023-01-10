@@ -77,95 +77,112 @@ features without sacrificing stability. The model closely follows the
   .. include:: diag/release_branch.rst
 
 
-Release major and minor versions
---------------------------------
-When creating a new major or minor version, ensure your ``origin main`` branch is
-up to date with:
+Releasing new versions
+----------------------
+Releasing is the process of creating a version of a software that developers
+consider useful for customers or other developers. Releases are usually labeled
+with *tags*. These tags allow to quicly identify a release in the version
+control system.
 
-.. code-block:: text
+Before performing a release, verify that:
 
-   git checkout main && git fetch origin main && git rebase origin/main
-
-If you encounter any issues when running the preceding command, solve them before
-continuing with the release. Ensure that your style, tests, and documentation
-checks are passing too.
-
-Create a new branch for the version you want to release with:
-
-.. code-block:: text
-
-   git checkout -b release/X.Y
-
-Update ``X`` or ``Y`` version numbers in your project and replace the ``dev0``
-with a ``0``.
-
-Check all locations, including
-:ref:`The \`\`setup.py\`\` file`, :ref:`The \`\`pyproject.toml\`\` file`, and any
-``__init__.py`` or ``__version__.py`` your project may contain.
-
-Stash and commit previous changes with:
-
-.. code-block:: text
-
-   git add . && git commit -m "Bump version X.Y.0"
-
-Tag the previous commit with:
-
-.. code-block:: text
-
-   git tag vX.Y.0
-
-Push the commit and the tag with:
-
-.. code-block:: text
-
-   git push -u origin release/X.Y && git push origin vX.Y.0
+- |uncheck| Your main or release branch is up to date.
+- |uncheck| All code and documentation style checks are passing successfully.
+- |uncheck| All tests are passing successfully.
+- |uncheck| All documentation builds successfully.
 
 
-Release patched versions
-------------------------
-Patched versions allow you to fix issues discovered in published releases by
-cherry-picking these fixes from the ``main`` branch.
+.. tab-set::
 
-To create a patched version, you must first identify which ``release/X.Y``
-branch it belongs to. Then, ensure your local ``release/X.Y`` is up to date
-with the origin one because other patched versions may have been introduced.
+    .. tab-item:: New major and minor versions
+    
+        When creating a new major or minor version, ensure your ``origin main`` branch is
+        up to date with:
+        
+        .. code-block:: text
+        
+           git checkout main && git fetch origin main && git rebase origin/main
+        
+        If you encounter any issues when running the preceding command, solve them before
+        continuing with the release. Ensure that your style, tests, and documentation
+        checks are passing too.
+        
+        Create a new branch for the version you want to release with:
+        
+        .. code-block:: text
+        
+           git checkout -b release/X.Y
+        
+        Update ``X`` or ``Y`` version numbers in your project and replace the ``dev0``
+        with a ``0``.
+        
+        Check all locations, including
+        :ref:`The \`\`setup.py\`\` file`, :ref:`The \`\`pyproject.toml\`\` file`, and any
+        ``__init__.py`` or ``__version__.py`` your project may contain.
+        
+        Stash and commit previous changes with:
+        
+        .. code-block:: text
+        
+           git add . && git commit -m "Bump version X.Y.0"
+        
+        Tag the previous commit with:
+        
+        .. code-block:: text
+        
+           git tag vX.Y.0
+        
+        Push the commit and the tag with:
+        
+        .. code-block:: text
+        
+           git push -u origin release/X.Y && git push origin vX.Y.0
 
-.. code-block:: text
 
-   git checkout release/X.Y && git fetch origin release/X.Y && git rebase origin/release/X.Y
-
-If you encounter any issues when running this command, solve them before
-continuing with the release. 
-
-Now, `cherry-pick <https://git-scm.com/docs/git-cherry-pick>`_ the fix commit
-from ``main``, which solves for the bug. Do not merge changes from ``main`` into the
-release branch. Always cherry-pick them.
-
-.. code-block:: text
-   
-   git cherry-pick <commit hash>
-
-Ensure that your style, tests, and documentation checks are also passing.
-
-Increase by one unit the value of ``Z`` in your project version. Stash and
-amend these new changes with:
-
-.. code-block:: text
-
-   git add . && git commit --amend -m "Bump version X.Y.Z"
-
-Tag the previous commit with:
-
-.. code-block:: text
-
-   git tag vX.Y.Z
-
-Push the commit and the tag with:
-
-.. code-block:: text
-
-   git push -u origin release/X.Y && git push origin vX.Y.Z
+    .. tab-item:: New patched versions
+    
+        Patched versions allow you to fix issues discovered in published releases by
+        cherry-picking these fixes from the ``main`` branch.
+        
+        To create a patched version, you must first identify which ``release/X.Y``
+        branch it belongs to. Then, ensure your local ``release/X.Y`` is up to date
+        with the origin one because other patched versions may have been introduced.
+        
+        .. code-block:: text
+        
+           git checkout release/X.Y && git fetch origin release/X.Y && git rebase origin/release/X.Y
+        
+        If you encounter any issues when running this command, solve them before
+        continuing with the release. 
+        
+        Now, `cherry-pick <https://git-scm.com/docs/git-cherry-pick>`_ the fix commit
+        from ``main``, which solves for the bug. Do not merge changes from ``main`` into the
+        release branch. Always cherry-pick them.
+        
+        .. code-block:: text
+           
+           git cherry-pick <commit hash>
+        
+        Ensure that your style, tests, and documentation checks are also passing.
+        
+        Increase by one unit the value of ``Z`` in your project version. Stash and
+        amend these new changes with:
+        
+        .. code-block:: text
+        
+           git add . && git commit --amend -m "Bump version X.Y.Z"
+        
+        Tag the previous commit with:
+        
+        .. code-block:: text
+        
+           git tag vX.Y.Z
+        
+        Push the commit and the tag with:
+        
+        .. code-block:: text
+        
+           git push -u origin release/X.Y && git push origin vX.Y.Z
 
 
 Publish artifacts
@@ -414,3 +431,20 @@ docs, and build workflows. For more information, see :ref:`Workflow examples`.
 .. _PyAnsys PyPI: https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi
 .. _PyAnsys: https://github.com/pyansys
 .. _pip Documentation: https://pip.pypa.io/en/stable/cli/pip_install/
+
+
+.. |check| raw:: html
+
+    <input checked=""  type="checkbox">
+
+.. |check_| raw:: html
+
+    <input checked=""  disabled="" type="checkbox">
+
+.. |uncheck| raw:: html
+
+    <input type="checkbox">
+
+.. |uncheck_| raw:: html
+
+    <input disabled="" type="checkbox">

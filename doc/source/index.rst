@@ -9,13 +9,13 @@
     .. grid:: 2
     
         .. grid-item-card:: :octicon:`list-unordered` What is PyAnsys?
-           :link: getting-started/basic
+           :link: getting-started/index
            :link-type: doc
     
             A brief introduction to the PyAnsys Project and its ecosystem.
 
         .. grid-item-card:: :octicon:`law` Project approval
-           :link: getting-started/basic
+           :link: getting-started/administration
            :link-type: doc
 
             Steps to authorize the public release of a PyAnsys library.
