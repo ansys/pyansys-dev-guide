@@ -1,6 +1,5 @@
-######################
 Project administration
-######################
+======================
 
 The PyAnsys project allows you to create your own workflows and 
 interfaces to Ansys products using Ansys APIs. While using PyAnsys 
@@ -10,7 +9,7 @@ apps and workflows internally or externally.
 
 
 Licensing and approval
-======================
+----------------------
 To allow for commercial use, a PyAnsys library must use the MIT
 license. Because this license falls in the BSD-style license class,
 PyAnsys libraries can be used as a shared library with no
@@ -25,16 +24,16 @@ To view this license, see the :ref:`The \`\`LICENSE\`\` file` file in the root
 directory of this repository. This file must be included in the root directory
 of the repository of every PyAnsys library.
 
+
 Project approval
-================
+----------------
 Exposing new Ansys technologies through the PyAnsys project is subject
 to an internal review and decision process. For requests, email
 `pyansys.support@ansys.com <pyansys.support@ansys.com>`_.
 
-.. _repository_management:
 
 Repository management and standards
-===================================
+-----------------------------------
 Each PyAnsys repository should at the minimum be administrated by a
 single individual with "Admin" permissions over the repository. This
 enables them to override any blocking pull requests or to change the

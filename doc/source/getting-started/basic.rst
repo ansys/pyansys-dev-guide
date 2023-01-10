@@ -1,6 +1,5 @@
-############################
 PyAnsys project organization
-############################
+============================
 
 The `PyAnsys Project <https://docs.pyansys.com/>`_ is hosted on GitHub at `PyAnsys
 <https://github.com/pyansys>`_. It contains several repositories with 
@@ -29,9 +28,8 @@ PROTO files, create coverage reports, and report on system coverage:
 * `example-coverage <https://github.com/pyansys/example-coverage>`_
 * `system-reporting-tool <https://github.com/pyansys/system-reporting-tool>`_
 
-#################
 Quick start guide
-#################
+-----------------
 
 This is a brief overview on how to get started right away with your own PyAnsys
 repository on the `PyAnsys GitHub Organization`_. A repository is generally a
