@@ -3,48 +3,70 @@
 
 .. include:: ../../README.rst
 
-.. grid:: 2
 
-    .. grid-item-card:: :octicon:`list-unordered` How-to
-       :link: how-to/index
-       :link-type: doc
+.. card:: Getting started
 
-        Detailed step-by-step guidelines.
+    .. grid:: 2
+    
+        .. grid-item-card:: :octicon:`list-unordered` What is PyAnsys?
+           :link: getting-started/basic
+           :link-type: doc
+    
+            A brief introduction to the PyAnsys Project and its ecosystem.
 
-    .. grid-item-card:: :octicon:`file-directory` Packaging style
-       :link: packaging/index
-       :link-type: doc
+        .. grid-item-card:: :octicon:`law` Project approval
+           :link: getting-started/basic
+           :link-type: doc
 
-        Best practices for distributing Python code.
+            Steps to authorize the public release of a PyAnsys library.
 
-.. grid:: 2
 
-    .. grid-item-card:: :octicon:`codespaces` Coding style
-       :link: coding-style/index
-       :link-type: doc
+.. card:: Explanations
 
-        Best practices for writing Python code.
+    .. grid:: 2
+    
+        .. grid-item-card:: :octicon:`list-unordered` How-to
+           :link: how-to/index
+           :link-type: doc
+    
+            Detailed step-by-step guidelines.
 
-    .. grid-item-card:: :octicon:`pencil` Documentation style
-       :link: doc-style/index
-       :link-type: doc
+        .. grid-item-card:: :octicon:`repo` Abstractions
+           :link: abstractions/index
+           :link-type: doc
 
-        Best practices for writing documentation.
+            Detailed explanations of the PyAnsys architecture.
 
-.. grid:: 1
 
-    .. grid-item-card:: :octicon:`repo` Abstractions
-       :link: abstractions/index
-       :link-type: doc
+.. card:: Style guidelines
 
-        Detailed explanations of the PyAnsys architecture.
+    .. grid:: 3
+    
+        .. grid-item-card:: :octicon:`file-directory` Packaging style
+           :link: packaging/index
+           :link-type: doc
+    
+            Best practices for distributing Python code.
+    
+        .. grid-item-card:: :octicon:`codespaces` Coding style
+           :link: coding-style/index
+           :link-type: doc
+    
+            Best practices for writing Python code.
+    
+        .. grid-item-card:: :octicon:`pencil` Documentation style
+           :link: doc-style/index
+           :link-type: doc
+    
+            Best practices for writing documentation.
+
 
 
 .. toctree::
    :hidden:
    :maxdepth: 3
 
-   overview/index
+   getting-started/index
    how-to/index
    packaging/index
    coding-style/index
