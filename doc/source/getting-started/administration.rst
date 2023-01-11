@@ -2,7 +2,7 @@ Project approval and public release
 ===================================
 Most of the projects in PyAnsys expose the functionality of ANSYS, Inc.
 products. Due to intellectual property reasons, the public release of a PyAnsys
-library must undergo through a project approval process.
+library must go through a project approval process.
 
 
 Approval process
@@ -33,6 +33,8 @@ The approval process is divided into three parts:
 .. important::
 
     An approval from each of these three parts is required to release a project to the public.
+
+    Once approved, a project can be published to the :ref:`Public PyPI`.
 
 
 When releasing a project to the public, expect to:
@@ -106,7 +108,8 @@ dependent npm modules or Python packages from PyPI.
 Technical
 ^^^^^^^^^
 The technical review and approval guarantees that the project follows the best
-and latest software development practices.
+and latest software development practices. Request a technical review by
+sending an email to `support@pyansys.com <mailto:support@pyansys.com>`_.
 
 The following checks are required when performing the technical review of the project:
 
@@ -137,11 +140,6 @@ The following checks are required when performing the technical review of the pr
     * :ref:`Branch protection` is enabled.
     * :ref:`Tag protection` is enabled.
     * :ref:`Workflow protection` is enabled.
-
-.. note::
-
-    Contact `support@pyansys.com <mailto:support@pyansys.com>`_ if you require
-    help meeting all of the previous requirements.
 
 
 .. |check| raw:: html
