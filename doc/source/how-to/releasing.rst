@@ -81,7 +81,7 @@ Releasing new versions
 ----------------------
 Releasing is the process of creating a version of a software that developers
 consider useful for customers or other developers. Releases are usually labeled
-with *tags*. These tags allow to quickly identify a release in the version
+with *tags*. These tags are used to quickly identify a release in the version
 control system.
 
 Before performing a release, verify that:
@@ -94,10 +94,10 @@ Before performing a release, verify that:
 
 .. tab-set::
 
-    .. tab-item:: New major and minor versions
+    .. tab-item:: New major or minor versions
     
         When creating a new major or minor version, ensure your ``origin main`` branch is
-        up to date with:
+        up to date using this code:
         
         .. code-block:: text
         
@@ -118,21 +118,21 @@ Before performing a release, verify that:
         
         Check all locations, including
         :ref:`The \`\`setup.py\`\` file`, :ref:`The \`\`pyproject.toml\`\` file`, and any
-        ``__init__.py`` or ``__version__.py`` your project may contain.
+        ``__init__.py`` or ``__version__.py`` file that your project contains.
         
-        Stash and commit previous changes with:
+        Stash and commit previous changes using this code:
         
         .. code-block:: text
         
            git add . && git commit -m "Bump version X.Y.0"
         
-        Tag the previous commit with:
+        Tag the previous commit using this code:
         
         .. code-block:: text
         
            git tag vX.Y.0
         
-        Push the commit and the tag with:
+        Push the commit and the tag using this code:
         
         .. code-block:: text
         
@@ -155,9 +155,9 @@ Before performing a release, verify that:
         If you encounter any issues when running this command, solve them before
         continuing with the release. 
         
-        Now, `cherry-pick <https://git-scm.com/docs/git-cherry-pick>`_ the fix commit
-        from ``main``, which solves for the bug. Do not merge changes from ``main`` into the
-        release branch. Always cherry-pick them.
+        Now, use the following code to `cherry-pick <https://git-scm.com/docs/git-cherry-pick>`_
+        the fix commit from ``main``, which solves for the bug. Do not merge changes from
+        ``main`` into the release branch. Always cherry-pick them.
         
         .. code-block:: text
            
@@ -166,19 +166,19 @@ Before performing a release, verify that:
         Ensure that your style, tests, and documentation checks are also passing.
         
         Increase by one unit the value of ``Z`` in your project version. Stash and
-        amend these new changes with:
+        amend these new changes using this code:
         
         .. code-block:: text
         
            git add . && git commit --amend -m "Bump version X.Y.Z"
         
-        Tag the previous commit with:
+        Tag the previous commit with this code:
         
         .. code-block:: text
         
            git tag vX.Y.Z
         
-        Push the commit and the tag with:
+        Push the commit and the tag using this code:
         
         .. code-block:: text
         

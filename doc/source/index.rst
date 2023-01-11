@@ -12,7 +12,7 @@
            :link: getting-started/index
            :link-type: doc
     
-            A brief introduction to the PyAnsys Project and its ecosystem.
+            An introduction to the PyAnsys project and its ecosystem.
 
         .. grid-item-card:: :octicon:`law` Project approval and release
            :link: getting-started/administration
