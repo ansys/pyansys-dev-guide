@@ -7,7 +7,7 @@ library must undergo through a project approval process.
 
 Approval process
 ----------------
-The approval process is divided into three different parts:
+The approval process is divided into three parts:
 
 .. grid:: 3
     
@@ -15,7 +15,7 @@ The approval process is divided into three different parts:
        :link: managerial
        :link-type: ref
 
-        Verifies that direct managers, GM/VP, CT or CTO are aware about the project and approve it.
+        Verifies that direct managers, GM/VP, CT, or CTO are aware of the project and approve it.
 
     .. grid-item-card:: :octicon:`law` Legal
        :link: legal
@@ -32,7 +32,7 @@ The approval process is divided into three different parts:
 
 .. important::
 
-    An approval from each part is required to release a project into the public.
+    An approval from each of these three parts is required to release a project to the public.
 
 
 When releasing a project to the public, expect to:
@@ -44,12 +44,12 @@ When releasing a project to the public, expect to:
 
 Managerial
 ^^^^^^^^^^
-The managerial part of the approval process guarantees that direct manager (DM),
-general managers (GM), vice presidents (VP), and chief technolofy officer (CTO)
-are aware about the existence and the status of the project.
+The managerial part of the approval process guarantees that the direct manager (DM),
+general managers (GMs), vice presidents (VPs), and chief technology officer (CTO)
+are aware of the existence and status of the project.
 
-The amount of administrative reviews and approvals depends on the nature of the
-project. A project can be classified in to the following categories:
+The number of administrative reviews and approvals depends on the nature of the
+project. A project can be classified as one of these categories:
 
 .. grid:: 3
     
@@ -61,7 +61,7 @@ project. A project can be classified in to the following categories:
 
     .. grid-item-card:: :octicon:`tools` Tools supporting products
 
-        Tool projects require direct manager and business unit's GM/VP
+        Tool projects require the direct manager and business unit's GM/VP
         approval. No product source code is allowed.
 
     .. grid-item-card:: :octicon:`container` Libraries supporting products
@@ -77,7 +77,7 @@ Legal
 The legal review and approval guarantees that the whole project is subjected
 and protected by the ANSYS, Inc. legal framework.
 
-Start by completing the legal review request form:
+Start by completing the legal review request form for open sourcing the code:
 
 .. button-link:: https://ansys.sharepoint.com/:w:/r/sites/OpenSourceSoftwareOSSSuperintendence/_layouts/15/Doc.aspx?sourcedoc=%7B3296AD39-79EC-4F42-81C1-1DF988986800%7D&file=Open%20Source%20Policy_Request%20to%20Release%20Code_need%20GM%20sign-off_2021Sep.docx&action=default&mobileredirect=true
     :color: black
@@ -93,7 +93,7 @@ The following checks are required when performing the legal review of the projec
     * The contribution does not contain any strong encryption.
     * Ansys official logos and branding images are used in the project.
     * The ANSYS, Inc. copyright appears in the right location as required by the Legal department.
-    * The copyright has the right formatting, that is ``Copyright (C) YYYY ANSYS, Inc.``.
+    * The copyright has the right formatting, which is ``Copyright (C) YYYY ANSYS, Inc.``.
     * The contribution does not embody any Ansys intellectual property that is not approved for open sourcing.
     * The contribution does not embody any invention for which Ansys has sought or received patent protection.
     * Any third-party open sources included in the contribution have been reviewed for security vulnerabilities and have had their license files included in the repository.
@@ -123,17 +123,17 @@ The following checks are required when performing the technical review of the pr
 .. card:: |uncheck| The project is compliant with PyAnsys style guidelines
 
     * The layout of the project follows the :ref:`Packaging style` guidelines.
-    * :ref:`Testing` guarantees at least 80% of code coverage.
+    * :ref:`Testing` guarantees at least 80% code coverage.
     * The project follows the :ref:`Documentation style` guidelines.
     * The examples in the source code docstrings are tested.
-    * Documentation examples are presented in the form of a gallery.
+    * The documentation examples are presented in the form of a gallery.
     * The package builds properly.
-    * The project contains uses CI/CD with all the :ref:`Required workflows`.
+    * The project uses CI/CD with all the :ref:`Required workflows`.
     * The CI/CD pipeline generates project :ref:`artifacts`.
 
 .. card:: |uncheck| The GitHub repository is properly secured
 
-    * Repository is compliant with the :ref:`General configuration`.
+    * The repository is compliant with the :ref:`General configuration`.
     * :ref:`Branch protection` is enabled.
     * :ref:`Tag protection` is enabled.
     * :ref:`Workflow protection` is enabled.
@@ -141,7 +141,7 @@ The following checks are required when performing the technical review of the pr
 .. note::
 
     Contact `support@pyansys.com <mailto:support@pyansys.com>`_ if you require
-    support for being compliant with all previous requirements.
+    help meeting all of the previous requirements.
 
 
 .. |check| raw:: html
