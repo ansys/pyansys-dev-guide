@@ -14,7 +14,7 @@
     
             A brief introduction to the PyAnsys Project and its ecosystem.
 
-        .. grid-item-card:: :octicon:`law` Project approval
+        .. grid-item-card:: :octicon:`law` Project approval and release
            :link: getting-started/administration
            :link-type: doc
 

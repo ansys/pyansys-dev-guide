@@ -81,7 +81,7 @@ Releasing new versions
 ----------------------
 Releasing is the process of creating a version of a software that developers
 consider useful for customers or other developers. Releases are usually labeled
-with *tags*. These tags allow to quicly identify a release in the version
+with *tags*. These tags allow to quickly identify a release in the version
 control system.
 
 Before performing a release, verify that:
