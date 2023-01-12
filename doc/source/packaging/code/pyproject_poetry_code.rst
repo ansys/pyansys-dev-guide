@@ -10,7 +10,7 @@
     version = "<version>"
     description = "A Python wrapper for <Product> <Library>"
     license = "MIT"
-    authors = ["ANSYS, Inc. <ansys.support@ansys.com>"]
+    authors = ["ANSYS, Inc. <pyansys.support@ansys.com>"]
     maintainers = ["PyAnsys developers <pyansys.maintainers@ansys.com>"]
     readme = "README.rst"
     repository = "https://github.com/pyansys/py<product>-<library>"
