@@ -77,8 +77,8 @@ project. A project can be classified as one of these categories:
 
 Legal
 ^^^^^
-The legal review and approval guarantees that the whole project is subjected
-and protected by the Ansys legal framework.
+The approval of the legal review guarantees that the whole project is compliant
+with the legal policy of Ansys.
 
 Start by completing the legal review request form for open sourcing the code:
 
