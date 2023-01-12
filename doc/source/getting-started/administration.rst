@@ -103,7 +103,7 @@ The following checks are required when performing the legal review of the projec
 
 Open source dependencies that are not distributed as part of the project do not
 need their licenses included in the Ansys repository. Examples include
-dependent npm modules or Python packages from PyPI.
+dependent Node package manager (npm) modules or Python packages from PyPI.
 
 
 Technical
