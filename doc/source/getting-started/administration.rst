@@ -110,7 +110,7 @@ Technical
 ^^^^^^^^^
 The approval of the technical guarantees that the project follows the best and
 latest software development practices. Request a technical review by sending an
-email to `support@pyansys.com <mailto:support@pyansys.com>`_.
+email to `pyansys.support@ansys.com <mailto:pyansys.support@ansys.com>`_.
 
 The following checks are required when performing the technical review of the project:
 

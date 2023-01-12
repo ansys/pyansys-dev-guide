@@ -357,7 +357,7 @@ unique to each project. It can only be obtained after the first release to the
 public PyPI. Follow the process :ref:`Project approval and public release`
 process to obtain public release authorization.
 
-Once authorized, contact `support@pyansys.com <mailto:support@pyansys.com>`_ to
+Once authorized, contact `pyansys.support@ansys.com <mailto:pyansys.support@ansys.com>`_ to
 get support during the first release of the project. The team then enables the
 custom ``PYPI_TOKEN`` once your project has been successfully released for the
 first time. For future releases, everything is then automated.
@@ -420,7 +420,7 @@ public PyPI and GitHub.
 .. dropdown:: Downloading artifacts from the Ansys private PyPI
 
     Request the value of the ``PYANSYS_PYPI_PRIVATE_PAT`` token by sending an
-    email to the `support@pyansys.com <support@pyansys.com>`_ email.
+    email to the `pyansys.support@ansys.com <pyansys.support@ansys.com>`_ email.
 
     Create an environment variable named ``PYANSYS_PYPI_PRIVATE_PAT`` in your
     local machine an assign it the value of the token.
