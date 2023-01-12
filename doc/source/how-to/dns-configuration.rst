@@ -62,6 +62,25 @@ The CNAME requested **can** be used  by external user/organization repositories.
 it must be avoided to create CNAME requests that are not verified by the organization.
 
 
+Preventing CNAME takeover
+-------------------------
+
+From past experience, CNAMEs have been taken over by external users/organizations. This has typically
+occurred due to the following reasons:
+
+* Ansys GitHub organizations had no domain verification set up.
+* CNAMEs created did not follow the recommended CNAME guidelines.
+* More than one level of subdomain depth under the verified domain had been requested.
+* Long lead times between CNAME creation and assignment to GitHub pages occurred.
+
+Thus, it is important that the following guidelines are followed:
+
+* Ensure that your GitHub organization has verified domains for hosting GitHub pages.
+* Check that whatever CNAME requested does not have a subdomain depth larger than **1** with respect to the verified domains.
+* Request a CNAME only when needed - that is, right before publishing the site.
+* Request CNAME deletion once it is no longer used to prevent others from hosting their sites on it.
+
+
 ..
    Links
 
