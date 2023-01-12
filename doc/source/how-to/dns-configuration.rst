@@ -65,11 +65,11 @@ it must be avoided to create CNAME requests that are not verified by the organiz
 Preventing CNAME takeover
 -------------------------
 
-From past experience, CNAMEs have been taken over by external users/organizations. This has typically
+From past experience, CNAME values have been taken over by external users/organizations. This has typically
 occurred due to the following reasons:
 
 * Ansys GitHub organizations had no domain verification set up.
-* CNAMEs created did not follow the recommended CNAME guidelines.
+* A CNAME created did not follow the recommended CNAME guidelines.
 * More than one level of subdomain depth under the verified domain had been requested.
 * Long lead times between CNAME creation and assignment to GitHub pages occurred.
 
