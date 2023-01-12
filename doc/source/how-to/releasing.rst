@@ -101,7 +101,7 @@ control system.
 
 .. dropdown:: Releasing major and minor versions
 
-    Before performing a release, you must verify that your ``origin main`` branch is upd to date using the these commands:
+    Before performing a release, you must verify that your ``origin main`` branch is up to date using the these commands:
     
     .. code-block:: text
     
@@ -130,7 +130,7 @@ control system.
     
     .. code-block:: text
     
-       git add pyproject.toml
+       git add <files-edited-for-version-number-change>
        git commit -m "Bump version X.Y.0"
     
     Tag the previous commit using this command:
@@ -176,7 +176,7 @@ control system.
     
     .. code-block:: text
     
-       git add pyproject.toml
+       git add <files-edited-for-version-number-change>
        git commit --amend -m "Bump version X.Y.Z"
     
     Tag the previous commit with this command:
@@ -249,7 +249,7 @@ via a username and a password:
 +---------------------------------------------+--------------------------------+
 | Credentials for publishing to private PyPI  | Value                          |
 +=============================================+================================+
-| Username                                    | __token__                      |
+| Username                                    | ``__token__``                  |
 +---------------------------------------------+--------------------------------+
 | Password                                    | ``PYANSYS_PYPI_PRIVATE_PAT``   |
 +---------------------------------------------+--------------------------------+
@@ -279,7 +279,7 @@ tokens from PyAnsys CI/CD.
           steps:
             - uses: pyansys/actions/release-pypi-private@v3
               with:
-                library-name: "ansys-<product>-<library"
+                library-name: "ansys-<product>-<library>"
                 twine-username: "__token__"
                 twine-token: ${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }}
 
@@ -343,7 +343,7 @@ libraries`. Publishing to `PyPI`_ requires a username and a password:
 +-------------------------------------------+----------------+
 | Credentials for publishing to public PyPI | Value          |
 +===========================================+================+
-| Username                                  | __token__      |
+| Username                                  | ``__token__``  |
 +-------------------------------------------+----------------+
 | Password                                  | ``PYPI_TOKEN`` |
 +-------------------------------------------+----------------+
@@ -354,9 +354,9 @@ public PyPI. Follow the process :ref:`Project approval and public release`
 process to obtain public release authorization.
 
 Once authorized, contact `support@pyansys.com <mailto:support@pyansys.com>`_ to
-get support during the first release of the project. The team will enable the
+get support during the first release of the project. The team then enables the
 custom ``PYPI_TOKEN`` once your project has been successfully released for the
-first time. For future releases, everything will be automated.
+first time. For future releases, everything is then automated.
 
 .. dropdown:: Using GitHub actions
 
@@ -373,7 +373,7 @@ first time. For future releases, everything will be automated.
           steps:
             - uses: pyansys/actions/release-pypi-public@v3
               with:
-                library-name: "ansys-<product>-<library"
+                library-name: "ansys-<product>-<library>"
                 twine-username: "__token__"
                 twine-token: ${{ secrets.PYPI_TOKEN }}
 
@@ -390,7 +390,7 @@ the :ref:`Project approval and public release` section.
 .. dropdown:: Using GitHub actions
 
     The following code allows you to publish any Python :ref:`Artifacts` contained in
-    the ``dist/`` directory to the public PyPI. It is expected to be included when
+    the ``dist/`` directory to the GitHub release created. It is expected to be included when
     :ref:`Use GitHub actions`:
     
     .. code-block:: yaml
@@ -402,7 +402,7 @@ the :ref:`Project approval and public release` section.
           steps:
             - uses: pyansys/actions/release-github@v3
               with:
-                library-name: "ansys-<product>-<library"
+                library-name: "ansys-<product>-<library>"
 
 
 Downloading artifacts

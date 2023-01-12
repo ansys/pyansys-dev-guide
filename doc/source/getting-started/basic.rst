@@ -3,7 +3,7 @@ PyAnsys project organization
 
 The `PyAnsys <https://docs.pyansys.com/>`_ project is hosted on GitHub at
 `PyAnsys GitHub organization`_. It contains several repositories with Python
-libraries that interface with Ansys products or services.  To try out a
+libraries that interface with Ansys products or services. To try out a
 library, visit one of these links:
 
 * `PyAEDT`_

@@ -15,7 +15,7 @@ The approval process is divided into three parts:
        :link: managerial
        :link-type: ref
 
-        Verifies that direct managers, general managers, or chieff technology
+        Verifies that direct managers, general managers, or chief technology
         officer are aware of the project and approve it.
 
     .. grid-item-card:: :octicon:`law` Legal
@@ -103,7 +103,7 @@ The following checks are required when performing the legal review of the projec
 
 Open source dependencies that are not distributed as part of the project do not
 need their licenses included in the Ansys repository. Examples include
-dependent Node package manager (npm) modules or Python packages from PyPI.
+dependent Node package manager (``npm``) modules or Python packages from PyPI.
 
 
 Technical
