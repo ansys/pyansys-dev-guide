@@ -33,8 +33,7 @@ DNS protection measures
 -----------------------
 
 The rationale behind choosing the previous CNAME convention is due to cybersecurity reasons.
-GitHub allows to verify domains for users and organizations. In order to do so, GitHub's online
-documentation can be found here: `Verifying a domain for your organization site`_.
+GitHub allows to verify domains for users and organizations, see `Verifying a domain for your organization site`_.
 
 Once an organization has a verified domain, **this prevents external users to the organization from
 taking over existing direct subdomains**. However, deeper subdomains are no longer verified by
@@ -57,7 +56,7 @@ Case scenario - **vulnerable** subdomain
 #. Consider that the domain ``pyansys.com`` has been verified for the `PyAnsys GitHub organization`_.
 #. A CNAME as follows is requested: ``subsubdomain.subdomain.pyansys.com``
 
-The CNAME requested **can** be used  by external user/organization repositories. For this reason,
+The CNAME requested **can** be used by external user/organization repositories. For this reason,
 it must be avoided to create CNAME requests that are not verified by the organization.
 
 
