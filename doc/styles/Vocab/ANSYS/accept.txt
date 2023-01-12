@@ -79,3 +79,7 @@ componentizing
 unvalidated
 composability
 reusability
+Maxime Rey
+Roberto Pastor Muela
+Alex Kaszynski
+cybersecurity

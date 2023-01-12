@@ -8,7 +8,7 @@ online under the following canonical name (CNAME) convention:
 
 In order to request a CNAME for the ``pyansys.com`` domain, please contact
 `Maxime Rey`_, `Roberto Pastor Muela`_ or `Alex Kaszynski`_. Any of these members
-will handle the creation of the requested PyAnsys subdomain.
+can handle the creation of the requested PyAnsys subdomain.
 
 Once the CNAME is created, repository administrators can configure their published
 documentation in GitHub pages to be exposed through it. In order to configure the CNAME
