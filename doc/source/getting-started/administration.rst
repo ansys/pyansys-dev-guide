@@ -61,12 +61,12 @@ project. A project can be classified as one of these categories:
         review, and documentation proofing. No source code other than
         documentation files is allowed.
 
-    .. grid-item-card:: :octicon:`tools` Tools supporting products
+    .. grid-item-card:: :octicon:`tools` Tool projects
 
         Tool projects require the direct manager and business unit's GM/VP
         approval. No product source code is allowed.
 
-    .. grid-item-card:: :octicon:`container` Libraries supporting products
+    .. grid-item-card:: :octicon:`container` Library projects
 
         Library projects interfacing and wrapping any Ansys products
         require approval of the direct manager, product line, product line, and
