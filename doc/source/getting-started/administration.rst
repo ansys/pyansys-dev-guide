@@ -131,6 +131,7 @@ The following checks are required when performing the technical review of the pr
     * The project follows the :ref:`Documentation style` guidelines.
     * The examples in the source code docstrings are tested.
     * The documentation examples are presented in the form of a gallery.
+    * The documentation has the approval of the documentation team.
     * The package builds properly.
     * The project uses CI/CD with all the :ref:`Required workflows`.
     * The CI/CD pipeline generates project :ref:`artifacts`.
