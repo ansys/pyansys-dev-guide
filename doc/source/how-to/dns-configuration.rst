@@ -6,19 +6,19 @@ online under the following canonical name (CNAME) convention:
 
 ``https://<product>.docs.pyansys.com``
 
-In order to request a CNAME for the ``pyansys.com`` domain, please contact
+To request a CNAME for the ``pyansys.com`` domain, please contact
 `Maxime Rey`_, `Roberto Pastor Muela`_ or `Alex Kaszynski`_. Any of these members
 can handle the creation of the requested PyAnsys subdomain.
 
 Once the CNAME is created, repository administrators can configure their published
-documentation in GitHub pages to be exposed through it. In order to configure the CNAME
+documentation in GitHub pages to be exposed through it. To configure the CNAME
 for your documentation, please refer to GitHub's online documentation:
 `Managing a custom domain for your GitHub Pages site`_.
 
 PyAnsys verified domains
 ------------------------
 
-In the `PyAnsys organization`_, the following domains have been verified:
+In the `PyAnsys GitHub organization`_, the following domains have been verified:
 
 * ``pyansys.com``
 * ``docs.pyansys.com``
@@ -49,8 +49,7 @@ Case scenario - **protected** subdomain
 #. A CNAME as follows is requested: ``subdomain.pyansys.com``
 
 The CNAME requested can only be used by projects/repositories inside the `PyAnsys organization`_.
-Any attempt by external users/organizations of taking over the previous CNAME is taken
-care by GitHub and rejected.
+Any attempt by external users/organizations of taking over the previous CNAME is identified and rejected by GitHub.
 
 Case scenario - **vulnerable** subdomain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
