@@ -1,6 +1,6 @@
 Project approval and public release
 ===================================
-Most of the projects in PyAnsys expose the functionality of ANSYS, Inc.
+Most of the projects in PyAnsys expose the functionality of Ansys
 products. Due to intellectual property reasons, the public release of a PyAnsys
 library must go through a project approval process.
 
@@ -21,13 +21,13 @@ The approval process is divided into three parts:
        :link: legal
        :link-type: ref
 
-        Verifies that the project ships with the right legal framework to protect ANSYS, Inc. intellectual property.
+        Verifies that the project ships with the right legal framework to protect Ansys intellectual property.
 
     .. grid-item-card:: :octicon:`gear` Technical
        :link: technical
        :link-type: ref
 
-        Verifies that the project is compliant with ANSYS, Inc. software guidelines and best practices.
+        Verifies that the project is compliant with Ansys software guidelines and best practices.
 
 
 .. important::
@@ -41,7 +41,7 @@ When releasing a project to the public, expect to:
 
 * Coordinate with the product line development team, if applicable.
 * Maintain the project by means of fixing bugs and providing support for new releases.
-* Ensure the good reputation of ANSYS, Inc. in the open source community.
+* Ensure the good reputation of Ansys in the open source community.
 
 
 Managerial
@@ -68,7 +68,7 @@ project. A project can be classified as one of these categories:
 
     .. grid-item-card:: :octicon:`container` Libraries supporting products
 
-        Library projects interfacing and wrapping any ANSYS, Inc. products
+        Library projects interfacing and wrapping any Ansys products
         require approval of the direct manager, product line, product line, and
         the CTO. No product source code is allowed.
 
@@ -77,7 +77,7 @@ project. A project can be classified as one of these categories:
 Legal
 ^^^^^
 The legal review and approval guarantees that the whole project is subjected
-and protected by the ANSYS, Inc. legal framework.
+and protected by the Ansys legal framework.
 
 Start by completing the legal review request form for open sourcing the code:
 
@@ -94,7 +94,7 @@ The following checks are required when performing the legal review of the projec
     * The project contains the right license.
     * The contribution does not contain any strong encryption.
     * Ansys official logos and branding images are used in the project.
-    * The ANSYS, Inc. copyright appears in the right location as required by the Legal department.
+    * The Ansys copyright appears in the right location as required by the Legal department.
     * The copyright has the right formatting, which is ``Copyright (C) YYYY ANSYS, Inc.``.
     * The contribution does not embody any Ansys intellectual property that is not approved for open sourcing.
     * The contribution does not embody any invention for which Ansys has sought or received patent protection.
