@@ -102,7 +102,7 @@ control system.
 .. dropdown:: Releasing major and minor versions
 
     When creating a new major or minor version, ensure your ``origin main`` branch is
-    up to date with:
+    up to date with the following commands:
     
     .. code-block:: text
     
@@ -114,7 +114,7 @@ control system.
     continuing with the release. Ensure that your style, tests, and documentation
     checks are passing too.
     
-    Create a new branch for the version you want to release with:
+    Create a new branch for the version you want to release with this command:
     
     .. code-block:: text
     
@@ -127,66 +127,25 @@ control system.
     :ref:`The \`\`setup.py\`\` file`, :ref:`The \`\`pyproject.toml\`\` file`, and any
     ``__init__.py`` or ``__version__.py`` your project may contain.
     
-    Stash and commit previous changes with:
+    Stash and commit previous changes with the commands:
     
     .. code-block:: text
     
-       git add .
+       git add pyproject.toml
        git commit -m "Bump version X.Y.0"
     
-    Tag the previous commit with:
+    Tag the previous commit using this command:
     
     .. code-block:: text
     
        git tag vX.Y.0
     
-    Push the commit and the tag with:
+    Push the commit and the tag with the following commands:
     
     .. code-block:: text
     
        git push -u origin release/X.Y
        git push origin vX.Y.0
-        When creating a new major or minor version, ensure your ``origin main`` branch is
-        up to date using this code:
-        
-        .. code-block:: text
-        
-           git checkout main && git fetch origin main && git rebase origin/main
-        
-        If you encounter any issues when running the preceding command, solve them before
-        continuing with the release. Ensure that your style, tests, and documentation
-        checks are passing too.
-        
-        Create a new branch for the version you want to release with:
-        
-        .. code-block:: text
-        
-           git checkout -b release/X.Y
-        
-        Update ``X`` or ``Y`` version numbers in your project and replace the ``dev0``
-        with a ``0``.
-        
-        Check all locations, including
-        :ref:`The \`\`setup.py\`\` file`, :ref:`The \`\`pyproject.toml\`\` file`, and any
-        ``__init__.py`` or ``__version__.py`` file that your project contains.
-        
-        Stash and commit previous changes using this code:
-        
-        .. code-block:: text
-        
-           git add . && git commit -m "Bump version X.Y.0"
-        
-        Tag the previous commit using this code:
-        
-        .. code-block:: text
-        
-           git tag vX.Y.0
-        
-        Push the commit and the tag using this code:
-        
-        .. code-block:: text
-        
-           git push -u origin release/X.Y && git push origin vX.Y.0
 
 
 .. dropdown:: Releasing patched versions
@@ -203,7 +162,9 @@ control system.
         
         .. code-block:: text
         
-           git checkout release/X.Y && git fetch origin release/X.Y && git rebase origin/release/X.Y
+           git checkout release/X.Y
+           git fetch origin release/X.Y
+           git reset --hard origin/release/X.Y
         
         If you encounter any issues when running this command, solve them before
         continuing with the release. 
@@ -219,23 +180,25 @@ control system.
         Ensure that your style, tests, and documentation checks are also passing.
         
         Increase by one unit the value of ``Z`` in your project version. Stash and
-        amend these new changes using this code:
+        amend these new changes using this command:
         
         .. code-block:: text
         
-           git add . && git commit --amend -m "Bump version X.Y.Z"
+           git add pyproject.toml
+           git commit --amend -m "Bump version X.Y.Z"
         
-        Tag the previous commit with this code:
+        Tag the previous commit with this command:
         
         .. code-block:: text
         
            git tag vX.Y.Z
         
-        Push the commit and the tag using this code:
+        Push the commit and the tag using this command:
         
         .. code-block:: text
         
-           git push -u origin release/X.Y && git push origin vX.Y.Z
+           git push -u origin release/X.Y
+           git push origin vX.Y.Z
 
 
 Publishing artifacts
