@@ -45,16 +45,16 @@ This is better explained with the following examples:
 Case scenario - **protected** subdomain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Consider that the domain ``pyansys.com`` has been verified for the `PyAnsys organization`_.
+#. Consider that the domain ``pyansys.com`` has been verified for the `PyAnsys GitHub organization`_.
 #. A CNAME as follows is requested: ``subdomain.pyansys.com``
 
-The CNAME requested can only be used by projects/repositories inside the `PyAnsys organization`_.
+The CNAME requested can only be used by projects/repositories inside the `PyAnsys GitHub organization`_.
 Any attempt by external users/organizations of taking over the previous CNAME is identified and rejected by GitHub.
 
 Case scenario - **vulnerable** subdomain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Consider that the domain ``pyansys.com`` has been verified for the `PyAnsys organization`_.
+#. Consider that the domain ``pyansys.com`` has been verified for the `PyAnsys GitHub organization`_.
 #. A CNAME as follows is requested: ``subsubdomain.subdomain.pyansys.com``
 
 The CNAME requested **can** be used  by external user/organization repositories. For this reason,
@@ -87,6 +87,6 @@ Thus, it is important that the following guidelines are followed:
 .. _Maxime Rey: https://teams.microsoft.com/l/chat/0/0?users=maxime.rey@ansys.com
 .. _Roberto Pastor Muela: https://teams.microsoft.com/l/chat/0/0?users=roberto.pastormuela@ansys.com
 .. _Alex Kaszynski: https://teams.microsoft.com/l/chat/0/0?users=alexander.kaszynski@ansys.com
-.. _PyAnsys organization: https://github.com/pyansys
+.. _PyAnsys GitHub organization: https://github.com/pyansys
 .. _Managing a custom domain for your GitHub Pages site: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
 .. _Verifying a domain for your organization site: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages#verifying-a-domain-for-your-organization-site
