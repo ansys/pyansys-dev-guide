@@ -20,4 +20,5 @@ functionalities such as logging, data transfer, and app APIs.
    continuous-integration
    releasing
    repository-protection
+   dns-configuration
    compatibility
