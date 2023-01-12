@@ -15,7 +15,7 @@ The approval process is divided into three parts:
        :link: managerial
        :link-type: ref
 
-        Verifies that direct managers, general managers, or chief technology
+        Verifies that direct managers, general managers, and the chief technology
         officer are aware of the project and approve it.
 
     .. grid-item-card:: :octicon:`law` Legal
