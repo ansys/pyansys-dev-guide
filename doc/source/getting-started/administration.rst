@@ -15,7 +15,8 @@ The approval process is divided into three parts:
        :link: managerial
        :link-type: ref
 
-        Verifies that direct managers, GM/VP, CT, or CTO are aware of the project and approve it.
+        Verifies that direct managers, general managers, or chieff technology
+        officer are aware of the project and approve it.
 
     .. grid-item-card:: :octicon:`law` Legal
        :link: legal
@@ -46,9 +47,9 @@ When releasing a project to the public, expect to:
 
 Managerial
 ^^^^^^^^^^
-The managerial part of the approval process guarantees that the direct manager (DM),
-general managers (GMs), vice presidents (VPs), and chief technology officer (CTO)
-are aware of the existence and status of the project.
+The managerial part of the approval process guarantees that the direct manager,
+general managers, vice presidents, or chief technology officer are aware of the
+existence and status of the project.
 
 The number of administrative reviews and approvals depends on the nature of the
 project. A project can be classified as one of these categories:
@@ -63,14 +64,14 @@ project. A project can be classified as one of these categories:
 
     .. grid-item-card:: :octicon:`tools` Tool projects
 
-        Tool projects require the direct manager and business unit's GM/VP
-        approval. No product source code is allowed.
+        Tool projects require the direct manager and business unit's general
+        manager approval. No product source code is allowed.
 
     .. grid-item-card:: :octicon:`container` Library projects
 
-        Library projects interfacing and wrapping any Ansys products
-        require approval of the direct manager, product line, product line, and
-        the CTO. No product source code is allowed.
+        Library projects interfacing and wrapping any Ansys products require
+        approval of the direct manager, product line, and the chief technology
+        officer. No product source code is allowed.
 
 
 
@@ -89,7 +90,7 @@ Start by completing the legal review request form for open sourcing the code:
 
 The following checks are required when performing the legal review of the project:
 
-.. card:: |uncheck| The project contains the right licensing
+.. card:: |uncheck| The project contains the right licensing.
 
     * The project contains the right license.
     * The contribution does not contain any strong encryption.
@@ -107,13 +108,13 @@ dependent npm modules or Python packages from PyPI.
 
 Technical
 ^^^^^^^^^
-The technical review and approval guarantees that the project follows the best
-and latest software development practices. Request a technical review by
-sending an email to `support@pyansys.com <mailto:support@pyansys.com>`_.
+The approval of the technical guarantees that the project follows the best and
+latest software development practices. Request a technical review by sending an
+email to `support@pyansys.com <mailto:support@pyansys.com>`_.
 
 The following checks are required when performing the technical review of the project:
 
-.. card:: |uncheck| The project contains the right metadata information
+.. card:: |uncheck| The project contains the right metadata information.
     
     * The name of the project follows naming convention.
     * The version of the project follows :ref:`Semantic versioning`.
@@ -123,7 +124,7 @@ The following checks are required when performing the technical review of the pr
     * :ref:`The \`\`LICENSE\`\` file` is present and compliant with legal requirements.
     * :ref:`The \`\`CONTRIBUTING.md\`\` file` is present.
 
-.. card:: |uncheck| The project is compliant with PyAnsys style guidelines
+.. card:: |uncheck| The project is compliant with PyAnsys style guidelines.
 
     * The layout of the project follows the :ref:`Packaging style` guidelines.
     * :ref:`Testing` guarantees at least 80% code coverage.
@@ -134,7 +135,7 @@ The following checks are required when performing the technical review of the pr
     * The project uses CI/CD with all the :ref:`Required workflows`.
     * The CI/CD pipeline generates project :ref:`artifacts`.
 
-.. card:: |uncheck| The GitHub repository is properly secured
+.. card:: |uncheck| The GitHub repository is properly secured.
 
     * The repository is compliant with the :ref:`General configuration`.
     * :ref:`Branch protection` is enabled.

@@ -1,7 +1,7 @@
 PyAnsys project organization
 ============================
 
-The `PyAnsys Project <https://docs.pyansys.com/>`_ is hosted on GitHub at `PyAnsys
+The `PyAnsys <https://docs.pyansys.com/>`_ project is hosted on GitHub at `PyAnsys
 <https://github.com/pyansys>`_. It contains several repositories with 
 Python libraries that interface with Ansys products or services. 
 To try out a library, visit one of these links:
@@ -16,7 +16,7 @@ To try out a library, visit one of these links:
 If you want to create, develop, or contribute to a PyAnsys library, 
 visit these links:
 
-* `PyAnsys Project Developer's Guide <https://github.com/pyansys/about>`_
+* `PyAnsys Developer's Guide <https://github.com/pyansys/about>`_
 * `Ansys Sphinx Theme Documentation <https://github.com/ansys/ansys-sphinx-theme>`_
 * `gRPC Hello-world Example <https://github.com/pyansys/pyansys-helloworld>`_
 * `Material Example Data <https://github.com/pyansys/example-data>`_
