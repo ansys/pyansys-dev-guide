@@ -212,14 +212,14 @@ There are three possible places where artifacts can be published:
 .. grid:: 3
     
     .. grid-item-card:: :octicon:`lock` Private PyPI
-       :link: managerial
+       :link: private-pypi
        :link-type: ref
 
         This is a private index used to share artifacts across the company
         while making sure that projects remain private.
 
     .. grid-item-card:: :octicon:`unlock` Public PyPI
-       :link: legal
+       :link: public-pypi
        :link-type: ref
 
         This is the `public PyPI` used by the Python community to distribute
@@ -227,7 +227,7 @@ There are three possible places where artifacts can be published:
         published in this index.
 
     .. grid-item-card:: :octicon:`mark-github` GitHub
-       :link: technical
+       :link: github
        :link-type: ref
 
         This is a section created by GitHub within a project repository where
@@ -235,6 +235,8 @@ There are three possible places where artifacts can be published:
         before being public in GitHub.
 
 
+
+.. _private-pypi:
 
 Private PyPI
 ~~~~~~~~~~~~
@@ -335,6 +337,8 @@ tokens from PyAnsys CI/CD.
 
 
 
+.. _public-pypi:
+
 Public PyPI
 ~~~~~~~~~~~
 Publishing :ref:`Artifacts` to `PyPI`_ is the way of distributing :ref:`Python
@@ -376,6 +380,8 @@ first time. For future releases, everything is then automated.
                 library-name: "ansys-<product>-<library>"
                 twine-username: "__token__"
                 twine-token: ${{ secrets.PYPI_TOKEN }}
+
+.. _GitHub:
 
 GitHub
 ~~~~~~
