@@ -101,8 +101,7 @@ control system.
 
 .. dropdown:: Releasing major and minor versions
 
-    When creating a new major or minor version, ensure your ``origin main`` branch is
-    up to date with the following commands:
+    Before performing a release, you must verify that your ``origin main`` branch is upd to date using the these commands:
     
     .. code-block:: text
     
@@ -140,7 +139,7 @@ control system.
     
        git tag vX.Y.0
     
-    Push the commit and the tag with the following commands:
+    Push the commit and the tag with these commands:
     
     .. code-block:: text
     
@@ -152,53 +151,46 @@ control system.
 
     Patched versions allow you to fix issues discovered in published releases by
     cherry-picking these fixes from the ``main`` branch.
+
+    Before performing a patch release, you must first identify which
+    ``release/X.Y`` branch it belongs to.
     
-        Patched versions allow you to fix issues discovered in published releases by
-        cherry-picking these fixes from the ``main`` branch.
-        
-        To create a patched version, you must first identify which ``release/X.Y``
-        branch it belongs to. Then, ensure your local ``release/X.Y`` is up to date
-        with the origin one because other patched versions may have been introduced.
-        
-        .. code-block:: text
-        
-           git checkout release/X.Y
-           git fetch origin release/X.Y
-           git reset --hard origin/release/X.Y
-        
-        If you encounter any issues when running this command, solve them before
-        continuing with the release. 
-        
-        Now, use the following code to `cherry-pick <https://git-scm.com/docs/git-cherry-pick>`_
-        the fix commit from ``main``, which solves for the bug. Do not merge changes from
-        ``main`` into the release branch. Always cherry-pick them.
-        
-        .. code-block:: text
-           
-           git cherry-pick <commit hash>
-        
-        Ensure that your style, tests, and documentation checks are also passing.
-        
-        Increase by one unit the value of ``Z`` in your project version. Stash and
-        amend these new changes using this command:
-        
-        .. code-block:: text
-        
-           git add pyproject.toml
-           git commit --amend -m "Bump version X.Y.Z"
-        
-        Tag the previous commit with this command:
-        
-        .. code-block:: text
-        
-           git tag vX.Y.Z
-        
-        Push the commit and the tag using this command:
-        
-        .. code-block:: text
-        
-           git push -u origin release/X.Y
-           git push origin vX.Y.Z
+    .. code-block:: text
+    
+       git checkout release/X.Y
+       git fetch origin release/X.Y
+       git reset --hard origin/release/X.Y
+    
+    Now, use the following code to `cherry-pick <https://git-scm.com/docs/git-cherry-pick>`_
+    the fix commit from ``main``, which solves for the bug. Do not merge changes from
+    ``main`` into the release branch. Always cherry-pick them.
+    
+    .. code-block:: text
+       
+       git cherry-pick <commit hash>
+    
+    Ensure that your style, tests, and documentation checks are also passing.
+    
+    Increase by one unit the value of ``Z`` in your project version. Stash and
+    amend these new changes using this command:
+    
+    .. code-block:: text
+    
+       git add pyproject.toml
+       git commit --amend -m "Bump version X.Y.Z"
+    
+    Tag the previous commit with this command:
+    
+    .. code-block:: text
+    
+       git tag vX.Y.Z
+    
+    Push the commit and the tag using this command:
+    
+    .. code-block:: text
+    
+       git push -u origin release/X.Y
+       git push origin vX.Y.Z
 
 
 Publishing artifacts
@@ -335,7 +327,7 @@ tokens from PyAnsys CI/CD.
                 export TWINE_REPOSITORY_URL="https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload"
     
     
-    Finally, run the following command:
+    Finally, run this command:
     
     .. code-block:: text
     
