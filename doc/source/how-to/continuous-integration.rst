@@ -145,7 +145,7 @@ Consider this example of a parametrized workflow example:
 Workflow examples
 -----------------
 Workflow examples are provided for checking :ref:`Coding style`,
-:ref:`Documenting`, :ref:`Testing`, and :ref:`Automate the release process`.
+:ref:`Documenting`, :ref:`Testing`, and :ref:`Releasing and publishing`.
 
 .. tab-set::
 

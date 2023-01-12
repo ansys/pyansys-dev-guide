@@ -1,6 +1,6 @@
-########
-Overview
-########
+###############
+Getting started
+###############
 
 The PyAnsys project exposes Ansys technologies via libraries in the 
 Python ecosystem. Each library provides clear, concise, and

@@ -543,7 +543,7 @@ of the project.
 
 
 If you require support for migrating to the multi-version documentation, please
-contact ``support@pyansys.com``.
+contact ``pyansys.support@ansys.com``.
 
 
 Deploying documentation
