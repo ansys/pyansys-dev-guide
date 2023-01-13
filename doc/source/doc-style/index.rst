@@ -46,8 +46,8 @@ Finally, the documentation should be public and hosted via gh-pages, either as
 a branch named ``gh-pages`` within the library repository or within a
 ``gh-pages`` branch within ``<library-repository>-docs``. 
 
-Guidelines on how to acquire a specific DNS for hosting your documentation can
-be found in :ref:`DNS configuration`. Please, ensure that you are compliant with
+For guidelines on how to acquire a specific DNS for hosting your documentation,
+see :ref:`DNS configuration`. You should ensure that you are compliant with
 the naming convention for your CNAME.
 
 For procedural information related to crafting, building, and deploying

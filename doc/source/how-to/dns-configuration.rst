@@ -6,19 +6,18 @@ online under the following canonical name (CNAME) convention:
 
 ``https://<product>.docs.pyansys.com``
 
-To request a CNAME for the ``pyansys.com`` domain, please contact
+To request a CNAME for the ``pyansys.com`` domain, contact
 `Maxime Rey`_, `Roberto Pastor Muela`_ or `Alex Kaszynski`_. Any of these members
 can handle the creation of the requested PyAnsys subdomain.
 
 Once the CNAME is created, repository administrators can configure their published
 documentation in GitHub pages to be exposed through it. To configure the CNAME
-for your documentation, please refer to GitHub's online documentation:
-`Managing a custom domain for your GitHub Pages site`_.
+for your documentation, refer to `Managing a custom domain for your GitHub Pages site`_.
 
 PyAnsys verified domains
 ------------------------
 
-In the `PyAnsys GitHub organization`_, the following domains have been verified:
+In the `PyAnsys GitHub organization`_, these domains have been verified:
 
 * ``pyansys.com``
 * ``docs.pyansys.com``
@@ -33,50 +32,52 @@ DNS protection measures
 -----------------------
 
 The rationale behind choosing the previous CNAME convention is due to cybersecurity reasons.
-GitHub allows to verify domains for users and organizations, see `Verifying a domain for your organization site`_.
+As explained in `Verifying a domain for your organization site`_, GitHub provides for
+verifying domains for users and organizations.
 
-Once an organization has a verified domain, **this prevents external users to the organization from
-taking over existing direct subdomains**. However, deeper subdomains are no longer verified by
-GitHub.
+**Having a verified domain prevents users external to the organization from
+taking over existing direct subdomains**. However, GitHub does not verify
+deeper subdomains.
 
 This is better explained with the following examples:
 
 Case scenario - **protected** subdomain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Consider that the domain ``pyansys.com`` has been verified for the `PyAnsys GitHub organization`_.
-#. A CNAME as follows is requested: ``subdomain.pyansys.com``
+- Consider that the domain ``pyansys.com`` has been verified for the `PyAnsys GitHub organization`_.
+- This CNAME is requested: ``subdomain.pyansys.com``.
 
-The CNAME requested can only be used by projects/repositories inside the `PyAnsys GitHub organization`_.
-Any attempt by external users/organizations of taking over the previous CNAME is identified and rejected by GitHub.
+This CNAME can only be used by repositories inside the `PyAnsys GitHub organization`_.
+Any attempt by an external user to take over this CNAME is identified and rejected by GitHub.
 
 Case scenario - **vulnerable** subdomain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Consider that the domain ``pyansys.com`` has been verified for the `PyAnsys GitHub organization`_.
-#. A CNAME as follows is requested: ``subsubdomain.subdomain.pyansys.com``
+- The domain ``pyansys.com`` has been verified for the `PyAnsys GitHub organization`_.
+- This CNAME is requested: ``subsubdomain.subdomain.pyansys.com``.
 
-The CNAME requested **can** be used by external user/organization repositories. For this reason,
-it must be avoided to create CNAME requests that are not verified by the organization.
+This CNAME **can** be used by external users for their repositories. For this reason,
+you must avoid creating CNAME requests that are not verified by the organization.
 
 
 Preventing CNAME takeover
 -------------------------
 
-From past experience, CNAME values have been taken over by external users/organizations. This has typically
-occurred due to the following reasons:
+CNAME values have been taken over in the past by external users, typically due to
+these reasons:
 
 * Ansys GitHub organizations had no domain verification set up.
 * A CNAME created did not follow the recommended CNAME guidelines.
 * More than one level of subdomain depth under the verified domain had been requested.
-* Long lead times between CNAME creation and assignment to GitHub pages occurred.
+* Long time lapses occurred between CNAME creation and assignment to GitHub pages.
 
-Thus, it is important that the following guidelines are followed:
+Thus, it is important that you follow these guidelines:
 
 * Ensure that your GitHub organization has verified domains for hosting GitHub pages.
-* Check that whatever CNAME requested does not have a subdomain depth larger than **1** with respect to the verified domains.
-* Request a CNAME only when needed - that is, right before publishing the site.
-* Request CNAME deletion once it is no longer used to prevent others from hosting their sites on it.
+* Check that the CNAME that you request does not have a subdomain depth larger than **1** with respect to the verified domains.
+* Request a CNAME only when needed, which is just prior to publishing the site.
+* Request deletion of the CNAME once it is no longer used to prevent others from hosting
+their sites on it.
 
 
 ..
