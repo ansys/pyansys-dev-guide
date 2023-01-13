@@ -14,6 +14,21 @@ Once the CNAME is created, repository administrators can configure their publish
 documentation in GitHub pages to be exposed through it. To configure the CNAME
 for your documentation, refer to `Managing a custom domain for your GitHub Pages site`_.
 
+DNS TXT verification
+--------------------
+
+Once a CNAME is registered under the ``pyansys.com`` domain, the next step is
+to perform a DNS TXT verification. All PyAnsys subdomains are required by Ansys'
+IT department to provide a DNS TXT verification. To verify a new CNAME for an
+organization, refer to `Verifying a domain for your organization site`_. This guide
+shows how to create DNS TXT verification elements for GitHub Pages sites.
+
+.. warning::
+
+    Only users with privilege access to the ``pyansys.com`` DNS zone can
+    perform this operation. Contact `Maxime Rey`_, `Roberto Pastor Muela`_
+    or `Alex Kaszynski`_ if needed.
+
 PyAnsys verified domains
 ------------------------
 
@@ -77,7 +92,7 @@ Thus, it is important that you follow these guidelines:
 * Check that the CNAME that you request does not have a subdomain depth larger than **1** with respect to the verified domains.
 * Request a CNAME only when needed, which is just prior to publishing the site.
 * Request deletion of the CNAME once it is no longer used to prevent others from hosting
-their sites on it.
+  their sites on it.
 
 
 ..
