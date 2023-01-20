@@ -506,7 +506,7 @@ Follow these steps to enable multi-version documentation in your project:
 
 - Create a ``gh-pages`` branch in the repository of your project.
 
-- Create a ``release/`` directory and a ``versions.json`` containing:
+- Create a ``release/`` directory containing a ``versions.json`` file. The content of this file should be:
 
   .. code-block:: json
   
