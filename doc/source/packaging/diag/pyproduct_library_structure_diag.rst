@@ -23,6 +23,14 @@
            label="doc", shape="folder"
          ]
 
+         source [
+           label="source", shape="folder"
+         ]
+
+         conf.py [
+           label="conf.py", shape="file"
+         ]
+
          src [
            label="src", shape="folder"
          ]
@@ -86,6 +94,9 @@
          pyproduct_library -> readme;
          pyproduct_library -> pyproject;
          pyproduct_library -> setup;
+
+         doc -> source;
+         source -> conf.py;
 
          src -> ansys;
          ansys -> product;
