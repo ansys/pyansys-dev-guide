@@ -201,6 +201,18 @@ This is the preferred way of naming directories and files inside the
 ``tests/`` directory.
 
 
+
+The ``AUTHORS.md`` file
+-----------------------
+An ``AUTHORS.md`` file is used to list the authors of the repository. It is
+used to credit the authors for their individual contributions and provide a
+record of authorship for the codebase. Use your first and last name and provide
+a link to your GitHub username.
+
+.. literalinclude:: code/changelog_file.md
+   :language: markdown
+
+
 The ``CHANGELOG.md`` file
 -------------------------
 
