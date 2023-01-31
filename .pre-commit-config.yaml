@@ -14,7 +14,7 @@ repos:
     additional_dependencies: [black==22.12.0]
 
 - repo: https://github.com/pycqa/isort
-  rev: 5.11.4
+  rev: 5.12.0
   hooks:
   - id: isort
     args: [
@@ -41,7 +41,7 @@ repos:
   - id: debug-statements
 
 - repo: https://github.com/python-jsonschema/check-jsonschema
-  rev: 0.20.0
+  rev: 0.21.0
   hooks:
     - id: check-github-workflows
       name: "Check GitHub workflows"
