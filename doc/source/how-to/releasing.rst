@@ -449,21 +449,16 @@ public PyPI and GitHub.
     
                     .. code-block:: bat
     
-                        set INDEX_URL='https://$PYANSYS_PYPI_PRIVATE_PAT@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/'
-    
-                        python -m pip install ansys-<product/tool>-<library> \
-                        --index-url %INDEX_URL% \
-                        --no-dependencies
+                        set PYANSYS_PYPI_PRIVATE_PAT=<REDACTED>
+                        set INDEX_URL=https://%PYANSYS_PYPI_PRIVATE_PAT%@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/
+                        python -m pip install ansys-<product/tool>-<library> --index-url %INDEX_URL% --no-dependencies
     
                 .. tab-item:: PowerShell
     
                     .. code-block:: powershell
     
                         $env:INDEX_URL='https://$PYANSYS_PYPI_PRIVATE_PAT@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/'
-    
-                        python -m pip install ansys-<product/tool>-<library> \
-                        --index-url $env:INDEX_URL \
-                        --no-dependencies
+                        python -m pip install ansys-<product/tool>-<library> --index-url $env:INDEX_URL --no-dependencies
     
         .. tab-item:: macOS
     
