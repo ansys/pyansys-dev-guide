@@ -1,0 +1,32 @@
+doc-build:
+  name: "Build project documentation"
+  runs-on: ubuntu-latest
+  steps:
+    - name: "Build project documentation"
+      uses: pyansys/actions/doc-build@v3
+      with:
+        python-version: ${{ env.MAIN_PYTHON_VERSION }}
+
+doc-deploy-dev:
+  name: "Deploy development documentation"
+  if: github.event_name == 'push'
+  runs-on: ubuntu-latest
+  needs: doc-build
+  steps:
+    - name: "Deploy development documentation"
+      uses: pyansys/actions/doc-deploy-dev@v3
+      with:
+        cname: ${{ env.CNAME }}
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+doc-deploy-stable:
+  name: "Deploy stable documentation"
+  if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+  runs-on: ubuntu-latest
+  needs: doc-deploy-dev
+  steps:
+    - name: "Deploy stable documentation"
+      uses: pyansys/actions/doc-deploy-stable@v3
+      with:
+        cname: ${{ env.CNAME }}
+        token: ${{ secrets.GITHUB_TOKEN }}

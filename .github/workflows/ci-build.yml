@@ -1,4 +1,4 @@
-name: Documentation Build
+name: CI
 
 on:
   pull_request:
@@ -8,93 +8,101 @@ on:
     branches:
       - main
 
+env:
+  MAIN_PYTHON_VERSION: '3.10'
+  CNAME: 'dev.docs.pyansys.com'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
-  pre-commit:
-    name: Pre-commit checks
+
+  doc-style:
+    name: "Check documentation style"
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
-      - name: Setup Python
-        uses: actions/setup-python@v2
+      - name: "Check documentation style"
+        uses: pyansys/actions/doc-style@v3
         with:
-          python-version: '3.10'
-      - name: Install pre-commit requirements
-        run: |
-          pip install pre-commit~=2.16.0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Run pre-commit
-        run: |
-          pre-commit run --all-files || ( git status --short ; git diff ; exit 1 )
-
-  docs_build:
+  doc-build:
+    name: "Build project documentation"
+    needs: doc-style
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
+      - name: "Install mermaid-cli"
+        run: npm install -g @mermaid-js/mermaid-cli
 
-      - name: Setup Python
-        uses: actions/setup-python@v2.2.2
-        with:
-          python-version: 3.8
-
-      - name: Build HTML Documentation
+      - name: "Install GraphViz"
+        shell: bash
         run: |
-          pip install -r requirements_docs.txt --disable-pip-version-check
-          make -C doc html SPHINXOPTS="-W"
-          touch doc/build/html/.nojekyll
-          echo "dev.docs.pyansys.com" > doc/build/html/CNAME
+          sudo apt-get install graphviz
 
-      - name: Deploy to gh-pages on main
-        if: github.ref == 'refs/heads/main'
-        uses: JamesIves/github-pages-deploy-action@4.1.5
+      - name: "Build project documentation"
+        uses: pyansys/actions/doc-build@v3
         with:
-          token: ${{ secrets.github_token }}
-          branch: gh-pages
-          folder: doc/build/html
-          clean: true
-          single-commit: true
+          python-version: ${{ env.MAIN_PYTHON_VERSION }}
+          use-python-cache: false
+          skip-install: true
+          requires-xvfb: true
+          dependencies: 'xvfb texlive-latex-extra latexmk nodejs npm'
   
-      - name: Build PDF Documentation
-        run: |
-          sudo apt update
-          sudo apt-get install -y texlive-latex-extra latexmk
-          make -C doc latexpdf
-
-      - name: Upload HTML Documentation
-        uses: actions/upload-artifact@v2.2.4
-        with:
-          name: HTML-Documentation
-          path: doc/build/html
-          retention-days: 7
-
-      - name: Upload PDF Documentation
-        uses: actions/upload-artifact@v2.2.4
-        with:
-          name: PDF-Documentation
-          path: doc/build/latex/*.pdf
-          retention-days: 7
-
-  Release:
-    if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-    needs: docs_build
+  doc-deploy:
+    name: "Deploy development documentation"
     runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/main' }}
+    needs: doc-build
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v1
+      - name: "Deploy development documentation"
+        uses: pyansys/actions/doc-deploy-dev@v3
         with:
-          python-version: 3.8
+          cname: ${{ env.CNAME }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: actions/download-artifact@v2
+  release-github:
+    name: "Release to GitHub"
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+    needs: doc-deploy
+    steps:
 
-      - name: Display structure of downloaded files
-        run: ls -R
+    - name: "Download HTML documentation"
+      uses: actions/download-artifact@v3
+      with:
+        name: documentation-html
+        path: documentation-html
 
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        with:
-          generate_release_notes: true
-          files: |
-            ./*PDF*/*.pdf
+    - name: "Zip HTML documentation"
+      uses: vimtor/action-zip@v1
+      with:
+        files: documentation-html
+        dest: documentation-html.zip
+
+    - name: "Download PDF documentation"
+      uses: actions/download-artifact@v3
+      with:
+        name: documentation-pdf
+        path: documentation-pdf
+
+    - name: "Zip PDF documentation"
+      uses: vimtor/action-zip@v1
+      with:
+        files: documentation-pdf
+        dest: documentation-pdf
+
+    - name: "Display the structure of downloaded files"
+      shell: bash
+      run: ls -R
+
+    - name: "Release to GitHub"
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          documentation-html.zip
+          documentation-pdf

@@ -1,0 +1,24 @@
+build-wheelhouse:
+  name: Build the wheelhouse of the Python library
+  runs-on: ${{ matrix.os }}
+  strategy:
+     matrix:
+         os: [ubuntu-latest, windows-latest]
+         python-version: ['3.7', '3.8', '3.9', '3.10']
+  steps:
+    - name: "Build a wheelhouse of the Python library"
+      uses: pyansys/actions/build-wheelhouse@v3
+      with:
+        library-name: ${{ env.LIBRARY_NAME }}
+        library-namespace: ${{ env.LIBRARY_NAMESPACE }}
+        operating-system: ${{ matrix.os }}
+        python-version: ${{ matrix.python-version }}
+
+build-library:
+  name: Build library
+  runs-on: ubuntu-latest
+  steps:
+    - name: "Build library source and wheel artifacts"
+      uses: pyansys/actions/build-library@v3
+      with:
+        library-name: ${{ env.LIBRARY_NAME }}

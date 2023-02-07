@@ -1,22 +1,49 @@
 repos:
+
+
 - repo: https://github.com/psf/black
-  rev: 21.12b0
+  rev: 22.12.0  # IF VERSION CHANGES --> MODIFY "blacken-docs" MANUALLY AS WELL!!
   hooks:
   - id: black
-    exclude: "^({{cookiecutter.project_slug}}/)"
-- repo: https://github.com/asottile/reorder_python_imports
-  rev: v2.6.0
+    args: ["doc/source/conf.py"]
+
+- repo: https://github.com/adamchainz/blacken-docs
+  rev: 1.13.0
   hooks:
-  - id: reorder-python-imports
-    args: ["--py37-plus"]
-    exclude: "^({{cookiecutter.project_slug}}/)"
-- repo: https://gitlab.com/PyCQA/flake8
-  rev: 3.9.2
+  - id: blacken-docs
+    additional_dependencies: [black==22.12.0]
+
+- repo: https://github.com/pycqa/isort
+  rev: 5.12.0
+  hooks:
+  - id: isort
+    args: [
+      "--profile", "black",
+      "--force-sort-within-sections",
+      "--line-length", "100",
+    ]
+
+- repo: https://github.com/PyCQA/flake8
+  rev: 6.0.0
   hooks:
   - id: flake8
-    exclude: "^({{cookiecutter.project_slug}}/)"
+
 - repo: https://github.com/codespell-project/codespell
-  rev: v2.1.0
+  rev: v2.2.2
   hooks:
   - id: codespell
     args: [--ignore-words=ignore_words.txt, -S \*.pyc\,\*.xml\,\*.txt\,\*.gif\,\*.png\,\*.jpg\,\*.js\,\*.html\,\*.doctree\,\*.ttf\,\*.woff\,\*.woff2\,\*.eot\,\*.mp4\,\*.inv\,\*.pickle\,\*.ipynb\,flycheck\*\,./.git/\*\,./.hypothesis/\*\,\*.yml\,./doc/build/\*\,./doc/images/\*\,./dist/\*\,\*~\,.hypothesis\*\,./doc/source/examples/\*\,\*cover\,\*.dat\,\*.mac]
+
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.4.0
+  hooks:
+  - id: check-merge-conflict
+  - id: debug-statements
+
+- repo: https://github.com/python-jsonschema/check-jsonschema
+  rev: 0.21.0
+  hooks:
+    - id: check-github-workflows
+      name: "Check GitHub workflows"
+      files: ^\.github/workflows/
+      types: [yaml]

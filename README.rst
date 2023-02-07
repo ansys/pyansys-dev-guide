@@ -2,7 +2,8 @@
 PyAnsys Developer's Guide
 #########################
 
-The *PyAnsys Developer's Guide* is the central document for:
+The `PyAnsys Developer's Guide <https://dev.docs.pyansys.com>`_ is the central
+document for:
 
 - Ansys developers who want to create and "own" PyAnsys libraries
 - Anyone in the Python community who wants to contribute to a 
@@ -10,11 +11,12 @@ The *PyAnsys Developer's Guide* is the central document for:
 - Anyone who is interested in learning more about the PyAnsys 
   project and PyAnsys libraries
 
-A link to the web-based version of this `guide <https://dev.docs.pyansys.com>`_
-is available in the 'About' area for the `dev-guide <https://github.com/pyansys/dev-guide>`_
-repository. A link to a PDF version of this guide is available in the `Releases
-<https://github.com/pyansys/about/releases>`_ section under 'Assets'.
+This guide describes the PyAnsys project organization and administration.
+It also provides how-to information and summarizes packaging, coding, and
+documentation styles. It concludes with an abstractions section that explains
+how apps and complex services expose only functionalities that matter to users.
 
-This guide provides an overview that describes the PyAnsys project organization,
-project administration, and how to contribute. It also provides guidelines and best
-practices, and it summarizes coding and documentation styles.
+From the **About** area for the repository, you can click the link for the latest web-based
+release of this guide. In the `Releases <https://github.com/pyansys/about/releases>`_
+area, you can view information about all releases. In the **Assets**  area for
+any release, you can download a PDF.
