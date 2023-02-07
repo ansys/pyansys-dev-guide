@@ -265,7 +265,6 @@ easier to add these lazy imports and helpful error messages. For example:
        def decorator(function):
            @wraps(function)
            def wrapper(self, *args, **kwargs):
-
                try:
                    importlib.import_module(package_name)
                    return function(self, *args, **kwargs)
