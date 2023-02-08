@@ -300,7 +300,7 @@ tokens from PyAnsys CI/CD.
     
                     .. code-block:: text
     
-                        set TWINE_USERNAME=<PAT>
+                        set TWINE_USERNAME=__token__
                         set TWINE_PASSWORD=<PYANSYS_PYPI_PRIVATE_PAT>
                         set TWINE_REPOSITORY_URL=https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload
     
@@ -308,7 +308,7 @@ tokens from PyAnsys CI/CD.
     
                     .. code-block:: text
     
-                        $env:TWINE_USERNAME=<PAT>
+                        $env:TWINE_USERNAME=__token__
                         $env:TWINE_PASSWORD=<PYANSYS_PYPI_PRIVATE_PAT>
                         $env:TWINE_REPOSITORY_URL=https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload
     
@@ -316,7 +316,7 @@ tokens from PyAnsys CI/CD.
     
             .. code-block:: text
     
-                export TWINE_USERNAME=<PAT>
+                export TWINE_USERNAME=__token__
                 export TWINE_PASSWORD=<PYANSYS_PYPI_PRIVATE_PAT>
                 export TWINE_REPOSITORY_URL="https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload"
     
@@ -324,7 +324,7 @@ tokens from PyAnsys CI/CD.
     
             .. code-block:: text
     
-                export TWINE_USERNAME=<PAT>
+                export TWINE_USERNAME=__token__
                 export TWINE_PASSWORD=<PYANSYS_PYPI_PRIVATE_PAT>
                 export TWINE_REPOSITORY_URL="https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload"
     
