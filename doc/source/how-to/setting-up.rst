@@ -17,7 +17,7 @@ interpreter is installed on your local machine.
 
 Installation
 ~~~~~~~~~~~~
-There are multiple ways to install a Python package on your local machine:
+There are several ways to install a Python package on your local machine:
 
 - Use an official installer from the `official Python download section <https://www.python.org/downloads/>`_.
 - Install via a package manager or "store" on your machine.
