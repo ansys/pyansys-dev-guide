@@ -277,7 +277,7 @@ Here's a cross-platform one liner for uploading using ``twine```:
 
    python -m twine upload dist/* --repository-url https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload -u __token__ -p <TOKEN-REDACTED>
 
-Replace ``<TOKEN-REDACTED>`` with the private PyPI token repectively.
+Replace ``<TOKEN-REDACTED>`` with the private PyPI token respectively.
 
 
 .. dropdown:: Using GitHub actions
@@ -383,7 +383,7 @@ Here's a one liner for downloading:
 
    python -m pip install <PACKAGE-NAME> --index-url <TOKEN-REDACTED>@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/
 
-Replace ``<PACKAGE-NAME>`` and ``<TOKEN-REDACTED>`` with the package name and the private PyPI token repectively.
+Replace ``<PACKAGE-NAME>`` and ``<TOKEN-REDACTED>`` with the package name and the private PyPI token respectively.
 
 .. dropdown:: Using GitHub actions
 
