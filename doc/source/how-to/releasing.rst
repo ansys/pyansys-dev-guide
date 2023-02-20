@@ -246,16 +246,21 @@ auto-generated gRPC interface files from a feature or service that is still
 private, this package should be hosted on a private PyPI repository.
 
 ANSYS, Inc. has a private repository at `PyAnsys PyPI`_. Access is controlled
-via a username and a password: 
+via a username and a password:
 
-+---------------------------------------------+--------------------------------+
-| Credentials for publishing to private PyPI  | Value                          |
-+=============================================+================================+
-| Username                                    | ``__token__``                  |
-+---------------------------------------------+--------------------------------+
-| Password                                    | ``PYANSYS_PYPI_PRIVATE_PAT``   |
-+---------------------------------------------+--------------------------------+
++---------------------------------------------+-------------------------------------------------------------------------+
+| Credentials for publishing to private PyPI  | Value                                                                   |
++=============================================+=========================================================================+
+| Username                                    | ``__token__``                                                           |
++---------------------------------------------+-------------------------------------------------------------------------+
+| Password                                    | ``PYANSYS_PYPI_PRIVATE_PAT``                                            |
++---------------------------------------------+-------------------------------------------------------------------------+
+| repository-url                              | ``https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload``   |
++---------------------------------------------+-------------------------------------------------------------------------+
 
+When running this from the command line using `twine <https://twine.readthedocs.io/>`_,
+be sure to add in `--repository-url`` as an extra option. Otherwise it will
+attempt to send the package to the public PyPI repository.
 
 The ``PYANSYS_PYPI_PRIVATE_PAT`` is a password in the form of a GitHub secret
 which is available only to repositories within `PyAnsys`_. This secret is
@@ -282,7 +287,8 @@ tokens from PyAnsys CI/CD.
             - uses: pyansys/actions/release-pypi-private@v3
               with:
                 library-name: "ansys-<product>-<library>"
-                twine-username: "__token__"
+                
+                -username: "__token__"
                 twine-token: ${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }}
 
 
