@@ -259,8 +259,8 @@ via a username and a password:
 +---------------------------------------------+-------------------------------------------------------------------------+
 
 When running this from the command line using `twine <https://twine.readthedocs.io/>`_,
-be sure to add in `--repository-url`` as an extra option. Otherwise it will
-attempt to send the package to the public PyPI repository.
+be sure to add in `--repository-url`` as an extra option. Otherwise ``twine``
+attempts to upload the package to the public PyPI repository.
 
 The ``PYANSYS_PYPI_PRIVATE_PAT`` is a password in the form of a GitHub secret
 which is available only to repositories within `PyAnsys`_. This secret is
