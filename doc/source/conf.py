@@ -152,9 +152,9 @@ exclude_patterns = [
     "packaging/diag/*",
     "packaging/code/*",
     "how-to/diag/*",
-    "how-to/api/ansys_sphinx_theme.samples.Complex.abs.rst",
-    "how-to/api/ansys_sphinx_theme.samples.Complex.imag.rst",
-    "how-to/api/ansys_sphinx_theme.samples.Complex.real.rst",
+    "how-to/api/ansys_sphinx_theme.examples.samples.Complex.abs.rst",
+    "how-to/api/ansys_sphinx_theme.examples.samples.Complex.imag.rst",
+    "how-to/api/ansys_sphinx_theme.examples.samples.Complex.real.rst",
 ]
 
 # Fix excessive margins in mermaid output.
