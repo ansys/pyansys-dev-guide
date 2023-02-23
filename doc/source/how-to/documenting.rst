@@ -308,12 +308,12 @@ For simple classes, use the ``autoclass`` directive:
 
         .. code-block:: rst
 
-            .. autoclass:: ansys_sphinx_theme.samples.ExampleClass
+            .. autoclass:: ansys_sphinx_theme.examples.samples.ExampleClass
                :members:
 
     .. tab-item:: Rendered Doc
 
-        .. autoclass:: ansys_sphinx_theme.samples.ExampleClass
+        .. autoclass:: ansys_sphinx_theme.examples.samples.ExampleClass
             :members:
 
 
@@ -326,24 +326,24 @@ For complex classes with many methods, use the
 
         .. code-block:: rst
 
-            .. autoclass:: ansys_sphinx_theme.samples.Complex
+            .. autoclass:: ansys_sphinx_theme.examples.samples.Complex
 
             .. autosummary::
                :toctree: api/
 
-               ansys_sphinx_theme.samples.Complex.real
-               ansys_sphinx_theme.samples.Complex.imag
-               ansys_sphinx_theme.samples.Complex.abs
+               ansys_sphinx_theme.examples.samples.Complex.real
+               ansys_sphinx_theme.examples.samples.Complex.imag
+               ansys_sphinx_theme.examples.samples.Complex.abs
 
     .. tab-item:: Rendered Doc
 
-        .. autoclass:: ansys_sphinx_theme.samples.Complex
+        .. autoclass:: ansys_sphinx_theme.examples.samples.Complex
 
         .. autosummary::
 
-           ansys_sphinx_theme.samples.Complex.real
-           ansys_sphinx_theme.samples.Complex.imag
-           ansys_sphinx_theme.samples.Complex.abs
+           ansys_sphinx_theme.examples.samples.Complex.real
+           ansys_sphinx_theme.examples.samples.Complex.imag
+           ansys_sphinx_theme.examples.samples.Complex.abs
 
 When you use the ``autosummary`` directive, each class has its own dedicated page,
 and each method and attribute in that class also has its own page.
@@ -491,7 +491,6 @@ Follow these steps to enable multi-version documentation in your project:
               "json_url": f"https://{cname}/release/versions.json",
               "version_match": get_version_match(__version__),
           },
-          "navbar_end": ["version-switcher", "theme-switcher", "navbar-icon-links"],
           ...
       }
   
