@@ -426,8 +426,8 @@ To  build ``PDF`` documentation, the following rules must be added to
 
             pdf:
 	            @$(SPHINXBUILD) -M latex "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-	            cd build/latex && latexmk -r latexmkrc -pdf *.tex -interaction=nonstopmode || true
-	            (test -f build/latex/*.pdf && echo pdf exists) || exit 1
+	            cd $(BUILDIR)/latex && latexmk -r latexmkrc -pdf *.tex -interaction=nonstopmode || true
+	            (test -f $(BUILDIR)/latex/*.pdf && echo pdf exists) || exit 1
 
     .. tab-item:: make.bat
 
