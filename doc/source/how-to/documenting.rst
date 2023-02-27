@@ -488,7 +488,7 @@ Follow these steps to enable multi-version documentation in your project:
   
       html_theme_options = {
           "switcher": {
-              "json_url": f"https://{cname}/release/versions.json",
+              "json_url": f"https://{cname}/versions.json",
               "version_match": get_version_match(__version__),
           },
           ...
@@ -631,6 +631,26 @@ workflow:
                 cname: ${{ env.DOCUMENTATION_CNAME }}
                 token: ${{ steps.get_workflow_token.outputs.token }}
                 external-repository: ${{ env.DOCUMENTATION_REPOSITORY }}
+
+
+Multi-version migration from ``pyansys/actions@v3``  to ``pyansys/actions@v4``
+------------------------------------------------------------------------------
+Projects using the multi-version feature should upgrade to `pyansys/actions@v4
+<https://actions.docs.pyansys.com/version/stable/index.html>`_ or higher to
+benefit from stable links. This is achieved by introducing a new layout that is
+not compatible with older `pyansys/actions` versions.
+
+Migration process requires to follow these steps:
+
+* Update all the continuous integration ``YML`` files to use
+  ``pyansys/actions@v4`` or higher.
+
+* Make sure that the ``"json_url"`` key points to
+  ``f"https://{cname}/versions.json"``. Note that the ``release/`` substring is
+  dropped.
+
+* Apply previous steps as fix patches in all the desired versions to be included
+  in the multi-version documentation.
 
 
 Access online documentation
