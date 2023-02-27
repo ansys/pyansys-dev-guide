@@ -465,7 +465,7 @@ The resulting PDF and intermediate LaTeX files are created in the
 Enabling multi-version documentation
 ------------------------------------
 With the release of `pyansys/actions@v4
-<https://actions.docs.pyansys.com/release/4.0/index.html>`_, projects can
+<https://actions.docs.pyansys.com/version/stable/index.html>`_ , projects can
 benefit from multi-version documentation. Projects taking advantage of this
 feature need to apply different configurations according to their level of
 maturity.
@@ -518,7 +518,7 @@ of the project.
     shown by default in the documentation drop-down. For showing more versions,
     use the ``render-last`` variable in the `pyansys/actions/doc-deploy-stable
     action
-    <https://actions.docs.pyansys.com/release/4.0/doc-actions/index.html#doc-deploy-stable-action>`_.
+    <https://actions.docs.pyansys.com/version/stable/doc-actions/index.html#doc-deploy-stable-action>`_.
 
 If you require support for migrating to the multi-version documentation, please
 contact ``pyansys.support@ansys.com``.
