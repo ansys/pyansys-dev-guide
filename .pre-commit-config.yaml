@@ -5,7 +5,10 @@ repos:
   rev: 23.1.0  # IF VERSION CHANGES --> MODIFY "blacken-docs" MANUALLY AS WELL!!
   hooks:
   - id: black
-    args: ["doc/source/conf.py"]
+    args: [
+      "doc/source/conf.py",
+      "examples"
+    ]
 
 - repo: https://github.com/adamchainz/blacken-docs
   rev: 1.13.0
