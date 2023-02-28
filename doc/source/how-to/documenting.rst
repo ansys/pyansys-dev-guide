@@ -662,7 +662,9 @@ constructed using the following structure:
 ``https://<product>.docs.pyansys.com``
 
 You can generally access the latest development version of the documentation by
-adding the prefix ``dev.`` to the URL for the latest stable release.
+adding the ``dev`` path to the URL as follows:
+
+``https://<product>.docs.pyansys.com/dev``
 
 .. warning::
 
@@ -674,7 +676,7 @@ adding the prefix ``dev.`` to the URL for the latest stable release.
 For example, consider PyAEDT documentation:
 
 - The URL for documentation of the latest stable release is `<https://aedt.docs.pyansys.com/>`_.
-- The URL for documentation of the latest development version is `<https://dev.aedt.docs.pyansys.com/>`_.
+- The URL for documentation of the latest development version is `<https://aedt.docs.pyansys.com/dev/>`_.
 
 The latest development versions of both the library and its documentation are
 automatically kept up-to-date via GitHub actions.
