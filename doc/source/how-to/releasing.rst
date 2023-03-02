@@ -363,7 +363,7 @@ unique to each project. It can only be obtained after the first release to the
 public PyPI. Follow the process :ref:`Project approval and public release`
 process to obtain public release authorization.
 
-Once authorized, contact `pyansys.support@ansys.com <mailto:pyansys.support@ansys.com>`_ to
+Once authorized, contact `pyansys.core@ansys.com <mailto:pyansys.core@ansys.com>`_ to
 get support during the first release of the project. The team then enables the
 custom ``PYPI_TOKEN`` once your project has been successfully released for the
 first time. For future releases, everything is then automated.
