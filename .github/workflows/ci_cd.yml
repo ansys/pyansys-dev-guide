@@ -7,6 +7,8 @@ on:
       - "*"
     branches:
       - main
+  schedule:
+    - cron: "0 0 * * *"
 
 env:
   MAIN_PYTHON_VERSION: '3.10'
@@ -22,18 +24,33 @@ permissions:
 
 jobs:
 
+  commit-style:
+    name: "Check commit style"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  code-style:
+    name: "Check code style"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: pyansys/actions/code-style@v4
+        with:
+          use-python-cache: false
+
   doc-style:
     name: "Check documentation style"
     runs-on: ubuntu-latest
     steps:
-      - name: "Check documentation style"
-        uses: pyansys/actions/doc-style@v3
+      - uses: pyansys/actions/doc-style@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
   doc-build:
     name: "Build project documentation"
-    needs: doc-style
+    needs: [commit-style, code-style, doc-style]
     runs-on: ubuntu-latest
     steps:
       - name: "Install mermaid-cli"
@@ -45,20 +62,25 @@ jobs:
           sudo apt-get install graphviz
 
       - name: "Build project documentation"
-        uses: pyansys/actions/doc-build@v3
+        uses: pyansys/actions/doc-build@v4
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
           use-python-cache: false
           skip-install: true
           requires-xvfb: true
           dependencies: 'xvfb texlive-latex-extra latexmk nodejs npm'
-  
+
   release-github:
     name: "Release to GitHub"
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
     needs: doc-build
     steps:
+
+    - name: "Create a tag in the software"
+      id: tag_version
+      uses: mathieudutour/github-tag-action@v6.1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: "Download HTML documentation"
       uses: actions/download-artifact@v3
@@ -91,6 +113,7 @@ jobs:
     - name: "Release to GitHub"
       uses: softprops/action-gh-release@v1
       with:
+        tag: ${{ steps.tag_version.outputs.new_tag }}
         files: |
           documentation-html.zip
           documentation-pdf

@@ -17,7 +17,6 @@ from sphinx_gallery.sorting import FileNameSortKey
 project = "PyAnsys Developer's Guide"
 copyright = f"(c) {datetime.now().year} ANSYS, Inc. All rights reserved"
 author = "Ansys Inc."
-release = version = datetime.now().strftime("%Y-%m-%d")
 
 html_logo = pyansys_logo_black
 html_theme = "ansys_sphinx_theme"
