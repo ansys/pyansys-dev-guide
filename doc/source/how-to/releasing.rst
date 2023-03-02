@@ -426,7 +426,7 @@ public PyPI and GitHub.
 .. dropdown:: Downloading artifacts from the Ansys private PyPI
 
     Request the value of the ``PYANSYS_PYPI_PRIVATE_PAT`` token by sending an
-    email to the `pyansys.support@ansys.com <pyansys.support@ansys.com>`_ email.
+    email to the `pyansys.core@ansys.com <pyansys.core@ansys.com>`_ email.
 
     Create an environment variable named ``PYANSYS_PYPI_PRIVATE_PAT`` in your
     local machine an assign it the value of the token.

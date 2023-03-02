@@ -521,7 +521,7 @@ of the project.
     <https://actions.docs.pyansys.com/version/stable/doc-actions/index.html#doc-deploy-stable-action>`_.
 
 If you require support for migrating to the multi-version documentation, please
-contact ``pyansys.support@ansys.com``.
+contact ``pyansys.core@ansys.com``.
 
 
 Deploying documentation

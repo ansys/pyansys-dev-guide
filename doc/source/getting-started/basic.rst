@@ -61,7 +61,7 @@ particular PyAnsys library.
    style`.
 
 #. **Prepare the package for release:** When you are ready to release
-   your package publicly, email `pyansys.support@ansys.com <pyansys.support@ansys.com>`_
+   your package publicly, email `pyansys.core@ansys.com <pyansys.core@ansys.com>`_
    to obtain the release checklist for obtaining official Ansys approval.
    Once you have completed this checklist, change the `repository visibility`_
    to public and create a release branch.
