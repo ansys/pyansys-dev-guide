@@ -10,7 +10,7 @@ on:
 
 env:
   MAIN_PYTHON_VERSION: '3.10'
-  CNAME: 'dev.docs.pyansys.com'
+  DOCUMENTATION_CNAME: 'dev.docs.pyansys.com'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -53,23 +53,11 @@ jobs:
           requires-xvfb: true
           dependencies: 'xvfb texlive-latex-extra latexmk nodejs npm'
   
-  doc-deploy:
-    name: "Deploy development documentation"
-    runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/main' }}
-    needs: doc-build
-    steps:
-      - name: "Deploy development documentation"
-        uses: pyansys/actions/doc-deploy-dev@v3
-        with:
-          cname: ${{ env.CNAME }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-
   release-github:
     name: "Release to GitHub"
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-    needs: doc-deploy
+    if: github.ref == 'refs/heads/main'
+    needs: doc-build
     steps:
 
     - name: "Download HTML documentation"
@@ -106,3 +94,17 @@ jobs:
         files: |
           documentation-html.zip
           documentation-pdf
+
+  doc-deploy:
+    name: "Deploy documentation"
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    needs: release-github
+    steps:
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./doc/_build/html
+          cname: ${{ env.DOCUMENTATION_CNAME }}
+          full_commit_message: ${{ github.event.head_commit.message }}
+          force_orphan: true
