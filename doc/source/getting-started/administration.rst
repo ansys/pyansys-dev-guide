@@ -121,7 +121,7 @@ The following checks are required when performing the technical review of the pr
     * The author of the project is ANSYS, Inc.
     * The maintainer of the project is ANSYS, Inc.
     * Contact and support information are provided in the project.
-    * :ref:`The \`\`AUTHORS.md\`\` file` is present and contains the Project Lead and main contributors.
+    * :ref:`The \`\`AUTHORS.md\`\` file` is present and contains the project lead and main contributors.
     * :ref:`The \`\`LICENSE\`\` file` is present and compliant with legal requirements.
     * :ref:`The \`\`CONTRIBUTING.md\`\` file` is present.
 
