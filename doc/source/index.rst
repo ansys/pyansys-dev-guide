@@ -12,13 +12,13 @@
            :link: getting-started/index
            :link-type: doc
     
-            An introduction to the PyAnsys project and its ecosystem.
+           An introduction to the PyAnsys project and its ecosystem.
 
         .. grid-item-card:: :octicon:`law` Project approval and release
            :link: getting-started/administration
            :link-type: doc
 
-            Steps to authorize the public release of a PyAnsys library.
+           Steps to authorize the public release of a PyAnsys library.
 
 
 .. card:: Explanations
@@ -29,13 +29,13 @@
            :link: how-to/index
            :link-type: doc
     
-            Detailed step-by-step guidelines.
+           Detailed step-by-step guidelines.
 
         .. grid-item-card:: :octicon:`repo` Abstractions
            :link: abstractions/index
            :link-type: doc
 
-            Detailed explanations of the PyAnsys architecture.
+           Detailed explanations of the PyAnsys architecture.
 
 
 .. card:: Style guidelines
@@ -46,19 +46,19 @@
            :link: packaging/index
            :link-type: doc
     
-            Best practices for distributing Python code.
+           Best practices for distributing Python code.
     
         .. grid-item-card:: :octicon:`codespaces` Coding style
            :link: coding-style/index
            :link-type: doc
     
-            Best practices for writing Python code.
+           Best practices for writing Python code.
     
         .. grid-item-card:: :octicon:`pencil` Documentation style
            :link: doc-style/index
            :link-type: doc
     
-            Best practices for writing documentation.
+           Best practices for writing documentation.
 
 
 
