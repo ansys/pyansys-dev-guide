@@ -15,20 +15,20 @@ The approval process is divided into three parts:
        :link: managerial
        :link-type: ref
 
-        Verifies that direct managers, general managers, and the chief technology
-        officer are aware of the project and approve it.
+       Verifies that direct managers, general managers, and the chief technology
+       officer are aware of the project and approve it.
 
     .. grid-item-card:: :octicon:`law` Legal
        :link: legal
        :link-type: ref
 
-        Verifies that the project ships with the right legal framework to protect Ansys intellectual property.
+       Verifies that the project ships with the right legal framework to protect Ansys intellectual property.
 
     .. grid-item-card:: :octicon:`gear` Technical
        :link: technical
        :link-type: ref
 
-        Verifies that the project is compliant with Ansys software guidelines and best practices.
+       Verifies that the project is compliant with Ansys software guidelines and best practices.
 
 
 .. important::
