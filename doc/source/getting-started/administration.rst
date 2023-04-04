@@ -43,7 +43,7 @@ When releasing a project to the public, you should:
 
 * Coordinate with the product line development team, if applicable.
 * Maintain the project by means of fixing bugs and providing support for new releases.
-* Uphold Ansys' reputation in the open-source community.
+* Uphold Ansys' reputation in the open source community.
 
 
 Managerial
@@ -59,7 +59,7 @@ number of administrative reviews and approvals needed:
     
     .. grid-item-card:: :octicon:`repo` Documentation projects
 
-        Documentation projects need direct manager approval, legal review, and
+        Documentation projects must have direct manager approval, legal review, and
         documentation proofing. No source code other than documentation files
         is allowed.
 
@@ -102,13 +102,13 @@ The following checks are required when performing the legal review of the projec
       property for open sourcing.
     * The contribution does not embody any inventions for which Ansys has
       sought or received patent protection.
-    * Any third-party open-source code included in the contribution has been
+    * Any third-party open source code included in the contribution has been
       reviewed for security vulnerabilities and includes their license files in
       the repository.
 
-Open-source dependencies not distributed as part of the project do not need
+Open source dependencies not distributed as part of the project do not need
 their licenses included in the Ansys repository. Examples include dependent
-Node package manager (``npm``) modules or Python packages from PyPI.
+Node Package Manager (``npm``) modules or Python packages from PyPI.
 
 
 Technical
@@ -117,7 +117,7 @@ Technical approval ensures that the project follows the best and latest
 software development practices. Request a technical review by sending an email
 to `pyansys.core@ansys.com <mailto:pyansys.core@ansys.com>`_.
 
-The technical review of the project must include the following:
+The technical review of the project verifies the following:
 
 .. card:: |uncheck| The project contains the right metadata information.
     
@@ -125,7 +125,7 @@ The technical review of the project must include the following:
     * The project version follows :ref:`Semantic versioning`.
     * The project author is ANSYS, Inc.
     * The project maintainer is ANSYS, Inc.
-    * Contact and support information are provided in the project.
+    * Contact and support information is provided in the project.
     * :ref:`The \`\`AUTHORS.md\`\` file` is present and contains the project lead and main contributors.
     * :ref:`The \`\`LICENSE\`\` file` is present and compliant with legal requirements.
     * :ref:`The \`\`CONTRIBUTING.md\`\` file` is present.
