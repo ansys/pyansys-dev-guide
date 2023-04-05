@@ -15,20 +15,21 @@ The approval process is divided into three parts:
        :link: managerial
        :link-type: ref
 
-        Verifies that direct managers, general managers, and the chief technology
-        officer are aware of the project and approve it.
+       Ensures that direct managers, general managers, and the chief technology
+       officer are aware of the project and approve it.
 
     .. grid-item-card:: :octicon:`law` Legal
        :link: legal
        :link-type: ref
 
-        Verifies that the project ships with the right legal framework to protect Ansys intellectual property.
+       Ensures that the project adheres to a legal framework that protects
+       Ansys intellectual property.
 
     .. grid-item-card:: :octicon:`gear` Technical
        :link: technical
        :link-type: ref
 
-        Verifies that the project is compliant with Ansys software guidelines and best practices.
+       Ensures that the project complies with Ansys software guidelines and best practices.
 
 
 .. important::
@@ -38,47 +39,46 @@ The approval process is divided into three parts:
     Once approved, a project can be published to the :ref:`Public PyPI`.
 
 
-When releasing a project to the public, expect to:
+When releasing a project to the public, you should:
 
 * Coordinate with the product line development team, if applicable.
 * Maintain the project by means of fixing bugs and providing support for new releases.
-* Ensure the good reputation of Ansys in the open source community.
+* Uphold Ansys' reputation in the open source community.
 
 
 Managerial
 ^^^^^^^^^^
-The managerial part of the approval process guarantees that the direct manager,
-general managers, vice presidents, or chief technology officer are aware of the
-existence and status of the project.
+The managerial part of the approval process ensures that the direct manager,
+general managers, vice presidents, or the chief technology officer are aware of
+the project's existence and status.
 
-The number of administrative reviews and approvals depends on the nature of the
-project. A project can be classified as one of these categories:
+A project must be classified into one of these categories, determining the
+number of administrative reviews and approvals needed:
 
 .. grid:: 3
     
     .. grid-item-card:: :octicon:`repo` Documentation projects
 
-        Documentation projects require direct manager approval, legal
-        review, and documentation proofing. No source code other than
-        documentation files is allowed.
+        Documentation projects must have direct manager approval, legal review, and
+        documentation proofing. No source code other than documentation files
+        is allowed.
 
     .. grid-item-card:: :octicon:`tools` Tool projects
 
-        Tool projects require the direct manager and business unit's general
+        Tool projects require direct manager and business unit's general
         manager approval. No product source code is allowed.
 
     .. grid-item-card:: :octicon:`container` Library projects
 
         Library projects interfacing and wrapping any Ansys products require
-        approval of the direct manager, product line, and the chief technology
-        officer. No product source code is allowed.
-
+        approval from the direct manager, product line, and the chief
+        technology officer. No product source code is allowed.
 
 
 Legal
 ^^^^^
-The approval of the legal review guarantees that the whole project is compliant
-with the legal policy of Ansys.
+Legal review approval ensures that the entire project complies with Ansys'
+legal policies.
 
 Start by completing the legal review request form for open sourcing the code:
 
@@ -92,54 +92,59 @@ The following checks are required when performing the legal review of the projec
 
 .. card:: |uncheck| The project contains the right licensing.
 
-    * The project contains the right license.
+    * The project has the correct license.
     * The contribution does not contain any strong encryption.
     * Ansys official logos and branding images are used in the project.
-    * The Ansys copyright appears in the right location as required by the Legal department.
-    * The copyright has the right formatting, which is ``Copyright (C) YYYY ANSYS, Inc.``.
-    * The contribution does not embody any Ansys intellectual property that is not approved for open sourcing.
-    * The contribution does not embody any invention for which Ansys has sought or received patent protection.
-    * Any third-party open sources included in the contribution have been reviewed for security vulnerabilities and have had their license files included in the repository.
+    * The Ansys copyright appears in the correct location as required by the
+      Legal department.
+    * The copyright has the proper formatting, which is ``Copyright (C) YYYY ANSYS, Inc.``.
+    * The contribution does not embody any unapproved Ansys intellectual
+      property for open sourcing.
+    * The contribution does not embody any inventions for which Ansys has
+      sought or received patent protection.
+    * Any third-party open source code included in the contribution has been
+      reviewed for security vulnerabilities and includes their license files in
+      the repository.
 
-Open source dependencies that are not distributed as part of the project do not
-need their licenses included in the Ansys repository. Examples include
-dependent Node package manager (``npm``) modules or Python packages from PyPI.
+Open source dependencies not distributed as part of the project do not need
+their licenses included in the Ansys repository. Examples include dependent
+Node Package Manager (``npm``) modules or Python packages from PyPI.
 
 
 Technical
 ^^^^^^^^^
-The approval of the technical guarantees that the project follows the best and
-latest software development practices. Request a technical review by sending an
-email to `pyansys.core@ansys.com <mailto:pyansys.core@ansys.com>`_.
+Technical approval ensures that the project follows the best and latest
+software development practices. Request a technical review by sending an email
+to `pyansys.core@ansys.com <mailto:pyansys.core@ansys.com>`_.
 
-The following checks are required when performing the technical review of the project:
+The technical review of the project verifies the following:
 
 .. card:: |uncheck| The project contains the right metadata information.
     
-    * The name of the project follows naming convention.
-    * The version of the project follows :ref:`Semantic versioning`.
-    * The author of the project is ANSYS, Inc.
-    * The maintainer of the project is ANSYS, Inc.
-    * Contact and support information are provided in the project.
+    * The project name follows naming conventions.
+    * The project version follows :ref:`Semantic versioning`.
+    * The project author is ANSYS, Inc.
+    * The project maintainer is ANSYS, Inc.
+    * Contact and support information is provided in the project.
     * :ref:`The \`\`AUTHORS.md\`\` file` is present and contains the project lead and main contributors.
     * :ref:`The \`\`LICENSE\`\` file` is present and compliant with legal requirements.
     * :ref:`The \`\`CONTRIBUTING.md\`\` file` is present.
 
 .. card:: |uncheck| The project is compliant with PyAnsys style guidelines.
 
-    * The layout of the project follows the :ref:`Packaging style` guidelines.
+    * The project layout follows the :ref:`Packaging style` guidelines.
     * :ref:`Testing` guarantees at least 80% code coverage.
-    * The project follows the :ref:`Documentation style` guidelines.
-    * The examples in the source code docstrings are tested.
-    * The documentation examples are presented in the form of a gallery.
-    * The documentation has the approval of the documentation team.
+    * The project adheres to the :ref:`Documentation style` guidelines.
+    * The source code docstring examples have been tested.
+    * The documentation examples are presented as a gallery.
+    * The documentation receives the documentation team's approval.
     * The package builds properly.
-    * The project uses CI/CD with all the :ref:`Required workflows`.
+    * The project uses CI/CD, including all the :ref:`Required workflows`.
     * The CI/CD pipeline generates project :ref:`artifacts`.
 
 .. card:: |uncheck| The GitHub repository is properly secured.
 
-    * The repository is compliant with the :ref:`General configuration`.
+    * The repository adheres to the :ref:`General configuration`.
     * :ref:`Branch protection` is enabled.
     * :ref:`Tag protection` is enabled.
     * :ref:`Workflow protection` is enabled.
