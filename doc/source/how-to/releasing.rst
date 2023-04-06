@@ -215,25 +215,24 @@ There are three possible places where artifacts can be published:
        :link: private-pypi
        :link-type: ref
 
-        This is a private index used to share artifacts across the company
-        while making sure that projects remain private.
+       This is a private index used to share artifacts across the company
+       while making sure that projects remain private.
 
     .. grid-item-card:: :octicon:`unlock` Public PyPI
        :link: public-pypi
        :link-type: ref
 
-        This is the `public PyPI` used by the Python community to distribute
-        libraries. A project requires Ansys authorization before being
-        published in this index.
+       This is the `public PyPI` used by the Python community to distribute
+       libraries. A project requires Ansys authorization before being
+       published in this index.
 
     .. grid-item-card:: :octicon:`mark-github` GitHub
        :link: github
        :link-type: ref
 
-        This is a section created by GitHub within a project repository where
-        artifacts can be published. A project requires Ansys authorization
-        before being public in GitHub.
-
+       This is a section created by GitHub within a project repository where
+       artifacts can be published. A project requires Ansys authorization
+       before being public in GitHub.
 
 
 .. _private-pypi:
