@@ -2,7 +2,7 @@ Sphinx==5.3.0
 ansys-sphinx-theme==0.9.7
 sphinx-copybutton==0.5.1
 sphinx_toolbox==3.4.0
-sphinx_design==0.3.0
+sphinx_design==0.4.1
 sphinxcontrib-mermaid>=0.7.1
 sphinx-gallery==0.12.2
 Pillow>=9.0
