@@ -235,7 +235,7 @@ built using the `Sphinx-Gallery
 follow its `coding guidelines
 <https://sphinx-gallery.github.io/stable/index.html>`_.
 
-Using python, here is a :ref:`General example` using sphinx gallery.
+Using Python, here is a :ref:`General example` using sphinx gallery.
 
 Document Python code
 --------------------
@@ -246,8 +246,9 @@ code. When using this extension, you can include these directives in your :ref:`
 * ``autoclass`` for documenting classes
 * ``autofunction`` for documenting methods and functions
 
-For a full list of auto-directives, see `Include Documentation From Docstrings
-<https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html>`_.
+For a full list of 'auto' directives, see `Include documentation from docstrings
+<https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html>`_ in the Sphinx
+documentation.
 
 
 Document classes
@@ -388,7 +389,7 @@ documentation output, such as ``HTML``, ``LaTeX`` or
 
 Build HTML documentation
 ~~~~~~~~~~~~~~~~~~~~~~~~
-You build ``HTML`` documentation with:
+You build HTML documentation with:
 
 .. tab-set::
 
@@ -404,7 +405,7 @@ You build ``HTML`` documentation with:
 
             make.bat html
 
-The resulting ``HTML`` files are created in the ``_build/html`` directory,
+The resulting HTML files are created in the ``_build/html`` directory,
 located in :ref:`The \`\`doc/\`\` directory`.
 
 You can display the HTML documentation with:
@@ -415,8 +416,8 @@ You can display the HTML documentation with:
 
 Build PDF documentation
 ~~~~~~~~~~~~~~~~~~~~~~~
-To  build ``PDF`` documentation, the following rules must be added to
-``Makefile`` and ``make.bat`` files:
+To  build PDF documentation, the following rules must be added to
+the ``Makefile`` and ``make.bat`` files:
 
 .. tab-set::
 
@@ -438,7 +439,7 @@ To  build ``PDF`` documentation, the following rules must be added to
 	           cd "%BUILDDIR%\latex"
 	           pdflatex \*.tex --interaction=nonstopmode
 
-You can call previous rules by running:
+You can call the previous rules by running:
 
 .. tab-set::
 
@@ -509,19 +510,22 @@ Follow these steps to enable multi-version documentation in your project:
 
 With all the previous configuration, your project is ready to use multi-version
 documentation in an automated way. This means that every time you release a
-new version, it is added to the drop-down button in the documentation page
-of the project.
+new version, it is added to the drop-down button in the upper right corner of
+the documentation's title bar. You use this drop-down button to 
+switch from viewing the documentation for the latest stable release
+to viewing the documentation for the development version or previously
+released versions.
 
 .. admonition:: Controlling the desired amount of versions showing up in the drop-down
 
-    Only the development branch and the latest three stable versions are
-    shown by default in the documentation drop-down. For showing more versions,
+    Only the development branch and the last three stable versions are
+    shown by default in the documentation drop-down button. To show more versions,
     use the ``render-last`` variable in the `pyansys/actions/doc-deploy-stable
     action
     <https://actions.docs.pyansys.com/version/stable/doc-actions/index.html#doc-deploy-stable-action>`_.
 
-If you require support for migrating to the multi-version documentation, please
-contact ``pyansys.core@ansys.com``.
+If you require support for migrating to the multi-version documentation, email
+`pyansys.core@ansys.com <pyansys.core@ansys.com>`_.
 
 
 Deploying documentation
@@ -640,7 +644,7 @@ Projects using the multi-version feature should upgrade to `pyansys/actions@v4
 benefit from stable links. This is achieved by introducing a new layout that is
 not compatible with older `pyansys/actions` versions.
 
-Migration process requires to follow these steps:
+To perform the migration, follow these steps:
 
 * Update all the continuous integration ``YML`` files to use
   ``pyansys/actions@v4`` or higher.
@@ -670,8 +674,8 @@ adding the ``dev`` path to the URL as follows:
 
     PyAnsys projects support now multi-version documentation, meaning that
     stable and development versions are collected under the same website. A
-    drop-down button for selecting desired version should be available in the
-    top right corner of the navigation bar in the documentation page.
+    drop-down button for selecting the desired version should be available in the
+    top right corner of the documentation's navigation bar.
 
 For example, consider PyAEDT documentation:
 
@@ -679,7 +683,7 @@ For example, consider PyAEDT documentation:
 - The URL for documentation of the latest development version is `<https://aedt.docs.pyansys.com/dev/>`_.
 
 The latest development versions of both the library and its documentation are
-automatically kept up-to-date via GitHub actions.
+automatically kept up to date via GitHub actions.
 
 To make documentation changes, you create a branch with a name that begins with
 a prefix of ``doc/`` that is then followed by a short description of what you
