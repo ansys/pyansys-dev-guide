@@ -272,7 +272,6 @@ is used to track changes and register new content in software-related projects. 
 registers the author and date of the changes so that accurate tracking of the
 software's evolution is available.
 
-
 Installation
 ~~~~~~~~~~~~
 
