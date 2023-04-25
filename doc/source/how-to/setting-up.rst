@@ -272,8 +272,6 @@ is used to track changes and register new content in software-related projects. 
 registers the author and date of the changes so that accurate tracking of the
 software's evolution is available.
 
-If you are not familiar with Git and the Git workflows in terms of development, it is
-recommended that you follow this tutorial on `Learning Git branching <https://learngitbranching.js.org/>`_.
 
 Installation
 ~~~~~~~~~~~~
@@ -340,6 +338,12 @@ Usage
 ~~~~~
 If you are not familiar with Git, see the `Git Reference Manual <https://git-scm.com/doc>`_.
 for comprehensive information on how to use it.
+
+If you are not familiar with Git and the Git workflows in terms of development, it is
+recommended that you follow this tutorial on `Learning Git branching <https://learngitbranching.js.org/>`_.
+
+Also, if you are not that familiar with GitHub, feel free to go through the
+`GitHub Training Manual <https://githubtraining.github.io/training-manual/>`_.
 
 Configuration
 ~~~~~~~~~~~~~
