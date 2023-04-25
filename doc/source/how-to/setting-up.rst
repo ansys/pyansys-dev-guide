@@ -272,6 +272,9 @@ is used to track changes and register new content in software-related projects. 
 registers the author and date of the changes so that accurate tracking of the
 software's evolution is available.
 
+If you are not familiar with Git and the Git workflows in terms of development, it is
+recommended that you follow this tutorial on `Learning Git branching <https://learngitbranching.js.org/>`_.
+
 Installation
 ~~~~~~~~~~~~
 
