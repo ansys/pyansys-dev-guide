@@ -38,8 +38,8 @@ potential vulnerabilities before they reach production systems.
    We could use the same but dedicated to the PyAnsys open source environment.
    This means using the tool in an environment isolated from the Ansys Azure codebase.
 
-As a first step, we will use those security tools within the metapackage.
-This metapackage contains PyAnsys packages pined to a certain version of the Ansys unified install.
+As a first step, we will use those security tools within the `metapackage`_.
+This `metapackage`_ contains PyAnsys packages pined to a certain version of the Ansys unified install.
 This will provide us with a full overview of the PyAnsys packages vulnerabilities status.
 When a flaw is detected in a PyAnsys package, an issue will be open in the repository associated to this package.
 Then it will be up to the maintainers of this repository to handle it as described previously.
@@ -53,3 +53,8 @@ Images vulnerabilities
 ======================
 
 To be discussed through a new meeting.
+
+
+
+
+.. _metapackage: https://github.com/pyansys/pyansys
