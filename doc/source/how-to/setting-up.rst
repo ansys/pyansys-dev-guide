@@ -79,25 +79,25 @@ Once your Python installation is complete, verify it with:
 
             .. tab-item:: CMD
 
-                .. code-block:: text
+                .. code-block:: bash
 
                     py --version
 
             .. tab-item:: PowerShell
 
-                .. code-block:: text
+                .. code-block:: bash
 
                     py --version
 
     .. tab-item:: macOS
 
-        .. code-block:: text
+        .. code-block:: bash
 
             python --version
 
     .. tab-item:: Linux/UNIX
 
-        .. code-block:: text
+        .. code-block:: bash
 
             python --version
 
