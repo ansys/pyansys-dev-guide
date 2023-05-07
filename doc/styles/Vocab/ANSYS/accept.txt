@@ -59,6 +59,7 @@ pytest
 Python
 python
 pythoncom
+Pyup
 pyvista
 RPC
 scipy
