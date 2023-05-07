@@ -10,6 +10,7 @@ Codespell
 dataframes
 dependabot
 Dependabot
+deserialization
 Dev
 Docformatter
 Docstring
@@ -67,6 +68,7 @@ SSH
 subpackages
 uncomment
 unittest
+untrusted
 venv
 worktree
 Sphinx
