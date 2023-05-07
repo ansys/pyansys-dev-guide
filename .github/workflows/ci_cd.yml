@@ -10,7 +10,7 @@ on:
 
 env:
   MAIN_PYTHON_VERSION: '3.10'
-  CNAME: 'dev.docs.pyansys.com'
+  DOCUMENTATION_CNAME: 'dev.docs.pyansys.com'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Check documentation style"
-        uses: pyansys/actions/doc-style@v2
+        uses: pyansys/actions/doc-style@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -42,34 +42,44 @@ jobs:
       - name: "Install GraphViz"
         shell: bash
         run: |
+          sudo apt-get update
           sudo apt-get install graphviz
 
       - name: "Build project documentation"
-        uses: pyansys/actions/doc-build@v2
+        uses: pyansys/actions/doc-build@v3
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
           use-python-cache: false
           skip-install: true
           requires-xvfb: true
           dependencies: 'xvfb texlive-latex-extra latexmk nodejs npm'
-  
+
   doc-deploy:
-    name: "Deploy development documentation"
+    name: "Deploy documentation"
     runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/main' }}
+    if: github.event_name == 'push' && !contains(github.ref, 'refs/tags')
     needs: doc-build
     steps:
-      - name: "Deploy development documentation"
-        uses: pyansys/actions/doc-deploy-dev@v2
+  
+      - name: "Download HTML documentation artifacts"
+        uses: actions/download-artifact@v3
         with:
-          cname: ${{ env.CNAME }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          name: documentation-html
+          path: documentation-html
+
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: documentation-html
+          cname: ${{ env.DOCUMENTATION_CNAME }}
+          full_commit_message: ${{ github.event.head_commit.message }}
+          force_orphan: true
 
   release-github:
     name: "Release to GitHub"
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-    needs: doc-deploy
+    needs: doc-build
     steps:
 
     - name: "Download HTML documentation"
@@ -106,3 +116,23 @@ jobs:
         files: |
           documentation-html.zip
           documentation-pdf
+
+  doc-deploy-github-release:
+    name: "Deploy documentation"
+    runs-on: ubuntu-latest
+    needs: [release-github]
+    steps:
+  
+      - name: "Download HTML documentation artifacts"
+        uses: actions/download-artifact@v3
+        with:
+          name: documentation-html
+          path: documentation-html
+
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: documentation-html
+          cname: ${{ env.DOCUMENTATION_CNAME }}
+          full_commit_message: ${{ github.event.head_commit.message }}
+          force_orphan: true

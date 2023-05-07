@@ -115,7 +115,6 @@ This method contains all modified content to send to the stream:
 
     class CustomLogger(object):
         def __init__(self, messenger, level=logging.DEBUG, to_stdout=False):
-
             if to_stdout:
                 self._std_out_handler = logging.StreamHandler()
                 self._std_out_handler.setLevel(level)

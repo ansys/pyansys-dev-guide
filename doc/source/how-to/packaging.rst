@@ -24,8 +24,8 @@ Required dependencies are third party libraries that a software requires to
 properly function. If these dependencies are not installed or present, the
 software does not work as expected.
 
-Required dependencies need to be declared in :ref:`The \`\`setup.py\`\` file` or
-in :ref:`The \`\`pyproject.toml\`\` file`, according to the selected :ref:`Build
+Required dependencies need to be declared in :ref:`the \`\`setup.py\`\` file<The \`\`setup.py\`\` file>` or
+in :ref:`the \`\`pyproject.toml\`\` file<The \`\`pyproject.toml\`\` file>`, according to the selected :ref:`Build
 system`:
 
 
@@ -265,7 +265,6 @@ easier to add these lazy imports and helpful error messages. For example:
        def decorator(function):
            @wraps(function)
            def wrapper(self, *args, **kwargs):
-
                try:
                    importlib.import_module(package_name)
                    return function(self, *args, **kwargs)

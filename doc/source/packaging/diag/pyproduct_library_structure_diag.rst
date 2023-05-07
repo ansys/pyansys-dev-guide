@@ -23,8 +23,16 @@
            label="doc", shape="folder"
          ]
 
+         source [
+           label="source", shape="folder"
+         ]
+
          src [
            label="src", shape="folder"
+         ]
+
+         conf_file [
+           label="conf.py", shape="file"
          ]
 
          ansys [
@@ -45,6 +53,10 @@
 
          tests [
            label="tests", shape="folder"
+         ]
+
+         authors [
+           label="AUTHORS.md", shape="file"
          ]
 
          changelog [
@@ -79,6 +91,7 @@
          pyproduct_library -> doc;
          pyproduct_library -> src;
          pyproduct_library -> tests;
+         pyproduct_library -> authors;
          pyproduct_library -> license;
          pyproduct_library -> changelog;
          pyproduct_library -> code_of_conduct;
@@ -86,6 +99,9 @@
          pyproduct_library -> readme;
          pyproduct_library -> pyproject;
          pyproduct_library -> setup;
+
+         doc -> source;
+         source -> conf_file;
 
          src -> ansys;
          ansys -> product;

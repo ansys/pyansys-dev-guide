@@ -84,3 +84,5 @@ Rey
 Muela
 Kaszynski
 cybersecurity
+substring
+parm
