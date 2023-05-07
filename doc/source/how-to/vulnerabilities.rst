@@ -16,7 +16,7 @@ Here are some examples of common vulnerabilities:
   For instances, if they prevent some deal closures or the delivery of products in
   In that case, the BUs in charge of the package will handle it case by case.
 
-- **Vulnerabilities from PyAnsys packages external dependencies (numpy, matplotlib...)**
+- **Vulnerabilities from PyAnsys packages external dependencies (e.g. numpy, matplotlib)**
   Ansys cannot address them directly. It would be an endless task.
   At most, be mindful of deprecated packages and functions, as they may not receive
   security patches and might introduce vulnerabilities into your codebase.
