@@ -9,7 +9,7 @@ Here are some examples of common vulnerabilities:
 
 2 types of sources for the vulnerabilities:
 -------------------------------------------
-- **Vulnerabilities from Pyansys libraries code istself.**
+- **Vulnerabilities from Pyansys libraries code itself**
   The maintainers take the responsibility to address them or not.
   Those vulnerabilities priorities could be escalated internally if
   they represent roadblock for business activity.
