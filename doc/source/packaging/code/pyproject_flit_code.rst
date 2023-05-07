@@ -13,7 +13,7 @@
     requires-python = ">=3.<minor>"
     license = {file = "LICENSE"}
     authors = [
-        {name = "ANSYS, Inc.", email = "pyansys.support@ansys.com"},
+        {name = "ANSYS, Inc.", email = "pyansys.core@ansys.com"},
     ]
     maintainers = [
         {name = "PyAnsys developers", email = "pyansys.maintainers@ansys.com"},

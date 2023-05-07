@@ -363,21 +363,16 @@ Instead of:
         .. code-block:: python
 
            if x < y:
-
                ...
 
            else:
-
                if x > y:
-
                    ...
 
                else:
-
                    ...
 
            if x > 0 and x < 10:
-
                print("x is a positive single digit.")
     
 

@@ -235,7 +235,7 @@ built using the `Sphinx-Gallery
 follow its `coding guidelines
 <https://sphinx-gallery.github.io/stable/index.html>`_.
 
-Using python, here is a :ref:`General example` using sphinx gallery.
+Using Python, here is a :ref:`General example` using sphinx gallery.
 
 Document Python code
 --------------------
@@ -246,8 +246,9 @@ code. When using this extension, you can include these directives in your :ref:`
 * ``autoclass`` for documenting classes
 * ``autofunction`` for documenting methods and functions
 
-For a full list of auto-directives, see `Include Documentation From Docstrings
-<https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html>`_.
+For a full list of 'auto' directives, see `Include documentation from docstrings
+<https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html>`_ in the Sphinx
+documentation.
 
 
 Document classes
@@ -308,12 +309,12 @@ For simple classes, use the ``autoclass`` directive:
 
         .. code-block:: rst
 
-            .. autoclass:: ansys_sphinx_theme.samples.ExampleClass
+            .. autoclass:: ansys_sphinx_theme.examples.samples.ExampleClass
                :members:
 
     .. tab-item:: Rendered Doc
 
-        .. autoclass:: ansys_sphinx_theme.samples.ExampleClass
+        .. autoclass:: ansys_sphinx_theme.examples.samples.ExampleClass
             :members:
 
 
@@ -326,24 +327,24 @@ For complex classes with many methods, use the
 
         .. code-block:: rst
 
-            .. autoclass:: ansys_sphinx_theme.samples.Complex
+            .. autoclass:: ansys_sphinx_theme.examples.samples.Complex
 
             .. autosummary::
                :toctree: api/
 
-               ansys_sphinx_theme.samples.Complex.real
-               ansys_sphinx_theme.samples.Complex.imag
-               ansys_sphinx_theme.samples.Complex.abs
+               ansys_sphinx_theme.examples.samples.Complex.real
+               ansys_sphinx_theme.examples.samples.Complex.imag
+               ansys_sphinx_theme.examples.samples.Complex.abs
 
     .. tab-item:: Rendered Doc
 
-        .. autoclass:: ansys_sphinx_theme.samples.Complex
+        .. autoclass:: ansys_sphinx_theme.examples.samples.Complex
 
         .. autosummary::
 
-           ansys_sphinx_theme.samples.Complex.real
-           ansys_sphinx_theme.samples.Complex.imag
-           ansys_sphinx_theme.samples.Complex.abs
+           ansys_sphinx_theme.examples.samples.Complex.real
+           ansys_sphinx_theme.examples.samples.Complex.imag
+           ansys_sphinx_theme.examples.samples.Complex.abs
 
 When you use the ``autosummary`` directive, each class has its own dedicated page,
 and each method and attribute in that class also has its own page.
@@ -388,7 +389,7 @@ documentation output, such as ``HTML``, ``LaTeX`` or
 
 Build HTML documentation
 ~~~~~~~~~~~~~~~~~~~~~~~~
-You build ``HTML`` documentation with:
+You build HTML documentation with:
 
 .. tab-set::
 
@@ -404,7 +405,7 @@ You build ``HTML`` documentation with:
 
             make.bat html
 
-The resulting ``HTML`` files are created in the ``_build/html`` directory,
+The resulting HTML files are created in the ``_build/html`` directory,
 located in :ref:`The \`\`doc/\`\` directory`.
 
 You can display the HTML documentation with:
@@ -415,8 +416,8 @@ You can display the HTML documentation with:
 
 Build PDF documentation
 ~~~~~~~~~~~~~~~~~~~~~~~
-To  build ``PDF`` documentation, the following rules must be added to
-``Makefile`` and ``make.bat`` files:
+To  build PDF documentation, the following rules must be added to
+the ``Makefile`` and ``make.bat`` files:
 
 .. tab-set::
 
@@ -426,8 +427,8 @@ To  build ``PDF`` documentation, the following rules must be added to
 
             pdf:
 	            @$(SPHINXBUILD) -M latex "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-	            cd build/latex && latexmk -r latexmkrc -pdf *.tex -interaction=nonstopmode || true
-	            (test -f build/latex/*.pdf && echo pdf exists) || exit 1
+	            cd $(BUILDIR)/latex && latexmk -r latexmkrc -pdf *.tex -interaction=nonstopmode || true
+	            (test -f $(BUILDIR)/latex/*.pdf && echo pdf exists) || exit 1
 
     .. tab-item:: make.bat
 
@@ -438,7 +439,7 @@ To  build ``PDF`` documentation, the following rules must be added to
 	           cd "%BUILDDIR%\latex"
 	           pdflatex \*.tex --interaction=nonstopmode
 
-You can call previous rules by running:
+You can call the previous rules by running:
 
 .. tab-set::
 
@@ -464,8 +465,8 @@ The resulting PDF and intermediate LaTeX files are created in the
 
 Enabling multi-version documentation
 ------------------------------------
-With the release of `pyansys/actions@v3
-<https://actions.docs.pyansys.com/release/2.0/index.html>`_, projects can
+With the release of `pyansys/actions@v4
+<https://actions.docs.pyansys.com/version/stable/index.html>`_ , projects can
 benefit from multi-version documentation. Projects taking advantage of this
 feature need to apply different configurations according to their level of
 maturity.
@@ -488,10 +489,9 @@ Follow these steps to enable multi-version documentation in your project:
   
       html_theme_options = {
           "switcher": {
-              "json_url": f"https://{cname}/release/versions.json",
+              "json_url": f"https://{cname}/versions.json",
               "version_match": get_version_match(__version__),
           },
-          "navbar_end": ["version-switcher", "theme-switcher", "navbar-icon-links"],
           ...
       }
   
@@ -504,46 +504,28 @@ Follow these steps to enable multi-version documentation in your project:
       place, so it can be easily changed if required.
 
 
-- Create a ``gh-pages`` branch in the repository of your project.
-
-- Create a ``release/`` directory and a ``versions.json`` containing:
-
-  .. code-block:: json
-  
-      [
-        {
-          "version": "dev",
-          "url": "https://<cname>/dev"
-        }
-      ]
-
 - Enable documentation deployment for development and stable versions, see
   :ref:`Deploying documentation`.
 
 
-
 With all the previous configuration, your project is ready to use multi-version
 documentation in an automated way. This means that every time you release a
-new version, it is added to the drop-down button in the documentation page
-of the project.
+new version, it is added to the drop-down button in the upper right corner of
+the documentation's title bar. You use this drop-down button to 
+switch from viewing the documentation for the latest stable release
+to viewing the documentation for the development version or previously
+released versions.
 
 .. admonition:: Controlling the desired amount of versions showing up in the drop-down
 
-    Only the development branch and the latest three stable versions are
-    shown by default in the documentation drop-down. For showing more versions,
+    Only the development branch and the last three stable versions are
+    shown by default in the documentation drop-down button. To show more versions,
     use the ``render-last`` variable in the `pyansys/actions/doc-deploy-stable
     action
-    <https://actions.docs.pyansys.com/release/2.0/doc-actions/index.html#doc-deploy-stable-action>`_.
+    <https://actions.docs.pyansys.com/version/stable/doc-actions/index.html#doc-deploy-stable-action>`_.
 
-.. warning::
-
-    After enabling multi-version documentation, only new releases are
-    automatically added to the ``versions.json`` file. **To show old releases,
-    multi-version documentation needs to be enabled in old release branches.**
-
-
-If you require support for migrating to the multi-version documentation, please
-contact ``pyansys.support@ansys.com``.
+If you require support for migrating to the multi-version documentation, email
+`pyansys.core@ansys.com <pyansys.core@ansys.com>`_.
 
 
 Deploying documentation
@@ -569,61 +551,110 @@ in an automated way.
     
         doc-deploy-dev:
           name: "Deploy development documentation"
-          # Deploy development only when merging to main
-          if: github.event_name == 'push'
+          # Deploy development only when merging or pushing to the 'main' branch
+          if: github.event_name == 'push' && !contains(github.ref, 'refs/tags')
           runs-on: ubuntu-latest
-          needs: doc-build
+          needs: build-library
           steps:
-            - name: "Deploy the latest documentation"
-              uses: pyansys/actions/doc-deploy-dev@v3
+            - uses: pyansys/actions/doc-deploy-dev@v4
               with:
-                  doc-artifact-name: '<html-artifact-name>'
-                  cname: ${{ env.DOCUMENTATION_CNAME }}
-                  token: ${{ secrets.GITHUB_TOKEN }}
+                doc-artifact-name: '<html-artifact-name>'
+                cname: ${{ env.DOCUMENTATION_CNAME }}
+                token: ${{ secrets.GITHUB_TOKEN }}
         
         doc-deploy-stable:
           name: "Deploy stable documentation"
           # Deploy release documentation when creating a new tag
           if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
           runs-on: ubuntu-latest
-          needs: doc-deploy-dev
+          needs: release
           steps:
-            - name: "Deploy the stable documentation"
-              uses: pyansys/actions/doc-deploy-stable@v3
+            - uses: pyansys/actions/doc-deploy-stable@v4
               with:
-                  doc-artifact-name: '<html-artifact-name>'
-                  cname: ${{ env.DOCUMENTATION_CNAME }}
-                  token: ${{ secrets.GITHUB_TOKEN }}
+                doc-artifact-name: '<html-artifact-name>'
+                cname: ${{ env.DOCUMENTATION_CNAME }}
+                token: ${{ secrets.GITHUB_TOKEN }}
 
 
 Deploying to another repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-If you are planning to deploy documentation to a repository other than
-the one for your project, make sure you create this new repository before deploying
-your documentation for the first time.
+If you are planning to deploy documentation to a repository other than the one
+for your project, make sure you create this new repository before deploying your
+documentation for the first time.
 
-.. warning::
+Using the ``{{ secrets.GITHUB_TOKEN }}`` when deploying to another repository is
+not possible due to the level of credentials of this token. Instead, use the
+secrets generated by the ``PyAnsy Bot Application``.
 
-    Deploying your documentation to another repository is discouraged. It
-    translates to more maintenance work and does not support the multi-version
-    documentation.
-
-For deploying the documentation to another repository, use the following workflow:
+For deploying the documentation to another repository, use the following
+workflow:
 
 .. code-block:: yaml
 
-    doc-deploy:
-      name: "Deploy documentation to a different repo"
-      runs-on: ubuntu-latest
-      needs: doc-build
-      steps:
-        - name: "Deploy documentation"
-          uses: pyansys/actions/doc-deploy-to-repo@v3
+    env:
+      DOCUMENTATION_CNAME: '<library>.docs.pyansys.com'
+      DOCUMENTATION_REPOSITORY: '<organization-name>/<repository-name>'
+
+    jobs:
+
+        # Artifacts for HTML documentation need to be generated before 
+        # executing the deployment jobs
+
+        generate-token:
+          name: "Generate deployment token"
+          id: get_workflow_token
+          uses: peter-murray/workflow-application-token-action@v1
           with:
-            cname: "<library>.docs.pyansys.com"
-            repository: "<owner>/<repository-name>"
-            bot-id: ${{ secrets.BOT_APPLICATION_ID }}
-            bot-token: ${{ secrets.BOT_APPLICATION_PRIVATE_KEY }}
+            application_id: ${{ secrets.BOT_APPLICATION_ID }}
+            application_private_key: ${{ secrets.BOT_APPLICATION_PRIVATE_KEY }}
+    
+        doc-deploy-dev:
+          name: "Deploy development documentation"
+          # Deploy development only when merging or pushing to the 'main' branch
+          if: github.event_name == 'push' && !contains(github.ref, 'refs/tags')
+          runs-on: ubuntu-latest
+          needs: build-library
+          steps:
+            - uses: pyansys/actions/doc-deploy-dev@v4
+              with:
+                doc-artifact-name: '<html-artifact-name>'
+                cname: ${{ env.DOCUMENTATION_CNAME }}
+                token: ${{ steps.get_workflow_token.outputs.token }}
+                external-repository: ${{ env.DOCUMENTATION_REPOSITORY }}
+        
+        doc-deploy-stable:
+          name: "Deploy stable documentation"
+          # Deploy release documentation when creating a new tag
+          if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+          runs-on: ubuntu-latest
+          needs: release
+          steps:
+            - uses: pyansys/actions/doc-deploy-stable@v4
+              with:
+                doc-artifact-name: '<html-artifact-name>'
+                cname: ${{ env.DOCUMENTATION_CNAME }}
+                token: ${{ steps.get_workflow_token.outputs.token }}
+                external-repository: ${{ env.DOCUMENTATION_REPOSITORY }}
+
+
+Multi-version migration from ``pyansys/actions@v3``  to ``pyansys/actions@v4``
+------------------------------------------------------------------------------
+Projects using the multi-version feature should upgrade to `pyansys/actions@v4
+<https://actions.docs.pyansys.com/version/stable/index.html>`_ or higher to
+benefit from stable links. This is achieved by introducing a new layout that is
+not compatible with older `pyansys/actions` versions.
+
+To perform the migration, follow these steps:
+
+* Update all the continuous integration ``YML`` files to use
+  ``pyansys/actions@v4`` or higher.
+
+* Make sure that the ``"json_url"`` key points to
+  ``f"https://{cname}/versions.json"``. Note that the ``release/`` substring is
+  dropped.
+
+* Apply previous steps as fix patches in all the desired versions to be included
+  in the multi-version documentation.
 
 
 Access online documentation
@@ -635,22 +666,24 @@ constructed using the following structure:
 ``https://<product>.docs.pyansys.com``
 
 You can generally access the latest development version of the documentation by
-adding the prefix ``dev.`` to the URL for the latest stable release.
+adding the ``dev`` path to the URL as follows:
+
+``https://<product>.docs.pyansys.com/dev``
 
 .. warning::
 
     PyAnsys projects support now multi-version documentation, meaning that
     stable and development versions are collected under the same website. A
-    drop-down button for selecting desired version should be available in the
-    top right corner of the navigation bar in the documentation page.
+    drop-down button for selecting the desired version should be available in the
+    top right corner of the documentation's navigation bar.
 
 For example, consider PyAEDT documentation:
 
 - The URL for documentation of the latest stable release is `<https://aedt.docs.pyansys.com/>`_.
-- The URL for documentation of the latest development version is `<https://dev.aedt.docs.pyansys.com/>`_.
+- The URL for documentation of the latest development version is `<https://aedt.docs.pyansys.com/dev/>`_.
 
 The latest development versions of both the library and its documentation are
-automatically kept up-to-date via GitHub actions.
+automatically kept up to date via GitHub actions.
 
 To make documentation changes, you create a branch with a name that begins with
 a prefix of ``doc/`` that is then followed by a short description of what you

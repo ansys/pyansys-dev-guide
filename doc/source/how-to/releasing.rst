@@ -215,25 +215,24 @@ There are three possible places where artifacts can be published:
        :link: private-pypi
        :link-type: ref
 
-        This is a private index used to share artifacts across the company
-        while making sure that projects remain private.
+       This is a private index used to share artifacts across the company
+       while making sure that projects remain private.
 
     .. grid-item-card:: :octicon:`unlock` Public PyPI
        :link: public-pypi
        :link-type: ref
 
-        This is the `public PyPI` used by the Python community to distribute
-        libraries. A project requires Ansys authorization before being
-        published in this index.
+       This is the `public PyPI` used by the Python community to distribute
+       libraries. A project requires Ansys authorization before being
+       published in this index.
 
     .. grid-item-card:: :octicon:`mark-github` GitHub
        :link: github
        :link-type: ref
 
-        This is a section created by GitHub within a project repository where
-        artifacts can be published. A project requires Ansys authorization
-        before being public in GitHub.
-
+       This is a section created by GitHub within a project repository where
+       artifacts can be published. A project requires Ansys authorization
+       before being public in GitHub.
 
 
 .. _private-pypi:
@@ -246,16 +245,21 @@ auto-generated gRPC interface files from a feature or service that is still
 private, this package should be hosted on a private PyPI repository.
 
 ANSYS, Inc. has a private repository at `PyAnsys PyPI`_. Access is controlled
-via a username and a password: 
+via a username and a password:
 
-+---------------------------------------------+--------------------------------+
-| Credentials for publishing to private PyPI  | Value                          |
-+=============================================+================================+
-| Username                                    | ``__token__``                  |
-+---------------------------------------------+--------------------------------+
-| Password                                    | ``PYANSYS_PYPI_PRIVATE_PAT``   |
-+---------------------------------------------+--------------------------------+
++---------------------------------------------+-------------------------------------------------------------------------+
+| Credentials for publishing to private PyPI  | Value                                                                   |
++=============================================+=========================================================================+
+| Username                                    | ``__token__``                                                           |
++---------------------------------------------+-------------------------------------------------------------------------+
+| Password                                    | ``PYANSYS_PYPI_PRIVATE_PAT``                                            |
++---------------------------------------------+-------------------------------------------------------------------------+
+| repository-url                              | ``https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload``   |
++---------------------------------------------+-------------------------------------------------------------------------+
 
+When running this from the command line using `twine <https://twine.readthedocs.io/>`_,
+be sure to add in `--repository-url`` as an extra option. Otherwise ``twine``
+attempts to upload the package to the public PyPI repository.
 
 The ``PYANSYS_PYPI_PRIVATE_PAT`` is a password in the form of a GitHub secret
 which is available only to repositories within `PyAnsys`_. This secret is
@@ -265,6 +269,15 @@ in the log files.
 Forked GitHub repositories do not have access to GitHub secrets. This is
 designed to protect against pull-requests that could potentially scrape
 tokens from PyAnsys CI/CD.
+
+Here's a cross-platform one liner for uploading using ``twine```:
+
+.. code::
+
+   python -m twine upload dist/* --repository-url https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload -u __token__ -p <TOKEN-REDACTED>
+
+Replace ``<TOKEN-REDACTED>`` with the private PyPI token respectively.
+
 
 .. dropdown:: Using GitHub actions
 
@@ -282,7 +295,8 @@ tokens from PyAnsys CI/CD.
             - uses: pyansys/actions/release-pypi-private@v3
               with:
                 library-name: "ansys-<product>-<library>"
-                twine-username: "__token__"
+                
+                -username: "__token__"
                 twine-token: ${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }}
 
 
@@ -300,7 +314,7 @@ tokens from PyAnsys CI/CD.
     
                     .. code-block:: text
     
-                        set TWINE_USERNAME=<PAT>
+                        set TWINE_USERNAME=__token__
                         set TWINE_PASSWORD=<PYANSYS_PYPI_PRIVATE_PAT>
                         set TWINE_REPOSITORY_URL=https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload
     
@@ -308,7 +322,7 @@ tokens from PyAnsys CI/CD.
     
                     .. code-block:: text
     
-                        $env:TWINE_USERNAME=<PAT>
+                        $env:TWINE_USERNAME=__token__
                         $env:TWINE_PASSWORD=<PYANSYS_PYPI_PRIVATE_PAT>
                         $env:TWINE_REPOSITORY_URL=https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload
     
@@ -316,7 +330,7 @@ tokens from PyAnsys CI/CD.
     
             .. code-block:: text
     
-                export TWINE_USERNAME=<PAT>
+                export TWINE_USERNAME=__token__
                 export TWINE_PASSWORD=<PYANSYS_PYPI_PRIVATE_PAT>
                 export TWINE_REPOSITORY_URL="https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload"
     
@@ -324,7 +338,7 @@ tokens from PyAnsys CI/CD.
     
             .. code-block:: text
     
-                export TWINE_USERNAME=<PAT>
+                export TWINE_USERNAME=__token__
                 export TWINE_PASSWORD=<PYANSYS_PYPI_PRIVATE_PAT>
                 export TWINE_REPOSITORY_URL="https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload"
     
@@ -357,10 +371,18 @@ unique to each project. It can only be obtained after the first release to the
 public PyPI. Follow the process :ref:`Project approval and public release`
 process to obtain public release authorization.
 
-Once authorized, contact `pyansys.support@ansys.com <mailto:pyansys.support@ansys.com>`_ to
+Once authorized, contact `pyansys.core@ansys.com <mailto:pyansys.core@ansys.com>`_ to
 get support during the first release of the project. The team then enables the
 custom ``PYPI_TOKEN`` once your project has been successfully released for the
 first time. For future releases, everything is then automated.
+
+Here's a one liner for downloading:
+
+.. code::
+
+   python -m pip install <PACKAGE-NAME> --index-url <TOKEN-REDACTED>@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/
+
+Replace ``<PACKAGE-NAME>`` and ``<TOKEN-REDACTED>`` with the package name and the private PyPI token respectively.
 
 .. dropdown:: Using GitHub actions
 
@@ -420,7 +442,7 @@ public PyPI and GitHub.
 .. dropdown:: Downloading artifacts from the Ansys private PyPI
 
     Request the value of the ``PYANSYS_PYPI_PRIVATE_PAT`` token by sending an
-    email to the `pyansys.support@ansys.com <pyansys.support@ansys.com>`_ email.
+    email to the `pyansys.core@ansys.com <pyansys.core@ansys.com>`_ email.
 
     Create an environment variable named ``PYANSYS_PYPI_PRIVATE_PAT`` in your
     local machine an assign it the value of the token.
@@ -449,21 +471,16 @@ public PyPI and GitHub.
     
                     .. code-block:: bat
     
-                        set INDEX_URL='https://$PYANSYS_PYPI_PRIVATE_PAT@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/'
-    
-                        python -m pip install ansys-<product/tool>-<library> \
-                        --index-url %INDEX_URL% \
-                        --no-dependencies
+                        set PYANSYS_PYPI_PRIVATE_PAT=<REDACTED>
+                        set INDEX_URL=https://%PYANSYS_PYPI_PRIVATE_PAT%@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/
+                        python -m pip install ansys-<product/tool>-<library> --index-url %INDEX_URL% --no-dependencies
     
                 .. tab-item:: PowerShell
     
                     .. code-block:: powershell
     
                         $env:INDEX_URL='https://$PYANSYS_PYPI_PRIVATE_PAT@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/'
-    
-                        python -m pip install ansys-<product/tool>-<library> \
-                        --index-url $env:INDEX_URL \
-                        --no-dependencies
+                        python -m pip install ansys-<product/tool>-<library> --index-url $env:INDEX_URL --no-dependencies
     
         .. tab-item:: macOS
     

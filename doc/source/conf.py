@@ -17,7 +17,7 @@ from sphinx_gallery.sorting import FileNameSortKey
 project = "PyAnsys Developer's Guide"
 copyright = f"(c) {datetime.now().year} ANSYS, Inc. All rights reserved"
 author = "Ansys Inc."
-release = version = "0.3.dev0"
+release = version = datetime.now().strftime("%Y-%m-%d")
 
 html_logo = pyansys_logo_black
 html_theme = "ansys_sphinx_theme"
@@ -94,7 +94,10 @@ pyvista.OFF_SCREEN = True
 # Intersphinx mapping
 intersphinx_mapping = {
     "python": ("https://docs.python.org/dev", None),
-    "grantami-bomanalytics": ("https://grantami.docs.pyansys.com", None),
+    "grantami-bomanalytics": (
+        "https://bomanalytics.grantami.docs.pyansys.com/version/stable",
+        None,
+    ),
     # "scipy": ("https://docs.scipy.org/doc/scipy/reference", None),
     # "numpy": ("https://numpy.org/devdocs", None),
     # "matplotlib": ("https://matplotlib.org/stable", None),
@@ -152,9 +155,9 @@ exclude_patterns = [
     "packaging/diag/*",
     "packaging/code/*",
     "how-to/diag/*",
-    "how-to/api/ansys_sphinx_theme.samples.Complex.abs.rst",
-    "how-to/api/ansys_sphinx_theme.samples.Complex.imag.rst",
-    "how-to/api/ansys_sphinx_theme.samples.Complex.real.rst",
+    "how-to/api/ansys_sphinx_theme.examples.samples.Complex.abs.rst",
+    "how-to/api/ansys_sphinx_theme.examples.samples.Complex.imag.rst",
+    "how-to/api/ansys_sphinx_theme.examples.samples.Complex.real.rst",
 ]
 
 # Fix excessive margins in mermaid output.
