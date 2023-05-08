@@ -37,7 +37,8 @@ Integrate security testing into the development life cycle using
 continuous integration and deployment (CI/CD) pipelines to catch
 potential vulnerabilities before they reach production systems.
 
-.. note:: 
+.. note::
+
    ACE uses a tool across Ansys TFS to track vulnerabilities.
    The same tool could be used, but dedicated to the PyAnsys open source environment.
    This means using the tool in an environment isolated from the Ansys Azure codebase.
