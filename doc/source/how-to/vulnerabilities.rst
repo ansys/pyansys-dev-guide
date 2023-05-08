@@ -17,7 +17,7 @@ Vulnerability sources
   The maintainers take the responsibility to address them or not.
   Those vulnerabilities priorities could be escalated internally if
   they represent a roadblock for business activity.
-  For instances, if they prevent some deal closures or the delivery of products.
+  For instance, if they prevent some deal closures or the delivery of products.
   The BUs in charge of the package should handle them case by case.
 
 - **Vulnerabilities from PyAnsys packages external dependencies (for example numpy, matplotlib)**
