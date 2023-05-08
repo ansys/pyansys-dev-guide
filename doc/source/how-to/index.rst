@@ -22,3 +22,4 @@ functionalities such as logging, data transfer, and app APIs.
    repository-protection
    dns-configuration
    compatibility
+   vulnerabilities
