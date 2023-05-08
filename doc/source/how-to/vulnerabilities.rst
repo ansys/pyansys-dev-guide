@@ -16,15 +16,14 @@ Vulnerability sources
 - **Vulnerabilities from PyAnsys libraries code itself**
   The maintainers take the responsibility to address them or not.
   Those vulnerabilities priorities could be escalated internally if
-  they represent roadblock for business activity.
-  For instances, if they prevent some deal closures or the delivery of products in
-  In that case, the BUs in charge of the package will handle it case by case.
+  they represent a roadblock for business activity.
+  For instances, if they prevent some deal closures or the delivery of products.
+  The BUs in charge of the package should handle them case by case.
 
-- **Vulnerabilities from PyAnsys packages external dependencies (e.g. numpy, matplotlib)**
+- **Vulnerabilities from PyAnsys packages external dependencies (for example numpy, matplotlib)**
   Ansys cannot address them directly. It would be an endless task.
   At most, be mindful of deprecated packages and functions, as they may not receive
   security patches and might introduce vulnerabilities into your codebase.
-
 
 Vulnerability discovery and tracking
 -------------------------------------
@@ -33,14 +32,14 @@ Leverage available security tools, such as dependency scanners or static
 analyzers (such as Pyup Safety or Bandit), to automatically detect and
 remediate security vulnerabilities in Python packages and dependencies.
 
-**We must continuously monitor and assess the project's security.**
+**Continuously monitor and assess the project's security.**
 Integrate security testing into the development life cycle using
 continuous integration and deployment (CI/CD) pipelines to catch
 potential vulnerabilities before they reach production systems.
 
 .. note:: 
    ACE uses a tool across Ansys TFS to track vulnerabilities.
-   We could use the same but dedicated to the PyAnsys open source environment.
+   The same tool could be used, but dedicated to the PyAnsys open source environment.
    This means using the tool in an environment isolated from the Ansys Azure codebase.
 
 As a first step, these security tools are planned to be used within the `metapackage`_.
