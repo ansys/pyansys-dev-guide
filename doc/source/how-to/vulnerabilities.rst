@@ -40,7 +40,7 @@ potential vulnerabilities before they reach production systems.
 
 .. note::
 
-   ACE uses a tool across Ansys TFS to track vulnerabilities.
+   The Ansys Customer Excellence (ACE) team uses a tool across Azure TFS (Team Foundation Server) to track vulnerabilities.
    The same tool could be used, but dedicated to the PyAnsys open source environment.
    This means using the tool in an environment isolated from the Ansys Azure codebase.
 
