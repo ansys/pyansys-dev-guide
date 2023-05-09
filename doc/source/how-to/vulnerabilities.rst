@@ -13,7 +13,7 @@ Here are some examples of common vulnerabilities:
 Vulnerability sources
 ---------------------
 
-- **Vulnerabilities from PyAnsys libraries code itself**
+- **Vulnerabilities from PyAnsys library code**
   The maintainers are responsible for deciding whether to address vulnerabilities.
   The priority of vulnerabilities can be escalated internally if
   they represent a roadblock for business activity, such as.
