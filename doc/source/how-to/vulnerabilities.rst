@@ -21,9 +21,9 @@ Vulnerability sources
   The Ansys business units in charge of the package should handle
   vulnerabilities case by case.
 
-- **Vulnerabilities from PyAnsys packages external dependencies (for example numpy, matplotlib)**
-  Ansys cannot address them directly. It would be an endless task.
-  At most, be mindful of deprecated packages and functions, as they may not receive
+- **Vulnerabilities from external package dependencies**
+When vulnerabilities exist in external packages used by PyAnsys libraries, such as numpy or matplotlib, Ansys cannot address these vulnerabilities directly. It would be an endless task.
+  At most, be mindful of deprecated packages and functions, because they may not receive
   security patches and might introduce vulnerabilities into your codebase.
 
 Vulnerability discovery and tracking
@@ -44,11 +44,11 @@ potential vulnerabilities before they reach production systems.
    The same tool could be used, but dedicated to the PyAnsys open source environment.
    This means using the tool in an environment isolated from the Ansys Azure codebase.
 
-As a first step, these security tools are planned to be used within the `metapackage`_.
-This `metapackage`_ contains PyAnsys packages pined to a certain version of the Ansys unified install.
-This provides a full overview of the public PyAnsys packages vulnerabilities status.
-When a flaw is detected in a PyAnsys package, an issue is opened in the repository associated to this package.
-Then it is up to the maintainers of this repository to handle it as described previously.
+As a first step, these security tools are planned to be used within the `metapackage`_ repository.
+This repository contains PyAnsys packages pinned to a certain version of the Ansys unified installation.
+This provides a full overview of the vulnerability status for all public PyAnsys packages.
+When a flaw is detected in a PyAnsys package, an issue is opened in the repository associated with this package.
+It is then up to the maintainers of this repository to handle it as described previously.
 
 Finally, if a vulnerability is fixed, a patch release must be created.
 
