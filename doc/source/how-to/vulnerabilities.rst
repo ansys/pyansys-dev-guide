@@ -22,7 +22,8 @@ Vulnerability sources
   vulnerabilities case by case.
 
 - **Vulnerabilities from external package dependencies**
-When vulnerabilities exist in external packages used by PyAnsys libraries, such as numpy or matplotlib, Ansys cannot address these vulnerabilities directly. It would be an endless task.
+  When vulnerabilities exist in external packages used by PyAnsys libraries, such as numpy or matplotlib,
+  Ansys cannot address these vulnerabilities directly. It would be an endless task.
   At most, be mindful of deprecated packages and functions, because they may not receive
   security patches and might introduce vulnerabilities into your codebase.
 
