@@ -296,7 +296,7 @@ Replace ``<TOKEN-REDACTED>`` with the private PyPI token respectively.
               with:
                 library-name: "ansys-<product>-<library>"
                 
-                -username: "__token__"
+                twine-username: "__token__"
                 twine-token: ${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }}
 
 
