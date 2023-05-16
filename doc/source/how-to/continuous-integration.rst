@@ -180,9 +180,11 @@ Workflow examples are provided for checking :ref:`Coding style`,
 Secrets
 -------
 
-:: 
+
 
   Secrets are encrypted variables that you create in an organization, repository, or repository environment. The secrets that you create are available to use in GitHub Actions workflows. 
+
+  From `GitHub documentation <https://docs.github.com/en/actions/security-guides/encrypted-secrets>`_
 
 
 You can use secrets to pass sensible data such as passwords, token or IPs to your workflows.
