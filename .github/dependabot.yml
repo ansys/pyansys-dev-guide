@@ -7,3 +7,12 @@ updates:
     labels:
       - "maintenance"
       - "dependencies"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "maintenance"
+    commit-message:
+      prefix: "maint"
