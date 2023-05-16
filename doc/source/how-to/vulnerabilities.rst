@@ -31,7 +31,7 @@ Vulnerability discovery and tracking
 -------------------------------------
 
 Leverage available security tools, such as dependency scanners or static
-analyzers (such as Pyup Safety or Bandit), to automatically detect and
+analyzers (such as PyUp, Safety or Bandit), to automatically detect and
 remediate security vulnerabilities in Python packages and dependencies.
 
 **Continuously monitor and assess the project's security.**
