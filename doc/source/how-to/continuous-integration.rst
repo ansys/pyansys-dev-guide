@@ -176,3 +176,92 @@ Workflow examples are provided for checking :ref:`Coding style`,
         
         .. literalinclude:: code/release.yml     
            :language: yaml
+
+Secrets
+-------
+
+:: 
+
+  Secrets are encrypted variables that you create in an organization, repository, or repository environment. The secrets that you create are available to use in GitHub Actions workflows. 
+
+
+You can use secrets to pass sensible data such as passwords, token or IPs to your workflows.
+
+
+Organization secrets
+~~~~~~~~~~~~~~~~~~~~
+
+By default, ``Ansys`` and ``Ansys-internal`` organizations provide certain secrets to help you to automatize/unify certain tasks such as release.
+
+
+
+Organization Tokens
+-------------------
+
+To facilitate certain taks such as autentication in certain sites, ``Ansys`` and ``Ansys-internal`` organizations provide to the developer with certain tokens or personal access tokens (PATs). These tokens are confidential and for internal use only.
+Some of these tokens can be used as GitHub secrets, others might need to be requested to pyansys.core@ansys.com.
+
+GithHub tokens
+~~~~~~~~~~~~~~
+To be used within GitHub.
+
+
+
+
+
++----------------------------------------------------------------+----------------------------------------+
+| | **TOKEN NAME**                                               | ``BOT_APPLICATION_ID``                 |
++================================================================+========================================+
+| | **Repository access**                                        |  Public Repositories (read-only)       |
++----------------------------------------------------------------+----------------------------------------+
+| | **Permissions**                                              |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **Block another user**                                    |                                        |
+| |     View and manage users blocked by the user.               |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **Codespaces user secrets**                               |                                        |
+| |     Manage Codespaces user secrets.                          |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **Email addresses**                                       |                                        |
+| |     Manage a user's email addresses.                         |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **Followers**                                             |                                        |
+| |     A user's followers                                       |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **GPG keys**                                              |                                        |
+| |     View and manage a user's GPG keys.                       |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **Gists**                                                 |                                        |
+| |     Create and modify a user's gists and comments.           |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **Git SSH keys**                                          |                                        |
+| |     Git SSH keys                                             |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **Interaction limits**                                    |                                        |
+| |     Interaction limits on repositories                       |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **Plan**                                                  |                                        |
+| |     View a user's plan.                                      |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **Private repository invitations**                        |                                        |
+| |     View a user's invitations to private repositories        |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **Profile**                                               |                                        |
+| |     Manage a user's profile settings.                        |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **SSH signing keys**                                      |                                        |
+| |     View and manage a user's SSH signing keys.               |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **Starring**                                              |                                        |
+| |     List and manage repositories a user is starring.         |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **Watching**                                              |                                        |
+| |     List and change repositories a user is subscribed to.    |                                        |
++----------------------------------------------------------------+----------------------------------------+
+
+
+PyPI tokens
+~~~~~~~~~~~
+
+
+
