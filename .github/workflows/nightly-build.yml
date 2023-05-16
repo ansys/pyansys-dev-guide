@@ -42,14 +42,14 @@ jobs:
           make -C doc pdf
 
       - name: Upload HTML documentation
-        uses: actions/upload-artifact@v2.2.4
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: HTML-Documentation
           path: .tox/doc_out_html/
           retention-days: 7
 
       - name: Upload PDF Documentation
-        uses: actions/upload-artifact@v2.2.4
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: PDF-Documentation
           path: doc/build/latex/pyansys*.pdf
