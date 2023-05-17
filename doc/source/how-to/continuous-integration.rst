@@ -188,7 +188,7 @@ Organization secrets
   From `GitHub documentation <https://docs.github.com/en/actions/security-guides/encrypted-secrets>`_
 
 
-You can use ``secrets`` to pass sensible data such as passwords, token or IPs to your workflows.
+You can use ``secrets`` to pass sensible data such as passwords, token or IP addressess to your workflows.
 
 By default, ``Ansys`` and ``Ansys-internal`` organizations provide certain ``secrets`` to help you to automatize/unify certain tasks such as release.
 
@@ -210,7 +210,7 @@ Actions secrets
 +-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
 | ``PYANSYS_CI_BOT_PACKAGE_TOKEN``    | Private and internal repositories  | :ref:`Yes (GitHub) <github_tokens>`   | Token ``PYANSYS_CI_BOT_PACKAGE_TOKEN``    | Bot token to publish (write) packages in `ghcr.io <ghcr.io>`_ registry.                      |
 +-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
-| ``PYANSYS_CI_BOT_TOKEN``            | All repositories                   | :ref:`Yes (GitHub) <github_tokens>`   | Token ``PYANSYS_CI_BOT_TOKEN``            | Bot token for general purpose. It has repo read/write permissions and package read.          |
+| ``PYANSYS_CI_BOT_TOKEN``            | All repositories                   | :ref:`Yes (GitHub) <github_tokens>`   | Token ``PYANSYS_CI_BOT_TOKEN``            | Bot token for general purpose. It has repository read/write permissions and package read.    |
 +-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
 | ``PYANSYS_PYPI_PRIVATE_PAT``        | All repositories                   | :ref:`Yes (PyPI) <pypi_tokens>`       | Token ``PYANSYS_PYPI_PRIVATE_PAT``        | Token to publish to Ansys private PyPI channel.                                              |
 +-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
@@ -248,15 +248,15 @@ These secrets in most of the cases a replica of the `Actions secrets`_.
 Organization tokens
 -------------------
 
-To facilitate certain taks such as autentication, ``Ansys`` and ``Ansys-internal`` organizations provide to the developer with certain tokens or personal access tokens (PATs).
+To facilitate certain tasks such as authentication, ``Ansys`` and ``Ansys-internal`` organizations provide to the developer with certain tokens or personal access tokens (PATs).
 These tokens are confidential and for internal use only.
 Some of these tokens can be used as GitHub secrets, others must be requested to pyansys.core@ansys.com.
 
 
 .. _github_tokens:
 
-GithHub tokens
-~~~~~~~~~~~~~~
+GitHub tokens
+~~~~~~~~~~~~~
 These tokens are meant to be used within GitHub to provide access and permissions to different tasks and repositories.
 
 +----------------------------------------------------------------+----------------------------------------+----------------------------------------+
@@ -319,7 +319,7 @@ PyPI tokens
 ``PYANSYS_PYPI_PRIVATE_PAT``
 ****************************
 
-Used for autentication when uploading libraries to the private Ansys PyPI index. 
+Used for authentication when uploading libraries to the private Ansys PyPI index. 
 It can be used as password for the `twine <https://twine.readthedocs.io/en/stable/>`_ library.
 
 .. _pypi_token:
@@ -328,7 +328,7 @@ It can be used as password for the `twine <https://twine.readthedocs.io/en/stabl
 **************
 
 The value of this token is unique for each repository. 
-Used for autentication when uploading libraries to the public PyPI index.
+Used for authentication when uploading libraries to the public PyPI index.
 
 
 ``PYPI_TESTING_TOKEN``
@@ -349,9 +349,9 @@ This token is used to ... # todo: to be added
 ``TWINE_TOKEN``
 ***************
 
-This token is used for autentication when uploading libraries to PyPI and its value might change
+This token is used for authentication when uploading libraries to PyPI and its value might change
 accross repositories.
-Depending if the library is uploaded to a public PyPI index or private, its value will match
+Depending if the library is uploaded to a public PyPI index or private, its value matches
 :ref:`pypi_private_token` or :ref:`pypi_token`.
 
 
