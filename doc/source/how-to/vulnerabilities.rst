@@ -16,14 +16,14 @@ Vulnerability sources
 - **Vulnerabilities from PyAnsys library code**
   The maintainers are responsible for deciding whether to address vulnerabilities.
   The priority of vulnerabilities can be escalated internally if
-  they represent a roadblock for business activity, such as.
-  preventing some deal closures or the delivery of products.
-  The Ansys business units in charge of the package should handle
-  vulnerabilities case by case.
+  they represent a roadblock for usage.
+  The Ansys business unit in charge of the project should handle
+  vulnerabilities on a case-by-case basis.
 
 - **Vulnerabilities from external package dependencies**
   When vulnerabilities exist in external packages used by PyAnsys libraries, such as numpy or matplotlib,
-  Ansys cannot address these vulnerabilities directly. It would be an endless task.
+  Ansys should not address these vulnerabilities directly. Instead, it is best to raise an issue on
+the open source repository, pointing out the vulnerability and linking the applicable CVE.
   At most, be mindful of deprecated packages and functions, because they may not receive
   security patches and might introduce vulnerabilities into your codebase.
 
