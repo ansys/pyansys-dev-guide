@@ -221,7 +221,7 @@ Actions secrets
 | ``TWINE_TOKEN``                     | Private and internal repositories  | :ref:`Yes (PyPI) <pypi_tokens>`       | **Empty**                                 | This should be overwritten at each repository after first public release.                    |
 +-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
 
-The values of the ``secrets`` can be obtained by emailing pyansys.maintainers@ansys.com.
+The values of the ``secrets`` can be obtained by emailing pyansys.core@ansys.com.
 
 Dependabot secrets
 ~~~~~~~~~~~~~~~~~~
@@ -251,7 +251,6 @@ Organization tokens
 To facilitate certain taks such as autentication, ``Ansys`` and ``Ansys-internal`` organizations provide to the developer with certain tokens or personal access tokens (PATs).
 These tokens are confidential and for internal use only.
 Some of these tokens can be used as GitHub secrets, others must be requested to pyansys.core@ansys.com.
-If needed, the value of the all the tokens can be obtained by emailing pyansys.maintainers@ansys.com.
 
 
 .. _github_tokens:
