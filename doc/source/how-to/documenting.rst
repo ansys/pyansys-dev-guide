@@ -575,6 +575,7 @@ in an automated way.
                 cname: ${{ env.DOCUMENTATION_CNAME }}
                 token: ${{ secrets.GITHUB_TOKEN }}
 
+.. _deploying_to_another_repo:
 
 Deploying to another repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
