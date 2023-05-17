@@ -23,7 +23,7 @@ Vulnerability sources
 - **Vulnerabilities from external package dependencies**
   When vulnerabilities exist in external packages used by PyAnsys libraries, such as numpy or matplotlib,
   Ansys should not address these vulnerabilities directly. Instead, it is best to raise an issue on
-the open source repository, pointing out the vulnerability and linking the applicable CVE.
+the open source repository, pointing out the vulnerability and linking the applicable `CVE`_.
   At most, be mindful of deprecated packages and functions, because they may not receive
   security patches and might introduce vulnerabilities into your codebase.
 
@@ -41,7 +41,7 @@ potential vulnerabilities before they reach production systems.
 
 .. note::
 
-   The Ansys Customer Excellence (ACE) team uses a tool across Azure TFS (Team Foundation Server) to track vulnerabilities.
+   The Ansys Customer Excellence (ACE) team uses a scanner tool called *snyk* to track vulnerabilities.
    The same tool could be used, but dedicated to the PyAnsys open source environment.
    This means using the tool in an environment isolated from the Ansys Azure codebase.
 
@@ -53,10 +53,7 @@ It is then up to the maintainers of this repository to handle it as described pr
 
 Finally, if a vulnerability is fixed, a patch release must be created.
 
-Vulnerability images
-====================
-
-To be discussed through a new meeting.
 
 
 .. _metapackage: https://github.com/pyansys/pyansys
+.. _CVE: https://www.cve.org/

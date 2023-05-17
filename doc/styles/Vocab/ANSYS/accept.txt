@@ -60,7 +60,7 @@ pytest
 Python
 python
 pythoncom
-Pyup
+PyUp
 pyvista
 RPC
 scipy
