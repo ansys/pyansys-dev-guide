@@ -188,9 +188,9 @@ Organization secrets
   From `GitHub documentation <https://docs.github.com/en/actions/security-guides/encrypted-secrets>`_
 
 
-You can use ``secrets`` to pass sensible data such as passwords, token or IP addressess to your workflows.
+You can use ``secrets`` to pass sensible data such as passwords, token or IP addresses to your workflows.
 
-By default, ``Ansys`` and ``Ansys-internal`` organizations provide certain ``secrets`` to help you to automatize/unify certain tasks such as release.
+By default, ``Ansys`` and ``Ansys-internal`` organizations provide certain ``secrets`` to help you to automate/unify certain tasks such as release.
 
 Actions secrets
 ~~~~~~~~~~~~~~~
@@ -501,7 +501,7 @@ This token is used to ... # todo: to be added
 ***************
 
 This token is used for authentication when uploading libraries to PyPI and its value might change
-accross repositories.
+across repositories.
 Depending if the library is uploaded to a public PyPI index or private, its value matches
 :ref:`pypi_private_token` or :ref:`pypi_token`.
 
