@@ -14,7 +14,7 @@ Consider the following code examples. The left-hand side shows the
 amount of work to start, establish a connection to, and submit an
 input file to MAPDL using auto-generated gRPC interface files. For
 more information, see `pyansys-protos-generator
-<https://github.com/pyansys/pyansys-protos-generator>`_.  The 
+<https://github.com/ansys/pyansys-protos-generator>`_.  The 
 right-hand side shows the same workflow but uses the `PyMAPDL`_ library.
 
 +----------------------------------------------------------+--------------------------------------------+
@@ -81,4 +81,4 @@ file transfer like ``Mapdl.input``.
 
 .. _REST: https://en.wikipedia.org/wiki/Representational_state_transfer
 .. _gRPC: https://grpc.io/
-.. _PyMAPDL: https://github.com/pyansys/pymapdl
+.. _PyMAPDL: https://github.com/ansys/pymapdl

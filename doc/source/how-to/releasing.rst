@@ -407,7 +407,7 @@ Replace ``<PACKAGE-NAME>`` and ``<TOKEN-REDACTED>`` with the package name and th
 GitHub
 ~~~~~~
 Publishing :ref:`Artifacts` to GitHub is also possible. These are available in
-the ``https://github.com/pyansys/project-name/releases`` section. The
+the ``https://github.com/ansys/project-name/releases`` section. The
 visibility of these artifacts follows the one in the repository. Visibility can
 be private, internal or public.
 
@@ -513,7 +513,7 @@ public PyPI and GitHub.
 .. dropdown:: Downloading artifacts from GitHub
 
     Downloading artifacts from GitHub can be done by checking the
-    ``https://github.com/pyansys/project-name/releases`` section.
+    ``https://github.com/ansys/project-name/releases`` section.
 
     Note that if you download the ``Wheel`` of a Python package, you still need
     to manually install it by running:
@@ -525,7 +525,7 @@ public PyPI and GitHub.
 
 .. _PyPI: https://pypi.org/
 .. _PyAnsys PyPI: https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi
-.. _PyAnsys: https://github.com/pyansys
+.. _PyAnsys: https://github.com/ansys
 .. _pip Documentation: https://pip.pypa.io/en/stable/cli/pip_install/
 
 

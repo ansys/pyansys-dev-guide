@@ -30,7 +30,7 @@ html_context = {
 }
 
 html_theme_options = {
-    "github_url": "https://github.com/pyansys/dev-guide",
+    "github_url": "https://github.com/ansys/dev-guide",
     "show_prev_next": False,
     "show_breadcrumbs": True,
     "use_edit_page_button": True,
@@ -171,7 +171,7 @@ graphviz_output_format = "png"
 # Generate section labels up to four levels deep
 autosectionlabel_maxdepth = 4
 
-# TODO: warning suppression is temporary till https://github.com/pyansys/dev-guide/issues/64
+# TODO: warning suppression is temporary till https://github.com/ansys/dev-guide/issues/64
 # gets fully implemented.
 suppress_warnings = ["autosectionlabel.*"]
 

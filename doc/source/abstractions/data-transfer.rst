@@ -116,10 +116,10 @@ messages.
 .. _C extensions: https://docs.python.org/3/extending/extending.html
 .. _Anaconda Distribution: https://www.anaconda.com/products/individual
 .. _REST: https://en.wikipedia.org/wiki/Representational_state_transfer
-.. _PyAEDT: https://github.com/pyansys/PyAEDT
-.. _PyMAPDL: https://github.com/pyansys/pymapdl
-.. _pymapdl: https://github.com/pyansys/pymapdl
+.. _PyAEDT: https://github.com/ansys/PyAEDT
+.. _PyMAPDL: https://github.com/ansys/pymapdl
+.. _pymapdl: https://github.com/ansys/pymapdl
 .. _Style Guide for Python Code (PEP8): https://www.python.org/dev/peps/pep-0008
-.. _grpc_chunk_stream_demo: https://github.com/pyansys/grpc_chunk_stream_demo
+.. _grpc_chunk_stream_demo: https://github.com/ansys/grpc_chunk_stream_demo
 .. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
 .. _Namespace Packages: https://packaging.python.org/guides/packaging-namespace-packages/
