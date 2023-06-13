@@ -469,22 +469,23 @@ PyPI tokens
 ``PYANSYS_PYPI_PRIVATE_PAT``
 ****************************
 
-Used for authentication when uploading libraries to the private Ansys PyPI index. 
-It can be used as password for the `twine <https://twine.readthedocs.io/en/stable/>`_ library.
+The ``PYANSYS_PYPI_PRIVATE_PAT`` token is used for authentication when uploading
+libraries to the private Ansys PyPI index. This token can be used as the password for
+the `twine <https://twine.readthedocs.io/en/stable/>`_ library.
 
 .. _pypi_token:
 
 ``PYPI_TOKEN``
 **************
 
-The value of this token is unique for each repository. 
-Used for authentication when uploading libraries to the public PyPI index.
+The value of the ``PYPI_TOKEN`` token is unique for each repository. 
+This token is used for authentication when uploading libraries to the public PyPI index.
 
 
 ``PYPI_TESTING_TOKEN``
 **********************
 
-Used for testing uploads to public PyPI index.
+The ``PYPI_TESTING_TOKEN`` token is used for testing uploads to the public PyPI index.
 
 
 Other tokens
@@ -493,15 +494,16 @@ Other tokens
 ``HUGO_THEME_TOKEN``
 ********************
 
-This token is used to ... # todo: to be added
+The ``HUGO_THEME_TOKEN`` token is used to ... # todo: to be added
 
 
 ``TWINE_TOKEN``
 ***************
 
-This token is used for authentication when uploading libraries to PyPI and its value might change
+The ``TWINE_TOKEN`` token is used for authentication when uploading libraries to PyPI.
+Its value might change
 across repositories.
-Depending if the library is uploaded to a public PyPI index or private, its value matches
+Depending if the library is uploaded to a public PyPI index or the Ansys private PyPI index, its value matches
 :ref:`pypi_private_token` or :ref:`pypi_token`.
 
 
@@ -511,18 +513,19 @@ Depending if the library is uploaded to a public PyPI index or private, its valu
 Organization bot
 ----------------
 
-Because the usage of user personal access tokens (PATs) is discouraged, ``Ansys`` and ``Ansys-internal``
-organizations provide with a bot called ``ansys-bot`` to perform certain tasks which requires autentification,
-for example github pages publication or docker image registry login.
+Because the usage of personal access tokens (PATs) is discouraged, the ``Ansys``
+and ``Ansys-internal`` organizations provide a bot named ``ansys-bot`` to
+perform certain tasks that require authentication. For example, this bot provides
+for publishing GitHub pages or logging into a Docker image registry.
 
-To use the bot for these tasks, you need to use the bot tokens provided through secrets (see :ref:`organization_secrets`).
-To get a better overview of the permissions of each token see :ref:`organization_tokens`.
+To use the bot for these tasks, you must use the bot tokens provided through secrets. For
+more information, see :ref:`organization_secrets`. For an overview of each token's permissions,
+see :ref:`organization_tokens`.
 
 By default, the bot has access to **all repositories** and has the following permissions:
 
-* **Read and write** access to **actions, code, packages, and pull requests**
-* **Read** access to **metadata and organization secrets**
+* **Read and write** permission to **actions, code, packages, and pull requests**
+* **Read** permission to **metadata and organization secrets**
 
-Those permissions can be obtained using a temporal token obtained from the ``BOT_APPLICATION_PRIVATE_KEY`` token
-and the `peter-murray/workflow-application-token-action <https://github.com/peter-murray/workflow-application-token-action>`_.
-Visit :ref:`deploying_to_another_repo` for a documented example.
+These permissions can be obtained using a temporal token obtained from
+the ``BOT_APPLICATION_PRIVATE_KEY`` token and the `peter-murray/workflow-application-token-action <https://github.com/peter-murray/workflow-application-token-action>`_. For an example, see :ref:`deploying_to_another_repo`.
