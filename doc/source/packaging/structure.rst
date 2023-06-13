@@ -342,8 +342,8 @@ template can be used:
 .. _Python Packaging Authority: https://www.pypa.io/en/latest/
 .. _pytest: https://docs.pytest.org/en/latest/
 .. _Sphinx: https://www.sphinx-doc.org/en/master/
-.. _PyMAPDL: https://github.com/pyansys/pymapdl
-.. _PyAEDT: https://github.com/pyansys/PyAEDT
+.. _PyMAPDL: https://github.com/ansys/pymapdl
+.. _PyAEDT: https://github.com/ansys/PyAEDT
 .. _ansys-api-mapdl: https://pypi.org/project/ansys-api-mapdl/
 .. _reStructuredText Markup Syntax: https://docutils.sourceforge.io/rst.html
 .. _Markdown Syntax: https://www.markdownguide.org/basic-syntax/

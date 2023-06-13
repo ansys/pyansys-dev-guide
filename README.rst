@@ -17,6 +17,6 @@ documentation styles. It concludes with an abstractions section that explains
 how apps and complex services expose only functionalities that matter to users.
 
 From the **About** area for the repository, you can click the link for the latest web-based
-release of this guide. In the `Releases <https://github.com/pyansys/about/releases>`_
+release of this guide. In the `Releases <https://github.com/ansys/about/releases>`_
 area, you can view information about all releases. In the **Assets**  area for
 any release, you can download a PDF.

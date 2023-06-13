@@ -29,7 +29,7 @@ have a dedicated Python package containing the needed ``.proto`` files compiled 
 Python source code. These are typically consumed by the PyAnsys client libraries
 for being able to communicate with their respective services.
 
-For example, `PyMAPDL <https://github.com/pyansys/pymapdl>`_ consumes the
+For example, `PyMAPDL <https://github.com/ansys/pymapdl>`_ consumes the
 ``ansys-api-mapdl`` package, which is built in the
 `ansys-api-mapdl repository <https://github.com/ansys/ansys-api-mapdl>`_.
 

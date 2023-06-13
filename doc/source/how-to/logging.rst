@@ -44,7 +44,7 @@ Avoiding printing to the console
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 A common habit while prototyping a new feature is to print a message into the
 command line executable. Instead of using the common `print
-<https://github.com/pyansys/pyansys-tools-report>`_ method, you should use a
+<https://github.com/ansys/pyansys-tools-report>`_ method, you should use a
 `stream handler
 <https://docs.python.org/3/library/logging.handlers.html#logging.StreamHandler>`_
 and redirect its content. This allows messages to be filtered based on
@@ -162,7 +162,7 @@ of the global and instance loggers.
 
 You can find the source for this example logger in the collapsible section below
 and in the ``dev_guide`` repository at `pyansys_logging.py
-<https://github.com/pyansys/dev-guide/blob/main/logging/pyansys_logging.py>`_.
+<https://github.com/ansys/dev-guide/blob/main/logging/pyansys_logging.py>`_.
 
 .. collapse:: Example PyAnsys Custom Logger Module
 

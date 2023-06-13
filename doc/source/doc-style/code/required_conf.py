@@ -16,7 +16,7 @@ html_short_title = html_title = "pyproduct-library"
 
 # specify the location of your github repo
 html_theme_options = {
-    "github_url": "https://github.com/pyansys/pyproduct-library",
+    "github_url": "https://github.com/ansys/pyproduct-library",
     "show_prev_next": False,
     "show_breadcrumbs": True,
     "additional_breadcrumbs": [

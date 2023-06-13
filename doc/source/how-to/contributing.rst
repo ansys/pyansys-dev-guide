@@ -25,7 +25,7 @@ coding paradigms being used for PyAnsys development.
    or commercial use is prohibited.
 
 #. Review the Ansys `Code of Conduct
-   <https://github.com/pyansys/.github/blob/main/CODE_OF_CONDUCT.md>`_.
+   <https://github.com/ansys/.github/blob/main/CODE_OF_CONDUCT.md>`_.
 
 
 All ``PyAnsys`` projects are hosted in `GitHub <https://www.github.com/>`_ in
@@ -50,7 +50,7 @@ For Ansys employees:
 
 If you would like to join the `Ansys GitHub Organization <https://github.com/ansys>`_, visit `Join Ansys GitHub Organization <https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706>`_.
 
-If you would like to join the `PyAnsys GitHub Organization <https://github.com/pyansys>`_, visit `Join PyAnsys GitHub Organization <https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706>`_.
+If you would like to join the `PyAnsys GitHub Organization <https://github.com/ansys>`_, visit `Join PyAnsys GitHub Organization <https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706>`_.
 
 
 GitHub repository sections
@@ -140,7 +140,7 @@ clone a repository by running:
 
     git clone git@github.com:<user>/<repository-name>.git
 
-For example, clone the `PyMAPDL <https://github.com/pyansys/pymapdl/>`_
+For example, clone the `PyMAPDL <https://github.com/ansys/pymapdl/>`_
 project with:
 
 .. code-block:: bash

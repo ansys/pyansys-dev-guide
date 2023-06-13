@@ -22,7 +22,7 @@
             "License :: OSI Approved :: MIT License",
             "Operating System :: OS Independent",
         ],
-        url="<https://github.com/pyansys/py<product>-<library>",
+        url="<https://github.com/ansys/py<product>-<library>",
         python_requires=">=3.<minor>",
         install_requires=["importlib-metadata >=4.0"],
     )

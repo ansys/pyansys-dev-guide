@@ -33,4 +33,4 @@
     name = "ansys.<product>.<library>"
     
     [project.urls]
-    Source = "https://github.com/pyansys/py<product>-<library>"
+    Source = "https://github.com/ansys/py<product>-<library>"

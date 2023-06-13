@@ -475,7 +475,7 @@ Enforce code coverage
 One way of enforcing unit test coverage with a project on GitHub is to use
 ``codecov.io`` to enforce minimum patch (and optionally project) coverage. Because
 this app is already available to the `PyAnsys Organization
-<https://github.com/pyansys>`_, you can simply add a ``codecov.yml`` file to the root
+<https://github.com/ansys>`_, you can simply add a ``codecov.yml`` file to the root
 directory of your repository. This example file provides a sample configuration:
 
 .. code:: yaml
@@ -517,7 +517,7 @@ automated CI/CD, such testing can still occur and be enforced automatically.
 
 `GitHub Actions`_ is the preferred automated CI/CD platform for running Python
 library unit tests for PyAnsys. It can be used immediately by cloning the
-project `template <https://github.com/pyansys/template/>`_. If you are
+project `template <https://github.com/ansys/template/>`_. If you are
 unfamiliar with GitHub actions, see `GitHub Actions`_ for an overview.
 
 .. literalinclude:: code/tests.yml     

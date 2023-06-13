@@ -155,7 +155,7 @@ For comprehensive syntax information, see the `reStrucutredText Markup Specifica
 
 Because you need to be familiar with the content in the `PyAnsys Developer's
 Guide <dev.docs.pyansys.com/>`_, explore its HTML pages and then the RST files
-in its `repository <https://github.com/pyansys/dev-guide>`_. This should help
+in its `repository <https://github.com/ansys/dev-guide>`_. This should help
 you to understand the syntax and see how RST files are nested to create this guide.
 
 Recommended sections
@@ -701,8 +701,8 @@ GitHub pull request. For more information, see :ref:`Build documentation`.
 .. _GitHub Pages: https://pages.github.com/
 .. _GitHub Actions: https://github.com/features/actions
 .. _PyMAPDL Documentation: https://mapdldocs.pyansys.com/
-.. _pyansys/pymapdl-docs: https://github.com/pyansys/pymapdl-docs
-.. _gh-pages: https://github.com/pyansys/dev-guide/tree/gh-pages
+.. _pyansys/pymapdl-docs: https://github.com/ansys/pymapdl-docs
+.. _gh-pages: https://github.com/ansys/dev-guide/tree/gh-pages
 .. _enabling GitHub pages: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site
 .. _tox: https://github.com/tox-dev/tox
 .. _PyAnsys DNS Zones: https://portal.azure.com/#@ansys.com/resource/subscriptions/2870ae10-53f8-46b1-8971-93761377c38b/resourceGroups/pyansys/providers/Microsoft.Network/dnszones/pyansys.com/overview
@@ -710,5 +710,5 @@ GitHub pull request. For more information, see :ref:`Build documentation`.
 .. _Roberto Pastor Muela: https://teams.microsoft.com/l/chat/0/0?users=roberto.pastormuela@ansys.com
 .. _Alex Kaszynski: https://teams.microsoft.com/l/chat/0/0?users=alexander.kaszynski@ansys.com
 .. _PyAnsys Bot: https://github.com/apps/pyansys-bot
-.. _PyAnsys Organization: https://github.com/pyansys
+.. _PyAnsys Organization: https://github.com/ansys
 .. _ansys-templates: https://github.com/ansys/ansys-templates

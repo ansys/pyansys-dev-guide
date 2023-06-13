@@ -13,7 +13,7 @@
     authors = ["ANSYS, Inc. <pyansys.core@ansys.com>"]
     maintainers = ["PyAnsys developers <pyansys.maintainers@ansys.com>"]
     readme = "README.rst"
-    repository = "https://github.com/pyansys/py<product>-<library>"
+    repository = "https://github.com/ansys/py<product>-<library>"
     classifiers = [
         "Development Status :: 4 - Beta",
         "Programming Language :: Python :: 3",

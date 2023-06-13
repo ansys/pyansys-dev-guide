@@ -7,26 +7,26 @@ libraries that interface with Ansys products or services. To try out a
 library, visit one of these links:
 
 * `PyAEDT`_
-* `PyDPF-Core <https://github.com/pyansys/DPF-Core>`_
-* `PyDPF-Post <https://github.com/pyansys/DPF-Post>`_
+* `PyDPF-Core <https://github.com/ansys/DPF-Core>`_
+* `PyDPF-Post <https://github.com/ansys/DPF-Post>`_
 * `PyMAPDL`_
-* `PyMAPDL Legacy Reader <https://github.com/pyansys/pymapdl-reader>`_
-* `PyPIM <https://github.com/pyansys/pypim>`_
+* `PyMAPDL Legacy Reader <https://github.com/ansys/pymapdl-reader>`_
+* `PyPIM <https://github.com/ansys/pypim>`_
 
 If you want to create, develop, or contribute to a PyAnsys library, 
 visit these links:
 
-* `PyAnsys Developer's Guide <https://github.com/pyansys/about>`_
+* `PyAnsys Developer's Guide <https://github.com/ansys/about>`_
 * `Ansys Sphinx Theme Documentation <https://github.com/ansys/ansys-sphinx-theme>`_
-* `gRPC Hello-world Example <https://github.com/pyansys/pyansys-helloworld>`_
-* `Material Example Data <https://github.com/pyansys/example-data>`_
+* `gRPC Hello-world Example <https://github.com/ansys/pyansys-helloworld>`_
+* `Material Example Data <https://github.com/ansys/example-data>`_
 
 Using the following tools, developers generate library packages from 
 PROTO files, create coverage reports, and report on system coverage:
 
-* `pyansys-protos-generator <https://github.com/pyansys/pyansys-protos-generator>`_
-* `example-coverage <https://github.com/pyansys/example-coverage>`_
-* `system-reporting-tool <https://github.com/pyansys/system-reporting-tool>`_
+* `pyansys-protos-generator <https://github.com/ansys/pyansys-protos-generator>`_
+* `example-coverage <https://github.com/ansys/example-coverage>`_
+* `system-reporting-tool <https://github.com/ansys/system-reporting-tool>`_
 
 Quick start guide
 -----------------
@@ -79,11 +79,11 @@ particular PyAnsys library.
 
    Others like requests, RPC, COM, etc.
 
-.. _PyAEDT: https://github.com/pyansys/PyAEDT
-.. _PyMAPDL: https://github.com/pyansys/pymapdl
+.. _PyAEDT: https://github.com/ansys/PyAEDT
+.. _PyMAPDL: https://github.com/ansys/pymapdl
 .. _pytest-cov: https://pytest-cov.readthedocs.io/en/latest/reporting.html
-.. _pyansys/template: https://github.com/pyansys/template
+.. _pyansys/template: https://github.com/ansys/template
 .. _Creating a repository from a template: https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template
 .. _repository visibility: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility
-.. _PyAnsys GitHub organization: https://github.com/pyansys
+.. _PyAnsys GitHub organization: https://github.com/ansys
 .. _pytest: https://pytest.org/
