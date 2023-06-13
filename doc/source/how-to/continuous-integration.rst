@@ -330,10 +330,10 @@ Classic tokens
   |  Access deployment status.                                                          |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **public_repo**                                                                     | |:x:|                  |
-  |  Access public repositories                                                         |                        |
+  |  Access public repositories.                                                        |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **repo:invite**                                                                     | |:x:|                  |
-  |  Access repository invitations                                                      |                        |
+  |  Access repository invitations.                                                     |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **security_events**                                                                 | |:x:|                  |
   |  Read and write security events                                                     |                        |
@@ -351,7 +351,7 @@ Classic tokens
   |  Delete packages from GitHub Package Registry                                       |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **admin:org**                                                                       | |:x:|                  |
-  |  Full control of orgs and teams, read and write org projects                        |                        |
+  |  Full control of orgs and teams, read, and write org projects                       |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **write:org**                                                                       | |:x:|                  |
   |  Read and write org and team membership, read and write org projects                |                        |
