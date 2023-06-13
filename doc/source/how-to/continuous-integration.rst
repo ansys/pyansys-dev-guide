@@ -183,20 +183,18 @@ Workflow examples are provided for checking :ref:`Coding style`,
 Organization secrets
 --------------------
 
-  Secrets are encrypted variables that you create in an organization, repository, or repository environment. The secrets that you create are available to use in GitHub Actions workflows. 
+According to `Encrypted secrets <https://docs.github.com/en/actions/security-guides/encrypted-secrets>`_ in the GitHub Docs, "Secrets are encrypted variables that you create in an organization, repository, or repository environment. The secrets that you create are available to use in GitHub Actions workflows." 
 
-  From `GitHub documentation <https://docs.github.com/en/actions/security-guides/encrypted-secrets>`_
+You can use secrets to pass sensible data such as passwords, tokens, or IP addresses to your workflows.
 
+The ``Ansys`` and ``Ansys-internal`` organizations provide certain secrets by default to
+help you to automate or unify certain tasks, such as releasing a package.
 
-You can use ``secrets`` to pass sensible data such as passwords, token or IP addresses to your workflows.
-
-By default, ``Ansys`` and ``Ansys-internal`` organizations provide certain ``secrets`` to help you to automate/unify certain tasks such as release.
-
-Actions secrets
-~~~~~~~~~~~~~~~
+Secrets for GitHub Actions
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
-| **SECRET**                          | **Repository access**              | **Token?**                            | **Value**                                 | **Description**                                                                              |
+| **Secret**                          | **Repository access**              | **Token**                             | **Value**                                 | **Description**                                                                              |
 +=====================================+====================================+=======================================+===========================================+==============================================================================================+
 | ``BOT_APPLICATION_ID``              | All repositories                   | No                                    | *Secret*                                  | Username of bot app                                                                          |
 +-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
@@ -206,32 +204,32 @@ Actions secrets
 +-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
 | ``LICENSE_SERVER``                  | All repositories                   | No                                    | *Secret*                                  | IP address of license server                                                                 |
 +-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
-| ``MULTIPR_DEPENDABOT``              | All repositories                   | :ref:`Yes (GitHub) <github_tokens>`   | Token ``PYANSYS_CI_BOT_TOKEN``            | Bot token to be passed to bot to allow multiple library updates in one pull request.         |
+| ``MULTIPR_DEPENDABOT``              | All repositories                   | :ref:`Yes (GitHub) <github_tokens>`   | Token ``PYANSYS_CI_BOT_TOKEN``            | Bot token to pass to bot to allow multiple library updates in one pull request.         |
 +-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
 | ``PYANSYS_CI_BOT_PACKAGE_TOKEN``    | Private and internal repositories  | :ref:`Yes (GitHub) <github_tokens>`   | Token ``PYANSYS_CI_BOT_PACKAGE_TOKEN``    | Bot token to publish (write) packages in `ghcr.io <ghcr.io>`_ registry.                      |
 +-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
-| ``PYANSYS_CI_BOT_TOKEN``            | All repositories                   | :ref:`Yes (GitHub) <github_tokens>`   | Token ``PYANSYS_CI_BOT_TOKEN``            | Bot token for general purpose. It has repository read/write permissions and package read.    |
+| ``PYANSYS_CI_BOT_TOKEN``            | All repositories                   | :ref:`Yes (GitHub) <github_tokens>`   | Token ``PYANSYS_CI_BOT_TOKEN``            | Bot token for general purpose. It has repository read/write permissions and package read permission.    |
 +-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
 | ``PYANSYS_PYPI_PRIVATE_PAT``        | All repositories                   | :ref:`Yes (PyPI) <pypi_tokens>`       | Token ``PYANSYS_PYPI_PRIVATE_PAT``        | Token to publish to Ansys private PyPI channel.                                              |
 +-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
-| ``PYPI_TOKEN``                      | Private and internal repositories  | :ref:`Yes (PyPI) <pypi_tokens>`       | **Empty**                                 | This should be overwritten at each repository after first public release.                    |
+| ``PYPI_TOKEN``                      | Private and internal repositories  | :ref:`Yes (PyPI) <pypi_tokens>`       | **Empty**                                 | This token should be overwritten in each repository after the first public release.                    |
 +-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
 | ``PYPI_TESTING_TOKEN``              | Private and internal repositories  | :ref:`Yes (PyPI) <pypi_tokens>`       | *Secret*                                  | Token for testing publication to PyPI.                                                       |
 +-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
-| ``TWINE_TOKEN``                     | Private and internal repositories  | :ref:`Yes (PyPI) <pypi_tokens>`       | **Empty**                                 | This should be overwritten at each repository after first public release.                    |
+| ``TWINE_TOKEN``                     | Private and internal repositories  | :ref:`Yes (PyPI) <pypi_tokens>`       | **Empty**                                 | This should be overwritten in each repository after the first public release.                    |
 +-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
 
-The values of the ``secrets`` can be obtained by emailing pyansys.core@ansys.com.
+To obtain the values of secrets, email `pyansys.core@ansys.com <pyansys.core@ansys.com>`_.
 
 Dependabot secrets
 ~~~~~~~~~~~~~~~~~~
 
-These secrets in most of the cases a replica of the `Actions secrets`_. 
+Dependabot secrets are generally replicas of the `Secrets for GitHub Actions`_. 
 
 +-------------------------------------+---------------------------------------------+----------------------------------------+----------------------------------------------+
-| **SECRET**                          | **Repository access**                       | **Token**                              | **Description**                              |
+| **Secret**                          | **Repository access**                       | **Token**                              | **Description**                              |
 +=====================================+=============================================+========================================+==============================================+
-| ``BOT_APPLICATION_ID``              | Same as `Actions secrets`_ equivalent                                                                                               |
+| ``BOT_APPLICATION_ID``              | `Secrets for GitHub Actions`_ equivalent                                                                                                       |
 +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+
 | ``BOT_APPLICATION_PRIVATE_KEY``     | Same as `Actions secrets`_ equivalent                                                                                               |
 +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+
@@ -248,16 +246,17 @@ These secrets in most of the cases a replica of the `Actions secrets`_.
 Organization tokens
 -------------------
 
-To facilitate certain tasks such as authentication, ``Ansys`` and ``Ansys-internal`` organizations provide to the developer with certain tokens or personal access tokens (PATs).
+To facilitate certain tasks such as authentication, the ``Ansys`` and ``Ansys-internal`` organizations provide developers with certain tokens or personal access tokens (PATs).
 These tokens are confidential and for internal use only.
-Some of these tokens can be used as GitHub secrets, others must be requested to pyansys.core@ansys.com.
+Some of these tokens can be used as GitHub Actions secrets. Others must be requested
+by emailing `pyansys.core@ansys.com <pyansys.core@ansys.com>`_.
 
 
 .. _github_tokens:
 
-GitHub tokens
-~~~~~~~~~~~~~
-These tokens are meant to be used within GitHub to provide access and permissions to different tasks and repositories.
+GitHub Actions tokens
+~~~~~~~~~~~~~~~~~~~~~
+GitHub tokens are used within GitHub to provide access and permissions to different tasks and repositories.
 
 Fine-grained tokens
 *******************
@@ -265,12 +264,12 @@ Fine-grained tokens
 +----------------------------------------------------------------+----------------------------------------+
 | | **TOKEN NAME**                                               | ``dependabot-multi-pr``                |
 +================================================================+========================================+
-| | **Repository access**                                        |  Public Repositories (read-only)       |
+| | **Repository access**                                        |  Public repositories (read-only)       |
 +----------------------------------------------------------------+----------------------------------------+
 | | **Permissions**                                              |                                        |
 +----------------------------------------------------------------+----------------------------------------+
 | |    **Block another user**                                    |  No access                             |
-| |     View and manage users blocked by the user.               |                                        |
+| |     View and manage users who you've blocked.               |                                        |
 +----------------------------------------------------------------+----------------------------------------+
 | |    **Codespaces user secrets**                               |  No access                             |
 | |     Manage Codespaces user secrets.                          |                                        |
@@ -279,7 +278,7 @@ Fine-grained tokens
 | |     Manage a user's email addresses.                         |                                        |
 +----------------------------------------------------------------+----------------------------------------+
 | |    **Followers**                                             |  No access                             |
-| |     A user's followers                                       |                                        |
+| |     A user's followers.                                      |                                        |
 +----------------------------------------------------------------+----------------------------------------+
 | |    **GPG keys**                                              |  No access                             |
 | |     View and manage a user's GPG keys.                       |                                        |
@@ -288,16 +287,16 @@ Fine-grained tokens
 | |     Create and modify a user's gists and comments.           |                                        |
 +----------------------------------------------------------------+----------------------------------------+
 | |    **Git SSH keys**                                          |  No access                             |
-| |     Git SSH keys                                             |                                        |
+| |     Git SSH keys.                                            |                                        |
 +----------------------------------------------------------------+----------------------------------------+
 | |    **Interaction limits**                                    |  No access                             |
-| |     Interaction limits on repositories                       |                                        |
+| |     Interaction limits on repositories.                      |                                        |
 +----------------------------------------------------------------+----------------------------------------+
 | |    **Plan**                                                  |  No access                             |
 | |     View a user's plan.                                      |                                        |
 +----------------------------------------------------------------+----------------------------------------+
 | |    **Private repository invitations**                        |  No access                             |
-| |     View a user's invitations to private repositories        |                                        |
+| |     View a user's invitations to private repositories.       |                                        |
 +----------------------------------------------------------------+----------------------------------------+
 | |    **Profile**                                               |  No access                             |
 | |     Manage a user's profile settings.                        |                                        |
@@ -322,13 +321,13 @@ Classic tokens
   | **Permission**                                                                      | **Status**             |
   +=====================================================================================+========================+
   | **repo**                                                                            | |:heavy_check_mark:|   |
-  |  Full control of private repositories                                               |                        |
+  |  Full control of private repositories.                                              |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **repo:status**                                                                     | |:x:|                  |
-  |  Access commit status                                                               |                        |
+  |  Access commit status.                                                              |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **repo_deployment**                                                                 | |:x:|                  |
-  |  Access deployment status                                                           |                        |
+  |  Access deployment status.                                                          |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **public_repo**                                                                     | |:x:|                  |
   |  Access public repositories                                                         |                        |

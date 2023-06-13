@@ -89,3 +89,12 @@ unittest
 unvalidated
 venv
 worktree
+Gists
+repo
+repo_deployment
+public_repo
+security_events
+orgs
+unfollow
+delete_repo
+audit_log
