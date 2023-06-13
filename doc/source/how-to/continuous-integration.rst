@@ -354,109 +354,109 @@ Classic tokens
   |  Full control of orgs and teams, read, and write org projects                       |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **write:org**                                                                       | |:x:|                  |
-  |  Read and write org and team membership, read and write org projects                |                        |
+  |  Read and write org and team membership, read, and write org projects               |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **read:org**                                                                        | |:x:|                  |
-  |  Read org and team membership, read org projects                                    |                        |
+  |  Read org and team membership, read, org projects.                                  |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **manage_runners:org**                                                              | |:x:|                  |
-  |  Manage org runners and runner groups                                               |                        |
+  |  Manage org runners and runner groups.                                              |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **admin:public_key**                                                                | |:x:|                  |
-  |  Full control of user public keys                                                   |                        |
+  |  Full control of user public keys.                                                  |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **write:public_key**                                                                | |:x:|                  |
-  |  Write user public keys                                                             |                        |
+  |  Write user public keys.                                                            |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **read:public_key**                                                                 | |:x:|                  |
-  |  Read user public keys                                                              |                        |
+  |  Read user public keys.                                                             |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **admin:repo_hook**                                                                 | |:x:|                  |
-  |  Full control of repository hooks                                                   |                        |
+  |  Full control of repository hooks.                                                  |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **write:repo_hook**                                                                 | |:x:|                  |
-  |  Write repository hooks                                                             |                        |
+  |  Write repository hooks.                                                            |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **read:repo_hook**                                                                  | |:x:|                  |
-  |  Read repository hooks                                                              |                        |
+  |  Read repository hooks.                                                             |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **admin:org_hook**                                                                  | |:x:|                  |
-  |  Full control of organization hooks                                                 |                        |
+  |  Full control of organization hooks.                                                |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **gist**                                                                            | |:x:|                  |
-  |  Create gists                                                                       |                        |
+  |  Create gists.                                                                      |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **notifications**                                                                   | |:x:|                  |
-  |  Access notifications                                                               |                        |
+  |  Access notifications.                                                              |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **user**                                                                            | |:x:|                  |
   |  Update **all** user data.                                                          |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **read:user**                                                                       | |:x:|                  |
-  |  Read ALL user profile data                                                         |                        |
+  |  Read ALL user profile data.                                                        |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **user:email**                                                                      | |:x:|                  |
-  |  Access user email addresses (read-only)                                            |                        |
+  |  Access user email addresses (read-only).                                           |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **user:follow**                                                                     | |:x:|                  |
-  |  Follow and unfollow users                                                          |                        |
+  |  Follow and unfollow users.                                                         |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **delete_repo**                                                                     | |:x:|                  |
-  |  Delete repositories                                                                |                        |
+  |  Delete repositories.                                                               |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **write:discussion**                                                                | |:x:|                  |
-  |  Read and write team discussions                                                    |                        |
+  |  Read and write team discussions.                                                   |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **read:discussion**                                                                 | |:x:|                  |
-  |  Read team discussions                                                              |                        |
+  |  Read team discussions.                                                             |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **admin:enterprise**                                                                | |:x:|                  |
-  |  Full control of enterprises                                                        |                        |
+  |  Full control of enterprises.                                                       |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **manage_runners:enterprise**                                                       | |:x:|                  |
-  |  Manage enterprise runners and runner groups                                        |                        |
+  |  Manage enterprise runners and runner groups.                                       |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **manage_billing:enterprise**                                                       | |:x:|                  |
-  |  Read and write enterprise billing data                                             |                        |
+  |  Read and write enterprise billing data.                                            |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **read:enterprise**                                                                 | |:x:|                  |
-  |  Read enterprise profile data                                                       |                        |
+  |  Read enterprise profile data.                                                      |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **audit_log**                                                                       | |:x:|                  |
-  |  Full control of audit log                                                          |                        |
+  |  Full control of audit log.                                                         |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **read:audit_log**                                                                  | |:x:|                  |
-  |  Read access of audit log                                                           |                        |
+  |  Read access of audit log.                                                          |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **codespace**                                                                       | |:x:|                  |
-  |  Full control of codespaces                                                         |                        |
+  |  Full control of codespaces.                                                        |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **codespace:secrets**                                                               | |:x:|                  |
-  |  Ability to create, read, update, and delete codespace secrets                      |                        |
+  |  Ability to create, read, update, and delete codespace secrets.                     |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **project**                                                                         | |:x:|                  |
-  |  Full control of projects                                                           |                        |
+  |  Full control of projects.                                                          |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **read:project**                                                                    | |:x:|                  |
-  |  Read access of projects                                                            |                        |
+  |  Read access of projects.                                                           |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **admin:gpg_key**                                                                   | |:x:|                  |
-  |  Full control of public user GPG keys                                               |                        |
+  |  Full control of public user GPG keys.                                              |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **write:gpg_key**                                                                   | |:x:|                  |
-  |  Write public user GPG keys                                                         |                        |
+  |  Write public user GPG keys.                                                        |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **read:gpg_key**                                                                    | |:x:|                  |
-  |  Read public user GPG keys                                                          |                        |
+  |  Read public user GPG keys.                                                         |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **admin:ssh_signing_key**                                                           | |:x:|                  |
-  |  Full control of public user SSH signing keys                                       |                        |
+  |  Full control of public user SSH signing keys.                                      |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **write:ssh_signing_key**                                                           | |:x:|                  |
-  |  Write public user SSH signing keys                                                 |                        |
+  |  Write public user SSH signing keys.                                                |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **read:ssh_signing_key**                                                            | |:x:|                  |
-  |  Read public user SSH signing keys                                                  |                        |
+  |  Read public user SSH signing keys.                                                 |                        |
   +-------------------------------------------------------------------------------------+------------------------+
 
 .. _pypi_tokens:
