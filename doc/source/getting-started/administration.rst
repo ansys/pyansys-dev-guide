@@ -4,6 +4,16 @@ Most of the projects in PyAnsys expose the functionality of Ansys
 products. Due to intellectual property reasons, the public release of a PyAnsys
 library must go through a project approval process.
 
+First steps
+-----------
+In order to trigger the public release process, project leads should fill in the following
+form:
+
+* `Release request workflow intitiation form <https://gz2idtcjsw2.typeform.com/to/qVujtwSR>`_
+
+This form lets the different parties involved in the public release process know that
+there is a will to release a project. If your selected option was to release an Ansys Open
+Source project, then please continue to the next section.
 
 Approval process
 ----------------
@@ -45,6 +55,15 @@ When releasing a project to the public, you should:
 * Maintain the project by means of fixing bugs and providing support for new releases.
 * Uphold Ansys' reputation in the open source community.
 
+
+Once all these three approvals have been awarded, project leads are requested to fill
+in the next form:
+
+* `OSS approval request form <https://gz2idtcjsw2.typeform.com/OSSapproval>`_
+
+This form serves as a final checklist to verify that all approvals have been processed
+and to formalize the OSS approval process, as a final record. You can find the questions
+to be asked in :ref:`OSS approval request form questions`.
 
 Managerial
 ^^^^^^^^^^
@@ -165,3 +184,64 @@ The technical review of the project verifies the following:
 .. |uncheck_| raw:: html
 
     <input disabled="" type="checkbox">
+
+OSS approval request form questions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When filling in the `OSS approval request form`_, project leads will have to
+answer the following questions (they might be of different nature: fill in,
+yes/no, multiple-choice...). Be ready to answer them once you start completing
+the form.
+
+.. card:: |uncheck| General questions
+
+    * What is the name of your project?
+    * Who is the project maintainer?
+    * Who is the lead from the product team?
+    * Who is the Product Management contact?
+    * Who is the ACE/AFT owner?
+
+.. card:: |uncheck| Legal questions
+
+    * Who validated your legal readiness?
+    * Provided there are no issues with the MIT license, have you correctly applied
+      it to the GitHub Repository for your project?
+    * Is the copyright header correctly applied to your files in GitHub?
+    * Have you confirmed that any IP is removed from the code, docs, and examples?
+    * I and my legal reviewer as well as my product and PM reviewer have confirmed that
+      there is no business interest in keeping this code confidential.
+    * I and my legal reviewer confirm there is no business interest in enforcing copyright
+      protection for this code.
+    * I and my legal reviewer confirm that the code does not contain any 3rd party material
+      (open source, proprietary, partner, customer, or otherwise).
+    * I and my legal reviewer confirm that the code does not include any invention on which
+      the company has, or might want to seek a patent.
+    * Have you cleaned up the comments/issues/PRs/etc. to remove any potentially bad things?
+    * My legal reviewer and I have checked the dependencies and validated they do not
+      impose any licensing difficulties?
+    * I and my legal reviewer confirm there is NO encryption present in the code.
+    * The repository that hosts the code will be generally accessible to the public with no
+      time limits or access restrictions.
+    * This tool or library is not meant for use in any specific industry, platform, or
+      process and is meant for use by general customers.
+
+.. card:: |uncheck| Technical questions
+
+    * Who verified your technical review?
+    * Was your documentation for usage/installation/pre-reqs reviewed by the docs team?
+    * Has your source code documentation been reviewed?
+    * Completed end user testing?
+    * Pull request testing complete?
+    * Minimum of 80% testing coverage verified?
+    * Your usage and installation examples are ready?
+    * Package definition ready and PyPi packaging completed?
+    * GitHub Repository has the contribution guidance and CLA set up and ready.
+
+.. card:: |uncheck| Business questions
+
+    * Who did you get from the PMM/DevEco team to check your readiness?
+    * Did you tell ACE and the BU you are at this point?
+    * Is there something public that is already called the same thing you want to call your project?
+    * Did you get Product Marketing Manager (PMM) signoff?
+    * Did you let DevEco know so they can update links from the DevPortal to your new OSS project?
+    * Did you let Product Management know that your library is nearing release?
