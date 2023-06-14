@@ -9,7 +9,7 @@ First steps
 In order to trigger the public release process, project leads should fill in the following
 form:
 
-* `Release request workflow inititiation form <https://gz2idtcjsw2.typeform.com/to/qVujtwSR>`_
+* `Release request workflow initiation form <https://gz2idtcjsw2.typeform.com/to/qVujtwSR>`_
 
 This form lets the different parties involved in the public release process know that
 there is a request to release a project. If your selected option was to release an Ansys Open
