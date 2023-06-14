@@ -9,10 +9,10 @@ First steps
 In order to trigger the public release process, project leads should fill in the following
 form:
 
-* `Release request workflow intitiation form <https://gz2idtcjsw2.typeform.com/to/qVujtwSR>`_
+* `Release request workflow inititiation form <https://gz2idtcjsw2.typeform.com/to/qVujtwSR>`_
 
 This form lets the different parties involved in the public release process know that
-there is a will to release a project. If your selected option was to release an Ansys Open
+there is a request to release a project. If your selected option was to release an Ansys Open
 Source project, then please continue to the next section.
 
 Approval process
@@ -188,9 +188,9 @@ The technical review of the project verifies the following:
 OSS approval request form questions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When filling in the `OSS approval request form`_, project leads will have to
+When filling in the `OSS approval request form`_, project leads have to
 answer the following questions (they might be of different nature: fill in,
-yes/no, multiple-choice...). Be ready to answer them once you start completing
+yes/no, or multiple-choice). Be ready to answer them once you start completing
 the form.
 
 .. card:: |uncheck| General questions
@@ -220,7 +220,7 @@ the form.
     * My legal reviewer and I have checked the dependencies and validated they do not
       impose any licensing difficulties?
     * I and my legal reviewer confirm there is NO encryption present in the code.
-    * The repository that hosts the code will be generally accessible to the public with no
+    * The repository that hosts the code is generally accessible to the public with no
       time limits or access restrictions.
     * This tool or library is not meant for use in any specific industry, platform, or
       process and is meant for use by general customers.
