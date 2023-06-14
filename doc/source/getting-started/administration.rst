@@ -63,7 +63,7 @@ in the next form:
 
 This form serves as a final checklist to verify that all approvals have been processed
 and to formalize the OSS approval process, as a final record. You can find the questions
-to be asked in :ref:`OSS approval request form questions`.
+to be asked in :ref:`Questions asked in the OSS approval request form`.
 
 Managerial
 ^^^^^^^^^^
@@ -185,8 +185,8 @@ The technical review of the project verifies the following:
 
     <input disabled="" type="checkbox">
 
-OSS approval request form questions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Questions asked in the OSS approval request form
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 When filling in the `OSS approval request form`_, project leads have to
 answer the following questions (they might be of different nature: fill in,
