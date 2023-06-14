@@ -240,7 +240,7 @@ the form.
 .. card:: |uncheck| Business questions
 
     * Who did you get from the PMM/DevEco team to check your readiness?
-    * Did you tell ACE and the BU you are at this point?
+    * Did you tell ACE and the Business Unit you are at this point?
     * Is there something public that is already called the same thing you want to call your project?
     * Did you get Product Marketing Manager (PMM) signoff?
     * Did you let DevEco know so they can update links from the DevPortal to your new OSS project?
