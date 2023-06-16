@@ -183,11 +183,14 @@ Workflow examples are provided for checking :ref:`Coding style`,
 Organization secrets
 --------------------
 
-According to `Encrypted secrets <https://docs.github.com/en/actions/security-guides/encrypted-secrets>`_ in the GitHub Docs, "Secrets are encrypted variables that you create in an organization, repository, or repository environment. The secrets that you create are available to use in GitHub Actions workflows." 
+According to `Encrypted secrets <https://docs.github.com/en/actions/security-guides/encrypted-secrets>`_
+in the GitHub Docs, "Secrets are encrypted variables that you create in an organization,
+repository, or repository environment. The secrets that you create are available to use in
+GitHub Actions workflows." 
 
-You can use secrets to pass sensible data such as passwords, tokens, or IP addresses to your workflows.
+You can use secrets to pass sensitive data such as passwords, tokens, or IP addresses to your workflows.
 
-The ``Ansys`` and ``Ansys-internal`` organizations provide certain secrets by default to
+The ``ansys`` and ``ansys-internal`` organizations provide certain secrets by default to
 help you to automate or unify certain tasks, such as releasing a package.
 
 Secrets for GitHub Actions
@@ -216,7 +219,7 @@ Secrets for GitHub Actions
 +-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
 | ``PYPI_TESTING_TOKEN``              | Private and internal repositories  | :ref:`Yes (PyPI) <pypi_tokens>`       | *Secret*                                  | Token for testing publication to PyPI.                                                       |
 +-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
-| ``TWINE_TOKEN``                     | Private and internal repositories  | :ref:`Yes (PyPI) <pypi_tokens>`       | **Empty**                                 | This should be overwritten in each repository after the first public release.                    |
+| ``TWINE_TOKEN``                     | Private and internal repositories  | :ref:`Yes (PyPI) <pypi_tokens>`       | **Empty**                                 | This token should be overwritten in each repository after the first public release.               |
 +-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
 
 To obtain the values of secrets, email `pyansys.core@ansys.com <pyansys.core@ansys.com>`_.
@@ -246,7 +249,7 @@ Dependabot secrets are generally replicas of the `Secrets for GitHub Actions`_.
 Organization tokens
 -------------------
 
-To facilitate certain tasks such as authentication, the ``Ansys`` and ``Ansys-internal`` organizations provide developers with certain tokens or personal access tokens (PATs).
+To facilitate certain tasks such as authentication, the ``ansys`` and ``ansys-internal`` organizations provide developers with certain tokens or personal access tokens (PATs).
 These tokens are confidential and for internal use only.
 Some of these tokens can be used as GitHub Actions secrets. Others must be requested
 by emailing `pyansys.core@ansys.com <pyansys.core@ansys.com>`_.
@@ -256,7 +259,7 @@ by emailing `pyansys.core@ansys.com <pyansys.core@ansys.com>`_.
 
 GitHub Actions tokens
 ~~~~~~~~~~~~~~~~~~~~~
-GitHub tokens are used within GitHub to provide access and permissions to different tasks and repositories.
+GitHub Actions tokens are used within GitHub to provide access and permissions to different tasks and repositories.
 
 Fine-grained tokens
 *******************
@@ -269,7 +272,7 @@ Fine-grained tokens
 | | **Permissions**                                              |                                        |
 +----------------------------------------------------------------+----------------------------------------+
 | |    **Block another user**                                    |  No access                             |
-| |     View and manage users who you've blocked.               |                                        |
+| |     View and manage users who you've blocked.                |                                        |
 +----------------------------------------------------------------+----------------------------------------+
 | |    **Codespaces user secrets**                               |  No access                             |
 | |     Manage Codespaces user secrets.                          |                                        |
@@ -336,25 +339,25 @@ Classic tokens
   |  Access repository invitations.                                                     |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **security_events**                                                                 | |:x:|                  |
-  |  Read and write security events                                                     |                        |
+  |  Read and write security events.                                                    |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **workflow**                                                                        | |:x:|                  |
-  |  Update GitHub Action workflows                                                     |                        |
+  |  Update GitHub Action workflows.                                                    |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **write:packages**                                                                  | |:x:|                  |
-  |  Upload packages to GitHub Package Registry                                         |                        |
+  |  Upload packages to GitHub Package Registry.                                        |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **read:packages**                                                                   | |:x:|                  |
-  |  Download packages from GitHub Package Registry                                     |                        |
+  |  Download packages from GitHub Package Registry.                                    |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **delete:packages**                                                                 | |:x:|                  |
-  |  Delete packages from GitHub Package Registry                                       |                        |
+  |  Delete packages from GitHub Package Registry.                                      |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **admin:org**                                                                       | |:x:|                  |
-  |  Full control of orgs and teams, read, and write org projects                       |                        |
+  |  Full control of orgs and teams, read, and write org projects.                      |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **write:org**                                                                       | |:x:|                  |
-  |  Read and write org and team membership, read, and write org projects               |                        |
+  |  Read and write org and team membership, read, and write org projects.              |                        |
   +-------------------------------------------------------------------------------------+------------------------+
   | **read:org**                                                                        | |:x:|                  |
   |  Read org and team membership, read, org projects.                                  |                        |
@@ -491,18 +494,13 @@ The ``PYPI_TESTING_TOKEN`` token is used for testing uploads to the public PyPI 
 Other tokens
 ~~~~~~~~~~~~
 
-``HUGO_THEME_TOKEN``
-********************
-
-The ``HUGO_THEME_TOKEN`` token is used to ... # todo: to be added
 
 
 ``TWINE_TOKEN``
 ***************
 
 The ``TWINE_TOKEN`` token is used for authentication when uploading libraries to PyPI.
-Its value might change
-across repositories.
+Its value might change across repositories.
 Depending if the library is uploaded to a public PyPI index or the Ansys private PyPI index, its value matches
 :ref:`pypi_private_token` or :ref:`pypi_token`.
 
@@ -513,8 +511,8 @@ Depending if the library is uploaded to a public PyPI index or the Ansys private
 Organization bot
 ----------------
 
-Because the usage of personal access tokens (PATs) is discouraged, the ``Ansys``
-and ``Ansys-internal`` organizations provide a bot named ``ansys-bot`` to
+Because the usage of personal access tokens (PATs) is discouraged, the ``ansys``
+and ``ansys-internal`` organizations provide a bot named ``ansys-bot`` to
 perform certain tasks that require authentication. For example, this bot provides
 for publishing GitHub pages or logging into a Docker image registry.
 

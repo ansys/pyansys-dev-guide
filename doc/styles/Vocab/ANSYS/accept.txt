@@ -8,6 +8,7 @@ Brinkrolf
 CI/CD
 CLI
 Codespaces
+Codespace
 Codespell
 componentization
 Componentization
