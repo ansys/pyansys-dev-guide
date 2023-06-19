@@ -45,6 +45,7 @@ ecosystem. Examples include:
    basic
    administration
    componentization
+   abbr
 
 .. _PyAEDT: https://github.com/ansys/PyAEDT
 .. _PyMAPDL: https://github.com/ansys/pymapdl
@@ -53,23 +54,23 @@ ecosystem. Examples include:
 Contributing to this guide
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 If you would like to contribute to this development guide, maintainers gladly 
-review all pull requests. Please follow the :ref:`Documentation style`.
+review all pull requests. For more information, see :ref:`Documentation style`.
 
-This repository uses the `pre-commit <https://pre-commit.com/>`_ library to
+This repository uses `pre-commit <https://pre-commit.com/>`_ to
 automate style checking. To use it, enter your Python environment and install
-it with::
+``pre-commit`` with this command::
 
    pip install pre-commit
 
-You can then run it manually with::
+You can then run ``pre-commit`` manually with this command::
 
    pre-commit run --all-files
 
 This performs various style and spelling checks to ensure your contributions
 meet minimum coding style and documentation standards.
 
-You can make sure that these checks are always run prior to ``git commit`` by
-installing a pre-commit as a git hook with::
+You can make sure that these checks are always run prior to ``git commit``
+running them by installing ``pre-commit`` as a git hook with this command::
 
   pre-commit install
 
