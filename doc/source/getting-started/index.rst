@@ -45,6 +45,7 @@ ecosystem. Examples include:
    basic
    administration
    componentization
+   abbr
 
 .. _PyAEDT: https://github.com/ansys/PyAEDT
 .. _PyMAPDL: https://github.com/ansys/pymapdl
