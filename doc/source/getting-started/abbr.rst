@@ -67,7 +67,7 @@ Developer Ecosystem: The name of the Ansys team responsible for the
 Domain name system: A hierarchical and distributed naming system for computers,
 services, and other resources on the internet or other Internet Protocol (IP) networks.
 Just like a telephone directory translates names to phone numbers, DNS translates domain names
-into IP addresses, which are numerical labels assigned to every device connected
+to IP addresses, which are numerical labels assigned to every device connected
 to a computer network that uses the Internet Protocol for communication.
 
 **DPF**
