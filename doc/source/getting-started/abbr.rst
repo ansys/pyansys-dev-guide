@@ -4,8 +4,8 @@ Glossary of abbreviations
 =========================
 
 Like all technical documentation, the documentation for PyAnsys libraries
-includes lots of abbreviations, which is a general term that includes not
-only abbreviations but also acronyms and initialisms.
+includes lots of abbreviations, which is a general term that also includes
+acronyms and initialisms.
 
 On the first use of an abbreviation that might be unfamiliar to the developer
 community, the documentation for a PyAnsys library provides the longer word
@@ -66,7 +66,7 @@ Developer Ecosystem: The name of the Ansys team responsible for the
 
 Domain name system: A hierarchical and distributed naming system for computers,
 services, and other resources on the internet or other Internet Protocol (IP) networks.
-Just like a phonebook translates names to phone numbers, DNS translates domain names
+Just like a telephone directory translates names to phone numbers, DNS translates domain names
 into IP addresses, which are numerical labels assigned to every device connected
 to a computer network that uses the Internet Protocol for communication.
 
