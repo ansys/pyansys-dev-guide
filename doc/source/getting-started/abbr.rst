@@ -57,12 +57,12 @@ operating system uses to denote line endings in files.
 D - E - F
 ---------
 
-**DevEco*
+**DevEco**
 
 Developer Ecosystem: The name of the Ansys team responsible for the
 `Ansys Developer <https://developer.ansys.com/>_` portal.
 
-**DNS*
+**DNS**
 
 Domain name system: A hierarchical and distributed naming system for computers,
 services, and other resources on the internet or other Internet Protocol (IP) networks.
@@ -82,7 +82,7 @@ Don't repeat yourself: A principle of software development aimed at reducing
 repetition of software patterns, replacing them with abstractions or using
 data normalization to avoid redundancy.
 
-**EOL*
+**EOL**
 
 End-of-line: One or more invisible characters that denote line endings in files.
 Each operating system manages EOL characters in its own way. Windows uses the
@@ -92,14 +92,14 @@ Linux and Mac use only a line feed (LF).
 G - H - I
 ---------
 
-**gRPC*
+**gRPC**
 
 gRPC: A high performance, open source, universal Remote Procedure Call (RPC) framework.
 gRPC can efficiently connect services in and across data centers with pluggable support
 for load balancing, tracing, health checking, and authentication.
 
 
-**IP*
+**IP**
 
 Intellectual property: A category of property that includes intangible creations of
 the human intellect. Of the many types of IP, the best known are patents, copyrights,
