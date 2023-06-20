@@ -176,3 +176,354 @@ Workflow examples are provided for checking :ref:`Coding style`,
         
         .. literalinclude:: code/release.yml     
            :language: yaml
+
+
+.. _organization_secrets:
+
+Organization secrets
+--------------------
+
+According to `Encrypted secrets <https://docs.github.com/en/actions/security-guides/encrypted-secrets>`_
+in the GitHub Docs, "Secrets are encrypted variables that you create in an organization,
+repository, or repository environment. The secrets that you create are available to use in
+GitHub Actions workflows." 
+
+You can use secrets to pass sensitive data such as passwords, tokens, or IP addresses to your workflows.
+
+The ``ansys`` and ``ansys-internal`` organizations provide certain secrets by default to
+help you to automate or unify certain tasks, such as releasing a package.
+
+Secrets for GitHub Actions
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
+| **Secret**                          | **Repository access**              | **Token**                             | **Value**                                 | **Description**                                                                              |
++=====================================+====================================+=======================================+===========================================+==============================================================================================+
+| ``BOT_APPLICATION_ID``              | All repositories                   | No                                    | *Secret*                                  | Username of bot app                                                                          |
++-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
+| ``BOT_APPLICATION_PRIVATE_KEY``     | All repositories                   | No                                    | *Secret*                                  | Bot private key (see :ref:`organization_bot`)                                                |
++-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
+| ``HUGO_THEME_TOKEN``                | All repositories                   | Yes                                   | *Secret*                                  |                                                                                              |
++-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
+| ``LICENSE_SERVER``                  | All repositories                   | No                                    | *Secret*                                  | IP address of license server                                                                 |
++-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
+| ``MULTIPR_DEPENDABOT``              | All repositories                   | :ref:`Yes (GitHub) <github_tokens>`   | Token ``PYANSYS_CI_BOT_TOKEN``            | Bot token to pass to bot to allow multiple library updates in one pull request.         |
++-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
+| ``PYANSYS_CI_BOT_PACKAGE_TOKEN``    | Private and internal repositories  | :ref:`Yes (GitHub) <github_tokens>`   | Token ``PYANSYS_CI_BOT_PACKAGE_TOKEN``    | Bot token to publish (write) packages in `ghcr.io <ghcr.io>`_ registry.                      |
++-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
+| ``PYANSYS_CI_BOT_TOKEN``            | All repositories                   | :ref:`Yes (GitHub) <github_tokens>`   | Token ``PYANSYS_CI_BOT_TOKEN``            | Bot token for general purpose. It has repository read/write permissions and package read permission.    |
++-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
+| ``PYANSYS_PYPI_PRIVATE_PAT``        | All repositories                   | :ref:`Yes (PyPI) <pypi_tokens>`       | Token ``PYANSYS_PYPI_PRIVATE_PAT``        | Token to publish to Ansys private PyPI channel.                                              |
++-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
+| ``PYPI_TOKEN``                      | Private and internal repositories  | :ref:`Yes (PyPI) <pypi_tokens>`       | **Empty**                                 | This token should be overwritten in each repository after the first public release.                    |
++-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
+| ``PYPI_TESTING_TOKEN``              | Private and internal repositories  | :ref:`Yes (PyPI) <pypi_tokens>`       | *Secret*                                  | Token for testing publication to PyPI.                                                       |
++-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
+| ``TWINE_TOKEN``                     | Private and internal repositories  | :ref:`Yes (PyPI) <pypi_tokens>`       | **Empty**                                 | This token should be overwritten in each repository after the first public release.               |
++-------------------------------------+------------------------------------+---------------------------------------+-------------------------------------------+----------------------------------------------------------------------------------------------+
+
+To obtain the values of secrets, email `pyansys.core@ansys.com <pyansys.core@ansys.com>`_.
+
+Dependabot secrets
+~~~~~~~~~~~~~~~~~~
+
+Dependabot secrets are generally replicas of the `Secrets for GitHub Actions`_. 
+
++-------------------------------------+---------------------------------------------+----------------------------------------+----------------------------------------------+
+| **Secret**                          | **Repository access**                       | **Token**                              | **Description**                              |
++=====================================+=============================================+========================================+==============================================+
+| ``BOT_APPLICATION_ID``              | `Secrets for GitHub Actions`_ equivalent                                                                                                       |
++-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+
+| ``BOT_APPLICATION_PRIVATE_KEY``     | Same as `Actions secrets`_ equivalent                                                                                               |
++-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+
+| ``LICENSE_SERVER``                  | Same as `Actions secrets`_ equivalent                                                                                               |
++-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+
+| ``MULTIPR_DEPENDABOT``              | Same as `Actions secrets`_ equivalent                                                                                               |
++-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+
+| ``PYANSYS_PYPI_PRIVATE_PAT``        | Same as `Actions secrets`_ equivalent                                                                                               |
++-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+
+
+
+.. _organization_tokens:
+
+Organization tokens
+-------------------
+
+To facilitate certain tasks such as authentication, the ``ansys`` and ``ansys-internal`` organizations provide developers with certain tokens or personal access tokens (PATs).
+These tokens are confidential and for internal use only.
+Some of these tokens can be used as GitHub Actions secrets. Others must be requested
+by emailing `pyansys.core@ansys.com <pyansys.core@ansys.com>`_.
+
+
+.. _github_tokens:
+
+GitHub Actions tokens
+~~~~~~~~~~~~~~~~~~~~~
+GitHub Actions tokens are used within GitHub to provide access and permissions to different tasks and repositories.
+
+Fine-grained tokens
+*******************
+
++----------------------------------------------------------------+----------------------------------------+
+| | **TOKEN NAME**                                               | ``dependabot-multi-pr``                |
++================================================================+========================================+
+| | **Repository access**                                        |  Public repositories (read-only)       |
++----------------------------------------------------------------+----------------------------------------+
+| | **Permissions**                                              |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **Block another user**                                    |  No access                             |
+| |     View and manage users who you've blocked.                |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **Codespaces user secrets**                               |  No access                             |
+| |     Manage Codespaces user secrets.                          |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **Email addresses**                                       |  No access                             |
+| |     Manage a user's email addresses.                         |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **Followers**                                             |  No access                             |
+| |     A user's followers.                                      |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **GPG keys**                                              |  No access                             |
+| |     View and manage a user's GPG keys.                       |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **Gists**                                                 |  No access                             |
+| |     Create and modify a user's gists and comments.           |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **Git SSH keys**                                          |  No access                             |
+| |     Git SSH keys.                                            |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **Interaction limits**                                    |  No access                             |
+| |     Interaction limits on repositories.                      |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **Plan**                                                  |  No access                             |
+| |     View a user's plan.                                      |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **Private repository invitations**                        |  No access                             |
+| |     View a user's invitations to private repositories.       |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **Profile**                                               |  No access                             |
+| |     Manage a user's profile settings.                        |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **SSH signing keys**                                      |  No access                             |
+| |     View and manage a user's SSH signing keys.               |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **Starring**                                              |  No access                             |
+| |     List and manage repositories a user is starring.         |                                        |
++----------------------------------------------------------------+----------------------------------------+
+| |    **Watching**                                              |  No access                             |
+| |     List and change repositories a user is subscribed to.    |                                        |
++----------------------------------------------------------------+----------------------------------------+
+
+Classic tokens
+**************
+
+.. table:: 
+  :class: longtable
+
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **Permission**                                                                      | **Status**             |
+  +=====================================================================================+========================+
+  | **repo**                                                                            | |:heavy_check_mark:|   |
+  |  Full control of private repositories.                                              |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **repo:status**                                                                     | |:x:|                  |
+  |  Access commit status.                                                              |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **repo_deployment**                                                                 | |:x:|                  |
+  |  Access deployment status.                                                          |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **public_repo**                                                                     | |:x:|                  |
+  |  Access public repositories.                                                        |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **repo:invite**                                                                     | |:x:|                  |
+  |  Access repository invitations.                                                     |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **security_events**                                                                 | |:x:|                  |
+  |  Read and write security events.                                                    |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **workflow**                                                                        | |:x:|                  |
+  |  Update GitHub Action workflows.                                                    |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **write:packages**                                                                  | |:x:|                  |
+  |  Upload packages to GitHub Package Registry.                                        |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **read:packages**                                                                   | |:x:|                  |
+  |  Download packages from GitHub Package Registry.                                    |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **delete:packages**                                                                 | |:x:|                  |
+  |  Delete packages from GitHub Package Registry.                                      |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **admin:org**                                                                       | |:x:|                  |
+  |  Full control of orgs and teams, read, and write org projects.                      |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **write:org**                                                                       | |:x:|                  |
+  |  Read and write org and team membership, read, and write org projects.              |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **read:org**                                                                        | |:x:|                  |
+  |  Read org and team membership, read, org projects.                                  |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **manage_runners:org**                                                              | |:x:|                  |
+  |  Manage org runners and runner groups.                                              |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **admin:public_key**                                                                | |:x:|                  |
+  |  Full control of user public keys.                                                  |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **write:public_key**                                                                | |:x:|                  |
+  |  Write user public keys.                                                            |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **read:public_key**                                                                 | |:x:|                  |
+  |  Read user public keys.                                                             |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **admin:repo_hook**                                                                 | |:x:|                  |
+  |  Full control of repository hooks.                                                  |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **write:repo_hook**                                                                 | |:x:|                  |
+  |  Write repository hooks.                                                            |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **read:repo_hook**                                                                  | |:x:|                  |
+  |  Read repository hooks.                                                             |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **admin:org_hook**                                                                  | |:x:|                  |
+  |  Full control of organization hooks.                                                |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **gist**                                                                            | |:x:|                  |
+  |  Create gists.                                                                      |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **notifications**                                                                   | |:x:|                  |
+  |  Access notifications.                                                              |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **user**                                                                            | |:x:|                  |
+  |  Update **all** user data.                                                          |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **read:user**                                                                       | |:x:|                  |
+  |  Read ALL user profile data.                                                        |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **user:email**                                                                      | |:x:|                  |
+  |  Access user email addresses (read-only).                                           |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **user:follow**                                                                     | |:x:|                  |
+  |  Follow and unfollow users.                                                         |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **delete_repo**                                                                     | |:x:|                  |
+  |  Delete repositories.                                                               |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **write:discussion**                                                                | |:x:|                  |
+  |  Read and write team discussions.                                                   |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **read:discussion**                                                                 | |:x:|                  |
+  |  Read team discussions.                                                             |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **admin:enterprise**                                                                | |:x:|                  |
+  |  Full control of enterprises.                                                       |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **manage_runners:enterprise**                                                       | |:x:|                  |
+  |  Manage enterprise runners and runner groups.                                       |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **manage_billing:enterprise**                                                       | |:x:|                  |
+  |  Read and write enterprise billing data.                                            |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **read:enterprise**                                                                 | |:x:|                  |
+  |  Read enterprise profile data.                                                      |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **audit_log**                                                                       | |:x:|                  |
+  |  Full control of audit log.                                                         |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **read:audit_log**                                                                  | |:x:|                  |
+  |  Read access of audit log.                                                          |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **codespace**                                                                       | |:x:|                  |
+  |  Full control of codespaces.                                                        |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **codespace:secrets**                                                               | |:x:|                  |
+  |  Ability to create, read, update, and delete codespace secrets.                     |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **project**                                                                         | |:x:|                  |
+  |  Full control of projects.                                                          |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **read:project**                                                                    | |:x:|                  |
+  |  Read access of projects.                                                           |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **admin:gpg_key**                                                                   | |:x:|                  |
+  |  Full control of public user GPG keys.                                              |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **write:gpg_key**                                                                   | |:x:|                  |
+  |  Write public user GPG keys.                                                        |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **read:gpg_key**                                                                    | |:x:|                  |
+  |  Read public user GPG keys.                                                         |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **admin:ssh_signing_key**                                                           | |:x:|                  |
+  |  Full control of public user SSH signing keys.                                      |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **write:ssh_signing_key**                                                           | |:x:|                  |
+  |  Write public user SSH signing keys.                                                |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+  | **read:ssh_signing_key**                                                            | |:x:|                  |
+  |  Read public user SSH signing keys.                                                 |                        |
+  +-------------------------------------------------------------------------------------+------------------------+
+
+.. _pypi_tokens:
+
+PyPI tokens
+~~~~~~~~~~~
+
+.. _pypi_private_token:
+
+``PYANSYS_PYPI_PRIVATE_PAT``
+****************************
+
+The ``PYANSYS_PYPI_PRIVATE_PAT`` token is used for authentication when uploading
+libraries to the private Ansys PyPI index. This token can be used as the password for
+the `twine <https://twine.readthedocs.io/en/stable/>`_ library.
+
+.. _pypi_token:
+
+``PYPI_TOKEN``
+**************
+
+The value of the ``PYPI_TOKEN`` token is unique for each repository. 
+This token is used for authentication when uploading libraries to the public PyPI index.
+
+
+``PYPI_TESTING_TOKEN``
+**********************
+
+The ``PYPI_TESTING_TOKEN`` token is used for testing uploads to the public PyPI index.
+
+
+Other tokens
+~~~~~~~~~~~~
+
+
+
+``TWINE_TOKEN``
+***************
+
+The ``TWINE_TOKEN`` token is used for authentication when uploading libraries to PyPI.
+Its value might change across repositories.
+Depending if the library is uploaded to a public PyPI index or the Ansys private PyPI index, its value matches
+:ref:`pypi_private_token` or :ref:`pypi_token`.
+
+
+
+.. _organization_bot:
+
+Organization bot
+----------------
+
+Because the usage of personal access tokens (PATs) is discouraged, the ``ansys``
+and ``ansys-internal`` organizations provide a bot named ``ansys-bot`` to
+perform certain tasks that require authentication. For example, this bot provides
+for publishing GitHub pages or logging into a Docker image registry.
+
+To use the bot for these tasks, you must use the bot tokens provided through secrets. For
+more information, see :ref:`organization_secrets`. For an overview of each token's permissions,
+see :ref:`organization_tokens`.
+
+By default, the bot has access to **all repositories** and has the following permissions:
+
+* **Read and write** permission to **actions, code, packages, and pull requests**
+* **Read** permission to **metadata and organization secrets**
+
+These permissions can be obtained using a temporal token obtained from
+the ``BOT_APPLICATION_PRIVATE_KEY`` token and the `peter-murray/workflow-application-token-action <https://github.com/peter-murray/workflow-application-token-action>`_. For an example, see :ref:`deploying_to_another_repo`.
