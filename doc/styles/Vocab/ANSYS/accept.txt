@@ -8,6 +8,7 @@ CI/CD
 CLI
 Codespell
 dataframes
+datagrams
 dependabot
 Dependabot
 Dev
@@ -28,7 +29,9 @@ github
 GitHub Actions
 Hotfixes
 hotfixes
+initialisms
 initializer
+internetworking
 Isort
 isort
 linenos
@@ -42,6 +45,7 @@ numpydoc
 Parametrizing
 parametrizing
 PAT
+pluggable
 Postprocessing
 postprocessing
 Protobuf

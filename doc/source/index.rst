@@ -29,13 +29,13 @@
            :link: how-to/index
            :link-type: doc
     
-           Detailed step-by-step guidelines.
+           Step-by-step guidelines.
 
         .. grid-item-card:: :octicon:`repo` Abstractions
            :link: abstractions/index
            :link-type: doc
 
-           Detailed explanations of the PyAnsys architecture.
+           Explanations of the PyAnsys architecture.
 
 
 .. card:: Style guidelines
