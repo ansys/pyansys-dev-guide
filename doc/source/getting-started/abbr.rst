@@ -26,7 +26,8 @@ Ansys Electronics Desktop: An Ansys product with the best-in-class solvers
 for electronics simulations.
 
 **APDL**
-APDL (Ansys Parametric Design Language): A powerful structured scripting language
+
+APDL (Ansys Parametric Design Language): A powerful, structured scripting language
 used to interact with the Ansys Mechanical solver. See also MAPDL, a fine element
 analysis program driven by APDL.
 
@@ -60,7 +61,7 @@ D - E - F
 **DevEco**
 
 Developer Ecosystem: The name of the Ansys team responsible for the
-`Ansys Developer <https://developer.ansys.com/>_` portal.
+`Ansys Developer <https://developer.ansys.com/>`_ portal.
 
 **DNS**
 
@@ -71,6 +72,7 @@ to IP addresses, which are numerical labels assigned to every device connected
 to a computer network that uses the Internet Protocol for communication.
 
 **DPF**
+
 Data Processing Framework: An Ansys product that provides numerical simulation users
 and engineers with a toolbox for accessing and transforming simulation data. With DPF,
 you can perform complex preprocessing or postprocessing of large amounts of simulation
@@ -94,10 +96,9 @@ G - H - I
 
 **gRPC**
 
-gRPC: A high performance, open source, universal Remote Procedure Call (RPC) framework.
+gRPC: A high performance, open source, universal RPC (remote procedure call) framework.
 gRPC can efficiently connect services in and across data centers with pluggable support
 for load balancing, tracing, health checking, and authentication.
-
 
 **IP**
 
@@ -138,6 +139,7 @@ P - Q - R
 ---------
 
 **PIM**
+
 Product Instance Management: The PIM API is a gRPC API, enabling both library
 and app developers to start a product in a remote environment and communicate
 with its API. The PIM API is not intended to manage stateless services, to be
@@ -146,7 +148,7 @@ purpose is to expose a minimum feature set for managing service-oriented apps.
 
 **PMM**
 
-Product marketing manager: Title of an Ansys person who can approve an open
+Product marketing manager: The title of an Ansys person who can approve an open
 source project for an Ansys product for public release.
 
 **PyPA**
@@ -157,6 +159,7 @@ share, and install Python software and to interact with indexes of downloadable
 Python software such as PyPI, the Python Package Index.
 
 **PyPI**
+
 Python Package Index: A repository of software for the Python programming language.
 PyPI helps you find and install software developed and shared by the Python community.
 
@@ -201,7 +204,7 @@ are remote login and command-line execution.
 
 **TDD**
 
-Test-drive development: A software development process that relies on software
+Test-driven development: A software development process that relies on software
 requirements being converted to test cases before software is fully developed.
 Software development is then tracked by repeatedly testing the software
 against all use cases.
