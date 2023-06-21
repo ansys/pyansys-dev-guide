@@ -7,8 +7,8 @@ libraries that interface with Ansys products or services. To try out a
 library, visit one of these links:
 
 * `PyAEDT`_
-* `PyDPF-Core <https://github.com/ansys/DPF-Core>`_
-* `PyDPF-Post <https://github.com/ansys/DPF-Post>`_
+* `PyDPF-Core <https://github.com/ansys/pydpf-core>`_
+* `PyDPF-Post <https://github.com/ansys/pydpf-post>`_
 * `PyMAPDL`_
 * `PyMAPDL Legacy Reader <https://github.com/ansys/pymapdl-reader>`_
 * `PyPIM <https://github.com/ansys/pypim>`_
@@ -16,7 +16,7 @@ library, visit one of these links:
 If you want to create, develop, or contribute to a PyAnsys library, 
 visit these links:
 
-* `PyAnsys Developer's Guide <https://github.com/ansys/about>`_
+* `PyAnsys Developer's Guide <https://dev.docs.pyansys.com/>`_
 * `Ansys Sphinx Theme Documentation <https://github.com/ansys/ansys-sphinx-theme>`_
 * `gRPC Hello-world Example <https://github.com/ansys/pyansys-helloworld>`_
 * `Material Example Data <https://github.com/ansys/example-data>`_
