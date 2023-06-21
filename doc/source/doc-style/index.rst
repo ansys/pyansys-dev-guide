@@ -24,7 +24,7 @@ The documentation for a PyAnsys library should contain:
 * Module, class, method, and function docstrings. See 
   :ref:`docstrings`.
 * Full gallery of examples. See `PyMAPDL Examples
-  <https://mapdldocs.pyansys.com/examples/index.html>`_.
+  <https://examples.mapdl.docs.pyansys.com/>`_.
 * General content on installing, using, and contributing.
 * Link to the library's documentation from the repository's README file.
 

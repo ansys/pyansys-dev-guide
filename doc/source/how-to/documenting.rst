@@ -27,7 +27,7 @@ Documentation sources
 
 The generation of PyAnsys documentation uses `Sphinx
 <https://www.sphinx-doc.org/en/master/>`__ and an Ansys-branded theme
-(`ansys-sphinx-theme <https://github.com/ansys/Sansys-sphinx-theme>`_) to
+(`ansys-sphinx-theme <https://github.com/ansys/ansys-sphinx-theme>`_) to
 assemble content in:
 
 - Docstrings
@@ -154,7 +154,7 @@ For comprehensive syntax information, see the `reStrucutredText Markup Specifica
 <https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html>`_.
 
 Because you need to be familiar with the content in the `PyAnsys Developer's
-Guide <dev.docs.pyansys.com/>`_, explore its HTML pages and then the RST files
+Guide <https://dev.docs.pyansys.com/index.html>`_, explore its HTML pages and then the RST files
 in its `repository <https://github.com/ansys/dev-guide>`_. This should help
 you to understand the syntax and see how RST files are nested to create this guide.
 
@@ -680,7 +680,7 @@ adding the ``dev`` path to the URL as follows:
 For example, consider PyAEDT documentation:
 
 - The URL for documentation of the latest stable release is `<https://aedt.docs.pyansys.com/>`_.
-- The URL for documentation of the latest development version is `<https://aedt.docs.pyansys.com/dev/>`_.
+- The URL for documentation of the latest development version is `<https://aedt.docs.pyansys.com/version/dev/>`_.
 
 The latest development versions of both the library and its documentation are
 automatically kept up to date via GitHub actions.
@@ -699,7 +699,7 @@ GitHub pull request. For more information, see :ref:`Build documentation`.
 
 .. _GitHub Pages: https://pages.github.com/
 .. _GitHub Actions: https://github.com/features/actions
-.. _PyMAPDL Documentation: https://mapdldocs.pyansys.com/
+.. _PyMAPDL Documentation: https://mapdl.docs.pyansys.com/
 .. _pyansys/pymapdl-docs: https://github.com/ansys/pymapdl-docs
 .. _gh-pages: https://github.com/ansys/dev-guide/tree/gh-pages
 .. _enabling GitHub pages: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site
