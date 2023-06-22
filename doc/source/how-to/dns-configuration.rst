@@ -25,7 +25,7 @@ shows how to create DNS TXT verification elements for GitHub Pages sites.
 
 .. warning::
 
-    Only users with privilege access to the ``docs.pyansys.com`` DNS zone can
+    Only users with privilege access to the ``pyansys.com`` DNS zone can
     perform this operation. Contact the `PyAnsys Core Team`_ if needed.
 
 PyAnsys verified domains
