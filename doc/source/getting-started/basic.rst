@@ -16,7 +16,7 @@ library, visit one of these links:
 If you want to create, develop, or contribute to a PyAnsys library, 
 visit these links:
 
-* `PyAnsys Developer's Guide <https://dev.docs.pyansys.com/>`_
+* `PyAnsys Developer's Guide <https://github.com/ansys/pyansys-dev-guide>`_
 * `Ansys Sphinx Theme Documentation <https://github.com/ansys/ansys-sphinx-theme>`_
 * `gRPC Hello-world Example <https://github.com/ansys/pyansys-helloworld>`_
 * `Material Example Data <https://github.com/ansys/example-data>`_
