@@ -33,6 +33,7 @@ PyAnsys verified domains
 
 In the `PyAnsys GitHub organization`_, this domain has been verified:
 
+* ``pyansys.com``
 * ``docs.pyansys.com``
 
 .. warning::
