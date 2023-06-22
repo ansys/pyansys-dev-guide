@@ -26,7 +26,7 @@ PROTO files, create coverage reports, and report on system coverage:
 
 * `pyansys-protos-generator <https://github.com/ansys/pyansys-protos-generator>`_
 * `example-coverage <https://github.com/ansys/example-coverage>`_
-* `system-reporting-tool <https://github.com/ansys/system-reporting-tool>`_
+* `pyansys-tools-report <https://github.com/ansys/pyansys-tools-report>`_
 
 Quick start guide
 -----------------
