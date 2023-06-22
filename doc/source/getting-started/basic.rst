@@ -7,8 +7,8 @@ libraries that interface with Ansys products or services. To try out a
 library, visit one of these links:
 
 * `PyAEDT`_
-* `PyDPF-Core <https://github.com/ansys/DPF-Core>`_
-* `PyDPF-Post <https://github.com/ansys/DPF-Post>`_
+* `PyDPF-Core <https://github.com/ansys/pydpf-core>`_
+* `PyDPF-Post <https://github.com/ansys/pydpf-post>`_
 * `PyMAPDL`_
 * `PyMAPDL Legacy Reader <https://github.com/ansys/pymapdl-reader>`_
 * `PyPIM <https://github.com/ansys/pypim>`_
@@ -16,7 +16,7 @@ library, visit one of these links:
 If you want to create, develop, or contribute to a PyAnsys library, 
 visit these links:
 
-* `PyAnsys Developer's Guide <https://github.com/ansys/about>`_
+* `PyAnsys Developer's Guide <https://github.com/ansys/pyansys-dev-guide>`_
 * `Ansys Sphinx Theme Documentation <https://github.com/ansys/ansys-sphinx-theme>`_
 * `gRPC Hello-world Example <https://github.com/ansys/pyansys-helloworld>`_
 * `Material Example Data <https://github.com/ansys/example-data>`_
@@ -26,7 +26,7 @@ PROTO files, create coverage reports, and report on system coverage:
 
 * `pyansys-protos-generator <https://github.com/ansys/pyansys-protos-generator>`_
 * `example-coverage <https://github.com/ansys/example-coverage>`_
-* `system-reporting-tool <https://github.com/ansys/system-reporting-tool>`_
+* `pyansys-tools-report <https://github.com/ansys/pyansys-tools-report>`_
 
 Quick start guide
 -----------------

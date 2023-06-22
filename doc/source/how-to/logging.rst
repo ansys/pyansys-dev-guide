@@ -5,7 +5,7 @@ guidelines are best practices discovered through implementing logging services
 and modules within PyAnsys libraries. Suggestions and improvements are welcomed.
 
 Visit the `Official Python Logging Tutorial
-<https://docs.python.org/es/3/howto/logging.html>`_ for logging techniques. In
+<https://docs.python.org/3/howto/logging.html>`_ for logging techniques. In
 particular, see:
 
 - `Python Basic Logging Tutorial <https://docs.python.org/3/howto/logging.html#basic-logging-tutorial>`_
@@ -162,7 +162,7 @@ of the global and instance loggers.
 
 You can find the source for this example logger in the collapsible section below
 and in the ``dev_guide`` repository at `pyansys_logging.py
-<https://github.com/ansys/dev-guide/blob/main/logging/pyansys_logging.py>`_.
+<https://github.com/ansys/pyansys-dev-guide/blob/main/doc/source/how-to/code/pyansys_logging.py>`_.
 
 .. collapse:: Example PyAnsys Custom Logger Module
 

@@ -6,9 +6,9 @@ online under the following canonical name (CNAME) convention:
 
 ``https://<product>.docs.pyansys.com``
 
-To request a CNAME for the ``pyansys.com`` domain, contact
-`Maxime Rey`_, `Roberto Pastor Muela`_ or `Alex Kaszynski`_. Any of these members
-can handle the creation of the requested PyAnsys subdomain.
+To request a CNAME for the ``pyansys.com`` domain, contact the
+`PyAnsys Core Team`_, so one of the members can handle the 
+creation of the requested PyAnsys subdomain.
 
 Once the CNAME is created, repository administrators can configure their published
 documentation in GitHub pages to be exposed through it. To configure the CNAME
@@ -26,8 +26,7 @@ shows how to create DNS TXT verification elements for GitHub Pages sites.
 .. warning::
 
     Only users with privilege access to the ``pyansys.com`` DNS zone can
-    perform this operation. Contact `Maxime Rey`_, `Roberto Pastor Muela`_
-    or `Alex Kaszynski`_ if needed.
+    perform this operation. Contact the `PyAnsys Core Team`_ if needed.
 
 PyAnsys verified domains
 ------------------------
@@ -59,8 +58,8 @@ This is better explained with the following examples:
 Case scenario - **protected** subdomain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- Consider that the domain ``pyansys.com`` has been verified for the `PyAnsys GitHub organization`_.
-- This CNAME is requested: ``subdomain.pyansys.com``.
+- Consider that the domain ``docs.pyansys.com`` has been verified for the `PyAnsys GitHub organization`_.
+- This CNAME is requested: ``subdomain.docs.pyansys.com``.
 
 This CNAME can only be used by repositories inside the `PyAnsys GitHub organization`_.
 Any attempt by an external user to take over this CNAME is identified and rejected by GitHub.
@@ -68,8 +67,8 @@ Any attempt by an external user to take over this CNAME is identified and reject
 Case scenario - **vulnerable** subdomain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- The domain ``pyansys.com`` has been verified for the `PyAnsys GitHub organization`_.
-- This CNAME is requested: ``subsubdomain.subdomain.pyansys.com``.
+- The domain ``docs.pyansys.com`` has been verified for the `PyAnsys GitHub organization`_.
+- This CNAME is requested: ``subsubdomain.subdomain.docs.pyansys.com``.
 
 This CNAME **can** be used by external users for their repositories. For this reason,
 you must avoid creating CNAME requests that are not verified by the organization.
@@ -99,9 +98,7 @@ Thus, it is important that you follow these guidelines:
    Links
 
 .. _PyAnsys DNS Zones: https://portal.azure.com/#@ansys.com/resource/subscriptions/2870ae10-53f8-46b1-8971-93761377c38b/resourceGroups/pyansys/providers/Microsoft.Network/dnszones/pyansys.com/overview
-.. _Maxime Rey: https://teams.microsoft.com/l/chat/0/0?users=maxime.rey@ansys.com
-.. _Roberto Pastor Muela: https://teams.microsoft.com/l/chat/0/0?users=roberto.pastormuela@ansys.com
-.. _Alex Kaszynski: https://teams.microsoft.com/l/chat/0/0?users=alexander.kaszynski@ansys.com
+.. _PyAnsys Core Team: mailto:pyansys.core@ansys.com
 .. _PyAnsys GitHub organization: https://github.com/ansys
 .. _Managing a custom domain for your GitHub Pages site: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
 .. _Verifying a domain for your organization site: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages#verifying-a-domain-for-your-organization-site
