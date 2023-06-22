@@ -6,7 +6,7 @@ online under the following canonical name (CNAME) convention:
 
 ``https://<product>.docs.pyansys.com``
 
-To request a CNAME for the ``docs.pyansys.com`` domain, contact the
+To request a CNAME for the ``pyansys.com`` domain, contact the
 `PyAnsys Core Team`_, so one of the members can handle the 
 creation of the requested PyAnsys subdomain.
 
