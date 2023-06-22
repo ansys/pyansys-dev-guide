@@ -17,7 +17,7 @@ for your documentation, refer to `Managing a custom domain for your GitHub Pages
 DNS TXT verification
 --------------------
 
-Once a CNAME is registered under the ``docs.pyansys.com`` domain, the next step is
+Once a CNAME is registered under the ``pyansys.com`` domain, the next step is
 to perform a DNS TXT verification. All PyAnsys subdomains are required by Ansys'
 IT department to provide a DNS TXT verification. To verify a new CNAME for an
 organization, refer to `Verifying a domain for your organization site`_. This guide
