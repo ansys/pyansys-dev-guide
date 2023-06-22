@@ -31,7 +31,7 @@ shows how to create DNS TXT verification elements for GitHub Pages sites.
 PyAnsys verified domains
 ------------------------
 
-In the `PyAnsys GitHub organization`_, this domain has been verified:
+In the `PyAnsys GitHub organization`_, these domains have been verified:
 
 * ``pyansys.com``
 * ``docs.pyansys.com``
