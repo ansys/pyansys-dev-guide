@@ -169,7 +169,7 @@ sections in your library documentation:
 - ``User guide`` describes how to use basic features of the library.
 - ``API reference`` documents API resources provided by the library.
 - ``Examples`` provides fully fledged examples for using the library.
-- ``Contributing`` refers to the `PyAnsys Developer's Guide <dev.docs.pyansys.com/>`_
+- ``Contributing`` refers to the `PyAnsys Developer's Guide`_
   for overall guidance and provides library-specific contribution information.
 
 
