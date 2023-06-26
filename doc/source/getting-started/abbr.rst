@@ -31,7 +31,7 @@ Ansys Electronics Desktop: An Ansys product with the best-in-class solvers
 for electronics simulations. ACT uses easy-to-learn yet powerful XML (eXtensible
 Markup Language) and IronPython programming languages. 
 
-*AI**
+**AI**
 
 Artificial intelligence: A branch of computer science that deals with building
 smart machines that can perceive, synthesize, and infer information, allowing
