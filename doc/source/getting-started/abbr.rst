@@ -197,7 +197,7 @@ and icons.
 
 **HTTP**
 
-Hpertext transfer protocol: A protocol for securing the communication between a browser
+Hypertext transfer protocol: A protocol for securing the communication between a browser
 and a web server. HTTP is the foundation of any internet data exchange.
 
 **HTTP**
