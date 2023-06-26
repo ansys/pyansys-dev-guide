@@ -202,7 +202,7 @@ and a web server. HTTP is the foundation of any internet data exchange.
 
 **HTTP**
 
-Hpertext transfer protocol: A protocol for transferring data between a browser
+Hypertext transfer protocol: A protocol for transferring data between a browser
 and a web server, providing the foundation of data exchange on the internet.
 
 **HTTPS**
