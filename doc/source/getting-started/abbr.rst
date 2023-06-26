@@ -176,9 +176,9 @@ fluid flow, mass transport, and electromagnetic analysis.
 **FSW**
 
 Friction stir welding: A solid-state joining process that uses a non-consumable
-tool to join two facing workpieces without melting the workpiece material. A
-`PyMAPDL example <https://examples.mapdl.docs.pyansys.com/technology_showcase_examples/techdemo-28/ex_28-tecfricstir.html>`_
-shows how to simulate the FSW process. 
+tool to join two facing workpieces without melting the workpiece material. The
+`Friction stir welding (FSW) simulation <https://examples.mapdl.docs.pyansys.com/technology_showcase_examples/techdemo-28/ex_28-tecfricstir.html>`_
+example in the PyMAPDL documentation shows how to simulate the FSW process. 
 
 G - H - I
 ---------
@@ -294,9 +294,9 @@ insulators, and other components such as diodes and resistors.
 
 **PCBN**
 
-Polycrystalline Cubic Boron Nitride: A cutting tool used in the
-machining of extremely hard or abrasive materials. The `PyMAPDL example <https://examples.mapdl.docs.pyansys.com/technology_showcase_examples/techdemo-28/ex_28-tecfricstir.html>`_,
-on simulating the FSW (friction stir welding) process mentions this tool. 
+Polycrystalline cubic boron nitride: A super-abrasive material that is used to
+make cutting tool for machining extremely hard materials. This tool is used
+in FSW (friction stir welding).
 
 **PEP8**
 
@@ -327,10 +327,11 @@ the main repository.
 **PSD**
 
 Power spectral density: A type of frequency-domain analysis in vibration analysis
-that is a measure of a signal's power content versus frequency. A
-`PyMAPDL example <https://examples.mapdl.docs.pyansys.com/technology_showcase_examples/techdemo-20/ex_20-tecPCB.html>`_
-shows how to import an existing FEA (finite element analysis) model and run a modal and
-PSD analysis. 
+that is a measure of a signal's power content versus frequency. The 
+`Dynamic simulation of a printed circuit board assembly
+<https://examples.mapdl.docs.pyansys.com/technology_showcase_examples/techdemo-20/ex_20-tecPCB.html>`_
+example in the PyMAPDL documentation shows how to import an existing FEA
+(finite element analysis) model and run a modal and PSD analysis. 
 
 **PyPA**
 
