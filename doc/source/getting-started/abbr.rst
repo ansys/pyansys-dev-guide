@@ -166,7 +166,7 @@ software to reduce the number of physical prototypes and experiments and to opti
 components in their design phases to develop better products more quickly and less
 expensively.
 
-FEM
+**FEM**
 
 Finite element method: A popular method for numerically solving differential
 equations arising in engineering and mathematical modeling. Typical problem areas
