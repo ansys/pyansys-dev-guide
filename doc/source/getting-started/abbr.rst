@@ -207,7 +207,7 @@ and a web server, providing the foundation of data exchange on the internet.
 
 **HTTPS**
 
-Hpertext transfer protocol secure: An extension of HTTP that uses encryption
+Hypertext transfer protocol secure: An extension of HTTP that uses encryption
 for transferring data between a browser and a web server so that sensitive
 data can be safely exchanged on the internet.
 
