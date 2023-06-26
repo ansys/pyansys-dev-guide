@@ -317,7 +317,7 @@ purpose is to expose a minimum feature set for managing service-oriented apps.
 Product marketing manager: The title of an Ansys person who can approve an open
 source project for an Ansys product for public release.
 
-*PR**
+**PR**
 
 Pull request: A notification to a development team that a branch or fork of
 some code has changes that are ready to be reviewed. A PR allows the team to
