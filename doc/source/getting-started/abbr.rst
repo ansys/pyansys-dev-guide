@@ -177,7 +177,7 @@ fluid flow, mass transport, and electromagnetic analysis.
 
 Friction stir welding: A solid-state joining process that uses a non-consumable
 tool to join two facing workpieces without melting the workpiece material. A
-`PyMAPDL example <https://examples.mapdl.docs.pyansys.com/technology_showcase_examples/techdemo-28/ex_28-tecfricstir.html>`_
+`PyMAPDL FSW example <https://examples.mapdl.docs.pyansys.com/technology_showcase_examples/techdemo-28/ex_28-tecfricstir.html>`_
 shows how to simulate the FSW process. 
 
 G - H - I
