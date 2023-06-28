@@ -144,9 +144,10 @@ The technical review of the project verifies the following:
     * The project author is ANSYS, Inc.
     * The project maintainer is ANSYS, Inc.
     * Contact and support information is provided in the project.
-    * :ref:`The \`\`AUTHORS.md\`\` file` is present and contains the project lead and main contributors.
+    * :ref:`The \`\`AUTHORS\`\` file` is present and compliant with legal requirements.
     * :ref:`The \`\`LICENSE\`\` file` is present and compliant with legal requirements.
     * :ref:`The \`\`CONTRIBUTING.md\`\` file` is present.
+    * :ref:`The \`\`CONTRIBUTORS.md\`\` file` is present and contains the project lead and main contributors.
 
 .. card:: |uncheck| The project is compliant with PyAnsys style guidelines.
 

@@ -202,15 +202,14 @@ This is the preferred way of naming directories and files inside the
 
 
 
-The ``AUTHORS.md`` file
------------------------
-An ``AUTHORS.md`` file is used to list the authors of the repository. It is
-used to credit the authors for their individual contributions and provide a
-record of authorship for the codebase. Use your first and last name and provide
-a link to your GitHub username.
+The ``AUTHORS`` file
+--------------------
+An ``AUTHORS`` file is used to specify the authorship of the repository. Its
+format has been defined by the Ansys Legal department. External contributors
+may be added on demand to this file. Make sure to adapt the project name on
+your specific repository ``AUTHORS`` file.
 
-.. literalinclude:: code/authors_file.md
-   :language: markdown
+.. include:: code/authors_code.rst
 
 
 The ``CHANGELOG.md`` file
@@ -248,6 +247,17 @@ Ideally, the ``CONTRIBUTING.md`` file for a PyAnsys project should be pointing
 towards the `PyAnsys Developer's Guide <https://dev.docs.pyansys.com/index.html>`_.
 
 .. literalinclude:: code/contributing_file.md
+   :language: markdown
+
+
+The ``CONTRIBUTORS.md`` file
+----------------------------
+The ``CONTRIBUTORS.md`` file is used to list the contributors to the repository. It is
+used to credit the authors for their individual contributions and provide a
+record of authorship for the codebase. Use your first and last name and provide
+a link to your GitHub username.
+
+.. literalinclude:: code/contributors_file.md
    :language: markdown
 
 

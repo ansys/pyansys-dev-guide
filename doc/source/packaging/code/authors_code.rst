@@ -1,0 +1,14 @@
+.. code:: text
+
+    # This is the list of <PROJECT-NAME>'s significant contributors.
+    #
+    # This file does not necessarily list everyone who has contributed code,
+    #
+    # For contributions made under a Corporate CLA, the organization will
+    # appear in this file.
+    #
+    # If you have contributed to the repository and wish to be added to this file
+    # please submit a request.
+    #
+    #
+    ANSYS, Inc.

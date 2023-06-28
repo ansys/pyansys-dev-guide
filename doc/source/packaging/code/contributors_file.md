@@ -1,10 +1,10 @@
-# Authors
+# Contributors
 
 ## Project Lead or Owner
 
 * [First Last](https://github.com/ghusername)
 
-## Contributors
+## Individual Contributors
 
 * [Jane Smith](https://github.com/janesmith)
 * [Jim Jones](https://github.com/jimjones)
