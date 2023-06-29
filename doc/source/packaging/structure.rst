@@ -207,7 +207,7 @@ The ``AUTHORS`` file
 An ``AUTHORS`` file is used to specify the authorship of the repository. Its
 format has been defined by the Ansys Legal department. External contributors
 may be added on demand to this file. Make sure to adapt the project name on
-your specific repository ``AUTHORS`` file.
+your specific repository's ``AUTHORS`` file.
 
 .. include:: code/authors_code.rst
 
@@ -252,9 +252,9 @@ towards the `PyAnsys Developer's Guide <https://dev.docs.pyansys.com/index.html>
 
 The ``CONTRIBUTORS.md`` file
 ----------------------------
-The ``CONTRIBUTORS.md`` file is used to list the contributors to the repository. It is
-used to credit the authors for their individual contributions and provide a
-record of authorship for the codebase. Use your first and last name and provide
+The ``CONTRIBUTORS.md`` file is used to list the contributors to the repository. Its
+purpose is to credit the authors for their individual contributions and provide a
+record of authorship for the codebase. Provide your first and last names and
 a link to your GitHub username.
 
 .. literalinclude:: code/contributors_file.md
