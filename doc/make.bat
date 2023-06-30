@@ -40,4 +40,10 @@ goto end
 	pdflatex "%%f" --interaction=nonstopmode)
 
 :end
+
+:html
+%SPHINXBUILD% -M linkcheck %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+%SPHINXBUILD% -M html %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+goto end
+
 popd
