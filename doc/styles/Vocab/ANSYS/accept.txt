@@ -97,4 +97,4 @@ cybersecurity
 substring
 parm
 PyMeilisearch
-Meilisearch
+MeiliSearch
