@@ -27,7 +27,7 @@ Documentation sources
 
 The generation of PyAnsys documentation uses `Sphinx
 <https://www.sphinx-doc.org/en/master/>`__ and an Ansys-branded theme
-(`ansys-sphinx-theme <https://github.com/ansys/ansys-sphinx-theme>`_) to
+(`ansys-sphinx-theme`_) to
 assemble content in:
 
 - Docstrings
@@ -700,7 +700,7 @@ to provide fast and relevant search capabilities for your application's data.
 
 To enable multi-version documentation in your project, follow these steps:
 
-- Use ansys-sphinx-theme>=0.9 for building the documentation in your project.
+- Use ``ansys-sphinx-theme>=0.9`` for building the documentation in your project.
 
 - Include the following lines in the conf.py file:
 
@@ -723,6 +723,7 @@ To enable multi-version documentation in your project, follow these steps:
           },
           ...
       }
+  
   In this code, replace <your-index-name> with the desired name for your MeiliSearch index.
   The ``convert_version_to_pymeilisearch`` function is to convert your package's version into a format suitable for MeiliSearch indexing.
 
@@ -757,8 +758,8 @@ Replace <your-package>, <your-index-name>, and <library> with appropriate values
 The version of your package is automatically calculated and used for indexing, ensuring that your documentation remains up-to-date.
 For more detailed documentation, refer to the `PyMeilisearch`_ and `ansys-sphinx-theme`_ documentation.
 By following these steps, you can effectively use PyMeilisearch as a search engine for multi-version documentation in your project.
-..
-   Links
+
+.. Links
 
 .. _GitHub Pages: https://pages.github.com/
 .. _GitHub Actions: https://github.com/features/actions
@@ -775,4 +776,4 @@ By following these steps, you can effectively use PyMeilisearch as a search engi
 .. _PyAnsys Organization: https://github.com/ansys
 .. _ansys-templates: https://github.com/ansys/ansys-templates
 .. _PyMeilisearch: https://pymeilisearch.docs.ansys.com/
-.. _ansys-sphinx-theme: https://sphinxdocs.ansys.com/version/stable/
+.. _ansys-sphinx-theme: https://sphinxdocs.ansys.com/
