@@ -31,7 +31,7 @@ doc-deploy-stable:
         cname: ${{ env.CNAME }}
         token: ${{ secrets.GITHUB_TOKEN }}
 
-doc-deploy-dev:
+doc-deploy-index:
   name: "Index the documentation and scrap using pymeilisearch"
   runs-on: ubuntu-latest
   needs: doc-deploy

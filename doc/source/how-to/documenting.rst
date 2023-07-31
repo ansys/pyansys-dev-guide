@@ -693,7 +693,70 @@ As you are making changes in this branch, you want to periodically generate the
 documentation locally so that you can test your changes before you create a
 GitHub pull request. For more information, see :ref:`Build documentation`.
 
+Using PyMeilisearch as search engine
+------------------------------------
+PyMeilisearch is a Python client library that enables you to utilize MeiliSearch, an open-source search engine, 
+to provide fast and relevant search capabilities for your application's data.
 
+To enable multi-version documentation in your project, follow these steps:
+
+- Use ansys-sphinx-theme>=0.9 for building the documentation in your project.
+
+- Include the following lines in the conf.py file:
+
+  .. code-block:: python
+  
+      import os
+  
+      from ansys_sphinx_theme import convert_version_to_pymeilisearch
+  
+  
+      cname = os.getenv("DOCUMENTATION_CNAME", "<DEFAULT_CNAME>")
+      """The canonical name of the webpage hosting the documentation."""
+  
+      html_theme_options = {
+          "use_meilisearch": {
+            "api_key": os.getenv("MEILISEARCH_API_KEY", ""),
+            "index_uids": {
+              f"<your-index-name>{convert_version_to_pymeilisearch(__version__)}": "index name to be displayed",  # noqa: E501
+            },
+          },
+          ...
+      }
+  In this code, replace <your-index-name> with the desired name for your MeiliSearch index.
+  The `convert_version_to_pymeilisearch` function will convert your package's version into a format suitable for MeiliSearch indexing.
+
+
+  - Enable documentation index deployment for development and stable versions using GitHub Actions:
+  
+  .. code-block:: yaml
+
+    jobs:
+      doc-deploy-index:
+        name: "Index the documentation and scrap using PyMeilisearch"
+        runs-on: ubuntu-latest
+        needs: doc-deploy
+        if: github.event_name == 'push'
+        steps:
+          - name: Scrape the stable documentation to PyMeilisearch
+            run: |
+              VERSION=$(python -c "from <your-package> import __version__; print('.'.join(__version__.split('.')[:2]))")
+              VERSION_MEILI=$(python -c "from <your-package> import __version__; print('-'.join(__version__.split('.')[:2]))")
+              echo "Calculated VERSION: $VERSION"
+              echo "Calculated VERSION_MEILI: $VERSION_MEILI"
+
+          - name: "Deploy the latest documentation index"
+            uses: ansys/actions/doc-deploy-index@v4.1
+            with:
+              cname: "<library>.docs.pyansys.com/version/$VERSION"
+              index-name: "<index-name>v$VERSION_MEILI"
+              host-url: "<meilisearch-host-url>"
+              api-key: ${{ secrets.MEILISEARCH_API_KEY }}
+
+Replace <your-package>, <your-index-name>, and <library> with appropriate values for your project. 
+The version of your package will be automatically calculated and used for indexing, ensuring that your documentation remains up-to-date.
+For more detailed documentation, refer to the `PyMeilisearch`_ and `ansys-sphinx-theme`_ documentation.
+By following these steps, you can effectively use PyMeilisearch as a search engine for multi-version documentation in your project.
 ..
    Links
 
@@ -711,3 +774,5 @@ GitHub pull request. For more information, see :ref:`Build documentation`.
 .. _PyAnsys Bot: https://github.com/apps/pyansys-bot
 .. _PyAnsys Organization: https://github.com/ansys
 .. _ansys-templates: https://github.com/ansys/ansys-templates
+.. _PyMeilisearch: https://pymeilisearch.docs.ansys.com/
+.. _ansys-sphinx-theme: https://sphinxdocs.ansys.com/version/stable/
