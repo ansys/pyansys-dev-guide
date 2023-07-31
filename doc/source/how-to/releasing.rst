@@ -292,7 +292,7 @@ Replace ``<TOKEN-REDACTED>`` with the private PyPI token respectively.
           runs-on: ubuntu-latest
           if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
           steps:
-            - uses: pyansys/actions/release-pypi-private@v3
+            - uses: ansys/actions/release-pypi-private@v4
               with:
                 library-name: "ansys-<product>-<library>"
                 twine-username: "__token__"
@@ -396,7 +396,7 @@ Replace ``<PACKAGE-NAME>`` and ``<TOKEN-REDACTED>`` with the package name and th
           runs-on: ubuntu-latest
           if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
           steps:
-            - uses: pyansys/actions/release-pypi-public@v3
+            - uses: ansys/actions/release-pypi-public@v3
               with:
                 library-name: "ansys-<product>-<library>"
                 twine-username: "__token__"
@@ -427,7 +427,7 @@ the :ref:`Project approval and public release` section.
           runs-on: ubuntu-latest
           if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
           steps:
-            - uses: pyansys/actions/release-github@v3
+            - uses: ansys/actions/release-github@v3
               with:
                 library-name: "ansys-<product>-<library>"
 

@@ -76,7 +76,7 @@ start with:
            python-version: ['3.7', '3.8', '3.9', '3.10']
        steps:
          - name: "Run tests using pytest"
-           run: pyansys/actions/test-pytest@v3
+           run: ansys/actions/test-pytest@v4
            with:
              python-version: ${{ matrix.os }}
 

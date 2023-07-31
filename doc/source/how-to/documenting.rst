@@ -465,7 +465,7 @@ The resulting PDF and intermediate LaTeX files are created in the
 
 Enabling multi-version documentation
 ------------------------------------
-With the release of `pyansys/actions@v4
+With the release of `ansys/actions@v4
 <https://actions.docs.ansys.com/version/stable/index.html>`_ , projects can
 benefit from multi-version documentation. Projects taking advantage of this
 feature need to apply different configurations according to their level of
@@ -520,7 +520,7 @@ released versions.
 
     Only the development branch and the last three stable versions are
     shown by default in the documentation drop-down button. To show more versions,
-    use the ``render-last`` variable in the `pyansys/actions/doc-deploy-stable
+    use the ``render-last`` variable in the `ansys/actions/doc-deploy-stable
     action
     <https://actions.docs.ansys.com/version/stable/doc-actions/index.html#doc-deploy-stable-action>`_.
 
@@ -556,7 +556,7 @@ in an automated way.
           runs-on: ubuntu-latest
           needs: build-library
           steps:
-            - uses: pyansys/actions/doc-deploy-dev@v4
+            - uses: ansys/actions/doc-deploy-dev@v4
               with:
                 doc-artifact-name: '<html-artifact-name>'
                 cname: ${{ env.DOCUMENTATION_CNAME }}
@@ -569,7 +569,7 @@ in an automated way.
           runs-on: ubuntu-latest
           needs: release
           steps:
-            - uses: pyansys/actions/doc-deploy-stable@v4
+            - uses: ansys/actions/doc-deploy-stable@v4
               with:
                 doc-artifact-name: '<html-artifact-name>'
                 cname: ${{ env.DOCUMENTATION_CNAME }}
@@ -615,7 +615,7 @@ workflow:
           runs-on: ubuntu-latest
           needs: build-library
           steps:
-            - uses: pyansys/actions/doc-deploy-dev@v4
+            - uses: ansys/actions/doc-deploy-dev@v4
               with:
                 doc-artifact-name: '<html-artifact-name>'
                 cname: ${{ env.DOCUMENTATION_CNAME }}
@@ -629,7 +629,7 @@ workflow:
           runs-on: ubuntu-latest
           needs: release
           steps:
-            - uses: pyansys/actions/doc-deploy-stable@v4
+            - uses: ansys/actions/doc-deploy-stable@v4
               with:
                 doc-artifact-name: '<html-artifact-name>'
                 cname: ${{ env.DOCUMENTATION_CNAME }}
@@ -637,17 +637,17 @@ workflow:
                 external-repository: ${{ env.DOCUMENTATION_REPOSITORY }}
 
 
-Multi-version migration from ``pyansys/actions@v3``  to ``pyansys/actions@v4``
+Multi-version migration from ``ansys/actions@v3``  to ``ansys/actions@v4``
 ------------------------------------------------------------------------------
-Projects using the multi-version feature should upgrade to `pyansys/actions@v4
+Projects using the multi-version feature should upgrade to `ansys/actions@v4
 <https://actions.docs.ansys.com/version/stable/index.html>`_ or higher to
 benefit from stable links. This is achieved by introducing a new layout that is
-not compatible with older `pyansys/actions` versions.
+not compatible with older `ansys/actions` versions.
 
 To perform the migration, follow these steps:
 
 * Update all the continuous integration ``YML`` files to use
-  ``pyansys/actions@v4`` or higher.
+  ``ansys/actions@v4`` or higher.
 
 * Make sure that the ``"json_url"`` key points to
   ``f"https://{cname}/versions.json"``. Note that the ``release/`` substring is
