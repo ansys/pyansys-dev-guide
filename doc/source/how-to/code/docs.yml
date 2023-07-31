@@ -30,3 +30,17 @@ doc-deploy-stable:
       with:
         cname: ${{ env.CNAME }}
         token: ${{ secrets.GITHUB_TOKEN }}
+
+doc-deploy-dev:
+  name: "Index the documentation and scrap using pymeilisearch"
+  runs-on: ubuntu-latest
+  needs: doc-deploy
+  if: github.event_name == 'push'
+  steps:
+    - name: "Deploy the latest documentation index"
+      uses: ansys/actions/doc-deploy-index@v4.1
+      with:
+          cname: "<library>.docs.pyansys.com/version/<version-number>"
+          index-name: "<index-name>"
+          host-url: "<meilisearch-host-url>"
+          api-key: ${{ secrets.MEILISEARCH-API-KEY }}
