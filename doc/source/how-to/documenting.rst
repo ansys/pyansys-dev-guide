@@ -226,7 +226,7 @@ to be ``../examples`` and the `output` directory to be ``examples``:
 
     sphinx_gallery_conf = {
      'examples_dirs': '../examples',   # path to your example scripts
-     'gallery_dirs': 'examples',  # path where the gallery generated output will be saved
+     'gallery_dirs': 'examples',  # path where the gallery generated outputs are to be saved
     }
 
 Because these examples are
@@ -724,7 +724,7 @@ To enable multi-version documentation in your project, follow these steps:
           ...
       }
   In this code, replace <your-index-name> with the desired name for your MeiliSearch index.
-  The `convert_version_to_pymeilisearch` function will convert your package's version into a format suitable for MeiliSearch indexing.
+  The ``convert_version_to_pymeilisearch`` function is to convert your package's version into a format suitable for MeiliSearch indexing.
 
 
   - Enable documentation index deployment for development and stable versions using GitHub Actions:
@@ -754,7 +754,7 @@ To enable multi-version documentation in your project, follow these steps:
               api-key: ${{ secrets.MEILISEARCH_API_KEY }}
 
 Replace <your-package>, <your-index-name>, and <library> with appropriate values for your project. 
-The version of your package will be automatically calculated and used for indexing, ensuring that your documentation remains up-to-date.
+The version of your package is automatically calculated and used for indexing, ensuring that your documentation remains up-to-date.
 For more detailed documentation, refer to the `PyMeilisearch`_ and `ansys-sphinx-theme`_ documentation.
 By following these steps, you can effectively use PyMeilisearch as a search engine for multi-version documentation in your project.
 ..
