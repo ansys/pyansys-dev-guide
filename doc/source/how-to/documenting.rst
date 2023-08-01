@@ -27,7 +27,7 @@ Documentation sources
 
 The generation of PyAnsys documentation uses `Sphinx
 <https://www.sphinx-doc.org/en/master/>`__ and an Ansys-branded theme
-(`ansys-sphinx-theme <https://github.com/ansys/ansys-sphinx-theme>`_) to
+(`ansys-sphinx-theme`_) to
 assemble content in:
 
 - Docstrings
@@ -226,7 +226,7 @@ to be ``../examples`` and the `output` directory to be ``examples``:
 
     sphinx_gallery_conf = {
      'examples_dirs': '../examples',   # path to your example scripts
-     'gallery_dirs': 'examples',  # path where the gallery generated output will be saved
+     'gallery_dirs': 'examples',  # path where the gallery generated outputs are to be saved
     }
 
 Because these examples are
@@ -465,7 +465,7 @@ The resulting PDF and intermediate LaTeX files are created in the
 
 Enabling multi-version documentation
 ------------------------------------
-With the release of `pyansys/actions@v4
+With the release of `ansys/actions@v4
 <https://actions.docs.ansys.com/version/stable/index.html>`_ , projects can
 benefit from multi-version documentation. Projects taking advantage of this
 feature need to apply different configurations according to their level of
@@ -520,7 +520,7 @@ released versions.
 
     Only the development branch and the last three stable versions are
     shown by default in the documentation drop-down button. To show more versions,
-    use the ``render-last`` variable in the `pyansys/actions/doc-deploy-stable
+    use the ``render-last`` variable in the `ansys/actions/doc-deploy-stable
     action
     <https://actions.docs.ansys.com/version/stable/doc-actions/index.html#doc-deploy-stable-action>`_.
 
@@ -556,7 +556,7 @@ in an automated way.
           runs-on: ubuntu-latest
           needs: build-library
           steps:
-            - uses: pyansys/actions/doc-deploy-dev@v4
+            - uses: ansys/actions/doc-deploy-dev@v4
               with:
                 doc-artifact-name: '<html-artifact-name>'
                 cname: ${{ env.DOCUMENTATION_CNAME }}
@@ -569,7 +569,7 @@ in an automated way.
           runs-on: ubuntu-latest
           needs: release
           steps:
-            - uses: pyansys/actions/doc-deploy-stable@v4
+            - uses: ansys/actions/doc-deploy-stable@v4
               with:
                 doc-artifact-name: '<html-artifact-name>'
                 cname: ${{ env.DOCUMENTATION_CNAME }}
@@ -615,7 +615,7 @@ workflow:
           runs-on: ubuntu-latest
           needs: build-library
           steps:
-            - uses: pyansys/actions/doc-deploy-dev@v4
+            - uses: ansys/actions/doc-deploy-dev@v4
               with:
                 doc-artifact-name: '<html-artifact-name>'
                 cname: ${{ env.DOCUMENTATION_CNAME }}
@@ -629,7 +629,7 @@ workflow:
           runs-on: ubuntu-latest
           needs: release
           steps:
-            - uses: pyansys/actions/doc-deploy-stable@v4
+            - uses: ansys/actions/doc-deploy-stable@v4
               with:
                 doc-artifact-name: '<html-artifact-name>'
                 cname: ${{ env.DOCUMENTATION_CNAME }}
@@ -637,17 +637,17 @@ workflow:
                 external-repository: ${{ env.DOCUMENTATION_REPOSITORY }}
 
 
-Multi-version migration from ``pyansys/actions@v3``  to ``pyansys/actions@v4``
+Multi-version migration from ``ansys/actions@v3``  to ``ansys/actions@v4``
 ------------------------------------------------------------------------------
-Projects using the multi-version feature should upgrade to `pyansys/actions@v4
+Projects using the multi-version feature should upgrade to `ansys/actions@v4
 <https://actions.docs.ansys.com/version/stable/index.html>`_ or higher to
 benefit from stable links. This is achieved by introducing a new layout that is
-not compatible with older `pyansys/actions` versions.
+not compatible with older `ansys/actions` versions.
 
 To perform the migration, follow these steps:
 
 * Update all the continuous integration ``YML`` files to use
-  ``pyansys/actions@v4`` or higher.
+  ``ansys/actions@v4`` or higher.
 
 * Make sure that the ``"json_url"`` key points to
   ``f"https://{cname}/versions.json"``. Note that the ``release/`` substring is
@@ -693,9 +693,73 @@ As you are making changes in this branch, you want to periodically generate the
 documentation locally so that you can test your changes before you create a
 GitHub pull request. For more information, see :ref:`Build documentation`.
 
+Using PyMeilisearch as search engine
+------------------------------------
+PyMeilisearch is a Python client library that enables you to utilize MeiliSearch, an open-source search engine, 
+to provide fast and relevant search capabilities for your application's data.
 
-..
-   Links
+To enable multi-version documentation in your project, follow these steps:
+
+- Use ``ansys-sphinx-theme>=0.9`` for building the documentation in your project.
+
+- Include the following lines in the conf.py file:
+
+  .. code-block:: python
+  
+      import os
+  
+      from ansys_sphinx_theme import convert_version_to_pymeilisearch
+  
+  
+      cname = os.getenv("DOCUMENTATION_CNAME", "<DEFAULT_CNAME>")
+      """The canonical name of the webpage hosting the documentation."""
+  
+      html_theme_options = {
+          "use_meilisearch": {
+            "api_key": os.getenv("MEILISEARCH_API_KEY", ""),
+            "index_uids": {
+              f"<your-index-name>{convert_version_to_pymeilisearch(__version__)}": "index name to be displayed",  # noqa: E501
+            },
+          },
+          ...
+      }
+  
+  In this code, replace <your-index-name> with the desired name for your MeiliSearch index.
+  The ``convert_version_to_pymeilisearch`` function is to convert your package's version into a format suitable for MeiliSearch indexing.
+
+
+  - Enable documentation index deployment for development and stable versions using GitHub Actions:
+  
+  .. code-block:: yaml
+
+    jobs:
+      doc-deploy-index:
+        name: "Index the documentation and scrap using PyMeilisearch"
+        runs-on: ubuntu-latest
+        needs: doc-deploy
+        if: github.event_name == 'push'
+        steps:
+          - name: Scrape the stable documentation to PyMeilisearch
+            run: |
+              VERSION=$(python -c "from <your-package> import __version__; print('.'.join(__version__.split('.')[:2]))")
+              VERSION_MEILI=$(python -c "from <your-package> import __version__; print('-'.join(__version__.split('.')[:2]))")
+              echo "Calculated VERSION: $VERSION"
+              echo "Calculated VERSION_MEILI: $VERSION_MEILI"
+
+          - name: "Deploy the latest documentation index"
+            uses: ansys/actions/doc-deploy-index@v4.1
+            with:
+              cname: "<library>.docs.pyansys.com/version/$VERSION"
+              index-name: "<index-name>v$VERSION_MEILI"
+              host-url: "<meilisearch-host-url>"
+              api-key: ${{ secrets.MEILISEARCH_API_KEY }}
+
+Replace <your-package>, <your-index-name>, and <library> with appropriate values for your project. 
+The version of your package is automatically calculated and used for indexing, ensuring that your documentation remains up-to-date.
+For more detailed documentation, refer to the `PyMeilisearch`_ and `ansys-sphinx-theme`_ documentation.
+By following these steps, you can effectively use PyMeilisearch as a search engine for multi-version documentation in your project.
+
+.. Links
 
 .. _GitHub Pages: https://pages.github.com/
 .. _GitHub Actions: https://github.com/features/actions
@@ -711,3 +775,5 @@ GitHub pull request. For more information, see :ref:`Build documentation`.
 .. _PyAnsys Bot: https://github.com/apps/pyansys-bot
 .. _PyAnsys Organization: https://github.com/ansys
 .. _ansys-templates: https://github.com/ansys/ansys-templates
+.. _PyMeilisearch: https://pymeilisearch.docs.ansys.com/
+.. _ansys-sphinx-theme: https://sphinxdocs.ansys.com/
