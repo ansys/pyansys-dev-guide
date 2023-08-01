@@ -31,16 +31,24 @@ doc-deploy-stable:
         cname: ${{ env.CNAME }}
         token: ${{ secrets.GITHUB_TOKEN }}
 
-doc-deploy-index:
-  name: "Index the documentation and scrap using pymeilisearch"
-  runs-on: ubuntu-latest
-  needs: doc-deploy
-  if: github.event_name == 'push'
-  steps:
-    - name: "Deploy the latest documentation index"
-      uses: ansys/actions/doc-deploy-index@v4.1
-      with:
-          cname: "<library>.docs.pyansys.com/version/<version-number>"
-          index-name: "<index-name>"
+jobs:
+  doc-deploy-index:
+    name: "Index the documentation and scrap using PyMeilisearch"
+    runs-on: ubuntu-latest
+    needs: doc-deploy
+    if: github.event_name == 'push'
+    steps:
+      - name: Scrape the stable documentation to PyMeilisearch
+        run: |
+          VERSION=$(python -c "from <your-package> import __version__; print('.'.join(__version__.split('.')[:2]))")
+          VERSION_MEILI=$(python -c "from <your-package> import __version__; print('-'.join(__version__.split('.')[:2]))")
+          echo "Calculated VERSION: $VERSION"
+          echo "Calculated VERSION_MEILI: $VERSION_MEILI"
+      
+      - name: "Deploy the latest documentation index"
+        uses: ansys/actions/doc-deploy-index@v4.1
+        with:
+          cname: "<library>.docs.pyansys.com/version/$VERSION"
+          index-name: "<index-name>v$VERSION_MEILI"
           host-url: "<meilisearch-host-url>"
-          api-key: ${{ secrets.MEILISEARCH-API-KEY }}
+          api-key: ${{ secrets.MEILISEARCH_API_KEY }}
