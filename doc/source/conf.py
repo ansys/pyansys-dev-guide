@@ -1,5 +1,6 @@
 """Sphinx documentation configuration file for the pyansys developer's guide."""
 from datetime import datetime
+import os
 
 from ansys_sphinx_theme import (
     __version__,
@@ -44,6 +45,12 @@ html_theme_options = {
             "icon": "fa fa-wrench",
         },
     ],
+    "use_meilisearch": {
+        "api_key": os.getenv("MEILISEARCH_PUBLIC_API_KEY", ""),
+        "index_uids": {
+            "pyansys-dev-guide": "PyAnsys dev guide",
+        },
+    },
 }
 
 # necessary for proper breadcrumb title
