@@ -379,15 +379,14 @@ a Python wrapping named ``send_command``, the example test would be:
 
         .. code-block:: python
         
-           def send_command(command):
-               """Run a command on the remote server.
-        
-               Parameters
-               ----------
-               command : str
-                   Command to run on the remote server.
-        
-               """
+            def send_command(command):
+                """Run a command on the remote server.
+
+                Parameters
+                ----------
+                command : str
+                    Command to run on the remote server.
+                """
 
     .. tab-item:: Unit Test
     
