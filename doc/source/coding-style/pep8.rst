@@ -563,7 +563,7 @@ by using ``bool(<object>)``.
         
             my_list = []
             if not my_list:
-               raise ValueError('List is empty')
+                raise ValueError("List is empty")
 
     .. tab-item:: Avoid
     
@@ -571,7 +571,7 @@ by using ``bool(<object>)``.
     
             my_list = []
             if not len(my_list):
-                raise ValueError('List is empty')
+                raise ValueError("List is empty")
 
 
 In ``if`` statements, use ``is not`` rather than ``not ...``. 
@@ -583,7 +583,7 @@ In ``if`` statements, use ``is not`` rather than ``not ...``.
         .. code-block:: python
         
             if x is not None:
-                return 'x exists!'
+                return "x exists!"
 
     .. tab-item:: Avoid
 
@@ -662,7 +662,7 @@ that do the same thing.
     
         .. code-block:: python
         
-            def fahr_to_kelvin(fahr)
+            def fahr_to_kelvin(fahr):
                 """Convert temperature in Fahrenheit to Kelvin.
 
                 Parameters
@@ -677,6 +677,7 @@ that do the same thing.
 
                 """
                 return ((fahr - 32) * (5 / 9)) + 273.15
+
 
             new_temp = fahr_to_kelvin(55)
             new_temp_k = fahr_to_kelvin(46)
@@ -770,7 +771,7 @@ to circumvent nested loops.
         
             squares = []
             for i in range(10):
-               squares.append(i * i)
+                squares.append(i * i)
 
         .. code-block:: pycon
 
@@ -790,7 +791,7 @@ example, to extract all consonants in a sentence:
     
             def is_consonant(letter):
                 """Return ``True`` when a letter is a consonant."""
-                vowels = 'aeiou'
+                vowels = "aeiou"
                 return letter.isalpha() and letter.lower() not in vowels
         
         .. code-block:: pycon
@@ -805,8 +806,8 @@ example, to extract all consonants in a sentence:
     
         .. code-block:: python
         
-            sentence = 'This is a sample sentence.'
-            vowels = 'aeiou'
+            sentence = "This is a sample sentence."
+            vowels = "aeiou"
             consonants = []
             for letter in sentence:
                 if letter.isalpha() and letter.lower() not in vowels:
