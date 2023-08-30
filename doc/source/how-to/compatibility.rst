@@ -21,13 +21,12 @@ A *version checking* module determines whether the Ansys product server you are 
 to provides support for certain operations. For implementation examples, see the
 ``check_version.py`` files for the following PyAnsys libraries:
 
-* `ansys/mapdl/core/check_version.py <https://github.com/ansys/pymapdl/blob/main/src/ansys/mapdl/core/check_version.py>`_
 * `ansys/dpf/core/check_version.py <https://github.com/ansys/pydpf-core/blob/master/src/ansys/dpf/core/check_version.py>`_
 
 One of the easiest ways to keep track of the versions supported is setting up a
 **minimum version** data structure, in which forward compatibility is ensured.
 Server versions earlier than the minimum version do not have access to this
-functionality. In the case of `ansys/mapdl/core/check_version.py`_, this is the
+functionality. In the case of `ansys/dpf/core/check_version.py`_, this is the
 ``VERSIONS_MAP`` structure.
 
 Most Ansys products provide forward compatibility, meaning that features
@@ -43,8 +42,7 @@ in the same way as the minimum version mechanism works.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The ``@version_requires`` decorator applies version logic to the different
 functionalities and methods available in the client. You can see how this
-decorator is used in `ansys/mapdl/core/check_version.py`_ and
-`ansys/dpf/core/check_version.py`_. Here is a generalized example:
+decorator is used in `ansys/dpf/core/check_version.py`_. Here is a generalized example:
 
 
 .. code:: python
