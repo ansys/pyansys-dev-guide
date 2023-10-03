@@ -38,7 +38,7 @@ different, they all have a common structure:
     name: <Name of the action>
     
     on:
-      <Trigering events and conditions>
+      <Triggering events and conditions>
 
     concurrency:
       <Avoid concurrent workflows to be run>
