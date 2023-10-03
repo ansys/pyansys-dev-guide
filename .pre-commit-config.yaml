@@ -32,7 +32,7 @@ repos:
   - id: flake8
 
 - repo: https://github.com/codespell-project/codespell
-  rev: v2.2.5
+  rev: v2.2.6
   hooks:
   - id: codespell
     args: ["--ignore-words", "doc/styles/Vocab/ANSYS/accept.txt"]
@@ -44,7 +44,7 @@ repos:
   - id: debug-statements
 
 - repo: https://github.com/python-jsonschema/check-jsonschema
-  rev: 0.26.3
+  rev: 0.27.0
   hooks:
     - id: check-github-workflows
       name: "Check GitHub workflows"
