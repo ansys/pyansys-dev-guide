@@ -28,10 +28,22 @@ jobs:
     name: "Check documentation style"
     runs-on: ubuntu-latest
     steps:
-      - name: "Check documentation style"
-        uses: ansys/actions/doc-style@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: "Install Git and clone project"
+      uses: actions/checkout@v4
+
+    - name: "Run Vale"
+      # HACK: https://github.com/errata-ai/vale-action/commit/7542b61c30b62a100d10d6b132cd02edc2e1c6ec
+      uses: errata-ai/vale-action@9321d22dae35dd79ffb3c32fdbcbfe1157fb30c1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        files: doc
+        reporter: github-pr-check
+        level: error
+        filter_mode: nofilter
+        fail_on_error: true
+        vale_flags: "--config=doc/.vale.ini"
 
   doc-build:
     name: "Build project documentation"
