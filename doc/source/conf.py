@@ -189,5 +189,6 @@ latex_elements = {"preamble": generate_preamble(html_title)}
 # Linkcheck configuration
 linkcheck_ignore = [
     "https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi",  # Private URL hosting PyAnsys packages
+    "https://github.com/ansys-internal/.*",  # Private URL
 ]
 linkcheck_anchors_ignore_for_url = ["https://github.com/ansys/ansys-api-template"]

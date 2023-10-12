@@ -24,14 +24,33 @@ permissions:
 
 jobs:
 
+  # TODO: Uncomment when ansys/actions/doc-style@v4 works with single back ticks
+  # doc-style:
+  #   name: "Check documentation style"
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: "Check documentation style"
+  #       uses: ansys/actions/doc-style@v4
+  #       with:
+  #         token: ${{ secrets.GITHUB_TOKEN }}
   doc-style:
     name: "Check documentation style"
     runs-on: ubuntu-latest
     steps:
-      - name: "Check documentation style"
-        uses: ansys/actions/doc-style@v4
+      - uses: actions/checkout@v4
+  
+      - name: Running Vale
+        uses: errata-ai/vale-action@reviewdog
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          files: doc
+          reporter: github-pr-check
+          level: error
+          filter_mode: nofilter
+          fail_on_error: true
+          vale_flags: "--config=doc/.vale.ini"
+
 
   doc-build:
     name: "Build project documentation"
