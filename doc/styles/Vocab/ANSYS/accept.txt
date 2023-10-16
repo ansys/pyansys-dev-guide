@@ -98,3 +98,4 @@ substring
 parm
 PyMeilisearch
 MeiliSearch
+PEP 8
