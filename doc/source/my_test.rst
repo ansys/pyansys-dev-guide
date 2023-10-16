@@ -1,5 +1,5 @@
-PEP 8
-=====
+Configure code coverage
+=======================
 Some content
 
 Imports
