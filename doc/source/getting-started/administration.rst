@@ -100,7 +100,7 @@ legal policies.
 
 Start by completing the legal review request form for open sourcing the code:
 
-.. button-link:: https://ansys.sharepoint.com/:w:/r/sites/OpenSourceSoftwareOSSSuperintendence/_layouts/15/Doc.aspx?sourcedoc=%7B3296AD39-79EC-4F42-81C1-1DF988986800%7D&file=Open%20Source%20Policy_Request%20to%20Release%20Code_need%20GM%20sign-off_2021Sep.docx&action=default&mobileredirect=true
+.. button-link:: https://github.com/ansys-internal/oss-approval-tracklist/issues/new?assignees=MaxJPRey%2C+RobPasMue%2C+jorgepiloto%2C+&labels=&projects=&template=oss_final_signature.yml&title=Name+of+the+package+to+release
     :color: black
     :expand:
 
