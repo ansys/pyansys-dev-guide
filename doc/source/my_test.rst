@@ -1,13 +1,16 @@
-Configure code coverage
-=======================
-Some content
+Contributing
+============
+Some content, ...
 
-Imports
--------
-Some content
+Create a GitHub account
+-----------------------
+To use GitHub, ...
 
-:external+package:doc:`Some page <api/package/>`
+Some other stuff with conde included
+------------------------------------
 
-Import location
-~~~~~~~~~~~~~~~
-Some content
+Use the following namespace:
+
+.. code::
+
+   package perso.api.<product/service>.v0;
