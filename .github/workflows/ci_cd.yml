@@ -34,6 +34,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           vale-config: "doc/.vale.ini"
+          vale-version: "2.29.6"
 
   doc-build:
     name: "Build project documentation"
