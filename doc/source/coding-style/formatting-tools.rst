@@ -25,7 +25,7 @@ The minimum `black`_ configuration for a PyAnsys project should look like this:
 .. code-block:: toml
 
     [tool.black]
-    line-length: "<length>"
+    line-length = "<length>"
 
 
 Isort
@@ -67,7 +67,7 @@ The configuration for `flake8`_ must be specified in a ``.flake8`` file.
 
    [flake8]
    max-line-length = 88
-   extend-ignore = E203
+   extend-ignore = 'E203'
 
 Flake8 has many options that can be set within the configuration file.
 For more information, see this `Flake8 documentation topic
