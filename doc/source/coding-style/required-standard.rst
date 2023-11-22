@@ -15,7 +15,7 @@ Required ``pyproject.toml`` configuration
 .. code-block:: toml
 
     [tool.black]
-    line-length: "<length>"
+    line-length = "<length>"
 
     [tool.isort]
     profile = "black"
@@ -45,7 +45,7 @@ The following ``.flake8`` file is also required:
 
    [flake8]
    max-line-length = 88
-   extend-ignore = E203
+   extend-ignore = 'E203'
 
 
 Required ``pre-commit`` configuration
