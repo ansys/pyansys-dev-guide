@@ -50,13 +50,12 @@ For Ansys employees:
 
 If you would like to join the `Ansys GitHub Organization <https://github.com/ansys>`_, visit `Join Ansys GitHub Organization <https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706>`_.
 
-If you would like to join the `PyAnsys GitHub Organization <https://github.com/ansys>`_, visit `Join PyAnsys GitHub Organization <https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706>`_.
 
 
 GitHub repository sections
 --------------------------
 
-Once you have a GitHub account and access to the `PyAnsys` organization,
+Once you have a GitHub account and access to the `Ansys` organization,
 you are able to interact with the different repositories. While each
 repository contains all tabbed sections that are shown and described below,
 your access level determines tabbed sections you can see.
@@ -145,7 +144,7 @@ project with:
 
 .. code-block:: bash
 
-    git clone git@github.com:pyansys/pymapdl.git
+    git clone git@github.com:ansys/pymapdl.git
 
 
 Install in editable mode 
