@@ -24,13 +24,13 @@ permissions:
 
 jobs:
 
-  # TODO: Uncomment when ansys/actions/doc-style@v4 works with single back ticks
+  # TODO: Uncomment when ansys/actions/doc-style@v5 works with single back ticks
   doc-style:
     name: "Check documentation style"
     runs-on: ubuntu-latest
     steps:
       - name: "Check documentation style"
-        uses: ansys/actions/doc-style@v4
+        uses: ansys/actions/doc-style@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           vale-config: "doc/.vale.ini"
@@ -51,7 +51,7 @@ jobs:
           sudo apt-get install graphviz
 
       - name: "Build project documentation"
-        uses: ansys/actions/doc-build@v4
+        uses: ansys/actions/doc-build@v5
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
           use-python-cache: false
@@ -87,7 +87,7 @@ jobs:
     needs: doc-deploy
     steps:
       - name: "Deploy the latest documentation index"
-        uses: ansys/actions/doc-deploy-index@v4
+        uses: ansys/actions/doc-deploy-index@v5
         with:
           cname: ${{ env.DOCUMENTATION_CNAME }}
           index-name: "pyansys-dev-guide"
