@@ -98,6 +98,18 @@ The example configuration defines these options:
     to print as a report when checking ends.
 
 
+add-license-headers
+-------------------
+The goal of `add-license-headers` is to add and update license headers for files with
+`REUSE <https://reuse.software/>`_. By default, the hook will run on proto files in
+any directory, as well as python files within directories named ``src``, ``examples``,
+and ``tests``. The license that is added to the files can be found in the
+`ansys/pre-commit-hooks repository - MIT.txt
+<https://github.com/ansys/pre-commit-hooks/blob/main/src/ansys/pre_commit_hooks/assets/LICENSES/MIT.txt>`_.
+See the `README <https://github.com/ansys/pre-commit-hooks/blob/main/README.rst>` file more information
+on how to customize the hook.
+
+
 Code coverage
 -------------
 Code coverage indicates the percentage of the codebase tested by the test
@@ -162,6 +174,11 @@ formatting tools.
       - id: pydocstyle
         additional_dependencies: [toml]
         exclude: "tests/"
+
+    - repo: https://github.com/ansys/pre-commit-hooks
+      rev: v0.2.4
+      hooks:
+      - id: add-license-headers
 
 Installing ``pre-commit``
 ~~~~~~~~~~~~~~~~~~~~~~~~~
