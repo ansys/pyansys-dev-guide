@@ -57,6 +57,7 @@ PEP 518
 pluggable
 [Pp]ostprocessing
 Protobuf
+proto
 (?i)Pyaedt
 (?i)Pyansys
 Pydocstyle
