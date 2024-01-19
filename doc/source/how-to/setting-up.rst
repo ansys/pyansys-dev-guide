@@ -8,7 +8,10 @@ Python
 .. raw:: html
     
     <div align="center">
-      <img src="https://github.com/python/pythondotorg/raw/main/static/community_logos/python-logo-inkscape.svg">
+        <img 
+            src="https://github.com/python/pythondotorg/raw/main/static/community_logos/python-logo-inkscape.svg" 
+            width="40%"
+        >
     </div>
 
 All PyAnsys projects require a Python interpreter for interacting
@@ -50,7 +53,7 @@ There are several ways to install a Python package on your local machine:
         .. note::
 
             It is likely that your macOS distribution already comes with some
-            version of Python installed. For more information, see :ref:`Verification`.
+            version of Python installed. For more information, see :ref:`Verify python version`.
 
     .. tab-item:: Linux/UNIX
 
@@ -64,42 +67,16 @@ There are several ways to install a Python package on your local machine:
         .. note::
 
             It is likely that your Linux/UNIX distribution already comes with some
-            version of Python installed. For more information, see :ref:`Verification`.
+            version of Python installed. For more information, see :ref:`Verify python version`.
 
 
-Verification
-~~~~~~~~~~~~
+Verify python version
+~~~~~~~~~~~~~~~~~~~~~
 Once your Python installation is complete, verify it with:
 
-.. tab-set::
+.. code-block:: text
 
-    .. tab-item:: Windows
-
-        .. tab-set::
-
-            .. tab-item:: CMD
-
-                .. code-block:: text
-
-                    py --version
-
-            .. tab-item:: PowerShell
-
-                .. code-block:: text
-
-                    py --version
-
-    .. tab-item:: macOS
-
-        .. code-block:: text
-
-            python --version
-
-    .. tab-item:: Linux/UNIX
-
-        .. code-block:: text
-
-            python --version
+    python --version
 
 
 Virtual environments
@@ -128,7 +105,7 @@ working with one:
 
                 .. code-block:: text
 
-                    where.exe python
+                    where python
 
             .. tab-item:: PowerShell
 
@@ -136,13 +113,7 @@ working with one:
 
                     where.exe python
 
-    .. tab-item:: macOS
-
-        .. code-block:: text
-
-            which python
-
-    .. tab-item:: Linux/UNIX
+    .. tab-item:: macOS/Linux/UNIX
 
         .. code-block:: text
 
@@ -157,37 +128,11 @@ information on deactivating your virtual environment.
 Create
 ~~~~~~
 Usually, virtual environments are named ``venv`` or ``.venv``.
-You can create a virtual environment named `<venv>` with:
+You can create a virtual environment named ``<venv>`` with:
 
-.. tab-set::
+.. code-block:: text
 
-    .. tab-item:: Windows
-
-        .. tab-set::
-
-            .. tab-item:: CMD
-
-                .. code-block:: text
-
-                    py -m venv <venv>
-
-            .. tab-item:: PowerShell
-
-                .. code-block:: text
-
-                    py -m venv <venv>
-
-    .. tab-item:: macOS
-
-        .. code-block:: text
-
-            python -m venv <venv>
-
-    .. tab-item:: Linux/UNIX
-
-        .. code-block:: text
-            
-            python -m venv <venv>
+    python -m venv <venv>
 
 Activate
 ~~~~~~~~
@@ -211,51 +156,20 @@ You would activate the preceding virtual environment with:
 
                     <venv>\Scripts\Activate.ps1
 
-    .. tab-item:: macOS
+    .. tab-item:: macOS/Linux/UNIX
 
         .. code-block:: text
 
             source <venv>/bin/activate
 
-    .. tab-item:: Linux/UNIX
-
-        .. code-block:: text
-
-            source <venv>/bin/activate
 
 Deactivate
 ~~~~~~~~~~
 You would deactivate a virtual environment with:
 
-.. tab-set:: 
+.. code-block:: text
 
-    .. tab-item:: Windows
-
-        .. tab-set::
-
-            .. tab-item:: CMD
-
-                .. code-block:: text
-
-                    deactivate
-
-            .. tab-item:: PowerShell
-
-                .. code-block:: text
-
-                    deactivate
-
-    .. tab-item:: macOS
-
-        .. code-block:: text
-
-            deactivate
-
-    .. tab-item:: Linux/UNIX
-
-        .. code-block:: text
-
-            deactivate
+    deactivate
 
 
 Git
@@ -263,8 +177,10 @@ Git
 .. raw:: html
     
     <div align="center">
-      <img src="https://github.com/git/git-scm.com/raw/main/public/images/logo%402x.png">
-      <br><br>
+        <img 
+            src="https://github.com/git/git-scm.com/raw/main/public/images/logo%402x.png"
+            width="20%"
+        >
     </div>
 
 `Git <https://git-scm.com/>`_ is an open source version control system (VCS). It
@@ -299,44 +215,24 @@ Installation
         2. Run the installation command for your package manager.
 
 
-Verification
-~~~~~~~~~~~~
+Verify git version
+~~~~~~~~~~~~~~~~~~
 Once your installation process is complete, verify your Git installation with:
 
-.. tab-set:: 
+.. code-block:: text
 
-    .. tab-item:: Windows
-
-        .. tab-set::
-
-            .. tab-item:: CMD
-
-                .. code-block:: text
-
-                    git --version
-
-            .. tab-item:: PowerShell
-
-                .. code-block:: text
-
-                    git --version
-
-    .. tab-item:: macOS
-
-        .. code-block:: text
-
-            git --version
-
-    .. tab-item:: Linux/UNIX
-
-        .. code-block:: text
-
-            git --version
+    git --version
 
 Usage
 ~~~~~
-If you are not familiar with Git, see the `Git Reference Manual <https://git-scm.com/doc>`_.
-for comprehensive information on how to use it.
+If you're new to Git, refer to the `Git Reference Manual <https://git-scm.com/doc>`_
+for comprehensive usage details.
+
+For an understanding of Git workflows and branching strategies, 
+check out the `Learning Git branching <https://learngitbranching.js.org/>`_ tutorial.
+
+If you're unfamiliar with GitHub, explore the 
+`GitHub Training Manual <https://githubtraining.github.io/training-manual/>`_ for guidance.
 
 If you are not familiar with Git and the Git workflows in terms of development, it is
 recommended that you follow this tutorial on `Learning Git branching <https://learngitbranching.js.org/>`_.
@@ -529,8 +425,8 @@ After installing WSL, ensure that you are running the WSL2 version with:
 
    wsl --set-default-version 2
 
-Verification
-~~~~~~~~~~~~
+Verify version
+~~~~~~~~~~~~~~
 Verify your WSL version with:
 
 .. code-block:: powershell
