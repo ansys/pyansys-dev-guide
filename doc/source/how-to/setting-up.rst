@@ -70,7 +70,7 @@ There are several ways to install a Python package on your local machine:
             version of Python installed. For more information, see :ref:`Verify python version`.
 
 
-Verify python version
+Verify Python version
 ~~~~~~~~~~~~~~~~~~~~~
 Once your Python installation is complete, verify it with:
 
