@@ -8,22 +8,22 @@ more information, see `Status of Python branches
 +---------+------------+-------------+-----------------------+--------+
 | Version | PEP        | Released    | Security Support Ends | Status |
 +---------+------------+-------------+-----------------------+--------+
-| 3.11    | `PEP 664`_ | 03 Oct 2022 | 03 Oct 2027           | Dev    |
+| 3.12    | `PEP 693`_ | 02 Oct 2023 |    Oct 2028           | Dev    |
 +---------+------------+-------------+-----------------------+--------+
-| 3.10    | `PEP 619`_ | 04 Oct 2021 | 04 Oct 2026           | Dev    |
+| 3.11    | `PEP 664`_ | 03 Oct 2022 |    Oct 2027           | Dev    |
 +---------+------------+-------------+-----------------------+--------+
-| 3.9     | `PEP 596`_ | 05 Oct 2020 | 05 Oct 2025           | Stable |
+| 3.10    | `PEP 619`_ | 04 Oct 2021 |    Oct 2026           | Stable |
 +---------+------------+-------------+-----------------------+--------+
-| 3.8     | `PEP 569`_ | 14 Oct 2019 | 14 Oct 2024           | Stable |
+| 3.9     | `PEP 596`_ | 05 Oct 2020 |    Oct 2025           | Stable |
 +---------+------------+-------------+-----------------------+--------+
-| 3.7     | `PEP 537`_ | 27 Jun 2018 | 27 Jun 2023           | Stable |
+| 3.8     | `PEP 569`_ | 14 Oct 2019 |    Oct 2024           | Stable |
 +---------+------------+-------------+-----------------------+--------+
 
+.. _PEP 693: https://peps.python.org/pep-0693/
 .. _PEP 664: https://peps.python.org/pep-0664/
 .. _PEP 619: https://peps.python.org/pep-0619/
 .. _PEP 596: https://peps.python.org/pep-0596/
 .. _PEP 569: https://peps.python.org/pep-0569/
-.. _PEP 537: https://peps.python.org/pep-0537/
 
 .. admonition:: Consider supporting stable Python versions.
 
@@ -59,7 +59,7 @@ Verifying support
 -----------------
 The best way to validate whether a Python library supports a version of Python
 is by :ref:`Using continuous integration`. An example GitHub
-workflow testing Python 3.7 through Python 3.10 on Windows and Linux would
+workflow testing Python 3.8 through Python 3.12 on Windows and Linux would
 start with:
 
 .. code-block:: yaml
@@ -73,7 +73,7 @@ start with:
        strategy:
          matrix:
            os: [windows-latest, ubuntu-latest]
-           python-version: ['3.7', '3.8', '3.9', '3.10']
+           python-version: ['3.8', '3.9', '3.10', '3.11', '3.12']
        steps:
          - name: "Run tests using pytest"
            run: ansys/actions/test-pytest@v4

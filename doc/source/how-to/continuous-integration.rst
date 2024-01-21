@@ -17,7 +17,9 @@ By default, ``Actions`` are enabled in new repositories and can be accessed
 using the associated :ref:`GitHub repository sections`.
 
 If ``Actions`` are not enabled, you can enable them by changing ``Actions
-Permissions`` in ``Settings -> Actions -> General``.
+Permissions`` in 
+
+``Settings -> Actions -> General``.
 
 
 Use GitHub actions

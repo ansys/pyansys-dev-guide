@@ -234,11 +234,6 @@ check out the `Learning Git branching <https://learngitbranching.js.org/>`_ tuto
 If you're unfamiliar with GitHub, explore the 
 `GitHub Training Manual <https://githubtraining.github.io/training-manual/>`_ for guidance.
 
-If you are not familiar with Git and the Git workflows in terms of development, it is
-recommended that you follow this tutorial on `Learning Git branching <https://learngitbranching.js.org/>`_.
-
-Also, if you are not that familiar with GitHub, feel free to go through the
-`GitHub Training Manual <https://githubtraining.github.io/training-manual/>`_.
 
 Configuration
 ~~~~~~~~~~~~~
@@ -362,7 +357,7 @@ Enabling SSH
 ~~~~~~~~~~~~
 Working with ``Secure Shell Protocol (SSH)`` is not only a good practice but
 also required for contributing to PyAnsys projects. Without an ``SSH`` key,
-you are not able to clone *internal* or *private* repositories or
+you are not able to clone **internal** or **private** repositories or
 to push new changes.
 
 For information on setting up ``SSH`` with ``GitHub``, in the ``GitHub`` documentation,
@@ -425,8 +420,8 @@ After installing WSL, ensure that you are running the WSL2 version with:
 
    wsl --set-default-version 2
 
-Verify version
-~~~~~~~~~~~~~~
+Verify WSL version
+~~~~~~~~~~~~~~~~~~
 Verify your WSL version with:
 
 .. code-block:: powershell

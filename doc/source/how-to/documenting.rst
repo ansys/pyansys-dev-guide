@@ -21,9 +21,8 @@ Documentation sources
 .. raw:: html
 
     <div align="center">
-      <img src="https://www.sphinx-doc.org/en/master/_static/sphinxheader.png">
+      <img width="30%" src="https://www.sphinx-doc.org/en/master/_static/sphinx-logo.svg">
     </div>
-    <br>
 
 The generation of PyAnsys documentation uses `Sphinx
 <https://www.sphinx-doc.org/en/master/>`__ and an Ansys-branded theme

@@ -90,14 +90,14 @@ consider useful for customers or other developers. Releases are usually labeled
 with *tags*. These tags are used to quickly identify a release in the version
 control system.
 
-.. card:: |uncheck| Release checklist
 
-    * Your main or release branch is up to date.
-    * All code and documentation style checks are passing successfully.
-    * All tests are passing successfully.
-    * All documentation builds successfully.
-    * The project builds successfully.
+.. card:: Release checklist
 
+    | |uncheck| Your main or release branch is up to date.
+    | |uncheck| All code and documentation style checks are passing successfully.
+    | |uncheck| All tests are passing successfully.
+    | |uncheck| All documentation builds successfully.
+    | |uncheck| The project builds successfully.
 
 .. dropdown:: Releasing major and minor versions
 

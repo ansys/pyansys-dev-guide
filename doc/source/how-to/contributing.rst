@@ -37,7 +37,7 @@ boards.
 
      <br>
      <div align="center">
-       <img width="50%;" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Logo.png">
+       <img width="40%;" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Logo.png">
      </div>
 
 
@@ -158,7 +158,7 @@ To install a Python library in editable mode:
 1. Ensure that you :ref:`Create` and :ref:`Activate` a Python virtual environment,
    as explained in the :ref:`Virtual environments` section.
 
-2. Update `pip` with:
+2. Update ``pip`` with:
 
    .. code-block:: bash
 

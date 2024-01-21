@@ -243,9 +243,9 @@ To log using the global logger, simply call the desired method as a normal logge
     >>> LOG = Logger(level=logging.DEBUG, to_file=False, to_stdout=True)
     >>> LOG.debug("This is LOG debug message.")
 
-    | Level    | Instance        | Module           | Function             | Message
-    |----------|-----------------|------------------|----------------------|--------------------------------------------------------
-    | DEBUG    |                 |  __init__        | <module>             | This is LOG debug message.
+    | Level    | Instance   | Module       | Function    | Message
+    |----------|------------|--------------|-------------|---------------------------
+    | DEBUG    |            | __init__     | <module>    | This is LOG debug message.
 
 
 Instance logger
@@ -278,9 +278,9 @@ Here is an example of how to use an instance logger:
     >>> mapdl = launch_mapdl()
     >>> mapdl._log.info("This is an useful message")
 
-    | Level    | Instance        | Module           | Function             | Message
-    |----------|-----------------|------------------|----------------------|--------------------------------------------------------
-    | INFO     | 127.0.0.1:50052 |  test            | <module>             | This is an useful message
+    | Level    | Instance        | Module   | Function    | Message
+    |----------|-----------------|----------|-------------|--------------------------
+    | INFO     | 127.0.0.1:50052 | test     | <module>    | This is an useful message
 
 
 
@@ -305,12 +305,11 @@ Custom log handlers
 -------------------
 You might need to catch Ansys product messages and redirect them to another
 logger. For example, Ansys Electronics Desktop (AEDT) has its own internal
-logger called the *message manager*, which has three main destinations: 
+logger called the **message manager**, which has three main destinations: 
 
-- *Global*, which is for the entire project manager
-- *Project*, which is related to the project
-- *Design*, which is related to the design, making it the most specific
-   destination of the three loggers
+- **Global**, which is for the entire project manager
+- **Project**, which is related to the project
+- **Design**, which is related to the design, making it the most specific destination of the three loggers
 
 The message manager does not use the standard Python logging module, which
 can be a problem when exporting messages and data from it to a common tool.

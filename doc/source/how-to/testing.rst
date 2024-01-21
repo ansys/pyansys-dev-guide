@@ -20,7 +20,7 @@ Test framework
 .. raw:: html
     
     <div align="center">
-      <img width="50%"; src="https://docs.pytest.org/en/7.1.x/_static/pytest_logo_curves.svg">
+      <img width="30%"; src="https://docs.pytest.org/en/7.1.x/_static/pytest_logo_curves.svg">
     </div>
 
 For consistency, PyAnsys tools and libraries should use either the `unittest
