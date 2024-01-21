@@ -1,5 +1,5 @@
 Documentation style
-###################
+===================
 
 Good API documentation drives library adoption and usage and is the
 foundation for a good developer experience. Even with the best

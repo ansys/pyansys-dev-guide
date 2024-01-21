@@ -1,5 +1,6 @@
 Coding style
-############
+============
+
 Coding style refers to the different rules defined in a software project that
 must be followed when writing source code. These rules ensure that all
 the source code looks the same across different files of the

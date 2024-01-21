@@ -1,13 +1,11 @@
 .. _ref_build_system:
 
-############
 Build system
-############
+============
 
 The build system is a fundamental tool for packaging Python
 libraries. It generates distribution files that can be shared with
 users and developers. 
-
 
 Artifacts
 =========
@@ -27,14 +25,12 @@ PyAnsys project.
    `MANIFEST.in`_ is required at the root of the project to specify additional
    files.
 
-
 The interaction between the maintainer and the build system is performed using a
 build system tool. This tool provides both a frontend and a backend. The maintainers
 trigger the frontend, which then calls the backend to read the
 project directory and generate the artifacts, as :numref:`build system diag` shows.
 
 .. include:: diag/build_system_diag.rst
-
 
 PEP 517 and PEP 518
 ===================
@@ -52,7 +48,6 @@ introduced the following problems:
 
 These problems led to the acceptance of `PEP 517`_ and `PEP 518`_.
 
-
 PEP 517
 -------
 
@@ -67,7 +62,6 @@ most popular backends:
 
 `PEP 517` introduced the ``build-backend`` key inside the
 ``[build-system]`` table in the ``pyproject.toml``.
-
 
 PEP 518
 -------
@@ -91,7 +85,6 @@ The combination of `PEP 517`_ and `PEP 518`_ leads to the following syntax in a
    [build-system]
    requires = ["flit"] # Defined by PEP 518
    build-backend = "flit_core.api" # Defined by PEP 517
-
 
 Build backend tools
 ===================
@@ -118,7 +111,6 @@ build backend system.
 All of these `setuptools metadata fields`_ are valid and must be
 specified either in the ``setup.py`` or ``setup.cfg`` file.
 
-
 Flit
 ----
 
@@ -134,7 +126,6 @@ Flit is the default tool for creating a new ``pyansys`` project when using the
 The ``[project]`` section specifies the project's metadata and required
 dependencies. For more information, see `flit pyproject.toml
 guidelines`_.
-
 
 Poetry
 ------
@@ -158,7 +149,6 @@ Using `poetry`_ is popular because it:
 
 The ``[tool.poetry]`` section contains metadata and defines project
 dependencies. For more information, see `poetry pyproject.toml documentation`_.
-
 
 .. _MANIFEST.in: https://packaging.python.org/en/latest/guides/using-manifest-in/
 .. _PyPI: https://pypi.org/

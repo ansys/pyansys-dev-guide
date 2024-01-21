@@ -1,18 +1,18 @@
 Packaging
 =========
+
 Packaging is the process for distributing software to guarantee that final users
 can use it. By packaging Python libraries, it is possible to declare which
 source code or binary files need to be distributed, project metadata and third
 party dependencies.
 
-
 The fundamentals of Python packaging together with the packaging style
 guidelines that apply to PyAnsys projects are collected in the :ref:`Packaging
 style` section.
 
-
 Specifying dependencies
 -----------------------
+
 It is common to take advantage of third party libraries to simplify
 source code. The formal way of doing so is by specifying these third party
 libraries as dependencies. There are two types of dependencies: :ref:`Required
@@ -20,13 +20,13 @@ dependencies` and :ref:`Optional dependencies`.
 
 Required dependencies
 ~~~~~~~~~~~~~~~~~~~~~
+
 Required dependencies are third party libraries that a software requires to
 properly function. If these dependencies are not installed or present, the
 software does not work as expected.
 
 Required dependencies need to be declared in :ref:`The \`\`setup.py\`\` file` or in :ref:`The \`\`pyproject.toml\`\` file`, according to the selected :ref:`Build
 system`:
-
 
 .. tab-set::
 
@@ -66,9 +66,9 @@ system`:
                 ],
             )
 
-
 Optional dependencies
 ~~~~~~~~~~~~~~~~~~~~~
+
 Optional dependencies are third-party libraries without which a software is not
 able to execute particular features. This makes it convenient to declare
 dependencies for ancillary functions such as *plotting*, *tests*, or *docs*. You
@@ -99,9 +99,9 @@ reasons, including:
 If you choose to implement optional packages for your PyAnsys library, some helpful
 best practices follow.
 
-
 Implementing optional packages in the build system
 ++++++++++++++++++++++++++++++++++++++++++++++++++
+
 Here's how to implement and use optional requirements for the three most
 popular build systems:
 
@@ -185,9 +185,9 @@ popular build systems:
 
           pip install package-name[qt]
 
-
 Implementing optional libraries in features
 +++++++++++++++++++++++++++++++++++++++++++
+
 One of the best ways to implement an optional dependency is to execute a *lazy
 import* at runtime for the feature in question. For example, if your library
 has an optional dependency on ``matplotlib``, you can implement it with:

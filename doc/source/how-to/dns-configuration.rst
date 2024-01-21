@@ -73,7 +73,6 @@ Case scenario - **vulnerable** subdomain
 This CNAME **can** be used by external users for their repositories. For this reason,
 you must avoid creating CNAME requests that are not verified by the organization.
 
-
 Preventing CNAME takeover
 -------------------------
 
@@ -92,7 +91,6 @@ Thus, it is important that you follow these guidelines:
 * Request a CNAME only when needed, which is just prior to publishing the site.
 * Request deletion of the CNAME once it is no longer used to prevent others from hosting
   their sites on it.
-
 
 ..
    Links

@@ -69,15 +69,16 @@ within the MAPDL database.
 
 REST versus RPC data and model abstraction
 ------------------------------------------
+
 Because of the nature of most Ansys products, apps and
 services can either fit into the Remote Procedure Call (RPC) interface,
 where the API is centered around operations and commands, or the
 REST model, where the API is centered around resources. Regardless of
 the interface style, there are several items to consider.
 
-
 API chattiness
 ~~~~~~~~~~~~~~
+
 APIs must be efficient to avoid creating chatty input and output.
 Because many Ansys products fit well with the RPC API implementation,
 there is a temptation to design APIs that require constant communication
@@ -93,6 +94,7 @@ expose only a limited number of RPC methods in the front-facing API.
 
 Compatibility and efficiency
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 APIs should be designed to be compatible with as many languages and
 platforms as possible.  `gRPC`_ for RPC-like interfaces should be one
 of the first choices due to its compatibility with nearly all popular

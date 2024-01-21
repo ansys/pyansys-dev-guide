@@ -1,5 +1,6 @@
 Supporting Python versions
 ==========================
+
 Like other programming languages, Python evolves with time. New
 features get added to the language, and others get deprecated. For
 more information, see `Status of Python branches
@@ -54,9 +55,9 @@ support which versions of Python. You can also impose an upper limit if you're
 sure you don't support certain versions of Python. For example, if you only
 support Python 3.6 through 3.9, your command would look like this: ``python_requires='>=3.6, <3.10'``.
 
-
 Verifying support
 -----------------
+
 The best way to validate whether a Python library supports a version of Python
 is by :ref:`Using continuous integration`. An example GitHub
 workflow testing Python 3.8 through Python 3.12 on Windows and Linux would

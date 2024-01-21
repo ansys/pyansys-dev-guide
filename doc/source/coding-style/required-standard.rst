@@ -8,7 +8,6 @@ individual configurations for the tools presented in :ref:`Code style tools` and
 The following lines should be included in :ref:`The \`\`pyproject.toml\`\` file`
 to indicate the configuration of the different code and documentation style tools.
 
-
 Required ``pyproject.toml`` configuration
 -----------------------------------------
 
@@ -36,9 +35,9 @@ Required ``pyproject.toml`` configuration
     [tool.pydocstyle]
     convention = "numpy"
 
-
 Required ``.flake8`` configuration
 ----------------------------------
+
 The following ``.flake8`` file is also required:
 
 .. code-block:: toml
@@ -47,12 +46,10 @@ The following ``.flake8`` file is also required:
    max-line-length = 88
    extend-ignore = 'E203'
 
-
 Required ``pre-commit`` configuration
 -------------------------------------
 You can take advantage of :ref:`Pre-commit` by including a
 ``.pre-commit-config.yaml`` file like this one in your project:
-
 
 .. code-block:: yaml
 
@@ -85,9 +82,9 @@ You can take advantage of :ref:`Pre-commit` by including a
         additional_dependencies: [toml]
         exclude: "tests/"
 
-
 GitHub CI/CD integration
 ------------------------
+
 Finally, you can :ref:`Test using GitHub actions` and
 create a ``style.yml`` workflow file in ``.github/workflows/``:
 

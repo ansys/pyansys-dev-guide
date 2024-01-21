@@ -1,6 +1,6 @@
-#########################
+
 PyAnsys Developer's Guide
-#########################
+=========================
 
 The `PyAnsys Developer's Guide <https://dev.docs.pyansys.com>`_ is the central
 document for:

@@ -9,9 +9,9 @@ Most of the tools presented can be configured using :ref:`the
 \`\`pyproject.toml\`\` file`. Avoiding dotfiles leads to a much
 cleaner root project directory.
 
-
 Black
 -----
+
 `Black`_ is the most popular code formatter in the Python community because it is
 maintained by the Python Software Foundation. It allows for a minimum
 configuration to ensure that the Python code format looks almost the same across
@@ -30,13 +30,13 @@ The minimum `black`_ configuration for a PyAnsys project should look like this:
 
 Isort
 -----
+
 The goal of `isort`_  is to properly format ``import`` statements by making sure
 that they follow the standard order:
 
 #. library
 #. third-party libraries
 #. custom libraries
-
 
 When using `isort`_ with `black`_, it is important to properly configure both
 tools so that no conflicts arise. To accomplish this, use the
@@ -51,9 +51,9 @@ tools so that no conflicts arise. To accomplish this, use the
    default_section = "THIRDPARTY"
    src_paths = ["doc", "src", "tests"]
 
-
 Flake8
 ------
+
 The goal of `flake8` is to act as a `PEP 8`_ compliance checker. Again, if
 this tool is being used with `black`_, it is important to make sure that no
 conflicts arise.
@@ -100,6 +100,7 @@ The example configuration defines these options:
 
 Add-license-headers
 -------------------
+
 The goal of the ``add-license-headers`` pre-commit hook is to add and update license headers
 for files with `REUSE <https://reuse.software/>`_. By default, the hook runs on
 PROTO files in any directory and on Python files in the ``src``, ``examples``, and ``tests`` directories.
@@ -110,9 +111,9 @@ You can find the MIT license that is added to the files in
 
 For information on customizing the hook, see the `README <https://github.com/ansys/pre-commit-hooks/blob/main/README.rst>` file.
 
-
 Code coverage
 -------------
+
 Code coverage indicates the percentage of the codebase tested by the test
 suite. Code coverage should be as high as possible to guarantee that every piece
 of code has been tested.
@@ -134,6 +135,7 @@ project:
 
 Pre-commit
 ----------
+
 To ensure that every commit you make is compliant with the code style
 guidelines for PyAnsys, you can take advantage of `pre-commit`_ in your project.
 Every time you stage some changes and try to commit them, `pre-commit`_ only
@@ -143,7 +145,6 @@ The configuration for `pre-commit`_ must be defined in a
 ``.pre-commit-config.yaml`` file. The following lines present a minimum
 `pre-commit`_ configuration that includes both code and documentation
 formatting tools.
-
 
 .. code-block:: yaml
 
@@ -183,6 +184,7 @@ formatting tools.
 
 Installing ``pre-commit``
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+
 You can install ``pre-commit`` by running:
 
 .. code-block:: bash
@@ -197,6 +199,7 @@ Then, ensure that you install it as a ``Git hook`` by running:
 
 Using ``pre-commit``
 ~~~~~~~~~~~~~~~~~~~~
+
 One installed as described, ``pre-commit`` automatically triggers every time
 that you try to commit a change. If any hook defined in `.pre-commit-config.yaml`
 fails, you must fix the failing files, stage the new changes, and try to commit
@@ -213,6 +216,7 @@ the hooks fail.
 
 Tox
 ---
+
 You might consider using `tox`_ in your project. While this automation
 tool is similar to `Make`_, it supports testing of your package in a temporary
 virtual environment. Being able to test your package in isolation rather than in
@@ -220,7 +224,6 @@ virtual environment. Being able to test your package in isolation rather than in
 
 Configuration for `tox`_ is stored in a ``tox.ini`` file. The minimum
 configuration for a PyAnsys ``py<product>-<library>`` project should be:
-
 
 .. tab-set::
 
@@ -232,7 +235,6 @@ configuration for a PyAnsys ``py<product>-<library>`` project should be:
 
         .. include:: code/tox-poetry.rst
 
-
 This minimum configuration assumes that you have a ``requirements/`` directory that
 contains ``requirements_tests.txt`` and ``requirements_doc.txt``. In
 addition, the ``style`` environment must execute ``pre-commit``, which guarantees
@@ -240,12 +242,12 @@ the usage of this tool in your project.
 
 Installing ``tox``
 ~~~~~~~~~~~~~~~~~~
+
 You can install ``tox`` like any other Python package:
 
 .. code-block:: bash
 
     python -m pip install tox
-
 
 Using ``tox``
 ~~~~~~~~~~~~~
@@ -261,7 +263,6 @@ widely used environments:
 It is possible to run multiple environments by separating them with commas ``tox
 -e <env-name0>,<env-name1>,...```.  To run all available environments, simply
 run ``tox``.
-
 
 .. LINKS AND REFERENCES
 

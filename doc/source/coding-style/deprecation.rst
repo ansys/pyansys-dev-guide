@@ -1,5 +1,6 @@
 Deprecation best practices
 ==========================
+
 While deprecation best practices are outlined in a `Stack
 Overflow Answer <https://stackoverflow.com/questions/2536307>`_ and
 in this `Deprecation library <https://deprecation.readthedocs.io/>`_ ,

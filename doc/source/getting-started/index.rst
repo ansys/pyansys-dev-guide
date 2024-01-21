@@ -1,6 +1,6 @@
-###############
+
 Getting started
-###############
+===============
 
 The PyAnsys project exposes Ansys technologies via libraries in the 
 Python ecosystem. Each library provides clear, concise, and
@@ -50,9 +50,9 @@ ecosystem. Examples include:
 .. _PyAEDT: https://github.com/ansys/PyAEDT
 .. _PyMAPDL: https://github.com/ansys/pymapdl
 
-
 Contributing to this guide
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 If you would like to contribute to this development guide, maintainers gladly 
 review all pull requests. For more information, see :ref:`Documentation style`.
 

@@ -76,7 +76,6 @@ The PyAnsys team recommends to set the following rules for the ``main`` branch:
   this forces assignees to actually go through all comments. It is just a safety
   measure so that at least any comment left by reviewers is read (and hopefully applied).
 
-
 Tag protection
 --------------
 

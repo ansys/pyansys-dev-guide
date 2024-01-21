@@ -1,5 +1,6 @@
 Contributing
 ============
+
 Before contributing to a PyAnsys repository, you must understand the general
 coding paradigms being used for PyAnsys development.
 
@@ -27,7 +28,6 @@ coding paradigms being used for PyAnsys development.
 #. Review the Ansys `Code of Conduct
    <https://github.com/ansys/.github/blob/main/CODE_OF_CONDUCT.md>`_.
 
-
 All ``PyAnsys`` projects are hosted in `GitHub <https://www.github.com/>`_ in
 the form of :ref:`Git` repositories. GitHub is a platform that not only provides
 storage for projects but also additional features like code reviews or issue
@@ -40,17 +40,15 @@ boards.
        <img width="40%;" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Logo.png">
      </div>
 
-
 Create a GitHub account
 -----------------------
+
 To use GitHub, start by creating an account for the platform. Follow the
 `GitHub Join Process <https://github.com/join>`_.
 
 For Ansys employees:
 
 If you would like to join the `Ansys GitHub Organization <https://github.com/ansys>`_, visit `Join Ansys GitHub Organization <https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706>`_.
-
-
 
 GitHub repository sections
 --------------------------
@@ -77,6 +75,7 @@ your access level determines tabbed sections you can see.
 
 Create an issue
 ---------------
+
 You create an issue to either report a bug or request help or a new feature. Commenting
 allows you to interact with other users, developers, and project maintainers.
 
@@ -90,6 +89,7 @@ files. For more information, see `Basic writing and formatting syntax
 
 Request new features
 ~~~~~~~~~~~~~~~~~~~~
+
 If you would like a new feature to be added to a PyAnsys library, you open a
 new issue and select either the template for code enhancements or a
 feature idea. In the issue, you then do the following:
@@ -102,9 +102,9 @@ feature idea. In the issue, you then do the following:
 
 - Add any references that could help during the development process.
 
-
 Report bugs
 ~~~~~~~~~~~
+
 If you encounter a bug in the code, you open a new issue and select the template
 for creating a bug report. In the bug report, try to:
 
@@ -114,9 +114,9 @@ for creating a bug report. In the bug report, try to:
 
 - Add any additional information that you consider useful for fixing the bug.
 
-
 Fork a repository
 -----------------
+
 Forking a repository is like copying and pasting a project into your own GitHub
 profile. Notice that only ``public`` labeled repositories can be forked. You
 cannot fork a repository labeled as ``internal`` or ``private``.
@@ -124,14 +124,15 @@ cannot fork a repository labeled as ``internal`` or ``private``.
 To fork a repository, click the ``Fork`` button at the top of the project's
 ``Code`` tabbed section.
 
-
 Clone a repository
 ------------------
+
 Cloning a repository means downloading it to your local machine. While there are two ways of
 doing this (``HTTPS`` or ``SSH``), to force the usage of ``SSH``, only this method is explained.
 
 Clone using SSH
 ~~~~~~~~~~~~~~~
+
 Cloning using ``SSH`` requires :ref:`Enabling SSH`. After that, you can
 clone a repository by running:
 
@@ -146,9 +147,9 @@ project with:
 
     git clone git@github.com:ansys/pymapdl.git
 
-
-Install in editable mode 
+Install in editable mode
 ------------------------
+
 You can install a Python library in *editable mode*, which
 allows you to modify the source code and have these new changes
 reflected in your Python environment.
@@ -170,9 +171,9 @@ To install a Python library in editable mode:
 
        python -m pip install --editable .
 
-
 Create a branch
 ---------------
+
 It is likely that the default branch name is ``main`` or ``master``. This is the
 development branch for PyAnsys projects. For more information, see :ref:`Branch model`. 
 
@@ -187,6 +188,7 @@ You create a branch with:
 
 Branch naming conventions
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+
 The following requirements for naming branches helps to streamline
 development. They help core developers know what kind of
 changes any given branch is introducing before looking at the code.
@@ -204,9 +206,9 @@ changes any given branch is introducing before looking at the code.
 -  ``testing/``: Improvements or changes to testing
 -  ``release/``: Releases (see below)
 
-
 Push a new branch
 -----------------
+
 Once you have implemented new changes and committed them, you push your
 branch, which uploads your changes to the repository. These changes are only
 visible in the branch that you just pushed.
@@ -217,6 +219,7 @@ visible in the branch that you just pushed.
 
 Create a pull request
 ---------------------
+
 Once you have tested your branch locally, create a pull request (PR) and target your merge to
 ``main``. This automatically runs CI testing and verifies that your changes
 work across all supported platforms. For procedural information, see `Creating a pull request
@@ -238,6 +241,7 @@ or someone else with write permission must merge your PR and then delete your PR
 
 Use GitHub CLI
 --------------
+
 Because developers do not like leaving their terminals when working in projects,
 GitHub offers a `command-line interface (CLI) <https://cli.github.com/>`_.
 

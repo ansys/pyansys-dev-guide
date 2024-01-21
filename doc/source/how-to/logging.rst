@@ -1,5 +1,6 @@
 Logging
 =======
+
 This section provides guidelines for logging in PyAnsys libraries. These
 guidelines are best practices discovered through implementing logging services
 and modules within PyAnsys libraries. Suggestions and improvements are welcomed.
@@ -11,9 +12,9 @@ particular, see:
 - `Python Basic Logging Tutorial <https://docs.python.org/3/howto/logging.html#basic-logging-tutorial>`_
 - `Python Advanced Logging Tutorial <https://docs.python.org/3/howto/logging.html#basic-logging-tutorial>`_
 
-
 Description and usage
 ---------------------
+
 Logging helps to track events occurring in the app. A log record is 
 created for each event. This record contains detailed information about the
 current app operation. Whenever information must be exposed, displayed,
@@ -121,9 +122,9 @@ This method contains all modified content to send to the stream:
                 self._std_out_handler.setFormatter(FORMATTER)
                 self.global_logger.addHandler(self._std_out_handler)
 
-
 Use %-formatting for strings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Although using the f-string for formatting most strings is often recommended,
 when it comes to logging, using the former %-formatting is preferable.
 When %-formatting is used, the string is not evaluated at runtime. Instead, it
@@ -134,9 +135,9 @@ errors occur, they are reported as logging errors and do not halt code.
 
     logger.info("Project %s has been opened.", project.GetName())
 
-
 App and service logging modules
----------------------------------------
+-------------------------------
+
 PyAnsys libraries use app and Service logging modules to extend
 or expose features from an Ansys app, product, or service, which can
 be local or remote.
@@ -159,7 +160,6 @@ of the global and instance loggers.
     :alt: Logging in PyMAPDL
     :figclass: align-center
 
-
 You can find the source for this example logger in the collapsible section below
 and in the ``dev_guide`` repository at `pyansys_logging.py
 <https://github.com/ansys/pyansys-dev-guide/blob/main/doc/source/how-to/code/pyansys_logging.py>`_.
@@ -168,14 +168,12 @@ and in the ``dev_guide`` repository at `pyansys_logging.py
 
     .. literalinclude:: code/pyansys_logging.py
 
-
 Some unit tests demonstrating how to use the PyAnsys custom logger module implemented 
 in the preceding code are shown in this collapsible section:
 
 .. collapse:: How to Use the PyAnsys Custom Logger Module
 
     .. literalinclude:: code/test_pyansys_logging.py
-
 
 Global logger
 -------------
@@ -200,7 +198,6 @@ another logger, you can rename it with:
 
    from ansys.product.service import LOG as logger
 
-
 The default logging level of the global logger is ``ERROR`` (``logging.ERROR``).
 You can change the output to a different error level with:
 
@@ -210,14 +207,12 @@ You can change the output to a different error level with:
    LOG.file_handler.setLevel("DEBUG")  # if present
    LOG.stdout_handler.setLevel("DEBUG")  # if present
 
-
 Alternatively, you can use this approach to ensure that all
 handlers are set to the desired log level:
 
 .. code:: python
 
    LOG.setLevel("DEBUG")
-
 
 By default, the global logger does not log to a file. However, you can
 enable logging to both a file and the standard output by adding
@@ -247,9 +242,9 @@ To log using the global logger, simply call the desired method as a normal logge
     |----------|------------|--------------|-------------|---------------------------
     | DEBUG    |            | __init__     | <module>    | This is LOG debug message.
 
-
 Instance logger
 ---------------
+
 An instance logger is created every time that the class ``_MapdlCore`` is
 instantiated. Using this instance logger is recommended when using the ``pool``
 library or when using multiple instances of ``Mapdl``. The main feature of the instance
@@ -283,9 +278,9 @@ Here is an example of how to use an instance logger:
     | INFO     | 127.0.0.1:50052 | test     | <module>    | This is an useful message
 
 
-
 Ansys product loggers
 ---------------------
+
 An Ansys product, due to its architecture, can have several loggers. The
 ``logging`` library features support working with a finite number of loggers. The
 factory function ``logging.getLogger()`` helps to access each logger by its name. In
@@ -303,6 +298,7 @@ in the standard logger and all the upcoming improvements.
 
 Custom log handlers
 -------------------
+
 You might need to catch Ansys product messages and redirect them to another
 logger. For example, Ansys Electronics Desktop (AEDT) has its own internal
 logger called the **message manager**, which has three main destinations: 
@@ -339,7 +335,6 @@ logging service with the AEDT message manager.
 
         def emit(self, record):
             pass
-
 
 The purpose of this class is to send log messages in the AEDT logging stream.
 One of the mandatory actions is to overwrite the ``emit`` function. This method
