@@ -66,7 +66,8 @@ RST files
 ~~~~~~~~~
 
 To provide general usage information in your documentation, use your favorite
-editor to create RST (ReStructured Text) files that you then place in :ref:`The \`\`doc/\`\` directory`. The ``index.rst`` file in the ``doc/source`` directory
+editor to create RST (ReStructured Text) files that you then place in :ref:`The \`\`doc/\`\`
+directory`. The ``index.rst`` file in the ``doc/source`` directory
 defines the first level of your documentation hierarchy. The ``toctree``
 directive (which stands for "table of contents tree") indicates the maximum
 number of heading levels that the documentation is to display. Following this

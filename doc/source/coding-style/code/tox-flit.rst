@@ -3,7 +3,7 @@
     [tox]
     description = Default tox environments list
     envlist =
-        style,{py37,py38,py39,py310}{,-coverage},doc
+        style,{py39,py310,py311,py312}{,-coverage},doc
     skip_missing_interpreters = true
     isolated_build = true
     isolated_build_env = build
@@ -11,10 +11,10 @@
     [testenv]
     description = Checks for project unit tests and coverage (if desired)
     basepython =
-        py37: python3.7
-        py38: python3.8
         py39: python3.9
         py310: python3.10
+        py311: python3.11
+        py312: python3.12
         py: python3
         {style,reformat,doc,build}: python3
     setenv =

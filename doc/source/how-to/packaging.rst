@@ -25,8 +25,9 @@ Required dependencies are third party libraries that a software requires to
 properly function. If these dependencies are not installed or present, the
 software does not work as expected.
 
-Required dependencies need to be declared in :ref:`The \`\`setup.py\`\` file` or in :ref:`The \`\`pyproject.toml\`\` file`, according to the selected :ref:`Build
-system`:
+Required dependencies need to be declared in :ref:`The \`\`setup.py\`\` file` or
+in :ref:`The \`\`pyproject.toml\`\` file`, according to the 
+selected :ref:`Build system`:
 
 .. tab-set::
 
