@@ -10,7 +10,7 @@ Most of the tools presented can be configured using :ref:`the
 \`\`pyproject.toml\`\` file`, avoiding dotfiles and thus leading to a much
 cleaner root project directory.
 
-Blacken-Docs
+blacken-docs
 ------------
 
 When writing documentation, code blocks are frequently used to provide examples.
