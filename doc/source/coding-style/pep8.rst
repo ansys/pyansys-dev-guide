@@ -526,7 +526,7 @@ For more information on docstrings for PyAnsys libraries, see
 Programming recommendations
 ---------------------------
 
-The following sections provide some `PEP8
+The following sections provide some `PEP 8
 <https://www.python.org/dev/peps/pep-0008/>`_ recommendations for removing
 ambiguity and preserving consistency. Additionally, they address some common
 pitfalls that occur when writing Python code.

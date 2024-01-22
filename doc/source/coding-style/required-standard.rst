@@ -35,8 +35,8 @@ Required ``pyproject.toml`` configuration
     [tool.pydocstyle]
     convention = "numpy"
 
-Required ``.flake8`` configuration
-----------------------------------
+Required Flake8 configuration
+-----------------------------
 
 The following ``.flake8`` file is also required:
 

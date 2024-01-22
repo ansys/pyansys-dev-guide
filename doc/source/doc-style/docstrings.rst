@@ -21,8 +21,8 @@ classes, methods, and variables. For example::
   """Initialize the ``Desktop`` class with the version of AEDT to use."""
 
 .. note::
-   The PyAnsys style uses two back ticks to surround the names of classes, methods, and
-   variables, not the single back tick that is recommended by `numpydoc`_
+   The PyAnsys style uses two backticks to surround the names of classes, methods, and
+   variables, not the single backtick that is recommended by `numpydoc`_
    style.
 
 Required docstring sections

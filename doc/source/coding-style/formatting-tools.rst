@@ -38,7 +38,7 @@ that they follow the standard order:
 #. third-party libraries
 #. custom libraries
 
-When using `isort`_ with `black`_, it is important to properly configure both
+When using `isort`_ with `Black`_, it is important to properly configure both
 tools so that no conflicts arise. To accomplish this, use the
 ``--profile black`` flag in `isort`_.
 
@@ -54,8 +54,8 @@ tools so that no conflicts arise. To accomplish this, use the
 Flake8
 ------
 
-The goal of `flake8` is to act as a `PEP 8`_ compliance checker. Again, if
-this tool is being used with `black`_, it is important to make sure that no
+The goal of `Flake8` is to act as a `PEP 8`_ compliance checker. Again, if
+this tool is being used with `Black`_, it is important to make sure that no
 conflicts arise.
 
 The following configuration is the minimum one to set up `flake8`_ together with
@@ -235,8 +235,8 @@ configuration for a PyAnsys ``py<product>-<library>`` project should be:
 
         .. include:: code/tox-poetry.rst
 
-This minimum configuration assumes that you have a ``requirements/`` directory that
-contains ``requirements_tests.txt`` and ``requirements_doc.txt``. In
+This minimum configuration assumes that you have a ``requirements`` directory that
+contains ``requirements_tests.txt`` and ``requirements_doc.txt`` files. In
 addition, the ``style`` environment must execute ``pre-commit``, which guarantees
 the usage of this tool in your project.
 
@@ -266,7 +266,7 @@ run ``tox``.
 
 .. LINKS AND REFERENCES
 
-.. _black: https://black.readthedocs.io/en/latest/
+.. _Black: https://black.readthedocs.io/en/latest/
 .. _isort: https://pycqa.github.io/isort/
 .. _flake8: https://flake8.pycqa.org/en/latest/
 .. _pre-commit: https://pre-commit.com/
