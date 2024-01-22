@@ -133,7 +133,7 @@ project:
    [tool.coverage.report]
    show_missing = true
 
-Pre-commit
+pre-commit
 ----------
 
 To ensure that every commit you make is compliant with the code style
