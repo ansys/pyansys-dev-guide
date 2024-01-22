@@ -13,8 +13,8 @@ cleaner root project directory.
 Blacken-Docs
 ------------
 
-When writing documentation, it is frequent to include code-blocks which are used
-as examples. However, these code snippets style cannot be verified with the usual code
+When writing documentation, code blocks are frequently used to provide examples.
+However, these code snippets cannot be verified with the usual code
 formatting tools. This is where `blacken-docs`_ comes into play. You can execute
 this tool by running:
 
