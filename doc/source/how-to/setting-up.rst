@@ -172,7 +172,7 @@ You would activate the preceding virtual environment with:
 Deactivate
 ~~~~~~~~~~
 
-You could deactivate a virtual environment with:
+You could deactivate a virtual environment with the command for your OS:
 
 .. code-block:: text
 
