@@ -142,7 +142,7 @@ You can create a virtual environment named ``<venv>`` with:
 Activate
 ~~~~~~~~
 
-You would activate the preceding virtual environment with:
+You would activate the preceding virtual environment with the command for your OS:
 
 .. tab-set::
 
