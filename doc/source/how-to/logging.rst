@@ -1,7 +1,7 @@
 Logging
 =======
 
-This section provides guidelines for logging in PyAnsys libraries. These
+This page provides guidelines for logging in PyAnsys libraries. These
 guidelines are best practices discovered through implementing logging services
 and modules within PyAnsys libraries. Suggestions and improvements are welcomed.
 
@@ -160,7 +160,7 @@ of the global and instance loggers.
     :alt: Logging in PyMAPDL
     :figclass: align-center
 
-You can find the source for this example logger in the collapsible section below
+You can find the source for this example logger in the following collapsible section
 and in the ``dev_guide`` repository at `pyansys_logging.py
 <https://github.com/ansys/pyansys-dev-guide/blob/main/doc/source/how-to/code/pyansys_logging.py>`_.
 

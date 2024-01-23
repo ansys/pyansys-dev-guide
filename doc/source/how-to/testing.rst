@@ -474,7 +474,7 @@ Enforce code coverage
 
 One way of enforcing unit test coverage with a project on GitHub is to use
 ``codecov.io`` to enforce minimum patch (and optionally project) coverage. Because
-this app is already available to the `PyAnsys Organization
+this app is already available to the `Ansys Organization
 <https://github.com/ansys>`_, you can simply add a ``codecov.yml`` file to the root
 directory of your repository. This example file provides a sample configuration:
 

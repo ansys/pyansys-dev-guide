@@ -229,7 +229,7 @@ the project. It usually provides references to:
 - Additional ways of contributing to the source code.
 
 Ideally, the ``CONTRIBUTING.md`` file for a PyAnsys project should be pointing
-towards the `PyAnsys Developer's Guide <https://docs.pyansys.com/>`_.
+towards the `PyAnsys developer's guide <https://docs.pyansys.com/>`_.
 
 .. literalinclude:: code/contributing_file.md
    :language: markdown

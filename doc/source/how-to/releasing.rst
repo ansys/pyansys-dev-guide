@@ -52,7 +52,7 @@ Branch model
 
 The branching model for a PyAnsys project enables rapid development of
 features without sacrificing stability. The model closely follows the
-`Trunk Based Development <https://trunkbaseddevelopment.com/>`_ approach:
+`trunk-based development <https://trunkbaseddevelopment.com/>`_ approach:
 
 - The ``main`` branch is the primary development branch. All features,
   patches, and other branches should be merged here. While all PRs
@@ -202,7 +202,7 @@ Documentation in the form of PDF and HTML files are also considered artifacts.
    Do not distribute artifacts without approval. 
 
    A project needs to be authorized to be released into public by following the
-   process explained in the :ref:`Project approval and public release` section.
+   process explained in :ref:`Project approval and public release`.
 
 There are three possible places where artifacts can be published:
 

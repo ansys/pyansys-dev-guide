@@ -2,8 +2,8 @@ Documenting
 ===========
 
 PyAnsys documentation must not only be written but also maintained. If you are
-new to writing developer documentation, see the `Google Developer Documentation
-Style Guide <https://developers.google.com/style>`_. It provides
+new to writing developer documentation, see the `Google developer documentation
+style guide <https://developers.google.com/style>`_. It provides
 editorial guidelines for writing clear and consistent developer documentation,
 allowing this guide to supply guidance only specific to PyAnsys library
 documentation.
@@ -140,7 +140,7 @@ Indicating RST titles
 
 Within RST files, heading titles are to use sentence case per
 `capitalization guidelines <https://developers.google.com/style/capitalization>`_
-in the *Google Developer Documentation Style Guide*. The line that follows
+in the *Google developer documentation style guide*. The line that follows
 the heading title must have a string of characters that is the same length
 as the heading title. If the length of the characters under the heading title
 do not match the length of the heading title, Sphinx generates a warning.
@@ -174,7 +174,7 @@ sections in your library documentation:
 - ``User guide`` describes how to use basic features of the library.
 - ``API reference`` documents API resources provided by the library.
 - ``Examples`` provides fully fledged examples for using the library.
-- ``Contributing`` refers to the `PyAnsys Developer's Guide`_
+- ``Contributing`` refers to the `PyAnsys developer's guide`_
   for overall guidance and provides library-specific contribution information.
 
 Examples

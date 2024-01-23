@@ -22,10 +22,10 @@ this tool by running:
 
    blacken-docs -l <line-length> doc/**/*.rst
 
-Codespell
+codespell
 ---------
 
-`Codespell`_ checks for common misspellings in text files. This implies that it
+`codespell`_ checks for common misspellings in text files. This implies that it
 is not limited to Python files but can run checks on any human-readable file.
 
 It is possible to ignore words that are flagged as misspelled. You can specify these words in a
@@ -35,21 +35,21 @@ file that can then be passed to `Codespell` by running:
 
    codespell --write-changes --ignore-words=<FILE>
 
-Docformatter
+docformatter
 ------------
 
 `Docformatter`_ automatically formats Python docstrings according
-to `PEP 257`_. To make sure `Docformatter`_ wraps your docstrings at a given
+to `PEP 257`_. To make sure `docformatter`_ wraps your docstrings at a given
 number of characters, use the following configuration:
 
 .. code:: bash
 
    docformatter -r -i --wrap-summaries <length> --wrap-descriptions <length> src
 
-Doctest
+doctest
 -------
 
-`Doctest`_ is a module from the Python standard library, which means it is
+`doctest`_ is a module from the Python standard library, which means it is
 included by default with your Python installation. It is used for checking the
 examples provided inside docstrings to make sure that they reflect the current usage
 of the source code. `Doctest`_ can be integrated with ``pytest`` in :ref:`The
@@ -60,10 +60,10 @@ of the source code. `Doctest`_ can be integrated with ``pytest`` in :ref:`The
    [tool.pytest.ini_options]
    addopts = "--doctest-modules"
 
-Interrogate
+interrogate
 -----------
 
-`Interrogate`_ is a tool for checking docstring coverage. Similar to source code
+`interrogate`_ is a tool for checking docstring coverage. Similar to source code
 coverage tools, this tool tests how many functions, classes, and modules in a Python
 library hold a docstring.
 
@@ -113,10 +113,10 @@ For a complete list of available checks, see the `full mapping of
 validation checks
 <https://numpydoc.readthedocs.io/en/latest/validation.html#built-in-validation-checks>`_.
 
-Pydocstyle
+pydocstyle
 ----------
 
-`Pydocstyle`_ is a tool for checking the compliance of Python docstrings with `PEP
+`pydocstyle`_ is a tool for checking the compliance of Python docstrings with `PEP
 257`_.  Its configuration can be defined in the :ref:`The \`\`pyproject.toml\`\`
 file`.  By default, `Pydocstyle`_ matches all ``*.py`` files except those starting with
 ``test_*.py``. The default configuration should be enough for a PyAnsys project.
