@@ -233,8 +233,8 @@ Once your installation process is complete, verify your Git installation with:
 Usage
 ~~~~~
 
-If you're new to Git, refer to the `Git Reference Manual <https://git-scm.com/doc>`_
-for comprehensive usage details.
+If you're new to Git, see the `Git Reference Manual <https://git-scm.com/doc>`_
+for comprehensive usage information.
 
 For an understanding of Git workflows and branching strategies, 
 see the `Learning Git branching <https://learngitbranching.js.org/>`_ tutorial.
