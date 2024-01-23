@@ -221,7 +221,7 @@ Installation
         1. Check the `latest stable Git version for Linux/UNIX <https://git-scm.com/download/linux>`_.
         2. Run the installation command for your package manager.
 
-Verify git version
+Verify Git version
 ~~~~~~~~~~~~~~~~~~
 
 Once your installation process is complete, verify your Git installation with:
