@@ -239,7 +239,7 @@ for comprehensive usage information.
 For an understanding of Git workflows and branching strategies, 
 see the `Learning Git branching <https://learngitbranching.js.org/>`_ tutorial.
 
-If you're unfamiliar with GitHub, explore the 
+If you're unfamiliar with GitHub, see the 
 `GitHub Training Manual <https://githubtraining.github.io/training-manual/>`_ for guidance.
 
 Configuration
