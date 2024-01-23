@@ -237,7 +237,7 @@ If you're new to Git, refer to the `Git Reference Manual <https://git-scm.com/do
 for comprehensive usage details.
 
 For an understanding of Git workflows and branching strategies, 
-check out the `Learning Git branching <https://learngitbranching.js.org/>`_ tutorial.
+see the `Learning Git branching <https://learngitbranching.js.org/>`_ tutorial.
 
 If you're unfamiliar with GitHub, explore the 
 `GitHub Training Manual <https://githubtraining.github.io/training-manual/>`_ for guidance.
