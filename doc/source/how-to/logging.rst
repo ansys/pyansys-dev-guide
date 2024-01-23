@@ -138,7 +138,7 @@ errors occur, they are reported as logging errors and do not halt code.
 App and service logging modules
 -------------------------------
 
-PyAnsys libraries use app and Service logging modules to extend
+PyAnsys libraries use app and service logging modules to extend
 or expose features from an Ansys app, product, or service, which can
 be local or remote.
 
