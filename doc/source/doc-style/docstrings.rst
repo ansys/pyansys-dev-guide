@@ -26,7 +26,7 @@ classes, methods, and variables. For example::
    style.
 
 Required docstring sections
-===========================
+---------------------------
 
 PyAnsys library docstrings contain these `numpydoc`_ sections as a minimum:
 
@@ -239,7 +239,7 @@ examples must always match the API that they are documenting, they are an import
 feature of maintainable documentation.
 
 Type hints
-==========
+----------
 
 By default, Sphinx renders `type hints <https://peps.python.org/pep-0484/>`_ as part
 of the function signature. This can become difficult to read because the signature
@@ -268,7 +268,8 @@ When using type hints in this way, the type information in the ``Parameters``
 and ``Returns`` sections can be omitted.
 
 Additional directives
-=====================
+---------------------
+
 Because Python docstrings are written using RST syntax, it is possible to take
 advantage of some directives available in this Markup language. Commonly used
 directives include:
@@ -285,7 +286,7 @@ this documentation as the primary source regarding docstring styles for directiv
 that are not covered here.
 
 Example
-=======
+-------
 
 Here is a generic docstring example compliant with PyAnsys guidelines:
 

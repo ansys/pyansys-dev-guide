@@ -133,8 +133,8 @@ project:
    [tool.coverage.report]
    show_missing = true
 
-pre-commit
-----------
+``pre-commit``
+--------------
 
 To ensure that every commit you make is compliant with the code style
 guidelines for PyAnsys, you can take advantage of `pre-commit`_ in your project.

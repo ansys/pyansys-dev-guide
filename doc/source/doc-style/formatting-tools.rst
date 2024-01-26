@@ -10,22 +10,22 @@ Most of the tools presented can be configured using :ref:`the
 \`\`pyproject.toml\`\` file`, avoiding dotfiles and thus leading to a much
 cleaner root project directory.
 
-blacken-docs
-------------
+The ``blacken-docs``
+--------------------
 
 When writing documentation, code blocks are frequently used to provide examples.
 However, these code snippets cannot be verified with the usual code
-formatting tools. This is where `blacken-docs`_ comes into play. You can execute
+formatting tools. This is where the `blacken-docs`_ comes into play. You can execute
 this tool by running:
 
 .. code:: bash
 
    blacken-docs -l <line-length> doc/**/*.rst
 
-codespell
----------
+The ``codespell``
+-----------------
 
-`codespell`_ checks for common misspellings in text files. This implies that it
+The `codespell`_ checks for common misspellings in text files. This implies that it
 is not limited to Python files but can run checks on any human-readable file.
 
 It is possible to ignore words that are flagged as misspelled. You can specify these words in a
@@ -35,10 +35,10 @@ file that can then be passed to `Codespell` by running:
 
    codespell --write-changes --ignore-words=<FILE>
 
-docformatter
-------------
+The ``docformatter``
+--------------------
 
-`Docformatter`_ automatically formats Python docstrings according
+The `docformatter`_ automatically formats Python docstrings according 
 to `PEP 257`_. To make sure `docformatter`_ wraps your docstrings at a given
 number of characters, use the following configuration:
 
@@ -46,10 +46,10 @@ number of characters, use the following configuration:
 
    docformatter -r -i --wrap-summaries <length> --wrap-descriptions <length> src
 
-doctest
--------
+The ``doctest``
+---------------
 
-`doctest`_ is a module from the Python standard library, which means it is
+The `doctest`_ is a module from the Python standard library, which means it is
 included by default with your Python installation. It is used for checking the
 examples provided inside docstrings to make sure that they reflect the current usage
 of the source code. `Doctest`_ can be integrated with ``pytest`` in :ref:`The
@@ -60,8 +60,8 @@ of the source code. `Doctest`_ can be integrated with ``pytest`` in :ref:`The
    [tool.pytest.ini_options]
    addopts = "--doctest-modules"
 
-interrogate
------------
+``interrogate``
+---------------
 
 `interrogate`_ is a tool for checking docstring coverage. Similar to source code
 coverage tools, this tool tests how many functions, classes, and modules in a Python
@@ -113,8 +113,8 @@ For a complete list of available checks, see the `full mapping of
 validation checks
 <https://numpydoc.readthedocs.io/en/latest/validation.html#built-in-validation-checks>`_.
 
-pydocstyle
-----------
+The ``pydocstyle``
+------------------
 
 `pydocstyle`_ is a tool for checking the compliance of Python docstrings with `PEP
 257`_.  Its configuration can be defined in the :ref:`The \`\`pyproject.toml\`\`
@@ -175,7 +175,7 @@ file to fix or adding a term to the ``accept.txt`` file under the
 .. _doctest: https://docs.python.org/3/library/doctest.html
 .. _vale: https://vale.sh/
 .. _PEP 257: http://www.python.org/dev/peps/pep-0257/
-.. _docformatter: https://github.com/PyCQA/docformatter
+.. _Docformatter: https://github.com/PyCQA/docformatter
 .. _codespell: https://github.com/codespell-project/codespell
 .. _pytest-cov: https://pytest-cov.readthedocs.io/en/latest/
 .. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
