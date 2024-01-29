@@ -8,7 +8,8 @@ This example demonstrates how to add a new PyAnsys `Sphinx Gallery
 <https://sphinx-gallery.github.io/>`_ example as well as being a template that
 can be used in their creation.
 Each example should have a reference tag/key in the form:
-``.. _<example-name>_example:``
+``.. _<example-name>_example:``.
+
 The ``.. _`` is necessary. Everything that follows is your reference tag, which
 can potentially be used within a docstring. As convention, we keep all
 references in ``snake_case``.
@@ -17,6 +18,7 @@ demonstrates. The title should be changed to reflect the topic your example
 covers.
 New examples should be added as python scripts to:
 ``examples/<index>-<directory-name>/<some-example>.py``
+
 .. note::
 
    Avoid creating new directories unless absolutely necessary. If you *must*
@@ -46,9 +48,10 @@ import pyvista as pv
 #
 # As in Jupyter notebooks, if a statement is unassigned at the end of a code
 # block, output will be generated and printed to the screen according to its
-# ``__repr__`` method.  Otherwise, you can use ``print()`` to output text.
+# ``__repr__`` method. Otherwise, you can use ``print()`` to output text.
 
 # Create a dataset and exercise its repr method
+
 dataset = pv.Sphere()
 dataset
 
@@ -94,8 +97,8 @@ actor
 # >>> pl.show()
 
 # You can, however, close out the plotter or access other attributes.
-pl.close()
 
+pl.close()
 
 ###############################################################################
 # Making a pull request

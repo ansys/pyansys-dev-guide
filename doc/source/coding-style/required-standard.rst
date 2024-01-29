@@ -48,7 +48,7 @@ The following ``.flake8`` file is also required:
 
 Required ``pre-commit`` configuration
 -------------------------------------
-You can take advantage of :ref:`Pre-commit` by including a
+You can take advantage of :ref:`the \`\`pre-commit\`\`<The \`\`pre-commit\`\`>` by including a
 ``.pre-commit-config.yaml`` file like this one in your project:
 
 .. code-block:: yaml

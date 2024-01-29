@@ -52,7 +52,7 @@ The ``doctest``
 The `doctest`_ is a module from the Python standard library, which means it is
 included by default with your Python installation. It is used for checking the
 examples provided inside docstrings to make sure that they reflect the current usage
-of the source code. `Doctest`_ can be integrated with ``pytest`` in :ref:`The
+of the source code. The `doctest`_ can be integrated with ``pytest`` in :ref:`The
 \`\`pyproject.toml\`\` file`:
 
 .. code:: toml
@@ -60,10 +60,10 @@ of the source code. `Doctest`_ can be integrated with ``pytest`` in :ref:`The
    [tool.pytest.ini_options]
    addopts = "--doctest-modules"
 
-``interrogate``
----------------
+The ``interrogate``
+-------------------
 
-`interrogate`_ is a tool for checking docstring coverage. Similar to source code
+The `interrogate`_ is a tool for checking docstring coverage. Similar to source code
 coverage tools, this tool tests how many functions, classes, and modules in a Python
 library hold a docstring.
 
@@ -116,9 +116,10 @@ validation checks
 The ``pydocstyle``
 ------------------
 
-`pydocstyle`_ is a tool for checking the compliance of Python docstrings with `PEP
-257`_.  Its configuration can be defined in the :ref:`The \`\`pyproject.toml\`\`
-file`.  By default, `Pydocstyle`_ matches all ``*.py`` files except those starting with
+The `pydocstyle`_ is a tool for checking the compliance of Python docstrings with `PEP
+257`_.  Its configuration can be defined in the
+:ref:`the \`\`pyproject.toml\`\` file<The \`\`pyproject.toml\`\` file>`.
+By default, `pydocstyle`_ matches all ``*.py`` files except those starting with
 ``test_*.py``. The default configuration should be enough for a PyAnsys project.
 However, if additional configuration is needed, it must be included
 it under the ``[tool.pydocstyle]`` entry:
@@ -175,7 +176,8 @@ file to fix or adding a term to the ``accept.txt`` file under the
 .. _doctest: https://docs.python.org/3/library/doctest.html
 .. _vale: https://vale.sh/
 .. _PEP 257: http://www.python.org/dev/peps/pep-0257/
-.. _Docformatter: https://github.com/PyCQA/docformatter
+.. _docformatter: https://github.com/PyCQA/docformatter
 .. _codespell: https://github.com/codespell-project/codespell
 .. _pytest-cov: https://pytest-cov.readthedocs.io/en/latest/
 .. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
+.. _pydocstyle: https://www.pydocstyle.org/en/stable/

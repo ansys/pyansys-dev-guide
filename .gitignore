@@ -166,3 +166,6 @@ cython_debug/
 # Sphinx autogen
 doc/source/how-to/api/*
 doc/source/sg_execution_times.rst
+
+# rstcheck
+.rstcheck.cfg

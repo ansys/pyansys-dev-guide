@@ -28,8 +28,8 @@ The minimum `black`_ configuration for a PyAnsys project should look like this:
     line-length = "<length>"
 
 
-Isort
------
+The ``isort``
+-------------
 
 The goal of `isort`_  is to properly format ``import`` statements by making sure
 that they follow the standard order:
@@ -133,8 +133,8 @@ project:
    [tool.coverage.report]
    show_missing = true
 
-``pre-commit``
---------------
+The ``pre-commit``
+------------------
 
 To ensure that every commit you make is compliant with the code style
 guidelines for PyAnsys, you can take advantage of `pre-commit`_ in your project.
