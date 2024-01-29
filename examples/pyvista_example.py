@@ -28,6 +28,7 @@ Example file names should be hyphen separated snake case:
 After this preamble is complete, the first code block begins. This is where you
 typically set up your imports.
 """
+
 import pyvista as pv
 
 ###############################################################################

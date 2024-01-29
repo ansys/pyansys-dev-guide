@@ -1,4 +1,5 @@
 """Sphinx documentation configuration file."""
+
 from datetime import datetime
 
 from ansys_sphinx_theme import pyansys_logo_black as logo
