@@ -22,7 +22,7 @@ deserializes
 Deserializing
 Dev
 (?i)Dns
-Docformatter
+[Dd]ocformatter
 [Dd]ocstring
 [Dd]ocstrings
 [Dd]octest

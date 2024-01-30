@@ -1,14 +1,12 @@
 .. _ref_project_structure:
 
-#################
 Project structure
-#################
+=================
 
 Most of the projects in the PyAnsys ecosystem ship in the form of a Python
 library with other additional files. All these files form what it is called a
 *project*. A project can be uploaded to a repository to better track the changes
 applied to it.
-
 
 Naming convention
 =================
@@ -44,7 +42,6 @@ Using long Python library names provides two primary advantages:
 - `Namespace packages`_ can be used to designate official Ansys packages.
 - Consistent branding and style can be applied to PyAnsys libraries.
 
-
 gRPC interface package
 ----------------------
 Lower-level gRPC interface packages like `ansys-api-mapdl`_ should always be
@@ -59,7 +56,6 @@ This structure leads to the following namespace within ``*.proto`` files:
 
    package ansys.api.<product/service>.v0;
 
-
 Python libraries
 ================
 
@@ -73,7 +69,6 @@ is compliant with the `Python Packaging Authority`_ and PyAnsys recommendations.
    Packaging User Guide`_, maintained by the `Python Packaging Authority`_ (PyPA).
    PyAnsys guidelines are built on top of PyPA guidelines.
 
-
 Scripts, modules, subpackages, and packages
 --------------------------------------------
 
@@ -85,7 +80,6 @@ the difference between Python scripts, modules, sub-packages, and packages.
 * ``Sub-package``: Any directory containing various Python modules
 * ``Package``: Any directory containing Python modules and sub-packages
 
-
 Differences between a Python package and library
 ------------------------------------------------
 
@@ -95,7 +89,6 @@ sub-packages, while a Python Library is a collection of Python packages. Figure
 :numref:`python pkg lib diag` exposes this.
 
 .. include:: diag/python_library_diag.rst
-
 
 Required files
 ==============
@@ -113,7 +106,6 @@ Descriptions follow for some of the directories in the structure:
 - ``tests/`` contains all unit tests for checking the integrity of the project.
 
 - ``setup.py`` or ``pyproject.toml`` is the project file.
-
 
 The ``doc/`` directory
 ----------------------
@@ -134,7 +126,6 @@ A PyAnsys project should have the following documentation sections:
 Projects in the PyAnsys ecosystem take advantage of `Sphinx`_, a tool used for
 building documentation for Python-based projects. As shown in :numref:`doc structure diag`,
 `Sphinx`_ requires a ``doc/`` directory with a specific structure:
-
 
 .. include:: diag/doc_structure_diag.rst
 
@@ -159,7 +150,6 @@ The ``source/`` directory must contain at least these files:
 If you would like to include images or documents, add them in the ``_static/``
 directory.
 
-
 The ``src/`` directory
 ----------------------
 
@@ -183,7 +173,6 @@ shown in the diagram :numref:`src structure diag`:
 
 .. include:: diag/src_structure_diag.rst
 
-
 The ``tests/`` directory
 ------------------------
 
@@ -200,17 +189,15 @@ Notice the use of ``tests_*/`` when creating new directories inside the
 This is the preferred way of naming directories and files inside the
 ``tests/`` directory.
 
-
-
 The ``AUTHORS`` file
 --------------------
+
 An ``AUTHORS`` file is used to specify the authorship of the repository. Its
 format has been defined by the Ansys Legal department. External contributors
 may be added on demand to this file. Make sure to adapt the project name on
 your specific repository's ``AUTHORS`` file.
 
 .. include:: code/authors_code.rst
-
 
 The ``CHANGELOG.md`` file
 -------------------------
@@ -222,7 +209,6 @@ enhancements to the project.
 .. literalinclude:: code/changelog_file.md
    :language: markdown
 
-
 The ``CODE_OF_CONDUCT.md`` file
 -------------------------------
 
@@ -232,7 +218,6 @@ Covenant Code of Conduct``, which is very popular across open source projects.
 
 .. literalinclude:: code/code_of_conduct_file.md
    :language: markdown
-
 
 The ``CONTRIBUTING.md`` file
 ----------------------------
@@ -244,11 +229,10 @@ the project. It usually provides references to:
 - Additional ways of contributing to the source code.
 
 Ideally, the ``CONTRIBUTING.md`` file for a PyAnsys project should be pointing
-towards the `PyAnsys Developer's Guide <https://dev.docs.pyansys.com/index.html>`_.
+towards the `PyAnsys developer's guide <https://docs.pyansys.com/>`_.
 
 .. literalinclude:: code/contributing_file.md
    :language: markdown
-
 
 The ``CONTRIBUTORS.md`` file
 ----------------------------
@@ -259,7 +243,6 @@ a link to your GitHub username.
 
 .. literalinclude:: code/contributors_file.md
    :language: markdown
-
 
 The ``LICENSE`` file
 --------------------
@@ -275,7 +258,6 @@ this license is provided below:
    Just because a software does not ship with a LICENSE file, it does not mean
    it is free or open source. If you need to use unlicensed software, contact
    its development team so they can provide you with the correct license.
-
 
 The ``README.rst`` file
 -----------------------
@@ -299,7 +281,6 @@ The ``README.rst`` file should at the minimum contain these elements:
 The ``README.rst`` file is also reused within the project file metadata. It is
 usually included in the ``long-description`` field.
 
-
 The ``pyproject.toml`` file
 ---------------------------
 
@@ -311,7 +292,6 @@ requirements for building the library. The following tabs expose the ``[build-sy
 for some of the most popular build-system backend tools in the Python ecosystem:
 
 .. include:: code/pyproject_code.rst
-
 
 The ``setup.py`` file
 ---------------------
@@ -327,7 +307,6 @@ process but can also introduce security issues.
    The ``setup.py`` is only compatible with `setuptools`_. Consider using a
    ``pyproject.toml`` file instead.
 
-
 While a ``setup.cfg`` file can be used to specify the metadata and packages, the ``setup.py``
 file must also be present. For more information, see:
 
@@ -337,9 +316,7 @@ file must also be present. For more information, see:
 As a minimum configuration for a PyAnsys project, the following ``setup.py``
 template can be used:
 
-
 .. include:: code/setup_file_code.rst
-
 
 .. REFERENCES & LINKS
 

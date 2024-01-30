@@ -1,5 +1,6 @@
 Releasing and publishing
 ========================
+
 Releasing a new version is a critical procedure. It should be automated as much
 as possible to avoid human error.
 
@@ -11,9 +12,9 @@ to create a successful release.
    A project needs to be authorized to be released into public by following the
    process explained in the :ref:`Project approval and public release` section.
 
-
 Semantic versioning
 -------------------
+
 PyAnsys library releases are managed through both automated and manual review
 processes.
 
@@ -48,10 +49,10 @@ to be much more stable.
 
 Branch model
 ------------
+
 The branching model for a PyAnsys project enables rapid development of
 features without sacrificing stability. The model closely follows the
-`Trunk Based Development <https://trunkbaseddevelopment.com/>`_ approach:
-
+`trunk-based development <https://trunkbaseddevelopment.com/>`_ approach:
 
 - The ``main`` branch is the primary development branch. All features,
   patches, and other branches should be merged here. While all PRs
@@ -62,14 +63,12 @@ features without sacrificing stability. The model closely follows the
 
   .. include:: diag/main_branch.rst
 
-
 - When a minor release candidate is ready, a new ``release`` branch is
   created from ``main`` with the next incremented minor version
   (for example, ``release/0.2``). This ``release`` branch is thoroughly
   tested. When deemed stable, it is tagged with the version (``0.2.0``
   in this case). Older release branches should not be deleted so that they can be
   patched as needed.
-
 
 - There is one or more ``release/`` branches based on minor releases (for
   example, ``release/0.2``) that contain a stable version of the code base that
@@ -82,22 +81,21 @@ features without sacrificing stability. The model closely follows the
 
   .. include:: diag/release_branch.rst
 
-
 Releasing new versions
 ----------------------
+
 Releasing is the process of creating a version of a software that developers
 consider useful for customers or other developers. Releases are usually labeled
 with *tags*. These tags are used to quickly identify a release in the version
 control system.
 
-.. card:: |uncheck| Release checklist
+.. card:: Release checklist
 
-    * Your main or release branch is up to date.
-    * All code and documentation style checks are passing successfully.
-    * All tests are passing successfully.
-    * All documentation builds successfully.
-    * The project builds successfully.
-
+    | |uncheck| Your main or release branch is up to date.
+    | |uncheck| All code and documentation style checks are passing successfully.
+    | |uncheck| All tests are passing successfully.
+    | |uncheck| All documentation builds successfully.
+    | |uncheck| The project builds successfully.
 
 .. dropdown:: Releasing major and minor versions
 
@@ -192,9 +190,9 @@ control system.
        git push -u origin release/X.Y
        git push origin vX.Y.Z
 
-
 Publishing artifacts
 --------------------
+
 When a new version is released, some artifacts are provided with it. In Python,
 these :ref:`Artifacts` are typically the ``Wheel`` and ``Source`` files.
 Documentation in the form of PDF and HTML files are also considered artifacts.
@@ -204,8 +202,7 @@ Documentation in the form of PDF and HTML files are also considered artifacts.
    Do not distribute artifacts without approval. 
 
    A project needs to be authorized to be released into public by following the
-   process explained in the :ref:`Project approval and public release` section.
-
+   process explained in :ref:`Project approval and public release`.
 
 There are three possible places where artifacts can be published:
 
@@ -239,6 +236,7 @@ There are three possible places where artifacts can be published:
 
 Private PyPI
 ~~~~~~~~~~~~
+
 It is sometimes necessary to host and pull packages that are not ready to be
 hosted on the public `PyPI`_. For example, if a PyAnsys library requires
 auto-generated gRPC interface files from a feature or service that is still
@@ -277,7 +275,6 @@ Here's a cross-platform one liner for uploading using ``twine```:
    python -m twine upload dist/* --repository-url https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload -u __token__ -p <TOKEN-REDACTED>
 
 Replace ``<TOKEN-REDACTED>`` with the private PyPI token respectively.
-
 
 .. dropdown:: Using GitHub actions
 
@@ -348,12 +345,11 @@ Replace ``<TOKEN-REDACTED>`` with the private PyPI token respectively.
     
        python -m twine upload dist/*
 
-
-
 .. _public-pypi:
 
 Public PyPI
 ~~~~~~~~~~~
+
 Publishing :ref:`Artifacts` to `PyPI`_ is the way of distributing :ref:`Python
 libraries`. Publishing to `PyPI`_ requires a username and a password:
 
@@ -406,6 +402,7 @@ Replace ``<PACKAGE-NAME>`` and ``<TOKEN-REDACTED>`` with the package name and th
 
 GitHub
 ~~~~~~
+
 Publishing :ref:`Artifacts` to GitHub is also possible. These are available in
 the ``https://github.com/ansys/project-name/releases`` section. The
 visibility of these artifacts follows the one in the repository. Visibility can
@@ -431,12 +428,11 @@ the :ref:`Project approval and public release` section.
               with:
                 library-name: "ansys-<product>-<library>"
 
-
 Downloading artifacts
 ---------------------
+
 Artifacts can be downloaded from all previous sources: Ansys private PyPI,
 public PyPI and GitHub. 
-
 
 .. dropdown:: Downloading artifacts from the Ansys private PyPI
 
@@ -521,7 +517,6 @@ public PyPI and GitHub.
     .. code-block:: bash
 
         python -m pip install path/to/package/wheel.whl
-
 
 .. _PyPI: https://pypi.org/
 .. _PyAnsys PyPI: https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi

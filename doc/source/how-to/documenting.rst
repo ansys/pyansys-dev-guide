@@ -1,8 +1,9 @@
 Documenting
 ===========
+
 PyAnsys documentation must not only be written but also maintained. If you are
-new to writing developer documentation, see the `Google Developer Documentation
-Style Guide <https://developers.google.com/style>`_. It provides
+new to writing developer documentation, see the `Google developer documentation
+style guide <https://developers.google.com/style>`_. It provides
 editorial guidelines for writing clear and consistent developer documentation,
 allowing this guide to supply guidance only specific to PyAnsys library
 documentation.
@@ -18,12 +19,12 @@ code:
 
 Documentation sources
 ---------------------
+
 .. raw:: html
 
     <div align="center">
-      <img src="https://www.sphinx-doc.org/en/master/_static/sphinxheader.png">
+      <img width="30%" src="https://www.sphinx-doc.org/en/master/_static/sphinx-logo.svg">
     </div>
-    <br>
 
 The generation of PyAnsys documentation uses `Sphinx
 <https://www.sphinx-doc.org/en/master/>`__ and an Ansys-branded theme
@@ -36,6 +37,7 @@ assemble content in:
 
 Docstrings
 ~~~~~~~~~~
+
 Docstrings must be formatted so that Sphinx can parse them. Sphinx provides
 these extensions for docstring formatting:
 
@@ -62,9 +64,10 @@ For more information, see :ref:`Documentation style`.
 
 RST files
 ~~~~~~~~~
+
 To provide general usage information in your documentation, use your favorite
 editor to create RST (ReStructured Text) files that you then place in :ref:`The \`\`doc/\`\`
-directory` directory. The ``index.rst`` file in the ``doc/source`` directory
+directory`. The ``index.rst`` file in the ``doc/source`` directory
 defines the first level of your documentation hierarchy. The ``toctree``
 directive (which stands for "table of contents tree") indicates the maximum
 number of heading levels that the documentation is to display. Following this
@@ -134,9 +137,10 @@ documentation structure, see the `Sphinx Getting Started
 
 Indicating RST titles
 +++++++++++++++++++++
+
 Within RST files, heading titles are to use sentence case per
 `capitalization guidelines <https://developers.google.com/style/capitalization>`_
-in the *Google Developer Documentation Style Guide*. The line that follows
+in the *Google developer documentation style guide*. The line that follows
 the heading title must have a string of characters that is the same length
 as the heading title. If the length of the characters under the heading title
 do not match the length of the heading title, Sphinx generates a warning.
@@ -160,6 +164,7 @@ you to understand the syntax and see how RST files are nested to create this gui
 
 Recommended sections
 ++++++++++++++++++++
+
 Although each project is different, documentation has the same goal: providing
 instructions and guidelines for users. Thus, you can find some common sections
 across the documentation for PyAnsys libraries. Try to include these top-level
@@ -169,12 +174,12 @@ sections in your library documentation:
 - ``User guide`` describes how to use basic features of the library.
 - ``API reference`` documents API resources provided by the library.
 - ``Examples`` provides fully fledged examples for using the library.
-- ``Contributing`` refers to the `PyAnsys Developer's Guide`_
+- ``Contributing`` refers to the `PyAnsys developer's guide`_
   for overall guidance and provides library-specific contribution information.
-
 
 Examples
 ~~~~~~~~
+
 Examples come in two formats:
 
 - Basic code snippets demonstrating the feature
@@ -239,6 +244,7 @@ Using Python, here is a :ref:`General example` using sphinx gallery.
 
 Document Python code
 --------------------
+
 You can use `sphinx.ext.autodoc` to generate documentation from your Python
 code. When using this extension, you can include these directives in your :ref:`RST files`:
 
@@ -250,9 +256,9 @@ For a full list of 'auto' directives, see `Include documentation from docstrings
 <https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html>`_ in the Sphinx
 documentation.
 
-
 Document classes
 ~~~~~~~~~~~~~~~~
+
 There are two main ways of using Sphinx to document a class:
 
 * Manually describe 'how' and 'why' you use a class in :ref:`RST files`.
@@ -262,6 +268,7 @@ There are two main ways of using Sphinx to document a class:
 
 Manually generate documentation
 +++++++++++++++++++++++++++++++
+
 To describe 'why' and 'how' you use a class within :ref:`RST files`, use the
 ``code-block`` directive:
 
@@ -295,13 +302,13 @@ To describe 'why' and 'how' you use a class within :ref:`RST files`, use the
 
 Automatically generate documentation
 ++++++++++++++++++++++++++++++++++++
+
 To automatically generate class descriptions from the numpydoc strings in
 your Python files, use either the ``autoclass`` or ``autosummary`` directive
 in your :ref:`RST files`. For information on docstrings and required docstring
 sections, see  :ref:`Numpydoc docstrings`.  
 
 For simple classes, use the ``autoclass`` directive:
-
 
 .. tab-set::
 
@@ -351,6 +358,7 @@ and each method and attribute in that class also has its own page.
 
 Document multiple classes
 +++++++++++++++++++++++++
+
 To document a set of small but highly cohesive classes, you can combine
 the two preceding approaches. To accomplish this, you include multiple
 ``autoclass`` directives in the same RST file with headings and text blocks as
@@ -375,9 +383,9 @@ and
 classes are shared across multiple queries. Consequently, these classes are
 documented separately.
 
-
 Build documentation
 -------------------
+
 `Sphinx <https://www.sphinx-doc.org/en/master/>`_ is used to build the documentation.
 You configure the entire build process in the ``conf.py`` file, located in the
 ``source/`` directory in :ref:`The \`\`doc/\`\` directory`.
@@ -389,6 +397,7 @@ documentation output, such as ``HTML``, ``LaTeX`` or
 
 Build HTML documentation
 ~~~~~~~~~~~~~~~~~~~~~~~~
+
 You build HTML documentation with:
 
 .. tab-set::
@@ -416,6 +425,7 @@ You can display the HTML documentation with:
 
 Build PDF documentation
 ~~~~~~~~~~~~~~~~~~~~~~~
+
 To  build PDF documentation, the following rules must be added to
 the ``Makefile`` and ``make.bat`` files:
 
@@ -469,6 +479,7 @@ The resulting PDF and intermediate LaTeX files are created in the
 
 Enabling multi-version documentation
 ------------------------------------
+
 With the release of `ansys/actions@v4
 <https://actions.docs.ansys.com/version/stable/index.html>`_ , projects can
 benefit from multi-version documentation. Projects taking advantage of this
@@ -479,7 +490,6 @@ Follow these steps to enable multi-version documentation in your project:
 
 - Use ``ansys-sphinx-theme>=0.8`` for building the documentation in your project.
 - Include the following lines in :ref:`The \`\`conf.py\`\` file`:
-
 
   .. code-block:: python
   
@@ -498,8 +508,7 @@ Follow these steps to enable multi-version documentation in your project:
           },
           ...
       }
-  
-  
+
   .. admonition:: About the ``DCOUMENTATION_CNAME`` environment variable
   
       The ``DOCUMENTATION_CNAME`` environment variable is expected to be
@@ -507,10 +516,8 @@ Follow these steps to enable multi-version documentation in your project:
       The idea is that the canonical name (CNAME) is only defined in a single
       place, so it can be easily changed if required.
 
-
 - Enable documentation deployment for development and stable versions, see
   :ref:`Deploying documentation`.
-
 
 With all the previous configuration, your project is ready to use multi-version
 documentation in an automated way. This means that every time you release a
@@ -531,9 +538,9 @@ released versions.
 If you require support for migrating to the multi-version documentation, email
 `pyansys.core@ansys.com <pyansys.core@ansys.com>`_.
 
-
 Deploying documentation
 -----------------------
+
 PyAnsys libraries deploy their documentation online via `GitHub Actions`_ to
 `GitHub Pages`_. This documentation is hosted on the `gh-pages`_ branch of the
 repository of the project. Documentation deployment is done by uploading the
@@ -579,9 +586,9 @@ in an automated way.
                 cname: ${{ env.DOCUMENTATION_CNAME }}
                 token: ${{ secrets.GITHUB_TOKEN }}
 
-
 Deploying to another repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 If you are planning to deploy documentation to a repository other than the one
 for your project, make sure you create this new repository before deploying your
 documentation for the first time.
@@ -642,7 +649,8 @@ workflow:
 
 
 Multi-version migration from ``ansys/actions@v3``  to ``ansys/actions@v4``
-------------------------------------------------------------------------------
+--------------------------------------------------------------------------
+
 Projects using the multi-version feature should upgrade to `ansys/actions@v4
 <https://actions.docs.ansys.com/version/stable/index.html>`_ or higher to
 benefit from stable links. This is achieved by introducing a new layout that is
@@ -660,9 +668,9 @@ To perform the migration, follow these steps:
 * Apply previous steps as fix patches in all the desired versions to be included
   in the multi-version documentation.
 
-
 Access online documentation
 ---------------------------
+
 Documentation for the latest stable release of a PyAnsys library is accessible
 from its repository. The canonical name for the documentation of the project is
 constructed using the following structure:
@@ -699,6 +707,7 @@ GitHub pull request. For more information, see :ref:`Build documentation`.
 
 Using PyMeilisearch as search engine
 ------------------------------------
+
 PyMeilisearch is a Python client library that enables you to utilize MeiliSearch, an open-source search engine, 
 to provide fast and relevant search capabilities for your application's data.
 
@@ -730,7 +739,6 @@ To enable multi-version documentation in your project, follow these steps:
   
   In this code, replace <your-index-name> with the desired name for your MeiliSearch index.
   The ``convert_version_to_pymeilisearch`` function is to convert your package's version into a format suitable for MeiliSearch indexing.
-
 
   - Enable documentation index deployment for development and stable versions using GitHub Actions:
   

@@ -1,5 +1,6 @@
 Ansys product compatibility
-============================
+===========================
+
 As the different PyAnsys libraries evolve, backward and forward compatibility
 issues can occur. Some of the most common cases are:
 
@@ -17,6 +18,7 @@ following their approach is recommended.
 
 ``check_version.py`` module approach
 ------------------------------------
+
 A *version checking* module determines whether the Ansys product server you are connecting
 to provides support for certain operations. For implementation examples, see the
 ``check_version.py`` files for the following PyAnsys libraries:
@@ -40,10 +42,10 @@ in the same way as the minimum version mechanism works.
 
 ``version_requires`` decorator
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 The ``@version_requires`` decorator applies version logic to the different
 functionalities and methods available in the client. You can see how this
 decorator is used in `ansys/dpf/core/check_version.py`_. Here is a generalized example:
-
 
 .. code:: python
 

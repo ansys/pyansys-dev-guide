@@ -1,5 +1,6 @@
 Setting up your development environment
 =======================================
+
 Before you can contribute to any PyAnsys project, you must set up
 your developer environment.
 
@@ -8,7 +9,10 @@ Python
 .. raw:: html
     
     <div align="center">
-      <img src="https://github.com/python/pythondotorg/raw/main/static/community_logos/python-logo-inkscape.svg">
+        <img 
+            src="https://github.com/python/pythondotorg/raw/main/static/community_logos/python-logo-inkscape.svg" 
+            width="40%"
+        >
     </div>
 
 All PyAnsys projects require a Python interpreter for interacting
@@ -17,6 +21,7 @@ interpreter is installed on your local machine.
 
 Installation
 ~~~~~~~~~~~~
+
 There are several ways to install a Python package on your local machine:
 
 - Use an official installer from the `official Python download section <https://www.python.org/downloads/>`_.
@@ -50,7 +55,7 @@ There are several ways to install a Python package on your local machine:
         .. note::
 
             It is likely that your macOS distribution already comes with some
-            version of Python installed. For more information, see :ref:`Verification`.
+            version of Python installed. For more information, see :ref:`Verify Python version`.
 
     .. tab-item:: Linux/UNIX
 
@@ -64,46 +69,21 @@ There are several ways to install a Python package on your local machine:
         .. note::
 
             It is likely that your Linux/UNIX distribution already comes with some
-            version of Python installed. For more information, see :ref:`Verification`.
+            version of Python installed. For more information, see :ref:`Verify Python version`.
 
 
-Verification
-~~~~~~~~~~~~
+Verify Python version
+~~~~~~~~~~~~~~~~~~~~~
+
 Once your Python installation is complete, verify it with:
 
-.. tab-set::
+.. code-block:: text
 
-    .. tab-item:: Windows
-
-        .. tab-set::
-
-            .. tab-item:: CMD
-
-                .. code-block:: text
-
-                    py --version
-
-            .. tab-item:: PowerShell
-
-                .. code-block:: text
-
-                    py --version
-
-    .. tab-item:: macOS
-
-        .. code-block:: text
-
-            python --version
-
-    .. tab-item:: Linux/UNIX
-
-        .. code-block:: text
-
-            python --version
-
+    python --version
 
 Virtual environments
 --------------------
+
 When working in multiple Python projects, it is likely each of these projects has its
 own requirements. Sometimes, requirements across projects can be incompatible.
 Virtual environments were devised to isolate Python environments, which guarantees
@@ -115,6 +95,7 @@ the venv module <https://docs.python.org/3/library/venv.html>`_.
 
 Check
 ~~~~~
+
 Before creating a new virtual environment, you must run this code to see if you are already
 working with one:
 
@@ -128,7 +109,7 @@ working with one:
 
                 .. code-block:: text
 
-                    where.exe python
+                    where python
 
             .. tab-item:: PowerShell
 
@@ -136,13 +117,7 @@ working with one:
 
                     where.exe python
 
-    .. tab-item:: macOS
-
-        .. code-block:: text
-
-            which python
-
-    .. tab-item:: Linux/UNIX
+    .. tab-item:: macOS/Linux/UNIX
 
         .. code-block:: text
 
@@ -156,42 +131,18 @@ information on deactivating your virtual environment.
 
 Create
 ~~~~~~
+
 Usually, virtual environments are named ``venv`` or ``.venv``.
-You can create a virtual environment named `<venv>` with:
+You can create a virtual environment named ``<venv>`` with:
 
-.. tab-set::
+.. code-block:: text
 
-    .. tab-item:: Windows
-
-        .. tab-set::
-
-            .. tab-item:: CMD
-
-                .. code-block:: text
-
-                    py -m venv <venv>
-
-            .. tab-item:: PowerShell
-
-                .. code-block:: text
-
-                    py -m venv <venv>
-
-    .. tab-item:: macOS
-
-        .. code-block:: text
-
-            python -m venv <venv>
-
-    .. tab-item:: Linux/UNIX
-
-        .. code-block:: text
-            
-            python -m venv <venv>
+    python -m venv <venv>
 
 Activate
 ~~~~~~~~
-You would activate the preceding virtual environment with:
+
+You would activate the preceding virtual environment with the command for your OS:
 
 .. tab-set::
 
@@ -211,60 +162,32 @@ You would activate the preceding virtual environment with:
 
                     <venv>\Scripts\Activate.ps1
 
-    .. tab-item:: macOS
+    .. tab-item:: macOS/Linux/UNIX
 
         .. code-block:: text
 
             source <venv>/bin/activate
 
-    .. tab-item:: Linux/UNIX
-
-        .. code-block:: text
-
-            source <venv>/bin/activate
 
 Deactivate
 ~~~~~~~~~~
-You would deactivate a virtual environment with:
 
-.. tab-set:: 
+You could deactivate a virtual environment with the command for your OS:
 
-    .. tab-item:: Windows
+.. code-block:: text
 
-        .. tab-set::
-
-            .. tab-item:: CMD
-
-                .. code-block:: text
-
-                    deactivate
-
-            .. tab-item:: PowerShell
-
-                .. code-block:: text
-
-                    deactivate
-
-    .. tab-item:: macOS
-
-        .. code-block:: text
-
-            deactivate
-
-    .. tab-item:: Linux/UNIX
-
-        .. code-block:: text
-
-            deactivate
-
+    deactivate
 
 Git
 ---
+
 .. raw:: html
     
     <div align="center">
-      <img src="https://github.com/git/git-scm.com/raw/main/public/images/logo%402x.png">
-      <br><br>
+        <img 
+            src="https://github.com/git/git-scm.com/raw/main/public/images/logo%402x.png"
+            width="20%"
+        >
     </div>
 
 `Git <https://git-scm.com/>`_ is an open source version control system (VCS). It
@@ -298,54 +221,30 @@ Installation
         1. Check the `latest stable Git version for Linux/UNIX <https://git-scm.com/download/linux>`_.
         2. Run the installation command for your package manager.
 
+Verify Git version
+~~~~~~~~~~~~~~~~~~
 
-Verification
-~~~~~~~~~~~~
 Once your installation process is complete, verify your Git installation with:
 
-.. tab-set:: 
+.. code-block:: text
 
-    .. tab-item:: Windows
-
-        .. tab-set::
-
-            .. tab-item:: CMD
-
-                .. code-block:: text
-
-                    git --version
-
-            .. tab-item:: PowerShell
-
-                .. code-block:: text
-
-                    git --version
-
-    .. tab-item:: macOS
-
-        .. code-block:: text
-
-            git --version
-
-    .. tab-item:: Linux/UNIX
-
-        .. code-block:: text
-
-            git --version
+    git --version
 
 Usage
 ~~~~~
-If you are not familiar with Git, see the `Git Reference Manual <https://git-scm.com/doc>`_.
-for comprehensive information on how to use it.
 
-If you are not familiar with Git and the Git workflows in terms of development, it is
-recommended that you follow this tutorial on `Learning Git branching <https://learngitbranching.js.org/>`_.
+If you're new to Git, see the `Git Reference Manual <https://git-scm.com/doc>`_
+for comprehensive usage information.
 
-Also, if you are not that familiar with GitHub, feel free to go through the
-`GitHub Training Manual <https://githubtraining.github.io/training-manual/>`_.
+For an understanding of Git workflows and branching strategies, 
+see the `Learning Git branching <https://learngitbranching.js.org/>`_ tutorial.
+
+If you're unfamiliar with GitHub, see the 
+`GitHub Training Manual <https://githubtraining.github.io/training-manual/>`_ for guidance.
 
 Configuration
 ~~~~~~~~~~~~~
+
 It is very important to properly configure Git so that every modification that you make
 to the code points to you. There are two types of configuration:
 :ref:`Global` and :ref:`Local`. It is also possible to combine both to have
@@ -386,6 +285,7 @@ Some examples follow.
 
 Local
 +++++
+
 There might be a time when you want to declare a specific configuration to use only
 in a given project. To override the :ref:`Global` configuration, you can declare a local
 configuration.
@@ -400,6 +300,7 @@ the ``.git/config`` file.
 
 Dynamic
 +++++++
+
 It is possible to configure :ref:`Git` such that it selects between multiple
 configuration profiles according to whether your project is located in your system.
 This allows you to define common configurations for working under ``PyAnsys``,
@@ -429,7 +330,6 @@ Each one of these files can look like this:
             [includeIf "gitdir:path/to/your/personal/folder/of/projects"]
               path = path/to/.gitconfig-personal
 
-
     .. tab-item:: .gitconfig-ansys
 
         .. code-block:: text
@@ -439,7 +339,6 @@ Each one of these files can look like this:
               name = <Ansys Name>
               email = <Ansys Email>
               signingkey = <Ansys GPG Key>
-
 
     .. tab-item:: .gitconfig-personal
 
@@ -454,6 +353,7 @@ Each one of these files can look like this:
 
 Signing commits
 ~~~~~~~~~~~~~~~
+
 To verify which code changes were made by you, signing the commit
 is required. To sign a commit, you must generate a ``GPG`` key, associate it with
 ``GitHub``, and specify it in your ``Git`` :ref:`Configuration`.
@@ -464,9 +364,10 @@ Commit Signatures <https://docs.github.com/en/authentication/managing-commit-sig
 
 Enabling SSH
 ~~~~~~~~~~~~
+
 Working with ``Secure Shell Protocol (SSH)`` is not only a good practice but
 also required for contributing to PyAnsys projects. Without an ``SSH`` key,
-you are not able to clone *internal* or *private* repositories or
+you are not able to clone **internal** or **private** repositories or
 to push new changes.
 
 For information on setting up ``SSH`` with ``GitHub``, in the ``GitHub`` documentation,
@@ -475,6 +376,7 @@ see `Connecting to GitHub with SSH
 
 Handling line endings
 ~~~~~~~~~~~~~~~~~~~~~
+
 Every time you introduce a new line by pressing the **Enter** key, an invisible
 character is introduced to represent a line ending. Each operating system manages
 these end-of-line (EOL) characters in its own way. For Windows, the EOL is
@@ -505,9 +407,9 @@ need to worry about them. Consider this example presented in `Configuring Git to
    *.png binary
    *.jpg binary
 
-
 WSL2
 ----
+
 Some developers prefer using Windows as the operating system for their machines.
 However, they might like to take advantage of some features provided by a Linux
 operating system. The `Windows Subsystem for Linux
@@ -516,6 +418,7 @@ this problem.
 
 Installation
 ~~~~~~~~~~~~
+
 Open a new PowerShell session and install the Windows Subsystem for Linux
 (WSL) with:
 
@@ -529,8 +432,9 @@ After installing WSL, ensure that you are running the WSL2 version with:
 
    wsl --set-default-version 2
 
-Verification
-~~~~~~~~~~~~
+Verify WSL version
+~~~~~~~~~~~~~~~~~~
+
 Verify your WSL version with:
 
 .. code-block:: powershell
@@ -539,6 +443,7 @@ Verify your WSL version with:
 
 Linux distribution
 ~~~~~~~~~~~~~~~~~~
+
 After WSL2 is installed, install a Linux distribution.
 Get a list of available distributions with:
 
@@ -562,9 +467,9 @@ the distributions that you would like to use with WSL2 with:
    
    wsl -d <distribution name>
 
-
 Windows terminal
 ----------------
+
 .. image:: images/windows_terminal.png
     :align: center
     :alt: The Windows Terminal with different active shell sessions.
@@ -581,5 +486,6 @@ is to collect and manage all shell sessions in a single program.
 
 Installation
 ~~~~~~~~~~~~
+
 You can install ``Windows Terminal`` directly from the `official Microsoft Store package
 <https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701?hl=en-us&gl=US>`_.

@@ -1,8 +1,8 @@
-#########################
-PyAnsys Developer's Guide
-#########################
 
-The `PyAnsys Developer's Guide <https://dev.docs.pyansys.com>`_ is the central
+PyAnsys developer's guide
+=========================
+
+The `PyAnsys developer's guide <https://dev.docs.pyansys.com>`_ is the central
 document for:
 
 - Ansys developers who want to create and "own" PyAnsys libraries

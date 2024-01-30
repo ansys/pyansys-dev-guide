@@ -1,11 +1,13 @@
 Project approval and public release
 ===================================
+
 Most of the projects in PyAnsys expose the functionality of Ansys
 products. Due to intellectual property reasons, the public release of a PyAnsys
 library must go through a project approval process.
 
 First steps
 -----------
+
 To trigger the public release process, project leads must fill in this form:
 
 * `Release request workflow initiation form <https://gz2idtcjsw2.typeform.com/to/qVujtwSR>`_
@@ -16,6 +18,7 @@ Source project, then continue to the next section.
 
 Approval process
 ----------------
+
 The approval process is divided into three parts:
 
 .. grid:: 3
@@ -54,7 +57,6 @@ When releasing a project to the public, you should:
 * Maintain the project by means of fixing bugs and providing support for new releases.
 * Uphold Ansys' reputation in the open source community.
 
-
 Once all three approvals have been awarded, project leads must complete
 the next form:
 
@@ -66,6 +68,7 @@ asked questions in :ref:`Questions asked in the OSS approval request form`.
 
 Managerial
 ^^^^^^^^^^
+
 The managerial part of the approval process ensures that the direct manager,
 general managers, vice presidents, or the chief technology officer are aware of
 the project's existence and status.
@@ -92,9 +95,9 @@ number of administrative reviews and approvals needed:
         approval from the direct manager, product line, and the chief
         technology officer. No product source code is allowed.
 
-
 Legal
 ^^^^^
+
 Legal review approval ensures that the entire project complies with Ansys'
 legal policies.
 
@@ -128,9 +131,9 @@ Open source dependencies not distributed as part of the project do not need
 their licenses included in the Ansys repository. Examples include dependent
 Node Package Manager (``npm``) modules or Python packages from PyPI.
 
-
 Technical
 ^^^^^^^^^
+
 Technical approval ensures that the project follows the best and latest
 software development practices. Request a technical review by sending an email
 to `pyansys.core@ansys.com <mailto:pyansys.core@ansys.com>`_.

@@ -1,5 +1,5 @@
 How-to
-######
+======
 
 This section describes several guidelines and best practices for creating
 effective and efficient Python libraries to interface with Ansys products and

@@ -1,5 +1,6 @@
 Using continuous integration
 ============================
+
 Continuous Integration (CI) is the process of merging new changes into the main
 code base while ensuring that these changes are functional and do not break the existing
 logic. 
@@ -10,18 +11,20 @@ and ensure a quick development workflow.
 Because ``PyAnsys`` projects are hosted in `GitHub <https://github.com>`_, the
 `GitHub Actions <https://docs.github.com/en/actions>`_ framework is used.
 
- 
 Enable GitHub actions
 ---------------------
+
 By default, ``Actions`` are enabled in new repositories and can be accessed
 using the associated :ref:`GitHub repository sections`.
 
 If ``Actions`` are not enabled, you can enable them by changing ``Actions
-Permissions`` in ``Settings -> Actions -> General``.
+Permissions`` in 
 
+``Settings -> Actions -> General``.
 
 Use GitHub actions
 ------------------
+
 Actions to be executed in the CI process must be declared in a ``YML`` and
 stored in the ``.github/workflows/`` directory. Although each action is
 different, they all have a common structure:
@@ -45,7 +48,6 @@ different, they all have a common structure:
 
     jobs:
       <All jobs must be defined below this line>
-
 
 Disable concurrent workflows
 ----------------------------
@@ -78,6 +80,7 @@ automatically cancel pre-existing workflows for a certain branch/PR. To do so, p
 
 Required workflows
 ------------------
+
 These workflows are required for any ``PyAnsys`` project:
 
 - :ref:`Coding style` workflow
@@ -88,9 +91,9 @@ These workflows are required for any ``PyAnsys`` project:
 You should collect all workflows under a common
 ``ci.yml`` file. For more information, see :ref:`Workflow examples`.
 
-
 Parametrize workflows
 ---------------------
+
 It is important to test a ``PyAnsys`` library on different operating systems
 using different Python versions:
 
@@ -118,7 +121,7 @@ Consider this example of a parametrized workflow example:
               example_matrix:
                 strategy:
                   matrix:
-                    python: ['3.7', '3.8', '3.9', '3.10']
+                    python: ['3.9', '3.10', '3.11', '3.12']
                     os: [windows-latest, macos-latest, ubuntu-latest]
                 
                 steps:
@@ -128,22 +131,22 @@ Consider this example of a parametrized workflow example:
 
         .. code-block:: text
 
-            Running Python 3.7 in windows-latest
-            Running Python 3.8 in windows-latest
             Running Python 3.9 in windows-latest
             Running Python 3.10 in windows-latest
-            Running Python 3.7 in macos-latest
-            Running Python 3.8 in macos-latest
+            Running Python 3.11 in windows-latest
+            Running Python 3.12 in windows-latest
             Running Python 3.9 in macos-latest
             Running Python 3.10 in macos-latest
-            Running Python 3.7 in ubuntu-latest
-            Running Python 3.8 in ubuntu-latest
+            Running Python 3.11 in macos-latest
+            Running Python 3.12 in macos-latest
             Running Python 3.9 in ubuntu-latest
             Running Python 3.10 in ubuntu-latest
-
+            Running Python 3.11 in ubuntu-latest
+            Running Python 3.12 in ubuntu-latest
 
 Workflow examples
 -----------------
+
 Workflow examples are provided for checking :ref:`Coding style`,
 :ref:`Documenting`, :ref:`Testing`, and :ref:`Releasing and publishing`.
 
@@ -159,18 +162,15 @@ Workflow examples are provided for checking :ref:`Coding style`,
         .. literalinclude:: code/tests.yml     
            :language: yaml
 
-
     .. tab-item:: docs.yml
         
         .. literalinclude:: code/docs.yml     
            :language: yaml
 
-
     .. tab-item:: build.yml
         
         .. literalinclude:: code/build.yml     
            :language: yaml
-
 
     .. tab-item:: release.yml
         

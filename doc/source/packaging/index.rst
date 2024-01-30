@@ -1,6 +1,6 @@
-###############
+
 Packaging style
-###############
+===============
 
 A PyAnsys library eliminates the need to share snippets of code that
 perform actions. Users can instead create workflows consisting of 
@@ -34,7 +34,6 @@ code that forces users to rewrite setup boilerplate and other methods
 from scratch. Therefore, the best practice is to create a Python layer
 that maps the raw API into a carefully designed, object-oriented data
 model and API.
-
 
 .. toctree::
    :hidden:

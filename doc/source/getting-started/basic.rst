@@ -66,7 +66,6 @@ particular PyAnsys library.
    Once you have completed this checklist, change the `repository visibility`_
    to public and create a release branch.
 
-
 .. todo::
 
    gRPC - Starting Guide

@@ -1,5 +1,6 @@
 Documentation style tools
 =========================
+
 There are plenty of tools for documentation style and coverage. This section
 presents some of the most popular ones in the Python ecosystem. A minimum
 configuration is provided for each one so you can easily include them in your
@@ -9,22 +10,22 @@ Most of the tools presented can be configured using :ref:`the
 \`\`pyproject.toml\`\` file`, avoiding dotfiles and thus leading to a much
 cleaner root project directory.
 
+The ``blacken-docs``
+--------------------
 
-Blacken-Docs
-------------
-When writing documentation, it is frequent to include code-blocks which are used
-as examples. However, these code snippets style cannot be verified with the usual code
-formatting tools. This is where `blacken-docs`_ comes into play. You can execute
+When writing documentation, code blocks are frequently used to provide examples.
+However, these code snippets cannot be verified with the usual code
+formatting tools. This is where the `blacken-docs`_ comes into play. You can execute
 this tool by running:
 
 .. code:: bash
 
    blacken-docs -l <line-length> doc/**/*.rst
 
+The ``codespell``
+-----------------
 
-Codespell
----------
-`Codespell`_ checks for common misspellings in text files. This implies that it
+The `codespell`_ checks for common misspellings in text files. This implies that it
 is not limited to Python files but can run checks on any human-readable file.
 
 It is possible to ignore words that are flagged as misspelled. You can specify these words in a
@@ -34,25 +35,24 @@ file that can then be passed to `Codespell` by running:
 
    codespell --write-changes --ignore-words=<FILE>
 
+The ``docformatter``
+--------------------
 
-Docformatter
-------------
-`Docformatter`_ automatically formats Python docstrings according
-to `PEP 257`_. To make sure `Docformatter`_ wraps your docstrings at a given
+The `docformatter`_ automatically formats Python docstrings according 
+to `PEP 257`_. To make sure `docformatter`_ wraps your docstrings at a given
 number of characters, use the following configuration:
-
 
 .. code:: bash
 
    docformatter -r -i --wrap-summaries <length> --wrap-descriptions <length> src
 
+The ``doctest``
+---------------
 
-Doctest
--------
-`Doctest`_ is a module from the Python standard library, which means it is
+The `doctest`_ is a module from the Python standard library, which means it is
 included by default with your Python installation. It is used for checking the
 examples provided inside docstrings to make sure that they reflect the current usage
-of the source code. `Doctest`_ can be integrated with ``pytest`` in :ref:`The
+of the source code. The `doctest`_ can be integrated with ``pytest`` in :ref:`The
 \`\`pyproject.toml\`\` file`:
 
 .. code:: toml
@@ -60,10 +60,10 @@ of the source code. `Doctest`_ can be integrated with ``pytest`` in :ref:`The
    [tool.pytest.ini_options]
    addopts = "--doctest-modules"
 
+The ``interrogate``
+-------------------
 
-Interrogate
------------
-`Interrogate`_ is a tool for checking docstring coverage. Similar to source code
+The `interrogate`_ is a tool for checking docstring coverage. Similar to source code
 coverage tools, this tool tests how many functions, classes, and modules in a Python
 library hold a docstring.
 
@@ -81,6 +81,7 @@ for source code coverage.
 
 Numpydoc validation
 -------------------
+
 To validate the style of :ref:`Numpydoc docstrings`, you can
 take advantage of the `numpydoc`_ Sphinx extension. Note that this extension
 checks only for those objects whose docstrings must be rendered. It is not a
@@ -112,11 +113,13 @@ For a complete list of available checks, see the `full mapping of
 validation checks
 <https://numpydoc.readthedocs.io/en/latest/validation.html#built-in-validation-checks>`_.
 
-Pydocstyle
-----------
-`Pydocstyle`_ is a tool for checking the compliance of Python docstrings with `PEP
-257`_.  Its configuration can be defined in the :ref:`The \`\`pyproject.toml\`\`
-file`.  By default, `Pydocstyle`_ matches all ``*.py`` files except those starting with
+The ``pydocstyle``
+------------------
+
+The `pydocstyle`_ is a tool for checking the compliance of Python docstrings with `PEP
+257`_.  Its configuration can be defined in the
+:ref:`the \`\`pyproject.toml\`\` file<The \`\`pyproject.toml\`\` file>`.
+By default, `pydocstyle`_ matches all ``*.py`` files except those starting with
 ``test_*.py``. The default configuration should be enough for a PyAnsys project.
 However, if additional configuration is needed, it must be included
 it under the ``[tool.pydocstyle]`` entry:
@@ -126,9 +129,9 @@ it under the ``[tool.pydocstyle]`` entry:
    [tool.pydocstyle]
    convention = "numpy"
 
-
 Vale
 ----
+
 `Vale`_ is a tool for maintaining a consistent style and voice in your documentation.
 Its configuration is defined in a ``.vale.ini`` file in the library's ``doc`` folder.
 For PyAnsys libraries, ``Vale`` is configured to apply the guidelines in the
@@ -177,3 +180,4 @@ file to fix or adding a term to the ``accept.txt`` file under the
 .. _codespell: https://github.com/codespell-project/codespell
 .. _pytest-cov: https://pytest-cov.readthedocs.io/en/latest/
 .. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
+.. _pydocstyle: https://www.pydocstyle.org/en/stable/

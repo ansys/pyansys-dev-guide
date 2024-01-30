@@ -1,5 +1,5 @@
 Numpydoc docstrings
-###################
+===================
 
 When writing docstrings for PyAnsys libraries, use the `numpydoc`_
 style.
@@ -20,15 +20,13 @@ classes, methods, and variables. For example::
 
   """Initialize the ``Desktop`` class with the version of AEDT to use."""
 
-
 .. note::
-   The PyAnsys style uses two back ticks to surround the names of classes, methods, and
-   variables, not the single back tick that is recommended by `numpydoc`_
+   The PyAnsys style uses two backticks to surround the names of classes, methods, and
+   variables, not the single backtick that is recommended by `numpydoc`_
    style.
 
-
 Required docstring sections
-===========================
+---------------------------
 
 PyAnsys library docstrings contain these `numpydoc`_ sections as a minimum:
 
@@ -41,9 +39,9 @@ PyAnsys library docstrings contain these `numpydoc`_ sections as a minimum:
 These sections should follow numpydoc style. To avoid inconsistencies between
 PyAnsys libraries, adhere to the additional style guidelines that follow.
 
-
 Short summary
 -------------
+
 This is a single line that goes immediately after the declaration of the class
 or function to briefly describe what the class or function does. The
 `short summary` is mandatory. If it is not present, :ref:`Documentation style tools`
@@ -61,6 +59,7 @@ functions.
 
 Short summaries for classes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 A class is a *noun* representing a collection of methods. For consistency within PyAnsys libraries,
 always start the brief description for a class with a verb ending in 's', followed by an extended
 summary in a new line if additional information is needed::
@@ -78,6 +77,7 @@ Ensure that there is a line break between the end of a class docstring and the s
 
 Short summaries for methods
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 A method is a *verb* representing an action that can be performed. For consistency within PyAnsys
 libraries, always start the brief description for a method with a verb not ending in 's', followed
 by an extended summary in a new line if additional information is needed::
@@ -100,6 +100,7 @@ just the GET method. You should include examples to demonstrate usage.
 
 Parameters
 ----------
+
 Functions may have parameters in their signatures. All these parameters should be documented in
 the ``Parameters`` section.
 
@@ -155,6 +156,7 @@ be needed about the behavior that occurs when the default is used.
 
 Returns
 -------
+
 The ``Returns`` section contains only the return data type and a brief description
 that concludes with a period:
 
@@ -237,7 +239,7 @@ examples must always match the API that they are documenting, they are an import
 feature of maintainable documentation.
 
 Type hints
-==========
+----------
 
 By default, Sphinx renders `type hints <https://peps.python.org/pep-0484/>`_ as part
 of the function signature. This can become difficult to read because the signature
@@ -246,8 +248,6 @@ becomes very long.
 Instead, you should render type hints as part of each parameter's description. To
 accomplish this, you must combine the ``sphinx.ext.autodoc.typehints``, ``sphinx.ext.napoleon``,
 and ``numpydoc`` extensions in the ``conf.py`` file:
-
-
 
 .. code:: python
 
@@ -268,7 +268,8 @@ When using type hints in this way, the type information in the ``Parameters``
 and ``Returns`` sections can be omitted.
 
 Additional directives
-=====================
+---------------------
+
 Because Python docstrings are written using RST syntax, it is possible to take
 advantage of some directives available in this Markup language. Commonly used
 directives include:
@@ -284,9 +285,8 @@ You can find additional information and examples at `numpydoc`_. Reference
 this documentation as the primary source regarding docstring styles for directives
 that are not covered here.
 
-
 Example
-=======
+-------
 
 Here is a generic docstring example compliant with PyAnsys guidelines:
 

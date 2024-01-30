@@ -3,7 +3,6 @@
 
 .. include:: ../../README.rst
 
-
 .. card:: Getting started
 
     .. grid:: 2
@@ -59,8 +58,6 @@
            :link-type: doc
     
            Best practices for writing documentation.
-
-
 
 .. toctree::
    :hidden:

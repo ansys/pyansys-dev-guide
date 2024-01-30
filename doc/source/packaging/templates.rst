@@ -1,8 +1,7 @@
 .. _templates:
 
-#########
 Templates
-#########
+=========
 
 Starting a new project from scratch is a tedious task. To simplify the starting process
 and make project generation more dynamic, the `ansys-templates`_ tool was created. Using this
@@ -23,12 +22,10 @@ Ansys templates documentation. Here are important links for this tool:
 - **Documentation**: https://templates.ansys.com
 - **Issues board**: https://github.com/ansys/ansys-templates/issues
 
-
 .. note::
 
    If you encounter any problem during the installation or usage of this tool,
    open a new issue on the `ansys-templates issues board`_.
-
 
 PyAnsys available templates
 ===========================
@@ -41,7 +38,6 @@ projects: ``pyansys`` and ``pyansys-advanced``.
    To access these templates, you must install `ansys-templates`_.
    For information on how to use this tool, see `User guide`_ in the
    Ansys templates documentation.
-
 
 PyAnsys template 
 ----------------
@@ -62,7 +58,6 @@ this code:
 .. code:: bash
 
    ansys-templates new pyansys
-
 
 PyAnsys advanced template
 -------------------------

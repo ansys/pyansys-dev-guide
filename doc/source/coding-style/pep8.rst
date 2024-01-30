@@ -1,5 +1,6 @@
 PEP 8
 =====
+
 This section summarizes important coding style guidelines from `PEP 8`_
 and how they apply to PyAnsys libraries. The Python community devised `PEP 8`_ 
 to increase the readability of Python code. Some of the most popular
@@ -11,13 +12,14 @@ including `numpy`_, `scipy`_, and `pandas`_.
 .. _scipy: https://www.scipy.org/
 .. _pandas: https://pandas.pydata.org/
 
-
 Imports
 -------
+
 Code style guidelines follow for ``import`` statements.
 
 Import location
 ~~~~~~~~~~~~~~~
+
 Imports should always be placed at the top of the file, just after any
 module comments and docstrings and before module global variables and
 constants. This reduces the likelihood of an `ImportError`_ that
@@ -46,11 +48,9 @@ might only be discovered during runtime.
 
              return math.log(8, x)
 
-
-
-
 Import order
 ~~~~~~~~~~~~
+
 For better readability, group imports in this order:
 
 #. Standard library imports
@@ -61,7 +61,6 @@ All imports within each import grouping should be performed in alphabetical orde
 so that they are easily searchable.
 
 .. tab-set::
-
 
    .. tab-item:: Use
 
@@ -90,9 +89,9 @@ so that they are easily searchable.
          def compute_logbase8(x):
              return math.log(8, x)
 
-
 Multiple imports
 ~~~~~~~~~~~~~~~~
+
 You should place imports in separate lines unless they are modules from the same
 package.
 
@@ -127,11 +126,11 @@ package.
 
 Absolute versus relative imports
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 You should use absolute imports over relative imports because they are 
 more readable and reliable.
 
 . tab-set::
-
 
     .. tab-item:: Use
     
@@ -144,16 +143,15 @@ more readable and reliable.
 
            from .core.plotting import general_plotter
 
-
 Import namespaces
 ~~~~~~~~~~~~~~~~~
+
 You should avoid using wildcards in imports because doing so can make it
 difficult to detect undefined names. For more information, see `Python
 Anti-Patterns: using wildcard imports
 <https://docs.quantifiedcode.com/python-anti-patterns/maintainability/from_module_import_all_used.html>`_.
 
 .. tab-set::
-
 
     .. tab-item:: Use
     
@@ -169,6 +167,7 @@ Anti-Patterns: using wildcard imports
 
 Naming conventions
 ------------------
+
 To achieve readable and maintainable code, use concise and descriptive names for classes,
 methods, functions, and constants. Regardless of the programming language, you must follow these
 global rules to determine the correct names:
@@ -180,16 +179,16 @@ global rules to determine the correct names:
 #. Replace magic numbers with named constants.
 #. Avoid encodings. Do not append prefixes or type information.
 
-
 Variables
 ~~~~~~~~~
+
 Do not use the characters ``'l'``, ``'O'`` , or ``'I'`` as single-character
 variable names. In some fonts, these characters are indistinguishable from the
 numerals one and zero.
 
-
 Packages and modules
 ~~~~~~~~~~~~~~~~~~~~
+
 Use a short, lowercase word or words for module names. Separate words
 with underscores to improve readability. For example, use ``module.py``
 or ``my_module.py``.
@@ -202,9 +201,9 @@ from PyPI.
 
    python -m pip install package
 
-
 Classes
 ~~~~~~~
+
 Use `camel case <https://en.wikipedia.org/wiki/Camel_case>`_ when naming
 classes. Do not separate words with underscores. 
 
@@ -215,9 +214,9 @@ classes. Do not separate words with underscores.
 
        ...
 
-
 Functions and methods
 ~~~~~~~~~~~~~~~~~~~~~
+
 Use a lowercase word or words when naming Python functions or methods. To
 improve readability, separate words with underscores.
 
@@ -271,6 +270,7 @@ When naming methods, follow these conventions:
 
 Variables
 ~~~~~~~~~
+
 Use a lowercase single letter, word, or words when naming variables. To improve
 readability, separate words with underscores.
 
@@ -291,6 +291,7 @@ To improve readability, separate words with underscores.
 
 Indentation and line breaks
 ---------------------------
+
 Proper and consistent indentation is important to producing
 easy-to-read and maintainable code. In Python, use four spaces per
 indentation level and avoid tabs. 
@@ -378,6 +379,7 @@ Instead of:
 
 Maximum line length
 -------------------
+
 For source code, best practice is to keep the line length at or below
 100 characters. For docstrings and comments, best practice is to keep
 the length at or below 72 characters.
@@ -385,7 +387,6 @@ the length at or below 72 characters.
 Lines longer than these recommended limits might not display properly
 on some terminals and tools or might be difficult to follow. For example,
 this line is difficult to follow:
-
 
 .. tab-set::
 
@@ -417,6 +418,7 @@ desired value without breaking the syntax rules.
 
 Comments
 --------
+
 Because a PyAnsys library generally involves multiple physics domains,
 people reading its source code do not have the same background as
 the developers who wrote it. This is why it is important for a library
@@ -458,9 +460,9 @@ Otherwise, future developers might remove code that they see as unnecessary.
    obj.update_cache()
    obj.write(filename)
 
-
 Inline comments
 ~~~~~~~~~~~~~~~
+
 Use inline comments sparingly. An inline comment is a comment on the
 same line as a statement.
 
@@ -495,9 +497,9 @@ descriptive variable names.
         
            x = "John Smith"  # Student Name
 
-
 Docstrings
 ~~~~~~~~~~
+
 A docstring is a string literal that occurs as the first statement in
 a module, function, class, or method definition. A docstring becomes
 the doc special attribute of the object.
@@ -521,17 +523,17 @@ For a multi-line docstring, put the ending ``"""`` on a line by itself.
 For more information on docstrings for PyAnsys libraries, see
 :ref:`Documentation style`.
 
-
 Programming recommendations
 ---------------------------
-The following sections provide some `PEP8
+
+The following sections provide some `PEP 8
 <https://www.python.org/dev/peps/pep-0008/>`_ recommendations for removing
 ambiguity and preserving consistency. Additionally, they address some common
 pitfalls that occur when writing Python code.
 
-
 Booleans and comparisons
 ~~~~~~~~~~~~~~~~~~~~~~~~
+
 Don't compare Boolean values to ``True`` or ``False`` using the
 equivalence operator.
 
@@ -596,11 +598,10 @@ In ``if`` statements, use ``is not`` rather than ``not ...``.
 Also, avoid ``if x:`` when you mean ``if x is not None:``.  This is
 especially important when parsing arguments.
 
-
 Handling strings
 ~~~~~~~~~~~~~~~~
-Use ``.startswith()`` and ``.endswith()`` instead of slicing.
 
+Use ``.startswith()`` and ``.endswith()`` instead of slicing.
 
 .. tab-set:: 
 
@@ -624,9 +625,9 @@ Use ``.startswith()`` and ``.endswith()`` instead of slicing.
            if file_name[-4:] == ".jpg":
                print("The file is a JPEG.")
 
-
 Reading the Windows registry
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Never read the Windows registry or write to it because this is dangerous and 
 makes it difficult to deploy libraries on different environments or operating
 systems.
@@ -645,16 +646,15 @@ systems.
                 "",
             )
 
-
 Duplicated code
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~'
+
 Follow the DRY principle, which states that "Every piece of knowledge
 must have a single, unambiguous, authoritative representation within a
 system."  Follow this principle unless it overly complicates
 the code. For instance, the following example converts Fahrenheit to Kelvin
 twice, which now requires the developer to maintain two separate lines
 that do the same thing.
-
 
 .. tab-set::
 
@@ -692,7 +692,6 @@ that do the same thing.
             temp2 = 46
             new_temp_k = ((temp2 - 32) * (5 / 9)) + 273.15
 
-
 This is a trivial example, but you can apply this approach for a
 variety of both simple and complex algorithms and workflows. Another
 advantage of this approach is that you can implement unit testing
@@ -710,9 +709,9 @@ Now, you have only one line of code to verify. You can also use
 a testing framework such as ``pytest`` to test that the method is
 correct.
 
-
 Nested blocks
 ~~~~~~~~~~~~~
+
 Avoid deeply nested block structures (such as conditional blocks and loops)
 within one single code block. 
 
@@ -733,7 +732,6 @@ within one single code block.
                        # recursive
                        e = self.validate_something(a, b, d)
 
-
 Aside from the lack of comments, this complex method
 is difficult to debug and validate with unit testing. It would
 be far better to implement more validation methods and join conditional
@@ -743,9 +741,9 @@ For a conditional block, the maximum depth recommended is four. If you
 think you need more for the algorithm, create small functions that are
 reusable and unit-testable.
 
-
 Loops
 ~~~~~
+
 While there is nothing inherently wrong with nested loops, to avoid
 certain pitfalls, steer clear of having loops with more than two levels. In
 some cases, you can rely on coding mechanisms like list comprehensions 
@@ -777,7 +775,6 @@ to circumvent nested loops.
 
             >>> print(f"{squares = }")
             squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
-
 
 If the loop is too complicated for creating a list comprehension,
 consider creating small functions and calling these instead. For
@@ -821,7 +818,6 @@ example, to extract all consonants in a sentence:
 
 The second approach is more readable and better documented. Additionally,
 you could implement a unit test for ``is_consonant``.
-
 
 Security considerations
 -----------------------
