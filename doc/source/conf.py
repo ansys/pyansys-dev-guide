@@ -1,4 +1,5 @@
 """Sphinx documentation configuration file for the pyansys developer's guide."""
+
 from datetime import datetime
 import os
 
