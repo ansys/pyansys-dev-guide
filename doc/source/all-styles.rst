@@ -2,15 +2,15 @@
 Style
 =====
 
-In the PyAnsys ecosystem, three key styles — Packaging, Coding, and Documentation 
+In the PyAnsys ecosystem, three key styles—packaging, coding, and documentation—
 serve as foundational pillars to enhance the overall developer experience.
 
-The Packaging style focuses on creating clear, open-source APIs hosted on GitHub,
+- Packaging style focuses on creating clear, open source APIs hosted on GitHub,
 allowing for reusable packages that can be updated independently of the Ansys release schedule.
-The Coding style adheres to PEP 8 and aligns with the conventions of 
-major data science libraries like numpy, scipy, and pandas, ensuring consistency and readability.
-Lastly, the Documentation style emphasizes the significance of well-documented APIs, 
-offering increased adoption, improved onboarding experiences, and streamlined code maintenance.
+- Coding style adheres to PEP 8 and aligns with the conventions of major data science libraries
+like NumPy, SciPy, and pandas, ensuring consistency and readability.
+- Documentation style emphasizes the significance of well-documented APIs, 
+offering increased adoption, an improved on-boarding experiences, and streamlined code maintenance.
 
 All PyAnsys libraries follow the Google developer documentation style guide, 
 incorporating sentence case, active voice, and concise, clear sentences for 
