@@ -37,7 +37,7 @@ cohesive and user-friendly documentation.
         :link: doc-style/index
         :link-type: doc
 
-        Best practices for writing documentation.
+        Best practices for writing PyAnsys library documentation.
 
 .. toctree::
    :hidden:
