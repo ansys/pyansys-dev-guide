@@ -65,8 +65,6 @@
 
    getting-started/index
    how-to/index
-   packaging/index
-   coding-style/index
-   doc-style/index
+   all-styles
    abstractions/index
 

@@ -36,7 +36,6 @@ html_theme_options = {
     "show_prev_next": False,
     "show_breadcrumbs": True,
     "use_edit_page_button": True,
-    "header_links_before_dropdown": 6,  # number of links before the dropdown menu
     "additional_breadcrumbs": [
         ("PyAnsys", "https://docs.pyansys.com/"),
     ],
