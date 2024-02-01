@@ -118,7 +118,8 @@ The following checks are required when performing the legal review of the projec
     * Ansys official logos and branding images are used in the project.
     * The Ansys copyright appears in the correct location as required by the
       Legal department.
-    * The copyright has the proper formatting, which is ``Copyright (C) YYYY ANSYS, Inc.``.
+    * The copyright has the proper formatting, which is:
+      ``Copyright (C) YYYY ANSYS, Inc. and/or its affiliates.``.
     * The contribution does not embody any unapproved Ansys intellectual
       property for open sourcing.
     * The contribution does not embody any inventions for which Ansys has
