@@ -12,9 +12,9 @@ serve as foundational pillars to enhance the overall developer experience.
 - Documentation style emphasizes the significance of well-documented APIs,
   offering increased adoption, an improved on-boarding experiences, and streamlined code maintenance.
 
-All PyAnsys libraries follow the Google developer documentation style guide,
-incorporating sentence case, active voice, and concise, clear sentences for 
-cohesive and user-friendly documentation.
+All PyAnsys libraries follow the `Google developer documentation style guide
+<https://developers.google.com/style/>`_, incorporating sentence case, 
+active voice, and concise, clear sentences for cohesive and user-friendly documentation.
 
 
 .. grid:: 3
