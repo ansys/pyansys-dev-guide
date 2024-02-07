@@ -6,8 +6,103 @@ effective and efficient Python libraries to interface with Ansys products and
 services. Topics also demonstrate how apps and complex services expose
 functionalities such as logging, data transfer, and app APIs.
 
+.. grid:: 3
+
+    .. grid-item-card:: :fas:`fa-regular fa-screwdriver-wrench` Environment setup
+      :link: setting-up
+      :link-type: doc
+      :padding: 2 2 2 2
+
+      How set up development environment.
+
+    .. grid-item-card:: :fas:`fa-solid fa-code-compare` Versions
+      :link: supporting-python-versions
+      :link-type: doc
+      :padding: 2 2 2 2
+
+      Supporting python versions.
+
+    .. grid-item-card:: :fas:`fa-solid fa-people-group` Contributing
+      :link: contributing
+      :link-type: doc
+      :padding: 2 2 2 2
+
+      Learn how to contribute to the PyAnsys
+
+    .. grid-item-card:: :fas:`fa-solid fa-box-open` Packaging
+      :link: packaging
+      :link-type: doc
+      :padding: 2 2 2 2
+
+      How to package Python libraries.
+
+    .. grid-item-card:: :fas:`fa-solid fa-cubes` gRPC API packages
+      :link: grpc-api-packages
+      :link-type: doc
+      :padding: 2 2 2 2
+
+      How to integrate gRPC in packages.
+
+    .. grid-item-card:: :fas:`fa-solid fa-bars-staggered` Logging
+      :link: logging
+      :link-type: doc
+      :padding: 2 2 2 2
+
+      Guidelines for logging in PyAnsys libraries.
+
+    .. grid-item-card:: :fas:`fa-solid fa-file` Documenting
+      :link: documenting
+      :link-type: doc
+      :padding: 2 2 2 2
+
+      Guidelines for documentation and style.
+
+    .. grid-item-card:: :fas:`fa-solid fa-flask-vial` Testing
+      :link: testing
+      :link-type: doc
+      :padding: 2 2 2 2
+
+      How to add unit and integration tests 
+
+    .. grid-item-card:: :fas:`fa-solid fa-code-merge` Continuous integration
+      :link: continuous-integration
+      :link-type: doc
+      :padding: 2 2 2 2
+
+      Github actions for continuous integration.
+
+    .. grid-item-card:: :fas:`fa-solid fa-code-compare` Releasing and publishing
+      :link: releasing
+      :link-type: doc
+      :padding: 2 2 2 2
+
+      How to release and publish a package.
+
+    .. grid-item-card:: :fas:`fa-solid fa-umbrella` Repository protection
+      :link: repository-protection
+      :link-type: doc
+      :padding: 2 2 2 2
+
+      How to handle sensitive information.
+
+    .. grid-item-card:: :fas:`fa-solid fa-server` DNS configuration
+      :link: dns-configuration
+      :link-type: doc
+      :padding: 2 2 2 2
+
+      How to configure and protect DNS.
+
+    .. grid-item-card:: :fas:`fa-solid fa-circle-nodes` Product compatibility
+      :link: compatibility
+      :link-type: doc
+      :padding: 2 2 2 2
+
+      Backward and forward compatibility issues and handling
+
+
 .. toctree::
    :maxdepth: 3
+   :hidden:
 
    setting-up
    supporting-python-versions
