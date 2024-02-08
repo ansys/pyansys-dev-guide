@@ -27,7 +27,7 @@ functionalities such as logging, data transfer, and app APIs.
       :link-type: doc
       :padding: 2 2 2 2
 
-      Learn how to contribute to the PyAnsys
+      Learn how to contribute to the PyAnsys.
 
     .. grid-item-card:: :fas:`fa-solid fa-box-open` Packaging
       :link: packaging
@@ -41,7 +41,7 @@ functionalities such as logging, data transfer, and app APIs.
       :link-type: doc
       :padding: 2 2 2 2
 
-      How to integrate gRPC in packages.
+      How to integrate gRPC in PyAnsys packages.
 
     .. grid-item-card:: :fas:`fa-solid fa-bars-staggered` Logging
       :link: logging
@@ -62,7 +62,7 @@ functionalities such as logging, data transfer, and app APIs.
       :link-type: doc
       :padding: 2 2 2 2
 
-      How to add unit and integration tests 
+      Explains about testing methodology and coverage.
 
     .. grid-item-card:: :fas:`fa-solid fa-code-merge` Continuous integration
       :link: continuous-integration
@@ -71,12 +71,12 @@ functionalities such as logging, data transfer, and app APIs.
 
       Github actions for continuous integration.
 
-    .. grid-item-card:: :fas:`fa-solid fa-code-compare` Releasing and publishing
+    .. grid-item-card:: :fas:`fa-solid fa-upload` Releasing & publishing
       :link: releasing
       :link-type: doc
       :padding: 2 2 2 2
 
-      How to release and publish a package.
+      How to release and publish a PyAnsys package.
 
     .. grid-item-card:: :fas:`fa-solid fa-umbrella` Repository protection
       :link: repository-protection
@@ -97,7 +97,7 @@ functionalities such as logging, data transfer, and app APIs.
       :link-type: doc
       :padding: 2 2 2 2
 
-      Backward and forward compatibility issues and handling
+      Backward and forward compatibility issues and handling.
 
 
 .. toctree::
