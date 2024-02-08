@@ -44,7 +44,7 @@ repos:
   - id: debug-statements
 
 - repo: https://github.com/python-jsonschema/check-jsonschema
-  rev: 0.27.3
+  rev: 0.27.4
   hooks:
     - id: check-github-workflows
       name: "Check GitHub workflows"
