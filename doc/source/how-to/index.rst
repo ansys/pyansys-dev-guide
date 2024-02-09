@@ -13,21 +13,21 @@ functionalities such as logging, data transfer, and app APIs.
       :link-type: doc
       :padding: 2 2 2 2
 
-      How set up development environment.
+      How to set up a development environment.
 
     .. grid-item-card:: :fas:`fa-solid fa-code-compare` Versions
       :link: supporting-python-versions
       :link-type: doc
       :padding: 2 2 2 2
 
-      Supporting python versions.
+      Supporting Python versions.
 
     .. grid-item-card:: :fas:`fa-solid fa-people-group` Contributing
       :link: contributing
       :link-type: doc
       :padding: 2 2 2 2
 
-      Learn how to contribute to the PyAnsys.
+      Learn how to contribute to PyAnsys.
 
     .. grid-item-card:: :fas:`fa-solid fa-box-open` Packaging
       :link: packaging
@@ -62,7 +62,7 @@ functionalities such as logging, data transfer, and app APIs.
       :link-type: doc
       :padding: 2 2 2 2
 
-      Explains about testing methodology and coverage.
+      Testing methodology and coverage.
 
     .. grid-item-card:: :fas:`fa-solid fa-code-merge` Continuous integration
       :link: continuous-integration
