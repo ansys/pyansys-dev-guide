@@ -27,7 +27,7 @@ functionalities such as logging, data transfer, and app APIs.
       :link-type: doc
       :padding: 2 2 2 2
 
-      Learn how to contribute to PyAnsys.
+      How to contribute to PyAnsys.
 
     .. grid-item-card:: :fas:`fa-solid fa-box-open` Packaging
       :link: packaging
@@ -90,7 +90,7 @@ functionalities such as logging, data transfer, and app APIs.
       :link-type: doc
       :padding: 2 2 2 2
 
-      How to configure and protect DNS.
+      How to configure and protect your DNS.
 
     .. grid-item-card:: :fas:`fa-solid fa-circle-nodes` Product compatibility
       :link: compatibility
