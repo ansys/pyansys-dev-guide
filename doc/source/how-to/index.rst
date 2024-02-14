@@ -20,7 +20,7 @@ functionalities such as logging, data transfer, and app APIs.
       :link-type: doc
       :padding: 2 2 2 2
 
-      Supporting Python versions.
+      How to know which Python versions to support.
 
     .. grid-item-card:: :fas:`fa-solid fa-people-group` Contributing
       :link: contributing
@@ -48,28 +48,28 @@ functionalities such as logging, data transfer, and app APIs.
       :link-type: doc
       :padding: 2 2 2 2
 
-      Guidelines for logging in PyAnsys libraries.
+      How to write to PyAnsys library logs.
 
     .. grid-item-card:: :fas:`fa-solid fa-file` Documenting
       :link: documenting
       :link-type: doc
       :padding: 2 2 2 2
 
-      Guidelines for documentation and style.
+      How to write and style your documentation.
 
     .. grid-item-card:: :fas:`fa-solid fa-flask-vial` Testing
       :link: testing
       :link-type: doc
       :padding: 2 2 2 2
 
-      Testing methodology and coverage.
+      How to perform code testing and check coverage.
 
     .. grid-item-card:: :fas:`fa-solid fa-code-merge` Continuous integration
       :link: continuous-integration
       :link-type: doc
       :padding: 2 2 2 2
 
-      Github actions for continuous integration.
+      How to use GitHub actions for continuous integration.
 
     .. grid-item-card:: :fas:`fa-solid fa-upload` Releasing & publishing
       :link: releasing
@@ -97,7 +97,7 @@ functionalities such as logging, data transfer, and app APIs.
       :link-type: doc
       :padding: 2 2 2 2
 
-      Backward and forward compatibility issues and handling.
+      How to handle compatibility issues.
 
 
 .. toctree::
