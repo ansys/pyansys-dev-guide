@@ -29,6 +29,7 @@ Dev
 dotfiles
 dunder
 Fortran
+(?i)Git
 [Gg]itHub
 GitHub Actions
 [Hh]otfixes
@@ -88,4 +89,5 @@ unittest
 unvalidated
 venv
 worktree
+(?i)WSL
 WSL2
