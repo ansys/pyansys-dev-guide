@@ -1,9 +1,8 @@
 Deprecation best practices
 ==========================
 
-While deprecation best practices are outlined in a `Stack
-Overflow Answer <https://stackoverflow.com/questions/2536307/decorators-in-the-python-standard-lib-deprecated-specifically>`_ and
-in this `Deprecation library <https://deprecation.readthedocs.io/>`_ ,
+While deprecation best practices are outlined in 
+this `Deprecation library <https://deprecation.readthedocs.io/>`_ ,
 there is no official guidance on deprecating features within Python.
 Thus, this topic provides deprecation best practices for PyAnsys
 libraries. 
