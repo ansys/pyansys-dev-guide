@@ -1,9 +1,8 @@
 Deprecation best practices
 ==========================
 
-While deprecation best practices are outlined in a `Stack
-Overflow Answer <https://stackoverflow.com/questions/2536307>`_ and
-in this `Deprecation library <https://deprecation.readthedocs.io/>`_ ,
+While deprecation best practices are outlined in 
+this `Deprecation library <https://deprecation.readthedocs.io/>`_ ,
 there is no official guidance on deprecating features within Python.
 Thus, this topic provides deprecation best practices for PyAnsys
 libraries. 
@@ -93,4 +92,4 @@ You then use this custom ``DeprecationError`` in place of an ``Exception``.
             This function has been deprecated.
 
         """
-        raise DeprecationError('`my_function` has been deprecated.')
+        raise DeprecationError("`my_function` has been deprecated.")
