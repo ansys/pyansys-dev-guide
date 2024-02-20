@@ -93,4 +93,4 @@ You then use this custom ``DeprecationError`` in place of an ``Exception``.
             This function has been deprecated.
 
         """
-        raise DeprecationError('`my_function` has been deprecated.')
+        raise DeprecationError("`my_function` has been deprecated.")
