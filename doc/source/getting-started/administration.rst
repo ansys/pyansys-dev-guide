@@ -10,7 +10,7 @@ First steps
 
 To trigger the public release process, project leads must fill in this form:
 
-* `Release request workflow initiation form <https://gz2idtcjsw2.typeform.com/to/qVujtwSR>`_
+* `Release request workflow initiation form <https://ansys.typeform.com/ReleaseSupport?typeform-source=gz2idtcjsw2.typeform.com>`_
 
 The form lets the different parties involved in the public release process know that
 there is a request to release a project. If your intent is to release an Ansys Open
@@ -60,7 +60,7 @@ When releasing a project to the public, you should:
 Once all three approvals have been awarded, project leads must complete
 the next form:
 
-* `OSS approval request form <https://gz2idtcjsw2.typeform.com/OSSapproval>`_
+* `OSS approval request form <https://ansys.typeform.com/ReleaseSupport?typeform-source=gz2idtcjsw2.typeform.com/OSSapproval>`_
 
 This form serves as a final checklist to verify that all approvals have been processed
 and to formalize the OSS approval process as a final record. You can find frequently
