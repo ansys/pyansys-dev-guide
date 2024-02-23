@@ -165,7 +165,7 @@ name of the folder.
 
 Address any warnings and issues that display by either editing the
 file to fix or adding a term to the ``accept.txt`` file under the 
-``doc`` folder in ``styles\Vocab\ANSYS``.
+``doc`` folder in ``styles\config\vocabularies\ANSYS``.
 
 
 .. _blacken-docs: https://github.com/asottile/blacken-docs
