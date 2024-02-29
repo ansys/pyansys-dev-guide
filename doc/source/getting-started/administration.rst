@@ -113,18 +113,18 @@ The following checks are required when performing the legal review of the projec
 
 .. card:: |uncheck| The project contains the right licensing.
 
-    * The project has the correct license.
-    * The contribution does not contain any strong encryption.
-    * Ansys official logos and branding images are used in the project.
-    * The Ansys copyright appears in the correct location as required by the
-      Legal department.
-    * The copyright has the proper formatting, which is:
+    | |uncheck| The project has the correct license.
+    | |uncheck| The contribution does not contain any strong encryption.
+    | |uncheck| Ansys official logos and branding images are used in the project.
+    | |uncheck| The Ansys copyright appears in the correct location as required by the
+       Legal department.
+    | |uncheck| The copyright has the proper formatting, which is:
       ``Copyright (C) YYYY ANSYS, Inc. and/or its affiliates.``.
-    * The contribution does not embody any unapproved Ansys intellectual
+    | |uncheck| The contribution does not embody any unapproved Ansys intellectual
       property for open sourcing.
-    * The contribution does not embody any inventions for which Ansys has
+    | |uncheck| The contribution does not embody any inventions for which Ansys has
       sought or received patent protection.
-    * Any third-party open source code included in the contribution has been
+    | |uncheck| Any third-party open source code included in the contribution has been
       reviewed for security vulnerabilities and includes their license files in
       the repository.
 
@@ -143,34 +143,34 @@ The technical review of the project verifies the following:
 
 .. card:: |uncheck| The project contains the right metadata information.
     
-    * The project name follows naming conventions.
-    * The project version follows :ref:`Semantic versioning`.
-    * The project author is ANSYS, Inc.
-    * The project maintainer is ANSYS, Inc.
-    * Contact and support information is provided in the project.
-    * :ref:`The \`\`AUTHORS\`\` file` is present and compliant with legal requirements.
-    * :ref:`The \`\`LICENSE\`\` file` is present and compliant with legal requirements.
-    * :ref:`The \`\`CONTRIBUTING.md\`\` file` is present.
-    * :ref:`The \`\`CONTRIBUTORS.md\`\` file` is present and contains the project lead and main contributors.
+    | |uncheck| The project name follows naming conventions.
+    | |uncheck| The project version follows :ref:`Semantic versioning`.
+    | |uncheck| The project author is ANSYS, Inc.
+    | |uncheck| The project maintainer is ANSYS, Inc.
+    | |uncheck| Contact and support information is provided in the project.
+    | |uncheck| :ref:`The \`\`AUTHORS\`\` file` is present and compliant with legal requirements.
+    | |uncheck| :ref:`The \`\`LICENSE\`\` file` is present and compliant with legal requirements.
+    | |uncheck| :ref:`The \`\`CONTRIBUTING.md\`\` file` is present.
+    | |uncheck| :ref:`The \`\`CONTRIBUTORS.md\`\` file` is present and contains the project lead and main contributors.
 
 .. card:: |uncheck| The project is compliant with PyAnsys style guidelines.
 
-    * The project layout follows the :ref:`Packaging style` guidelines.
-    * :ref:`Testing` guarantees at least 80% code coverage.
-    * The project adheres to the :ref:`Documentation style` guidelines.
-    * The source code docstring examples have been tested.
-    * The documentation examples are presented as a gallery.
-    * The documentation receives the documentation team's approval.
-    * The package builds properly.
-    * The project uses CI/CD, including all the :ref:`Required workflows`.
-    * The CI/CD pipeline generates project :ref:`artifacts`.
+    | |uncheck| The project layout follows the :ref:`Packaging style` guidelines.
+    | |uncheck| :ref:`Testing` guarantees at least 80% code coverage.
+    | |uncheck| The project adheres to the :ref:`Documentation style` guidelines.
+    | |uncheck| The source code docstring examples have been tested.
+    | |uncheck| The documentation examples are presented as a gallery.
+    | |uncheck| The documentation receives the documentation team's approval.
+    | |uncheck| The package builds properly.
+    | |uncheck| The project uses CI/CD, including all the :ref:`Required workflows`.
+    | |uncheck| The CI/CD pipeline generates project :ref:`artifacts`.
 
 .. card:: |uncheck| The GitHub repository is properly secured.
 
-    * The repository adheres to the :ref:`General configuration`.
-    * :ref:`Branch protection` is enabled.
-    * :ref:`Tag protection` is enabled.
-    * :ref:`Workflow protection` is enabled.
+    | |uncheck| The repository adheres to the :ref:`General configuration`.
+    | |uncheck| :ref:`Branch protection` is enabled.
+    | |uncheck| :ref:`Tag protection` is enabled.
+    | |uncheck| :ref:`Workflow protection` is enabled.
 
 
 .. |check| raw:: html
