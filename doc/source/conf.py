@@ -166,7 +166,15 @@ exclude_patterns = [
     "how-to/api/ansys_sphinx_theme.examples.samples.Complex.abs.rst",
     "how-to/api/ansys_sphinx_theme.examples.samples.Complex.imag.rst",
     "how-to/api/ansys_sphinx_theme.examples.samples.Complex.real.rst",
+    "links.rst",
 ]
+
+# make rst_epilog a variable, so you can add other epilog parts to it
+rst_epilog = ""
+
+# Read link all targets from file
+with open("links.rst") as f:
+    rst_epilog += f.read()
 
 # Fix excessive margins in mermaid output.
 # See issue: https://github.com/mermaid-js/mermaid/issues/1800#issuecomment-741617143
