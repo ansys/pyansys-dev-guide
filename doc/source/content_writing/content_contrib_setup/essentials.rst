@@ -1,28 +1,22 @@
-.. _essentials:
+.. _essentials_writers:
 
-Essentials for new PyAnsys writers
-==================================
+Essentials for content writing
+==============================
 
-This page provides essential information for writers who are new
-to contributing to PyAnsys documentation. While earlier sections of
-this guide provide tremendous resources for all PyAnsys contributors,
-they are written by developers for developers. While it is important
-that content writers become familiar with these earlier sections, the
-objective of this content writing sectio is to present documentation
-writers with only what information they need to know in the
-order in which they need to know it.
+This page provides essential information for writing content for PyAnsys documentation.
 
-These earlier topics are related to documentation and contributions:
+These earlier topics are also related to documentation or contributing to a PyAnsys
+library:
 
-- The `Documenting <Documenting_>`_ page provides an overview of key documentation concepts
+- :ref:`documenting_developers` provides an overview of key documentation concepts
   along with some how-to information.
 
-- The `Documentation style <Doc_style_>`_ section provides valuable information
-  about API documentation, Sphinx configuration, NumPy-style docstrings, documentation
-  generation, and tools for documentation style and coverage.
+- :ref:`doc_style_developers` provides valuable information about API documentation,
+  Sphinx configuration, NumPy-style docstrings, documentation  generation, and tools
+  for documentation style and coverage.
 
-- The `Contributing <Contributing_>`_ page provides the general coding paradigms used for
-  PyAnsys development.
+- :ref:`contributing` provides the general coding paradigms for PyAnsys development
+  that you must understand before contributing to a PyAnsys library.
 
 Google developer documentation style guide
 ------------------------------------------
@@ -45,8 +39,8 @@ see :ref:`install_Vale_locally` and :ref:`run_Vale_locally`.
 PyAnsys documentation
 ---------------------
 
-On the right of the home page for a GitHub repository is an **About** area. Each PyAnsys project
-has a link in this area to the library's documentation. For example, here is the **About** area
+On the right of the home page for a PyAnsys library's GitHub repository, the **About** area
+has a link to the library's documentation. For example, here is the **About** area
 for this guide:
 
 .. image:: ..//_static/GitHub_about_area.png
@@ -57,26 +51,26 @@ You can also view the documentation for public PyAnsys libraries from the
 selecting **Help > PyAnsys Documentation**. For more information about this Python QA
 app, see :ref:`Ansys_Python_Manager`.
 
-All links to PyAnsys documentation take you to documentation for the latest (stable)
+All links to PyAnsys documentation take you to documentation for the stable (latest)
 release because this is what users of the library generally want to see. In some cases,
 users might want to see documentation for a legacy version of the library. Project contributors,
 on the other hand, likely want to see the documentation for the development (main) branch of the
 library.
 
-Rather than hosting many separate documentation sites, the PyAnsys team provides support
-for *multi-versions*, making it possible for you to select the documentation for different versions
-from a dropdown on the right side of the documentation title bar.
+Rather than hosting many separate documentation sites, the PyAnsys team supports enabling *multi-versions*,
+which makes it possible for you to select the documentation for different versions from a dropdown button
+on the right side of the documentation title bar.
 
 .. image:: ..//_static/multi_version_doc_selector.png
    :alt: Version selector
 
-This dropdown provides for selecting the documentation for the stable version, development (dev)
+This dropdown button provides for selecting the documentation for the stable version, development (dev)
 version, and three previous legacy versions by default. However, the selections it displays
-can be customized. For information on how this dropdown is enabled and customized, see
-`Enabling multi-version documentation <multiversion_doc_>`_.
+can be customized. For more information on enabling and customizing this
+dropdown button, see :ref:`multi_version_enabling`.
 
-Because writers want to edit and contribute to the documentation for the development branch,
-whenever you view documentation, you should select **dev** from this dropdown.
+To edit and contribute to the documentation for the development branch, you should select
+ **dev** from this dropdown to view the documentation for the main branch.
 
 .. tip::
     When you are viewing PyAnsys documentation, the right navigation pane typically

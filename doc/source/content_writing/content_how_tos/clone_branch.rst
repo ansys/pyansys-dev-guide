@@ -56,7 +56,7 @@ should begin with ``doc/`` followed by a descriptive name. For example, you migh
 name your branch ``doc/overall_review`` if that describes your suggested changes.
 You might name your branch ``doc/hfss_py_edits`` if your are suggesting changes
 to that particular PY file. For more information on naming branches, see
-`Branch naming conventions <branch_naming_>`_ in the *PyAnsys developer's guide*.
+:ref:`branch_naming`.
 
 .. _commits_pulls:
 

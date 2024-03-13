@@ -1,3 +1,5 @@
+.. _continuous_integration:
+
 Using continuous integration
 ============================
 

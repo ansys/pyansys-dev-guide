@@ -71,8 +71,7 @@ docstrings must be consistent across your project. If the developers of a PyAnsy
 library are declaring the short summary on the same line as the opening quotation marks,
 they have turned off ``"GL01"`` checking in the ``numpydoc_validation_checks`` dictionary
 of the ``numpydoc`` extension. For more information on documentation style tools and the
-validation of NumPy-style docstrings, see `Documentation style tools <Doc_style_tools_>`_
-in the *PyAnsys developer's guide*.
+validation of NumPy-style docstrings, see `doc_style_tools_>`.
 
 The short summary should not use code entities to refer to the names of Python
 objects unless absolutely necessary. This is because the use of code entities
@@ -393,9 +392,9 @@ back to them as needed:
 
 - For the short summary, use a sentence fragment that omits a leading article
   (such as "A," "An," or "The") and conclude this fragment with a period. Although omitting the
-  article contradicts the `Articles <Google_dev_doc_articles_>`_ guideline in the
-  *Google developer documentation style guide*, removing them at the beginning of short summaries
-  here and in other docstring sections ensures that the first word is an important descriptor.
+  article contradicts the `Articles <Google_dev_doc_articles_>`_ guideline in the Google style
+  guide, removing them at the beginning of short summaries here and in other docstring sections
+  ensures that the first word is an important descriptor.
 
 - End the short summary (and complete sentences) with prepositions if it improves readability.
   For example, "Frequency to set the adaptive convergence at" is more readable than
@@ -534,8 +533,7 @@ Examples
 
 This named section is optional but strongly recommended. The one or more interactive examples placed
 in this section demonstrate usage. They do not provide a testing framework. Those types of tests
-are typically placed in the ``tests`` directory. For more information, see `Testing <dev_guide_testing_>`_
-in the *PyAnsys developer's guide*.
+are typically placed in the ``tests`` directory. For more information, see :ref:`testing`.
 
 According to documentation published by the Python organization, the `doctest <doctest_>`_ module executes
 the examples in the "Examples" section of the docstring to verify that they work.
@@ -549,7 +547,7 @@ to separate multiple code examples.
 
 Here is an "Examples" section for the ``element_dot`` method in PyDPF-Core:
 
-.. code-block:: python
+.. code-block::
 
   Examples
   --------

@@ -19,7 +19,7 @@ for PyAnsys libraries.
 This section also provides essential information for writers new to
 documenting PyAnsys libraries and includes links to all the many
 resources relevant to creating and maintaining this documentation. The
-:ref:`resources` page and the :ref:`content_how_tos` section are likely to be the content
+:ref:`resources_writers` page and the :ref:`content_how_tos` section are likely to be the content
 that you refer to most as you become proficient in contributing to PyAnsys
 documentation.
 

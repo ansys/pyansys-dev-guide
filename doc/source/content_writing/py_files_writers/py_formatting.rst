@@ -138,8 +138,7 @@ Docstrings
 When developers create Python objects, they write docstrings, which are enclosed in triple
 quotation marks (``"""``), to describe these objects and explain how to use them programmatically.
 
-For an overview of how PyAnsys libraries use NumPy-style docstrings, see
-`Numpydoc docstrings <numpydoc_docstrings_>`_ in the *PyAnsys developer's guide*.
+For an overview of how PyAnsys libraries use NumPy-style docstrings, see :ref:`numpy_docstrings`.
 This page links to descriptions for required docstring sections and provides general
 information on how to format the content in each section. For comprehensive
 information on NumPy-style docstrings and sections, see the `numpydoc Style guide <numpydoc_style_guide_>`_.

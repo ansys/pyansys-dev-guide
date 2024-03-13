@@ -19,7 +19,7 @@ based on their specific documentation needs and the format of their code example
   appearance of the gallery, providing a great way to showcase how to use your library
   in a structured manner with embedded code examples, explanations, and narrative text.
 
-- The ``nbsphinx`` etension is chosen if develoers want to integrate Jupyter notebooks into their Sphinx documentation. This
+- The ``nbsphinx`` extension is chosen if developers want to integrate Jupyter notebooks into their Sphinx documentation. This
   extension processes Jupyter notebooks as inputs and offers custom Sphinx directives for rendering
   these notebooks as interactive HTML pages or LaTeX output. Within these formats, you can execute
   and modify code cells. Furthermore, ``nbsphinx`` can execute unevaluated notebooks automatically

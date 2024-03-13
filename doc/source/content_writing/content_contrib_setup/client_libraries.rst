@@ -13,9 +13,9 @@ easily integrated with your codebase.
 PyAnsys client libraries are collections of Python code that break apart
 large monolithic Ansys desktop products into subsets by features, with the
 expectation of compatibility and reusability across the entire Ansys
-portfolio. For more information, see `Componentizing Ansys packages <Componentizing_>`_
-in the *PyAnsys developer's guide*. In addition to Ansys product wrappers,
-the PyAnsys ecosystem provide Python tools and software utilities.
+portfolio. For more information, see :ref:`componentizing`. In addition
+to Ansys product wrappers, the PyAnsys ecosystem provide Python tools and
+software utilities.
 
 While installing a Python library depends on both the library and the
 underlying services that it supports, most are installed in only a few steps

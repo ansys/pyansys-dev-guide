@@ -29,8 +29,8 @@ These files contain the code and documentation explaining this code.
 - For Python files, you must use a specific structure and reStructuredText syntax. For more
   information, see `Structuring Python scripts for Sphinx-Gallery <Sphinx_ext_sphinx_gallery_structure_>`_
   in the Sphinx-Gallery documentation. For information on adding a new example in a PY
-  file, see `General example <Doc_add_example_>`_ in the *PyAnsys developer's guide*. You
-  can use this example as a template for creating Python files for Sphinx-Gallery.
+  file, see :ref:`adding_a_new_gallery_example`. You can use this example as a template
+  for creating Python files for Sphinx-Gallery.
 
 - For IPYNB files, you use Markdown cells to provide section headings and to provide
   context and explanations for the code in the code cells.

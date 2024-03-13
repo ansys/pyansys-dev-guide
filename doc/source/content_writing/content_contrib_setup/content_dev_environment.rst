@@ -288,8 +288,7 @@ Install pre-commit
 `pre-commit <pre-commit_>`_ is a tool for ensuring that all the changes that you make to
 files in a project successfully pass all checks run by the code style tools that are
 configured as part of the CI/CD process. For more information on the code style tools most
-commonly used in PyAnsys projects, see `Code style tools <Code_style_tools_>`_ in the
-*PyAnsys developer's guide*.
+commonly used in PyAnsys projects, see :ref:`code_style_tools`.
 
 To run ``pre-commit`` locally, you must install it in your development environment:
 
@@ -310,8 +309,7 @@ Install Vale
 documentation based on a given style guide. When the `Ansys templates <Ansys_templates_>`_
 tool is used to create a PyAnsys project from the ``pyansys`` or ``pyansys-advanced`` template,
 Vale is one of the many documentation style tools that is configured to run as part of the
-CI/CD process. For more information, see `Documentation style tools <Doc_style_tools_>`_
-in the *PyAnsys developer's guide*.
+CI/CD process. For more information, see :ref:`doc_style_tools`.
 
 To run Vale locally, you must install it in your development environment:
 
@@ -348,7 +346,7 @@ a tool for generating documentation. While designed primarily for generating doc
 for Python projects, it can be used for generating documentation for other programming languages
 and projects.
 
-The `Ansys Sphinx theme <Ansys_Sphinx_theme_>`_ is an Ansys-branded extension of the popular
+The `Ansys Sphinx theme <Ansys_Sphinx_theme_repo>`_ is an Ansys-branded extension of the popular
 `PyData Sphinx theme <PyData_Sphinx_theme_>`_. It is used along with Sphinx to assemble PyAnsys
 documentation from a project's RST files and the docstrings in its PY files.
 
@@ -377,5 +375,5 @@ locally:
    this theme.
 
 Your development environment is now set up. If you are new to contributing to
-PyAnsys documentation, see :ref:`essentials`. For lists of resources related
-to contributing to PyAnsys documentation, see :ref:`resources`.
+PyAnsys documentation, see :ref:`essentials_writers`. For lists of resources related
+to contributing to PyAnsys documentation, see :ref:`resources_writers`.

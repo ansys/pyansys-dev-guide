@@ -31,8 +31,7 @@ files in a project successfully pass all checks run by the code style tools that
 configured as part of the CI/CD process. These tools, which typically include `Black <Black_>`_,
 `isort <isort_>`_, and `Flake8 <Flake8_>`_, analyze, format, review, and improve
 code quality and security. For more information on the code style tools most commonly
-used in PyAnsys projects, see `Code style tools <Code_style_tools_>`_ in the *PyAnsys developer's
-guide*.
+used in PyAnsys projects, see :ref:`code_style_tools`.
 
 Because you do not want the **Code style** check for your PyAnsys project to fail
 when you create or push changes to a PR, you want to periodically run ``pre-commit``

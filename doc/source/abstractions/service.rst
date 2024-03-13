@@ -78,7 +78,3 @@ of MAPDL via gRPC by instantiating an instance of the ``Mapdl`` class.
 At this point, because the assumption is that MAPDL is always remote, it's 
 possible to issue commands to MAPDL, including those requiring 
 file transfer like ``Mapdl.input``.
-
-.. _REST: https://en.wikipedia.org/wiki/Representational_state_transfer
-.. _gRPC: https://grpc.io/
-.. _PyMAPDL: https://github.com/ansys/pymapdl

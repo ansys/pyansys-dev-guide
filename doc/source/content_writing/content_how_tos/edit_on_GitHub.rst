@@ -26,8 +26,7 @@ You can use this feature to submit changes to this page via a PR on GitHub:
    For PRs related to documentation, your branch name should begin with
    ``doc/`` followed by a descriptive name. For example, you might supply
    ``doc/fix_broken_link`` if that is what your suggested change does. For
-   more information on naming branches, see `Branch naming conventions <branch_naming_>`_
-   in the *PyAnsys developer's guide*.
+   more information, see :ref:`branch_naming`.
 
 #. Click **Propose changes**.
 

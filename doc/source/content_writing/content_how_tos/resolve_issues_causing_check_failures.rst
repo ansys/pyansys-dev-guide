@@ -9,8 +9,7 @@ all issues, when you push your changes to the PR, checks in the CI/CD process
 can still fail.
 
 For information on continuous integration and the required workflows that run
-checks on a PR for a PyAnsys library, see `Using continuous integration <Doc_using_CI_>`_
-in the *PyAnsys developer's guide*.
+checks on a PR for a PyAnsys library, see :ref:`continuous_integration`.
 
 When a check in the CI/CD process fails, you can click **Details** to the right
 of the check to view its log. You are taken to the bottom of the log, where you can see

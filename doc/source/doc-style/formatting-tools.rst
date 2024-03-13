@@ -1,3 +1,5 @@
+.. _doc_style_tools:
+
 Documentation style tools
 =========================
 
@@ -166,18 +168,3 @@ name of the folder.
 Address any warnings and issues that display by either editing the
 file to fix or adding a term to the ``accept.txt`` file under the 
 ``doc`` folder in ``styles\Vocab\ANSYS``.
-
-
-.. _blacken-docs: https://github.com/asottile/blacken-docs
-.. _interrogate: https://interrogate.readthedocs.io/en/latest/
-.. _docstr-coverage: https://docstr-coverage.readthedocs.io/en/latest/index.html
-.. _docstring-coverage: https://bitbucket.org/DataGreed/docstring-coverage/wiki/Home
-.. _pytest-cov: https://pytest-cov.readthedocs.io/en/latest/
-.. _doctest: https://docs.python.org/3/library/doctest.html
-.. _vale: https://vale.sh/
-.. _PEP 257: http://www.python.org/dev/peps/pep-0257/
-.. _docformatter: https://github.com/PyCQA/docformatter
-.. _codespell: https://github.com/codespell-project/codespell
-.. _pytest-cov: https://pytest-cov.readthedocs.io/en/latest/
-.. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
-.. _pydocstyle: https://www.pydocstyle.org/en/stable/

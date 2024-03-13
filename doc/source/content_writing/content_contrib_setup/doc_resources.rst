@@ -1,4 +1,4 @@
-.. _resources:
+.. _resources_writers:
 
 PyAnsys documentation resources
 ===============================
@@ -33,9 +33,6 @@ and format PyAnsys documentation content correctly in various types of source fi
   to the documentation of code, and common code style checkers.
 - `PEP 8 - Style Guide for Python Code <PEP8_>`_: Provides guidance on the Python coding
   style that PyAnsys libraries use.
-- `PyAnsys developer's guide <PyAnsys_dev_guide_>`_: Provides guidance on
-  PyAnsys project organization and administration, supplies how-to information, and
-  summarizes packaging, coding, and documentation styles.
 - `Python documentation <Python_doc_>`_: Provides the official documentation published by the
   Python organization for Python for developers at all levels.
 - `Quick reStructuredText <Quick_RST_>`_: Provides a summary of reStructuredText
@@ -71,7 +68,7 @@ building of PyAnsys documentation.
   QT app for installing Python and managing your Python environment, including creating
   virtual environments, launching a command console, installing PyAnsys packages, and
   viewing PyAnsys documentation.
-- `Ansys Sphinx theme <Ansys_Sphinx_theme_>`_: Provides an Ansys-branded extension
+- `Ansys Sphinx theme <Ansys_Sphinx_theme_repo_>`_: Provides an Ansys-branded extension
   of the popular `PyData Sphinx theme <PyData_Sphinx_theme_>`_ that is used to generate
   PyAnsys documentation.
 - `Ansys templates <Ansys_templates_>`_: Provides templates for creating PyAnsys projects
@@ -105,5 +102,5 @@ building of PyAnsys documentation.
 .. note::
 
   For information on documentation style tools that might be implemented in
-  a PyAnsys project but are not necessarily described in this writer's guide, see
-  `Documentation style tools <Doc_style_tools_>`_ in the *PyAnsys developer's guide*.
+  a PyAnsys project but are not necessarily described on this page, see
+  :ref:`doc_style_tools`.

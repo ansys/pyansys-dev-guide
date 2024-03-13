@@ -4,11 +4,11 @@ Content in PY files
 ###################
 
 In Python, a module is a PY file that contains Python objects such
-as functions, classes, methods, parameters, attributes,
-and enums (enumerations). These objects each have a docstring that
-describes and explains how to use it to interact with an API.
-When building documentation, `Sphinx <Sphinx_>`_ assembles the content
-in these docstrings to generate API reference documentation.
+as interfaces, functions, classes, methods, parameters, attributes,
+enums (enumerations), properties, and constants. These objects each
+have a docstring that describes and explains how to use it to interact
+with the library. When building documentation, `Sphinx <Sphinx_>`_ assembles
+the content in these docstrings to generate API reference documentation.
 
 This section covers the setup and processing of PY files by Sphinx,
 fundamental Python objects, and formatting rules for docstrings, code comments,

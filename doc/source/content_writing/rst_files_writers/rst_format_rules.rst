@@ -106,7 +106,7 @@ page in the *Goggle developer documentation style guide*.
 
     Roles insert semantic markup in your source files for cross-references to named
     targets of the type indicated by the role. Because the CSS for the
-    `Ansys Sphinx theme <Ansys_Sphinx_theme_>`_ assigns the same semantic markup to
+    `Ansys Sphinx theme <Ansys_Sphinx_theme_repo>`_ assigns the same semantic markup to
     the ``:file:`` role as it does to a filename surrounded in double backticks, it
     does not matter which markup you use.
 

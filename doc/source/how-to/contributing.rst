@@ -3,8 +3,8 @@
 Contributing
 ============
 
-Before contributing to a PyAnsys repository, you must understand the general
-coding paradigms being used for PyAnsys development.
+Before contributing to a PyAnsys library, you must understand the general
+coding paradigms used for PyAnsys development.
 
 #. Follow the `Zen of Python <https://www.python.org/dev/peps/pep-0020/>`__.
    As silly as core Python developers are sometimes, there's much to be
@@ -187,6 +187,8 @@ You create a branch with:
 .. code-block:: bash
 
     git checkout -b <new branch name>
+
+.. _branch_naming:
 
 Branch naming conventions
 ~~~~~~~~~~~~~~~~~~~~~~~~~

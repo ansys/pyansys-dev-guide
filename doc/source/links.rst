@@ -18,7 +18,8 @@
 .. _RST_markup_syntax_parser: https://docutils.sourceforge.io/rst.html
 .. _RST_primer: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 .. _Style_guide_Sphinx_doc: https://documentation-style-guide-sphinx.readthedocs.io/en/latest/index.html
-.. _Ansys_Sphinx_theme: https://github.com/ansys/ansys-sphinx-theme
+.. _Ansys_Sphinx_theme_repo: https://github.com/ansys/ansys-sphinx-theme
+.. _ansys-sphinx-theme-doc: https://sphinxdocs.ansys.com/
 .. _Ansys_Python_Manager_repository: https://github.com/ansys/python-installer-qt-gui
 .. _Ansys_templates: https://github.com/ansys/ansys-templates
 .. _Git: https://git-scm.com/
@@ -27,7 +28,6 @@
 .. _Git_Extensions: https://gitextensions.github.io/
 .. _Notepadpp: https://notepad-plus-plus.org/
 .. _pip: https://pypi.org/project/pip/
-.. _pre-commit: https://pre-commit.com/
 .. _Python: https://www.python.org/
 .. _Python_glossary: https://docs.python.org/3/glossary.html
 .. _Python_in_VSC: https://code.visualstudio.com/docs/languages/python
@@ -36,27 +36,9 @@
 .. _VSC: https://code.visualstudio.com/
 .. _array_creation: https://numpy.org/doc/stable/user/basics.creation.html
 
-.. #PyAnsys dev guide topic links
-.. _branch_naming: https://dev.docs.pyansys.com/how-to/contributing.html#branch-naming-conventions
-.. _Build_doc: https://dev.docs.pyansys.com/how-to/documenting.html#build-documentation
-.. _Code_style_tools: https://dev.docs.pyansys.com/coding-style/formatting-tools.html
-.. _Coding_style: https://dev.docs.pyansys.com/coding-style/index.html
-.. _Componentizing: https://dev.docs.pyansys.com/getting-started/componentization.html#componentizing-ansys-packages
-.. _Contributing: https://dev.docs.pyansys.com/how-to/contributing.html
-.. _Doc_add_example: https://dev.docs.pyansys.com/examples/index.html#general-example
-.. _Doc_style: https://dev.docs.pyansys.com/doc-style/index.html
-.. _Doc_style_numpydoc_validation: https://dev.docs.pyansys.com/doc-style/formatting-tools.html#numpydoc-validation
-.. _Doc_style_tools: https://dev.docs.pyansys.com/doc-style/formatting-tools.html
-.. _Documenting: https://dev.docs.pyansys.com/how-to/documenting.html
-.. _Doc_using_CI: https://dev.docs.pyansys.com/how-to/continuous-integration.html#using-continuous-integration
-.. _numpydoc_docstrings: https://dev.docs.pyansys.com/doc-style/docstrings.html#numpydoc-docstrings
-.. _multiversion_doc: https://dev.docs.pyansys.com/how-to/documenting.html#enabling-multi-version-documentation
-.. _RST_files_url: https://dev.docs.pyansys.com/how-to/documenting.html#rst-files
-.. _setting_up_dev_environment: https://dev.docs.pyansys.com/how-to/setting-up.html
-.. _dev_guide_testing: https://dev.docs.pyansys.com/how-to/testing.html
-
 .. #Ansys libraries:
 .. _Ansys_Python_Manager_doc: https://installer.docs.pyansys.com/version/stable/
+.. _dev_guide_repo: https://github.com/ansys/pyansys-dev-guide
 .. _Fluent_faq_page: https://fluent.docs.pyansys.com/version/stable/getting_started/faqs.html
 .. _join_ansys_organization: https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706
 .. _join_ansys_internal_organization: https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706
@@ -64,8 +46,6 @@
 .. _Links_for_pymapdl: https://github.com/ansys/pymapdl/blob/main/doc/source/links.rst
 .. _PyAnsys_geometry_Docker_containers: https://geometry.docs.pyansys.com/version/stable/getting_started/docker/index.html
 .. _PyAnsys_landing_page: https://docs.pyansys.com/version/stable/
-.. _PyAnsys_writers_guide_repo: https://github.com/ansys-internal/pyansys-writer-guide
-.. _PyAnsys_writers_Issues: https://github.com/ansys-internal/pyansys-writer-guide/issues
 .. _python_installer_qt_ui_releases: https://github.com/ansys/python-installer-qt-gui/releases
 .. _PyMAPDL_config: https://github.com/ansys/pymapdl/blob/main/doc/source/conf.py
 .. _review_bot: https://github.com/ansys/review-bot
@@ -81,7 +61,12 @@
 .. _isort: https://pycqa.github.io/isort/
 .. _numpy: https://numpy.org/
 .. _pandas: https://pandas.pydata.org/
+.. _pre-commit: https://pre-commit.com/
 .. _scipy: https://scipy.org/
+.. _tox: https://tox.wiki/en/latest/
+.. _tox_repo: https://github.com/tox-dev/tox
+.. _PEP 8: https://www.python.org/dev/peps/pep-0008/
+.. _make: https://www.gnu.org/software/make/
 
 .. #External links
 .. _Docutils: https://docutils.sourceforge.io/
@@ -91,7 +76,6 @@
 .. _Notepadpp_searching: https://npp-user-manual.org/docs/searching/
 .. _numpydoc_style_guide: https://numpydoc.readthedocs.io/en/latest/format.html
 .. _numpydoc_style_guide_sections: https://numpydoc.readthedocs.io/en/latest/format.html#sections
-.. _PEP_257: https://peps.python.org/pep-0257
 .. _RST_table_directives: https://docutils.sourceforge.io/docs/ref/rst/directives.html#tables
 .. _VSC_doc: https://code.visualstudio.com/Docs
 .. _VSC_doc_setup: https://code.visualstudio.com/docs/setup/setup-overview
@@ -134,5 +118,81 @@
 .. #Python
 .. _Python_Package_Index: https://pypi.org/
 .. _venv: https://docs.python.org/3/library/venv.html
-.. _tox: https://tox.wiki/en/4.11.3/
 .. _pytest: https://docs.pytest.org/en/stable/
+.. _pytest-cov: https://pytest-cov.readthedocs.io/en/latest/
+.. _MIT License: https://opensource.org/licenses/MIT
+.. _PEP_257: https://peps.python.org/pep-0257
+.. _PEP 257: http://www.python.org/dev/peps/pep-0257/
+.. _PEP 420: https://peps.python.org/pep-0420/
+.. _native namespace packages: https://packaging.python.org/en/latest/guides/packaging-namespace-packages/#native-namespace-packages
+.. _Namespace packages: https://packaging.python.org/guides/packaging-namespace-packages/
+.. _Python Packaging User Guide: https://packaging.python.org/en/latest/
+.. _Python Packaging Authority: https://www.pypa.io/en/latest/codespell
+.. _PyAnsys: https://docs.pyansys.com/
+.. _PyMAPDL: https://github.com/ansys/pymapdl
+.. _ansys-api-mapdl: https://pypi.org/project/ansys-api-mapdl/
+.. _reStructuredText Markup Syntax: https://docutils.sourceforge.io/rst.html
+.. _Markdown Syntax: https://www.markdownguide.org/basic-syntax/
+.. _PEP 518: https://peps.python.org/pep-0518/
+.. _Building and Distributing Packages with Setuptools: https://setuptools.pypa.io/en/latest/setuptools.html
+.. _Configuring setuptools using setup.cfg files: https://setuptools.pypa.io/en/latest/userguide/declarative_config.html
+.. _setuptools: https://setuptools.pypa.io/en/latest/index.html
+
+.. _blacken-docs: https://github.com/asottile/blacken-docs
+.. _interrogate: https://interrogate.readthedocs.io/en/latest/
+.. _docstr-coverage: https://docstr-coverage.readthedocs.io/en/latest/index.html
+.. _docstring-coverage: https://bitbucket.org/DataGreed/docstring-coverage/wiki/Home
+.. _doctest: https://docs.python.org/3/library/doctest.html
+.. _docformatter: https://github.com/PyCQA/codespell
+.. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
+.. _pydocstyle: https://www.pydocstyle.org/en/stable/
+
+.. _pyansys/template: https://github.com/ansys/template
+.. _Creating a repository from a template: https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template
+.. _repository visibility: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility
+.. _PyAnsys GitHub organization: https://github.com/ansys
+
+.. _gRPC: https://grpc.io/
+.. _pythoncom: http://timgolden.me.uk/pywin32-docs/pythoncom.html
+.. _SWIG: http://www.swig.org/
+.. _C extensions: https://docs.python.org/3/extending/extending.html
+.. _Anaconda Distribution: https://www.anaconda.com/products/individual
+.. _REST: https://en.wikipedia.org/wiki/Representational_state_transfer
+.. _PyAEDT: https://github.com/ansys/PyAEDT
+.. _Style Guide for Python Code (PEP8): https://www.python.org/dev/peps/pep-0008
+.. _grpc_chunk_stream_demo: https://github.com/ansys/grpc_chunk_stream_demo
+
+.. _ImportError: https://docs.python.org/3/library/exceptions.html#ImportError
+.. _dunder methods: https://docs.python.org/3/reference/datamodel.html#special-method-names
+
+.. _PyPI: https://pypi.org/
+.. _PyAnsys PyPI: https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi
+.. _pip Documentation: https://pip.pypa.io/en/stable/cli/pip_install/
+.. _Semantic Versioning: https://semver.org/
+
+.. _MANIFEST.in: https://packaging.python.org/en/latest/guides/using-manifest-in/
+.. _flit: https://flit.pypa.io/en/latest/
+.. _flit pyproject.toml guidelines: https://flit.readthedocs.io/en/latest/pyproject_toml.html
+.. _poetry: https://python-poetry.org/ox
+.. _poetry pyproject.toml documentation: https://python-poetry.org/docs/pyproject/
+.. _setuptools_repo: https://pypi.org/project/setuptools/
+.. _setuptools metadata fields: https://setuptools.pypa.io/en/latest/userguide/declarative_config.html#declarative-config
+
+.. _dependabot: https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates
+.. _ansys-templates tool: https://github.com/ansys/ansys-templates
+
+.. _GitHub Pages: https://pages.github.com/
+.. _GitHub Actions: https://github.com/features/actions
+.. _PyMAPDL Documentation: https://mapdl.docs.pyansys.com/
+.. _pyansys/pymapdl-docs: https://github.com/ansys/pymapdl-docs
+.. _gh-pages: https://github.com/ansys/dev-guide/tree/gh-pages
+.. _enabling GitHub pages: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site
+
+.. _PyAnsys DNS Zones: https://portal.azure.com/#@ansys.com/resource/subscriptions/2870ae10-53f8-46b1-8971-93761377c38b/resourceGroups/pyansys/providers/Microsoft.Network/dnszones/pyansys.com/overview
+.. _Maxime Rey: https://teams.microsoft.com/l/chat/0/0?users=maxime.rey@ansys.com
+.. _Roberto Pastor Muela: https://teams.microsoft.com/l/chat/0/0?users=roberto.pastormuela@ansys.com
+.. _Alex Kaszynski: https://teams.microsoft.com/l/chat/0/0?users=alexander.kaszynski@ansys.com
+.. _PyAnsys Bot: https://github.com/apps/pyansys-bot
+.. _PyAnsys Organization: https://github.com/ansys
+.. _PyMeilisearch: https://pymeilisearch.docs.ansys.com/
+

@@ -28,7 +28,7 @@ the language, the code block uses the syntax highlighting for this language.
 This ``.. code::`` directive shows how to import a function (``my_function``)
 from a Python module (``mylibrary``) and then demonstrates how to use it::
 
-    .. code:: python
+    .. code:: rst
 
         from mylibrary import my_function
 
@@ -38,7 +38,7 @@ from a Python module (``mylibrary``) and then demonstrates how to use it::
 
 Here is how the preceding code block is rendered in the documentation:
 
-.. code:: python
+.. code:: rst
 
     from mylibrary import my_function
 
@@ -48,7 +48,7 @@ Here is how the preceding code block is rendered in the documentation:
 
 This ``.. code-block::`` directive shows how to turn off a log handler::
 
-    .. code-block:: python
+    .. code-block:: rst
 
         for handler in design_logger.handlers:
             if isinstance(handler, logging.FileHandler):
@@ -57,7 +57,7 @@ This ``.. code-block::`` directive shows how to turn off a log handler::
 
 Here is how the preceding code block is rendered in the documentation:
 
-.. code-block:: python
+.. code-block:: rst
 
     for handler in design_logger.handlers:
         if isinstance(handler, logging.FileHandler):
@@ -74,7 +74,7 @@ Number lines in a code block
 With the ``.. code-block::`` directive, you can use the optional ``:linenos:`` attribute
 to generate line numbers for a code block::
 
-    .. code-block:: python
+    .. code-block:: rst
        :linenos:
 
        from __future__ import division
@@ -92,7 +92,7 @@ Here is how the preceding code block is rendered in the documentation:
 
 .. vale off
 
-.. code-block:: python
+.. code-block:: rst
    :linenos:
 
    from __future__ import division
@@ -111,14 +111,14 @@ Here is how the preceding code block is rendered in the documentation:
 To set the line where numbering is to start, you can use the optional ``:lineno-start:``
 attribute, which automatically activates the ``:linenos:`` attribute::
 
-    .. code-block:: python
+    .. code-block:: rst
        :lineno-start: 12
 
        Some more Python code, with line numbering starting at line 12.
 
 Here is how the preceding code block is rendered in the documentation:
 
-.. code-block:: python
+.. code-block:: rst
    :lineno-start: 12
 
    Some more Python code, with line numbering starting at line 12.
@@ -129,7 +129,7 @@ Emphasize lines of code
 With the ``.. code-block::`` directive, you can use the optional ``:emphasize-lines:`` attribute
 to emphasize particular lines of code by highlighting them::
 
-    .. code-block:: python
+    .. code-block:: rst
       :emphasize-lines: 3,5
 
       def some_function():
@@ -140,7 +140,7 @@ to emphasize particular lines of code by highlighting them::
 
 Here is how the preceding code block is rendered in the documentation:
 
-.. code-block:: python
+.. code-block:: rst
    :emphasize-lines: 3,5
 
    def some_function():
@@ -155,7 +155,7 @@ With the ``.. code-block::`` directive, you can use the optional ``:caption:`` a
 attributes to use either the ``:ref:`` or ``:numref:`` role to reference this code block from
 elsewhere in your documentation::
 
-    .. code-block:: python
+    .. code-block:: rst
       :caption: this.py
       :name: this-py
 
@@ -163,7 +163,7 @@ elsewhere in your documentation::
 
 Here is how the preceding code block is rendered in the documentation:
 
-.. code-block:: python
+.. code-block:: rst
    :caption: this.py
    :name: this-py
 

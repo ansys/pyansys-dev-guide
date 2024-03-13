@@ -28,7 +28,7 @@ To use the bot:
 
    The bot responds with this comment::
 
-    Okay, I will trigger a reviw of your PR.
+    Okay, I will trigger a review of your PR.
 
    Depending on how large your PR is, it may take a few minutes before comments
    from the bot begin to appear. If comments never appear, the bot service has

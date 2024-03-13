@@ -5,12 +5,12 @@ Content in RST files
 
 reStructuredText, a plaintext markup language, uses simple and intuitive
 constructs to indicate the structure of a document. You use reStructuredText (RST)
-files to define the hierarchy of the documentation and provide manually authored
+files to define the hierarchy of your documentation and provide manually authored
 content.
 
 This page describes the setup of RST files for PyAnsys documentation. It also
 describes the option for using either a RST or Markdown (MD) file as the README
-for a PyAnsys project.
+for the GitHub repository of a PyAnsys project.
 
 For resources related to RST and MD files, see :ref:`style_format_resources`.
 To learn how RST files for PyAnsys libraries are formatted, see :ref:`rst_file_formatting`.
@@ -62,15 +62,13 @@ guide, the ``maxdepth`` attribute is set to ``3`` for all sections. The ``.. toc
 then includes an ordered list of the RST files to show in the **Section Navigation** pane. The
 RST extensions for the files in this list are omitted.
 
-To see the ``.. toctree::`` directives for the other sections in this writer's guide,
-in the project's `repository <PyAnsys_writers_guide_repo_>`_, go to the ``doc/source``
+To see the ``.. toctree::`` directives for the other sections in this guide,
+in the project's `repository <dev_guide_repo_>`_, go to the ``doc/source``
 directory and look at the ``index.rst`` files in the child directories for the
 documentation sections.
 
-For more information on RST file setup, see these resources:
-
-- `RST files <RST_files_url_>`_ in the *PyAnsys developer's guide*
-- `Getting Started <Sphinx_GS_doc_>`_ in the Sphinx documentation
+For more information on RST file setup, see :ref:`rst_files_developers` and 
+`Getting Started <Sphinx_GS_doc_>`_ in the Sphinx documentation.
 
 .. _readme_files:
 

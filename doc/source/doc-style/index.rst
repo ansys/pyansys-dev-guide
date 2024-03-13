@@ -1,3 +1,5 @@
+.. _doc_style_developers:
+
 Documentation style
 ===================
 

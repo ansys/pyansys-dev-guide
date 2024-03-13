@@ -21,9 +21,8 @@ custom cards.
    from the TXT version of this file and then paste it directly into one of your
    RST files for reuse, modifying it as needed.
 
-Here is an image of cards on the `home page <PyAnsys_dev_guide_>`_ in the
-*PyAnsys developer's guide*. These cards describe and link to sections of the
-developer's guide.
+Here is an image of the cards on the documentation landing page for this guide.
+These cards describe and link to various sections of this guide.
 
 .. image:: ..//_static/card_dev_guide_home_page.png
    :alt: Cards on the home page of the *PyAnsys developer's guide*

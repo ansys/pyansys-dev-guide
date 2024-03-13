@@ -1,3 +1,5 @@
+.. _numpy_docstrings:
+
 Numpydoc docstrings
 ===================
 

@@ -31,11 +31,6 @@ packages, `numpy`_, `scipy`_, and `pandas`_, ``MAJOR`` versions of PyAnsys
 packages are not released when any incompatible API change is made but rather
 when major, globally breaking API changes are made. 
 
-.. _Semantic Versioning: https://semver.org/
-.. _numpy: https://numpy.org/
-.. _scipy: https://www.scipy.org/
-.. _pandas: https://pandas.pydata.org/
-
 Note that ``0.MINOR.PATCH`` packages are expected to have fluid APIs and should
 be solidified at the ``1.MINOR.PATCH`` release. At that point, APIs are expected
 to be much more stable.
@@ -518,10 +513,6 @@ public PyPI and GitHub.
 
         python -m pip install path/to/package/wheel.whl
 
-.. _PyPI: https://pypi.org/
-.. _PyAnsys PyPI: https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi
-.. _PyAnsys: https://github.com/ansys
-.. _pip Documentation: https://pip.pypa.io/en/stable/cli/pip_install/
 
 
 .. |check| raw:: html

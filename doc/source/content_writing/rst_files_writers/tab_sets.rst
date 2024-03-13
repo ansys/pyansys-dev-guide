@@ -14,8 +14,7 @@ for different operating systems.
    extension. For more information, see :ref:`add_sphinx_extensions`.
 
    To see and use the tab sets that are shown only as images on this page,
-   see the `Setting up your development environment <setting_up_dev_environment_>`_
-   page in the *PyAnsys developer's guide*. To see how the tab sets on this
+   see :ref:`setting_up_dev_environment`. To see how the tab sets on this
    page are formatted, click the **Show Source** link in the page's right pane.
    As described in :ref:`rst_file_formatting`, you can copy content from the
    TXT version of this file and then paste it directly into one of your RST files

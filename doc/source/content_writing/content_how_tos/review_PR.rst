@@ -16,7 +16,7 @@ for improving content, thereby build the confidence that you need to create your
 own PRs.
 
 Being an effective reviewer assumes that you are familiar with all the
-resources listed in :ref:`resources`.
+resources listed in :ref:`resources_writers`.
 
 .. _add_comments:
 

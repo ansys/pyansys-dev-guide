@@ -38,6 +38,7 @@ GitHub Actions
 [Hh]otfixes
 Hpertext
 (?i)Html
+imag
 initialisms
 initializer
 internetworking

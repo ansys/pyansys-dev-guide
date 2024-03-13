@@ -90,9 +90,8 @@ When naming targets, you must adhere to these guidelines to avoid errors
 that Sphinx might otherwise raise when building the documentation:
 
 - Do not use spaces in target names. Instead, use underscores to separate words.
-  For example, ``_Code_style_tools`` is the name of the target in this writer's
-  guide that links to `Code style tools <Code_style_tools_>`_ in the *PyAnsys
-  developer's guide*.
+  For example, ``_numpy`` is the name of the target that links
+  to the `NumPy website <numpy_>`_.
 - Abbreviate target names however you want. Keep in mind that longer, more
   descriptive names are easier to find if you ever need to replace them.
   For example, ``_python_main`` is a better target name for the Python organization

@@ -43,7 +43,7 @@ introduced the following problems:
 - It was not possible to know which dependencies required the ``setup.py`` file
   to be properly executed.
 
-- The default Python package installer, `pip`_, expected `setuptools`_ to be the
+- The default Python package installer, `pip`_, expected `setuptools_repo`_ to be the
   default build system tool, excluding others like `flit`_ and `poetry`_.
 
 These problems led to the acceptance of `PEP 517`_ and `PEP 518`_.
@@ -55,7 +55,7 @@ PEP 517
 generating artifacts. The previous :numref:`build system diag` diagram shows the
 most popular backends:
 
-- `Setuptools`_ , while very popular, lacks the ability to declare build time dependencies
+- `Setuptools_repo`_ , while very popular, lacks the ability to declare build time dependencies
   and is difficult to extend.
 - `Flit`_ is a lightweight build system tool for Python.
 - `Poetry`_ focuses on dependency management and environment isolation.
@@ -149,15 +149,3 @@ Using `poetry`_ is popular because it:
 
 The ``[tool.poetry]`` section contains metadata and defines project
 dependencies. For more information, see `poetry pyproject.toml documentation`_.
-
-.. _MANIFEST.in: https://packaging.python.org/en/latest/guides/using-manifest-in/
-.. _PyPI: https://pypi.org/
-.. _pip:
-.. _flit: https://flit.pypa.io/en/latest/
-.. _poetry: https://python-poetry.org/
-.. _poetry pyproject.toml documentation: https://python-poetry.org/docs/pyproject/
-.. _setuptools: https://pypi.org/project/setuptools/
-.. _setuptools metadata fields: https://setuptools.pypa.io/en/latest/userguide/declarative_config.html#declarative-config
-.. _flit pyproject.toml guidelines: https://flit.readthedocs.io/en/latest/pyproject_toml.html
-.. _dependabot: https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates
-.. _ansys-templates tool: https://github.com/ansys/ansys-templates

@@ -77,12 +77,3 @@ particular PyAnsys library.
 .. todo::
 
    Others like requests, RPC, COM, etc.
-
-.. _PyAEDT: https://github.com/ansys/PyAEDT
-.. _PyMAPDL: https://github.com/ansys/pymapdl
-.. _pytest-cov: https://pytest-cov.readthedocs.io/en/latest/reporting.html
-.. _pyansys/template: https://github.com/ansys/template
-.. _Creating a repository from a template: https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template
-.. _repository visibility: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility
-.. _PyAnsys GitHub organization: https://github.com/ansys
-.. _pytest: https://pytest.org/

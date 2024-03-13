@@ -3,41 +3,36 @@
 Content writing
 ===============
 
-Earlier sections of this guide are written primarily for PyAnsys developers. While this
-section on content writing is invaluable to developers drafting documentation for their
-Python client libraries, it is tailored to helping those who are new to both reviewing and
-writing content for these libraries. The objective is for all PyAnsys documentation to be
-clear, consistent, effective, and user-friendly.
+Earlier sections of this guide are written primarily for PyAnsys developers by PyAnsys
+developers. This section is written specifically for anyone who is contributing new content
+or revising existing content in the documentation for a PyAnsys library. The goal is to
+provide content contributors with the information that they need to write clear, consistent,
+effective, and user-friendly content in the order in which they need to know it.
 
-This section provides these comprehensive subsections:
+Comprehensive information on content writing is organized as follows:
 
-- :ref:`content_contrib_setup`: Describes PyAnsys libraries to those new to contributing
-  content to PyAnsys documentation and explains how to set up a content development environment.
-  In addition to providing essential information for new content contributors, this subsection
-  includes links to many resources relevant to its creation and maintenance.
+- :ref:`content_contrib_setup`: Describes PyAnsys libraries, explains how to set up a
+  content development environment, and provides links to many resources relevant to
+  creating and maintaining PyAnsys documentation.
 
 - :ref:`rst_files_writers`: Explains how reStructuredText (RST) files define the hierarchy
-  of the documentation and provide manually authored content. This sub section also explains
-  how you can see and reuse the formatting of any documentation page and summarizes the
-  formatting rules to follow so that your contributions are rendered correctly.
+  of the documentation and provide manually authored content. This section also describes
+  how to view and reuse the formatting of any documentation page and summarizes the
+  formatting rules to follow so that your content contributions are rendered correctly.
 
 - :ref:`py_files_writers`: Explains how docstrings in Python (PY) files provide
-  descriptions for the Python objects that are used to interact with the library. In Python,
-  a module is a PY file that contains Python objects, such as interfaces, classes, enums,
-  functions, methods, parameters, properties, attributes, and constants. This subsection
-  also explains how PY files are set up and summarizes the formatting rules for docstrings,
-  code comments, and message strings.
+  descriptions for the Python objects that are used to interact with the library. This
+  section also explains how PY files are set up and summarizes the formatting rules
+  for docstrings, code comments, and message strings.
 
-- :ref:`examples_writers`: Explains how to provide downloadable scripts, which
-  developers tend to seek out first and refer to most often. This subsection explains the
-  Sphinx extensions that can be used to generate examples, how to use them, and how to
-  format their source files.
+- :ref:`examples_writers`: Explains the Sphinx extensions that PyAnsys developers are
+  using to generate the examples in the "Examples" section of their PyAnsys documentation
+  and how to format the source files so that the content renders correctly.
 
 - :ref:`content_how_tos`: Explains how to perform tasks associated with contributing
   to PyAnsys documentation, including how to review and create GitHub PRs (pull requests).
-  As you become a more experienced contributor, this subsection and the
-  `PyAnsys documentation resources <resources_writers_>`_ page are likely to be the content
-  that you refer to most often.
+  As you become a more experienced contributor, this subsection and the :ref:`resources_writers`
+  page are likely to be the content that you refer to most often.
 
 
 .. toctree::

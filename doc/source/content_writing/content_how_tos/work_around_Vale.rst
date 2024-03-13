@@ -134,7 +134,7 @@ Specify a specific Vale version
 -------------------------------
 
 If you push your changes to a PR and Vale raises lots of inappropriate errors about titles not
-being in sentence case when they are already in title case, in the ``.github/worflows`` directory,
+being in sentence case when they are already in title case, in the ``.github/workflows`` directory,
 open the :file:`ci_cd.yml` file and then update the "Documentation Style Check" to use Vale
 version 2.29.5::
 

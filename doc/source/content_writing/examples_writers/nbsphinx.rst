@@ -19,7 +19,7 @@ from the `ipykernel <Sphinx_nbsphinx_ipykernal_pkg_>`_ package.
 Create and document notebooks
 -----------------------------
 
-When using ``nbsphinx``, you place the IPYNB files for the ``Examples`` section in the
+When using ``nbsphinx``, you place the IPYNB files for the "Examples" section in the
 ``examples`` directory. To add documentation to your notebooks, use Markdown cells.
 
 
@@ -33,7 +33,7 @@ developers configure the ``nbsphinx_execute`` and ``nbsphinx_thumbnails`` variab
 
 Here is what these variables look like in the :file:`conf.py` file for PyAnsys Geometry:
 
-.. code-block:: python
+.. code-block:: rst
 
    # Examples gallery customization
    nbsphinx_execute = "always"

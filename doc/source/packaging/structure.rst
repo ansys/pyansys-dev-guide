@@ -318,23 +318,3 @@ template can be used:
 
 .. include:: code/setup_file_code.rst
 
-.. REFERENCES & LINKS
-
-.. _MIT License: https://opensource.org/licenses/MIT
-.. _PEP 420: https://peps.python.org/pep-0420/
-.. _native namespace packages: https://packaging.python.org/en/latest/guides/packaging-namespace-packages/#native-namespace-packages
-.. _Namespace packages: https://packaging.python.org/guides/packaging-namespace-packages/
-.. _PyAnsys: https://docs.pyansys.com/
-.. _Python Packaging User Guide: https://packaging.python.org/en/latest/
-.. _Python Packaging Authority: https://www.pypa.io/en/latest/
-.. _pytest: https://docs.pytest.org/en/latest/
-.. _Sphinx: https://www.sphinx-doc.org/en/master/
-.. _PyMAPDL: https://github.com/ansys/pymapdl
-.. _PyAEDT: https://github.com/ansys/PyAEDT
-.. _ansys-api-mapdl: https://pypi.org/project/ansys-api-mapdl/
-.. _reStructuredText Markup Syntax: https://docutils.sourceforge.io/rst.html
-.. _Markdown Syntax: https://www.markdownguide.org/basic-syntax/
-.. _PEP 518: https://peps.python.org/pep-0518/
-.. _Building and Distributing Packages with Setuptools: https://setuptools.pypa.io/en/latest/setuptools.html
-.. _Configuring setuptools using setup.cfg files: https://setuptools.pypa.io/en/latest/userguide/declarative_config.html
-.. _setuptools: https://setuptools.pypa.io/en/latest/index.html
