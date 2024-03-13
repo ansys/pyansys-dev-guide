@@ -195,4 +195,3 @@
 .. _PyAnsys Bot: https://github.com/apps/pyansys-bot
 .. _PyAnsys Organization: https://github.com/ansys
 .. _PyMeilisearch: https://pymeilisearch.docs.ansys.com/
-
