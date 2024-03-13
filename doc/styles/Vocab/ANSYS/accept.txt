@@ -89,8 +89,8 @@ scipy
 SSH
 subclassing
 sublist
-subpackage
-subpackages
+[Ss]ubpackage
+[Ss]ubpackages
 substring
 superset
 tensorflow
