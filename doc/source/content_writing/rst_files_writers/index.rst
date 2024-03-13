@@ -40,7 +40,7 @@ for this section.
    Sphinx documentation.
 
 For example, here is the ``.. toctree::`` directive in the ``index.rst`` file for
-this **RST files** section::
+this **Content in RST files** section::
 
    .. toctree::
       :maxdepth: 3
