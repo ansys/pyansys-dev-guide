@@ -16,12 +16,12 @@ for PyAnsys libraries.
 - A package is a superset of the Python client library. It includes all source
   files and the supporting files needed to install and use the library.
 
-This section also provides essential information for writers new to
+Additionally, this section provides essential information for
 documenting PyAnsys libraries and includes links to all the many
 resources relevant to creating and maintaining this documentation. The
-:ref:`resources_writers` page and the :ref:`content_how_tos` section are likely to be the content
-that you refer to most as you become proficient in contributing to PyAnsys
-documentation.
+:ref:`resources_writers` page and the :ref:`content_how_tos` section are
+likely to be the content that you refer to most as you become proficient
+in contributing to PyAnsys documentation.
 
 .. toctree::
    :maxdepth: 3

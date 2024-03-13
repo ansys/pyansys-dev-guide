@@ -4,8 +4,8 @@ Content writing
 ===============
 
 Earlier sections of this guide are written primarily for PyAnsys developers by PyAnsys
-developers. This section is written specifically for anyone who is contributing new content
-or revising existing content in the documentation for a PyAnsys library. The goal is to
+developers. This section is written for anyone who wants to contributing new or revise
+existing content in the documentation for a PyAnsys library. The goal is to
 provide content contributors with the information that they need to write clear, consistent,
 effective, and user-friendly content in the order in which they need to know it.
 
