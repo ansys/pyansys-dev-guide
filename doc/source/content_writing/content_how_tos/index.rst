@@ -8,13 +8,17 @@ to PyAnsys documentation. As indicated in earlier sections, PRs suggest
 changes to the main codebase. Each PR undergoes a thorough review before
 it can be approved and subsequently merged into the codebase.
 
-Content writers typically contribute to the codebase in one of two ways:
+Content contributors typically contribute to the codebase for a PyAnsys
+library in one of two ways:
 
 - By reviewing PRs created by fellow contributors
 - By creating PRs that add to or improve the documentation
 
-Additionally, content writers can create issues and discussions on the **Issues**
-page and **Discussions** page of a library's GitHub repository.
+Additionally, content contributors can create issues on the **Issues**
+page of a library's GitHub repository. If the repository has a **Discussions**
+page, they can use it to start a discussion on this library. Otherwise, you
+can post questions, share ideas, and get community feedback on the
+`Discussions <https://discuss.ansys.com/>`_ on the Ansys Developer portal.
 
 .. toctree::
    :maxdepth: 3

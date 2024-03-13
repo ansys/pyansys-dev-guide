@@ -25,11 +25,11 @@ to link to. The target consists of these parts:
 
 Always insert blanks lines both before and after the target.
 
-Here is the target for :ref:`Ansys_Python_Manager` in this writer's guide::
+Here is the target for :ref:`Ansys_Python_Manager` in this guide::
 
   .. _Ansys_Python_Manager:
 
-To link to this target from any RST or PY file in this writer's guide, use the
+To link to this target from any RST or PY file in this guide, use the
 ``:ref:`` role and the target name within a sentence, surrounding the target name
 in single backticks::
 
@@ -198,7 +198,7 @@ Link to named targets in the :file:`list.rst` file
 To link to a named target in the :file:`list.rst` file, you drop the leading underscore in the
 target name and add a trailing underscore after the target name. For example, the :file:`list.rst`
 file for this project includes a target named ``_Style_guide_Sphinx_doc``. To link to this target
-from any RST or PY file in this writer's guide, here is how you insert the link::
+from any RST or PY file in this guide, here is how you insert the link::
 
   The `Style guide for Sphinx-based documentation <Style_guide_Sphinx_doc_>`_
   indicates that lines should be limited to a maximum of 79 characters.
@@ -211,7 +211,7 @@ For examples of named targets and how to organize them by categories, see the
 :file:`list.rst` file in the ``doc/source`` directory for this project or the
 PyMAPDL project:
 
-- See the :file:`list.rst` file for this `writer's guide <Links_for_writers_guide_>`_.
+- See the :file:`list.rst` file for this `guide <Links_for_dev_guide_>`_.
 - See the :file:`list.rst` file for `PyMAPDL <Links_for_pymapdl_>`_.
 
 Download links

@@ -25,4 +25,4 @@ read through and then perform these steps:
 #. In the right navigation pane, click the **Show Source** link to open the TXT version.
 #. View the formatting for this page.
 #. When finished, click your browser's back arrow to return to the PyFluent documentation page.
-#. Click your browser's back arrow once again to return to this writer's guide documentation page.
+#. Click your browser's back arrow once again to return to the developer guide's documentation page.

@@ -3,7 +3,7 @@
 Create issues and discussions
 =============================
 
-Writers can be active participants in enhancing and adding to PyAnsys libraries.
+Content contributors can be active participants in enhancing and adding to PyAnsys libraries.
 In addition to reviewing and creating PRs, you can create issues and discussions
 on the **Issues** page and **Discussions** page of a GitHub repository.
 

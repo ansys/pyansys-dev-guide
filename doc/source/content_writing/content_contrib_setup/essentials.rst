@@ -21,7 +21,7 @@ library:
 Google developer documentation style guide
 ------------------------------------------
 
-All writers contributing to PyAnsys documentation must follow the guidelines in the
+All contributors to PyAnsys documentation must follow the guidelines in the
 `Google developer documentation style guide <Google_dev_doc_style_guide_>`_.
 While you should become familiar with this entire style guide, periodically revisit the
 `Highlights <Google_dev_doc_highlights_>`_ page to ensure that you are adhering to its most important points.

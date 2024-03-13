@@ -42,7 +42,7 @@
 .. _Fluent_faq_page: https://fluent.docs.pyansys.com/version/stable/getting_started/faqs.html
 .. _join_ansys_organization: https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706
 .. _join_ansys_internal_organization: https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706
-.. _Links_for_writers_guide: https://github.com/ansys-internal/pyansys-writer-guide/blob/main/doc/source/links.rst
+.. _Links_for_dev_guide: https://github.com/ansys/pyansys-dev-guide/blob/main/doc/source/links.rst
 .. _Links_for_pymapdl: https://github.com/ansys/pymapdl/blob/main/doc/source/links.rst
 .. _PyAnsys_geometry_Docker_containers: https://geometry.docs.pyansys.com/version/stable/getting_started/docker/index.html
 .. _PyAnsys_landing_page: https://docs.pyansys.com/version/stable/

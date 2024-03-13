@@ -105,13 +105,13 @@ docstring or message string, you can manually change it in the PY file.
 
 Sometimes, however, the line that is too long is for a URL added to the ``linkcheck_ignore``
 variable in the Sphinx configuration (``doc/source/conf.py``) file. Here is an example of how
-this can happen. The central links (``doc/source/links.rst``) file for this writer's guide contains
-named targets for joining the two Ansys GitHub accounts and another one for viewing the
+this can happen. The central links (``doc/source/links.rst``) file for this guide contains
+explict target names for joining the two Ansys GitHub accounts and another one for viewing the
 :file:`links.rst` file in the project's repository::
 
     .. _join_ansys_organization: https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706
     .. _join_ansys_internal_organization: https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706
-    .. _Links_for_writers_guide: https://github.com/ansys-internal/pyansys-writer-guide/blob/main/doc/source/links.rst
+    .. _Links_for_dev_guide: https://github.com/ansys/pyansys-dev-guide/blob/main/doc/source/links.rst
 
 When building documentation, Sphinx checks all links to ensure that they are valid. In most cases,
 broken links are the result of formatting errors that you must fix manually. However, the
@@ -133,7 +133,7 @@ Here is what adding these lines looks like::
     linkcheck_ignore = [
         "https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706", # Join Ansys GitHub account
         "https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706", # Join Ansys internal GitHub account
-        "https://github.com/ansys-internal/pyansys-writer-guide/blob/main/doc/source/links.rst",
+        "https://github.com/ansys/pyansys-dev-guide/blob/main/doc/source/links.rst",
     ]
 
     # Linkcheck ignore broken anchors:
@@ -155,7 +155,7 @@ You can scroll to the end of these lines to see how they now conclude with ``# n
     linkcheck_ignore = [
         "https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706", # Join Ansys GitHub account # noqa: 501
         "https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706", # Join Ansys internal GitHub account # noqa: 501
-        "https://github.com/ansys-internal/pyansys-writer-guide/blob/main/doc/source/links.rst", # noqa: 501
+        "https://github.com/ansys/pyansys-dev-guide/blob/main/doc/source/links.rst", # noqa: 501
     ]
 
 When you commit these changes, Flake sees the ``# noqa: 501`` comments at the end of these lines

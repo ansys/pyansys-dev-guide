@@ -101,7 +101,7 @@ the extension to the ``extensions`` variable in the project's :file:`conf.py`
 file.
 
 For example, the native ``sphinx.ext.todo`` extension was added to the ``extensions``
-variable in the :file:`conf.py` file for the writer's guide. This extension supports
+variable in the :file:`conf.py` file for this guide. This extension supports
 use of the ``.. todo::`` directive to create a specially formatted block of text for
 a task that must still be done. The blocks for ``.. todo::`` directives do not render
 in the documentation by default. However, to render them in the documentation, you

@@ -57,7 +57,7 @@ this **Content in RST files** section::
       tab_sets
 
 The ``maxdepth`` attribute of the ``.. toctree::`` directive specifies the maximum number of
-heading levels to show in the documentation's right pane, labeled **On this page**. In this writer's
+heading levels to show in the documentation's right pane, labeled **On this page**. In this
 guide, the ``maxdepth`` attribute is set to ``3`` for all sections. The ``.. toctree::`` directive
 then includes an ordered list of the RST files to show in the **Section Navigation** pane. The
 RST extensions for the files in this list are omitted.

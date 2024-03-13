@@ -121,12 +121,12 @@ To run Vale locally:
 #. From the Windows **Administrator** window, use the ``cd`` command to go to the
    library's ``doc`` directory.
 
-   For example, to go to the ``doc`` directory for this writer's guide, you might
+   For example, to go to the ``doc`` directory for this guide, you might
    run this ``cd`` command:
 
    .. code-block:: bash
 
-      cd C:\AnsysDev\GitRepos\PyAnsys\pyansys-writer-guide\doc
+      cd C:\AnsysDev\GitRepos\PyAnsys\pyansys-dev-guide\doc
 
 #. To ensure that the latest rules for the Google style guidelines are installed
    locally, run this command:
@@ -232,12 +232,12 @@ To build documentation locally:
 #. From the Windows **Administrator** window, use the ``cd`` command to go to the
    library's ``doc`` directory.
 
-   For example, to go to the ``doc`` directory for this writer's guide, you might
+   For example, to go to the ``doc`` directory for this guide, you might
    run this ``cd`` command:
 
    .. code-block:: text
 
-      cd C:\AnsysDev\GitRepos\PyAnsys\pyansys-writer-guide\doc
+      cd C:\AnsysDev\GitRepos\PyAnsys\pyansys-dev-guide\doc
 
 #. Run the ``make`` command for you operating system.
 

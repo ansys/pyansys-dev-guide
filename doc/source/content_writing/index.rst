@@ -21,13 +21,13 @@ Comprehensive information on content writing is organized as follows:
   formatting rules to follow so that your content contributions are rendered correctly.
 
 - :ref:`py_files_writers`: Explains how docstrings in Python (PY) files provide
-  descriptions for the Python objects that are used to interact with the library. This
+  descriptions for the Python objects that are used to interact with a PyAnsys library. This
   section also explains how PY files are set up and summarizes the formatting rules
   for docstrings, code comments, and message strings.
 
 - :ref:`examples_writers`: Explains the Sphinx extensions that PyAnsys developers are
   using to generate the examples in the "Examples" section of their PyAnsys documentation
-  and how to format the source files so that the content renders correctly.
+  and how to format the source files so that the content in the renders correctly.
 
 - :ref:`content_how_tos`: Explains how to perform tasks associated with contributing
   to PyAnsys documentation, including how to review and create GitHub PRs (pull requests).

@@ -61,7 +61,7 @@ In a GitHub project, you can perform many tasks, including these:
 
 While some of the preceding GitHub tasks are usually performed only by project
 maintainers, many of them are regularly performed by all team members, including
-writers.
+content contributors.
 
 For more information on GitHub, see :ref:`Contributing` and the `GitHub documentation <GitHub_doc_>`_.
 
@@ -75,7 +75,7 @@ You must have `Git <Git_>`_ or a graphical user interface (GUI) client for Git i
 Because developers are accustomed to working in terminal environments, they
 tend to prefer using the Git command line, especially because it provides for
 greater control, customization, and automation. However, non-developer team members, such
-as writers, project managers, designers, and stakeholders, tend to prefer using a GUI client for Git.
+as project managers, designers, and writers, tend to prefer using a GUI client for Git.
 
 With a GUI client like `GitHub Desktop <GitHub_Desktop_>`_ or `Git Extensions <Git_Extensions_>`_,
 rather than having to remember complex command sequences, non-developer team members can use the

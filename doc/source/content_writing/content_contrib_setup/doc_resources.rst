@@ -4,9 +4,8 @@ PyAnsys documentation resources
 ===============================
 
 This page lists resources relevant to contributing to PyAnsys documentation.
-While other pages in this writer's guide reference resources as needed, this
-page provides a central location from which you can easily view all referenced
-resources.
+While other pages reference resources as needed, this page provides a central
+location from which you can easily view all referenced resources.
 
 .. _style_format_resources:
 
