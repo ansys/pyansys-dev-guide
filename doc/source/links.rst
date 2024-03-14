@@ -12,7 +12,6 @@
 .. _Material_for_Sphinx: https://bashtage.github.io/sphinx-material/basics.html
 .. _numpydoc_style_guide: https://numpydoc.readthedocs.io/en/latest/format.html
 .. _Python_doc: https://www.python.org/doc/
-.. _RST_and_Sphinx_cheat_sheet: https://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html#id8
 .. _Quick_RST: https://docutils.sourceforge.io/docs/user/rst/quickref.html
 .. _RST_markup_spec: https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html
 .. _RST_markup_syntax_parser: https://docutils.sourceforge.io/rst.html
@@ -42,7 +41,7 @@
 .. _Fluent_faq_page: https://fluent.docs.pyansys.com/version/stable/getting_started/faqs.html
 .. _join_ansys_organization: https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706
 .. _join_ansys_internal_organization: https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706
-.. _Links_for_dev_guide: https://github.com/ansys/pyansys-dev-guide/blob/main/doc/source/links.rst
+.. _Links_for_dev_guide: https://github.com/ansys/pyansys-dev-guide/trr/blob/main/doc/source/links.rst
 .. _Links_for_pymapdl: https://github.com/ansys/pymapdl/blob/main/doc/source/links.rst
 .. _PyAnsys_geometry_Docker_containers: https://geometry.docs.pyansys.com/version/stable/getting_started/docker/index.html
 .. _PyAnsys_landing_page: https://docs.pyansys.com/version/stable/
@@ -127,7 +126,7 @@
 .. _native namespace packages: https://packaging.python.org/en/latest/guides/packaging-namespace-packages/#native-namespace-packages
 .. _Namespace packages: https://packaging.python.org/guides/packaging-namespace-packages/
 .. _Python Packaging User Guide: https://packaging.python.org/en/latest/
-.. _Python Packaging Authority: https://www.pypa.io/en/latest/codespell
+.. _Python Packaging Authority: hhttps://www.pypa.io/en/latest/
 .. _PyAnsys: https://docs.pyansys.com/
 .. _PyMAPDL: https://github.com/ansys/pymapdl
 .. _ansys-api-mapdl: https://pypi.org/project/ansys-api-mapdl/
@@ -143,7 +142,7 @@
 .. _docstr-coverage: https://docstr-coverage.readthedocs.io/en/latest/index.html
 .. _docstring-coverage: https://bitbucket.org/DataGreed/docstring-coverage/wiki/Home
 .. _doctest: https://docs.python.org/3/library/doctest.html
-.. _docformatter: https://github.com/PyCQA/codespell
+.. _docformatter: https://github.com/PyCQA/docformatter
 .. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
 .. _pydocstyle: https://www.pydocstyle.org/en/stable/
 
@@ -173,7 +172,7 @@
 .. _MANIFEST.in: https://packaging.python.org/en/latest/guides/using-manifest-in/
 .. _flit: https://flit.pypa.io/en/latest/
 .. _flit pyproject.toml guidelines: https://flit.readthedocs.io/en/latest/pyproject_toml.html
-.. _poetry: https://python-poetry.org/ox
+.. _poetry: https://python-poetry.org/
 .. _poetry pyproject.toml documentation: https://python-poetry.org/docs/pyproject/
 .. _setuptools_repo: https://pypi.org/project/setuptools/
 .. _setuptools metadata fields: https://setuptools.pypa.io/en/latest/userguide/declarative_config.html#declarative-config

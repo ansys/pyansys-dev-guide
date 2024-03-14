@@ -140,9 +140,9 @@ Import namespaces
 ~~~~~~~~~~~~~~~~~
 
 You should avoid using wildcards in imports because doing so can make it
-difficult to detect undefined names. For more information, see `Python
-Anti-Patterns: using wildcard imports
+difficult to detect undefined names. For more information, see `using wildcard imports (from … import *)
 <https://docs.quantifiedcode.com/python-anti-patterns/maintainability/from_module_import_all_used.html>`_.
+in the *Python Anti-Patterns* documentation.
 
 .. tab-set::
 

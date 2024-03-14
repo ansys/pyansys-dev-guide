@@ -37,9 +37,6 @@ and format PyAnsys documentation content correctly in various types of source fi
 - `Quick reStructuredText <Quick_RST_>`_: Provides a summary of reStructuredText
   syntax with links to the `reStructuredText Markup Specification <RST_markup_spec_>`_
   for more comprehensive information.
-- `reStructuredText and Sphinx cheat sheet <RST_and_Sphinx_cheat_sheet_>`_: Provides RST
-  and Sphinx syntax for those who want to start writing documentation and Python docstrings
-  quickly.
 - `reStructuredText Markup Specification <RST_markup_spec_>`_: Provides a quick reStructuredText
   syntax overview, which explains that the parser is a component of `Docutils <Docutils_>`_,
   an open source text-processing system for plaintext documentation. It then provides the complete

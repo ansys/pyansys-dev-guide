@@ -61,13 +61,13 @@ Python libraries
 
 A Python library is the formal way of distributing Python source code. It allows
 for reuse and for specifying Python code dependencies. The guidance presented in this section
-is compliant with the `Python Packaging Authority`_ and PyAnsys recommendations.
+is compliant with the `Python Packaging Authority`_ (PyPA) and PyAnsys recommendations.
 
 .. note::
 
    The best way to keep up to date with Python packaging is to check the `Python
-   Packaging User Guide`_, maintained by the `Python Packaging Authority`_ (PyPA).
-   PyAnsys guidelines are built on top of PyPA guidelines.
+   Packaging User Guide`_, maintained by the PyPA. PyAnsys guidelines are built
+   on top of the PyPA guidelines.
 
 Scripts, modules, subpackages, and packages
 --------------------------------------------
