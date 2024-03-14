@@ -7,7 +7,9 @@ The Sphinx configuration (``doc/source/conf.py``) file contains an ``extensions`
 variable that specifies the list of extensions that are configured for use by
 Sphinx when generating documentation. When the `Ansys templates <Ansys_templates_>`_
 tool is used to create a PyAnsys project from the ``pyansys`` or ``pyansys-advanced``
-template, the ``extensions`` variable lists these extensions by default::
+template, the ``extensions`` variable lists these extensions by default:
+
+.. code:: python
 
     # Sphinx extensions
     extensions = [
@@ -35,7 +37,9 @@ The ``intersphinx_mapping`` variable specifies the URIs for the Sphinx documenta
 the objects that you want to link to.
 
 For example, this ``intersphinx_mapping`` variable provides mappings to the Sphinx documentation
-for several other projects::
+for several other projects:
+
+.. code:: python
 
    # Intersphinx mapping
    intersphinx_mapping = {
@@ -150,30 +154,32 @@ file.
 
 Most projects specify documentation requirements in a :file:`pyproject.toml` file, which
 resides in the root folder. In this file, the ``doc`` variable defines the required ``pip``
-packages and their versions like this::
+packages and their versions like this.
 
-  doc = [
-      "ansys-sphinx-theme==0.12.3",
-      "docker==6.1.3",
-      "ipyvtklink==0.2.3",
-      "jupyter_sphinx==0.4.0",
-      "jupytext==1.15.2",
-      "myst-parser==2.0.0",
-      "nbconvert==7.9.2",
-      "nbsphinx==0.9.3",
-      "notebook==7.0.5",
-      "numpydoc==1.6.0",
-      "panel==1.2.3",
-      "pyvista[trame]==0.41.1",
-      "requests==2.31.0",
-      "sphinx==7.2.5",
-      "sphinx-autoapi==3.0.0",
-      "sphinx-autodoc-typehints==1.24.0",
-      "sphinx-copybutton==0.5.2",
-      "sphinx_design==0.5.0",
-      "sphinx-jinja==2.0.2",
-      "vtk==9.2.6",
-  ]
+.. code:: python
+
+   doc = [
+       "ansys-sphinx-theme==0.12.3",
+       "docker==6.1.3",
+       "ipyvtklink==0.2.3",
+       "jupyter_sphinx==0.4.0",
+       "jupytext==1.15.2",
+       "myst-parser==2.0.0",
+       "nbconvert==7.9.2",
+       "nbsphinx==0.9.3",
+       "notebook==7.0.5",
+       "numpydoc==1.6.0",
+       "panel==1.2.3",
+       "pyvista[trame]==0.41.1",
+       "requests==2.31.0",
+       "sphinx==7.2.5",
+       "sphinx-autoapi==3.0.0",
+       "sphinx-autodoc-typehints==1.24.0",
+       "sphinx-copybutton==0.5.2",
+       "sphinx_design==0.5.0",
+       "sphinx-jinja==2.0.2",
+       "vtk==9.2.6",
+   ]
 
 ``requirements_doc_txt`` file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -181,23 +187,25 @@ packages and their versions like this::
 Some projects specify documentation requirements in a :file:`requirements_doc_txt`
 file. The root folder of such a project typically has a ``requirements`` directory
 that contains this TXT file, which defines the required ``pip`` packages and their
-versions like this::
+versions like this:
 
-  Sphinx==7.1.2
-  jupyter_sphinx==0.4.0
-  numpydoc==1.5.0
-  matplotlib==3.7.2
-  ansys-sphinx-theme==0.10.2
-  pypandoc==1.11
-  pytest-sphinx==0.5.0
-  sphinx-autobuild==2021.3.14
-  sphinx-autodoc-typehints==1.24.0
-  sphinx-copybutton==0.5.2
-  sphinx-gallery==0.13.0
-  sphinx-notfound-page==0.8.3
-  sphinxcontrib-websupport==1.2.5
-  sphinxemoji==0.2.0
-  autodocsumm==0.2.11
+.. code:: python
+
+   Sphinx==7.1.2
+   jupyter_sphinx==0.4.0
+   numpydoc==1.5.0
+   matplotlib==3.7.2
+   ansys-sphinx-theme==0.10.2
+   pypandoc==1.11
+   pytest-sphinx==0.5.0
+   sphinx-autobuild==2021.3.14
+   sphinx-autodoc-typehints==1.24.0
+   sphinx-copybutton==0.5.2
+   sphinx-gallery==0.13.0
+   sphinx-notfound-page==0.8.3
+   sphinxcontrib-websupport==1.2.5
+   sphinxemoji==0.2.0
+   autodocsumm==0.2.11
 
 Learn more about extensions
 ---------------------------

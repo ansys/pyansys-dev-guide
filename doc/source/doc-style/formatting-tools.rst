@@ -31,7 +31,7 @@ The `codespell`_ checks for common misspellings in text files. This implies that
 is not limited to Python files but can run checks on any human-readable file.
 
 It is possible to ignore words that are flagged as misspelled. You can specify these words in a
-file that can then be passed to `Codespell` by running:
+file that can then be passed to ``codespell`` by running:
 
 .. code:: bash
 
@@ -41,7 +41,7 @@ The ``docformatter``
 --------------------
 
 The `docformatter`_ automatically formats Python docstrings according 
-to `PEP 257`_. To make sure ``docformatter`` wraps your docstrings at a given
+to `PEP 257 <PEP-257_>`_. To make sure ``docformatter`` wraps your docstrings at a given
 number of characters, use the following configuration:
 
 .. code:: bash
@@ -118,8 +118,8 @@ validation checks
 The ``pydocstyle``
 ------------------
 
-The `pydocstyle`_ is a tool for checking the compliance of Python docstrings with `PEP
-257`_.  Its configuration can be defined in the
+The `pydocstyle`_ is a tool for checking the compliance of Python docstrings with `PEP 257 <PEP-257_>`_.
+Its configuration can be defined in the
 :ref:`the \`\`pyproject.toml\`\` file<The \`\`pyproject.toml\`\` file>`.
 By default, `pydocstyle`_ matches all ``*.py`` files except those starting with
 ``test_*.py``. The default configuration should be enough for a PyAnsys project.

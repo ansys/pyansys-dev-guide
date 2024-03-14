@@ -10,8 +10,8 @@ logic.
 This process is automated as much as possible to alleviate the developer's workload
 and ensure a quick development workflow.
 
-Because ``PyAnsys`` projects are hosted in `GitHub <https://github.com>`_, the
-`GitHub Actions <https://docs.github.com/en/actions>`_ framework is used.
+Because ``PyAnsys`` projects are hosted in `GitHub <GitHub_>`_, the
+`GitHub Actions`_ framework is used.
 
 Enable GitHub actions
 ---------------------

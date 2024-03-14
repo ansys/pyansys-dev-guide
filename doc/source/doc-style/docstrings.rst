@@ -50,8 +50,7 @@ or function to briefly describe what the class or function does. The
 raises an error.
 
 The short summary can be declared on the same line as the opening quotes or on
-the next line. While `PEP 257
-<https://peps.python.org/pep-0257>`_ accepts both ways, you must be consistent across your
+the next line. While `PEP 257 <PEP-257_>`_ accepts both ways, you must be consistent across your
 project. If you decide to declare the short summary on the same line,
 refer to :ref:`Numpydoc validation` because ``"GL01"`` checking must be
 turned off.
@@ -229,8 +228,8 @@ Here is a sample ``Examples`` section from a Python file for PyAEDT.
 
 Code supplied in an ``Examples`` section must be compliant with the
 `doctest <https://docs.python.org/3/library/doctest.html>`_ format. This allows
-the code to be used through `pytest <https://docs.pytest.org/en/latest/>`_ to
-perform regression testing to verify that the code is executing as expected. 
+the code to be used through `pytest`_ to perform regression testing to verify
+that the code is executing as expected. 
 
 If the definition of a method or function is updated, the code in the ``Examples`` section
 must be updated. Any change within the API without a corresponding change

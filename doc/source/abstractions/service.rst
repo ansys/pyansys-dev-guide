@@ -15,7 +15,7 @@ amount of work to start, establish a connection to, and submit an
 input file to MAPDL using auto-generated gRPC interface files. For
 more information, see `pyansys-protos-generator
 <https://github.com/ansys/pyansys-protos-generator>`_.  The 
-right-hand side shows the same workflow but uses the `PyMAPDL`_ library.
+right-hand side shows the same workflow but uses `PyMAPDL`_.
 
 +----------------------------------------------------------+--------------------------------------------+
 | Using the gRPC Auto-generated Interface                  | Using the `PyMAPDL`_ Library               |

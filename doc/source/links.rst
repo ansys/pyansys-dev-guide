@@ -120,8 +120,7 @@
 .. _pytest: https://docs.pytest.org/en/stable/
 .. _pytest-cov: https://pytest-cov.readthedocs.io/en/latest/
 .. _MIT License: https://opensource.org/licenses/MIT
-.. _PEP_257: https://peps.python.org/pep-0257
-.. _PEP 257: http://www.python.org/dev/peps/pep-0257/
+.. _PEP-257: https://peps.python.org/pep-0257
 .. _PEP 420: https://peps.python.org/pep-0420/
 .. _native namespace packages: https://packaging.python.org/en/latest/guides/packaging-namespace-packages/#native-namespace-packages
 .. _Namespace packages: https://packaging.python.org/guides/packaging-namespace-packages/
@@ -170,9 +169,9 @@
 .. _Semantic Versioning: https://semver.org/
 
 .. _MANIFEST.in: https://packaging.python.org/en/latest/guides/using-manifest-in/
-.. _flit: https://flit.pypa.io/en/latest/
+.. _Flit: https://flit.pypa.io/en/latest/
 .. _flit pyproject.toml guidelines: https://flit.readthedocs.io/en/latest/pyproject_toml.html
-.. _poetry: https://python-poetry.org/
+.. _Poetry: https://python-poetry.org/
 .. _poetry pyproject.toml documentation: https://python-poetry.org/docs/pyproject/
 .. _setuptools_repo: https://pypi.org/project/setuptools/
 .. _setuptools metadata fields: https://setuptools.pypa.io/en/latest/userguide/declarative_config.html#declarative-config

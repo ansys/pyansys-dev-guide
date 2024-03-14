@@ -44,7 +44,7 @@ introduced the following problems:
   to be properly executed.
 
 - The default Python package installer, `pip`_, expected `setuptools_repo`_ to be the
-  default build system tool, excluding others like `flit`_ and `poetry`_.
+  default build system tool, excluding others like `Flit`_ and `Poetry`_.
 
 These problems led to the acceptance of `PEP 517`_ and `PEP 518`_.
 
@@ -68,7 +68,7 @@ PEP 518
 
 In addition to the ``setup.py`` file, `PEP 518`_ includes a project file named
 ``pyproject.toml``. The main goal of this file is to specify build time dependencies.
-However, some build system tools like `flit`_ or `poetry`_ are able to specify all
+However, some build system tools like `Flit`_ or `Poetry`_ are able to specify all
 project metadata inside the ``pyproject.toml`` file and eliminate usage of the 
 ``setup.py`` file.
 
@@ -101,7 +101,7 @@ Setuptools
 
 `Setuptools`_ has been a part of the Python ecosystem for a long time. Unless
 you require high control over your project's installation steps, you should use
-`flit`_ or `poetry`_.
+Flit or Poetry.
 
 If you do not need a dynamic installation process, you can consider using a
 ``setup.cfg`` file. However, the ``setup.py`` file is still required. The ``setup.cfg`` file
@@ -131,7 +131,7 @@ Poetry
 ------
 
 Because of its ``poetry.lock`` file, Poetry provides strong dependency pinning. When
-installing a package, poetry creates a virtual environment, thus ensuring an isolated
+installing a package, Poetry creates a virtual environment, thus ensuring an isolated
 package development environment.
 
 Nevertheless, it is possible to make Poetry ignore the ``poetry.lock`` file with:
@@ -140,7 +140,7 @@ Nevertheless, it is possible to make Poetry ignore the ``poetry.lock`` file with
 
    poetry config virtualenvs.create false --local
 
-Using `poetry`_ is popular because it:
+Using Poetry is popular because it:
 
 * Supports pinning dependency versions via a ``poetry.lock`` file that can be
   used for testing and CI

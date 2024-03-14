@@ -29,9 +29,8 @@ have a dedicated Python package containing the needed ``.proto`` files compiled 
 Python source code. These are typically consumed by the PyAnsys client libraries
 for being able to communicate with their respective services.
 
-For example, `PyMAPDL <https://github.com/ansys/pymapdl>`_ consumes the
-``ansys-api-mapdl`` package, which is built in the
-`ansys-api-mapdl repository <https://github.com/ansys/ansys-api-mapdl>`_.
+For example, `PyMAPDL_ consumes the ``ansys-api-mapdl`` package, which is built in the
+`ansys-api-mapdl`_ repository.
 
 How to build an ``ansys-api-<service>`` repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -40,7 +39,7 @@ The `Ansys GitHub organization`_ has a dedicated template repository for creatin
 these ``.proto`` file repositories and the needed files to generate the Python API
 packages to be consumed by the PyAnsys clients.
 
-In order to set up an API repository like `ansys-api-mapdl <https://github.com/ansys/ansys-api-mapdl>`_,
+To set up an API repository like the `ansys-api-mapdl`` one,
 select the `ansys-api-template <https://github.com/ansys/ansys-api-template>`_ repository
 when creating a new repository within the `Ansys GitHub organization`_.
 

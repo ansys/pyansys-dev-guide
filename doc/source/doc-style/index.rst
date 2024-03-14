@@ -25,14 +25,14 @@ The documentation for a PyAnsys library should contain:
 
 * Module, class, method, and function docstrings. See 
   :ref:`docstrings`.
-* Full gallery of examples. See `PyMAPDL Examples
+* Full gallery of examples. See `PyMAPDL examples
   <https://examples.mapdl.docs.pyansys.com/>`_.
 * General content on installing, using, and contributing.
 * Link to the library's documentation from the repository's README file.
 
 To ensure clear and consistent documentation, all PyAnsys libraries are to
 follow the guidelines in the `Google developer documentation style guide
-<https://developers.google.com/style/>`_. Key guidelines include using:
+<Google_dev_doc_style_guide_>`_. Key guidelines include using:
 
 - Sentence case for headings and titles
 - Active voice
@@ -40,7 +40,7 @@ follow the guidelines in the `Google developer documentation style guide
 - Short, clear sentences
 
 To help you follow the Google guidelines and any custom rules
-developed by Ansys, you can implement `Vale <https://vale.sh/>`_.
+developed by Ansys, you can implement `Vale <Vale_>`_.
 This command-line tool brings code-like linting to prose. For more
 information, see :ref:`Vale`.
 

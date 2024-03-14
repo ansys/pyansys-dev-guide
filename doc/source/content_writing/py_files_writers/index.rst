@@ -36,7 +36,7 @@ NumPy docstrings
 
 Properly documented code is crucial to code readability, maintainability, and
 usability. For information on the two most popular conventions for formatting
-docstrings, see the `Numpydoc style guide <numpydoc_style_guide_>`_ and
+docstrings, see the `numpydoc style guide <numpydoc_style_guide_>`_ and
 `Comments and Docstrings <Google_docstrings_>`_ in the *Google Python Style Guide*.
 
 While Sphinx supports both the ``numpydoc`` extension for NumPy-style docstrings

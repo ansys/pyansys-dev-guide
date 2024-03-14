@@ -304,7 +304,7 @@ process but can also introduce security issues.
 
 .. note::
 
-   The ``setup.py`` is only compatible with `setuptools`_. Consider using a
+   The ``setup.py`` file is only compatible with `setuptools`_. Consider using a
    ``pyproject.toml`` file instead.
 
 While a ``setup.cfg`` file can be used to specify the metadata and packages, the ``setup.py``
