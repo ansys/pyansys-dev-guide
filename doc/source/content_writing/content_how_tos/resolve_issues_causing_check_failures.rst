@@ -66,7 +66,9 @@ Resolve formatting issues
 When you push changes to a PR, you might see one of the documentation checks fail,
 even if you ran ``pre-commit`` locally and all configured tools ran successfully.
 Documentation check failures are usually the result of formatting issues and
-incorrect links, resulting in warnings and errors like these::
+incorrect links, resulting in warnings and errors like these:
+
+.. code::
 
     WARNING: Inline emphasis start-string without end-string.
     WARNING: Inline literal start-string without end-string.
@@ -106,7 +108,9 @@ docstring or message string, you can manually change it in the PY file.
 Sometimes, however, the line that is too long is for a URL added to the ``linkcheck_ignore``
 variable in the Sphinx configuration (``doc/source/conf.py``) file. Here is an example of how
 this can happen. The central links (``doc/source/links.rst``) file for this guide contains
-explicit target names for joining the two Ansys GitHub accounts::
+explicit target names for joining the two Ansys GitHub accounts:
+
+.. code::
 
     .. _join_ansys_organization: https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706
     .. _join_ansys_internal_organization: https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706
@@ -117,7 +121,9 @@ URLs for the preceding targets are behind firewall rules. Because Sphinx is unab
 it indicates that they are broken. 
 
 Because Sphinx is also unable to validate the ``38-comments-and-docstrings``
-anchor in the following named target to a section in the *Google Python Style Guide*, it identifies it as broken::
+anchor in the following named target to a section in the *Google Python Style Guide*, it identifies it as broken:
+
+.. code::
 
     .. _Google_docstrings: https://github.com/google/styleguide/blob/gh-pages/pyguide.md#38-comments-and-docstrings
 
@@ -126,7 +132,9 @@ URLs (and any comments about these URLs) to the ``linkcheck_ignore`` variable in
 :file:`config.py` file. To resolve links with anchors that are identified as broken, you must
 add the anchor to the ``linkcheck_anchors_ignore`` variable in the Sphinx :file:`config.py` file.
 
-Here is what adding these lines looks like::
+Here is what adding these lines looks like:
+
+.. code::
 
     # Linkcheck ignore too long lines
 
@@ -147,7 +155,9 @@ would throw line length errors for the two lines that define the items for the `
 in the Sphinx :file:`config.py` file. Because you cannot modify the length of these lines, you must follow
 each of these URLs (and any comment about it) with a space and then ``# noqa: 501``.
 
-You can scroll to the end of these lines to see how they now conclude with ``# noqa: 501``::
+You can scroll to the end of these lines to see how they now conclude with ``# noqa: 501``:
+
+.. code::
 
     # Linkcheck ignore too long lines
 

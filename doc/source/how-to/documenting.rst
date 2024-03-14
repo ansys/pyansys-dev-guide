@@ -773,5 +773,5 @@ To enable multi-version documentation in your project, follow these steps:
 
 Replace <your-package>, <your-index-name>, and <library> with appropriate values for your project. 
 The version of your package is automatically calculated and used for indexing, ensuring that your documentation remains up-to-date.
-For more information, see the `PyMeilisearch`_ and `ansys-sphinx-theme`_ documentation.
+For more information, see the `PyMeilisearch`_ and `ansys-sphinx-theme-doc`_ documentation.
 By following these steps, you can effectively use PyMeilisearch as a search engine for multi-version documentation in your project.
