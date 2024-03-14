@@ -38,7 +38,6 @@ jobs:
 
   doc-build:
     name: "Build project documentation"
-    needs: doc-style
     runs-on: ubuntu-latest
     steps:
       - name: "Install mermaid-cli"
@@ -137,7 +136,7 @@ jobs:
           documentation-pdf
 
   doc-deploy-github-release:
-    name: "Deploy documentation"
+    name: "Deploy documentation (stable)"
     runs-on: ubuntu-latest
     needs: [release-github]
     steps:
