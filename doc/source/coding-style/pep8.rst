@@ -245,7 +245,7 @@ When naming methods, follow these conventions:
            these methods from being called from inherited classes.
 
            """
-           # note how we can call private methods here
+           # note how private methods can be called here
            self.__private_method()
 
        def public_method(self):

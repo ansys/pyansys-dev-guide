@@ -126,7 +126,7 @@
 .. _native namespace packages: https://packaging.python.org/en/latest/guides/packaging-namespace-packages/#native-namespace-packages
 .. _Namespace packages: https://packaging.python.org/guides/packaging-namespace-packages/
 .. _Python Packaging User Guide: https://packaging.python.org/en/latest/
-.. _Python Packaging Authority: hhttps://www.pypa.io/en/latest/
+.. _Python Packaging Authority: https://www.pypa.io/en/latest/
 .. _PyAnsys: https://docs.pyansys.com/
 .. _PyMAPDL: https://github.com/ansys/pymapdl
 .. _ansys-api-mapdl: https://pypi.org/project/ansys-api-mapdl/
