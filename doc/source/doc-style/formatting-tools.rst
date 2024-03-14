@@ -41,7 +41,7 @@ The ``docformatter``
 --------------------
 
 The `docformatter`_ automatically formats Python docstrings according 
-to `PEP 257`_. To make sure `docformatter`_ wraps your docstrings at a given
+to `PEP 257`_. To make sure ``docformatter`` wraps your docstrings at a given
 number of characters, use the following configuration:
 
 .. code:: bash

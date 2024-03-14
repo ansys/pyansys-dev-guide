@@ -209,10 +209,7 @@ have a closing single backtick and another underscore.
 
 For examples of named targets and how to organize them by categories, see the
 :file:`list.rst` file in the ``doc/source`` directory for this project or the
-PyMAPDL project:
-
-- See the :file:`list.rst` file for this `guide <Links_for_dev_guide_>`_.
-- See the :file:`list.rst` file for `PyMAPDL <Links_for_pymapdl_>`_.
+`PyMAPDL <Links_for_pymapdl_>`_ project.
 
 Download links
 --------------

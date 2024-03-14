@@ -346,7 +346,7 @@ a tool for generating documentation. While designed primarily for generating doc
 for Python projects, it can be used for generating documentation for other programming languages
 and projects.
 
-The `Ansys Sphinx theme <Ansys_Sphinx_theme_repo>`_ is an Ansys-branded extension of the popular
+The `Ansys Sphinx theme <Ansys_Sphinx_theme_repo_>`_ is an Ansys-branded extension of the popular
 `PyData Sphinx theme <PyData_Sphinx_theme_>`_. It is used along with Sphinx to assemble PyAnsys
 documentation from a project's RST files and the docstrings in its PY files.
 
