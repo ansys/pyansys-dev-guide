@@ -9,7 +9,7 @@ Sphinx when generating documentation. When the `Ansys templates <Ansys_templates
 tool is used to create a PyAnsys project from the ``pyansys`` or ``pyansys-advanced``
 template, the ``extensions`` variable lists these extensions by default:
 
-.. code:: python
+.. code::
 
     # Sphinx extensions
     extensions = [
@@ -39,7 +39,7 @@ the objects that you want to link to.
 For example, this ``intersphinx_mapping`` variable provides mappings to the Sphinx documentation
 for several other projects:
 
-.. code:: python
+.. code::
 
    # Intersphinx mapping
    intersphinx_mapping = {
@@ -156,7 +156,7 @@ Most projects specify documentation requirements in a :file:`pyproject.toml` fil
 resides in the root folder. In this file, the ``doc`` variable defines the required ``pip``
 packages and their versions like this.
 
-.. code:: python
+.. code::
 
    doc = [
        "ansys-sphinx-theme==0.12.3",
@@ -189,7 +189,7 @@ file. The root folder of such a project typically has a ``requirements`` directo
 that contains this TXT file, which defines the required ``pip`` packages and their
 versions like this:
 
-.. code:: python
+.. code::
 
    Sphinx==7.1.2
    jupyter_sphinx==0.4.0
