@@ -29,10 +29,11 @@ ecosystem. Examples include:
 - Data structures and tables with `pandas <https://pandas.pydata.org/>`_
 - 2D visualization using `matplotlib <https://matplotlib.org/>`_
 - 3D visualization using `pyvista <https://docs.pyvista.org/>`_
-- Advanced scientific computing using `scipy <https://www.scipy.org/>`_
+- Advanced scientific computing using `scipy`_
 - Machine learning using `tensorflow <https://www.tensorflow.org/>`_
 
 .. note::
+
    If you are new to GitHub, you should visit `The ReadMe Project
    <https://github.com/readme>`_.  It is a dedicated platform for highlighting
    the best from the open source software community. Each monthly newsletter
@@ -48,7 +49,6 @@ ecosystem. Examples include:
    Glossary of abbreviations <https://ansys.github.io/abbreviations/index.html>
 
 .. _PyAEDT: https://github.com/ansys/PyAEDT
-.. _PyMAPDL: https://github.com/ansys/pymapdl
 
 Contributing to this guide
 ~~~~~~~~~~~~~~~~~~~~~~~~~~

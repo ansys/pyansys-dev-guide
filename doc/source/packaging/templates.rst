@@ -81,8 +81,6 @@ To create a project based on the ``pyansys-advanced`` template, run this code:
 .. _Getting started: https://templates.ansys.com/version/stable/getting_started/index.html
 .. _User guide: https://templates.ansys.com/version/stable/user_guide/index.html
 .. _ansys-templates issues board: https://github.com/ansys/ansys-templates/issues
-.. _flit: https://flit.readthedocs.io/en/latest/
 .. _poetry: https://python-poetry.org/
 .. _pre-commit: https://pre-commit.com/
-.. _setuptools: https://pypi.org/project/setuptools/
 .. _Tox: https://tox.wiki/en/latest/

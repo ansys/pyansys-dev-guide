@@ -16,7 +16,8 @@ Maintain API definition repository
 
 Because the Protobuf definition of the service is language agnostic, the repository
 containing the Protobuf files can be created within the top-level
-`Ansys GitHub organization <https://github.com/ansys/>`_.
+`Ansys GitHub organization`_.
+
 Every update of the Protobuf files follows a standard
 pull request process as a sanity check for API definition accuracy. Language-
 specific packages can be generated for each merge or on a set cadence.
@@ -29,7 +30,7 @@ have a dedicated Python package containing the needed ``.proto`` files compiled 
 Python source code. These are typically consumed by the PyAnsys client libraries
 for being able to communicate with their respective services.
 
-For example, `PyMAPDL_ consumes the ``ansys-api-mapdl`` package, which is built in the
+For example, `PyMAPDL`_ consumes the ``ansys-api-mapdl`` package, which is built in the
 `ansys-api-mapdl`_ repository.
 
 How to build an ``ansys-api-<service>`` repository

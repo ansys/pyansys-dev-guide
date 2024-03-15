@@ -23,6 +23,7 @@ classes, methods, and variables. For example::
   """Initialize the ``Desktop`` class with the version of AEDT to use."""
 
 .. note::
+
    The PyAnsys style uses two backticks to surround the names of classes, methods, and
    variables, not the single backtick that is recommended by `numpydoc`_
    style.
@@ -304,5 +305,4 @@ This directive renders the sample function as:
 
 .. autofunction:: ansys_sphinx_theme.examples.sample_func.func
 
-.. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
 .. _googledoc: https://google.github.io/styleguide/
