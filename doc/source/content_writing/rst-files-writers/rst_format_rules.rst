@@ -59,7 +59,7 @@ page in the *Goggle developer documentation style guide*.
   list with ``#.`` followed by a space. While nested lists are supported, you must
   separate them from parent list items with blank lines and indent them appropriately.
 
-- For a horizontal list, use the ``.. hlist::`` directive. This directive
+- For a horizontal list, use the ``hlist`` directive. This directive
   specifies that list items are to display horizontally in three columns::
 
     .. hlist::
@@ -98,7 +98,7 @@ page in the *Goggle developer documentation style guide*.
   - Text to type in a command line or in a GUI component
 
   .. note::
-    Some PyAnsys projects use the ``:file:`` and ``:envvar:`` interpretive text
+    Some PyAnsys projects use the ``file`` and ``envvar`` interpretive text
     roles for names of files and environment variables:
 
     - :file:`myfile.txt`
@@ -107,23 +107,23 @@ page in the *Goggle developer documentation style guide*.
     Roles insert semantic markup in your source files for cross-references to named
     targets of the type indicated by the role. Because the CSS for the
     `Ansys Sphinx theme <Ansys_Sphinx_theme_repo_>`_ assigns the same semantic markup to
-    the ``:file:`` role as it does to a filename surrounded in double backticks, it
+    the ``file`` role as it does to a filename surrounded in double backticks, it
     does not matter which markup you use.
 
-- Use the ``:code:`` role to format text as a code entity if surrounding the text in double
+- Use the ``code`` role to format text as a code entity if surrounding the text in double
   backticks is problematic because it contains characters that cause regular
   expression errors. For example, in this sentence describing the use of double backticks,
-  the ``:code:`` role had to be used to format the double backticks as a code entity::
+  the ``code`` role had to be used to format the double backticks as a code entity::
 
     Indicate a code entity within a paragraph by surrounding it in double backticks
     (:code:`\`\``).
 
-  If you want, you can use the ``:code:`` role within any sentence to identify small
+  If you want, you can use the ``code`` role within any sentence to identify small
   pieces of inline code, individual identifiers (like function names or variable names),
   or inline code phrases. Most of the time though, using double backticks is easier.
 
 - To create a standalone code block within your documentation, use either the
-  ``.. code::`` or ``code-block`` directive. For more information on code blocks,
+  ``code`` or ``code-block`` directive. For more information on code blocks,
   see :ref:`code_blocks`.
 
 Subsequent pages describe how to use other common Sphinx roles and directives. For

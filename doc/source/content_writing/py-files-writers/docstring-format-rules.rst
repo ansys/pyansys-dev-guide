@@ -151,15 +151,15 @@ Deprecation warning
 -------------------
 
 This unnamed docstring section follows the short summary only if the Python object is being
-deprecated or has been deprecated. It consists of a ``.. deprecated::`` directive that warns
+deprecated or has been deprecated. It consists of a ``deprecated`` directive that warns
 users about when this object is to be removed (or was removed) from the API. The
-``.. deprecated::`` directive gives a reason for the deprecation, such as the
+``deprecated`` directive gives a reason for the deprecation, such as the
 object is superseded or duplicates functionality found elsewhere. Lastly, it recommends
 how to obtain the same functionality.
 
-Here is an example of a PyAEDT method with a ``.. deprecated::`` directive. It indicates
+Here is an example of a PyAEDT method with a ``deprecated`` directive. It indicates
 the version for the deprecation and explains that this method is superseded by functionality
-in another method. It uses the ``:func:`` role to link to the method that should be used::
+in another method. It uses the ``func`` role to link to the method that should be used::
 
   def create_polygon_from_points(self, point_list, layer_name, net_name=""):
         """Create a new polygon from a point list.

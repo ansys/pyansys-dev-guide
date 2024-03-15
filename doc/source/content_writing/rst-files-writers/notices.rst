@@ -12,15 +12,15 @@ consecutive notices.
 
 PyAnsys documentation uses these admonition directives for common notices:
 
-- ``.. note::``
-- ``.. caution::``
-- ``.. warning::``
-- ``.. important::``
-- ``.. tip::``
+- ``note``
+- ``caution``
+- ``warning``
+- ``important``
+- ``tip``
 
 Note example
 ------------
-Here is a formatting example for a ``.. note::`` directive::
+Here is a formatting example for a ``note`` directive::
 
   .. note::
       Some examples require additional Python packages. Ensure
@@ -34,7 +34,7 @@ Here is how this note is rendered in the documentation:
 
 Caution example
 ---------------
-Here is a formatting example for a ``.. caution::`` directive::
+Here is a formatting example for a ``caution`` directive::
 
   .. caution::
       To ensure proper operation, modify this XML file carefully.
@@ -50,7 +50,7 @@ Here is how this caution is rendered in the documentation:
 
 Warning example
 ---------------
-Here is a formatting example for a ``.. warning::`` directive::
+Here is a formatting example for a ``warning`` directive::
 
   .. warning::
       This method requires `NumPy <numpy_>`_` to be installed on your machine.
@@ -62,7 +62,7 @@ Here is how this warning is rendered in the documentation:
 
 Important example
 -----------------
-Here is a formatting example for an ``.. important::`` directive::
+Here is a formatting example for an ``important`` directive::
 
   .. important::
       Net tracing is a critical requirement for using the ``auto_compoments``
@@ -77,7 +77,7 @@ Here is how this important notice is rendered in the documentation:
 Tip example
 -----------
 
-Here is a formatting example for a ``.. tip::`` directive::
+Here is a formatting example for a ``tip`` directive::
 
   .. tip::
       When you are viewing PyAnsys documentation, the right navigation pane typically

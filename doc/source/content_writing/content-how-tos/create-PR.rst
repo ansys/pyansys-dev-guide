@@ -289,7 +289,7 @@ To create a PR:
 
    On the main page of the repository, a notification indicates that a branch had recent pushes.
 
-   .. image:: ..//_static/notice_recent_pushes.png
+   .. image:: ..//_static/notice-recent-pushes.png
       :alt: Recent pushes notification
 
 #. Click **Compare & pull request**.

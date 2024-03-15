@@ -6,9 +6,9 @@ Tables
 You can create four different types of tables in RST files:
 
 - Grid tables: Create by drawing them.
-- Simple tables: Create with the ``.. table::`` directive.
-- CSV tables: Create with the ``.. csv_table::`` directive.
-- List table: Create with the ``.. list-table::`` directive.
+- Simple tables: Create with the ``table`` directive.
+- CSV tables: Create with the ``csv_table`` directive.
+- List table: Create with the ``list-table`` directive.
 
 The data in a table is always left-aligned. For all table types, you can
 use reStructuredText syntax to format content and add links within the
@@ -80,9 +80,9 @@ Here is how this grid table is rendered in the documentation:
 Create a simple table
 ---------------------
 
-You create a simple table using the ``.. table::`` directive.
+You create a simple table using the ``table`` directive.
 
-Here is a ``.. table::`` directive for a simple table, where
+Here is a ``table`` directive for a simple table, where
 column widths are automatically adjusted to fill the page based
 on their content::
 
@@ -113,15 +113,15 @@ Here is how this simple table is rendered in the documentation:
 Create a CSV table
 ------------------
 
-You create a CSV table using the ``.. csv_table::`` directive. When using this
+You create a CSV table using the ``csv_table`` directive. When using this
 directive, you must be careful with the placement of commas (``,``).
 When defining the column names and data, you must place a comma immediately
 after the closing quotation marks. You must also place only one space between
 each value. This directive provides no control over the merging of cells.
-However, it does provide the ``:widths:`` attribute for specifying the width of
+However, it does provide the ``widths`` attribute for specifying the width of
 each column as a percentage.
 
-Here is a ``.. csv_table::`` directive that creates a table with three columns
+Here is a ``csv_table`` directive that creates a table with three columns
 and two rows, where the second and third columns are three times the width of the
 first column::
 
@@ -144,13 +144,13 @@ Here is how this CSV table is rendered in the documentation:
 Create a list table
 -------------------
 
-You create a list table using the ``.. list-table`` directive. When using this directive,
+You create a list table using the ``list-table`` directive. When using this directive,
 you provide the table data in a *uniform* two-level bulleted list, where uniform means
 that each sublist (second-level list) must contain the same number of items. This directive
 uses asterisk (``*``) and hyphen (``-``) characters to define the table structure. When no
-value is specified for the ``:widths:`` attribute, ``auto`` is the default.
+value is specified for the ``widths`` attribute, ``auto`` is the default.
 
-This example of the ``.. list-table`` directive uses the ``:widths:`` attribute to specify
+This example of the ``list-table`` directive uses the ``widths`` attribute to specify
 the widths of columns as percentage values::
 
   .. list-table:: **Table title**

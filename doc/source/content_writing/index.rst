@@ -39,8 +39,8 @@ Comprehensive information on content writing is organized as follows:
    :maxdepth: 3
    :hidden:
 
-   content_contrib_setup/index
-   rst_files_writers/index
-   py_files_writers/index
-   examples_writers/index
-   content_how_tos/index
+   content-contrib_setup/index
+   rst-files-writers/index
+   py-files-writers/index
+   examples-writers/index
+   content-how-tos/index

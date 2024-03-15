@@ -46,7 +46,7 @@ You can add a general comment on a line:
 
 #. Click the plus sign to the right of the line number.
 
-   .. image:: ..//_static/GitHub_line_selector_suggestions.png
+   .. image:: ..//_static/GitHub-line-selector-suggestions.png
       :alt: Line selector
 
 #. In the window that opens, type your comment.
@@ -60,7 +60,7 @@ You can add a comment suggesting a change to a single line:
 #. Click the plus sign to the right of the line number.
 #. In the window that opens, click the **Add a suggestion** icon:
 
-   .. image:: ..//_static/icon_add_suggestion.png
+   .. image:: ..//_static/icon-add-suggestion.png
       :alt: Add a suggestion icon
 
    GitHub copies the content of line, placing it in a ``suggestion`` tag in the

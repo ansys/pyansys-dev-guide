@@ -13,7 +13,7 @@ documentation.
 Internal links
 --------------
 
-You use the ``:ref:`` role to link to a target that you place before a heading.
+You use the ``ref`` role to link to a target that you place before a heading.
 This allows Sphinx to use the heading as the display text for the link, thereby
 reducing maintenance if the heading later changes.
 
@@ -30,7 +30,7 @@ Here is the target for :ref:`Ansys_Python_Manager` in this guide::
   .. _Ansys_Python_Manager:
 
 To link to this target from any RST or PY file in this guide, use the
-``:ref:`` role and the target name within a sentence, surrounding the target name
+``ref`` role and the target name within a sentence, surrounding the target name
 in single backticks::
 
   For more information, see :ref:`Ansys_Python_Manager`.
@@ -219,7 +219,7 @@ Download links
 --------------
 
 To create a link that downloads a file, you can use either a ``download`` link that specifies
-a URL for the file or the ``:download:`` role and a named target in the :file:`list.rst` file.
+a URL for the file or the ``download`` role and a named target in the :file:`list.rst` file.
 
 This sentence uses a ``download`` link that specifies the URL to download the PDF file for the
 PyFluent cheat sheet::
@@ -227,7 +227,7 @@ PyFluent cheat sheet::
   You can `download <https://cheatsheets.docs.pyansys.com/pyfluent_cheat_sheet.pdf>`_ the PyFluent
   cheat sheet, which is a one-page reference that provides syntax rules and commands for using PyFluent.
 
-This next sentence uses the ``:download:`` role and a named target in the :file:`list.rst` file
+This next sentence uses the ``download`` role and a named target in the :file:`list.rst` file
 for the PyMAPDL project to download the PDF file for the PyMAPDL cheat sheet::
 
   Download the :download:`PyMAPDL cheat sheet <Cheat_Sheet_PyMAPDL.pdf>` to help you to learn PyMAPDL.
@@ -261,7 +261,7 @@ Here are some examples of how you use Python-specific roles to link to Python ob
 
 **Example 1**
 
-Assuming that your project is PyAEDT, you can use the ``:class:`` role to link to the
+Assuming that your project is PyAEDT, you can use the ``class`` role to link to the
 ``Desktop`` class in the PyAEDT API reference documentation::
 
   The :class:`pyaedt.Desktop` class initializes AEDT and starts the specified version in
@@ -269,7 +269,7 @@ Assuming that your project is PyAEDT, you can use the ``:class:`` role to link t
 
 **Example 2**
 
-Assuming that your project is PyMAPDL, you can use the ``:func:`` role to link to the
+Assuming that your project is PyMAPDL, you can use the ``func`` role to link to the
 ``run_batch()`` function in the PyMAPDL API reference documentation::
 
   You can use the pool to run a set of pre-generated input files using the
@@ -277,8 +277,8 @@ Assuming that your project is PyMAPDL, you can use the ``:func:`` role to link t
 
 **Example 3**
 
-Also assuming that your project is PyMAPDL, you can use both the ``:func:`` and
-``:attr:`` roles to link to the ``nodal_displacement()`` function and then the
+Also assuming that your project is PyMAPDL, you can use both the ``func`` and
+``attr`` roles to link to the ``nodal_displacement()`` function and then the
 ``selected_nodes`` attribute in the PyMAPDL API reference documentation::
 
   If you have subselected a certain component and want to also limit the result of a certain output
@@ -294,15 +294,15 @@ in your API reference documentation, use the GitHub search feature to find the f
 strings in the repositories for PyAnsys libraries, keeping in mind that only some subset
 of these roles is likely used in any library:
 
-- ``:mod:``
-- ``:func:``
-- ``:data:``
-- ``:const:``
-- ``:class:``
-- ``:meth:``
-- ``:attr:``
-- ``:exc:``
-- ``:obj:``
+- ``mod``
+- ``func``
+- ``data``
+- ``const``
+- ``class``
+- ``meth``
+- ``attr``
+- ``exc``
+- ``obj``
 
 To learn how you can also use Python-specific roles to link to Python objects in the
 Sphinx documentation for other projects, see :ref:`links_to_objects_in_other_doc`.

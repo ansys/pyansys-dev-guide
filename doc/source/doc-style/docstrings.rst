@@ -274,13 +274,13 @@ Additional directives
 
 Because Python docstrings are written using RST syntax, it is possible to take
 advantage of some directives available in this Markup language. Commonly used
-directives include:
+directives follow.
 
-- ``.. note::`` highlights important information in the rendered documentation.
+- ``note``: Highlights important information in the rendered documentation.
 
-- ``.. warning::`` typically points out an action that might result in data loss.
+- ``warning``: Typically points out an action that might result in data loss.
 
-- ``.. deprecated:: X.Y.Z`` informs the user about the deprecated status of
+- ``deprecated``: ``X.Y.Z`` informs the user about the deprecated status of
   the object or feature.
 
 You can find additional information and examples in the numpy doc. Reference
@@ -295,7 +295,7 @@ Here is a generic docstring example compliant with PyAnsys guidelines:
 .. literalinclude:: code/sample_func.py
 
 To include the docstring of a function within Sphinx, you use the
-``autofunction::`` directive:
+``autofunction`` directive:
 
 .. code::
 

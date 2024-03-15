@@ -204,7 +204,7 @@ you can perform these steps to install and immediately begin using this app:
       to the new release. Thus, you should periodically click **List installed packages** to see if
       you need to update an installed package.
 
-      .. image:: ..//_static/notice_new_package_release.png
+      .. image:: ..//_static/notice-new-package-release.png
          :alt: New package release notices
 
       After copying the update command for a package, you can paste it in the command prompt,

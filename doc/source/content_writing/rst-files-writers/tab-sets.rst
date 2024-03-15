@@ -24,7 +24,7 @@ Here is an image of a tab set with tabs for installing Python on machines runnin
 operating systems. When you click a tab, the procedure for the selected operating system
 is shown.
 
-.. image:: ..//_static/tab_set_single_dev_guide.png
+.. image:: ..//_static/tab-set-single-dev-guide.png
    :alt: Tab set for installing Python on different operating systems
 
 Here is an image of a tab set with two rows. In the top row, you click the tab for your operating
@@ -32,5 +32,5 @@ system. In the bottom row, you click the tab for the shell that you want to run 
 command in (if more than one shell is available). You can then copy this command and
 paste it in the shell's command line.
 
-.. image:: ..//_static/tab_set_double_dev_guide.png
+.. image:: ..//_static/tab-set-double-dev-guide.png
    :alt: Tab sets for creating virtual environments on different operating systems using different shells

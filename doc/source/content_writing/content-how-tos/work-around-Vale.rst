@@ -89,7 +89,7 @@ error:
 Tell Vale to ignore inline roles
 --------------------------------
 
-If Vale raises errors about content within inline roles, such as ``:ref:``, ``:file:``, and ``:class``,
+If Vale raises errors about content within inline roles, such as ``ref``, ``file``, and ``class``,
 implement a workaround by telling Vale to ignore this content. Simply follow the previous
 steps, adding the ``TokenIgnores`` argument to the end of the :file:`vale.ini` file::
 

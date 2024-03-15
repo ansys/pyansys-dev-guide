@@ -74,7 +74,7 @@ reference documentation that it generates much more navigable and attractive. Th
 is to eventually transition all PyAnsys libraries to use Sphinx AutoAPI so that all API
 reference documentation looks like this sample page from the PyAnsys Geometry documentation:
 
-.. image:: ..//_static/AutoAPI_output_modified.png
+.. image:: ..//_static/AutoAPI-output-modified.png
    :alt: API reference documentation
 
 For more information on adding Sphinx extensions to a project, see :ref:`add_sphinx_extensions`.
@@ -84,6 +84,6 @@ For more information on adding Sphinx extensions to a project, see :ref:`add_sph
    :maxdepth: 3
    :hidden:
 
-   py_formatting
-   docstring_format_rules
-   code_comments_message_strings
+   py-formatting
+   docstring-format-rules
+   code-comments-message-strings

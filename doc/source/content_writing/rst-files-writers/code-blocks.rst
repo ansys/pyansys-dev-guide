@@ -17,15 +17,15 @@ code block::
   This is a normal text paragraph again.
 
 In most cases, to create standalone code blocks that contain multiple lines of code,
-you should use either the ``.. code::`` or ``.. code-block::`` directive. While you can use
-these two directives interchangeably, the ``.. code-block::`` directive offers more flexibility
+you should use either the ``code`` or ``code-block`` directive. While you can use
+these two directives interchangeably, the ``code-block`` directive offers more flexibility
 and control over code block formatting.
 
-Both the ``.. code::`` and ``.. code-block::`` directives support a ``language`` option
+Both the ``code`` and ``code-block`` directives support a ``language`` option
 for specifying the programming language that the code is written in. When you specify
 the language, the code block uses the syntax highlighting for this language.
 
-This ``.. code::`` directive shows how to import a function (``my_function``)
+This ``code`` directive shows how to import a function (``my_function``)
 from a Python module (``mylibrary``) and then demonstrates how to use it::
 
     .. code:: rst
@@ -46,7 +46,7 @@ Here is how the preceding code block is rendered in the documentation:
     result = my_function(42)
     print(result)
 
-This ``.. code-block::`` directive shows how to turn off a log handler::
+This ``code-block`` directive shows how to turn off a log handler::
 
     .. code-block:: rst
 
@@ -71,7 +71,7 @@ files, see :ref:`py_code_comments_message_strings` in the section on PY files.
 Number lines in a code block
 ----------------------------
 
-With the ``.. code-block::`` directive, you can use the optional ``:linenos:`` attribute
+With the ``code-block`` directive, you can use the optional ``linenos`` attribute
 to generate line numbers for a code block::
 
     .. code-block:: rst
@@ -108,8 +108,8 @@ Here is how the preceding code block is rendered in the documentation:
 
 .. vale on
 
-To set the line where numbering is to start, you can use the optional ``:lineno-start:``
-attribute, which automatically activates the ``:linenos:`` attribute::
+To set the line where numbering is to start, you can use the optional ``lineno-start``
+attribute, which automatically activates the ``linenos`` attribute::
 
     .. code-block:: rst
        :lineno-start: 12
@@ -126,7 +126,7 @@ Here is how the preceding code block is rendered in the documentation:
 Emphasize lines of code
 -----------------------
 
-With the ``.. code-block::`` directive, you can use the optional ``:emphasize-lines:`` attribute
+With the ``code-block`` directive, you can use the optional ``emphasize-lines`` attribute
 to emphasize particular lines of code by highlighting them::
 
     .. code-block:: rst
@@ -151,8 +151,8 @@ Here is how the preceding code block is rendered in the documentation:
 
 Define a caption and name for referencing a code block
 ------------------------------------------------------
-With the ``.. code-block::`` directive, you can use the optional ``:caption:`` and ``:name:``
-attributes to use either the ``:ref:`` or ``:numref:`` role to reference this code block from
+With the ``code-block`` directive, you can use the optional ``caption`` and ``name``
+attributes to use either the ``ref`` or ``numref`` role to reference this code block from
 elsewhere in your documentation::
 
     .. code-block:: rst
@@ -169,11 +169,11 @@ Here is how the preceding code block is rendered in the documentation:
 
    print('Explicit is better than implicit.')
 
-You then give the ``:name:`` attribute to the ``numref`` role to create the cross-reference::
+You then give the ``name`` attribute to the ``numref`` role to create the cross-reference::
 
     For an example, see :numref:`this-py`.
 
-If you only define the  ``:name:`` attribute, you can use the ``:ref:`` role to create the
+If you only define the  ``name`` attribute, you can use the ``ref`` role to create the
 cross-reference providing that you explicitly provide the display text for the link::
 
     For an example, see :ref:`this code snippet <this-py>`.
@@ -181,16 +181,16 @@ cross-reference providing that you explicitly provide the display text for the l
 Include code files
 ------------------
 
-You can use the ``.. literalinclude::`` directive to include a file containing plain
+You can use the ``literalinclude`` directive to include a file containing plain
 text as a code block in your documentation. For example, this directive includes a Python
 file named ``example_code.py`` in your documentation::
 
     .. literalinclude:: example_code.py
 
-Like the ``.. code-block::`` directive, the ``.. literalinclude::`` directive supports the
-``:linenos:`` attribute to switch on line numbers, the ``:lineno-start:`` attribute
-to set the line to start the numbering at, the ``:emphasize-lines:`` attribute to emphasize
-particular lines, and the ``:name:`` attribute to provide an implicit target name.
+Like the ``code-block`` directive, the ``literalinclude`` directive supports the
+``linenos`` attribute to switch on line numbers, the ``lineno-start`` attribute
+to set the line to start the numbering at, the ``emphasize-lines`` attribute to emphasize
+particular lines, and the ``name`` attribute to provide an implicit target name.
 
 For more information, see `Showing code examples <Sphinx_doc_directives_code_examples_>`_ in the
 Sphinx documentation on directives.

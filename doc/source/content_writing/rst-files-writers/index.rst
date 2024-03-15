@@ -31,7 +31,7 @@ five sections:
 - Contribute
 
 In addition to providing the section name, the ``index.rst`` file includes the
-``.. toctree::`` directive to specify how to build and display the content
+``toctree`` directive to specify how to build and display the content
 for this section.
 
 .. note::
@@ -39,30 +39,30 @@ for this section.
    of text. For more information, see `Directives <Sphinx_doc_directives_>`_ in the
    Sphinx documentation.
 
-For example, here is the ``.. toctree::`` directive in the ``index.rst`` file for
+For example, here is the ``toctree`` directive in the ``index.rst`` file for
 this **Content in RST files** section::
 
    .. toctree::
       :maxdepth: 3
       :hidden:
 
-      rst_file_formatting
-      rst_format_rules
+      rst-file-formatting
+      rst-format-rules
       notices
-      doc_links
-      code_blocks
+      doc-links
+      code-blocks
       images
       tables
       cards
-      tab_sets
+      tab-sets
 
-The ``maxdepth`` attribute of the ``.. toctree::`` directive specifies the maximum number of
+The ``maxdepth`` attribute of the ``toctree`` directive specifies the maximum number of
 heading levels to show in the documentation's right pane, labeled **On this page**. In this
-guide, the ``maxdepth`` attribute is set to ``3`` for all sections. The ``.. toctree::`` directive
+guide, the ``maxdepth`` attribute is set to ``3`` for all sections. The ``toctree`` directive
 then includes an ordered list of the RST files to show in the **Section Navigation** pane. The
 RST extensions for the files in this list are omitted.
 
-To see the ``.. toctree::`` directives for the other sections in this guide,
+To see the ``toctree`` directives for the other sections in this guide,
 in the project's `repository <dev_guide_repo_>`_, go to the ``doc/source``
 directory and look at the ``index.rst`` files in the child directories for the
 documentation sections.
@@ -89,12 +89,12 @@ inability to reuse this MD file on the initial page of your documentation may in
 use an RST file for your README file.
 
 To reuse all content from a ``README.rst`` file in the overall ``index.rst`` file for your
-documentation, use the ``.. include::`` directive::
+documentation, use the ``include`` directive::
 
    .. include:: ../../README.rst
 
-To reuse only a portion of the content in the ``README.rst`` file, use this directive's ``:start-line:``
-and ``:end-line:`` attributes::
+To reuse only a portion of the content in the ``README.rst`` file, use this directive's ``start-line``
+and ``end-line`` attributes::
 
    .. include:: ../../README.rst
       :start-line: 4
@@ -102,7 +102,7 @@ and ``:end-line:`` attributes::
 
 Using the preceding attributes necessitates having to change the line numbers
 if content is later added to or removed from the ``README.rst`` file. Thus, you
-might want to use this directive's ``:start-after:`` attribute instead. It allows
+might want to use this directive's ``start-after`` attribute instead. It allows
 you to reuse content from a given point to the end of the file.
 
 You first insert a target in the ``README.rst`` file where you want to start the reuse.
@@ -111,8 +111,8 @@ to begin. Before this section, insert a target like this, followed by a blank li
 
    .. reuse_start
 
-In the overall ``index.rst`` file for your library's documentation, now insert an ``.. include::``
-directive with a ``:start-after:`` attribute that specifies this target::
+In the overall ``index.rst`` file for your library's documentation, now insert an ``include``
+directive with a ``start-after`` attribute that specifies this target::
 
    .. include:: ../../README.rst
       :start-after: .. reuse_start
@@ -128,12 +128,12 @@ For more information, see :ref:`doc_links_external`.
    :maxdepth: 3
    :hidden:
 
-   rst_file_formatting
-   rst_format_rules
+   rst-file-formatting
+   rst-format-rules
    notices
-   doc_links
-   code_blocks
+   doc-links
+   code-blocks
    images
    tables
    cards
-   tab_sets
+   tab-sets

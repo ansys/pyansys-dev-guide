@@ -43,7 +43,7 @@ On the right of the home page for a PyAnsys library's GitHub repository, the **A
 has a link to the library's documentation. For example, here is the **About** area
 for this guide:
 
-.. image:: ..//_static/GitHub_about_area.png
+.. image:: ..//_static/GitHub-about-area.png
    :alt: **About** area with link to the *PyAnsys developer's guide*
 
 You can also view the documentation for public PyAnsys libraries from the
@@ -61,7 +61,7 @@ Rather than hosting many separate documentation sites, the PyAnsys team supports
 which makes it possible for you to select the documentation for different versions from a dropdown button
 on the right side of the documentation title bar.
 
-.. image:: ..//_static/multi_version_doc_selector.png
+.. image:: ..//_static/multi-version-doc-selector.png
    :alt: Version selector
 
 This dropdown button provides for selecting the documentation for the stable version, development (dev)

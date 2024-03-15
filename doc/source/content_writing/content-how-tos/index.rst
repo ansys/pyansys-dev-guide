@@ -24,13 +24,13 @@ can post questions, share ideas, and get community feedback on the
    :maxdepth: 3
    :hidden:
 
-   clone_branch
-   review_PR
-   create_PR
-   request_bot_review
-   work_around_Vale
-   resolve_issues_causing_check_failures
-   edit_on_GitHub
-   view_revision_history
-   add_sphinx_extensions
-   create_issues_discussions
+   clone-branch
+   review-PR
+   create-PR
+   request-bot-review
+   work-around-Vale
+   resolve-issues-causing-check-failures
+   edit-on-GitHub
+   view-revision-history
+   add-sphinx-extensions
+   create-issues-discussions
