@@ -393,7 +393,7 @@ Replace ``<PACKAGE-NAME>`` and ``<TOKEN-REDACTED>`` with the package name and th
                 twine-username: "__token__"
                 twine-token: ${{ secrets.PYPI_TOKEN }}
 
-.. _GitHub:
+.. _GitHub_releasing:
 
 GitHub
 ~~~~~~

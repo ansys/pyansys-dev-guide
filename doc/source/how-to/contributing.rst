@@ -46,7 +46,7 @@ Create a GitHub account
 -----------------------
 
 To use GitHub, start by creating an account for the platform. Follow the
-`GitHub Join Process <https://github.com/join>`_.
+`GitHub Join Process <Join_GitHub_>`_.
 
 For Ansys employees:
 

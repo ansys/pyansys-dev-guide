@@ -120,7 +120,7 @@ to manage virtual environments on their own. Developers must:
 * Install the package in editable mode.
 
 Flit is the default tool for creating a new PyAnsys project when using the
-`ansys-templates tool`_.
+`Ansys templates <Ansys_templates_>`_.
 
 The ``[project]`` section specifies the project's metadata and required
 dependencies. For more information, see `flit pyproject.toml

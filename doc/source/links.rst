@@ -21,8 +21,7 @@
 .. _Ansys_Python_Manager_repository: https://github.com/ansys/python-installer-qt-gui
 .. _Ansys_templates: https://github.com/ansys/ansys-templates
 .. _Git: https://git-scm.com/
-.. _GitHub: https://github.com/
-.. _GitHub_Desktop: https://desktop.github.com/
+
 .. _Git_Extensions: https://gitextensions.github.io/
 .. _Notepadpp: https://notepad-plus-plus.org/
 .. _pip: https://pypi.org/project/pip/
@@ -105,14 +104,22 @@
 .. _Google_dev_doc_notices: https://developers.google.com/style/notices
 
 .. #GitHub links:
-.. _codecov: https://github.com/codecov
-.. _create_GitHub_account: https://github.com/join
+.. _Join_GitHub: https://github.com/join
+.. _GitHub: https://github.com/
+.. _GitHub_Desktop: https://desktop.github.com/
 .. _GitHub_doc: https://docs.github.com/en
 .. _GitHub_doc_flavored_markdown: https://docs.github.com/en/contributing/writing-for-github-docs/using-markdown-and-liquid-in-github-docs
-.. _Join_GitHub: https://github.com/join
 .. _Liquid: https://shopify.github.io/liquid/basics/introduction/
 .. _search_GitHub_doc: https://docs.github.com/en/search-github
 .. _two_factor_auth: https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication
+.. _GitHub Pages: https://pages.github.com/
+.. _GitHub Actions: https://github.com/features/actions
+.. _codecov: https://github.com/codecov
+.. _gh-pages: https://github.com/ansys/dev-guide/tree/gh-pages
+.. _enabling GitHub pages: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site
+.. _Creating a repository from a template: https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template
+.. _repository visibility: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility
+.. _Ansys GitHub organization: https://github.com/ansys
 
 .. #Python
 .. _Python_Package_Index: https://pypi.org/
@@ -122,6 +129,8 @@
 .. _MIT License: https://opensource.org/licenses/MIT
 .. _PEP-257: https://peps.python.org/pep-0257
 .. _PEP 420: https://peps.python.org/pep-0420/
+.. _PEP 517: https://peps.python.org/pep-0517/
+.. _PEP 518: https://peps.python.org/pep-0518/
 .. _native namespace packages: https://packaging.python.org/en/latest/guides/packaging-namespace-packages/#native-namespace-packages
 .. _Namespace packages: https://packaging.python.org/guides/packaging-namespace-packages/
 .. _Python Packaging User Guide: https://packaging.python.org/en/latest/
@@ -131,7 +140,7 @@
 .. _ansys-api-mapdl: https://pypi.org/project/ansys-api-mapdl/
 .. _reStructuredText Markup Syntax: https://docutils.sourceforge.io/rst.html
 .. _Markdown Syntax: https://www.markdownguide.org/basic-syntax/
-.. _PEP 518: https://peps.python.org/pep-0518/
+
 .. _Building and Distributing Packages with Setuptools: https://setuptools.pypa.io/en/latest/setuptools.html
 .. _Configuring setuptools using setup.cfg files: https://setuptools.pypa.io/en/latest/userguide/declarative_config.html
 .. _setuptools: https://setuptools.pypa.io/en/latest/index.html
@@ -144,11 +153,7 @@
 .. _docformatter: https://github.com/PyCQA/docformatter
 
 .. _pydocstyle: https://www.pydocstyle.org/en/stable/
-
 .. _pyansys/template: https://github.com/ansys/template
-.. _Creating a repository from a template: https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template
-.. _repository visibility: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility
-.. _Ansys GitHub organization: https://github.com/ansys
 
 .. _gRPC: https://grpc.io/
 .. _pythoncom: http://timgolden.me.uk/pywin32-docs/pythoncom.html
@@ -177,14 +182,11 @@
 .. _setuptools metadata fields: https://setuptools.pypa.io/en/latest/userguide/declarative_config.html#declarative-config
 
 .. _dependabot: https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates
-.. _ansys-templates tool: https://github.com/ansys/ansys-templates
 
-.. _GitHub Pages: https://pages.github.com/
-.. _GitHub Actions: https://github.com/features/actions
+
 .. _PyMAPDL Documentation: https://mapdl.docs.pyansys.com/
 .. _pyansys/pymapdl-docs: https://github.com/ansys/pymapdl-docs
-.. _gh-pages: https://github.com/ansys/dev-guide/tree/gh-pages
-.. _enabling GitHub pages: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site
+
 
 .. _PyAnsys DNS Zones: https://portal.azure.com/#@ansys.com/resource/subscriptions/2870ae10-53f8-46b1-8971-93761377c38b/resourceGroups/pyansys/providers/Microsoft.Network/dnszones/pyansys.com/overview
 .. _Maxime Rey: https://teams.microsoft.com/l/chat/0/0?users=maxime.rey@ansys.com
