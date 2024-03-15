@@ -74,7 +74,7 @@ Number lines in a code block
 With the ``code-block`` directive, you can use the optional ``linenos`` attribute
 to generate line numbers for a code block::
 
-    .. code-block:: python
+    .. code-block::
        :linenos:
 
        from __future__ import division
@@ -92,7 +92,7 @@ Here is how the preceding code block is rendered in the documentation:
 
 .. vale off
 
-.. code-block:: python
+.. code-block::
    :linenos:
 
    from __future__ import division
@@ -111,14 +111,14 @@ Here is how the preceding code block is rendered in the documentation:
 To set the line where numbering is to start, you can use the optional ``lineno-start``
 attribute, which automatically activates the ``linenos`` attribute::
 
-    .. code-block:: python
+    .. code-block::
        :lineno-start: 12
 
        Some more Python code, with line numbering starting at line 12.
 
 Here is how the preceding code block is rendered in the documentation:
 
-.. code-block:: python
+.. code-block::
    :lineno-start: 12
 
    Some more Python code, with line numbering starting at line 12.
@@ -134,9 +134,9 @@ to emphasize particular lines of code by highlighting them::
 
       def some_function():
           interesting = False
-          print('This line is highlighted.')
-          print('This line is no highlighted.')
-          print('This line is highlighted.')
+          print("This line is highlighted.")
+          print("This line is no highlighted.")
+          print("This line is highlighted.")
 
 Here is how the preceding code block is rendered in the documentation:
 
@@ -145,9 +145,9 @@ Here is how the preceding code block is rendered in the documentation:
 
    def some_function():
        interesting = False
-       print('This line is highlighted.')
-       print('This line is no highlighted.')
-       print('This line is highlighted.')
+       print("This line is highlighted.")
+       print("This line is no highlighted.")
+       print("This line is highlighted.")
 
 Define a caption and name for referencing a code block
 ------------------------------------------------------
@@ -159,7 +159,7 @@ elsewhere in your documentation::
       :caption: this.py
       :name: this-py
 
-      print('Explicit is better than implicit.')
+      print("Explicit is better than implicit.")
 
 Here is how the preceding code block is rendered in the documentation:
 
@@ -167,7 +167,7 @@ Here is how the preceding code block is rendered in the documentation:
    :caption: this.py
    :name: this-py
 
-   print('Explicit is better than implicit.')
+   print("Explicit is better than implicit.")
 
 You then give the ``name`` attribute to the ``numref`` role to create the cross-reference::
 
