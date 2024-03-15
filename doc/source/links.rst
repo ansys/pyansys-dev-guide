@@ -5,9 +5,8 @@
 .. # Emails
 .. _pyansys_core_email: pyansys.core@ansys.com
 
-.. #Resources
+.. #content writing resources
 .. _Google_dev_doc_style_guide: https://developers.google.com/style
-.. _PEP8: https://peps.python.org/pep-0008/#introduction
 .. _Markdown_GitHub_flavored_spec: https://github.github.com/gfm/
 .. _Material_for_Sphinx: https://bashtage.github.io/sphinx-material/basics.html
 .. _Python_doc: https://www.python.org/doc/
@@ -46,6 +45,8 @@
 .. _PyAnsys_landing_page: https://docs.pyansys.com/version/stable/
 .. _python_installer_qt_ui_releases: https://github.com/ansys/python-installer-qt-gui/releases
 .. _PyMAPDL_config: https://github.com/ansys/pymapdl/blob/main/doc/source/conf.py
+.. _pyansys/pymapdl-docs: https://github.com/ansys/pymapdl-docs
+.. _PyMAPDL Documentation: https://mapdl.docs.pyansys.com/
 .. _review_bot: https://github.com/ansys/review-bot
 
 .. #Ansys
@@ -63,7 +64,6 @@
 .. _scipy: https://scipy.org/
 .. _tox: https://tox.wiki/en/latest/
 .. _tox_repo: https://github.com/tox-dev/tox
-.. _PEP 8: https://www.python.org/dev/peps/pep-0008/
 .. _make: https://www.gnu.org/software/make/
 
 .. #External links
@@ -128,6 +128,8 @@
 .. _pytest: https://docs.pytest.org/en/stable/
 .. _pytest-cov: https://pytest-cov.readthedocs.io/en/latest/
 .. _MIT License: https://opensource.org/licenses/MIT
+.. _PEP 8: https://www.python.org/dev/peps/pep-0008/
+.. _PEP8: https://peps.python.org/pep-0008/#introduction
 .. _PEP-257: https://peps.python.org/pep-0257
 .. _PEP 420: https://peps.python.org/pep-0420/
 .. _PEP 517: https://peps.python.org/pep-0517/
@@ -183,11 +185,6 @@
 .. _setuptools metadata fields: https://setuptools.pypa.io/en/latest/userguide/declarative_config.html#declarative-config
 
 .. _dependabot: https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates
-
-
-.. _PyMAPDL Documentation: https://mapdl.docs.pyansys.com/
-.. _pyansys/pymapdl-docs: https://github.com/ansys/pymapdl-docs
-
 
 .. _PyAnsys DNS Zones: https://portal.azure.com/#@ansys.com/resource/subscriptions/2870ae10-53f8-46b1-8971-93761377c38b/resourceGroups/pyansys/providers/Microsoft.Network/dnszones/pyansys.com/overview
 .. _Maxime Rey: https://teams.microsoft.com/l/chat/0/0?users=maxime.rey@ansys.com
