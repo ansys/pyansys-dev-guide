@@ -16,7 +16,9 @@ Maintain API definition repository
 
 Because the Protobuf definition of the service is language agnostic, the repository
 containing the Protobuf files can be created within the top-level
-`Ansys GitHub organization`_. Every update of the Protobuf files follows a standard
+`Ansys GitHub organization`_.
+
+Every update of the Protobuf files follows a standard
 pull request process as a sanity check for API definition accuracy. Language-
 specific packages can be generated for each merge or on a set cadence.
 

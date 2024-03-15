@@ -142,7 +142,7 @@ clone a repository by running:
 
     git clone git@github.com:<user>/<repository-name>.git
 
-For example, clone the `PyMAPDL <https://github.com/ansys/pymapdl/>`_
+For example, clone the `PyMAPDL`_
 project with:
 
 .. code-block:: bash
