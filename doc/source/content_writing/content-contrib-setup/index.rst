@@ -27,7 +27,7 @@ in contributing to PyAnsys documentation.
    :maxdepth: 3
    :hidden:
 
-   client_libraries
-   content_dev_environment
+   client-libraries
+   content-dev-environment
    essentials
-   doc_resources
+   doc-resources
