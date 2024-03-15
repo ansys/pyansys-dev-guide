@@ -28,7 +28,7 @@ the language, the code block uses the syntax highlighting for this language.
 This ``code`` directive shows how to import a function (``my_function``)
 from a Python module (``mylibrary``) and then demonstrates how to use it::
 
-    .. code:: rst
+    .. code:: python
 
         from mylibrary import my_function
 
@@ -38,7 +38,7 @@ from a Python module (``mylibrary``) and then demonstrates how to use it::
 
 Here is how the preceding code block is rendered in the documentation:
 
-.. code:: rst
+.. code:: python
 
     from mylibrary import my_function
 
@@ -74,7 +74,7 @@ Number lines in a code block
 With the ``code-block`` directive, you can use the optional ``linenos`` attribute
 to generate line numbers for a code block::
 
-    .. code-block:: rst
+    .. code-block:: python
        :linenos:
 
        from __future__ import division
@@ -92,7 +92,7 @@ Here is how the preceding code block is rendered in the documentation:
 
 .. vale off
 
-.. code-block:: rst
+.. code-block:: python
    :linenos:
 
    from __future__ import division
@@ -111,14 +111,14 @@ Here is how the preceding code block is rendered in the documentation:
 To set the line where numbering is to start, you can use the optional ``lineno-start``
 attribute, which automatically activates the ``linenos`` attribute::
 
-    .. code-block:: rst
+    .. code-block:: python
        :lineno-start: 12
 
        Some more Python code, with line numbering starting at line 12.
 
 Here is how the preceding code block is rendered in the documentation:
 
-.. code-block:: rst
+.. code-block:: python
    :lineno-start: 12
 
    Some more Python code, with line numbering starting at line 12.
@@ -129,7 +129,7 @@ Emphasize lines of code
 With the ``code-block`` directive, you can use the optional ``emphasize-lines`` attribute
 to emphasize particular lines of code by highlighting them::
 
-    .. code-block:: rst
+    .. code-block:: python
       :emphasize-lines: 3,5
 
       def some_function():
@@ -140,7 +140,7 @@ to emphasize particular lines of code by highlighting them::
 
 Here is how the preceding code block is rendered in the documentation:
 
-.. code-block:: rst
+.. code-block:: python
    :emphasize-lines: 3,5
 
    def some_function():
@@ -155,7 +155,7 @@ With the ``code-block`` directive, you can use the optional ``caption`` and ``na
 attributes to use either the ``ref`` or ``numref`` role to reference this code block from
 elsewhere in your documentation::
 
-    .. code-block:: rst
+    .. code-block:: python
       :caption: this.py
       :name: this-py
 
@@ -163,7 +163,7 @@ elsewhere in your documentation::
 
 Here is how the preceding code block is rendered in the documentation:
 
-.. code-block:: rst
+.. code-block:: python
    :caption: this.py
    :name: this-py
 
@@ -173,7 +173,7 @@ You then give the ``name`` attribute to the ``numref`` role to create the cross-
 
     For an example, see :numref:`this-py`.
 
-If you only define the  ``name`` attribute, you can use the ``ref`` role to create the
+If you only define the ``name`` attribute, you can use the ``ref`` role to create the
 cross-reference providing that you explicitly provide the display text for the link::
 
     For an example, see :ref:`this code snippet <this-py>`.
