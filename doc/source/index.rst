@@ -67,4 +67,4 @@
    how-to/index
    all-styles
    abstractions/index
-   content_writing/index
+   content-writing/index
