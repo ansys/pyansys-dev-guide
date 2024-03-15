@@ -20,6 +20,7 @@
 .. _ansys-sphinx-theme-doc: https://sphinxdocs.ansys.com/
 .. _Ansys_Python_Manager_repository: https://github.com/ansys/python-installer-qt-gui
 .. _Ansys_templates: https://github.com/ansys/ansys-templates
+.. _ansys-templates: https://templates.ansys.com/index.html
 .. _Git: https://git-scm.com/
 
 .. _Git_Extensions: https://gitextensions.github.io/
