@@ -2,7 +2,7 @@ PyAnsys project organization
 ============================
 
 The `PyAnsys <https://docs.pyansys.com/>`_ project is hosted on GitHub at
-`PyAnsys GitHub organization`_. It contains several repositories with Python
+`Ansys GitHub organization`_. It contains several repositories with Python
 libraries that interface with Ansys products or services. To try out a
 library, visit one of these links:
 
@@ -16,10 +16,10 @@ library, visit one of these links:
 If you want to create, develop, or contribute to a PyAnsys library, 
 visit these links:
 
-* `PyAnsys Developer's Guide <https://github.com/ansys/pyansys-dev-guide>`_
-* `Ansys Sphinx Theme Documentation <https://github.com/ansys/ansys-sphinx-theme>`_
-* `gRPC Hello-world Example <https://github.com/ansys/pyansys-helloworld>`_
-* `Material Example Data <https://github.com/ansys/example-data>`_
+* `PyAnsys developer's guide <https://github.com/ansys/pyansys-dev-guide>`_
+* `Ansys Sphinx Theme documentation <ansys-sphinx-theme-doc_>`_
+* `gRPC Hello-world example <https://github.com/ansys/pyansys-helloworld>`_
+* `Material Example data <https://github.com/ansys/example-data>`_
 
 Using the following tools, developers generate library packages from 
 PROTO files, create coverage reports, and report on system coverage:
@@ -32,7 +32,7 @@ Quick start guide
 -----------------
 
 This is an overview on how to create your own PyAnsys repository in the
-`PyAnsys GitHub organization`_. A repository is generally a project for a
+Ansys GitHub organization. A repository is generally a project for a
 particular PyAnsys library.
 
 #. **Create the repository:** Create a repository from the
@@ -43,7 +43,7 @@ particular PyAnsys library.
    your product or library. For example, the package name for
    PyMAPDL is ``ansys/mapdl/core``. Do the
    same renaming in ``setup.py``. Do this as a pull request. In fact, only add
-   code as pull requests. Do not push to ``main``.)
+   code as pull requests. Do not push to ``main``.
 
 #. **Add source:** Add your source files to
    ``ansys/<product>/<library>`` or create them.  Also add unit tests to 

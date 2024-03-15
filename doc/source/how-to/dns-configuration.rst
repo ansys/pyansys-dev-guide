@@ -31,7 +31,7 @@ shows how to create DNS TXT verification elements for GitHub Pages sites.
 PyAnsys verified domains
 ------------------------
 
-In the `PyAnsys GitHub organization`_, these domains have been verified:
+In the Ansys GitHub organization, these domains have been verified:
 
 * ``pyansys.com``
 * ``docs.pyansys.com``
@@ -58,16 +58,16 @@ This is better explained with the following examples:
 Case scenario - **protected** subdomain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- Consider that the domain ``docs.pyansys.com`` has been verified for the `PyAnsys GitHub organization`_.
+- Consider that the domain ``docs.pyansys.com`` has been verified for the Ansys GitHub organization.
 - This CNAME is requested: ``subdomain.docs.pyansys.com``.
 
-This CNAME can only be used by repositories inside the `PyAnsys GitHub organization`_.
+This CNAME can only be used by repositories inside the Ansys GitHub organization.
 Any attempt by an external user to take over this CNAME is identified and rejected by GitHub.
 
 Case scenario - **vulnerable** subdomain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- The domain ``docs.pyansys.com`` has been verified for the `PyAnsys GitHub organization`_.
+- The domain ``docs.pyansys.com`` has been verified for the Ansys GitHub organization.
 - This CNAME is requested: ``subsubdomain.subdomain.docs.pyansys.com``.
 
 This CNAME **can** be used by external users for their repositories. For this reason,

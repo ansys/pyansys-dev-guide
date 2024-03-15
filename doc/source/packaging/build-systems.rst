@@ -43,41 +43,40 @@ introduced the following problems:
 - It was not possible to know which dependencies required the ``setup.py`` file
   to be properly executed.
 
-- The default Python package installer, `pip`_, expected `setuptools_repo`_ to be the
-  default build system tool, excluding others like `Flit`_ and `Poetry`_.
+- The default Python package installer, `pip`_, expected `Setuptools <setuptools_repo_>`_
+  to be the default build system tool, excluding others like `Flit`_ and `Poetry`_.
 
 These problems led to the acceptance of `PEP 517`_ and `PEP 518`_.
 
 PEP 517
 -------
 
-`PEP 517`_ allows Python developers to specify the build backend tool for
+PEP 517 allows Python developers to specify the build backend tool for
 generating artifacts. The previous :numref:`build system diag` diagram shows the
 most popular backends:
 
-- `Setuptools_repo`_ , while very popular, lacks the ability to declare build time dependencies
+- Setuptools, while very popular, lacks the ability to declare build-time dependencies
   and is difficult to extend.
-- `Flit`_ is a lightweight build system tool for Python.
-- `Poetry`_ focuses on dependency management and environment isolation.
+- Flit is a lightweight build system tool for Python.
+- Poetry focuses on dependency management and environment isolation.
 
-`PEP 517` introduced the ``build-backend`` key inside the
-``[build-system]`` table in the ``pyproject.toml``.
+PEP 517 introduced the ``build-backend`` key inside the
+``[build-system]`` table in the ``pyproject.toml`` file.
 
 PEP 518
 -------
 
-In addition to the ``setup.py`` file, `PEP 518`_ includes a project file named
+In addition to the ``setup.py`` file, PEP 518 includes a project file named
 ``pyproject.toml``. The main goal of this file is to specify build time dependencies.
-However, some build system tools like `Flit`_ or `Poetry`_ are able to specify all
+However, some build system tools like Flit or Poetry are able to specify all
 project metadata inside the ``pyproject.toml`` file and eliminate usage of the 
 ``setup.py`` file.
 
 To specify the build time requirements, the ``[build-system]`` table must be
 declared in the ``pyproject.toml`` file. Within it, the ``requires`` key is
-assigned to a list of strings, which are the build time
-requirements.
+assigned to a list of strings, which are the build time requirements.
 
-The combination of `PEP 517`_ and `PEP 518`_ leads to the following syntax in a
+The combination of PEP 517 and PEP 518 leads to the following syntax in a
 ``pyproject.toml`` file:
 
 .. code:: toml
@@ -99,7 +98,7 @@ metadata.
 Setuptools
 ----------
 
-`Setuptools`_ has been a part of the Python ecosystem for a long time. Unless
+Setuptools has been a part of the Python ecosystem for a long time. Unless
 you require high control over your project's installation steps, you should use
 Flit or Poetry.
 
@@ -120,7 +119,7 @@ to manage virtual environments on their own. Developers must:
 * Create a virtual environment and activate it.
 * Install the package in editable mode.
 
-Flit is the default tool for creating a new ``pyansys`` project when using the
+Flit is the default tool for creating a new PyAnsys project when using the
 `ansys-templates tool`_.
 
 The ``[project]`` section specifies the project's metadata and required

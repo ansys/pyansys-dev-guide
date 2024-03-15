@@ -10,7 +10,6 @@
 .. _PEP8: https://peps.python.org/pep-0008/#introduction
 .. _Markdown_GitHub_flavored_spec: https://github.github.com/gfm/
 .. _Material_for_Sphinx: https://bashtage.github.io/sphinx-material/basics.html
-.. _numpydoc_style_guide: https://numpydoc.readthedocs.io/en/latest/format.html
 .. _Python_doc: https://www.python.org/doc/
 .. _Quick_RST: https://docutils.sourceforge.io/docs/user/rst/quickref.html
 .. _RST_markup_spec: https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html
@@ -73,6 +72,7 @@
 .. _Google_docstrings: https://github.com/google/styleguide/blob/gh-pages/pyguide.md#38-comments-and-docstrings
 .. _Notepadpp_downloads: https://notepad-plus-plus.org/downloads/
 .. _Notepadpp_searching: https://npp-user-manual.org/docs/searching/
+.. _numpydoc: https://numpydoc.readthedocs.io/en/latest/index.html
 .. _numpydoc_style_guide: https://numpydoc.readthedocs.io/en/latest/format.html
 .. _numpydoc_style_guide_sections: https://numpydoc.readthedocs.io/en/latest/format.html#sections
 .. _RST_table_directives: https://docutils.sourceforge.io/docs/ref/rst/directives.html#tables
@@ -142,13 +142,13 @@
 .. _docstring-coverage: https://bitbucket.org/DataGreed/docstring-coverage/wiki/Home
 .. _doctest: https://docs.python.org/3/library/doctest.html
 .. _docformatter: https://github.com/PyCQA/docformatter
-.. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
+
 .. _pydocstyle: https://www.pydocstyle.org/en/stable/
 
 .. _pyansys/template: https://github.com/ansys/template
 .. _Creating a repository from a template: https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template
 .. _repository visibility: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility
-.. _PyAnsys GitHub organization: https://github.com/ansys
+.. _Ansys GitHub organization: https://github.com/ansys
 
 .. _gRPC: https://grpc.io/
 .. _pythoncom: http://timgolden.me.uk/pywin32-docs/pythoncom.html

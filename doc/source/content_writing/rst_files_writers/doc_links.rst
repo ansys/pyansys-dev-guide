@@ -109,7 +109,9 @@ Named targets at the bottom of RST files
 
 Assume that you want to add links in a RST file to the websites for `NumPy <numpy_>`_, `SciPy <scipy_>`_,
 and `pandas <pandas_>`_, the  "big three" data science packages. At the bottom of
-the RST file, you insert named targets to these websites like this::
+the RST file, you insert named targets to these websites like this:
+
+.. code:: rst
 
   .. LINKS AND REFERENCES
 
@@ -118,7 +120,9 @@ the RST file, you insert named targets to these websites like this::
   .. _pandas: https://pandas.pydata.org/
 
 To insert links to these targets in a sentence in the RST file, you surround
-each target name in single backticks and follow it with an underscore::
+each target name in single backticks and follow it with an underscore:
+
+.. code:: rst
 
     All PyAnsys libraries are expected be consistent in style and formatting with the
     libraries for the "big three" data science packages: `NumPy`_, `SciPy`_, and `pandas`_.

@@ -89,7 +89,7 @@ take advantage of the `numpydoc`_ Sphinx extension. Note that this extension
 checks only for those objects whose docstrings must be rendered. It is not a
 command line tool that checks the style of all docstrings in your source code.
 
-Because `numpydoc`_ is a Sphinx extension, it must be configured in the
+Because ``numpydoc`` is a Sphinx extension, it must be configured in the
 ``conf.py`` file. See :ref:`The \`\`doc/\`\` directory`. Start by adding it to the
 list of extensions:
 
@@ -97,7 +97,7 @@ list of extensions:
 
   extensions = ["numpydoc", ...]
 
-Once the `numpydoc`_ extension is added, you can select which `validation checks
+Once the ``numpydoc`` extension is added, you can select which `validation checks
 <https://numpydoc.readthedocs.io/en/latest/validation.html#built-in-validation-checks>`_
 must be addressed by using the ``numpydoc_validation_checks`` dictionary:
 

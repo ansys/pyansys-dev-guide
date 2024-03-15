@@ -516,7 +516,7 @@ development environment, it is often not possible to enforce testing on
 multiple platforms, or even to enforce unit testing in general. However, with the proper
 automated CI/CD, such testing can still occur and be enforced automatically.
 
-`GitHub Actions`_ is the preferred automated CI/CD platform for running Python
+GitHub Actions is the preferred automated CI/CD platform for running Python
 library unit tests for PyAnsys. It can be used immediately by cloning the
 project `template <https://github.com/ansys/template/>`_. If you are
 unfamiliar with GitHub actions, see `GitHub Actions`_ for an overview.
@@ -525,7 +525,6 @@ unfamiliar with GitHub actions, see `GitHub Actions`_ for an overview.
    :language: yaml
 
 
-.. _GitHub Actions: https://github.com/features/actions
 .. _Test Driven Development (TDD): https://en.wikipedia.org/wiki/Test-driven_development
 .. _codecov.io: https://app.codecov.io/gh/pyansys
-.. _poetry: https://python-poetry.org
+
