@@ -11,8 +11,7 @@ issues can occur. Some of the most common cases are:
   a given version. This causes forward incompatibility issues.
 
 Though there are different ways to handle these issues, some of the PyAnsys libraries,
-such as `PyMAPDL <https://github.com/ansys/pymapdl>`_ and
-`PyDPF-Core <https://github.com/ansys/pydpf-core>`_, handle them in
+such as `PyMAPDL`_ and `PyDPF-Core <https://github.com/ansys/pydpf-core>`_, handle them in
 the same way. To homogenize implementations in PyAnsys libraries,
 following their approach is recommended.
 

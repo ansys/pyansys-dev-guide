@@ -1,3 +1,5 @@
+.. _numpy_docstrings:
+
 Numpydoc docstrings
 ===================
 
@@ -21,14 +23,15 @@ classes, methods, and variables. For example::
   """Initialize the ``Desktop`` class with the version of AEDT to use."""
 
 .. note::
+
    The PyAnsys style uses two backticks to surround the names of classes, methods, and
-   variables, not the single backtick that is recommended by `numpydoc`_
+   variables, not the single backtick that is recommended by the numpydoc
    style.
 
 Required docstring sections
 ---------------------------
 
-PyAnsys library docstrings contain these `numpydoc`_ sections as a minimum:
+PyAnsys library docstrings contain these numpydoc sections as a minimum:
 
 * `Short Summary <https://numpydoc.readthedocs.io/en/latest/format.html#short-summary>`_
 * `Extended Summary <https://numpydoc.readthedocs.io/en/latest/format.html#extended-summary>`_ if applicable
@@ -48,8 +51,7 @@ or function to briefly describe what the class or function does. The
 raises an error.
 
 The short summary can be declared on the same line as the opening quotes or on
-the next line. While `PEP 257
-<https://peps.python.org/pep-0257>`_ accepts both ways, you must be consistent across your
+the next line. While `PEP 257 <PEP-257_>`_ accepts both ways, you must be consistent across your
 project. If you decide to declare the short summary on the same line,
 refer to :ref:`Numpydoc validation` because ``"GL01"`` checking must be
 turned off.
@@ -227,8 +229,8 @@ Here is a sample ``Examples`` section from a Python file for PyAEDT.
 
 Code supplied in an ``Examples`` section must be compliant with the
 `doctest <https://docs.python.org/3/library/doctest.html>`_ format. This allows
-the code to be used through `pytest <https://docs.pytest.org/en/latest/>`_ to
-perform regression testing to verify that the code is executing as expected. 
+the code to be used through `pytest`_ to perform regression testing to verify
+that the code is executing as expected. 
 
 If the definition of a method or function is updated, the code in the ``Examples`` section
 must be updated. Any change within the API without a corresponding change
@@ -272,16 +274,16 @@ Additional directives
 
 Because Python docstrings are written using RST syntax, it is possible to take
 advantage of some directives available in this Markup language. Commonly used
-directives include:
+directives follow.
 
-- ``.. note::`` highlights important information in the rendered documentation.
+- ``note``: Highlights important information in the rendered documentation.
 
-- ``.. warning::`` typically points out an action that might result in data loss.
+- ``warning``: Typically points out an action that might result in data loss.
 
-- ``.. deprecated:: X.Y.Z`` informs the user about the deprecated status of
+- ``deprecated``: ``X.Y.Z`` informs the user about the deprecated status of
   the object or feature.
 
-You can find additional information and examples at `numpydoc`_. Reference
+You can find additional information and examples in the numpy doc. Reference
 this documentation as the primary source regarding docstring styles for directives
 that are not covered here.
 
@@ -293,7 +295,7 @@ Here is a generic docstring example compliant with PyAnsys guidelines:
 .. literalinclude:: code/sample_func.py
 
 To include the docstring of a function within Sphinx, you use the
-``autofunction::`` directive:
+``autofunction`` directive:
 
 .. code::
 
@@ -303,5 +305,4 @@ This directive renders the sample function as:
 
 .. autofunction:: ansys_sphinx_theme.examples.sample_func.func
 
-.. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
 .. _googledoc: https://google.github.io/styleguide/

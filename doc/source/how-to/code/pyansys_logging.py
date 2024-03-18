@@ -36,13 +36,13 @@ string_to_loglevel = {
 
 
 class InstanceCustomAdapter(logging.LoggerAdapter):
-    """This is key to keep the reference to a product instance name dynamic.
+    """Keeps the reference to a product instance name dynamic.
 
-    If we use the standard approach which is supplying ``extra`` input
-    to the logger, we would need to keep inputting product instances
+    If you use the standard approach, which is supplying ``extra`` input
+    to the logger, you would need to keep inputting product instances
     every time a log is created.
 
-    Using adapters we just need to specify the product instance we refer
+    Using adapters, you just need to specify the product instance that you refer
     to once.
     """
 
@@ -117,12 +117,12 @@ class PyAnsysPercentStyle(logging.PercentStyle):
         else:
             values = record.__dict__
 
-        # Here we can make any changes we want in the record, for
-        # example adding a key.
+        # Here you can make any changes that you want in the record. For
+        # example, adding a key.
 
-        # We could create an if here if we want conditional formatting, and even
+        # You could create an ``if`` here if you want conditional formatting, and even
         # change the record.__dict__.
-        # Since now we don't want to create conditional fields, it is fine to keep
+        # If you don't want to create conditional fields, it is fine to keep
         # the same MSG_FORMAT for all of them.
 
         # For the case of logging exceptions to the logger.

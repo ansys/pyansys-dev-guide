@@ -16,7 +16,8 @@ Maintain API definition repository
 
 Because the Protobuf definition of the service is language agnostic, the repository
 containing the Protobuf files can be created within the top-level
-`Ansys GitHub organization <https://github.com/ansys/>`_.
+`Ansys GitHub organization`_.
+
 Every update of the Protobuf files follows a standard
 pull request process as a sanity check for API definition accuracy. Language-
 specific packages can be generated for each merge or on a set cadence.
@@ -29,20 +30,19 @@ have a dedicated Python package containing the needed ``.proto`` files compiled 
 Python source code. These are typically consumed by the PyAnsys client libraries
 for being able to communicate with their respective services.
 
-For example, `PyMAPDL <https://github.com/ansys/pymapdl>`_ consumes the
-``ansys-api-mapdl`` package, which is built in the
-`ansys-api-mapdl repository <https://github.com/ansys/ansys-api-mapdl>`_.
+For example, `PyMAPDL_ consumes the ``ansys-api-mapdl`` package, which is built in the
+`ansys-api-mapdl`_ repository.
 
 How to build an ``ansys-api-<service>`` repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The `Ansys GitHub organization`_ has a dedicated template repository for creating
+The Ansys GitHub organization has a dedicated template repository for creating
 these ``.proto`` file repositories and the needed files to generate the Python API
 packages to be consumed by the PyAnsys clients.
 
-In order to set up an API repository like `ansys-api-mapdl <https://github.com/ansys/ansys-api-mapdl>`_,
+To set up an API repository like the `ansys-api-mapdl`` one,
 select the `ansys-api-template <https://github.com/ansys/ansys-api-template>`_ repository
-when creating a new repository within the `Ansys GitHub organization`_.
+when creating a repository within the Ansys GitHub organization.
 
 Follow the instructions on the `ansys-api-template - Expected usage <https://github.com/ansys/ansys-api-template#expected-usage>`_
 section to understand how to use the template repository.
@@ -217,8 +217,8 @@ Releasing
 As shown in the ``release`` section of GitHub workflow, once the Python
 API package is compiled it is then uploaded to the public PyPI. In order to do
 so, it is necessary to have access to the ``PYPI_TOKEN`` within the GitHub
-repository. Please contact the PyAnsys Core team at `pyansys.core@ansys.com
-<mailto:pyansys.core@ansys.com>`_ in order to get the needed credentials.
+repository. To get the needed credentials, contact the PyAnsys Core team
+at `pyansys.core@ansys.com <mailto:pyansys.core@ansys.com>`_.
 
 If the repository cannot be uploaded to the public PyPI yet, but your Python
 client library needs to consume this Python API package, it can also be
@@ -300,6 +300,6 @@ main reasons behind are:
   repository private since all users which consume the Python API package have direct access
   to the ``.proto`` files that are in the repository.
 
-However, before making any repository public with the `Ansys GitHub organization`_, please review
+However, before making any repository public with the `Ansys GitHub organization`_, review
 the `Ansys open-source guide documentation <https://supreme-invention-8c3992a9.pages.github.io/index.html>`_
 to verify that the repository is compliant with all the needed requirements.

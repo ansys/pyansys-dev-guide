@@ -20,8 +20,7 @@ formatting with the libraries for the 'big three' data science packages: `numpy`
 `scipy`_, and `pandas`_. 
 
 The purpose of this section is not to repeat coding style documentation,
-but rather to describe coding best practices applicable to the `PyAnsys
-<https://pypi.org/project/pyansys/>`_ project when there are any
+but rather to describe coding best practices applicable to the `PyAnsys`_ project when there are any
 delineations, clarifications, or additional procedures above and
 beyond `PEP 8`_. For example, this section provides a topic on deprecation
 best practices because there is no official guidance on deprecating features
@@ -35,11 +34,3 @@ within Python.
    formatting-tools
    required-standard
    deprecation
-
-
-.. LINKS AND REFERENCES
-
-.. _NumPy: https://numpy.org/
-.. _SciPy: https://www.scipy.org/
-.. _pandas: https://pandas.pydata.org/
-.. _PEP 8: https://www.python.org/dev/peps/pep-0008/

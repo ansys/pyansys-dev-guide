@@ -26,8 +26,11 @@ Dev
 [Dd]ocstring
 [Dd]ocstrings
 [Dd]octest
+Docutils
 dotfiles
 dunder
+[Ee]num
+[Ee]nums
 Fortran
 (?i)Git
 [Gg]itHub
@@ -35,6 +38,7 @@ GitHub Actions
 [Hh]otfixes
 Hpertext
 (?i)Html
+imag
 initialisms
 initializer
 internetworking
@@ -42,7 +46,9 @@ internetworking
 linenos
 matplotlib
 Maxime
-MeiliSearchMicroelectromechanical
+MeiliSearch
+metapackage
+Microelectromechanical
 monospaced
 Muela
 [Nn]amespace
@@ -55,13 +61,17 @@ PEP 8
 PEP 517
 PEP 518
 [Pp][Dd][Ff]
+plaintext
 pluggable
 [Pp]ostprocessing
+(?i)PR
 Protobuf
 proto
+(?i)PY
 (?i)Pyaedt
 (?i)Pyansys
 Pydocstyle
+Pylance
 (?i)Pymapdl
 PyMeilisearch
 PyPI
@@ -69,6 +79,7 @@ pytest
 [Pp]ython
 pythoncom
 pyvista
+rebasing
 reusability
 Rey
 REST
@@ -78,8 +89,12 @@ scipy
 [Ss]etuptools
 [Ss]phinx
 SSH
-subpackages
+subclassing
+sublist
+[Ss]ubpackage
+[Ss]ubpackages
 substring
+superset
 tensorflow
 TXT
 turbomachinery
@@ -87,7 +102,10 @@ UDFs
 uncomment
 unittest
 unvalidated
+URIs
+Vale
 venv
+Visual Studio Code
 worktree
 (?i)WSL
 WSL2

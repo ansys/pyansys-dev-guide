@@ -42,18 +42,3 @@ model and API.
    templates
    structure
    build-systems
-   
-.. _gRPC: https://grpc.io/
-.. _pythoncom: http://timgolden.me.uk/pywin32-docs/pythoncom.html
-.. _SWIG: http://www.swig.org/
-.. _C extensions: https://docs.python.org/3/extending/extending.html
-.. _Anaconda Distribution: https://www.anaconda.com/products/individual
-.. _REST: https://en.wikipedia.org/wiki/Representational_state_transfer
-.. _PyAEDT: https://github.com/ansys/PyAEDT
-.. _PyMAPDL: https://github.com/ansys/pymapdl
-.. _pymapdl: https://github.com/ansys/pymapdl
-.. _Style Guide for Python Code (PEP8): https://www.python.org/dev/peps/pep-0008
-.. _grpc_chunk_stream_demo: https://github.com/ansys/grpc_chunk_stream_demo
-.. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
-.. _Namespace Packages: https://packaging.python.org/guides/packaging-namespace-packages/
-.. _Create a repository from a template: https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template

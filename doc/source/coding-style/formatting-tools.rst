@@ -1,3 +1,5 @@
+.. _code_style_tools:
+
 Code style tools
 ================
 
@@ -256,22 +258,10 @@ Using ``tox``
 to make it highly customizable. Descriptions follow of some of the most
 widely used environments:
 
-- ``tox -e style`` checks the code style of your project.
-- ``tox -e py`` runs your test suite.
-- ``tox -e doc`` builds the documentation of your project.
+- ``tox -e style``: Checks the code style of your project.
+- ``tox -e py``: Runs your test suite.
+- ``tox -e doc``: Builds the documentation of your project.
 
 It is possible to run multiple environments by separating them with commas ``tox
 -e <env-name0>,<env-name1>,...```.  To run all available environments, simply
 run ``tox``.
-
-.. LINKS AND REFERENCES
-
-.. _Black: https://black.readthedocs.io/en/latest/
-.. _isort: https://pycqa.github.io/isort/
-.. _flake8: https://flake8.pycqa.org/en/latest/
-.. _pre-commit: https://pre-commit.com/
-.. _pytest: https://docs.pytest.org/en/latest/
-.. _pytest-cov: https://pytest-cov.readthedocs.io/en/latest/
-.. _tox: https://tox.wiki/en/latest/
-.. _PEP 8: https://www.python.org/dev/peps/pep-0008/
-.. _make: https://www.gnu.org/software/make/

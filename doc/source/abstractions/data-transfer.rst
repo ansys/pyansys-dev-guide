@@ -5,8 +5,8 @@ Abstracted APIs should attempt to hide the implementation details of
 the remote or local API in a well organized data model. This data
 model should avoid returning raw JSON files, gRPC messages, SWIG objects,
 or .NET objects. It should preferably return standard Python objects
-like lists, strings, dictionaries when useful, and `numpy <https://numpy.org/>`_
-arrays or `pandas <https://pandas.pydata.org/>`_ dataframes for more complex data.
+like lists, strings, dictionaries when useful, and `numpy`_
+arrays or `pandas`_ dataframes for more complex data.
 
 For example, consider a simple mesh in MAPDL:
 
@@ -110,18 +110,3 @@ benefits of a binary compatible protocol. While REST provides a variety of
 benefits, for complex client/server interactions, it is best to have an
 interface that can efficiently exchange a wide variety of data formats and
 messages.
-
-
-.. _gRPC: https://grpc.io/
-.. _pythoncom: http://timgolden.me.uk/pywin32-docs/pythoncom.html
-.. _SWIG: http://www.swig.org/
-.. _C extensions: https://docs.python.org/3/extending/extending.html
-.. _Anaconda Distribution: https://www.anaconda.com/products/individual
-.. _REST: https://en.wikipedia.org/wiki/Representational_state_transfer
-.. _PyAEDT: https://github.com/ansys/PyAEDT
-.. _PyMAPDL: https://github.com/ansys/pymapdl
-.. _pymapdl: https://github.com/ansys/pymapdl
-.. _Style Guide for Python Code (PEP8): https://www.python.org/dev/peps/pep-0008
-.. _grpc_chunk_stream_demo: https://github.com/ansys/grpc_chunk_stream_demo
-.. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
-.. _Namespace Packages: https://packaging.python.org/guides/packaging-namespace-packages/
