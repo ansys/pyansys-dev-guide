@@ -300,6 +300,6 @@ main reasons behind are:
   repository private since all users which consume the Python API package have direct access
   to the ``.proto`` files that are in the repository.
 
-However, before making any repository public with the Ansys GitHub organizatio, review
+However, before making any repository public with the `Ansys GitHub organization`_, review
 the `Ansys open-source guide documentation <https://supreme-invention-8c3992a9.pages.github.io/index.html>`_
 to verify that the repository is compliant with all the needed requirements.
