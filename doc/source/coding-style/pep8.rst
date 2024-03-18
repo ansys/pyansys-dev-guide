@@ -7,11 +7,6 @@ to increase the readability of Python code. Some of the most popular
 packages within the Python ecosystem have adopted `PEP 8`_,
 including `numpy`_, `scipy`_, and `pandas`_.
 
-.. _PEP 8: https://www.python.org/dev/peps/pep-0008/
-.. _numpy: https://numpy.org/
-.. _scipy: https://www.scipy.org/
-.. _pandas: https://pandas.pydata.org/
-
 Imports
 -------
 
@@ -24,8 +19,6 @@ Imports should always be placed at the top of the file, just after any
 module comments and docstrings and before module global variables and
 constants. This reduces the likelihood of an `ImportError`_ that
 might only be discovered during runtime.
-
-.. _ImportError: https://docs.python.org/3/library/exceptions.html#ImportError
 
 .. tab-set::
 
@@ -147,9 +140,9 @@ Import namespaces
 ~~~~~~~~~~~~~~~~~
 
 You should avoid using wildcards in imports because doing so can make it
-difficult to detect undefined names. For more information, see `Python
-Anti-Patterns: using wildcard imports
+difficult to detect undefined names. For more information, see `using wildcard imports (from … import *)
 <https://docs.quantifiedcode.com/python-anti-patterns/maintainability/from_module_import_all_used.html>`_.
+in the *Python Anti-Patterns* documentation.
 
 .. tab-set::
 
@@ -226,8 +219,6 @@ When naming methods, follow these conventions:
 - Start a method that is to be considered private with double underscores.
 - Start a method that is to be considered protected with a single underscore.
 
-.. _dunder methods: https://docs.python.org/3/reference/datamodel.html#special-method-names
-
 .. code:: python
 
    class MyClass:
@@ -254,7 +245,7 @@ When naming methods, follow these conventions:
            these methods from being called from inherited classes.
 
            """
-           # note how we can call private methods here
+           # note how private methods can be called here
            self.__private_method()
 
        def public_method(self):

@@ -1,3 +1,5 @@
+.. _doc_style_tools:
+
 Documentation style tools
 =========================
 
@@ -29,7 +31,7 @@ The `codespell`_ checks for common misspellings in text files. This implies that
 is not limited to Python files but can run checks on any human-readable file.
 
 It is possible to ignore words that are flagged as misspelled. You can specify these words in a
-file that can then be passed to `Codespell` by running:
+file that can then be passed to ``codespell`` by running:
 
 .. code:: bash
 
@@ -39,7 +41,7 @@ The ``docformatter``
 --------------------
 
 The `docformatter`_ automatically formats Python docstrings according 
-to `PEP 257`_. To make sure `docformatter`_ wraps your docstrings at a given
+to `PEP 257 <PEP-257_>`_. To make sure ``docformatter`` wraps your docstrings at a given
 number of characters, use the following configuration:
 
 .. code:: bash
@@ -87,7 +89,7 @@ take advantage of the `numpydoc`_ Sphinx extension. Note that this extension
 checks only for those objects whose docstrings must be rendered. It is not a
 command line tool that checks the style of all docstrings in your source code.
 
-Because `numpydoc`_ is a Sphinx extension, it must be configured in the
+Because ``numpydoc`` is a Sphinx extension, it must be configured in the
 ``conf.py`` file. See :ref:`The \`\`doc/\`\` directory`. Start by adding it to the
 list of extensions:
 
@@ -95,7 +97,7 @@ list of extensions:
 
   extensions = ["numpydoc", ...]
 
-Once the `numpydoc`_ extension is added, you can select which `validation checks
+Once the ``numpydoc`` extension is added, you can select which `validation checks
 <https://numpydoc.readthedocs.io/en/latest/validation.html#built-in-validation-checks>`_
 must be addressed by using the ``numpydoc_validation_checks`` dictionary:
 
@@ -116,8 +118,8 @@ validation checks
 The ``pydocstyle``
 ------------------
 
-The `pydocstyle`_ is a tool for checking the compliance of Python docstrings with `PEP
-257`_.  Its configuration can be defined in the
+The `pydocstyle`_ is a tool for checking the compliance of Python docstrings with `PEP 257 <PEP-257_>`_.
+Its configuration can be defined in the
 :ref:`the \`\`pyproject.toml\`\` file<The \`\`pyproject.toml\`\` file>`.
 By default, `pydocstyle`_ matches all ``*.py`` files except those starting with
 ``test_*.py``. The default configuration should be enough for a PyAnsys project.
@@ -167,17 +169,3 @@ Address any warnings and issues that display by either editing the
 file to fix or adding a term to the ``accept.txt`` file under the 
 ``doc`` folder in ``styles\config\vocabularies\ANSYS``.
 
-
-.. _blacken-docs: https://github.com/asottile/blacken-docs
-.. _interrogate: https://interrogate.readthedocs.io/en/latest/
-.. _docstr-coverage: https://docstr-coverage.readthedocs.io/en/latest/index.html
-.. _docstring-coverage: https://bitbucket.org/DataGreed/docstring-coverage/wiki/Home
-.. _pytest-cov: https://pytest-cov.readthedocs.io/en/latest/
-.. _doctest: https://docs.python.org/3/library/doctest.html
-.. _vale: https://vale.sh/
-.. _PEP 257: http://www.python.org/dev/peps/pep-0257/
-.. _docformatter: https://github.com/PyCQA/docformatter
-.. _codespell: https://github.com/codespell-project/codespell
-.. _pytest-cov: https://pytest-cov.readthedocs.io/en/latest/
-.. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
-.. _pydocstyle: https://www.pydocstyle.org/en/stable/

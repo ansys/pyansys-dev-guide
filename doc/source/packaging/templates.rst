@@ -11,7 +11,7 @@ coding and API style guidelines.
 The ``ansys-templates`` tool
 ============================
 
-The `ansys-templates`_ tool is a command-ine interface that provides a
+The ``ansys-templates`` tool is a command-ine interface that provides a
 collection of templates. When you use this tool to create a PyAnsys project, your
 responses to the several questions that are asked result in dynamic project generation.
 
@@ -35,7 +35,7 @@ projects: ``pyansys`` and ``pyansys-advanced``.
 
 .. important::
 
-   To access these templates, you must install `ansys-templates`_.
+   To access these templates, you must install the ``ansys-templates`` package.
    For information on how to use this tool, see `User guide`_ in the
    Ansys templates documentation.
 
@@ -77,12 +77,6 @@ To create a project based on the ``pyansys-advanced`` template, run this code:
 
    ansys-templates new pyansys-advanced
 
-.. _ansys-templates: https://templates.ansys.com/index.html
 .. _Getting started: https://templates.ansys.com/version/stable/getting_started/index.html
 .. _User guide: https://templates.ansys.com/version/stable/user_guide/index.html
 .. _ansys-templates issues board: https://github.com/ansys/ansys-templates/issues
-.. _flit: https://flit.readthedocs.io/en/latest/
-.. _poetry: https://python-poetry.org/
-.. _pre-commit: https://pre-commit.com/
-.. _setuptools: https://pypi.org/project/setuptools/
-.. _Tox: https://tox.wiki/en/latest/

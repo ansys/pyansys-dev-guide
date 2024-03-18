@@ -1,3 +1,5 @@
+.. _setting_up_dev_environment:
+
 Setting up your development environment
 =======================================
 
@@ -356,21 +358,21 @@ Signing commits
 
 To verify which code changes were made by you, signing the commit
 is required. To sign a commit, you must generate a ``GPG`` key, associate it with
-``GitHub``, and specify it in your ``Git`` :ref:`Configuration`.
+GitHub, and specify it in your ``Git`` :ref:`Configuration`.
 
-For an explanation of the process, in the ``GitHub`` documentation, see `Verify
+For an explanation of the process, in the GitHub documentation, see `Verify
 Commit Signatures <https://docs.github.com/en/authentication/managing-commit-signature-verification>`_.
 
 
 Enabling SSH
 ~~~~~~~~~~~~
 
-Working with ``Secure Shell Protocol (SSH)`` is not only a good practice but
-also required for contributing to PyAnsys projects. Without an ``SSH`` key,
+Working with Secure Shell Protocol (SSH) is not only a good practice but
+also required for contributing to PyAnsys projects. Without an SSH key,
 you are not able to clone **internal** or **private** repositories or
 to push new changes.
 
-For information on setting up ``SSH`` with ``GitHub``, in the ``GitHub`` documentation,
+For information on setting up SSH with GitHub, in the GitHub documentation,
 see `Connecting to GitHub with SSH
 <https://docs.github.com/en/authentication/connecting-to-github-with-ssh>`_.
 
@@ -481,11 +483,11 @@ Windows terminal
 The `Windows Terminal <https://docs.microsoft.com/en-us/windows/terminal/>`_ is
 an app that integrates multiple shells into a single console. Windows
 ships by default with two shells: ``CMD`` and ``PowerShell``. If :ref:`WSL2` is
-installed, a Linux shell is added. Hence, the goal of the ``Windows Terminal``
+installed, a Linux shell is added. Hence, the goal of the Windows Terminal
 is to collect and manage all shell sessions in a single program. 
 
 Installation
 ~~~~~~~~~~~~
 
-You can install ``Windows Terminal`` directly from the `official Microsoft Store package
+You can install Windows Terminal` directly from the `official Microsoft Store package
 <https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701?hl=en-us&gl=US>`_.

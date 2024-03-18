@@ -63,8 +63,3 @@ The following code collects the required options and automation rules for the
 ``make.bat`` program to use when building documentation for a PyAnsys project:
 
 .. literalinclude:: code/required_make.bat
-
-
-.. LINKS & REFERENCES:
-
-.. _Sphinx: https://www.sphinx-doc.org/en/master/

@@ -61,13 +61,13 @@ Python libraries
 
 A Python library is the formal way of distributing Python source code. It allows
 for reuse and for specifying Python code dependencies. The guidance presented in this section
-is compliant with the `Python Packaging Authority`_ and PyAnsys recommendations.
+is compliant with the `Python Packaging Authority`_ (PyPA) and PyAnsys recommendations.
 
 .. note::
 
    The best way to keep up to date with Python packaging is to check the `Python
-   Packaging User Guide`_, maintained by the `Python Packaging Authority`_ (PyPA).
-   PyAnsys guidelines are built on top of PyPA guidelines.
+   Packaging User Guide`_, maintained by the PyPA. PyAnsys guidelines are built
+   on top of the PyPA guidelines.
 
 Scripts, modules, subpackages, and packages
 --------------------------------------------
@@ -304,7 +304,7 @@ process but can also introduce security issues.
 
 .. note::
 
-   The ``setup.py`` is only compatible with `setuptools`_. Consider using a
+   The ``setup.py`` file is only compatible with `setuptools`_. Consider using a
    ``pyproject.toml`` file instead.
 
 While a ``setup.cfg`` file can be used to specify the metadata and packages, the ``setup.py``
@@ -318,23 +318,3 @@ template can be used:
 
 .. include:: code/setup_file_code.rst
 
-.. REFERENCES & LINKS
-
-.. _MIT License: https://opensource.org/licenses/MIT
-.. _PEP 420: https://peps.python.org/pep-0420/
-.. _native namespace packages: https://packaging.python.org/en/latest/guides/packaging-namespace-packages/#native-namespace-packages
-.. _Namespace packages: https://packaging.python.org/guides/packaging-namespace-packages/
-.. _PyAnsys: https://docs.pyansys.com/
-.. _Python Packaging User Guide: https://packaging.python.org/en/latest/
-.. _Python Packaging Authority: https://www.pypa.io/en/latest/
-.. _pytest: https://docs.pytest.org/en/latest/
-.. _Sphinx: https://www.sphinx-doc.org/en/master/
-.. _PyMAPDL: https://github.com/ansys/pymapdl
-.. _PyAEDT: https://github.com/ansys/PyAEDT
-.. _ansys-api-mapdl: https://pypi.org/project/ansys-api-mapdl/
-.. _reStructuredText Markup Syntax: https://docutils.sourceforge.io/rst.html
-.. _Markdown Syntax: https://www.markdownguide.org/basic-syntax/
-.. _PEP 518: https://peps.python.org/pep-0518/
-.. _Building and Distributing Packages with Setuptools: https://setuptools.pypa.io/en/latest/setuptools.html
-.. _Configuring setuptools using setup.cfg files: https://setuptools.pypa.io/en/latest/userguide/declarative_config.html
-.. _setuptools: https://setuptools.pypa.io/en/latest/index.html

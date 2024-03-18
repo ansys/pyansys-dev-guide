@@ -1,16 +1,20 @@
+.. _documenting_developers:
+
 Documenting
 ===========
 
 PyAnsys documentation must not only be written but also maintained. If you are
-new to writing developer documentation, see the `Google developer documentation
-style guide <https://developers.google.com/style>`_. It provides
-editorial guidelines for writing clear and consistent developer documentation,
-allowing this guide to supply guidance only specific to PyAnsys library
-documentation.
+new to writing PyAnsys documentation, see the `Google_dev_doc_style_guide`_,
+which provides the general guidelines that you are to follow. This page supplies guidance specific
+to PyAnsys documentation.
+
+.. note::
+    For comprehensive information on contributing new content or revising existing
+    content in PyAnsys documentation, see :ref:`content_writing`.
 
 When writing developer documentation, the relationship between code and
 documentation is key. To keep documentation up to date with evolving
-code:
+code, always perform these tasks:
 
 - Minimize the content footprint.
 - Write `timeless documentation <https://developers.google.com/style/timeless-documentation>`_.
@@ -26,10 +30,8 @@ Documentation sources
       <img width="30%" src="https://www.sphinx-doc.org/en/master/_static/sphinx-logo.svg">
     </div>
 
-The generation of PyAnsys documentation uses `Sphinx
-<https://www.sphinx-doc.org/en/master/>`__ and an Ansys-branded theme
-(`ansys-sphinx-theme`_) to
-assemble content in:
+The generation of PyAnsys documentation uses `Sphinx`_ and the Ansys-branded Sphinx theme
+(`Ansys_Sphinx_theme_repo`_) to assemble content in:
 
 - Docstrings
 - reStructuredText (RST) files
@@ -38,35 +40,35 @@ assemble content in:
 Docstrings
 ~~~~~~~~~~
 
-Docstrings must be formatted so that Sphinx can parse them. Sphinx provides
+You must format docstrings  so that Sphinx can parse them. Sphinx provides
 these extensions for docstring formatting:
 
-- `numpydoc <https://pypi.org/project/numpydoc/>`_
-- `napoleon <https://pypi.org/project/sphinxcontrib-napoleon/>`_
+- `numpydoc extension <https://pypi.org/project/numpydoc/>`_
+- `napoleon extension <https://pypi.org/project/sphinxcontrib-napoleon/>`_
 
 Using the ``numpydoc`` extension is preferred because it supports an API
 documentation structure with one page per method, providing Python community
-members with documentation like that generated for the `pandas <https://pandas.pydata.org/>`_
-and `numpy <https://numpy.org/>`_ packages. If your API is very linear, you
+members with documentation like that generated for the `pandas`_
+and `numpy`_ packages. If your API is very linear, you
 can use the ``napoleon`` extension because it supports a documentation
 structure where everything needed to solve a certain problem can be shown on one page.
 
-The ``numpydoc`` extension provides its own `style guide
-<https://numpydoc.readthedocs.io/en/latest/format.html>`_ and a `user guide
-<https://numpydoc.readthedocs.io/en/latest/>`_ that explains how to use the
-extension with Sphinx. The ``napoleon`` extension, which parses both numpydoc and
-Google style docstrings, refers you to the `Google Python Style Guide
+The ``numpydoc`` manual provides explains how to use the extension with Sphinx and
+includes a `style guide <numpydoc_style_guide_>`_ . The ``napoleon`` extension,
+which parses both numpydoc and Google style docstrings, refers you to the `Google Python Style Guide
 <https://google.github.io/styleguide/pyguide.html>`_.
 
-Regardless of the extension that you choose for generating documentation, using
-numpy-style docstrings ensures that there is consistency within PyAnsys libraries.
+Regardless of the extension that you choose for generating documentation from docstrings,
+using numpy-style docstrings ensures that there is consistency within PyAnsys libraries.
 For more information, see :ref:`Documentation style`.
+
+.. _rst_files_developers:
 
 RST files
 ~~~~~~~~~
 
 To provide general usage information in your documentation, use your favorite
-editor to create RST (ReStructured Text) files that you then place in :ref:`The \`\`doc/\`\`
+editor to create RST (ReStructuredText) files that you then place in :ref:`The \`\`doc/\`\`
 directory`. The ``index.rst`` file in the ``doc/source`` directory
 defines the first level of your documentation hierarchy. The ``toctree``
 directive (which stands for "table of contents tree") indicates the maximum
@@ -85,7 +87,7 @@ each one of the ``index.rst`` files.
 
         .. code-block:: rst
 
-            Welcome to the Library Documentation
+            Welcome to the library documentation
             ####################################
 
             This is the content of the root `index.rst` file.
@@ -131,14 +133,15 @@ structure, the index file referenced for each section must be named
 After you build documentation locally as described in :ref:`Build
 documentation`, the first-level heading in the ``index.rst`` file for each
 section is shown as a clickable link in the header of the
-documentation's generated HTML output. For more information on defining a
-documentation structure, see the `Sphinx Getting Started
-<https://www.sphinx-doc.org/en/master/usage/quickstart.html>`_ guide.
+documentation's generated HTML output. For more information on defining the
+documentation structure, see `Getting Started
+<https://www.sphinx-doc.org/en/master/usage/quickstart.html>`_ in the Sphinx
+documentation.
 
 Indicating RST titles
 +++++++++++++++++++++
 
-Within RST files, heading titles are to use sentence case per
+Within RST files, heading titles are to use sentence case per the
 `capitalization guidelines <https://developers.google.com/style/capitalization>`_
 in the *Google developer documentation style guide*. The line that follows
 the heading title must have a string of characters that is the same length
@@ -155,26 +158,25 @@ is recommended for headings but is not enforced:
 - For paragraph-level headings, use ``+++``.
 
 For comprehensive syntax information, see the `reStrucutredText Markup Specification
-<https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html>`_.
+<RST_markup_spec_>`_.
 
-Because you need to be familiar with the content in the `PyAnsys Developer's
-Guide <https://dev.docs.pyansys.com/index.html>`_, explore its HTML pages and then the RST files
-in its `repository <https://github.com/ansys/dev-guide>`_. This should help
-you to understand the syntax and see how RST files are nested to create this guide.
+Because you must be familiar with the content in this guide, explore its HTML pages
+and then the RST files in its `repository <dev_guide_repo_>`_. This should help you
+to understand the syntax and see how RST files are nested to create the guide.
 
 Recommended sections
 ++++++++++++++++++++
 
-Although each project is different, documentation has the same goal: providing
-instructions and guidelines for users. Thus, you can find some common sections
-across the documentation for PyAnsys libraries. Try to include these top-level
-sections in your library documentation:
+Although each PyAnsys library is different, its documentation has the same goal:
+provide instructions and guidelines for users. Thus, you can find some common sections
+across the documentation for many PyAnsys libraries. Try to include these top-level
+sections in your library's documentation:
 
-- ``Getting started`` explains how to install and set up the library.
-- ``User guide`` describes how to use basic features of the library.
-- ``API reference`` documents API resources provided by the library.
-- ``Examples`` provides fully fledged examples for using the library.
-- ``Contributing`` refers to the `PyAnsys developer's guide`_
+- ``Getting started``: Explains how to install and set up the library.
+- ``User guide``: Describes how to use basic features of the library.
+- ``API reference`` Documents API resources provided by the library.
+- ``Examples``: Provides fully fledged examples for using the library.
+- ``Contributing``: Refers to the *PyAnsys developer's guide*
   for overall guidance and provides library-specific contribution information.
 
 Examples
@@ -215,7 +217,7 @@ the Python project has the following structure:
         └── README.txt (or .rst)
 
 
-Enable the Sphinx-Gallery in the Sphinx doc/conf.py file with:
+In the Sphinx configuration file (``doc/conf.py``), enable the ``sphinx-gallery`` exentenion:
 
 .. code:: Python
 
@@ -235,22 +237,23 @@ to be ``../examples`` and the `output` directory to be ``examples``:
     }
 
 Because these examples are
-built using the `Sphinx-Gallery
+built using the `sphinx-gallery
 <https://sphinx-gallery.github.io/stable/index.html>`_ extension, you must
 follow its `coding guidelines
 <https://sphinx-gallery.github.io/stable/index.html>`_.
 
-Using Python, here is a :ref:`General example` using sphinx gallery.
+:ref:`General example` uses Python and the ``sphinx gallery``
+extension.
 
 Document Python code
 --------------------
 
-You can use `sphinx.ext.autodoc` to generate documentation from your Python
+You can use the `sphinx.ext.autodoc` extension to generate documentation from your Python
 code. When using this extension, you can include these directives in your :ref:`RST files`:
 
-* ``automodule`` for documenting modules
-* ``autoclass`` for documenting classes
-* ``autofunction`` for documenting methods and functions
+* ``automodule``: For documenting modules.
+* ``autoclass``: For documenting classes.
+* ``autofunction``: For documenting methods and functions.
 
 For a full list of 'auto' directives, see `Include documentation from docstrings
 <https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html>`_ in the Sphinx
@@ -264,17 +267,17 @@ There are two main ways of using Sphinx to document a class:
 * Manually describe 'how' and 'why' you use a class in :ref:`RST files`.
 
 * Automatically generate documentation for classes using the ``autoclass`` or
-  ``autosummary`` directive in :ref:`RST files`.
+  ``autosummary`` directive in RST files.
 
 Manually generate documentation
 +++++++++++++++++++++++++++++++
 
-To describe 'why' and 'how' you use a class within :ref:`RST files`, use the
+To describe 'why' and 'how' you use a class within RST files, use the
 ``code-block`` directive:
 
 .. tab-set::
 
-    .. tab-item:: Doc Source Code
+    .. tab-item:: Doc surce code
 
         .. code-block:: rst
 
@@ -288,7 +291,7 @@ To describe 'why' and 'how' you use a class within :ref:`RST files`, use the
                >>> my_obj.parm1
                'apple'
 
-    .. tab-item:: Rendered Doc
+    .. tab-item:: Rendered doc
 
         Initialize ``my_module.MyClass`` with initial parameters. These
         parameters are automatically assigned to the class.
@@ -305,8 +308,8 @@ Automatically generate documentation
 
 To automatically generate class descriptions from the numpydoc strings in
 your Python files, use either the ``autoclass`` or ``autosummary`` directive
-in your :ref:`RST files`. For information on docstrings and required docstring
-sections, see  :ref:`Numpydoc docstrings`.  
+in your RST files. For information on docstrings and required docstring
+sections, see :ref:`Numpydoc docstrings`.  
 
 For simple classes, use the ``autoclass`` directive:
 
@@ -325,12 +328,11 @@ For simple classes, use the ``autoclass`` directive:
             :members:
 
 
-For complex classes with many methods, use the
-``autosummary`` directive:
+For complex classes with many methods, use the ``autosummary`` directive:
 
 .. tab-set::
 
-    .. tab-item:: Doc Source Code
+    .. tab-item:: Doc source code
 
         .. code-block:: rst
 
@@ -343,7 +345,7 @@ For complex classes with many methods, use the
                ansys_sphinx_theme.examples.samples.Complex.imag
                ansys_sphinx_theme.examples.samples.Complex.abs
 
-    .. tab-item:: Rendered Doc
+    .. tab-item:: Rendered doc
 
         .. autoclass:: ansys_sphinx_theme.examples.samples.Complex
 
@@ -353,8 +355,8 @@ For complex classes with many methods, use the
            ansys_sphinx_theme.examples.samples.Complex.imag
            ansys_sphinx_theme.examples.samples.Complex.abs
 
-When you use the ``autosummary`` directive, each class has its own dedicated page,
-and each method and attribute in that class also has its own page.
+When you use the ``autosummary`` directive, each class has its own dedicated page.
+Each method and attribute in that class also has its own page.
 
 Document multiple classes
 +++++++++++++++++++++++++
@@ -386,14 +388,12 @@ documented separately.
 Build documentation
 -------------------
 
-`Sphinx <https://www.sphinx-doc.org/en/master/>`_ is used to build the documentation.
-You configure the entire build process in the ``conf.py`` file, located in the
-``source/`` directory in :ref:`The \`\`doc/\`\` directory`.
+`Sphinx`_ is used to build the documentation. You configure the entire build process in the
+``conf.py`` file, located in the ``source/`` directory in :ref:`The \`\`doc/\`\` directory`.
 
 This directory also contains a ``Makefile`` file and a ``make.bat`` file for
 automating the building process. Different builders render different
-documentation output, such as ``HTML``, ``LaTeX`` or
-``PDF``.
+documentation output, such as ``HTML``, ``LaTeX`` or ``PDF``.
 
 Build HTML documentation
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -476,6 +476,8 @@ The resulting PDF and intermediate LaTeX files are created in the
 
    Because warnings and errors that occur during the LaTeX building and rendering
    processes are ignored, it is possible that the PDF file has text formatting errors.
+
+.. _multi_version_enabling:
 
 Enabling multi-version documentation
 ------------------------------------
@@ -595,7 +597,7 @@ documentation for the first time.
 
 Using the ``{{ secrets.GITHUB_TOKEN }}`` when deploying to another repository is
 not possible due to the level of credentials of this token. Instead, use the
-secrets generated by the ``PyAnsy Bot Application``.
+secrets generated by the PyAnsy Bot application.
 
 For deploying the documentation to another repository, use the following
 workflow:
@@ -689,7 +691,7 @@ adding the ``dev`` path to the URL as follows:
     drop-down button for selecting the desired version should be available in the
     top right corner of the documentation's navigation bar.
 
-For example, consider PyAEDT documentation:
+For example, consider the PyAEDT documentation:
 
 - The URL for documentation of the latest stable release is `<https://aedt.docs.pyansys.com/>`_.
 - The URL for documentation of the latest development version is `<https://aedt.docs.pyansys.com/version/dev/>`_.
@@ -708,8 +710,9 @@ GitHub pull request. For more information, see :ref:`Build documentation`.
 Using PyMeilisearch as search engine
 ------------------------------------
 
-PyMeilisearch is a Python client library that enables you to utilize MeiliSearch, an open-source search engine, 
-to provide fast and relevant search capabilities for your application's data.
+PyMeilisearch is a Python client library that enables you to utilize
+MeiliSearch, an open-source search engine, to provide fast and relevant
+search capabilities for your application's data.
 
 To enable multi-version documentation in your project, follow these steps:
 
@@ -768,24 +771,5 @@ To enable multi-version documentation in your project, follow these steps:
 
 Replace <your-package>, <your-index-name>, and <library> with appropriate values for your project. 
 The version of your package is automatically calculated and used for indexing, ensuring that your documentation remains up-to-date.
-For more detailed documentation, refer to the `PyMeilisearch`_ and `ansys-sphinx-theme`_ documentation.
+For more information, see the `PyMeilisearch`_ and `ansys-sphinx-theme-doc`_ documentation.
 By following these steps, you can effectively use PyMeilisearch as a search engine for multi-version documentation in your project.
-
-.. Links
-
-.. _GitHub Pages: https://pages.github.com/
-.. _GitHub Actions: https://github.com/features/actions
-.. _PyMAPDL Documentation: https://mapdl.docs.pyansys.com/
-.. _pyansys/pymapdl-docs: https://github.com/ansys/pymapdl-docs
-.. _gh-pages: https://github.com/ansys/dev-guide/tree/gh-pages
-.. _enabling GitHub pages: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site
-.. _tox: https://github.com/tox-dev/tox
-.. _PyAnsys DNS Zones: https://portal.azure.com/#@ansys.com/resource/subscriptions/2870ae10-53f8-46b1-8971-93761377c38b/resourceGroups/pyansys/providers/Microsoft.Network/dnszones/pyansys.com/overview
-.. _Maxime Rey: https://teams.microsoft.com/l/chat/0/0?users=maxime.rey@ansys.com
-.. _Roberto Pastor Muela: https://teams.microsoft.com/l/chat/0/0?users=roberto.pastormuela@ansys.com
-.. _Alex Kaszynski: https://teams.microsoft.com/l/chat/0/0?users=alexander.kaszynski@ansys.com
-.. _PyAnsys Bot: https://github.com/apps/pyansys-bot
-.. _PyAnsys Organization: https://github.com/ansys
-.. _ansys-templates: https://github.com/ansys/ansys-templates
-.. _PyMeilisearch: https://pymeilisearch.docs.ansys.com/
-.. _ansys-sphinx-theme: https://sphinxdocs.ansys.com/

@@ -1,10 +1,12 @@
+.. _contributing:
+
 Contributing
 ============
 
-Before contributing to a PyAnsys repository, you must understand the general
-coding paradigms being used for PyAnsys development.
+Before contributing to a PyAnsys library, you must understand the general
+coding paradigms used for PyAnsys development.
 
-#. Follow the `Zen of Python <https://www.python.org/dev/peps/pep-0020/>`__.
+#. Follow the `Zen of Python <https://www.python.org/dev/peps/pep-0020/>`_.
    As silly as core Python developers are sometimes, there's much to be
    gained by following the basic guidelines listed in PEP 20. As suggested
    in these guidelines, focus on making your additions intuitive, novel,
@@ -28,7 +30,7 @@ coding paradigms being used for PyAnsys development.
 #. Review the Ansys `Code of Conduct
    <https://github.com/ansys/.github/blob/main/CODE_OF_CONDUCT.md>`_.
 
-All ``PyAnsys`` projects are hosted in `GitHub <https://www.github.com/>`_ in
+All ``PyAnsys`` projects are hosted in `GitHub <GitHub_>`_ in
 the form of :ref:`Git` repositories. GitHub is a platform that not only provides
 storage for projects but also additional features like code reviews or issue
 boards.
@@ -44,18 +46,18 @@ Create a GitHub account
 -----------------------
 
 To use GitHub, start by creating an account for the platform. Follow the
-`GitHub Join Process <https://github.com/join>`_.
+`GitHub Join Process <Join_GitHub_>`_.
 
 For Ansys employees:
 
-If you would like to join the `Ansys GitHub Organization <https://github.com/ansys>`_, visit `Join Ansys GitHub Organization <https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706>`_.
+If you would like to join the Ansys GitHub organization, visit `Join Ansys GitHub Organization <https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706>`_.
 
 GitHub repository sections
 --------------------------
 
-Once you have a GitHub account and access to the `Ansys` organization,
+Once you have a GitHub account and access to the Ansys GitHub organization,
 you are able to interact with the different repositories. While each
-repository contains all tabbed sections that are shown and described below,
+repository contains all tabbed sections in the following list,
 your access level determines tabbed sections you can see.
 
 .. figure:: images/github_sections.png
@@ -140,7 +142,7 @@ clone a repository by running:
 
     git clone git@github.com:<user>/<repository-name>.git
 
-For example, clone the `PyMAPDL <https://github.com/ansys/pymapdl/>`_
+For example, clone the `PyMAPDL`_
 project with:
 
 .. code-block:: bash
@@ -185,6 +187,8 @@ You create a branch with:
 .. code-block:: bash
 
     git checkout -b <new branch name>
+
+.. _branch_naming:
 
 Branch naming conventions
 ~~~~~~~~~~~~~~~~~~~~~~~~~

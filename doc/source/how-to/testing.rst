@@ -1,3 +1,5 @@
+.. _testing:
+
 Testing
 =======
 
@@ -25,10 +27,10 @@ Test framework
     </div>
 
 For consistency, PyAnsys tools and libraries should use either the `unittest
-<https://docs.python.org/3/library/unittest.html>`_ or `pytest
-<https://docs.pytest.org/>`_ framework for unit testing. This last framework is
-recommended unless any constraint in your project prevents you from using it. As
-described in :ref:`Required files`, unit tests should be placed in :ref:`The
+<https://docs.python.org/3/library/unittest.html>`_ or `pytest`_ framework
+for unit testing. This last framework is recommended unless any constraint
+in your project prevents you from using it. As described in :ref:`Required files`,
+unit tests should be placed in :ref:`The
 \`\`tests/\`\` directory` in the library's root directory.
 
 Add testing dependencies
@@ -36,7 +38,7 @@ Add testing dependencies
 
 Requirements for testing dependencies should be included either in :ref:`The
 \`\`setup.py\`\` file`, :ref:`The \`\`pyproject.toml\`\` file` or in a
-``requirements_tests.txt`` file. Only ``pytest`` and ``pytest-cov``
+``requirements_tests.txt`` file. Only ``pytest`` and `pytest-cov`_
 must be specified as third-party dependencies because``unittest`` is included
 in `The Python Standard Library <https://docs.python.org/3/library/>`_.
 
@@ -426,8 +428,7 @@ Because Python is an interpreted language, syntax errors can only be
 caught during the almost trivial compile times. Thus, developers of Python libraries
 should aim to have high coverage for their libraries. Coverage is defined as parts
 of the executable and usable source that are tested by unit tests. You can use
-the `pytest-cov <https://pytest-cov.readthedocs.io/>`_ library to view the
-coverage for your library.
+the `pytest-cov`_ library to view the coverage for your library.
 
 Configure code coverage
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -515,7 +516,7 @@ development environment, it is often not possible to enforce testing on
 multiple platforms, or even to enforce unit testing in general. However, with the proper
 automated CI/CD, such testing can still occur and be enforced automatically.
 
-`GitHub Actions`_ is the preferred automated CI/CD platform for running Python
+GitHub Actions is the preferred automated CI/CD platform for running Python
 library unit tests for PyAnsys. It can be used immediately by cloning the
 project `template <https://github.com/ansys/template/>`_. If you are
 unfamiliar with GitHub actions, see `GitHub Actions`_ for an overview.
@@ -524,7 +525,6 @@ unfamiliar with GitHub actions, see `GitHub Actions`_ for an overview.
    :language: yaml
 
 
-.. _GitHub Actions: https://github.com/features/actions
 .. _Test Driven Development (TDD): https://en.wikipedia.org/wiki/Test-driven_development
 .. _codecov.io: https://app.codecov.io/gh/pyansys
-.. _poetry: https://python-poetry.org
+

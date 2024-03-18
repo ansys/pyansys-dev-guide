@@ -1,3 +1,5 @@
+.. _componentizing:
+
 Componentizing Ansys packages
 =============================
 
