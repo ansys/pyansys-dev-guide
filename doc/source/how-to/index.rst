@@ -1,10 +1,10 @@
 How-to
 ======
 
-This section describes several guidelines and best practices for creating
-effective and efficient Python libraries to interface with Ansys products and
-services. Topics also demonstrate how apps and complex services expose
-functionalities such as logging, data transfer, and app APIs.
+This section describes several guidelines and best practices on how to create
+effective and efficient Python libraries for interfacing with Ansys products and
+services. It also explains how apps and complex services expose functionalities
+such as logging, data transfer, and app APIs.
 
 .. grid:: 3
 
@@ -69,7 +69,7 @@ functionalities such as logging, data transfer, and app APIs.
       :link-type: doc
       :padding: 2 2 2 2
 
-      How to use GitHub actions for continuous integration.
+      How to use GitHub Actions for continuous integration.
 
     .. grid-item-card:: :fas:`fa-solid fa-upload` Releasing & publishing
       :link: releasing

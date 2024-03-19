@@ -22,7 +22,7 @@
 .. _ansys-templates: https://templates.ansys.com/index.html
 .. _Git: https://git-scm.com/
 
-.. _Git_Extensions: https://gitextensions.github.io/
+.. _Git Extensions: https://gitextensions.github.io/
 .. _Notepadpp: https://notepad-plus-plus.org/
 .. _pip: https://pypi.org/project/pip/
 .. _Python: https://www.python.org/
@@ -56,6 +56,7 @@
 .. #Other libraries
 .. _Black: https://black.readthedocs.io/en/latest/
 .. _codespell: https://github.com/codespell-project/codespell
+.. _Docker: https://www.docker.com/
 .. _Flake8: https://flake8.pycqa.org/en/latest/
 .. _isort: https://pycqa.github.io/isort/
 .. _numpy: https://numpy.org/
@@ -85,7 +86,7 @@
 .. _Sphinx_autoapi: https://pypi.org/project/sphinx-autoapi/
 .. _Sphinx_contrib_org: https://github.com/sphinx-contrib/
 .. _Sphinx_ext_sphinx_design: https://sphinx-design.readthedocs.io/en/latest/index.html
-.. _Sphinx_ext_sphinx_gallery: https://sphinx-gallery.github.io/stable/index.html
+.. _Sphinx_ext_sphinx_gallery: https://sphinx-gallery.github.io/
 .. _Sphinx_ext_sphinx_gallery_structure: https://sphinx-gallery.github.io/stable/syntax.html
 .. _Sphinx_extensions: https://www.sphinx-doc.org/en/master/usage/extensions/index.html
 .. _Sphinx_nbsphinx_extension: https://nbsphinx.readthedocs.io/en/0.9.3/
@@ -107,7 +108,7 @@
 .. #GitHub links:
 .. _Join_GitHub: https://github.com/join
 .. _GitHub: https://github.com/
-.. _GitHub_Desktop: https://desktop.github.com/
+.. _GitHub Desktop: https://desktop.github.com/
 .. _GitHub_doc: https://docs.github.com/en
 .. _GitHub_doc_flavored_markdown: https://docs.github.com/en/contributing/writing-for-github-docs/using-markdown-and-liquid-in-github-docs
 .. _Liquid: https://shopify.github.io/liquid/basics/introduction/
@@ -130,6 +131,7 @@
 .. _MIT License: https://opensource.org/licenses/MIT
 .. _PEP 8: https://www.python.org/dev/peps/pep-0008/
 .. _PEP8: https://peps.python.org/pep-0008/#introduction
+.. _PEP 20: https://peps.python.org/pep-0020/
 .. _PEP-257: https://peps.python.org/pep-0257
 .. _PEP 420: https://peps.python.org/pep-0420/
 .. _PEP 517: https://peps.python.org/pep-0517/
@@ -156,7 +158,7 @@
 .. _docformatter: https://github.com/PyCQA/docformatter
 
 .. _pydocstyle: https://www.pydocstyle.org/en/stable/
-.. _pyansys/template: https://github.com/ansys/template
+.. _ansys/template: https://github.com/ansys/template
 
 .. _gRPC: https://grpc.io/
 .. _pythoncom: http://timgolden.me.uk/pywin32-docs/pythoncom.html

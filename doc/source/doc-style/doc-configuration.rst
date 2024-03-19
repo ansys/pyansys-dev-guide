@@ -6,7 +6,7 @@ building the documentation of a PyAnsys library.
 
 When installing `Sphinx`_, a program named ``sphinx-build`` also gets installed.
 This program is in charge of collecting, parsing, and rendering all
-ReStructuredText (RST) files in :ref:`The \`\`doc/\`\` directory`.
+ReStructuredText (RST) files in :ref:`The \`\`doc\`\` directory`.
 
 The behavior of the ``sphinx-build`` program is controlled through either
 a ``Makefile`` (for POSIX systems) or a ``make.bat`` file (for Windows systems).
@@ -28,7 +28,7 @@ Automation files
 As indicated earlier on this page, the ``sphinx-build`` program and
 all its options and arguments can be automated by using a
 ``Makefile`` file or a ``make.bat`` file. These files should be placed at the
-first level of :ref:`The \`\`doc/\`\` directory`, next to the ``source/``
+first level of :ref:`The \`\`doc\`\` directory`, next to the ``source``
 directory.
 
 Notice that both files contain a ``SPHINXOPTS`` variable with these flags: ``-j``,

@@ -139,9 +139,9 @@ Nevertheless, it is possible to make Poetry ignore the ``poetry.lock`` file with
 
    poetry config virtualenvs.create false --local
 
-Using Poetry is popular because it:
+Using Poetry is popular because of these features:
 
-* Supports pinning dependency versions via a ``poetry.lock`` file that can be
+* Supports pinning dependency versions using a ``poetry.lock`` file that can be
   used for testing and CI
 * Allows downstream packages to still consume a loose dependency specification
 * Integrates with `dependabot`_ to update the pinned version

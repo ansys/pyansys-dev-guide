@@ -102,7 +102,7 @@ languages and its efficiency over REST in terms of speed, memory, and
 payload size.
 
 Typically, REST data exchanges should be limited to short messages
-transferred via JSON files, and gRPC should be used for large data
+that are transferred using JSON files, and gRPC should be used for large data
 transfers and bidirectional streaming.
 
 Choosing gRPC over REST is generally preferable due to the performance

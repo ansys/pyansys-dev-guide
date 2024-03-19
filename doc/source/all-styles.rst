@@ -8,7 +8,7 @@ enhanced developer experience: packaging style, coding style, and documentation 
 - Packaging style focuses on creating clear, open source APIs hosted on GitHub,allowing
   for reusable packages that can be updated independently of the Ansys release schedule.
 - Coding style adheres to `PEP 8`_ and aligns with the conventions of major data science packages
-  like `numpy`_, `scipy`_, and `pandas`_, ensuring consistency and readability.
+  like `NumPy`_, `SciPy`_, and `pandas`_, ensuring consistency and readability.
 - Documentation style emphasizes the significance of well-documented APIs,
   offering increased adoption, an improved on-boarding experiences, and streamlined code maintenance.
   All PyAnsys libraries follow the `Google developer documentation style guide

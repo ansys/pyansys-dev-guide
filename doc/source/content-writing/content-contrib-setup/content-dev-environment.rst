@@ -53,7 +53,7 @@ In a GitHub project, you can perform many tasks, including these:
 - Create a local branch, make commits with suggested additions or changes, and
   then create your own PR for project maintainers to review, approve, and merge.
 
-- Integrate CI/CD (continuous integration/continuous deployment).
+- Integrate GitHub CI/CD.
 
 - Automate testing and deployment processes.
 
@@ -70,17 +70,16 @@ For more information on GitHub, see :ref:`Contributing` and the `GitHub document
 Install Git
 -----------
 
-You must have `Git <Git_>`_ or a graphical user interface (GUI) client for Git installed.
+You must have `Git`_ or a graphical user interface (GUI) client for Git installed.
 
 Because developers are accustomed to working in terminal environments, they
 tend to prefer using the Git command line, especially because it provides for
 greater control, customization, and automation. However, non-developer team members, such
 as project managers, designers, and writers, tend to prefer using a GUI client for Git.
 
-With a GUI client like `GitHub Desktop <GitHub_Desktop_>`_ or `Git Extensions <Git_Extensions_>`_,
-rather than having to remember complex command sequences, non-developer team members can use the
-visual clues that the GUI provides to better understand branching, PRs,
-merging, and history visualization.
+With a GUI client like `GitHub Desktop`_ or `Git Extensions`_, rather than having to
+remember complex command sequences, non-developer team members can use the visual clues
+that the GUI provides to better understand branching, PRs, merging, and history visualization.
 
 If you do not yet have Git or a GUI client for Git installed, install your
 preferred tool from an official channel.
@@ -103,7 +102,7 @@ GitHub credentials.
 - Join the `Ansys Internal GitHub organization <join_ansys_internal_organization_>`_.
 
 Writers outside of Ansys who want to contribute to the documentation for a PyAnsys
-library can email `pyansys.core@ansys.com <pyansys_core_email_>`_
+library can contact the `PyAnsy core team <pyansys_core_email_>`_
 for permission to access this project's repository.
 
 .. _Ansys_Python_Manager:
@@ -137,7 +136,7 @@ you can perform these steps to install and immediately begin using this app:
 #. On the **Install Python** tab, install a selected Python version:
 
    #. For **Installation type**, choose **Standard** to install the standard
-      installation from the `Python <Python_>`_ organization.
+      installation from the `Python`_ organization.
 
    #. For **Python version**, choose **Python 3.11** to install the latest available
       version.
@@ -305,7 +304,7 @@ To run ``pre-commit`` locally, you must install it in your development environme
 Install Vale
 ------------
 
-`Vale <Vale_>`_ is a tool for maintaining a consistent style and voice in your
+`Vale`_ is a tool for maintaining a consistent style and voice in your
 documentation based on a given style guide. When the `Ansys templates <Ansys_templates_>`_
 tool is used to create a PyAnsys project from the ``pyansys`` or ``pyansys-advanced`` template,
 Vale is one of the many documentation style tools that is configured to run as part of the

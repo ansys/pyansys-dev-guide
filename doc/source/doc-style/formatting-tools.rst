@@ -8,7 +8,7 @@ presents some of the most popular ones in the Python ecosystem. A minimum
 configuration is provided for each one so you can easily include them in your
 PyAnsys project.
 
-Most of the tools presented can be configured using :ref:`the
+Most of the tools presented can be configured using :ref:`The
 \`\`pyproject.toml\`\` file`, avoiding dotfiles and thus leading to a much
 cleaner root project directory.
 
@@ -90,7 +90,7 @@ checks only for those objects whose docstrings must be rendered. It is not a
 command line tool that checks the style of all docstrings in your source code.
 
 Because ``numpydoc`` is a Sphinx extension, it must be configured in the
-``conf.py`` file. See :ref:`The \`\`doc/\`\` directory`. Start by adding it to the
+``conf.py`` file. See :ref:`The \`\`doc\`\` directory`. Start by adding it to the
 list of extensions:
 
 .. code-block:: python
@@ -119,8 +119,7 @@ The ``pydocstyle``
 ------------------
 
 The `pydocstyle`_ is a tool for checking the compliance of Python docstrings with `PEP 257 <PEP-257_>`_.
-Its configuration can be defined in the
-:ref:`the \`\`pyproject.toml\`\` file<The \`\`pyproject.toml\`\` file>`.
+Its configuration can be defined in the :ref:`The \`\`pyproject.toml\`\` file`.
 By default, `pydocstyle`_ matches all ``*.py`` files except those starting with
 ``test_*.py``. The default configuration should be enough for a PyAnsys project.
 However, if additional configuration is needed, it must be included

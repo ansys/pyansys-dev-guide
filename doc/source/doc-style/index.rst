@@ -44,7 +44,7 @@ developed by Ansys, you can implement `Vale <Vale_>`_.
 This command-line tool brings code-like linting to prose. For more
 information, see :ref:`Vale`.
 
-Finally, the documentation should be public and hosted via gh-pages, either as
+Finally, the documentation should be public and hosted using GitHub pages, either as
 a branch named ``gh-pages`` within the library repository or within a
 ``gh-pages`` branch within ``<library-repository>-docs``. 
 

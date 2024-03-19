@@ -1,10 +1,12 @@
 PyAnsys project organization
 ============================
 
-The `PyAnsys <https://docs.pyansys.com/>`_ project is hosted on GitHub at
-`Ansys GitHub organization`_. It contains several repositories with Python
-libraries that interface with Ansys products or services. To try out a
-library, visit one of these links:
+The `PyAnsys project <https://docs.pyansys.com/>`_ is a collection of many
+Python packages for using Ansys products through Python. The
+`Ansys organization <Ansys GitHub organization_>`_ on GitHub contains
+several repositories with Python libraries for interfacing with Ansys
+products or services. To go to the repository for a main PyAnsys library,
+visit one of these links:
 
 * `PyAEDT`_
 * `PyDPF-Core <https://github.com/ansys/pydpf-core>`_
@@ -19,45 +21,46 @@ visit these links:
 * `PyAnsys developer's guide <https://github.com/ansys/pyansys-dev-guide>`_
 * `Ansys Sphinx Theme documentation <ansys-sphinx-theme-doc_>`_
 * `gRPC Hello-world example <https://github.com/ansys/pyansys-helloworld>`_
-* `Material Example data <https://github.com/ansys/example-data>`_
+* `Material example data <https://github.com/ansys/example-data>`_
 
-Using the following tools, developers generate library packages from 
+Developers use the following tools to generate library packages from 
 PROTO files, create coverage reports, and report on system coverage:
 
 * `pyansys-protos-generator <https://github.com/ansys/pyansys-protos-generator>`_
 * `example-coverage <https://github.com/ansys/example-coverage>`_
 * `pyansys-tools-report <https://github.com/ansys/pyansys-tools-report>`_
 
-Quick start guide
------------------
+PyAnsys repository creation
+---------------------------
 
 This is an overview on how to create your own PyAnsys repository in the
 Ansys GitHub organization. A repository is generally a project for a
 particular PyAnsys library.
 
 #. **Create the repository:** Create a repository from the
-   `pyansys/template`_.  See `Creating a repository from a template`_.
-   Be sure that the `repository visibility`_ is initially private.
+   `ansys/template`_ repository. See `Creating a repository from a template`_
+   in the GitHub documentation. Be sure that the `repository visibility`_ is initially private.
    
 #. **Rename the package:** Rename ``ansys/product/library`` to match
    your product or library. For example, the package name for
    PyMAPDL is ``ansys/mapdl/core``. Do the
-   same renaming in ``setup.py``. Do this as a pull request. In fact, only add
-   code as pull requests. Do not push to ``main``.
+   same renaming in the ``setup.py`` file. Do this as a pull request. In fact, only add
+   code as pull requests. Do not push to the ``main`` branch of the repository.
 
 #. **Add source:** Add your source files to
-   ``ansys/<product>/<library>`` or create them.  Also add unit tests to 
-   ``tests/`` following the `pytest`_ convention. Be sure to maintain
-   sufficient coverage when adding your library. See `pytest-cov`_.
+   ``ansys/<product>/<library>`` or create them.  Also add unit tests to the
+   ``tests`` directory, following the `pytest`_ convention. Be sure to maintain
+   sufficient coverage when adding to your library. See the `pytest-cov`_ documentation.
 
    .. note::
       If your tests require an active service, app, or product,
-      be sure to set up this app to run in an automated manner.
+      be sure to set it up to run in an automated manner.
 
 #. **Update documentation:** The documentation source and content 
-   vary from repository to repository. In ``doc/``, there are folders for
-   different types of documentation, which can include guides, examples,
-   and API. Ensure that all documentation is updated. See :ref:`Documentation
+   vary from repository to repository. In the ``doc`` directory, there are child
+   directories for different sections of the documentation, which can include getting
+   started and user guides, examples, and an API reference. Ensure that all
+   documentation is updated. See :ref:`Documentation
    style`.
 
 #. **Prepare the package for release:** When you are ready to release

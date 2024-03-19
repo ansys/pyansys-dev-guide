@@ -2,9 +2,10 @@ Supporting Python versions
 ==========================
 
 Like other programming languages, Python evolves with time. New
-features get added to the language, and others get deprecated. For
-more information, see `Status of Python branches
-<https://devguide.python.org/#status-of-python-branches>`_.
+features get added to the language, and other features get deprecated. For
+more information, see `Status of Python versions
+<https://devguide.python.org/versions/#versions>`_ in the *Python
+Developer's Guide*.
 
 +---------+------------+-------------+-----------------------+--------+
 | Version | PEP        | Released    | Security Support Ends | Status |
@@ -29,14 +30,15 @@ more information, see `Status of Python branches
    fixes. Versions labeled as ``dev`` are still receiving bug fixes.
 
 Expect stable versions to be the most commonly used Python versions. Some
-packages like `numpy <https://numpy.org/>`_ drop support for older versions of
+packages like `NumPy`_ drop support for older versions of
 Python earlier than their end of life (EOL) as outlined in `NEP 29
 <https://numpy.org/neps/nep-0029-deprecation_policy.html#support-table>`_.
 
-You can still install an older version from PyPI using ``pip`` as
+You can still install an older version from PyPI using `pip`_ as
 your package manager. When ``pip`` is used, it downloads and installs
 the most recent version of the library that supports your version of Python. You
-can enforce a minimum-required Python version within ``setup.py`` with:
+can enforce a minimum-required Python version within the ``setup.py`` file with
+this code:
 
 .. code:: python
 
@@ -52,13 +54,12 @@ support which versions of Python. You can also impose an upper limit if you're
 sure you don't support certain versions of Python. For example, if you only
 support Python 3.9 through 3.12, your command would look like this: ``python_requires='>=3.9, <3.12'``.
 
-Verifying support
------------------
+Verify Python support
+---------------------
 
 The best way to validate whether a Python library supports a version of Python
-is by :ref:`Using continuous integration`. An example GitHub
-workflow testing Python 3.9 through Python 3.12 on Windows and Linux would
-start with:
+is by :ref:`continuous_integration`. An example GitHub workflow testing Python
+3.9 through Python 3.12 on Windows and Linux would start like this:
 
 .. code-block:: yaml
    :linenos:

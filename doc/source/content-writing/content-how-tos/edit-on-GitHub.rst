@@ -6,7 +6,7 @@ Edit on GitHub
 The easiest way to contribute to a PyAnsys project is to make changes in GitHub,
 letting the CI/CD process handle the build. When you are viewing PyAnsys
 documentation, the right navigation pane might display an **Edit on GitHub** link.
-You can use this feature to submit changes to this page via a PR on GitHub:
+You can use this feature to submit changes to this page by creating a PR on GitHub:
 
 #. Click the **Edit on GitHub** link.
 

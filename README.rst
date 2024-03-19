@@ -16,7 +16,7 @@ It also provides how-to information and summarizes packaging, coding, and
 documentation styles. It concludes with an abstractions section that explains
 how apps and complex services expose only functionalities that matter to users.
 
-From the **About** area for the repository, you can click the link for the latest web-based
-release of this guide. In the `Releases <https://github.com/ansys/pyansys-dev-guide/releases>`_
+From the **About** area for the repository, you can click the link to view
+the latest web-based release of this guide. In the `Releases <https://github.com/ansys/pyansys-dev-guide/releases>`_
 area, you can view information about all releases. In the **Assets**  area for
-any release, you can download a PDF.
+any release, you can download a PDF file of the guide.

@@ -99,15 +99,15 @@ The structure of any PyAnsys library contains these files and directories:
 
 Descriptions follow for some of the directories in the structure:
 
-- ``doc/`` contains files related to documentation, guidelines, and examples.
+- ``doc`` contains files related to documentation, guidelines, and examples.
 
-- ``src/`` contains all Python modules and scripts that form the project.
+- ``src`` contains all Python modules and scripts that form the project.
 
-- ``tests/`` contains all unit tests for checking the integrity of the project.
+- ``tests`` contains all unit tests for checking the integrity of the project.
 
 - ``setup.py`` or ``pyproject.toml`` is the project file.
 
-The ``doc/`` directory
+The ``doc`` directory
 ----------------------
 
 When distributing software, it is important to document it. Documenting software
@@ -125,21 +125,21 @@ A PyAnsys project should have the following documentation sections:
 
 Projects in the PyAnsys ecosystem take advantage of `Sphinx`_, a tool used for
 building documentation for Python-based projects. As shown in :numref:`doc structure diag`,
-`Sphinx`_ requires a ``doc/`` directory with a specific structure:
+`Sphinx`_ requires a ``doc`` directory with a specific structure:
 
 .. include:: diag/doc_structure_diag.rst
 
 - ``_build/`` contains the rendered documentation in various formats, such as HTML
   and PDF.
 
-- ``source/`` contains the RST files that are used to render the documentation.
+- ``source`` contains the RST files that are used to render the documentation.
 
 - ``make.bat`` and ``Makefile`` are used to automate cleaning and building
   commands. You use ``make.bat`` when running on Windows and ``Makefile``
   when running on MacOS or Linux. The required configuration for these files is
-  explained in the :ref:`Automation files` section.
+  explained in :ref:`Automation files`.
 
-The ``source/`` directory must contain at least these files:
+The ``source`` directory must contain at least these files:
 
 - ``conf.py`` is a Python script used to declare the configuration of `Sphinx`_.
   The minimum required configuration for this file is explained in :ref:`The
@@ -150,7 +150,7 @@ The ``source/`` directory must contain at least these files:
 If you would like to include images or documents, add them in the ``_static/``
 directory.
 
-The ``src/`` directory
+The ``src`` directory
 ----------------------
 
 All the Python source code must be located in the ``src/`` directory. This is where the
@@ -173,7 +173,7 @@ shown in the diagram :numref:`src structure diag`:
 
 .. include:: diag/src_structure_diag.rst
 
-The ``tests/`` directory
+The ``tests`` directory
 ------------------------
 
 To guarantee the integrity of a PyAnsys project, a good test suite is required.
@@ -184,10 +184,10 @@ directory, although this is not always necessary.
 
 .. include:: diag/tests_structure_diag.rst
 
-Notice the use of ``tests_*/`` when creating new directories inside the
-``tests/`` one. For unit testing files, names use the ``test_*.py`` prefix.
+Notice the use of ``tests_*`` when creating new directories inside the
+``tests`` one. For unit testing files, names use the ``test_*.py`` prefix.
 This is the preferred way of naming directories and files inside the
-``tests/`` directory.
+``tests`` directory.
 
 The ``AUTHORS`` file
 --------------------
@@ -236,6 +236,7 @@ towards the `PyAnsys developer's guide <https://docs.pyansys.com/>`_.
 
 The ``CONTRIBUTORS.md`` file
 ----------------------------
+
 The ``CONTRIBUTORS.md`` file is used to list the contributors to the repository. Its
 purpose is to credit the authors for their individual contributions and provide a
 record of authorship for the codebase. Provide your first and last names and
@@ -247,15 +248,14 @@ a link to your GitHub username.
 The ``LICENSE`` file
 --------------------
 
-The ``LICENSE`` file provides the legal framework for the software. `PyAnsys`_ 
-projects must use `MIT License`_. A template for
-this license is provided below:
+The ``LICENSE`` file provides the legal framework for the software. PyAnsys projects
+must use the `MIT License`_. Here is the template for this license:
 
 .. include:: code/license_mit_code.rst
 
 .. note::
 
-   Just because a software does not ship with a LICENSE file, it does not mean
+   Just because a software does not ship with a ``LICENSE`` file, it does not mean
    it is free or open source. If you need to use unlicensed software, contact
    its development team so they can provide you with the correct license.
 
@@ -266,15 +266,15 @@ Each PyAnsys library should have a ``README.rst`` file in the root directory.
 
 The preferred format of this file is `reStructuredText Markup Syntax`_,
 although `Markdown Syntax`_ can be used too. While Markdown syntax has better
-GitHub support, ReStructured Text (RST) files can be reused within Sphinx documentation.
-This avoids duplication between the ``README.rst`` and the main ``index.rst`` in
-the ``doc/source/`` directory.
+GitHub support, ReStructuredText (RST) files can be reused within Sphinx documentation.
+This avoids duplication between the ``README.rst`` and the main ``index.rst`` file in
+the ``doc/source`` directory.
 
 The ``README.rst`` file should at the minimum contain these elements:
 
 - PyAnsys library title
 - General description
-- Installation directions (via ``pip install`` and ``git clone``)
+- Installation directions (using ``pip install`` and ``git clone``)
 - Basic usage
 - Links to the full documentation
 

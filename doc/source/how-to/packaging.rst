@@ -7,14 +7,14 @@ source code or binary files need to be distributed, project metadata and third
 party dependencies.
 
 The fundamentals of Python packaging together with the packaging style
-guidelines that apply to PyAnsys projects are collected in the :ref:`Packaging
-style` section.
+guidelines that apply to PyAnsys projects are collected in :ref:`Packaging
+style`.
 
-Specifying dependencies
------------------------
+Dependencies
+------------
 
-It is common to take advantage of third party libraries to simplify
-source code. The formal way of doing so is by specifying these third party
+It is common to take advantage of third-party libraries to simplify
+source code. The formal way of doing so is by specifying these third-party
 libraries as dependencies. There are two types of dependencies: :ref:`Required
 dependencies` and :ref:`Optional dependencies`.
 
@@ -72,26 +72,26 @@ Optional dependencies
 
 Optional dependencies are third-party libraries without which a software is not
 able to execute particular features. This makes it convenient to declare
-dependencies for ancillary functions such as *plotting*, *tests*, or *docs*. You
+dependencies for ancillary functions such as plotting, tests, or documentation. You
 can programmatically integrate dependencies that are to be installed as optional
 requirements rather than individual packages.
 
 You may want to have optional packages for your PyAnsys library for a variety of
 reasons, including:
 
-- **Not all users want to use the feature.** - For example, you might want
-  to make using `matplotlib <https://matplotlib.org/>`_ or `pyvista
+- **Not all users want to use the feature.** For example, you might want
+  to make using `Matplotlib <https://matplotlib.org/>`_ or `PyVista
   <https://docs.pyvista.org/>`_ optional if you expect your PyAnsys library is
   to be used primarily for headless scripting rather than visualization.
 
-- **Not all users can install the optional package.** - For certain less popular
+- **Not all users can install the optional package.** For certain less popular
   or obscure environments, some binary wheels might not be available or compatible
   with the user's environment. For example, if a user of CentOS 6.9 needs to
-  have ``manylinux1`` but the package only supports ``manylinux2014`` (CentOS
-  7+) or newer, the user's environment wouldn't be able to run the PyAnsys
+  have the ``manylinux1`` package but CentOS 6.9 only supports ``manylinux2014`` (CentOS
+  7+ and later), the user's environment wouldn't be able to run the PyAnsys
   library.
 
-- **Reducing dependency bloat** - Removing the package as a "required"
+- **Reduce dependency bloat.** Removing the package as a "required"
   dependency reduces the number of packages to install at installation time,
   speeding up the installation and reducing the possibility of dependency
   conflicts. The trade-off here is that any user who wants to access features that
@@ -100,11 +100,11 @@ reasons, including:
 If you choose to implement optional packages for your PyAnsys library, some helpful
 best practices follow.
 
-Implementing optional packages in the build system
-++++++++++++++++++++++++++++++++++++++++++++++++++
+Implement optional packages in the build system
++++++++++++++++++++++++++++++++++++++++++++++++
 
-Here's how to implement and use optional requirements for the three most
-popular build systems:
+The following code snippets show how to implement and use optional requirements for
+the three most popular build systems:
 
 .. tab-set::
 
@@ -126,7 +126,7 @@ popular build systems:
              "pyside",
          ]
 
-      Install ``package-name`` with the optional ``qt`` packages with:
+      Install ``package-name`` with the optional ``qt`` packages with this command
 
       .. code-block:: text
 
@@ -157,7 +157,7 @@ popular build systems:
              "pyside",
          ]
 
-      Install ``package-name`` with the optional ``qt`` packages with:
+      Install ``package-name`` with the optional ``qt`` packages with this command:
 
       .. code-block:: text
 
@@ -180,18 +180,18 @@ popular build systems:
              ...,
          )
 
-      Install ``package-name`` with the optional ``qt`` packages with:
+      Install ``package-name`` with the optional ``qt`` packages with this command:
 
       .. code-block:: text
 
           pip install package-name[qt]
 
-Implementing optional libraries in features
-+++++++++++++++++++++++++++++++++++++++++++
+Implement optional libraries in features
+++++++++++++++++++++++++++++++++++++++++
 
 One of the best ways to implement an optional dependency is to execute a *lazy
 import* at runtime for the feature in question. For example, if your library
-has an optional dependency on ``matplotlib``, you can implement it with:
+has an optional dependency on Matplotlib, you can implement it like this:
 
 .. code:: python
 
@@ -232,7 +232,7 @@ error is expected because the feature relies on an optional dependency.
 
 If you have many methods that rely on an optional feature, you can implement a
 `decorator <https://realpython.com/primer-on-python-decorators/>`_ to make it
-easier to add these lazy imports and helpful error messages. For example:
+easier to add these lazy imports and helpful error messages. Here is an example:
 
 .. code:: python
 
@@ -285,7 +285,7 @@ easier to add these lazy imports and helpful error messages. For example:
 
        return decorator
 
-You use the decorator with a method with:
+You use the decorator with a method like this:
 
 .. code:: python
 
@@ -308,7 +308,7 @@ You use the decorator with a method with:
             plt.plot(self._a, self._b)
 
 
-In practice, if the user does not have ``matplotlib`` installed, this is the
+In practice, if the user does not have Matplotlib installed, this is the
 behavior that the user would expect:
 
 .. code-block:: pycon
@@ -326,8 +326,8 @@ behavior that the user would expect:
 Dependabot
 ----------
 
-Dependabot is a built-in tool which allows to keep project dependencies updated,
-by informing of latest releases of the packages being used.
+Dependabot is a built-in tool for keeping project dependencies updated. It informs
+you of the latest releases of the packages being used.
 
 The ``dependabot.yml`` file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -390,32 +390,32 @@ according to the type of file in which the dependencies are specified:
 
         
 This file should be located in the ``.github`` folder of your repository for
-GitHub to detect it automatically. As it can be seen there are several main options:
+GitHub to detect it automatically. There are several main options:
 
-* **package-ecosystem**: which lets Dependabot know what your package manager is.
-  PyAnsys projects typically use ``pip``, but another example could be ``conda``.
-* **directory**: which lets Dependabot where your requirement files are located.
+* **package-ecosystem**: Lets Dependabot know what your package manager is.
+  PyAnsys projects typically use ``pip``. However, ``conda`` could also be used.
+* **directory**: Lets Dependabot know where your requirement files are located.
   PyAnsys projects typically contain all their requirements inside a ``requirements``
-  folder. Other directories could be provided.
-* **schedule**: which lets Dependabot know the frequency at which its subroutines
-  should be performed for checking for updates.
+  directory. Other directories could be used.
+* **schedule**: Lets Dependabot know the frequency to perform subroutines
+  for checking for updates.
 
 Dependabot updates
 ~~~~~~~~~~~~~~~~~~
 
 Dependabot determines (using semantic versioning) whether a requirement should
 be updated due to the existence of a newer version. When Dependabot identifies
-an outdated dependency, it raises a Pull Request to update these requirement
+an outdated dependency, it raises a pull request to update these requirement
 files.
 
 Dependabot allows for two different types of updates:
 
-* **Dependabot security updates**: automated pull requests that help update
+* **Dependabot security updates**: Automated pull requests that help update
   dependencies with known vulnerabilities.
-* **Dependabot version updates**: automated pull requests that keep dependencies updated,
+* **Dependabot version updates**: Automated pull requests that keep dependencies updated,
   even when they don’t have any vulnerabilities. To check the status of version updates,
-  navigate to the ``Insights`` tab of your repository, then ``Dependency Graph``,
-  and ``Dependabot``.
+  navigate to the **Insights** tab of your repository and then select **Dependency Graph**
+  and **Dependabot**.
 
 
 .. caution::
@@ -423,17 +423,18 @@ Dependabot allows for two different types of updates:
     Dependabot only works for *pinned-down* versions of requirements (or, at most, versions
     with an *upper-limits* requirement such as ``pyvista <= 0.34.0``). However, this is not
     a best practice for *run-time* dependencies (that is, the usage of a package should support
-    the oldest available version, if possible). Thus, it is only recommended to fully pin
+    the oldest available version if possible). Thus, it is only recommended to fully pin
     **documentation** and **testing** requirements (that is, using ``==``). Having the latest
-    dependencies available in your requirements **testing**  files allows to test the
+    dependencies available in your requirements testing files allows you to test the
     *latest* packages against your library.
 
 Dependabot version updates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In order to enable version updates for your repository, please go to
+To enable version updates for your repository, see
 `Enabling Dependabot version updates
-<https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates>`_.
+<https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates>`_
+in the GitHub documentation.
 
 Dependabot security updates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -442,6 +443,7 @@ Dependabot security updates make it easier for you to fix vulnerable dependencie
 repository. If you enable this feature, when a Dependabot alert is raised for a vulnerable
 dependency in the dependency graph of your repository, Dependabot automatically tries to fix it.
 
-To enable security updates and notifications for your repository, go to
+For information on enabling security updates and notifications for your repository, see
 `Enabling or disabling Dependabot security updates for an individual repository
-<https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#enabling-or-disabling-dependabot-security-updates-for-an-individual-repository>`_.
+<https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#enabling-or-disabling-dependabot-security-updates-for-an-individual-repository>`_
+in the GitHub documentation.

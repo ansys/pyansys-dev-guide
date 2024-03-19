@@ -4,13 +4,13 @@ Releasing and publishing
 Releasing a new version is a critical procedure. It should be automated as much
 as possible to avoid human error.
 
-This sections explains the :ref:`Git` workflow and steps that must be followed
+This sections explains the :ref:`Git` workflow and steps that you must follow
 to create a successful release.
 
 .. attention::
 
-   A project needs to be authorized to be released into public by following the
-   process explained in the :ref:`Project approval and public release` section.
+   A project must be authorized to be publicly released. For an explanation
+   of the process, see:ref:`Project approval and public release`.
 
 Semantic versioning
 -------------------
@@ -22,11 +22,11 @@ PyAnsys follows `Semantic Versioning`_, which produces release names in the
 form of ``X.Y.Z``, where each letter corresponds to an integer value. This
 notation can also be understand as ``MAJOR.MINOR.PATCH``:
 
-* **Major** version when you make incompatible API changes.
-* **Minor** version when you add a feature in a backwards-compatible manner.
-* **Patch** version when you make backwards compatible bug fixes.
+* A ``MAJOR`` version is when you make incompatible API changes.
+* A ``MINOR`` version is when you add a feature in a backwards-compatible manner.
+* A ``PATCH`` version is when you make backwards-compatible bug fixes.
 
-To match the versioning methodology used by the 'big three' data science Python
+To match the versioning methodology used by the "big three" data science Python
 packages, `numpy`_, `scipy`_, and `pandas`_, ``MAJOR`` versions of PyAnsys
 packages are not released when any incompatible API change is made but rather
 when major, globally breaking API changes are made. 
@@ -35,15 +35,16 @@ Note that ``0.MINOR.PATCH`` packages are expected to have fluid APIs and should
 be solidified at the ``1.MINOR.PATCH`` release. At that point, APIs are expected
 to be much more stable.
 
-.. admonition:: PyAnsys libraries should not match product versions.
+.. admonition:: PyAnsys library versions should not match product versions.
 
-    For example, the PyMAPDL library ``ansys-mapdl-core`` might have the version
-    ``0.59.0`` whereas the product version is 22.2 (2022 R2). The reason behind
-    this is PyAnsys libraries are expected to be developed outside the product
-    release cycle in a rapid CI/CD manner.
+    PyAnsys libraries are expected to be developed outside the product
+    release cycle in a rapid CI/CD manner. Thus, library versions should
+    not match product versions. For example, PyMAPDL library (``ansys-mapdl-core``)
+    might have the version ``0.59.0`` whereas the product (Ansys Parametric
+    Design Language (APDL) might have the version is ``22.2`` (2022 R2).
 
-Branch model
-------------
+Branching model
+---------------
 
 The branching model for a PyAnsys project enables rapid development of
 features without sacrificing stability. The model closely follows the
@@ -76,10 +77,10 @@ features without sacrificing stability. The model closely follows the
 
   .. include:: diag/release_branch.rst
 
-Releasing new versions
-----------------------
+Release new versions
+--------------------
 
-Releasing is the process of creating a version of a software that developers
+Releasing is the process of creating a version of the software that developers
 consider useful for customers or other developers. Releases are usually labeled
 with *tags*. These tags are used to quickly identify a release in the version
 control system.
@@ -92,9 +93,10 @@ control system.
     | |uncheck| All documentation builds successfully.
     | |uncheck| The project builds successfully.
 
-.. dropdown:: Releasing major and minor versions
+.. dropdown:: Release major and minor versions
 
-    Before performing a release, you must verify that your ``origin main`` branch is up to date using the these commands:
+    Before performing a release, you must verify that your ``origin main`` branch is up to date
+    with these commands:
     
     .. code-block:: text
     
@@ -102,11 +104,11 @@ control system.
        git fetch origin main 
        git rebase origin/main
     
-    If you encounter any issues when running the preceding command, solve them before
+    If you encounter any issues when running the preceding commands, solve them before
     continuing with the release. Ensure that your style, tests, and documentation
     checks are passing too.
     
-    Create a new branch for the version you want to release with this command:
+    Create a new branch for the version that you want to release with this command:
     
     .. code-block:: text
     
@@ -117,22 +119,22 @@ control system.
     
     Check all locations, including
     :ref:`The \`\`setup.py\`\` file`, :ref:`The \`\`pyproject.toml\`\` file`, and any
-    ``__init__.py`` or ``__version__.py`` your project may contain.
+    ``__init__.py`` or ``__version__.py`` files that your project may contain.
     
-    Stash and commit previous changes with the commands:
+    Stash and commit previous changes with these commands:
     
     .. code-block:: text
     
        git add <files-edited-for-version-number-change>
        git commit -m "Bump version X.Y.0"
     
-    Tag the previous commit using this command:
+    Tag the previous commit with this command:
     
     .. code-block:: text
     
        git tag vX.Y.0
     
-    Push the commit and the tag with these commands:
+    Push the commit and the tag it with these commands:
     
     .. code-block:: text
     
@@ -140,13 +142,15 @@ control system.
        git push origin vX.Y.0
 
 
-.. dropdown:: Releasing patched versions
+.. dropdown:: Release patched versions
 
     Patched versions allow you to fix issues discovered in published releases by
-    cherry-picking these fixes from the ``main`` branch.
+    cherry-picking these fixes from the ``main`` branch. For more information, see
+    the `get-cherry-pick <https://git-scm.com/docs/git-cherry-pick>`_ description
+    in the Git documentation.
 
     Before performing a patch release, you must first identify which
-    ``release/X.Y`` branch it belongs to.
+    ``release/X.Y`` branch it belongs to with these commands.
     
     .. code-block:: text
     
@@ -154,9 +158,9 @@ control system.
        git fetch origin release/X.Y
        git reset --hard origin/release/X.Y
     
-    Now, use the following code to `cherry-pick <https://git-scm.com/docs/git-cherry-pick>`_
-    the fix commit from ``main``, which solves for the bug. Do not merge changes from
-    ``main`` into the release branch. Always cherry-pick them.
+    Next, use the following code to cherry-pick the fix commit from the ``main``
+    branch, which solves for the bug. Do not merge changes from the
+    ``main`` branch into the release branch. Always cherry-pick them:
     
     .. code-block:: text
        
@@ -165,7 +169,7 @@ control system.
     Ensure that your style, tests, and documentation checks are also passing.
     
     Increase by one unit the value of ``Z`` in your project version. Stash and
-    amend these new changes using this command:
+    amend these new changes with these commands:
     
     .. code-block:: text
     
@@ -178,7 +182,7 @@ control system.
     
        git tag vX.Y.Z
     
-    Push the commit and the tag using this command:
+    Push the commit and the tag it using this command:
     
     .. code-block:: text
     
@@ -189,15 +193,15 @@ Publishing artifacts
 --------------------
 
 When a new version is released, some artifacts are provided with it. In Python,
-these :ref:`Artifacts` are typically the ``Wheel`` and ``Source`` files.
-Documentation in the form of PDF and HTML files are also considered artifacts.
+these :ref:`Artifacts` are typically ``Wheel`` and ``Source`` files.
+Documentation in the form of HTML and PDF files are also considered artifacts.
 
 .. attention:: 
 
    Do not distribute artifacts without approval. 
 
-   A project needs to be authorized to be released into public by following the
-   process explained in :ref:`Project approval and public release`.
+   A project must be authorized to be publicly released. For an explanation
+   of the process, see:ref:`Project approval and public release`.
 
 There are three possible places where artifacts can be published:
 
@@ -214,7 +218,7 @@ There are three possible places where artifacts can be published:
        :link: public-pypi
        :link-type: ref
 
-       This is the `public PyPI` used by the Python community to distribute
+       This is the public PyPI used by the Python community to distribute
        libraries. A project requires Ansys authorization before being
        published in this index.
 
@@ -237,11 +241,11 @@ hosted on the public `PyPI`_. For example, if a PyAnsys library requires
 auto-generated gRPC interface files from a feature or service that is still
 private, this package should be hosted on a private PyPI repository.
 
-ANSYS, Inc. has a private repository at `PyAnsys PyPI`_. Access is controlled
-via a username and a password:
+ANSYS, Inc. has a private repository at `PyAnsys PyPI`_. You must have the proper
+credentials for publishing to this private repository:
 
 +---------------------------------------------+-------------------------------------------------------------------------+
-| Credentials for publishing to private PyPI  | Value                                                                   |
+| Credentials                                 | Value                                                                   |
 +=============================================+=========================================================================+
 | Username                                    | ``__token__``                                                           |
 +---------------------------------------------+-------------------------------------------------------------------------+
@@ -250,32 +254,32 @@ via a username and a password:
 | repository-url                              | ``https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload``   |
 +---------------------------------------------+-------------------------------------------------------------------------+
 
-When running this from the command line using `twine <https://twine.readthedocs.io/>`_,
-be sure to add in `--repository-url`` as an extra option. Otherwise ``twine``
-attempts to upload the package to the public PyPI repository.
-
 The ``PYANSYS_PYPI_PRIVATE_PAT`` is a password in the form of a GitHub secret
-which is available only to repositories within `PyAnsys`_. This secret is
+that is available only to `PyAnsys projects <PyAnsys_>`_. This secret is
 available during the execution of the CI/CD. Its value is never shown or shared
 in the log files.
 
-Forked GitHub repositories do not have access to GitHub secrets. This is
-designed to protect against pull-requests that could potentially scrape
-tokens from PyAnsys CI/CD.
+When using `Twine <https://twine.readthedocs.io/>`_ from the command line, you must
+add in ``--repository-url`` as an extra option. Otherwise, Twine attempts to upload
+the package to the public PyPI repository.
 
-Here's a cross-platform one liner for uploading using ``twine```:
+Forked GitHub repositories do not have access to GitHub secrets. This is
+designed to protect against pull requests that could potentially scrape
+tokens from the PyAnsys CI/CD.
+
+Here's a cross-platform, one-line command for using Twine to upload a package:
 
 .. code::
 
    python -m twine upload dist/* --repository-url https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload -u __token__ -p <TOKEN-REDACTED>
 
-Replace ``<TOKEN-REDACTED>`` with the private PyPI token respectively.
+Replace ``<TOKEN-REDACTED>`` with the private PyPI token.
 
-.. dropdown:: Using GitHub actions
+.. dropdown:: Use GitHub Actions
 
     The following code allows you to publish any Python :ref:`Artifacts` contained in
-    the ``dist/`` directory to the private PyPI. It is expected to be included when
-    :ref:`Use GitHub actions`:
+    the ``dist`` directory to the private PyPI. It is expected to be included when you
+    :ref:`Use GitHub Actions`:
     
     .. code-block:: yaml
     
@@ -291,7 +295,7 @@ Replace ``<TOKEN-REDACTED>`` with the private PyPI token respectively.
                 twine-token: ${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }}
 
 
-.. dropdown:: Using the command line
+.. dropdown:: Use the command line
 
     Alternatively, instead of command-line tool arguments for Twine, you can use environment variables:
     
@@ -361,24 +365,24 @@ unique to each project. It can only be obtained after the first release to the
 public PyPI. Follow the process :ref:`Project approval and public release`
 process to obtain public release authorization.
 
-Once authorized, contact `pyansys.core@ansys.com <mailto:pyansys.core@ansys.com>`_ to
-get support during the first release of the project. The team then enables the
+Once authorized, contact the `PyAnsy core team <pyansys_core_email_>`_ to
+get support during the first release of the project. The team enables the
 custom ``PYPI_TOKEN`` once your project has been successfully released for the
-first time. For future releases, everything is then automated.
+first time. For future releases, everything is automated.
 
-Here's a one liner for downloading:
+Here's a cross-platform, one-line command for using Twine to download a package:
 
 .. code::
 
    python -m pip install <PACKAGE-NAME> --index-url <TOKEN-REDACTED>@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/
 
-Replace ``<PACKAGE-NAME>`` and ``<TOKEN-REDACTED>`` with the package name and the private PyPI token respectively.
+Replace ``<PACKAGE-NAME>`` and ``<TOKEN-REDACTED>`` with the package name and private PyPI token respectively.
 
-.. dropdown:: Using GitHub actions
+.. dropdown:: Use GitHub Actions
 
     The following code allows you to publish any Python :ref:`Artifacts` contained in
-    the ``dist/`` directory to the public PyPI. It is expected to be included when
-    :ref:`Use GitHub actions`:
+    the ``dist`` directory to the public PyPI. It is expected to be included when you
+    :ref:`Use GitHub Actions`.
     
     .. code-block:: yaml
     
@@ -398,19 +402,19 @@ Replace ``<PACKAGE-NAME>`` and ``<TOKEN-REDACTED>`` with the package name and th
 GitHub
 ~~~~~~
 
-Publishing :ref:`Artifacts` to GitHub is also possible. These are available in
+You can publish :ref:`Artifacts` to GitHub, which makes them available in
 the ``https://github.com/ansys/project-name/releases`` section. The
 visibility of these artifacts follows the one in the repository. Visibility can
-be private, internal or public.
+be private, internal, or public.
 
 For enabling public visibility of a repository, follow the process explained in
-the :ref:`Project approval and public release` section.
+:ref:`Project approval and public release`.
 
-.. dropdown:: Using GitHub actions
+.. dropdown:: Use GitHub Actions
 
     The following code allows you to publish any Python :ref:`Artifacts` contained in
-    the ``dist/`` directory to the GitHub release created. It is expected to be included when
-    :ref:`Use GitHub actions`:
+    the ``dist`` directory to the GitHub release created. It is expected to be included
+    when you :ref:`Use GitHub Actions`:
     
     .. code-block:: yaml
     
@@ -492,22 +496,21 @@ public PyPI and GitHub.
                 --index-url $INDEX_URL \
                 --no-dependencies
 
-.. dropdown:: Downloading artifacts from the public PyPI
+.. dropdown:: Download artifacts from the public PyPI
 
-    Downloading artifacts from the public PyPI can be done by using the default
-    settings by ``pip``:
+    Downloading artifacts from the public PyPI can be done by using ``pip``:
 
     .. code-block:: bash
 
         python -m pip install <package-name>
 
-.. dropdown:: Downloading artifacts from GitHub
+.. dropdown:: Download artifacts from GitHub
 
     Downloading artifacts from GitHub can be done by checking the
     ``https://github.com/ansys/project-name/releases`` section.
 
-    Note that if you download the ``Wheel`` of a Python package, you still need
-    to manually install it by running:
+    Note that if you download the ``Wheel`` of a Python package, you must manually install
+    it with a command like this:
     
     .. code-block:: bash
 

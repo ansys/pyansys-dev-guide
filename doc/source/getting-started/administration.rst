@@ -1,20 +1,19 @@
 Project approval and public release
 ===================================
 
-Most of the projects in PyAnsys expose the functionality of Ansys
-products. Due to intellectual property reasons, the public release of a PyAnsys
-library must go through a project approval process.
+Most of the projects in the `Ansys organization <Ansys GitHub organization_>`_ 
+expose the functionality of Ansys products. Due to intellectual property reasons,
+the public release of a PyAnsys library must go through a project approval process.
 
-First steps
------------
+First step
+----------
 
-To trigger the public release process, project leads must fill in this form:
+To trigger the public release process, project leads must first complete the
+`Release request workflow initiation form <https://ansys.typeform.com/ReleaseSupport?typeform-source=gz2idtcjsw2.typeform.com>`_.
 
-* `Release request workflow initiation form <https://ansys.typeform.com/ReleaseSupport?typeform-source=gz2idtcjsw2.typeform.com>`_
-
-The form lets the different parties involved in the public release process know that
-there is a request to release a project. If your intent is to release an Ansys Open
-Source project, then continue to the next section.
+This form lets the different parties involved in the public release process know that
+there is a request to release a project. If your intent is to release an Ansys open
+source project, then continue to the next section.
 
 Approval process
 ----------------
@@ -47,24 +46,21 @@ The approval process is divided into three parts:
 .. important::
 
     An approval from each of these three parts is required to release a project to the public.
+    Once all approvals are received, a project can be published to the :ref:`Public PyPI`.
 
-    Once approved, a project can be published to the :ref:`Public PyPI`.
 
-
-When releasing a project to the public, you should:
+When releasing a project to the public, you must perform these tasks:
 
 * Coordinate with the product line development team, if applicable.
 * Maintain the project by means of fixing bugs and providing support for new releases.
 * Uphold Ansys' reputation in the open source community.
 
-Once all three approvals have been awarded, project leads must complete
-the next form:
-
-* `OSS approval request form <https://ansys.typeform.com/ReleaseSupport?typeform-source=gz2idtcjsw2.typeform.com/OSSapproval>`_
+Once all three approvals have been awarded, project leads must then complete
+the `OSS (Open Source Software) approval request form <https://ansys.typeform.com/ReleaseSupport?typeform-source=gz2idtcjsw2.typeform.com/OSSapproval>`_.
 
 This form serves as a final checklist to verify that all approvals have been processed
-and to formalize the OSS approval process as a final record. You can find frequently
-asked questions in :ref:`Questions asked in the OSS approval request form`.
+and to formalize the OSS approval process as a final record. For more information, see
+:ref:`Questions asked on the OSS approval request form`.
 
 Managerial
 ^^^^^^^^^^
@@ -101,15 +97,15 @@ Legal
 Legal review approval ensures that the entire project complies with Ansys'
 legal policies.
 
-Start by completing the legal review request form for open sourcing the code:
+Click the following button to complete the legal review request form for open sourcing the code:
 
 .. button-link:: https://github.com/ansys-internal/oss-approval-tracklist/issues/new?assignees=MaxJPRey%2C+RobPasMue%2C+jorgepiloto%2C+&labels=&projects=&template=oss_final_signature.yml&title=Name+of+the+package+to+release
     :color: black
     :expand:
 
-    **Open Source Code Release Request Form**
+    **Open source code release request form**
 
-The following checks are required when performing the legal review of the project:
+These checks are required when performing the legal review of the project:
 
 .. card:: |uncheck| The project contains the right licensing.
 
@@ -118,7 +114,7 @@ The following checks are required when performing the legal review of the projec
     | |uncheck| Ansys official logos and branding images are used in the project.
     | |uncheck| The Ansys copyright appears in the correct location as required by the
        Legal department.
-    | |uncheck| The copyright has the proper formatting, which is:
+    | |uncheck| The copyright has the proper formatting:
       ``Copyright (C) YYYY ANSYS, Inc. and/or its affiliates.``.
     | |uncheck| The contribution does not embody any unapproved Ansys intellectual
       property for open sourcing.
@@ -139,7 +135,7 @@ Technical approval ensures that the project follows the best and latest
 software development practices. Request a technical review by sending an email
 to `pyansys.core@ansys.com <mailto:pyansys.core@ansys.com>`_.
 
-The technical review of the project verifies the following:
+The PyAnsys core team performs these checks when performing the technical review of the project:
 
 .. card:: |uncheck| The project contains the right metadata information.
     
@@ -189,10 +185,10 @@ The technical review of the project verifies the following:
 
     <input disabled="" type="checkbox">
 
-Questions asked in the OSS approval request form
+Questions asked on the OSS approval request form
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When filling in the `OSS approval request form`_, project leads must
+When completing the OSS approval request form, project leads must
 supply responses to several types of questions:
 
 .. card:: |uncheck| General questions
