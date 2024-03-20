@@ -41,7 +41,7 @@ PROTO file repositories and the needed files to generate the Python API
 packages to be consumed by the PyAnsys clients.
 
 To set up an API repository like the ```ansys-api-mapdl`` one,
-select the `ansys-api-template <https://github.com/ansys/ansys-api-template_>`_ repository
+select the `ansys-api-template <https://github.com/ansys/ansys-api-template>`_ repository
 when creating a repository within the Ansys GitHub organization.
 
 To understand how to use the ``ansys-api-template`` repository, see
