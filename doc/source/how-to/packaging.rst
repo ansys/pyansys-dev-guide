@@ -3,12 +3,11 @@ Packaging
 
 Packaging is the process for distributing software to guarantee that final users
 can use it. By packaging Python libraries, it is possible to declare which
-source code or binary files need to be distributed, project metadata and third
-party dependencies.
+source code or binary files must be distributed, project metadata, and
+third-party dependencies.
 
-The fundamentals of Python packaging together with the packaging style
-guidelines that apply to PyAnsys projects are collected in :ref:`Packaging
-style`.
+:ref:`Packaging style` collects the fundamentals of Python packaging and packaging style
+guidelines that apply to PyAnsys projects.
 
 Dependencies
 ------------

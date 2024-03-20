@@ -1,10 +1,10 @@
 How-to
 ======
 
-This section describes several guidelines and best practices on how to create
-effective and efficient Python libraries for interfacing with Ansys products and
-services. It also explains how apps and complex services expose functionalities
-such as logging, data transfer, and app APIs.
+This section describes how to create effective and efficient Python libraries
+for interfacing with Ansys products and services. It also explains how apps
+and complex services expose functionalities such as logging, data transfer,
+and app APIs.
 
 .. grid:: 3
 
@@ -15,7 +15,7 @@ such as logging, data transfer, and app APIs.
 
       How to set up a development environment.
 
-    .. grid-item-card:: :fas:`fa-solid fa-code-compare` Versions
+    .. grid-item-card:: :fas:`fa-solid fa-code-compare` Python versions
       :link: supporting-python-versions
       :link-type: doc
       :padding: 2 2 2 2
@@ -27,14 +27,14 @@ such as logging, data transfer, and app APIs.
       :link-type: doc
       :padding: 2 2 2 2
 
-      How to contribute to PyAnsys.
+      How to contribute to a PyAnsy library.
 
     .. grid-item-card:: :fas:`fa-solid fa-box-open` Packaging
       :link: packaging
       :link-type: doc
       :padding: 2 2 2 2
 
-      How to package Python libraries.
+      How to package a PyAnsys library.
 
     .. grid-item-card:: :fas:`fa-solid fa-cubes` gRPC API packages
       :link: grpc-api-packages
@@ -71,7 +71,7 @@ such as logging, data transfer, and app APIs.
 
       How to use GitHub Actions for continuous integration.
 
-    .. grid-item-card:: :fas:`fa-solid fa-upload` Releasing & publishing
+    .. grid-item-card:: :fas:`fa-solid fa-upload` Releasing and publishing
       :link: releasing
       :link-type: doc
       :padding: 2 2 2 2

@@ -3,11 +3,11 @@ gRPC API packages
 
 Protobuf service definitions provide the API specification for underlying
 server implementations so that each consuming client library has a clear
-contract for gRPC data messages. Ideally, the PROTO (``.proto``) files have a single
-repository established as the source of truth, organized by API version
-increment as the API definition expands and changes. Because most client
-libraries are custom implementations enhancing the developer experience
-when consuming the service, releasing the Protobuf definitions
+contract for gRPC data messages. Ideally, the Protobuf (``.proto``) files
+have a single repository established as the source of truth, organized by
+API version increment as the API definition expands and changes. Because
+most client libraries are custom implementations enhancing the developer
+experience when consuming the service, releasing the Protobuf definitions
 publicly gives full flexibility to developers to operate at the abstraction
 layer they choose.
 
@@ -15,12 +15,12 @@ Maintain API definition repository
 ----------------------------------
 
 Because the Protobuf definition of the service is language agnostic, the repository
-containing the Protobuf files can be created within the top-level
+containing the PROTO files can be created within the top-level
 `Ansys GitHub organization`_.
 
-Every update of the Protobuf files follows a standard
-pull request process as a sanity check for API definition accuracy. Language-
-specific packages can be generated for each merge or on a set cadence.
+Every update of the PROTO files follows a standard pull request process as a
+sanity check for API definition accuracy. Language-specific packages can be
+generated for each merge or on a set cadence.
 
 Manage Protobuf definitions for Python clients
 ----------------------------------------------
@@ -28,7 +28,7 @@ Manage Protobuf definitions for Python clients
 Within Ansys, and more specifically in the PyAnsys environment, most client libraries
 have a dedicated Python package containing the needed PROTO files compiled as
 Python source code. These are typically consumed by the PyAnsys client libraries
-for being able to communicate with their respective services.
+for communicating with their respective services.
 
 For example, `PyMAPDL`_ consumes the ``ansys-api-mapdl`` package, which is built in the
 `ansys-api-mapdl`_ repository.
@@ -37,24 +37,24 @@ Build an ``ansys-api-<service>`` repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Ansys GitHub organization has a dedicated template repository for creating
-these PROTO file repositories and the needed files to generate the Python API
+PROTO file repositories and the needed files to generate the Python API
 packages to be consumed by the PyAnsys clients.
 
-To set up an API repository like the `ansys-api-mapdl`` one,
+To set up an API repository like the ```ansys-api-mapdl`` one,
 select the `ansys-api-template <https://github.com/ansys/ansys-api-template_>`_ repository
 when creating a repository within the Ansys GitHub organization.
 
-To understand how to use the ``ansys-api-template`` repository, see the instructions
-in `Expected usage <https://github.com/ansys/ansys-api-template#expected-usage>`_
+To understand how to use the ``ansys-api-template`` repository, see
+`Expected usage <https://github.com/ansys/ansys-api-template#expected-usage>`_
 in this repository's README.
 
 Build Python stub classes
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The template repository uses the `ansys-tools-protoc-helper <https://github.com/ansys/ansys-tools-protoc-helper/>`_
-library to auto-generate Python wheels that can be consumed by downstream Python client libraries.
+The ``ansys-api-template`` repository uses the `ansys-tools-protoc-helper <https://github.com/ansys/ansys-tools-protoc-helper/>`_
+utility to auto-generate Python wheels that can be consumed by downstream Python client libraries.
 
-To use this, include this tool in the ``pyproject.toml`` file as a build dependency:
+To use the ``ansys-tools-protoc-helper`` utility, include it in the ``pyproject.toml`` file as a build dependency:
 
 .. code-block:: toml
 
@@ -70,15 +70,15 @@ these commands:
     pip install build
     python -m build
 
-Publish Python API package
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Publish the API package
+~~~~~~~~~~~~~~~~~~~~~~~
 
-PyPI is the common package manager where API packages are released.
+`PyPI`_ is the common package manager where API packages are released.
 
 Here is an example of a workflow pipeline for building and publishing the Python stub package.
-In this example, the ``ansys-api-geometry`` workflow is shown. However, this workflow can be
-easily copied and adapted. Only the ``PYTHON_PACKAGE_IMPORT`` environment variable
-would have to be changed:
+In this example, the ``ansys-api-geometry`` workflow is shown. However, you can easily copy
+and adapt this workflow. Only the ``PYTHON_PACKAGE_IMPORT`` environment variable would have
+to be changed:
 
 .. code-block:: yaml
 
@@ -167,12 +167,12 @@ would have to be changed:
                 ./**/*.tar.gz
                 ./**/*.pdf
 
-Versioning
-^^^^^^^^^^
+Version the API package
+^^^^^^^^^^^^^^^^^^^^^^^
 
 PyPI packages follow semantic versioning while gRPC Protobuf API versions
-typically follow a simplified ``v*`` versioning pattern. It is not expected to
-synchronize the PyPI package version with the Protobuf API version, and
+typically follow a simplified ``v*`` versioning pattern. The PyPI package
+version is not expected to synchronize with the Protobuf API version, and
 multiple public APIs can be exposed simultaneously. For example, if you have a
 ``v0`` for MAPDL exposed, you can access it with this code:
 
@@ -192,8 +192,8 @@ recommendations, which stipulate that incrementing the gRPC Protobuf version is
 only necessary when making a backwards breaking change. Non-breaking changes
 include:
 
-* Adding a new service
-* Adding a new method to a service
+* Adding a service
+* Adding a method to a service
 * Adding a field to a request message
 
 However, this only applies to the ``vN`` gRPC Protobuf API. Python packages
@@ -213,8 +213,8 @@ major release is scheduled in the near future.
 This way, you can expose a ``v0`` and/or ``v1`` gRPC Protobuf API and release
 frequent updates using semantic versioning.
 
-Releasing
-^^^^^^^^^
+Release the API package
+^^^^^^^^^^^^^^^^^^^^^^^
 
 As shown in the ``release`` section of the previous GitHub workflow, once the Python
 API package is compiled it is then uploaded to the public PyPI. In order to do

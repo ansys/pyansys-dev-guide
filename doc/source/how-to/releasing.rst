@@ -1,3 +1,5 @@
+.. _release_publish:
+
 Releasing and publishing
 ========================
 
@@ -77,8 +79,8 @@ features without sacrificing stability. The model closely follows the
 
   .. include:: diag/release_branch.rst
 
-Release new versions
---------------------
+New releases
+------------
 
 Releasing is the process of creating a version of the software that developers
 consider useful for customers or other developers. Releases are usually labeled
@@ -189,11 +191,11 @@ control system.
        git push -u origin release/X.Y
        git push origin vX.Y.Z
 
-Publishing artifacts
+Artifact publication
 --------------------
 
 When a new version is released, some artifacts are provided with it. In Python,
-these :ref:`Artifacts` are typically ``Wheel`` and ``Source`` files.
+these :ref:`Artifacts` are typically *wheel* and *source* files.
 Documentation in the form of HTML and PDF files are also considered artifacts.
 
 .. attention:: 
@@ -201,7 +203,7 @@ Documentation in the form of HTML and PDF files are also considered artifacts.
    Do not distribute artifacts without approval. 
 
    A project must be authorized to be publicly released. For an explanation
-   of the process, see:ref:`Project approval and public release`.
+   of the process, see :ref:`Project approval and public release`.
 
 There are three possible places where artifacts can be published:
 
@@ -277,8 +279,8 @@ Replace ``<TOKEN-REDACTED>`` with the private PyPI token.
 
 .. dropdown:: Use GitHub Actions
 
-    The following code allows you to publish any Python :ref:`Artifacts` contained in
-    the ``dist`` directory to the private PyPI. It is expected to be included when you
+    The following code allows you to publish Python :ref:`Artifacts` in
+    the ``dist`` directory to the private PyPI. This code is expected to be included when you
     :ref:`Use GitHub Actions`:
     
     .. code-block:: yaml
@@ -427,13 +429,12 @@ For enabling public visibility of a repository, follow the process explained in
               with:
                 library-name: "ansys-<product>-<library>"
 
-Downloading artifacts
----------------------
+Artifact download
+-----------------
 
-Artifacts can be downloaded from all previous sources: Ansys private PyPI,
-public PyPI and GitHub. 
+You can download artifacts from the Ansys private PyPI, public PyPI, and GitHub. 
 
-.. dropdown:: Downloading artifacts from the Ansys private PyPI
+.. dropdown:: Download artifacts from the Ansys private PyPI
 
     Request the value of the ``PYANSYS_PYPI_PRIVATE_PAT`` token by sending an
     email to the `pyansys.core@ansys.com <pyansys.core@ansys.com>`_ email.
@@ -509,7 +510,7 @@ public PyPI and GitHub.
     Downloading artifacts from GitHub can be done by checking the
     ``https://github.com/ansys/project-name/releases`` section.
 
-    Note that if you download the ``Wheel`` of a Python package, you must manually install
+    Note that if you download the wheel of a Python package, you must manually install
     it with a command like this:
     
     .. code-block:: bash

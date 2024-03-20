@@ -1,7 +1,7 @@
 .. _setting_up_dev_environment:
 
-Setting up your development environment
-=======================================
+Environment setup
+=================
 
 Before you can contribute to any PyAnsys project, you must set up
 your developer environment.

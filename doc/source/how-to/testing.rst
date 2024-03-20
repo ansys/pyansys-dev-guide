@@ -4,7 +4,7 @@ Testing
 =======
 
 Unit testing and integration testing are critical for the successful continuous
-integration (CI) and delivery of any program or libraries belonging to the PyAnsys
+integration (CI) and delivery of any library belonging to the PyAnsys
 project.
 
 In 1993, Kent Beck developed `Test Driven Development (TDD)`_ as part

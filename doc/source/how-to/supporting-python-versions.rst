@@ -1,5 +1,5 @@
-Supporting Python versions
-==========================
+Python versions
+===============
 
 Like other programming languages, Python evolves with time. New
 features get added to the language, and other features get deprecated. For

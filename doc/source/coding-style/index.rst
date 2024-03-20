@@ -1,3 +1,7 @@
+
+
+.. _coding_style:
+
 Coding style
 ============
 

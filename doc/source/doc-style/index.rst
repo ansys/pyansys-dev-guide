@@ -53,7 +53,7 @@ see :ref:`DNS configuration`. You should ensure that you are compliant with
 the naming convention for your CNAME.
 
 For procedural information related to crafting, building, and deploying
-documentation, see :ref:`Documenting` in the :ref:`How-to` section.
+documentation, see :ref:`documenting_developers`.
 
 .. toctree::
    :hidden:

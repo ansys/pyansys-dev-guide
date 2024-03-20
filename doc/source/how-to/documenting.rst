@@ -710,12 +710,12 @@ PyMeilisearch is a Python client library that enables you to utilize
 MeiliSearch, an open source search engine, to provide fast and relevant
 search capabilities for your application's data.
 
-By completing the folowing steps, you can effectively enable and use PyMeilisearch as
+By completing the following steps, you can effectively enable and use PyMeilisearch as
 a search engine for multi-version documentation in your project.
 
 #. Use ``ansys-sphinx-theme>=0.9`` for building the documentation in your project.
 
-#. Include the following lines in the conf.py file:
+#. Include the following lines in the ``conf.py`` file:
 
    .. code-block:: python
   
@@ -737,7 +737,7 @@ a search engine for multi-version documentation in your project.
            ...
        }
   
-  #. In this code, replace *<your-index-name>* with the desired name for your MeiliSearch index.
+  #. In these lines, replace *<your-index-name>* with the desired name for your MeiliSearch index.
   
      The ``convert_version_to_pymeilisearch`` function converts your package's version into
      a format suitable for MeiliSearch indexing.

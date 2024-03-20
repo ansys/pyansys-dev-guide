@@ -1,11 +1,11 @@
 .. _continuous_integration:
 
-Using continuous integration
-============================
+Continuous integration
+======================
 
 Continuous integration (CI) is the process of merging new changes into the main
 code base while ensuring that these changes are functional and do not break the existing
-logic. 
+code. 
 
 This process is automated as much as possible to alleviate the developer's workload
 and ensure a quick development workflow.
@@ -17,20 +17,19 @@ Enable GitHub actions
 ---------------------
 
 By default, ``Actions`` are enabled in new repositories and can be accessed
-using the associated :ref:`github_repo_sections`.
+using the associated :ref:`GitHub repository sections <github_repo_sections>`.
 
 If ``Actions`` are not enabled, you can enable them. For more information, see
 `Managing GitHub Actions permissions for your repository
-<https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository>`
-in the GitHub documenation.
-.
+<https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository>`_
+in the GitHub documentation.
 
 Use GitHub Actions
 ------------------
 
-You must declare the GitHub Actions to be executed in the CI process in a ``YML``
-file in the ``.github/workflows`` directory. Although each action is
-different, they all have a common structure:
+You must declare the GitHub Actions to be executed in the CI process in a
+common ``ci.yml`` file in the ``.github/workflows`` directory. Although each
+action is different, they all have a common structure:
 
 - A name identifying the action.
 - A collection of triggering events that run the action when required.
@@ -56,9 +55,8 @@ Disable concurrent workflows
 ----------------------------
 
 Handling hardware resources is a big deal, especially when running with self-hosted agents.
-Also, if you are using public GitHub hardware for running your workflows, you should try to
-care about the environment and sustainability. Disabling concurrent CI workflows is a good
-way to do so.
+If you are using public GitHub hardware for running your workflows, disabling concurrent
+CI workflows is a way to show that you care about the environment and sustainability.
 
 For example, imagine the following situation:
 
@@ -72,8 +70,8 @@ At this moment, you probably have two parallel workflows running at the same tim
 though you are only interested in the results from the last one.
 
 One way to solve this is manually cancelling the oldest workflow. However, it is also possible to
-automatically cancel pre-existing workflows for a certain branch/PR. To do so, prior to the
-``jobs`` section, you should add the following lines to your workflow:
+automatically cancel pre-existing workflows for a PR. To do so, prior to the
+``jobs`` section in the ``ci.yml`` file, add the following lines to your workflow:
 
 .. code-block:: yaml
 
@@ -85,12 +83,15 @@ automatically cancel pre-existing workflows for a certain branch/PR. To do so, p
 Required workflows
 ------------------
 
-All PyAnsys projects require these workflows:
+PyAnsys projects require workflows for performing these types of checks:
 
-- :ref:`Coding style` workflow
-- :ref:`Documentation style`, :ref:`Build documentation`, and :ref:`Deploy documentation` workflows
-- :ref:`Testing` and :ref:`Test code coverage` workflows
-- :ref:`Releasing and publishing` workflow
+- :ref:`Code style <coding_style>`
+- :ref:`Documentation style`
+- :ref:`Documentation building <Build documentation>`
+- :ref:`Documentation deployment <Deploy documentation>`
+- :ref:`Testing`
+- :ref:`Test code coverage`
+- :ref:`release_publish`
 
 You should collect all workflows in a common ``ci.yml`` file. For more information,
 see :ref:`Workflow examples`.
@@ -105,8 +106,8 @@ using different Python versions:
 
     \text{Num. Workflows} = \text{Num. Operating Systems} \times \text{Num. Python Versions}
 
-The most common operating systems are ``Windows``, ``macOS``, and ``Linux``. For
-Python versions, see :ref:`Supporting Python versions`.
+The most common operating systems are Windows, macOS, and Linux/UNIX. For supported
+Python versions, see :ref:`Python versions`.
 
 Because having a YML file for each workflow would be tedious, GitHub
 Actions provides the ``matrix`` parameter inside the ``strategy``. For more
@@ -114,7 +115,7 @@ information, see `Using a matrix for your Jobs
 <https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs>`_
 in the GitHub documentation
 
-Consider this example of a parametrized workflow example:
+Consider this example of a parametrized workflow:
 
 .. tab-set::
 
@@ -152,8 +153,9 @@ Consider this example of a parametrized workflow example:
 Workflow examples
 -----------------
 
-Workflow examples are provided for checking :ref:`Coding style`,
-:ref:`Documenting`, :ref:`Testing`, and :ref:`Releasing and publishing`.
+Workflow examples are provided for various checks, such as :ref:`code style <coding_style>`,
+:ref:`tests <testing>`, :ref:`documentation style <documenting_developers>`,
+:ref:`documentation building <Build documentation>`, and :ref:`releasing <release_publish>`.
 
 .. tab-set::
 
