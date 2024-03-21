@@ -132,8 +132,8 @@ doing this (``HTTPS`` or ``SSH``), to force the usage of ``SSH``, only this meth
 Clone using SSH
 ~~~~~~~~~~~~~~~
 
-Cloning using ``SSH`` requires :ref:`Enabling SSH`. After that, you can
-clone a repository by running this command:
+Cloning using ``SSH`` requires that SSH be enabled. For more information, see :ref:`Enable SSH`.
+To clone a repository using SSH, run this command:
 
 .. code-block:: bash
 
@@ -237,8 +237,7 @@ or someone else with write permission must merge your PR and then delete your PR
 
 .. admonition:: Always delete your PR branch after merging it into the main branch.
 
-   You can set up automatic deletion
-   of branches in **Settings -> General -> Pull Requests**.
+   You can set up automatic deletion of branches in **Settings > General > Pull Requests**.
 
 Use GitHub CLI
 --------------

@@ -62,6 +62,11 @@ guide, the ``maxdepth`` attribute is set to ``3`` for all sections. The ``toctre
 then includes an ordered list of the RST files to show in the **Section Navigation** pane. The
 RST extensions for the files in this list are omitted.
 
+.. note::
+
+   In the ``doc/source`` directory, folder and file names should use hyphens as space delimiters
+   for search optimization of the generated HTML documentation. For example, ``rst-file-formatting.rst``.
+
 To see the ``toctree`` directives for the other sections in this guide,
 in the project's `repository <dev_guide_repo_>`_, go to the ``doc/source``
 directory and look at the ``index.rst`` files in the child directories for the
@@ -121,8 +126,9 @@ If your ``README.rst`` file has links to sections or pages in the library's docu
 use external links. You can use either URLs or named targets. However, named targets must be inserted
 at the bottom of the ``README.rst`` file. If your project has a central ``links.rst``
 file in the project's ``doc/source`` directory, inserting named targets for links in the
-``README.rst`` file does not work because the GitHub renderer is unaware of this ``links.rst`` file.
+``README.rst`` file does not work because the GitHub renderer is unaware of the ``links.rst`` file.
 For more information, see :ref:`doc_links_external`.
+
 
 .. toctree::
    :maxdepth: 3

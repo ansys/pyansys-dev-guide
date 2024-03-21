@@ -125,43 +125,47 @@ A PyAnsys project should have the following documentation sections:
 
 Projects in the PyAnsys ecosystem take advantage of `Sphinx`_, a tool used for
 building documentation for Python-based projects. As shown in :numref:`doc structure diag`,
-`Sphinx`_ requires a ``doc`` directory with a specific structure:
+Sphinx requires a ``doc`` directory with a specific structure:
 
 .. include:: diag/doc_structure_diag.rst
 
-- ``_build/`` contains the rendered documentation in various formats, such as HTML
+- ``_build``: Contains the rendered documentation in various formats, such as HTML
   and PDF.
 
-- ``source`` contains the RST files that are used to render the documentation.
+- ``source``: Contains the RST files with the manually authored content. Folder
+   and file names in this directory should use hyphens as space delimiters for search
+   optimization of the HTML documentation.
 
-- ``make.bat`` and ``Makefile`` are used to automate cleaning and building
-  commands. You use ``make.bat`` when running on Windows and ``Makefile``
-  when running on MacOS or Linux. The required configuration for these files is
+- ``make.bat`` and ``Makefile``: Used to automate cleaning and building
+  commands. You use ``make.bat`` file when running on Windows and ``Makefile``
+  when running on macOS or Linux. The required configuration for these files is
   explained in :ref:`Automation files`.
 
 The ``source`` directory must contain at least these files:
 
-- ``conf.py`` is a Python script used to declare the configuration of `Sphinx`_.
+- ``conf.py``: Python script that declares the configuration of `Sphinx`_.
   The minimum required configuration for this file is explained in :ref:`The
   \`\`conf.py\`\` file`.
-- ``index.rst`` is the index page of the documentation. In this file, try to reuse the
-  ``README.rst`` file to avoid duplication.
+- ``index.rst``: Index (landing) page for the overall documentation. Some projects
+  reuse their ``README.rst`` files in the ``index.rst`` file to avoid content duplication.
+  For more information, see :ref:`readme_files`. However, in newer projects, the ``index.rst``
+  file use a grid of cards to summarize the organization of the documentation in a visual manner.
 
-If you would like to include images or documents, add them in the ``_static/``
+If you would like to include images or documents, add them in the ``_static``
 directory.
 
 The ``src`` directory
 ----------------------
 
-All the Python source code must be located in the ``src/`` directory. This is where the
+All the Python source code must be located in the ``src`` directory. This is where the
 build system looks when generating the wheel and source distributions.
 
 .. warning::
 
-   Folders inside the ``src/`` directory cannot contain spaces or hyphens. Replace these
-   characters with an underscore '_'.
+   The folder and file names in the ``src`` directory cannot contain spaces or hyphens.
+   Replace these characters with an underscore (``_``).
 
-The structure of the ``src/`` directory determines the namespace of the PyAnsys
+The structure of the ``src`` directory determines the namespace of the PyAnsys
 library. A namespace allow you to easily split sub-packages from a package into
 single, independent distributions.
 

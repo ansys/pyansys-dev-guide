@@ -27,7 +27,7 @@ While you should become familiar with this entire style guide, periodically revi
 `Highlights <Google_dev_doc_highlights_>`_ page to ensure that you are adhering to its most important points.
 
 When the `Ansys templates <Ansys_templates_>`_ tool is used to create a PyAnsys project from the
-``pyansys`` or ``pyansys-advanced`` template, `Vale <Vale_>`_, a rule-based tool for maintaining
+``pyansys`` or ``pyansys-advanced`` template, `Vale`_, a rule-based tool for maintaining
 a consistent style and voice in your documentation, is implemented. This tool, which is one of
 many run by the CI/CD process, is configured to check content in RST and Markdown (MD) files
 based on the *Google developer documentation style guide*.

@@ -24,9 +24,12 @@ A Python client library consists of PY files that are organized and
 packaged in a way that makes it easy for users to interact with the library
 and its underlying APIs and services.
 
-In a PyAnsys client library, PY files are usually organized in the
-``src\ansys`` directory. However, there are exceptions. For example, in PyAEDT,
-the Python files are organized in the ``pyaedt`` directory.
+In a PyAnsys client library, PY files are organized in the ``src`` directory.
+
+.. warning::
+
+   The folder and file names in the ``src`` directory cannot contain spaces or hyphens.
+   Replace these characters with an underscore (``_``).
 
 Each subpackage contains an :file:`__init__.py` file, which contains any
 necessary package-level initialization code.

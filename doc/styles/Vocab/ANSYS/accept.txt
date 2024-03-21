@@ -80,6 +80,7 @@ pytest
 pythoncom
 pyvista
 rebasing
+recurse
 reusability
 Rey
 REST
@@ -102,6 +103,7 @@ turbomachinery
 UDFs
 uncomment
 unittest
+untracked
 unvalidated
 URIs
 Vale
