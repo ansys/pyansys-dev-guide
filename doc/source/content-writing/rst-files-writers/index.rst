@@ -77,57 +77,59 @@ For more information on RST file setup, see :ref:`rst_files_developers` and
 
 .. _readme_files:
 
-README file
------------
+README files
+------------
 
-Each PyAnsys repository has a README file in its root directory. This file explains the
-project and points readers to key documentation. The README file can be an RST file
+Each PyAnsys repository has a README file in its root directory that explains the
+project and points readers to the documentation. The README file can be an RST file
 or a GitHub Flavored Markdown (MD) file. While RST and MD files are similar, the syntax
 differs. If the README file in your repository is an MD file, see
 `GitHub Flavored Markdown Spec <Markdown_GitHub_flavored_spec_>`_
-and `Using Markdown and Liquid in GitHub Docs <GitHub_doc_flavored_markdown_>`_.
+and `Using Markdown and Liquid in GitHub Docs <GitHub_doc_flavored_markdown_>`_ for
+syntax information.
 
-If your README file is an RST file, you can reuse content in it in the overall ``index.rst``
-file for a library's documentation. However, you cannot reuse content if your README file
-is an MD file. Thus, the disadvantages of having to use a different syntax in the MD file and the
-inability to reuse this MD file on the initial page of your documentation may influence you to
-use an RST file for your README file.
+If your README file is an RST file, you can reuse content in it in within the main ``index.rst``
+file for the library's documentation or in the ``index.rst`` file for its "Getting started"
+section. However, if your README file is an MD file, you cannot reuse the content in it.
+Thus, the disadvantages of having to use a different syntax in the MD file and the
+inability to reuse content in it in your documentation may influence you to use an
+RST file for your README file.
 
-To reuse all content from a ``README.rst`` file in the overall ``index.rst`` file for your
+To reuse all content in a ``README.rst`` file in the main ``index.rst`` file for your
 documentation, use the ``include`` directive::
 
    .. include:: ../../README.rst
 
-To reuse only a portion of the content in the ``README.rst`` file, use this directive's ``start-line``
+To reuse only a portion of the content in a ``README.rst`` file, use this directive's ``start-line``
 and ``end-line`` attributes::
 
    .. include:: ../../README.rst
       :start-line: 4
       :end-line: 72
 
-Using the preceding attributes necessitates having to change the line numbers
-if content is later added to or removed from the ``README.rst`` file. Thus, you
+Because using the preceding attributes necessitates having to change the line numbers
+if content is later added to or removed from the ``README.rst`` file, you
 might want to use this directive's ``start-after`` attribute instead. It allows
 you to reuse content from a given point to the end of the file.
 
 You first insert a target in the ``README.rst`` file where you want to start the reuse.
 For example, assume that the ``README.rst`` file has an "Overview" section where you want the reuse
-to begin. Before this section, insert a target like this, followed by a blank line::
+to begin. Before this section, insert an explicit target name like this, followed by a blank line::
 
    .. reuse_start
 
-In the overall ``index.rst`` file for your library's documentation, now insert an ``include``
-directive with a ``start-after`` attribute that specifies this target::
+In the main ``index.rst`` file for your library's documentation, now insert an ``include``
+directive with a ``start-after`` attribute that specifies this explicit target name::
 
    .. include:: ../../README.rst
       :start-after: .. reuse_start
 
 If your ``README.rst`` file has links to sections or pages in the library's documentation, you must
-use external links. You can use either URLs or named targets. However, named targets must be inserted
-at the bottom of the ``README.rst`` file. If your project has a central ``links.rst``
-file in the project's ``doc/source`` directory, inserting named targets for links in the
-``README.rst`` file does not work because the GitHub renderer is unaware of the ``links.rst`` file.
-For more information, see :ref:`doc_links_external`.
+use either URLs or insert explicit targets at the bottom of the ``README.rst`` file that you can then
+use in this file. If your project has a central ``links.rst`` file in the ``doc/source`` directory,
+you might be tempted to simply use the explicit target names named defined in it in the ``README.rst``
+file. Howeer, the GitHub renderer is unaware of the ``links.rst`` file. For more information, see
+:ref:`doc_links_external`.
 
 
 .. toctree::

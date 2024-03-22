@@ -5,7 +5,7 @@ This section summarizes important coding style guidelines from `PEP 8`_
 and how they apply to PyAnsys libraries. The Python community devised `PEP 8`_ 
 to increase the readability of Python code. Some of the most popular
 packages within the Python ecosystem have adopted `PEP 8`_,
-including `numpy`_, `scipy`_, and `pandas`_.
+including `NumPy`_, `SciPy`_, and `pandas`_.
 
 Imports
 -------
@@ -85,7 +85,7 @@ so that they are easily searchable.
 Multiple imports
 ~~~~~~~~~~~~~~~~
 
-You should place imports in separate lines unless they are modules from the same
+You should place imports on separate lines unless they are modules from the same
 package.
 
 .. tab-set::
@@ -123,11 +123,12 @@ Absolute versus relative imports
 You should use absolute imports over relative imports because they are 
 more readable and reliable.
 
-. tab-set::
+.. tab-set::
 
     .. tab-item:: Use
     
         .. code-block:: python
+
            from ansys.mapdl.core.plotting import general_plotter
 
     .. tab-item:: Avoid
@@ -135,6 +136,7 @@ more readable and reliable.
         .. code-block:: python
 
            from .core.plotting import general_plotter
+
 
 Import namespaces
 ~~~~~~~~~~~~~~~~~
@@ -161,21 +163,21 @@ in the *Python Anti-Patterns* documentation.
 Naming conventions
 ------------------
 
-To achieve readable and maintainable code, use concise and descriptive names for classes,
-methods, functions, and constants. Regardless of the programming language, you must follow these
+To achieve readable and maintainable code, use concise and descriptive names for functions,
+classes, methods, and constants. Regardless of the programming language, you must follow these
 global rules to determine the correct names:
 
-#. Choose descriptive and unambiguous names.
-#. Make meaningful distinctions.
-#. Use pronounceable names.
-#. Use searchable names.
-#. Replace magic numbers with named constants.
-#. Avoid encodings. Do not append prefixes or type information.
+- Choose descriptive and unambiguous names.
+- Make meaningful distinctions.
+- Use pronounceable names.
+- Use searchable names.
+- Replace magic numbers with named constants.
+- Avoid encodings. Do not append prefixes or type information.
 
 Variables
 ~~~~~~~~~
 
-Do not use the characters ``'l'``, ``'O'`` , or ``'I'`` as single-character
+Do not use the characters ``"l"`, ``"O"``, or ``"I"`` as single-character
 variable names. In some fonts, these characters are indistinguishable from the
 numerals one and zero.
 
@@ -216,8 +218,8 @@ improve readability, separate words with underscores.
 When naming methods, follow these conventions:
 
 - Enclose only `dunder methods`_ with double underscores.
-- Start a method that is to be considered private with double underscores.
-- Start a method that is to be considered protected with a single underscore.
+- Start a method that is to be private with double underscores.
+- Start a method that is to be protected with a single underscore.
 
 .. code:: python
 
@@ -255,7 +257,7 @@ When naming methods, follow these conventions:
 
 .. note:: 
 
-   Remember that these are only conventions for naming functions and methods. In Python
+   Remember that these are only conventions for naming functions and methods. In Python,
    there are no private or protected members, meaning that you can always access even
    those members that start with underscores.
 
@@ -289,9 +291,9 @@ indentation level and avoid tabs.
 
 Indentation should be used to emphasize:
 
- - Body of a control statement, such as a loop or a select statement
- - Body of a conditional statement
- - New scope blocks
+- Body of a control statement, such as a loop or a select statement
+- Body of a conditional statement
+- New scope blocks
 
 .. code:: python
 
@@ -308,7 +310,7 @@ Indentation should be used to emphasize:
        return
 
 To improve readability, add blank lines and wrap lines. You
-should add two blank lines before and after all class and function
+should add two blank lines before and after all function and class
 definitions.
 
 Inside a class, add a single blank line before any method definition.
@@ -326,10 +328,8 @@ Inside a class, add a single blank line before any method definition.
            """Second method docstring."""
            return
 
-To make it clear when a 'paragraph' of code is complete and a new section
+To make it clear when a "paragraph" of code is complete and a new section
 is starting, use a blank line to separate logical sections.
-
-Instead of:
 
 .. tab-set::
 
@@ -376,7 +376,7 @@ For source code, best practice is to keep the line length at or below
 the length at or below 72 characters.
 
 Lines longer than these recommended limits might not display properly
-on some terminals and tools or might be difficult to follow. For example,
+on some terminals, and tools or might be difficult to follow. For example,
 this line is difficult to follow:
 
 .. tab-set::
@@ -423,15 +423,15 @@ letter.
 
 Here are general guidelines for writing comments:
 
-#. Always try to explain yourself in code by making it
+- Always try to explain yourself in code by making it
    self-documenting with clear variable names.
-#. Don't be redundant.
-#. Don't add obvious noise.
-#. Don't use closing brace comments.
-#. Don't comment out code that is unused. Remove it.
-#. Use explanations of intent.
-#. Clarify the code.
-#. Warn of consequences.
+- Don't be redundant.
+- Don't add obvious noise.
+- Don't use closing brace comments.
+- Don't comment out code that is unused. Remove it.
+- Use explanations of intent.
+- Clarify the code.
+- Warn of consequences.
 
 Obvious portions of the source code should not be commented. 
 For example, the following comment is not needed:
@@ -441,7 +441,7 @@ For example, the following comment is not needed:
    # increment the counter
    i += 1
 
-However, if code behavior is not self-apparent, it should be documented.
+However, if code behavior is not sapparent, it should be documented.
 Otherwise, future developers might remove code that they see as unnecessary.
 
 .. code:: python
@@ -457,7 +457,7 @@ Inline comments
 Use inline comments sparingly. An inline comment is a comment on the
 same line as a statement.
 
-Inline comments should be separated by two spaces from the statement. 
+Inline comments should be separated by two spaces from the statement: 
 
 .. code:: python
 
@@ -499,7 +499,7 @@ Write docstrings for all public modules, functions, classes, and
 methods. Docstrings are not necessary for private methods, but such
 methods should have comments that describe what they do.
 
-To create a docstring, surround the comments with three double quotes
+To create a docstring, surround the comments with three double quotation marks
 on either side.
 
 For a one-line docstring, keep both the starting and ending ``"""`` on the
@@ -544,7 +544,7 @@ equivalence operator.
            if my_bool == True:
                return result
 
-Knowing that empty sequences are evaluated to ``False``, don't compare the
+Because empty sequences are evaluated to ``False``, don't compare the
 length of these objects but rather consider how they would evaluate
 by using ``bool(<object>)``.
 
@@ -592,7 +592,7 @@ especially important when parsing arguments.
 Handling strings
 ~~~~~~~~~~~~~~~~
 
-Use ``.startswith()`` and ``.endswith()`` instead of slicing.
+Use the ``.startswith()`` and ``.endswith()`` functions instead of slicing.
 
 .. tab-set:: 
 
@@ -638,12 +638,12 @@ systems.
             )
 
 Duplicated code
-~~~~~~~~~~~~~~~'
+~~~~~~~~~~~~~~~
 
 Follow the DRY principle, which states that "Every piece of knowledge
 must have a single, unambiguous, authoritative representation within a
 system."  Follow this principle unless it overly complicates
-the code. For instance, the following example converts Fahrenheit to Kelvin
+the code. The following "Avoid" example converts Fahrenheit to Kelvin
 twice, which now requires the developer to maintain two separate lines
 that do the same thing.
 
@@ -697,7 +697,7 @@ for this method.
        np.testing.assert_allclose(12.7778, fahr_to_kelvin(55))
 
 Now, you have only one line of code to verify. You can also use
-a testing framework such as ``pytest`` to test that the method is
+a testing framework such as `pytest`_ to test that the method is
 correct.
 
 Nested blocks
@@ -768,8 +768,8 @@ to circumvent nested loops.
             squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 
 If the loop is too complicated for creating a list comprehension,
-consider creating small functions and calling these instead. For
-example, to extract all consonants in a sentence:
+consider creating small functions and calling these instead. Assume
+that you want to extract all consonants in a sentence.
 
 .. tab-set::
 
@@ -807,7 +807,7 @@ example, to extract all consonants in a sentence:
 
             consonants = ['T', 'h', 's', 's', 's', 'm', 'p', 'l', 's', 'n', 't', 'n', 'c']
 
-The second approach is more readable and better documented. Additionally,
+The "Use" approach is more readable and better documented. Additionally,
 you could implement a unit test for ``is_consonant``.
 
 Security considerations

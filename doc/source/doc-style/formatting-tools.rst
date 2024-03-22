@@ -12,22 +12,22 @@ Most of the tools presented can be configured using :ref:`The
 \`\`pyproject.toml\`\` file`, avoiding dotfiles and thus leading to a much
 cleaner root project directory.
 
-The ``blacken-docs``
---------------------
+The ``blacken-docs`` tool
+-------------------------
 
 When writing documentation, code blocks are frequently used to provide examples.
 However, these code snippets cannot be verified with the usual code
-formatting tools. This is where the `blacken-docs`_ comes into play. You can execute
+formatting tools. This is where `blacken-docs`_ comes into play. You can execute
 this tool by running:
 
 .. code:: bash
 
    blacken-docs -l <line-length> doc/**/*.rst
 
-The ``codespell``
------------------
+The ``codespell`` tool
+----------------------
 
-The `codespell`_ checks for common misspellings in text files. This implies that it
+The `codespell`_ tool checks for common misspellings in text files. This implies that it
 is not limited to Python files but can run checks on any human-readable file.
 
 It is possible to ignore words that are flagged as misspelled. You can specify these words in a
@@ -37,24 +37,24 @@ file that can then be passed to ``codespell`` by running:
 
    codespell --write-changes --ignore-words=<FILE>
 
-The ``docformatter``
---------------------
+The ``docformatter`` tool
+-------------------------
 
-The `docformatter`_ automatically formats Python docstrings according 
-to `PEP 257 <PEP-257_>`_. To make sure ``docformatter`` wraps your docstrings at a given
-number of characters, use the following configuration:
+The `docformatter`_ tool automatically formats Python docstrings according 
+to `PEP 257`_. To make sure ``docformatter`` wraps your docstrings at a given
+number of characters, use this configuration:
 
 .. code:: bash
 
    docformatter -r -i --wrap-summaries <length> --wrap-descriptions <length> src
 
-The ``doctest``
----------------
+The ``doctest`` tool
+--------------------
 
-The `doctest`_ is a module from the Python standard library, which means it is
+The `doctest`_ tool is a module from the Python standard library, which means it is
 included by default with your Python installation. It is used for checking the
 examples provided inside docstrings to make sure that they reflect the current usage
-of the source code. The `doctest`_ can be integrated with ``pytest`` in :ref:`The
+of the source code. You can integrate `doctest`_ with ``pytest`` in :ref:`The
 \`\`pyproject.toml\`\` file`:
 
 .. code:: toml
@@ -62,12 +62,12 @@ of the source code. The `doctest`_ can be integrated with ``pytest`` in :ref:`Th
    [tool.pytest.ini_options]
    addopts = "--doctest-modules"
 
-The ``interrogate``
--------------------
+The ``interrogate`` tool
+------------------------
 
-The `interrogate`_ is a tool for checking docstring coverage. Similar to source code
-coverage tools, this tool tests how many functions, classes, and modules in a Python
-library hold a docstring.
+The `interrogate`_ tool checks docstring coverage. Similar to source code
+coverage tools, this tool tests how many modules, functions, classes, and
+methods in a Python library hold a docstring.
 
 .. code:: toml
 
@@ -85,7 +85,7 @@ Numpydoc validation
 -------------------
 
 To validate the style of :ref:`Numpydoc docstrings`, you can
-take advantage of the `numpydoc`_ Sphinx extension. Note that this extension
+take advantage of the Sphinx `numpydoc`_ extension. Note that this extension
 checks only for those objects whose docstrings must be rendered. It is not a
 command line tool that checks the style of all docstrings in your source code.
 
@@ -97,7 +97,7 @@ list of extensions:
 
   extensions = ["numpydoc", ...]
 
-Once the ``numpydoc`` extension is added, you can select which `validation checks
+Once the ``numpydoc`` extension is added, you can select which `built-in validation checks
 <https://numpydoc.readthedocs.io/en/latest/validation.html#built-in-validation-checks>`_
 must be addressed by using the ``numpydoc_validation_checks`` dictionary:
 
@@ -111,19 +111,16 @@ This issues the following warning for any object without a docstring:
 
    "The object does not have a docstring"
 
-For a complete list of available checks, see the `full mapping of
-validation checks
-<https://numpydoc.readthedocs.io/en/latest/validation.html#built-in-validation-checks>`_.
 
-The ``pydocstyle``
-------------------
+The ``pydocstyle`` tool
+-----------------------
 
-The `pydocstyle`_ is a tool for checking the compliance of Python docstrings with `PEP 257 <PEP-257_>`_.
+The `pydocstyle`_ tool checks the compliance of Python docstrings with `PEP 257`_.
 Its configuration can be defined in the :ref:`The \`\`pyproject.toml\`\` file`.
 By default, `pydocstyle`_ matches all ``*.py`` files except those starting with
 ``test_*.py``. The default configuration should be enough for a PyAnsys project.
-However, if additional configuration is needed, it must be included
-it under the ``[tool.pydocstyle]`` entry:
+However, if additional configuration is needed, it must be included under the
+``[tool.pydocstyle]`` entry:
 
 .. code:: toml
 
@@ -143,27 +140,28 @@ and Markdown (MD) files.
 After a PyAnsys team member implements ``Vale`` in your PyAnsys library, you can check
 any content changes that you make in supported files locally.
 
-In the library's ``doc`` folder, download the package with:
+In the library's ``doc`` folder, download the package with this command:
 
 .. code-block:: bash
 
    vale sync
 
-Check all files in the ``doc`` folder with:
+Check all files in the ``doc`` folder with this command:
 
 .. code-block:: bash
 
    vale .
 
-Check all files in the repository, by going to the ``root`` directory and running:
+Check all files in the repository by going to the ``root`` directory and running
+this command:
 
 .. code-block:: bash
 
    vale --config=doc/.vale.ini .
 
-Check all files in only a particular folder with ``vale`` followed by the
+Check all files in only a particular folder by typing ``vale`` followed by the
 name of the folder.
 
-Address any warnings and issues that display by either editing the
-file to fix or adding a term to the ``accept.txt`` file under the 
+Address any warnings and issues that display by either editing
+files to fix them or adding entries to the ``accept.txt`` file under the 
 ``doc`` folder in ``styles\Vocab\ANSYS``.

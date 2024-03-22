@@ -132,7 +132,7 @@
 .. _PEP 8: https://www.python.org/dev/peps/pep-0008/
 .. _PEP8: https://peps.python.org/pep-0008/#introduction
 .. _PEP 20: https://peps.python.org/pep-0020/
-.. _PEP-257: https://peps.python.org/pep-0257
+.. _PEP 257: https://peps.python.org/pep-0257
 .. _PEP 420: https://peps.python.org/pep-0420/
 .. _PEP 517: https://peps.python.org/pep-0517/
 .. _PEP 518: https://peps.python.org/pep-0518/
@@ -148,7 +148,7 @@
 
 .. _Building and Distributing Packages with Setuptools: https://setuptools.pypa.io/en/latest/setuptools.html
 .. _Configuring setuptools using setup.cfg files: https://setuptools.pypa.io/en/latest/userguide/declarative_config.html
-.. _setuptools: https://setuptools.pypa.io/en/latest/index.html
+.. _Setuptools: https://setuptools.pypa.io/en/latest/index.html
 
 .. _blacken-docs: https://github.com/asottile/blacken-docs
 .. _interrogate: https://interrogate.readthedocs.io/en/latest/
@@ -178,7 +178,6 @@
 .. _pip Documentation: https://pip.pypa.io/en/stable/cli/pip_install/
 .. _Semantic Versioning: https://semver.org/
 
-.. _MANIFEST.in: https://packaging.python.org/en/latest/guides/using-manifest-in/
 .. _Flit: https://flit.pypa.io/en/latest/
 .. _flit pyproject.toml guidelines: https://flit.readthedocs.io/en/latest/pyproject_toml.html
 .. _Poetry: https://python-poetry.org/

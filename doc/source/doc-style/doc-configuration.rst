@@ -28,21 +28,20 @@ Automation files
 As indicated earlier on this page, the ``sphinx-build`` program and
 all its options and arguments can be automated by using a
 ``Makefile`` file or a ``make.bat`` file. These files should be placed at the
-first level of :ref:`The \`\`doc\`\` directory`, next to the ``source``
-directory.
+first level of the ``doc`` directory, next to the ``source`` directory.
 
-Notice that both files contain a ``SPHINXOPTS`` variable with these flags: ``-j``,
+Notice that both files contain a ``SPHINXOPTS`` variable with these options: ``-j``,
 ``-W``, and ``--keep-going``.
 
-- The ``-j`` flag indicates the number of jobs (number of cores) to use. 
+- ``-j``: Indicates the number of jobs (number of cores) to use. 
   The default value is ``auto``, which means that the number of cores in
   the CPU is to be automatically detected.
 
-- The ``-W`` flag turns warnings into errors. This guarantees that documentation
+- ``-W``: turns warnings into errors. This guarantees that documentation
   health is maximized.
 
-- The ``--keep-going`` flag specifies whether to render the whole documentation,
-  even if a warning is found. This flag enables developers to be aware of the
+- ``--keep-going``: Specifies whether to render the whole documentation,
+  even if a warning is found. This option enables developers to be aware of the
   full set of warnings.
 
 A special rule named ``pdf`` is also included. This rule is in charge of

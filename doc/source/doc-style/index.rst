@@ -6,10 +6,9 @@ Documentation style
 Good API documentation drives library adoption and usage and is the
 foundation for a good developer experience. Even with the best
 interfaces and the most functional product, an API is not adopted
-if users aren't satisfied with the documentation or the examples
-that they are presented with.
+if users aren't satisfied with a library's documentation or examples.
 
-Good API documentation provides:
+Good API documentation provides many benefits, including these:
 
 * Increased adoption and improved experiences for developers using
   the API or library.
@@ -23,9 +22,9 @@ Good API documentation provides:
 
 The documentation for a PyAnsys library should contain:
 
-* Module, class, method, and function docstrings. See 
+* Module, function, class, and method docstrings. See 
   :ref:`docstrings`.
-* Full gallery of examples. See `PyMAPDL examples
+* A full gallery of examples. See `PyMAPDL examples
   <https://examples.mapdl.docs.pyansys.com/>`_.
 * General content on installing, using, and contributing.
 * Link to the library's documentation from the repository's README file.
@@ -41,8 +40,7 @@ follow the guidelines in the `Google developer documentation style guide
 
 To help you follow the Google guidelines and any custom rules
 developed by Ansys, you can implement `Vale <Vale_>`_.
-This command-line tool brings code-like linting to prose. For more
-information, see :ref:`Vale`.
+This command-line tool brings code-like linting to prose.
 
 Finally, the documentation should be public and hosted using GitHub pages, either as
 a branch named ``gh-pages`` within the library repository or within a
@@ -53,7 +51,8 @@ see :ref:`DNS configuration`. You should ensure that you are compliant with
 the naming convention for your CNAME.
 
 For procedural information related to crafting, building, and deploying
-documentation, see :ref:`documenting_developers`.
+documentation, see :ref:`documenting_developers`. For comprehensive information
+on writing content for PyAnsys developers, see :ref:`content_writing`.
 
 .. toctree::
    :hidden:

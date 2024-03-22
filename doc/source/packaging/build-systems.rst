@@ -13,17 +13,18 @@ Artifacts
 The build system allows maintainers to generate artifacts for their Python
 libraries. Here, `artifacts` refers to both wheel and source files:
 
-- ``Wheel files`` have the ``*.whl`` file extension.
-- ``Source files`` have the ``*.tar.gz`` or ``*.zip`` extension.
+- Wheel files have a WHL extension.
+- Source files have a TAR.GZ or ZIP extension.
 
-These are the files to upload to `PyPI`_ when releasing a new version of a
+These are the files that you upload to `PyPI`_ when releasing a new version of a
 PyAnsys project.
 
 .. warning::
 
-   Not all files are included by default in the source distribution. A
-   `MANIFEST.in`_ is required at the root of the project to specify additional
-   files.
+   Not all files are included by default in the source distribution. A ``MANIFEST.in``
+   file is required at the root of the project to specify additional
+   files. For more information, see `Controlling files in the distribution <https://setuptools.pypa.io/en/latest/userguide/miscellaneous.html>`_
+   in the Setuptools documentation. 
 
 The interaction between the maintainer and the build system is performed using a
 build system tool. This tool provides both a frontend and a backend. The maintainers
@@ -51,8 +52,8 @@ These problems led to the acceptance of `PEP 517`_ and `PEP 518`_.
 PEP 517
 -------
 
-PEP 517 allows Python developers to specify the build backend tool for
-generating artifacts. The previous :numref:`build system diag` diagram shows the
+PEP 517 allows Python developers to specify the build-backend tool for
+generating artifacts. :numref:`build system diag` shows the
 most popular backends:
 
 - Setuptools, while very popular, lacks the ability to declare build-time dependencies
@@ -67,14 +68,14 @@ PEP 518
 -------
 
 In addition to the ``setup.py`` file, PEP 518 includes a project file named
-``pyproject.toml``. The main goal of this file is to specify build time dependencies.
-However, some build system tools like Flit or Poetry are able to specify all
-project metadata inside the ``pyproject.toml`` file and eliminate usage of the 
-``setup.py`` file.
+``pyproject.toml``. Its main goal is to specify build-time dependencies.
+However, some build-system tools like Flit or Poetry are able to specify all
+project metadata inside the ``pyproject.toml`` file and eliminate the need to use
+the ``setup.py`` file.
 
-To specify the build time requirements, the ``[build-system]`` table must be
+To specify the build-time requirements, the ``[build-system]`` table must be
 declared in the ``pyproject.toml`` file. Within it, the ``requires`` key is
-assigned to a list of strings, which are the build time requirements.
+assigned to a list of strings, which are the build-time requirements.
 
 The combination of PEP 517 and PEP 518 leads to the following syntax in a
 ``pyproject.toml`` file:
@@ -85,7 +86,7 @@ The combination of PEP 517 and PEP 518 leads to the following syntax in a
    requires = ["flit"] # Defined by PEP 518
    build-backend = "flit_core.api" # Defined by PEP 517
 
-Build backend tools
+build-backend tools
 ===================
 
 This section lists some of the most popular build systems in the
@@ -98,7 +99,7 @@ metadata.
 Setuptools
 ----------
 
-Setuptools has been a part of the Python ecosystem for a long time. Unless
+`Setuptools <setuptools_repo_>`_ has been a part of the Python ecosystem for a long time. Unless
 you require high control over your project's installation steps, you should use
 Flit or Poetry.
 
@@ -113,7 +114,7 @@ specified either in the ``setup.py`` or ``setup.cfg`` file.
 Flit
 ----
 
-Flit is a modern and lightweight build system that requires developers
+`Flit`_ is a modern and lightweight build system that requires developers
 to manage virtual environments on their own. Developers must:
 
 * Create a virtual environment and activate it.
@@ -129,17 +130,18 @@ guidelines`_.
 Poetry
 ------
 
-Because of its ``poetry.lock`` file, Poetry provides strong dependency pinning. When
+`Poetry`_ has a ``poetry.lock`` file, which provides strong dependency pinning. When
 installing a package, Poetry creates a virtual environment, thus ensuring an isolated
 package development environment.
 
-Nevertheless, it is possible to make Poetry ignore the ``poetry.lock`` file with:
+Nevertheless, it is possible to make Poetry ignore the ``poetry.lock`` file with this
+command:
 
 .. code:: bash
 
    poetry config virtualenvs.create false --local
 
-Using Poetry is popular because of these features:
+Using Poetry is popular because it offers these features:
 
 * Supports pinning dependency versions using a ``poetry.lock`` file that can be
   used for testing and CI
@@ -147,4 +149,5 @@ Using Poetry is popular because of these features:
 * Integrates with `dependabot`_ to update the pinned version
 
 The ``[tool.poetry]`` section contains metadata and defines project
-dependencies. For more information, see `poetry pyproject.toml documentation`_.
+dependencies. For more information, see `The pyproject.toml file <poetry pyproject.toml documentation>`_
+in the Poetry documentation.
