@@ -149,5 +149,5 @@ Using Poetry is popular because it offers these features:
 * Integrates with `dependabot`_ to update the pinned version
 
 The ``[tool.poetry]`` section contains metadata and defines project
-dependencies. For more information, see `The pyproject.toml file <poetry pyproject.toml documentation>`_
+dependencies. For more information, see `The pyproject.toml file <poetry pyproject.toml documentation_>`_
 in the Poetry documentation.
