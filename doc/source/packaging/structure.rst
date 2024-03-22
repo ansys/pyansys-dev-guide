@@ -60,7 +60,7 @@ Python libraries
 ================
 
 A Python library is the formal way of distributing Python source code. It allows
-for reuse and for specifying Python code dependencies. Guidlines in this section
+for reuse and for specifying Python code dependencies. Guidelines in this section
 are compliant with `Python Packaging Authority`_ (PyPA) and PyAnsys recommendations.
 
 .. note::
@@ -114,7 +114,7 @@ Prior to distributing software, it is important to document it. Documenting soft
 consists of explaining how to install and use all functions, classes, and methods that
 it ships with. The documentation should also include use case scenarios. 
 
-A PyAnsys project typically hase these documentation sections:
+A PyAnsys project typically has these documentation sections:
 
 - ``Getting started``: Defines requirements and provides installation information
 - ``User guide``: Explains how to use the software
@@ -151,7 +151,7 @@ The ``source`` directory must contain at least these files:
   For more information, see :ref:`readme_files`. In newer projects, however, the ``index.rst``
   file uses a grid of cards to present the organization of the documentation in a visual manner.
 
-You generally add any images or documents that you would like to includein a ``_static``
+You generally add any images or documents that you would like to include in a ``_static``
 directory.
 
 The ``src`` directory
@@ -273,7 +273,7 @@ Each PyAnsys library must have a ``README`` file in the root directory.
 
 The preferred format of this file is `reStructuredText Markup Syntax`_,
 although you can also use `Markdown Syntax`_. While Markdown syntax has better
-GitHub support, you can resuse ReStructuredText (RST) files within Sphinx documentation.
+GitHub support, you can reuse ReStructuredText (RST) files within Sphinx documentation.
 For more information, see :ref:`readme_files`.
 
 The ``README`` file should at the minimum contain these elements:

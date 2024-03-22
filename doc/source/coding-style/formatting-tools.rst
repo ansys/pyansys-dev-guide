@@ -72,7 +72,7 @@ The configuration for Flake8 must be specified in a ``.flake8`` file.
    extend-ignore = 'E203'
 
 Flake8 has many options that can be set within the configuration file.
-For more information, see `Full Listing of Optons and Their Descriptions
+For more information, see `Full Listing of Options and Their Descriptions
 <https://flake8.pycqa.org/en/latest/user/options.html>`__ in the Flake8
 documentation.
 

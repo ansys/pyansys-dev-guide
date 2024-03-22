@@ -441,7 +441,7 @@ For example, the following comment is not needed:
    # increment the counter
    i += 1
 
-However, if code behavior is not sapparent, it should be documented.
+However, if code behavior is not apparent, it should be documented.
 Otherwise, future developers might remove code that they see as unnecessary.
 
 .. code:: python

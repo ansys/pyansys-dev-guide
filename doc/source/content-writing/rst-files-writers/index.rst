@@ -128,7 +128,7 @@ If your ``README.rst`` file has links to sections or pages in the library's docu
 use either URLs or insert explicit targets at the bottom of the ``README.rst`` file that you can then
 use in this file. If your project has a central ``links.rst`` file in the ``doc/source`` directory,
 you might be tempted to simply use the explicit target names named defined in it in the ``README.rst``
-file. Howeer, the GitHub renderer is unaware of the ``links.rst`` file. For more information, see
+file. However, the GitHub renderer is unaware of the ``links.rst`` file. For more information, see
 :ref:`doc_links_external`.
 
 

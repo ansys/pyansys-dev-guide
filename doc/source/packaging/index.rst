@@ -27,7 +27,7 @@ This diagram shows the general pattern that each PyAnsys library should follow:
 The Ansys product or service exposes an interface that is locally
 accessible (for example, .NET using `pythoncom`_, `SWIG`_, or `C
 extensions`_) or a service that is both locally and remotely
-accessible unsing `REST`_ or `gRPC`_. This interface is referred to as the
+accessible using `REST`_ or `gRPC`_. This interface is referred to as the
 API (Application Programming Interface).  While this API can be
 directly accessed, this often results in unreadable and unmaintainable
 code that forces users to rewrite setup boilerplate and other methods
