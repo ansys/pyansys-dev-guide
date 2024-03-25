@@ -112,8 +112,3 @@ Visual Studio Code
 worktree
 (?i)WSL
 WSL2
-Sphinx-Gallery
-Flake8
-README
-CSV
-build-backend

@@ -33,7 +33,6 @@ jobs:
         uses: ansys/actions/doc-style@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          vale-config: "doc/.vale.ini"
           vale-version: "3.3.0"
 
   doc-build:
