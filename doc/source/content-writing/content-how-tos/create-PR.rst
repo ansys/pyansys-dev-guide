@@ -471,7 +471,7 @@ To remove untracked files and directories from your working directory, from the
 For more information on this Git command, see :ref:`git_clean`.
 
 When you next run ``pre-commit``, the code style tools configured for
-your PyAnsy project must be initialized once again. For more information,
+your PyAnsys project must be initialized once again. For more information,
 see :ref:`run_precommit`.
 
 Before you can run Vale again locally, you must download the latest rules for the
