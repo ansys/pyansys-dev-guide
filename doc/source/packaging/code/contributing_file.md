@@ -1,7 +1,13 @@
-# Contributing
+# Contribute
 
-Please, refer to the [PyAnsys Developer's Guide] for contributing to this project.
+Overall guidance on contributing to a PyAnsys library appears in the
+[Contributing] topic in the *PyAnsys developer's guide*. Ensure that you
+are thoroughly familiar with this guide before attempting to contribute to
+X.
 
-[PyAnsys Developer's Guide]: https://dev.docs.pyansys.com/index.html
+The following contribution information is specific to X.
 
-<!-- Additional information for your project goes below this line -->
+[Contributing]: https://dev.docs.pyansys.com/how-to/contributing.html
+
+<!-- In the previous content, replace X with the name of your library. For example, PyAEDT. -->
+<!-- Begin content specific to your library here. -->

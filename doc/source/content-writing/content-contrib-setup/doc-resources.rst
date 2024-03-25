@@ -69,28 +69,28 @@ building of PyAnsys documentation.
   PyAnsys documentation.
 - `Ansys templates <Ansys_templates_>`_: Provides templates for creating PyAnsys projects
   that are compliant with PyAnsys guidelines.
-- `Git <Git_>`_: Provides a distributed version control system for tracking changes
+- `Git`_: Provides a distributed version control system for tracking changes
   in source code during software development.
-- `Git Extensions <Git_Extensions_>`_: Provides a GUI client for Git.
-- `GitHub <GitHub_>`_:  Provides a web-based platform that uses Git as its underlying
+- `Git Extensions`_: Provides a GUI client for Git.
+- `GitHub`_:  Provides a web-based platform that uses Git as its underlying
   version control system but goes way beyond version control, offering a
   collaborative environment for hosting, managing, and sharing Git repositories.
-- `GitHub Desktop <GitHub_Desktop_>`_: Provides a GUI client for Git.
+- `GitHub Desktop`_: Provides a GUI client for Git.
 - `Notepad\+\+ <Notepadpp_>`_: Provides an open source code text and code editor for use
   on Microsoft Windows, supporting around 80 programming languages with syntax
   highlighting and code folding.
-- `pip <pip_>`_: Provides a package manager for installing Python packages from the
+- `pip`_: Provides a package manager for installing Python packages from the
   `Python Package Index <Python_Package_Index_>`_ (PyPI).
-- `pre-commit <pre-commit_>`_: Provides for checking the conformance of your code
+- `pre-commit`_: Provides for checking the conformance of your code
   against predefined code style conventions.
-- `Python <Python_>`_: Provides a general-purpose programming language that runs on
+- `Python`_: Provides a general-purpose programming language that runs on
   almost all system architectures and is used for a wide range of applications
   in different fields.
 - `Python in Visual Studio Code <Python_in_VSC_>`_: Provides an extension
   that makes `Visual Studio Code <VSC_>`_ an excellent Python editor.
 - `Sphinx <Sphinx_>`_: Provides a Python documentation generator for generating documentation
   from RST, MD, and PY files.
-- `Vale <Vale_>`_: Provides for checking RST and MD files for consistent
+- `Vale`_: Provides for checking RST and MD files for consistent
   style and voice.
 - `Visual Studio Code <VSC_>`_: Provides a lightweight but powerful source
   code editor that runs on your desktop and is available for WIndows , macOS, and Linux.

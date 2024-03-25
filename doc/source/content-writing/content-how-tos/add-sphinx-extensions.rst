@@ -97,6 +97,8 @@ your documentation. Here are some examples:
 
 For more information, see :ref:`API_object_links`.
 
+.. _add_native_sphinx_ext:
+
 Add a native extension
 ----------------------
 

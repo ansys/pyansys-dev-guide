@@ -55,13 +55,13 @@ The approach on the right has a number of advantages, including:
 - Simplified interface for starting MAPDL
 - Full documentation strings for all classes, methods, and functions
 
-To properly abstract a service, users must have the option to
+To properly abstract a service, you must have the option to
 either launch the service and connect to it locally if the software exists on
-their machines or connect to a remote instance of the service. One
+your machines or connect to a remote instance of the service. One
 way to do this is to include a function to launch the service.
 
-This example includes ``launch_mapdl``, which brokers a connection via the 
-``Mapdl`` class:
+This example includes the ``launch_mapdl`` function, which brokers a connection with
+the ``Mapdl`` class:
 
 .. code:: pycon
 
@@ -74,7 +74,7 @@ This example includes ``launch_mapdl``, which brokers a connection via the
    ansys.mapdl Version: 0.59.dev0
 
 This straightforward approach connects to a local or remote instance 
-of MAPDL via gRPC by instantiating an instance of the ``Mapdl`` class. 
+of MAPDL using gRPC by instantiating an instance of the ``Mapdl`` class. 
 At this point, because the assumption is that MAPDL is always remote, it's 
 possible to issue commands to MAPDL, including those requiring 
 file transfer like ``Mapdl.input``.

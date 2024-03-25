@@ -20,17 +20,18 @@ Ansys templates documentation. Here are important links for this tool:
 
 - **Repository**: https://github.com/ansys/ansys-templates
 - **Documentation**: https://templates.ansys.com
-- **Issues board**: https://github.com/ansys/ansys-templates/issues
+- **Issues**: https://github.com/ansys/ansys-templates/issues
 
 .. note::
 
    If you encounter any problem during the installation or usage of this tool,
-   open a new issue on the `ansys-templates issues board`_.
+   open a new issue on the repository's `Issues <https://github.com/ansys/ansys-templates/issues>`_
+   page.
 
-PyAnsys available templates
-===========================
+PyAnsys templates
+=================
 
-There are two templates that you can use to create PyAnsys
+The ``ansys-templates`` tool provides two templates for creating PyAnsys
 projects: ``pyansys`` and ``pyansys-advanced``. 
 
 .. important::
@@ -42,18 +43,18 @@ projects: ``pyansys`` and ``pyansys-advanced``.
 PyAnsys template 
 ----------------
 
-The ``pyansys`` template ships only with the required directories and files to
-quickly set up a PyAnsys-compliant project. This template provides the following:
+The ``pyansys`` template ships only with required directories and files to
+quickly set up a PyAnsys-compliant project:
 
 - A ``src/ansys/product/library/`` directory
 - A ``setup.py`` file
-- Generation of ``doc/`` and ``tests/`` directories
+- Generation of ``doc`` and ``tests`` directories
 - A generic ``.gitignore`` file for Python libraries
-- Build, doc, and test requirements files
-- Metadata files like ``README.rst`` and ``LICENSE``
+- Build, documentation, and test requirements files
+- Metadata files like those for the ``README`` and ``LICENSE``
 
 To create a project based on the ``pyansys`` template, run
-this code:
+this command:
 
 .. code:: bash
 
@@ -63,15 +64,14 @@ PyAnsys advanced template
 -------------------------
 
 The ``pyansys-advanced`` template is an enhanced version of the ``pyansys`` template.
-It ships with the same files as the preceding template but also includes additional
-features:
+It ships with the same directories and files and supports additional features:
 
 - Allows you to select the project file (``setup.py`` or ``pyproject.toml``)
-- Uses `Tox`_ for testing and task automation
-- Includes GitHub Actions for CI purposes
+- Uses `tox`_ for testing and task automation
+- Includes `GitHub Actions`_ for CI purposes
 - Uses `pre-commit`_ for checking coding style
 
-To create a project based on the ``pyansys-advanced`` template, run this code:
+To create a project based on the ``pyansys-advanced`` template, run this command:
 
 .. code:: bash
 

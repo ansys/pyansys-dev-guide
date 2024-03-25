@@ -2,18 +2,19 @@
 Getting started
 ===============
 
-The PyAnsys project exposes Ansys technologies via libraries in the 
-Python ecosystem. Each library provides clear, concise, and
-maintainable APIs. Useful Pythonic functions, classes, and plugins 
-allow users to interact with targeted products and services in a 
-high-level, object-orientated approach.
+The `PyAnsys project <https://docs.pyansys.com/>`_ exposes Ansys technologies
+in client libraries within the Python ecosystem. Each library provides clear,
+concise, and maintainable APIs. Useful Pythonic functions, classes, and plugins 
+provide for interacting with targeted products and services in a high-level,
+object-orientated approach.
 
-The PyAnsys ecosystem refines the :doc:`component-level interaction 
-with Ansys solvers and tools <componentization>`, and eliminates the 
-inconsistent and restrictive scripting environments found within product 
-installations.
+The PyAnsys ecosystem refines the component-level interaction 
+with Ansys solvers and tools. It also eliminates the inconsistent and
+restrictive scripting environments found within product 
+installations. For more information, see doc:`componentization`.
 
-These component libraries play a vital role in:
+Additionally, libraries play vital roles in key simulation tasks,
+including these:
 
 - Application automation
 - Machine learning
@@ -22,21 +23,21 @@ These component libraries play a vital role in:
 - Workflow orchestration
 - Data manipulation and export
 
-The libraries also include plugins and interfaces to packages in the vast Python
-ecosystem. Examples include:
+Libraries also include plugins and interfaces to packages in the vast Python
+ecosystem. Here are some examples:
 
-- Arrays using `numpy <https://numpy.org/>`_
-- Data structures and tables with `pandas <https://pandas.pydata.org/>`_
-- 2D visualization using `matplotlib <https://matplotlib.org/>`_
-- 3D visualization using `pyvista <https://docs.pyvista.org/>`_
-- Advanced scientific computing using `scipy`_
-- Machine learning using `tensorflow <https://www.tensorflow.org/>`_
+- Arrays using `NumPy <https://numpy.org/>`_
+- Data structures and tables using `pandas <https://pandas.pydata.org/>`_
+- 2D visualization using `Matplotlib <https://matplotlib.org/>`_
+- 3D visualization using `PyVista <https://docs.pyvista.org/>`_
+- Advanced scientific computing using `SciPy`_
+- Machine learning using `TensorFlow <https://www.tensorflow.org/>`_
 
 .. note::
-   If you are new to GitHub, you should visit `The ReadMe Project
-   <https://github.com/readme>`_.  It is a dedicated platform for highlighting
-   the best from the open source software community. Each monthly newsletter
-   provides links to feature articles, developer stories, guides, and podcasts.
+   If you are new to GitHub, see `The ReadMe Project
+   <https://github.com/readme>`_. This monthly newsletter highlights
+   the best from the open source software community, providing links
+   to feature articles, developer stories, guides, and podcasts.
 
 .. toctree::
    :hidden:
@@ -45,12 +46,11 @@ ecosystem. Examples include:
    basic
    administration
    componentization
-   Glossary of abbreviations <https://ansys.github.io/abbreviations/index.html>
 
 Contributing to this guide
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you would like to contribute to this development guide, maintainers gladly 
+If you would like to contribute to this guide, maintainers gladly 
 review all pull requests. For more information, see :ref:`Documentation style`.
 
 This repository uses `pre-commit <https://pre-commit.com/>`_ to
@@ -67,7 +67,7 @@ This performs various style and spelling checks to ensure your contributions
 meet minimum coding style and documentation standards.
 
 You can make sure that these checks are always run prior to ``git commit``
-running them by installing ``pre-commit`` as a git hook with this command::
+running them by installing ``pre-commit`` as a Git hook with this command::
 
   pre-commit install
 
