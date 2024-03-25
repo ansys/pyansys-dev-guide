@@ -1,0 +1,1174 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Releasing and publishing &#8212; PyAnsys Developer&#39;s Guide</title>
+
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/ansys_sphinx_theme.css?v=4f651e51" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+ 
+<link href="../_static/css/breadcrumbs.css" rel="stylesheet" />
+
+    <script src="../_static/documentation_options.js?v=b8ffcd85"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/table.js?v=b64f5182"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'how-to/releasing';</script>
+    <link rel="icon" href="../_static/ansys-favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Repository protection" href="repository-protection.html" />
+    <link rel="prev" title="Continuous integration" href="continuous-integration.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container"><!-- Debugging: html_theme_options =  -->
+ 
+<!-- Include the MeiliSearch CSS stylesheet only if theme present -->
+<link href="../_static/css/meilisearch.css" rel="stylesheet" />
+
+<!-- Create a search bar form with a text input and a dropdown selector for the search index -->
+<form
+  class="bd-search d-flex align-items-center"
+  action="../search.html"
+  method="get"
+>
+  <i class="fa fa-search" aria-hidden="true" id="search-icon"></i>
+  <input
+    type="search"
+    placeholder="Search"
+    class="form-control"
+    id="search-bar-input"
+    autofocus
+  />
+  <span class="search-button__kbd-shortcut"
+    ><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span
+  >
+  <style>
+    .bd-search .search-button__kbd-shortcut {
+      right: 33%;
+    }
+  </style>
+  
+  <select id="indexUidSelector" class="index-select">
+    
+    <option value="pyansys-dev-guide">PyAnsys dev guide</option>
+    
+  </select>
+  
+  <!-- Include the MeiliSearch JavaScript library for the search bar -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+
+    
+  <script>
+    var HOST_URL = "https://backend.search.pyansys.com/";
+    var API_KEY = "9fbccc76c147935ce2b562a9ee0c6669276987572dc1f22491cea72e9e99f35d";
+    var indexUid = "pyansys-dev-guide";
+  </script>
+
+  <script src="../_static/js/meilisearch_theme_wrap.js"></script>
+</form>
+</div>
+  </div>
+   
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/pyansys-logo-black-cropped.png" class="logo__image only-light" alt="PyAnsys Developer's Guide - Home"/>
+    <script>document.write(`<img src="../_static/pyansys-logo-black-cropped.png" class="logo__image only-dark" alt="PyAnsys Developer's Guide - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting-started/index.html">
+                        Getting started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        How-to
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../all-styles.html">
+                        Style
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../abstractions/index.html">
+                        Abstractions
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../content-writing/index.html">
+                        Content writing
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/dev/how-to/contributing.html" title="Contribute" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-wrench fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+    
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting-started/index.html">
+                        Getting started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        How-to
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../all-styles.html">
+                        Style
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../abstractions/index.html">
+                        Abstractions
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../content-writing/index.html">
+                        Content writing
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/dev/how-to/contributing.html" title="Contribute" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-wrench fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="setting-up.html">Environment setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supporting-python-versions.html">Python versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packaging.html">Packaging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpc-api-packages.html">gRPC API packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documenting.html">Documenting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Releasing and publishing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repository-protection.html">Repository protection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns-configuration.html">DNS configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compatibility.html">Product compatibility</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+         
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="https://docs.pyansys.com/" class="nav-link">PyAnsys</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a
+        href="../index.html"
+        class="nav-link"
+        aria-label="Home"
+      >
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="index.html" class="nav-link">How-to</a>
+    </li>
+      
+    <li class="breadcrumb-item active" aria-current="page">Releasing and publishing</li>
+    
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="releasing-and-publishing">
+<span id="release-publish"></span><h1>Releasing and publishing<a class="headerlink" href="#releasing-and-publishing" title="Link to this heading">#</a></h1>
+<p>Releasing a new version is a critical procedure. It should be automated as much
+as possible to avoid human error.</p>
+<p>This sections explains the <a class="reference internal" href="setting-up.html#git"><span class="std std-ref">Git</span></a> workflow and steps that you must follow
+to create a successful release.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>A project must be authorized to be publicly released. For an explanation
+of the process, see:ref:<cite>Project approval and public release</cite>.</p>
+</div>
+<section id="semantic-versioning">
+<h2>Semantic versioning<a class="headerlink" href="#semantic-versioning" title="Link to this heading">#</a></h2>
+<p>PyAnsys library releases are managed through both automated and manual review
+processes.</p>
+<p>PyAnsys follows <a class="reference external" href="https://semver.org/">Semantic Versioning</a>, which produces release names in the
+form of <code class="docutils literal notranslate"><span class="pre">X.Y.Z</span></code>, where each letter corresponds to an integer value. This
+notation can also be understand as <code class="docutils literal notranslate"><span class="pre">MAJOR.MINOR.PATCH</span></code>:</p>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">MAJOR</span></code> version is when you make incompatible API changes.</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">MINOR</span></code> version is when you add a feature in a backwards-compatible manner.</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">PATCH</span></code> version is when you make backwards-compatible bug fixes.</p></li>
+</ul>
+<p>To match the versioning methodology used by the “big three” data science Python
+packages, <a class="reference external" href="https://numpy.org/">numpy</a>, <a class="reference external" href="https://scipy.org/">scipy</a>, and <a class="reference external" href="https://pandas.pydata.org/">pandas</a>, <code class="docutils literal notranslate"><span class="pre">MAJOR</span></code> versions of PyAnsys
+packages are not released when any incompatible API change is made but rather
+when major, globally breaking API changes are made.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">0.MINOR.PATCH</span></code> packages are expected to have fluid APIs and should
+be solidified at the <code class="docutils literal notranslate"><span class="pre">1.MINOR.PATCH</span></code> release. At that point, APIs are expected
+to be much more stable.</p>
+<div class="admonition-pyansys-library-versions-should-not-match-product-versions admonition">
+<p class="admonition-title">PyAnsys library versions should not match product versions.</p>
+<p>PyAnsys libraries are expected to be developed outside the product
+release cycle in a rapid CI/CD manner. Thus, library versions should
+not match product versions. For example, PyMAPDL library (<code class="docutils literal notranslate"><span class="pre">ansys-mapdl-core</span></code>)
+might have the version <code class="docutils literal notranslate"><span class="pre">0.59.0</span></code> whereas the product (Ansys Parametric
+Design Language (APDL) might have the version is <code class="docutils literal notranslate"><span class="pre">22.2</span></code> (2022 R2).</p>
+</div>
+</section>
+<section id="branching-model">
+<h2>Branching model<a class="headerlink" href="#branching-model" title="Link to this heading">#</a></h2>
+<p>The branching model for a PyAnsys project enables rapid development of
+features without sacrificing stability. The model closely follows the
+<a class="reference external" href="https://trunkbaseddevelopment.com/">trunk-based development</a> approach:</p>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">main</span></code> branch is the primary development branch. All features,
+patches, and other branches should be merged here. While all PRs
+should pass all applicable CI checks, this branch might be functionally
+unstable if changes have introduced unintended side effects or bugs
+that were not caught through unit testing. The version is always suffixed
+with <code class="docutils literal notranslate"><span class="pre">.dev0</span></code> in the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch.</p>
+<figure class="align-center" id="id7">
+<div class="graphviz"><img src="../_images/graphviz-eca9437f1f863b99c877c98b74127d365e5de91f.png" alt="The main branch is the primary development branch." class="graphviz" /></div>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">The main branch is the primary development branch.</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>When a minor release candidate is ready, a new <code class="docutils literal notranslate"><span class="pre">release</span></code> branch is
+created from <code class="docutils literal notranslate"><span class="pre">main</span></code> with the next incremented minor version
+(for example, <code class="docutils literal notranslate"><span class="pre">release/0.2</span></code>). This <code class="docutils literal notranslate"><span class="pre">release</span></code> branch is thoroughly
+tested. When deemed stable, it is tagged with the version (<code class="docutils literal notranslate"><span class="pre">0.2.0</span></code>
+in this case). Older release branches should not be deleted so that they can be
+patched as needed.</p></li>
+<li><p>There is one or more <code class="docutils literal notranslate"><span class="pre">release/</span></code> branches based on minor releases (for
+example, <code class="docutils literal notranslate"><span class="pre">release/0.2</span></code>) that contain a stable version of the code base that
+is also reflected on PyPI. Hotfixes from <code class="docutils literal notranslate"><span class="pre">fix/</span></code> branches should be
+integrated both to <code class="docutils literal notranslate"><span class="pre">main</span></code> and to these branches. When creating a new patch
+release is necessary, these release branches have their version updated
+and are tagged with a patched <a class="reference internal" href="#semantic-versioning"><span class="std std-ref">Semantic versioning</span></a> (for example,
+<code class="docutils literal notranslate"><span class="pre">0.2.1</span></code>).  This triggers CI to push to PyPI so that hotfixes for past
+versions can be rapidly push without having to worry about untested features.</p>
+<figure class="align-center" id="id8">
+<div class="graphviz"><img src="../_images/graphviz-063eaec166626f16a0324b89dcf35aff469fd034.png" alt="Release branches are created based on minor releases." class="graphviz" /></div>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Release branches are created based on minor releases.</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</li>
+</ul>
+</section>
+<section id="new-releases">
+<h2>New releases<a class="headerlink" href="#new-releases" title="Link to this heading">#</a></h2>
+<p>Releasing is the process of creating a version of the software that developers
+consider useful for customers or other developers. Releases are usually labeled
+with <em>tags</em>. These tags are used to quickly identify a release in the version
+control system.</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Release checklist</div>
+<div class="line-block">
+<div class="line"><input type="checkbox"> Your main or release branch is up to date.</div>
+<div class="line"><input type="checkbox"> All code and documentation style checks are passing successfully.</div>
+<div class="line"><input type="checkbox"> All tests are passing successfully.</div>
+<div class="line"><input type="checkbox"> All documentation builds successfully.</div>
+<div class="line"><input type="checkbox"> The project builds successfully.</div>
+</div>
+</div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Release major and minor versions<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Before performing a release, you must verify that your <code class="docutils literal notranslate"><span class="pre">origin</span> <span class="pre">main</span></code> branch is up to date
+with these commands:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git checkout main
+git fetch origin main
+git rebase origin/main
+</pre></div>
+</div>
+<p class="sd-card-text">If you encounter any issues when running the preceding commands, solve them before
+continuing with the release. Ensure that your style, tests, and documentation
+checks are passing too.</p>
+<p class="sd-card-text">Create a new branch for the version that you want to release with this command:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git checkout -b release/X.Y
+</pre></div>
+</div>
+<p class="sd-card-text">Update <code class="docutils literal notranslate"><span class="pre">X</span></code> or <code class="docutils literal notranslate"><span class="pre">Y</span></code> version numbers in your project and replace the <code class="docutils literal notranslate"><span class="pre">dev0</span></code>
+with a <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p class="sd-card-text">Check all locations, including
+<a class="reference internal" href="../packaging/structure.html#the-setup-py-file"><span class="std std-ref">The setup.py file</span></a>, <a class="reference internal" href="../packaging/structure.html#the-pyproject-toml-file"><span class="std std-ref">The pyproject.toml file</span></a>, and any
+<code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> or <code class="docutils literal notranslate"><span class="pre">__version__.py</span></code> files that your project may contain.</p>
+<p class="sd-card-text">Stash and commit previous changes with these commands:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git add &lt;files-edited-for-version-number-change&gt;
+git commit -m &quot;Bump version X.Y.0&quot;
+</pre></div>
+</div>
+<p class="sd-card-text">Tag the previous commit with this command:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git tag vX.Y.0
+</pre></div>
+</div>
+<p class="sd-card-text">Push the commit and the tag it with these commands:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git push -u origin release/X.Y
+git push origin vX.Y.0
+</pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Release patched versions<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Patched versions allow you to fix issues discovered in published releases by
+cherry-picking these fixes from the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch. For more information, see
+the <a class="reference external" href="https://git-scm.com/docs/git-cherry-pick">get-cherry-pick</a> description
+in the Git documentation.</p>
+<p class="sd-card-text">Before performing a patch release, you must first identify which
+<code class="docutils literal notranslate"><span class="pre">release/X.Y</span></code> branch it belongs to with these commands.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git checkout release/X.Y
+git fetch origin release/X.Y
+git reset --hard origin/release/X.Y
+</pre></div>
+</div>
+<p class="sd-card-text">Next, use the following code to cherry-pick the fix commit from the <code class="docutils literal notranslate"><span class="pre">main</span></code>
+branch, which solves for the bug. Do not merge changes from the
+<code class="docutils literal notranslate"><span class="pre">main</span></code> branch into the release branch. Always cherry-pick them:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git cherry-pick &lt;commit hash&gt;
+</pre></div>
+</div>
+<p class="sd-card-text">Ensure that your style, tests, and documentation checks are also passing.</p>
+<p class="sd-card-text">Increase by one unit the value of <code class="docutils literal notranslate"><span class="pre">Z</span></code> in your project version. Stash and
+amend these new changes with these commands:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git add &lt;files-edited-for-version-number-change&gt;
+git commit --amend -m &quot;Bump version X.Y.Z&quot;
+</pre></div>
+</div>
+<p class="sd-card-text">Tag the previous commit with this command:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git tag vX.Y.Z
+</pre></div>
+</div>
+<p class="sd-card-text">Push the commit and the tag it using this command:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git push -u origin release/X.Y
+git push origin vX.Y.Z
+</pre></div>
+</div>
+</div>
+</details></section>
+<section id="artifact-publication">
+<h2>Artifact publication<a class="headerlink" href="#artifact-publication" title="Link to this heading">#</a></h2>
+<p>When a new version is released, some artifacts are provided with it. In Python,
+these <a class="reference internal" href="../packaging/build-systems.html#artifacts"><span class="std std-ref">Artifacts</span></a> are typically <em>wheel</em> and <em>source</em> files.
+Documentation in the form of HTML and PDF files are also considered artifacts.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Do not distribute artifacts without approval.</p>
+<p>A project must be authorized to be publicly released. For an explanation
+of the process, see <a class="reference internal" href="../getting-started/administration.html#project-approval-and-public-release"><span class="std std-ref">Project approval and public release</span></a>.</p>
+</div>
+<p>There are three possible places where artifacts can be published:</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-3 sd-row-cols-xs-3 sd-row-cols-sm-3 sd-row-cols-md-3 sd-row-cols-lg-3 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-lock" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M4 4v2h-.25A1.75 1.75 0 002 7.75v5.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 13.25v-5.5A1.75 1.75 0 0012.25 6H12V4a4 4 0 10-8 0zm6.5 2V4a2.5 2.5 0 00-5 0v2h5zM12 7.5h.25a.25.25 0 01.25.25v5.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-5.5a.25.25 0 01.25-.25H12z"></path></svg> Private PyPI</div>
+<p class="sd-card-text">This is a private index used to share artifacts across the company
+while making sure that projects remain private.</p>
+</div>
+<a class="sd-stretched-link reference internal" href="#private-pypi"><span class="std std-ref"></span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-unlock" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M5.5 4a2.5 2.5 0 014.607-1.346.75.75 0 101.264-.808A4 4 0 004 4v2h-.501A1.5 1.5 0 002 7.5v6A1.5 1.5 0 003.5 15h9a1.5 1.5 0 001.5-1.5v-6A1.5 1.5 0 0012.5 6h-7V4zm-.75 3.5H3.5v6h9v-6H4.75z"></path></svg> Public PyPI</div>
+<p class="sd-card-text">This is the public PyPI used by the Python community to distribute
+libraries. A project requires Ansys authorization before being
+published in this index.</p>
+</div>
+<a class="sd-stretched-link reference internal" href="#public-pypi"><span class="std std-ref"></span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-mark-github" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg> GitHub</div>
+<p class="sd-card-text">This is a section created by GitHub within a project repository where
+artifacts can be published. A project requires Ansys authorization
+before being public in GitHub.</p>
+</div>
+<a class="sd-stretched-link reference internal" href="#github"><span class="std std-ref"></span></a></div>
+</div>
+</div>
+</div>
+<section id="private-pypi">
+<span id="id1"></span><h3>Private PyPI<a class="headerlink" href="#private-pypi" title="Link to this heading">#</a></h3>
+<p>It is sometimes necessary to host and pull packages that are not ready to be
+hosted on the public <a class="reference external" href="https://pypi.org/">PyPI</a>. For example, if a PyAnsys library requires
+auto-generated gRPC interface files from a feature or service that is still
+private, this package should be hosted on a private PyPI repository.</p>
+<p>ANSYS, Inc. has a private repository at <a class="reference external" href="https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi">PyAnsys PyPI</a>. You must have the proper
+credentials for publishing to this private repository:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Credentials</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Username</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__token__</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Password</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PYANSYS_PYPI_PRIVATE_PAT</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>repository-url</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>The <code class="docutils literal notranslate"><span class="pre">PYANSYS_PYPI_PRIVATE_PAT</span></code> is a password in the form of a GitHub secret
+that is available only to <a class="reference external" href="https://docs.pyansys.com/">PyAnsys projects</a>. This secret is
+available during the execution of the CI/CD. Its value is never shown or shared
+in the log files.</p>
+<p>When using <a class="reference external" href="https://twine.readthedocs.io/">Twine</a> from the command line, you must
+add in <code class="docutils literal notranslate"><span class="pre">--repository-url</span></code> as an extra option. Otherwise, Twine attempts to upload
+the package to the public PyPI repository.</p>
+<p>Forked GitHub repositories do not have access to GitHub secrets. This is
+designed to protect against pull requests that could potentially scrape
+tokens from the PyAnsys CI/CD.</p>
+<p>Here’s a cross-platform, one-line command for using Twine to upload a package:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">twine</span> <span class="n">upload</span> <span class="n">dist</span><span class="o">/*</span> <span class="o">--</span><span class="n">repository</span><span class="o">-</span><span class="n">url</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">pkgs</span><span class="o">.</span><span class="n">dev</span><span class="o">.</span><span class="n">azure</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">pyansys</span><span class="o">/</span><span class="n">_packaging</span><span class="o">/</span><span class="n">pyansys</span><span class="o">/</span><span class="n">pypi</span><span class="o">/</span><span class="n">upload</span> <span class="o">-</span><span class="n">u</span> <span class="n">__token__</span> <span class="o">-</span><span class="n">p</span> <span class="o">&lt;</span><span class="n">TOKEN</span><span class="o">-</span><span class="n">REDACTED</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">&lt;TOKEN-REDACTED&gt;</span></code> with the private PyPI token.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Use GitHub Actions<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The following code allows you to publish Python <a class="reference internal" href="../packaging/build-systems.html#artifacts"><span class="std std-ref">Artifacts</span></a> in
+the <code class="docutils literal notranslate"><span class="pre">dist</span></code> directory to the private PyPI. This code is expected to be included when you
+<a class="reference internal" href="continuous-integration.html#use-github-actions"><span class="std std-ref">Use GitHub Actions</span></a>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">release-pypi-private</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Release</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">private</span><span class="nv"> </span><span class="s">PyPI&quot;</span>
+<span class="w">  </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">  </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.event_name == &#39;push&#39; &amp;&amp; contains(github.ref, &#39;refs/tags&#39;)</span>
+<span class="w">  </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansys/actions/release-pypi-private@v4</span>
+<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">library-name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ansys-&lt;product&gt;-&lt;library&gt;&quot;</span>
+<span class="w">        </span><span class="nt">twine-username</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;__token__&quot;</span>
+<span class="w">        </span><span class="nt">twine-token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }}</span>
+</pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Use the command line<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Alternatively, instead of command-line tool arguments for Twine, you can use environment variables:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+Windows</label><div class="sd-tab-content docutils">
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-3">
+CMD</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>set TWINE_USERNAME=__token__
+set TWINE_PASSWORD=&lt;PYANSYS_PYPI_PRIVATE_PAT&gt;
+set TWINE_REPOSITORY_URL=https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-4" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-4">
+PowerShell</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>$env:TWINE_USERNAME=__token__
+$env:TWINE_PASSWORD=&lt;PYANSYS_PYPI_PRIVATE_PAT&gt;
+$env:TWINE_REPOSITORY_URL=https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+macOS</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>export TWINE_USERNAME=__token__
+export TWINE_PASSWORD=&lt;PYANSYS_PYPI_PRIVATE_PAT&gt;
+export TWINE_REPOSITORY_URL=&quot;https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload&quot;
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-2">
+Linux/UNIX</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>export TWINE_USERNAME=__token__
+export TWINE_PASSWORD=&lt;PYANSYS_PYPI_PRIVATE_PAT&gt;
+export TWINE_REPOSITORY_URL=&quot;https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p class="sd-card-text">Finally, run this command:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>python -m twine upload dist/*
+</pre></div>
+</div>
+</div>
+</details></section>
+<section id="public-pypi">
+<span id="id2"></span><h3>Public PyPI<a class="headerlink" href="#public-pypi" title="Link to this heading">#</a></h3>
+<p>Publishing <a class="reference internal" href="../packaging/build-systems.html#artifacts"><span class="std std-ref">Artifacts</span></a> to <a class="reference external" href="https://pypi.org/">PyPI</a> is the way of distributing <a class="reference internal" href="../packaging/structure.html#python-libraries"><span class="std std-ref">Python libraries</span></a>. Publishing to <a class="reference external" href="https://pypi.org/">PyPI</a> requires a username and a password:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Credentials for publishing to public PyPI</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Username</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">__token__</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Password</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">PYPI_TOKEN</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>The <code class="docutils literal notranslate"><span class="pre">PYPI_TOKEN</span></code> is a password in the form of a GitHub secret. This secret is
+unique to each project. It can only be obtained after the first release to the
+public PyPI. Follow the process <a class="reference internal" href="../getting-started/administration.html#project-approval-and-public-release"><span class="std std-ref">Project approval and public release</span></a>
+process to obtain public release authorization.</p>
+<p>Once authorized, contact the <a class="reference external" href="mailto:pyansys&#46;core&#37;&#52;&#48;ansys&#46;com">PyAnsy core team</a> to
+get support during the first release of the project. The team enables the
+custom <code class="docutils literal notranslate"><span class="pre">PYPI_TOKEN</span></code> once your project has been successfully released for the
+first time. For future releases, everything is automated.</p>
+<p>Here’s a cross-platform, one-line command for using Twine to download a package:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">&lt;</span><span class="n">PACKAGE</span><span class="o">-</span><span class="n">NAME</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">index</span><span class="o">-</span><span class="n">url</span> <span class="o">&lt;</span><span class="n">TOKEN</span><span class="o">-</span><span class="n">REDACTED</span><span class="o">&gt;</span><span class="nd">@pkgs</span><span class="o">.</span><span class="n">dev</span><span class="o">.</span><span class="n">azure</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">pyansys</span><span class="o">/</span><span class="n">_packaging</span><span class="o">/</span><span class="n">pyansys</span><span class="o">/</span><span class="n">pypi</span><span class="o">/</span><span class="n">simple</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">&lt;PACKAGE-NAME&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;TOKEN-REDACTED&gt;</span></code> with the package name and private PyPI token respectively.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Use GitHub Actions<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The following code allows you to publish any Python <a class="reference internal" href="../packaging/build-systems.html#artifacts"><span class="std std-ref">Artifacts</span></a> contained in
+the <code class="docutils literal notranslate"><span class="pre">dist</span></code> directory to the public PyPI. It is expected to be included when you
+<a class="reference internal" href="continuous-integration.html#use-github-actions"><span class="std std-ref">Use GitHub Actions</span></a>.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">release-pypi-public</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Release</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">public</span><span class="nv"> </span><span class="s">PyPI&quot;</span>
+<span class="w">  </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">  </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.event_name == &#39;push&#39; &amp;&amp; contains(github.ref, &#39;refs/tags&#39;)</span>
+<span class="w">  </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansys/actions/release-pypi-public@v4</span>
+<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">library-name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ansys-&lt;product&gt;-&lt;library&gt;&quot;</span>
+<span class="w">        </span><span class="nt">twine-username</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;__token__&quot;</span>
+<span class="w">        </span><span class="nt">twine-token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.PYPI_TOKEN }}</span>
+</pre></div>
+</div>
+</div>
+</details></section>
+<section id="github">
+<span id="github-releasing"></span><h3>GitHub<a class="headerlink" href="#github" title="Link to this heading">#</a></h3>
+<p>You can publish <a class="reference internal" href="../packaging/build-systems.html#artifacts"><span class="std std-ref">Artifacts</span></a> to GitHub, which makes them available in
+the <code class="docutils literal notranslate"><span class="pre">https://github.com/ansys/project-name/releases</span></code> section. The
+visibility of these artifacts follows the one in the repository. Visibility can
+be private, internal, or public.</p>
+<p>For enabling public visibility of a repository, follow the process explained in
+<a class="reference internal" href="../getting-started/administration.html#project-approval-and-public-release"><span class="std std-ref">Project approval and public release</span></a>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Use GitHub Actions<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The following code allows you to publish any Python <a class="reference internal" href="../packaging/build-systems.html#artifacts"><span class="std std-ref">Artifacts</span></a> contained in
+the <code class="docutils literal notranslate"><span class="pre">dist</span></code> directory to the GitHub release created. It is expected to be included
+when you <a class="reference internal" href="continuous-integration.html#use-github-actions"><span class="std std-ref">Use GitHub Actions</span></a>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">release-github</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Release</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">GitHub&quot;</span>
+<span class="w">  </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">  </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.event_name == &#39;push&#39; &amp;&amp; contains(github.ref, &#39;refs/tags&#39;)</span>
+<span class="w">  </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansys/actions/release-github@v4</span>
+<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">library-name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ansys-&lt;product&gt;-&lt;library&gt;&quot;</span>
+</pre></div>
+</div>
+</div>
+</details></section>
+</section>
+<section id="artifact-download">
+<h2>Artifact download<a class="headerlink" href="#artifact-download" title="Link to this heading">#</a></h2>
+<p>You can download artifacts from the Ansys private PyPI, public PyPI, and GitHub.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Download artifacts from the Ansys private PyPI<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Request the value of the <code class="docutils literal notranslate"><span class="pre">PYANSYS_PYPI_PRIVATE_PAT</span></code> token by sending an
+email to the <a class="reference external" href="mailto:pyansys&#46;core&#37;&#52;&#48;ansys&#46;com">pyansys<span>&#46;</span>core<span>&#64;</span>ansys<span>&#46;</span>com</a> email.</p>
+<p class="sd-card-text">Create an environment variable named <code class="docutils literal notranslate"><span class="pre">PYANSYS_PYPI_PRIVATE_PAT</span></code> in your
+local machine an assign it the value of the token.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p class="sd-card-text">Take care to always use the <code class="docutils literal notranslate"><span class="pre">--index-url</span></code> switch rather than the
+<code class="docutils literal notranslate"><span class="pre">--extra-index-url</span></code> switch. As noted in <a class="reference external" href="https://pip.pypa.io/en/stable/cli/pip_install/">pip Documentation</a>, the
+<code class="docutils literal notranslate"><span class="pre">--index-url</span></code> switch changes the Python Package Index, which forces <code class="docutils literal notranslate"><span class="pre">pip</span></code>
+to use only packages from that package index.</p>
+<p class="sd-card-text">The Ansys package index uses PyPI upstream. This prevents other users from being able to
+inject packages from PyPI that would supersede Ansys packages, even if they
+are of a higher version.</p>
+<p class="sd-card-text">This is not the case if you use <code class="docutils literal notranslate"><span class="pre">--extra-index-url</span></code>, which adds to rather
+than replaces the default package index. For security, do not use
+<code class="docutils literal notranslate"><span class="pre">--extra-index-url</span></code>.</p>
+</div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-5">
+Windows</label><div class="sd-tab-content docutils">
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-8" name="sd-tab-set-3" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-8">
+CMD</label><div class="sd-tab-content docutils">
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="k">set</span> <span class="nv">PYANSYS_PYPI_PRIVATE_PAT</span><span class="p">=&lt;</span>REDACTED&gt;
+<span class="k">set</span> <span class="nv">INDEX_URL</span><span class="p">=</span>https://<span class="nv">%PYANSYS_PYPI_PRIVATE_PAT%</span>@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/
+python -m pip install ansys-<span class="p">&lt;</span>product/tool<span class="p">&gt;</span>-<span class="p">&lt;</span>library<span class="p">&gt;</span> --index-url <span class="nv">%INDEX_URL%</span> --no-dependencies
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-9" name="sd-tab-set-3" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-9">
+PowerShell</label><div class="sd-tab-content docutils">
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$env:INDEX_URL</span><span class="p">=</span><span class="s1">&#39;https://$PYANSYS_PYPI_PRIVATE_PAT@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/&#39;</span>
+<span class="n">python</span> <span class="n">-m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">ansys</span><span class="p">-&lt;</span><span class="n">product</span><span class="p">/</span><span class="n">tool</span><span class="p">&gt;-&lt;</span><span class="n">library</span><span class="p">&gt;</span> <span class="p">-</span><span class="n">-index-url</span> <span class="nv">$env:INDEX_URL</span> <span class="p">-</span><span class="n">-no-dependencies</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<input id="sd-tab-item-6" name="sd-tab-set-2" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-6">
+macOS</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>export INDEX_URL=&#39;https://$PYANSYS_PYPI_PRIVATE_PAT@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/&#39;
+
+python -m pip install ansys-&lt;product/tool&gt;-&lt;library&gt; \
+--index-url $INDEX_URL \
+--no-dependencies
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-7" name="sd-tab-set-2" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-7">
+Linux/UNIX</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>export INDEX_URL=&#39;https://$PYANSYS_PYPI_PRIVATE_PAT@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/&#39;
+
+python -m pip install ansys-&lt;product/tool&gt;-&lt;library&gt; \
+--index-url $INDEX_URL \
+--no-dependencies
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Download artifacts from the public PyPI<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Downloading artifacts from the public PyPI can be done by using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>&lt;package-name&gt;
+</pre></div>
+</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Download artifacts from GitHub<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Downloading artifacts from GitHub can be done by checking the
+<code class="docutils literal notranslate"><span class="pre">https://github.com/ansys/project-name/releases</span></code> section.</p>
+<p class="sd-card-text">Note that if you download the wheel of a Python package, you must manually install
+it with a command like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>path/to/package/wheel.whl
+</pre></div>
+</div>
+</div>
+</details></section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#semantic-versioning">Semantic versioning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#branching-model">Branching model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-releases">New releases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artifact-publication">Artifact publication</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#private-pypi">Private PyPI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#public-pypi">Public PyPI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github">GitHub</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#artifact-download">Artifact download</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item"> 
+<div class="tocsection editthispage">
+  <a href="https://github.com/pyansys/dev-guide/edit/main/doc/source/how-to/releasing.rst">
+    <i class="fa-solid fa-pencil"></i>
+       Edit
+    on GitHub  
+  </a>
+</div>
+
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/how-to/releasing.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright (c) 2024 ANSYS, Inc. All rights reserved.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the
+  <a href="https://sphinxdocs.ansys.com/version/stable/index.html"
+    >Ansys Sphinx Theme</a
+  >
+  0.14.1. <br />Last updated on
+  <span id="date"></span>
+</p>
+<script>
+  var options = { day: "numeric", month: "long", year: "numeric" };
+  var lastModifiedDate = new Date(document.lastModified);
+  var date = lastModifiedDate.toLocaleDateString("en-US", options);
+  document.getElementById("date").innerHTML = date;
+</script></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,846 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Contributing &#8212; PyAnsys Developer&#39;s Guide</title>
+
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/ansys_sphinx_theme.css?v=4f651e51" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+ 
+<link href="../_static/css/breadcrumbs.css" rel="stylesheet" />
+
+    <script src="../_static/documentation_options.js?v=b8ffcd85"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/table.js?v=b64f5182"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'how-to/contributing';</script>
+    <link rel="icon" href="../_static/ansys-favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Packaging" href="packaging.html" />
+    <link rel="prev" title="Python versions" href="supporting-python-versions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container"><!-- Debugging: html_theme_options =  -->
+ 
+<!-- Include the MeiliSearch CSS stylesheet only if theme present -->
+<link href="../_static/css/meilisearch.css" rel="stylesheet" />
+
+<!-- Create a search bar form with a text input and a dropdown selector for the search index -->
+<form
+  class="bd-search d-flex align-items-center"
+  action="../search.html"
+  method="get"
+>
+  <i class="fa fa-search" aria-hidden="true" id="search-icon"></i>
+  <input
+    type="search"
+    placeholder="Search"
+    class="form-control"
+    id="search-bar-input"
+    autofocus
+  />
+  <span class="search-button__kbd-shortcut"
+    ><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span
+  >
+  <style>
+    .bd-search .search-button__kbd-shortcut {
+      right: 33%;
+    }
+  </style>
+  
+  <select id="indexUidSelector" class="index-select">
+    
+    <option value="pyansys-dev-guide">PyAnsys dev guide</option>
+    
+  </select>
+  
+  <!-- Include the MeiliSearch JavaScript library for the search bar -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+
+    
+  <script>
+    var HOST_URL = "https://backend.search.pyansys.com/";
+    var API_KEY = "9fbccc76c147935ce2b562a9ee0c6669276987572dc1f22491cea72e9e99f35d";
+    var indexUid = "pyansys-dev-guide";
+  </script>
+
+  <script src="../_static/js/meilisearch_theme_wrap.js"></script>
+</form>
+</div>
+  </div>
+   
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/pyansys-logo-black-cropped.png" class="logo__image only-light" alt="PyAnsys Developer's Guide - Home"/>
+    <script>document.write(`<img src="../_static/pyansys-logo-black-cropped.png" class="logo__image only-dark" alt="PyAnsys Developer's Guide - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting-started/index.html">
+                        Getting started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        How-to
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../all-styles.html">
+                        Style
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../abstractions/index.html">
+                        Abstractions
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../content-writing/index.html">
+                        Content writing
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/dev/how-to/contributing.html" title="Contribute" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-wrench fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+    
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting-started/index.html">
+                        Getting started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        How-to
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../all-styles.html">
+                        Style
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../abstractions/index.html">
+                        Abstractions
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../content-writing/index.html">
+                        Content writing
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/dev/how-to/contributing.html" title="Contribute" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-wrench fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="setting-up.html">Environment setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supporting-python-versions.html">Python versions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packaging.html">Packaging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpc-api-packages.html">gRPC API packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documenting.html">Documenting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releasing.html">Releasing and publishing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repository-protection.html">Repository protection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns-configuration.html">DNS configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compatibility.html">Product compatibility</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+         
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="https://docs.pyansys.com/" class="nav-link">PyAnsys</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a
+        href="../index.html"
+        class="nav-link"
+        aria-label="Home"
+      >
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="index.html" class="nav-link">How-to</a>
+    </li>
+      
+    <li class="breadcrumb-item active" aria-current="page">Contributing</li>
+    
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="contributing">
+<span id="id1"></span><h1>Contributing<a class="headerlink" href="#contributing" title="Link to this heading">#</a></h1>
+<p>Before contributing to a PyAnsys library, you must understand the general
+coding paradigms used for PyAnsys development.</p>
+<ol class="arabic simple">
+<li><p>Follow the <a class="reference external" href="https://www.python.org/dev/peps/pep-0020/">Zen of Python</a>.
+As silly as core Python developers are sometimes, there’s much to be
+gained by following the basic guidelines listed in <a class="reference external" href="https://peps.python.org/pep-0020/">PEP 20</a>. As suggested
+in these guidelines, focus on making your additions intuitive, novel,
+and helpful for users. When in doubt, use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">this</span></code>.
+For Ansys code quality standards, see <a class="reference internal" href="../coding-style/index.html#coding-style"><span class="std std-ref">Coding style</span></a>.</p></li>
+<li><p>Document your contributions. Include a docstring for any added function,
+class, or method, following <a class="reference internal" href="../doc-style/docstrings.html#numpydoc-docstrings"><span class="std std-ref">Numpydoc docstrings</span></a> as specified by
+PyAnsys <a class="reference internal" href="../doc-style/index.html#documentation-style"><span class="std std-ref">Documentation style</span></a>. Always provide at least one simple use
+case for a new feature.</p></li>
+<li><p>Test your contribution. Because Python is an interpreted language, if
+it’s not tested, it’s probably broken. At the minimum, include a unit
+test for each new feature within the <code class="docutils literal notranslate"><span class="pre">tests</span></code> directory. Ensure that
+each new function, class, or method has a reasonable coverage (greater
+than 80%). For information on automated testing, see <a class="reference internal" href="testing.html#testing"><span class="std std-ref">Testing</span></a>.</p></li>
+<li><p>Do not include any datasets for which a license is not available
+or commercial use is prohibited.</p></li>
+<li><p>Review the Ansys <a class="reference external" href="https://github.com/ansys/.github/blob/main/CODE_OF_CONDUCT.md">Contributor Code of Conduct</a>.</p></li>
+</ol>
+<p>All PyAnsys projects are hosted on <a class="reference external" href="https://github.com/">GitHub</a> in the form of <a class="reference internal" href="setting-up.html#git"><span class="std std-ref">Git</span></a>
+repositories. GitHub is a platform that not only provides storage for
+projects but also additional features like code reviews or issue boards.</p>
+<br>
+<div align="center">
+  <img width="40%;" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Logo.png">
+</div><section id="create-a-github-account">
+<h2>Create a GitHub account<a class="headerlink" href="#create-a-github-account" title="Link to this heading">#</a></h2>
+<p>To use GitHub, start by creating an account for the platform. Follow the
+<a class="reference external" href="https://github.com/join">GitHub Join Process</a>.</p>
+<p>For Ansys employees who would like to join the Ansys GitHub organization,
+visit <a class="reference external" href="https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706">Join Ansys GitHub Organization</a>.</p>
+</section>
+<section id="interact-with-github-repository-sections">
+<span id="github-repo-sections"></span><h2>Interact with GitHub repository sections<a class="headerlink" href="#interact-with-github-repository-sections" title="Link to this heading">#</a></h2>
+<p>Once you have a GitHub account and access to the Ansys GitHub organization,
+you are able to interact with the different repositories. While each
+repository contains all tabbed sections in the following list,
+your access level determines which tabbed sections you can see.</p>
+<figure class="align-center">
+<img alt="GitHub repository sections" src="../_images/github_sections.png" />
+</figure>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Code</span></code>: Tree view of the project’s structure</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Issues</span></code>: Posts noting issues or requesting new features</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pull</span> <span class="pre">requests</span></code>: Code changes either awaiting review or merging or already closed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Discussions</span></code>: Exchanges about development practices with project maintainers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Actions</span></code>: Available CI/CD workflows</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Projects</span></code>: Plans for organizing and developing the repository</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Wiki</span></code>: Basic project information</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Security</span></code>: Configurations related to security issues, vulnerabilities, and alerts</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Insights</span></code>: General information about the repository and its contributors</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Settings</span></code>: Configurations for access and integration with third-party tools</p></li>
+</ul>
+</section>
+<section id="create-an-issue">
+<h2>Create an issue<a class="headerlink" href="#create-an-issue" title="Link to this heading">#</a></h2>
+<p>You create an issue to report a bug, request a new feature, or ask for library-specific
+help. You can comment on an issue to interact with other users, developers, and project
+maintainers.</p>
+<p>To open an issue, select the <code class="docutils literal notranslate"><span class="pre">Issues</span></code> tab in the <a class="reference internal" href="#github-repo-sections"><span class="std std-ref">Interact with GitHub repository sections</span></a> and click
+<code class="docutils literal notranslate"><span class="pre">New</span> <span class="pre">Issue</span></code>. Then, select a template for the type of issue to open.</p>
+<p>GitHub issues require the usage of Markdown files instead of ReStructuredText (RST)
+files. For more information, see <a class="reference external" href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">Basic writing and formatting syntax</a>
+in the GitHub documentation.</p>
+<section id="report-bugs">
+<h3>Report bugs<a class="headerlink" href="#report-bugs" title="Link to this heading">#</a></h3>
+<p>If you encounter a bug in the code, open a new issue and select the template
+for creating a bug report. In the bug report, take these actions:</p>
+<ul class="simple">
+<li><p>Indicate the operating system, Python version, and library version that you are using.</p></li>
+<li><p>Include a small piece of code to allow others to reproduce the bug that you found.</p></li>
+<li><p>Add any additional information that you consider useful for fixing the bug.</p></li>
+</ul>
+</section>
+<section id="request-new-features">
+<h3>Request new features<a class="headerlink" href="#request-new-features" title="Link to this heading">#</a></h3>
+<p>If you would like a new feature to be added to a PyAnsys library, open a
+new issue and select either the template for code enhancements or a
+feature idea. In the issue, take these actions:</p>
+<ul class="simple">
+<li><p>Describe the main goal of the feature that you’d like to have added and why it is beneficial
+to the project.</p></li>
+<li><p>Describe how this feature might possibly be implemented and the steps that should be
+followed.</p></li>
+<li><p>Add any references that could help during the development process.</p></li>
+</ul>
+</section>
+</section>
+<section id="fork-a-repository">
+<h2>Fork a repository<a class="headerlink" href="#fork-a-repository" title="Link to this heading">#</a></h2>
+<p>Forking a repository is like copying and pasting a project into your own GitHub
+profile. Notice that only repositories labeled as <code class="docutils literal notranslate"><span class="pre">public</span></code> can be forked. You
+cannot fork a repository labeled as <code class="docutils literal notranslate"><span class="pre">internal</span></code> or <code class="docutils literal notranslate"><span class="pre">private</span></code>.</p>
+<p>To fork a repository, click the <strong>Fork</strong> button at the top of the project’s
+<strong>Code</strong> page.</p>
+</section>
+<section id="clone-a-repository">
+<h2>Clone a repository<a class="headerlink" href="#clone-a-repository" title="Link to this heading">#</a></h2>
+<p>Cloning a repository means downloading it to your local machine. While there are two ways of
+doing this (<code class="docutils literal notranslate"><span class="pre">HTTPS</span></code> or <code class="docutils literal notranslate"><span class="pre">SSH</span></code>), to force the usage of <code class="docutils literal notranslate"><span class="pre">SSH</span></code>, only this method is explained.</p>
+<section id="clone-using-ssh">
+<h3>Clone using SSH<a class="headerlink" href="#clone-using-ssh" title="Link to this heading">#</a></h3>
+<p>Cloning using <code class="docutils literal notranslate"><span class="pre">SSH</span></code> requires that SSH be enabled. For more information, see <a class="reference internal" href="setting-up.html#enable-ssh"><span class="std std-ref">Enable SSH</span></a>.
+To clone a repository using SSH, run this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:&lt;user&gt;/&lt;repository-name&gt;.git
+</pre></div>
+</div>
+<p>For example, clone the <a class="reference external" href="https://github.com/ansys/pymapdl">PyMAPDL</a> project with this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:ansys/pymapdl.git
+</pre></div>
+</div>
+</section>
+</section>
+<section id="install-a-library-in-editable-mode">
+<h2>Install a library in editable mode<a class="headerlink" href="#install-a-library-in-editable-mode" title="Link to this heading">#</a></h2>
+<p>You can install a Python library in <em>editable mode</em>, which
+allows you to modify the source code and have these new changes
+reflected in your Python environment.</p>
+<p>To install a Python library in editable mode:</p>
+<ol class="arabic">
+<li><p>Ensure that you <a class="reference internal" href="setting-up.html#create"><span class="std std-ref">Create</span></a> and <a class="reference internal" href="setting-up.html#activate"><span class="std std-ref">Activate</span></a> a Python virtual environment,
+as explained in the <a class="reference internal" href="setting-up.html#virtual-environments"><span class="std std-ref">Virtual environments</span></a> section.</p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">pip</span></code> with this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+</pre></div>
+</div>
+</li>
+<li><p>Install the library with this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--editable<span class="w"> </span>.
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="create-a-branch">
+<h2>Create a branch<a class="headerlink" href="#create-a-branch" title="Link to this heading">#</a></h2>
+<p>It is likely that the repository’s default branch name is <code class="docutils literal notranslate"><span class="pre">main</span></code> or <code class="docutils literal notranslate"><span class="pre">master</span></code>. This is the
+development branch for PyAnsys projects. For more information, see <a class="reference internal" href="releasing.html#branching-model"><span class="std std-ref">Branching model</span></a>.</p>
+<p>You must implement new contributions in a different branch and then <a class="reference internal" href="#create-a-pull-request"><span class="std std-ref">Create a pull request</span></a>
+so that these changes can later be merged into the repository’s <code class="docutils literal notranslate"><span class="pre">main</span></code> branch.</p>
+<p>To create a branch, run this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>&lt;new<span class="w"> </span>branch<span class="w"> </span>name&gt;
+</pre></div>
+</div>
+<section id="branch-naming-conventions">
+<span id="branch-naming"></span><h3>Branch-naming conventions<a class="headerlink" href="#branch-naming-conventions" title="Link to this heading">#</a></h3>
+<p>The following requirements for naming branches helps to streamline
+development. They help core developers know what kind of
+changes any given branch is introducing before looking at the code.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fix/</span></code>: Bug fixes, patches, or experimental changes that are
+minor</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">feat/</span></code>: Changes that introduce a new feature or significant
+addition</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">junk/</span></code>: Experimental changes that can be deleted if they go
+stale</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maint/</span></code>: General maintenance of the repository or CI routines</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">doc/</span></code>: Changes pertaining only to documentation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">no-ci/</span></code>: Low-impact activity that should not trigger CI
+routines</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">testing/</span></code>: Improvements or changes to testing</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">release/</span></code>: Releases (see below)</p></li>
+</ul>
+</section>
+</section>
+<section id="push-your-branch">
+<h2>Push your branch<a class="headerlink" href="#push-your-branch" title="Link to this heading">#</a></h2>
+<p>Once you have implemented new changes and committed them, push your
+branch with this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>&lt;new<span class="w"> </span>branch<span class="w"> </span>name&gt;
+</pre></div>
+</div>
+<p>Your changes are upload to the repository, but they are only visible in the branch
+that you just pushed.</p>
+</section>
+<section id="create-a-pull-request">
+<h2>Create a pull request<a class="headerlink" href="#create-a-pull-request" title="Link to this heading">#</a></h2>
+<p>Once you have tested your branch locally, create a pull request (PR) and target your merge to
+the repository’s <code class="docutils literal notranslate"><span class="pre">main</span></code> branch. This automatically runs CI testing and verifies that your changes
+work across all supported platforms. For procedural information, see <a class="reference external" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">Creating a pull request</a>
+in the GitHub documentation.</p>
+<p>After you submit your PR, a project maintainer reviews your code to verify that it meets
+the <a class="reference internal" href="../packaging/index.html#packaging-style"><span class="std std-ref">Packaging style</span></a>, <a class="reference internal" href="../coding-style/index.html#coding-style"><span class="std std-ref">Coding style</span></a>, and <a class="reference internal" href="../doc-style/index.html#documentation-style"><span class="std std-ref">Documentation style</span></a>.</p>
+<p>Once your code is approved, if you have write permission, you can merge the PR
+and then delete the PR branch. If you don’t have write permission, the reviewer
+or someone else with write permission must merge your PR and then delete your PR branch.</p>
+<div class="admonition-always-delete-your-pr-branch-after-merging-it-into-the-main-branch admonition">
+<p class="admonition-title">Always delete your PR branch after merging it into the main branch.</p>
+<p>You can set up automatic deletion of branches in <strong>Settings &gt; General &gt; Pull Requests</strong>.</p>
+</div>
+</section>
+<section id="use-github-cli">
+<h2>Use GitHub CLI<a class="headerlink" href="#use-github-cli" title="Link to this heading">#</a></h2>
+<p>Because developers do not like leaving their terminals when working in projects,
+GitHub offers a <a class="reference external" href="https://cli.github.com/">command-line interface (CLI)</a>.</p>
+<p>This program allows you to interact with most of the features available in the
+web version of GitHub. For available commands, see the
+<a class="reference external" href="https://cli.github.com/manual/gh">GitHub CLI</a> documentation.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-github-account">Create a GitHub account</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interact-with-github-repository-sections">Interact with GitHub repository sections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-issue">Create an issue</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#report-bugs">Report bugs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-new-features">Request new features</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fork-a-repository">Fork a repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-a-repository">Clone a repository</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clone-using-ssh">Clone using SSH</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-a-library-in-editable-mode">Install a library in editable mode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-branch">Create a branch</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#branch-naming-conventions">Branch-naming conventions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#push-your-branch">Push your branch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-pull-request">Create a pull request</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-github-cli">Use GitHub CLI</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item"> 
+<div class="tocsection editthispage">
+  <a href="https://github.com/pyansys/dev-guide/edit/main/doc/source/how-to/contributing.rst">
+    <i class="fa-solid fa-pencil"></i>
+       Edit
+    on GitHub  
+  </a>
+</div>
+
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/how-to/contributing.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright (c) 2024 ANSYS, Inc. All rights reserved.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the
+  <a href="https://sphinxdocs.ansys.com/version/stable/index.html"
+    >Ansys Sphinx Theme</a
+  >
+  0.14.1. <br />Last updated on
+  <span id="date"></span>
+</p>
+<script>
+  var options = { day: "numeric", month: "long", year: "numeric" };
+  var lastModifiedDate = new Date(document.lastModified);
+  var date = lastModifiedDate.toLocaleDateString("en-US", options);
+  document.getElementById("date").innerHTML = date;
+</script></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
