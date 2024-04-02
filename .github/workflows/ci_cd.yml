@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Check documentation style"
-        uses: ansys/actions/doc-style@v5
+        uses: ansys/actions/doc-style@test/vale-no-exit
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           vale-version: "3.3.0"
