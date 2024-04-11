@@ -86,7 +86,7 @@ The combination of PEP 517 and PEP 518 leads to the following syntax in a
    requires = ["flit"] # Defined by PEP 518
    build-backend = "flit_core.api" # Defined by PEP 517
 
-build-backend tools
+Build-backend tools
 ===================
 
 This section lists some of the most popular build systems in the
