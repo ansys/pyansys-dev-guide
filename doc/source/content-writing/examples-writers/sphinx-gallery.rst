@@ -1,6 +1,6 @@
 .. _sphinx-gallery:
 
-Use Sphinx-Gallery
+Use sphinx-gallery
 ==================
 
 The `sphinx_gallery <Sphinx_ext_sphinx_gallery_>`_ extension (Sphinx-Gallery) is
