@@ -77,8 +77,8 @@ For more information on RST file setup, see :ref:`rst_files_developers` and
 
 .. _readme_files:
 
-README files
-------------
+``README.rst`` files
+--------------------
 
 Each PyAnsys repository has a README file in its root directory that explains the
 project and points readers to the documentation. The README file can be an RST file

@@ -9,6 +9,7 @@ Brinkrolf
 CI/CD
 CLI
 CNAME
+CSV
 Codespell
 [Cc]omponentization
 [Cc]omponentizing
