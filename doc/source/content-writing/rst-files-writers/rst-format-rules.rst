@@ -126,6 +126,19 @@ page in the *Goggle developer documentation style guide*.
   ``code`` or ``code-block`` directive. For more information on code blocks,
   see :ref:`code_blocks`.
 
+- To comment out lines in an RST file so that they do render in the documentation,
+  place two periods (``..``) and a space before each line that you want to hide::
+
+    .. When content is drafted on reusable RST files, add the topic here.
+    .. Also add links to this new topic in the ``documenting.rst" file.
+
+  While this approach is useful if the native ``sphinx.ext.todo`` extension has not been
+  added to the ``extensions`` variable in your documentation's Sphinx configuration
+  (``doc/source/conf.py``) file, adding this extension is recommended. The specially
+  formatted block of text for the ``.. todo::`` directive does not render in the
+  documentation by default. Plus, you can easily search for occurrences of this directive
+  later. For more information, see :ref:`add_native_sphinx_ext`.
+
 Subsequent pages describe how to use other common Sphinx roles and directives. For
 comprehensive lists of roles and directives, see `Roles <Sphinx_doc_roles_>`_ and
 `Directives <Sphinx_doc_directives_>`_ in the Sphinx documentation.

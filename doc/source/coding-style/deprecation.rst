@@ -2,17 +2,18 @@ Deprecation best practices
 ==========================
 
 While deprecation best practices are outlined in 
-this `Deprecation library <https://deprecation.readthedocs.io/>`_ ,
+this `deprecation documentation <https://deprecation.readthedocs.io/>`_,
 there is no official guidance on deprecating features within Python.
 Thus, this topic provides deprecation best practices for PyAnsys
 libraries. 
 
-Whenever you deprecate a method, class, or function, you must either:
+Whenever you deprecate a method, class, or function, you must take one of
+these actions:
 
-- Have the old method call the new method and raise a warning
-- Raise an ``AttributeError`` if you remove the method entirely
+- Have the old method call the new method and raise a warning.
+- Raise an ``AttributeError`` if you remove the method entirely.
 
-In the docstring of the old method, provide a `Sphinx Deprecated Directive
+In the docstring of the old method, use a Sphinx `deprecated directive
 <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-deprecated>`_
 that links to the new method. This way, you notify your users when you make
 an API change and give them a chance to change their code. Otherwise,

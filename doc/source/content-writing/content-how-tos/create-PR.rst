@@ -27,11 +27,11 @@ Run pre-commit locally
 ----------------------
 
 `pre-commit <pre-commit_>`_ is a tool for ensuring that all the changes that you make to
-files in a project successfully pass all checks run by the code style tools that are
+files in your project successfully pass all checks run by the code style tools that are
 configured as part of the CI/CD process. These tools, which typically include `Black <Black_>`_,
 `isort <isort_>`_, and `Flake8 <Flake8_>`_, analyze, format, review, and improve
 code quality and security. For more information on the code style tools most commonly
-used in PyAnsys projects, see :ref:`code_style_tools`.
+configured for use in PyAnsys projects, see :ref:`code_style_tools`.
 
 Because you do not want the **Code style** check for your PyAnsys project to fail
 when you create or push changes to a PR, you want to periodically run ``pre-commit``
@@ -459,3 +459,33 @@ One the PR is merged, use your GitHub tool to pull all changes from the remote m
 branch on GitHub into the main branch of your locally cloned repository. Also delete
 the local branch with the changes that have now been merged. For additional changes,
 create another local branch to work in.
+
+Remove untracked files and directories
+--------------------------------------
+
+To remove untracked files and directories from your working directory, from the
+``doc`` folder, periodically run this command:
+
+``git clean -fdx .``
+
+For more information on this Git command, see :ref:`git_clean`.
+
+When you next run ``pre-commit``, the code style tools configured for
+your PyAnsys project must be initialized once again. For more information,
+see :ref:`run_precommit`.
+
+Before you can run Vale again locally, you must download the latest rules for the
+*Google developer's documentation style guide* to the ``doc/styles/Google`` folder
+by running this command: 
+   
+.. code-block:: bash
+
+   vale sync
+
+You can then run Vale with this command:
+
+.. code-block:: bash
+
+   vale .
+
+For more information, see :ref:`run_Vale_locally`.

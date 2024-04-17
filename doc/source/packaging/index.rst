@@ -2,19 +2,19 @@
 Packaging style
 ===============
 
-A PyAnsys library eliminates the need to share snippets of code that
-perform actions. Users can instead create workflows consisting of 
-their own Python modules and third-party libraries. This extends 
-Ansys's products in a way that matches how libraries are created 
-in the Python community while maintaining the separation between 
-products, APIs, and PyAnsys client libraries.
+A PyAnsys library eliminates the need to share code snippets for
+performing actions. You can instead create workflows consisting of 
+Python modules and third-party libraries. This extends Ansys products
+in a way that matches how libraries are created in the Python community
+while maintaining the separation between products, APIs, and PyAnsys
+client libraries.
 
 To avoid the anti-pattern of providing single-use scripts, the 
-general pattern for a PyAnsys library ensures:
+general pattern for a PyAnsys library provides these features:
 
-* Clear, open source APIs that are consistent with community standards 
-  are hosted on GitHub
-* Reusable packages can be updated and patched outside of the
+* Clear, GitHub-hosted open source APIs that are consistent with community
+  standards 
+* Reusable packages that can be updated and patched outside of the
   Ansys release schedule, while still being directly dependent on
   Ansys products
 * Unit testing, release packaging, and documentation
@@ -27,7 +27,7 @@ This diagram shows the general pattern that each PyAnsys library should follow:
 The Ansys product or service exposes an interface that is locally
 accessible (for example, .NET using `pythoncom`_, `SWIG`_, or `C
 extensions`_) or a service that is both locally and remotely
-accessible (`REST`_ or `gRPC`_).  This interface is referred to as the
+accessible using `REST`_ or `gRPC`_. This interface is referred to as the
 API (Application Programming Interface).  While this API can be
 directly accessed, this often results in unreadable and unmaintainable
 code that forces users to rewrite setup boilerplate and other methods

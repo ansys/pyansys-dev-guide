@@ -66,7 +66,7 @@ If it is not present, documentation style tools in the CI/CD process raise error
 when you push changes to a PR.
 
 You can declare the short summary on the same line as the opening quotation marks
-of the docstring or on the next line. While `PEP 257 <PEP-257_>`_ accepts both ways,
+of the docstring or on the next line. While `PEP 257`_ accepts both ways,
 docstrings must be consistent across your project. If the developers of a PyAnsys
 library are declaring the short summary on the same line as the opening quotation marks,
 they have turned off ``"GL01"`` checking in the ``numpydoc_validation_checks`` dictionary

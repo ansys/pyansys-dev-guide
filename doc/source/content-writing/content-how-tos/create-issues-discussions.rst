@@ -20,8 +20,8 @@ on the **Issues** page and **Discussions** page of a GitHub repository.
 Create an issue
 ---------------
 
-To report an issue, request a new feature, or ask for troubleshooting assistance, create
-an issue in the project's repository:
+To report an issue, request a new feature, or ask for project-specific troubleshooting assistance,
+create an issue in the project's repository:
 
 #. Go to the project repository.
 #. Click the **Issues** tab to go to the **Issues** page.
@@ -43,7 +43,8 @@ an issue in the project's repository:
    any relevant error messages, code snippets, and screenshots.
 #. Click **Submit new issue**.
 
-To contact the project support team about an issue, email `pyansys.core@ansys.com <pyansys_core_email_>`_.
+If you have general questions about the PyAnsy ecosystem, contact the
+`PyAnsy core team <pyansys_core_email_>`_.
 
 Create a discussion
 -------------------

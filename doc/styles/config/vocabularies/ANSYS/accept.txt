@@ -9,6 +9,7 @@ Brinkrolf
 CI/CD
 CLI
 CNAME
+CSV
 Codespell
 [Cc]omponentization
 [Cc]omponentizing
@@ -80,11 +81,13 @@ pytest
 pythoncom
 pyvista
 rebasing
+recurse
 reusability
 Rey
 REST
 RPC
 RST
+rulesets
 scipy
 [Ss]etuptools
 [Ss]phinx
@@ -101,6 +104,7 @@ turbomachinery
 UDFs
 uncomment
 unittest
+untracked
 unvalidated
 URIs
 Vale
