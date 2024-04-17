@@ -82,7 +82,7 @@ To run pre-commit locally:
 
       hooks:
       - id: codespell
-        args: ["--ignore-words", "doc/styles/Vocab/ANSYS/accept.txt"]
+        args: ["--ignore-words", "doc/styles/config/vocabularies/ANSYS/accept.txt"]
 
 #. Manually resolve any issues that ``pre-commit`` could not resolve. For more information,
    see :ref:`resolve_failing_checks`.
@@ -175,7 +175,7 @@ To run Vale locally:
    with ``vale`` followed a space and then the name of the directory.
 
 #. To resolve errors and other issues that Vale raises, either edit files or
-   add words or phrases to the ``accept.txt`` file in ``doc\styles\Vocab\ANSYS``.
+   add words or phrases to the ``accept.txt`` file in ``doc\styles\config\vocabularies\ANSYS``.
 
 Here is an explanation of how Vale is set up in a PyAnsys project. The ``doc`` directory
 contains the ``.vale.ini`` configuration file and the ``styles`` directory.
@@ -184,7 +184,7 @@ contains the ``.vale.ini`` configuration file and the ``styles`` directory.
   in RST and MD files to ensure that it is compliant with the
   *Google developer documentation style guide*, along with any custom Ansys rules.
 
-- In the ``styles`` directory, the ``Vocab/ANSYS`` directory contains ``accept.txt``
+- In the ``styles`` directory, the ``config/vocabularies/ANSYS`` directory contains ``accept.txt``
   and ``reject.txt`` files. You can add words or phrases that Vale does not recognize
   to the ``accept.txt`` file, and you can add recognized words or phrases that you want
   Vale to raise as issues to the ``reject.txt`` file.
