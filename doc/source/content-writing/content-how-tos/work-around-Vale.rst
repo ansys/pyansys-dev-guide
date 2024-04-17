@@ -53,7 +53,7 @@ Vale warnings, if the list of warnings becomes long, it can become annoying
 to have to scroll through them to find the errors that you must address.
 
 To have Vale accept your use of a word that is raising a warning, you can
-add the word to the :file:`accept.txt` file in the ``doc/styles/Vocab/ANSYS``
+add the word to the :file:`accept.txt` file in the ``doc/styles/config/vocabularies/ANSYS``
 directory.
 
 Turn off a particular style rule
@@ -136,7 +136,7 @@ Specify a specific Vale version
 If you push your changes to a PR and Vale raises lots of inappropriate errors about titles not
 being in sentence case when they are already in title case, in the ``.github/workflows`` directory,
 open the :file:`ci_cd.yml` file and then update the "Documentation Style Check" to use Vale
-version 2.29.5::
+version 3.4.1:
 
     docs-style:
       name: Documentation Style Check
@@ -146,4 +146,4 @@ version 2.29.5::
           uses: ansys/actions/doc-style@v4
           with:
             token: ${{ secrets.GITHUB_TOKEN }}
-            vale-version: "2.29.5"
+            vale-version: "3.4.1"
