@@ -11,7 +11,7 @@ object-orientated approach.
 The PyAnsys ecosystem refines the component-level interaction 
 with Ansys solvers and tools. It also eliminates the inconsistent and
 restrictive scripting environments found within product 
-installations. For more information, see doc:`componentization`.
+installations. For more information, see :ref:`componentizing`.
 
 Additionally, libraries play vital roles in key simulation tasks,
 including these:
