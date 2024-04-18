@@ -162,6 +162,7 @@ this command:
 Check all files in only a particular folder by typing ``vale`` followed by the
 name of the folder.
 
-Address any warnings and issues that display by either editing
-files to fix them or adding entries to the ``accept.txt`` file under the 
-``doc`` folder in ``styles\Vocab\ANSYS``.
+Address any warnings and issues that display by either editing the
+file to fix or adding a term to the ``accept.txt`` file under the 
+``doc`` folder in ``styles\config\vocabularies\ANSYS``.
+

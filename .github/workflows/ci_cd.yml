@@ -30,7 +30,126 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Check documentation style"
-        uses: ansys/actions/doc-style@v5
+        uses: ansys/actions/doc-style@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          vale-version: "3.3.0"
+          vale-config: "doc/.vale.ini"
+
+  doc-build:
+    name: "Build project documentation"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Install mermaid-cli"
+        run: npm install -g @mermaid-js/mermaid-cli
+
+      - name: "Install GraphViz"
+        shell: bash
+        run: |
+          sudo apt-get update
+          sudo apt-get install graphviz
+
+      - name: "Build project documentation"
+        uses: ansys/actions/doc-build@v5
+        with:
+          python-version: ${{ env.MAIN_PYTHON_VERSION }}
+          use-python-cache: false
+          skip-install: true
+          requires-xvfb: true
+          dependencies: 'xvfb texlive-latex-extra latexmk nodejs npm'
+
+  doc-deploy:
+    name: "Deploy documentation"
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && !contains(github.ref, 'refs/tags')
+    needs: doc-build
+    steps:
+  
+      - name: "Download HTML documentation artifacts"
+        uses: actions/download-artifact@v4
+        with:
+          name: documentation-html
+          path: documentation-html
+
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: documentation-html
+          cname: ${{ env.DOCUMENTATION_CNAME }}
+          full_commit_message: ${{ github.event.head_commit.message }}
+          force_orphan: true
+
+  doc-index:
+    name: "Deploy index docs"
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: doc-deploy
+    steps:
+      - name: "Deploy the latest documentation index"
+        uses: ansys/actions/doc-deploy-index@v5
+        with:
+          cname: ${{ env.DOCUMENTATION_CNAME }}
+          index-name: "pyansys-dev-guide"
+          host-url: ${{ vars.MEILISEARCH_HOST_URL }}
+          api-key: ${{ env.MEILISEARCH_API_KEY }}
+
+  release-github:
+    name: "Release to GitHub"
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+    needs: doc-build
+    steps:
+
+    - name: "Download HTML documentation"
+      uses: actions/download-artifact@v4
+      with:
+        name: documentation-html
+        path: documentation-html
+
+    - name: "Zip HTML documentation"
+      uses: vimtor/action-zip@v1
+      with:
+        files: documentation-html
+        dest: documentation-html.zip
+
+    - name: "Download PDF documentation"
+      uses: actions/download-artifact@v4
+      with:
+        name: documentation-pdf
+        path: documentation-pdf
+
+    - name: "Zip PDF documentation"
+      uses: vimtor/action-zip@v1
+      with:
+        files: documentation-pdf
+        dest: documentation-pdf
+
+    - name: "Display the structure of downloaded files"
+      shell: bash
+      run: ls -R
+
+    - name: "Release to GitHub"
+      uses: softprops/action-gh-release@v2
+      with:
+        files: |
+          documentation-html.zip
+          documentation-pdf
+
+  doc-deploy-github-release:
+    name: "Deploy documentation (stable)"
+    runs-on: ubuntu-latest
+    needs: [release-github]
+    steps:
+  
+      - name: "Download HTML documentation artifacts"
+        uses: actions/download-artifact@v4
+        with:
+          name: documentation-html
+          path: documentation-html
+
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: documentation-html
+          cname: ${{ env.DOCUMENTATION_CNAME }}
+          full_commit_message: ${{ github.event.head_commit.message }}
+          force_orphan: true
