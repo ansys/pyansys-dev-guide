@@ -41,7 +41,7 @@ page in the *Goggle developer documentation style guide*.
 
 - Use standard American spelling and punctuation.
 
-- Use "you" and "your" rather then "we" and "our."
+- Use ``you`` and ``your`` rather then ``we`` and ``our``.
 
 - Omit the word "please" and replace the phrase "In order to" with "To."
 
