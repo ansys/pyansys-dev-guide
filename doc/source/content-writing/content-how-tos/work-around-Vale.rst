@@ -136,7 +136,7 @@ Specify a specific Vale version
 If you push your changes to a PR and Vale raises lots of inappropriate errors about titles not
 being in sentence case when they are already in title case, in the ``.github/workflows`` directory,
 open the :file:`ci_cd.yml` file and then update the "Documentation Style Check" to use Vale
-version 3.4.1:
+version 3.4.1::
 
     docs-style:
       name: Documentation Style Check
