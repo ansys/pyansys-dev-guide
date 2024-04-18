@@ -113,3 +113,6 @@ Visual Studio Code
 worktree
 (?i)WSL
 WSL2
+Sphinx-Gallery
+README
+CSV
