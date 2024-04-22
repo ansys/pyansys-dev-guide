@@ -10,8 +10,10 @@ for different operating systems.
 
 .. note::
    To use tab sets in your PyAnsys documentation, you must install
-   and configure the `sphinx-design <Sphinx_ext_sphinx_design_>`_
-   extension. For more information, see :ref:`add_sphinx_extensions`.
+   the `sphinx-design <Sphinx_ext_sphinx_design_>`_ extension and then add
+   it to the ``conf.py`` file in the ``doc/source`` directory and to your
+   list of documentation requirements. For more information, see
+   :ref:`add_sphinx_extensions`.
 
    To see and use the tab sets that are shown only as images on this page,
    see :ref:`setting_up_dev_environment`. To see how the tab sets on this

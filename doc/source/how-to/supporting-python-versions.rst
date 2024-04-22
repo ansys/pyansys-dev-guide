@@ -8,7 +8,7 @@ more information, see `Status of Python versions
 Developer's Guide*.
 
 +---------+------------+-------------+-----------------------+--------+
-| Version | PEP        | Released    | Security Support Ends | Status |
+| Version | PEP        | Released    | Security support ends | Status |
 +---------+------------+-------------+-----------------------+--------+
 | 3.12    | `PEP 693`_ | 02 Oct 2023 |    Oct 2028           | Stable |
 +---------+------------+-------------+-----------------------+--------+

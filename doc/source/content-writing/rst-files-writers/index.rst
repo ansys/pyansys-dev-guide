@@ -55,6 +55,7 @@ this **Content in RST files** section::
       tables
       cards
       tab-sets
+      collapsible-sections
 
 The ``maxdepth`` attribute of the ``toctree`` directive specifies the maximum number of
 heading levels to show in the documentation's right pane, labeled **On this page**. In this
@@ -145,3 +146,4 @@ file. However, the GitHub renderer is unaware of the ``links.rst`` file. For mor
    tables
    cards
    tab-sets
+   collapsible-sections

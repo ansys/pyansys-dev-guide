@@ -3,8 +3,8 @@
 Content in examples
 ===================
 
-Many PyAnsys libraries have an "Example" section. The `sphinx_gallery <Sphinx_ext_sphinx_gallery_>`_
-extension (Sphinx-Gallery) are typically used to generate standalone, downloadable Python scripts
+Many PyAnsys libraries have an "Example" section. The `Sphinx-Gallery <Sphinx_ext_sphinx_gallery_>`_
+extension (``sphinx_gallery``) is typically used to generate standalone, downloadable Python scripts
 (PY files) or Jupyter notebooks (IPYNB files) that you can run. However, some
 PyAnsys libraries use the `nbsphinx <Sphinx_nbsphinx_extension_>`_ extension,
 which is specifically designed for working with and integrating Jupyter notebooks

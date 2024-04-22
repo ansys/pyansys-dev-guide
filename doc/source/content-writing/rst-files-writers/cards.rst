@@ -11,8 +11,10 @@ custom cards.
 
 .. note::
    To use custom cards in your PyAnsys documentation, you must install
-   and configure the `sphinx-design <Sphinx_ext_sphinx_design_>`_
-   extension. For more information, see :ref:`add_sphinx_extensions`.
+   the `sphinx-design <Sphinx_ext_sphinx_design_>`_ extension and then
+   add it to the ``conf.py``file in the ``doc/source`` directory and to
+   your list of documentation requirements. For more information, see
+   :ref:`add_sphinx_extensions`.
 
    To see and use the cards that are shown only as images on this page,
    click the links to their respective documentation pages. To see how these

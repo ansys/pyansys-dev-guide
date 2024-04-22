@@ -484,37 +484,37 @@ maturity.
 
 Follow these steps to enable multi-version documentation in your library:
 
-- Use `ansys-sphinx-theme <Ansys_Sphinx_theme_repo_>`_ 0.8 or later for building
-  your library's documentation.
-- Include the following lines in :ref:`The \`\`conf.py\`\` file`:
+#. Use `ansys-sphinx-theme <Ansys_Sphinx_theme_repo_>`_ 0.8 or later for building
+   your library's documentation.
+#. Include the following lines in :ref:`The \`\`conf.py\`\` file`:
 
-  .. code-block:: python
+   .. code-block:: python
   
-      import os
+       import os
   
-      from ansys_sphinx_theme import get_version_match
+       from ansys_sphinx_theme import get_version_match
   
   
-      cname = os.getenv("DOCUMENTATION_CNAME", "<DEFAULT_CNAME>")
-      """The canonical name of the webpage hosting the documentation."""
+       cname = os.getenv("DOCUMENTATION_CNAME", "<DEFAULT_CNAME>")
+       """The canonical name of the webpage hosting the documentation."""
   
-      html_theme_options = {
-          "switcher": {
-              "json_url": f"https://{cname}/versions.json",
-              "version_match": get_version_match(__version__),
-          },
-          ...
-      }
+       html_theme_options = {
+           "switcher": {
+               "json_url": f"https://{cname}/versions.json",
+               "version_match": get_version_match(__version__),
+           },
+           ...
+       }
 
-  .. admonition:: About the ``DCOUMENTATION_CNAME`` environment variable
+   .. admonition:: About the ``DCOUMENTATION_CNAME`` environment variable
   
-      The ``DOCUMENTATION_CNAME`` environment variable is expected to be
-      declared in the YML file controlling the deployment of the documentation.
-      The idea is that the canonical name (CNAME) is only defined in a single
-      place, so it can be easily changed if required.
+       The ``DOCUMENTATION_CNAME`` environment variable is expected to be
+       declared in the YML file controlling the deployment of the documentation.
+       The idea is that the canonical name (CNAME) is only defined in a single
+       place, so it can be easily changed if required.
 
-- Enable documentation deployment for development and stable versions. For more
-  information, see :ref:`Deploy documentation`.
+#. Enable documentation deployment for development and stable versions. For more
+   information, see :ref:`Deploy documentation`.
 
 With all the previous configuration, your library is ready to use multi-version
 documentation in an automated way. This means that every time you release a
@@ -522,8 +522,7 @@ new version, a link to the documentation for this version is added to the
 drop-down button in the upper right corner of the documentation's title bar.
 You use this drop-down button to switch from viewing the documentation for the
 latest stable release to viewing the documentation for the development version
-or previously
-released versions.
+or previously released versions.
 
 .. admonition:: Controlling the number of versions shown in the drop-down button
 
@@ -656,15 +655,15 @@ not compatible with older `ansys/actions` versions.
 
 To perform the migration, follow these steps:
 
-* Update all the continuous integration ``YML`` files to use
-  ``ansys/actions@v4`` or higher.
+#. Update all the continuous integration ``YML`` files to use
+   ``ansys/actions@v4`` or higher.
 
-* Make sure that the ``"json_url"`` key points to
-  ``f"https://{cname}/versions.json"``. Note that the ``release/`` substring is
-  dropped.
+#. Make sure that the ``"json_url"`` key points to
+   ``f"https://{cname}/versions.json"``. Note that the ``release/`` substring is
+   dropped.
 
-* Apply previous steps as fix patches in all the desired versions to be included
-  in the multi-version documentation.
+#. Apply previous steps as fix patches in all the desired versions to be included
+   in the multi-version documentation.
 
 Access online documentation
 ---------------------------
@@ -737,39 +736,39 @@ a search engine for multi-version documentation in your project.
            ...
        }
   
-  #. In these lines, replace *<your-index-name>* with the desired name for your MeiliSearch index.
+#. In these lines, replace *<your-index-name>* with the desired name for your MeiliSearch index.
   
-     The ``convert_version_to_pymeilisearch`` function converts your package's version into
-     a format suitable for MeiliSearch indexing.
+   The ``convert_version_to_pymeilisearch`` function converts your package's version into
+   a format suitable for MeiliSearch indexing.
 
-  #. Enable documentation index deployment for development and stable versions using GitHub Actions:
+#. Enable documentation index deployment for development and stable versions using GitHub Actions:
   
-     .. code-block:: yaml
+   .. code-block:: yaml
 
-       jobs:
-         doc-deploy-index:
-           name: "Index the documentation and scrap using PyMeilisearch"
-           runs-on: ubuntu-latest
-           needs: doc-deploy
-           if: github.event_name == 'push'
-           steps:
-             - name: Scrape the stable documentation to PyMeilisearch
-               run: |
-                 VERSION=$(python -c "from <your-package> import __version__; print('.'.join(__version__.split('.')[:2]))")
-                 VERSION_MEILI=$(python -c "from <your-package> import __version__; print('-'.join(__version__.split('.')[:2]))")
-                 echo "Calculated VERSION: $VERSION"
-                 echo "Calculated VERSION_MEILI: $VERSION_MEILI"
+     jobs:
+       doc-deploy-index:
+         name: "Index the documentation and scrap using PyMeilisearch"
+         runs-on: ubuntu-latest
+         needs: doc-deploy
+         if: github.event_name == 'push'
+         steps:
+           - name: Scrape the stable documentation to PyMeilisearch
+             run: |
+               VERSION=$(python -c "from <your-package> import __version__; print('.'.join(__version__.split('.')[:2]))")
+               VERSION_MEILI=$(python -c "from <your-package> import __version__; print('-'.join(__version__.split('.')[:2]))")
+               echo "Calculated VERSION: $VERSION"
+               echo "Calculated VERSION_MEILI: $VERSION_MEILI"
 
-             - name: "Deploy the latest documentation index"
-               uses: ansys/actions/doc-deploy-index@v4.1
-               with:
-                 cname: "<library>.docs.pyansys.com/version/$VERSION"
-                 index-name: "<index-name>v$VERSION_MEILI"
-                 host-url: "<meilisearch-host-url>"
-                 api-key: ${{ secrets.MEILISEARCH_API_KEY }}
+           - name: "Deploy the latest documentation index"
+             uses: ansys/actions/doc-deploy-index@v4.1
+             with:
+               cname: "<library>.docs.pyansys.com/version/$VERSION"
+               index-name: "<index-name>v$VERSION_MEILI"
+               host-url: "<meilisearch-host-url>"
+               api-key: ${{ secrets.MEILISEARCH_API_KEY }}
 
 #. Replace *<your-package>*, *<your-index-name>*, and *<library>* with appropriate values
    for your project. 
 
-   The version of your package is automatically calculated and used for indexing, ensuring that your documentation
-   remains up to date. For more information, see the `PyMeilisearch`_ and `ansys-sphinx-theme-doc`_ documentation.
+The version of your package is automatically calculated and used for indexing, ensuring that your documentation
+remains up to date. For more information, see the `PyMeilisearch`_ and `ansys-sphinx-theme-doc`_ documentation.
