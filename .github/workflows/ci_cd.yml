@@ -49,7 +49,7 @@ jobs:
           sudo apt-get install graphviz
 
       - name: "Build project documentation"
-        uses: ansys/actions/doc-build@v5
+        uses: ansys/actions/doc-build@v6
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
           use-python-cache: false
@@ -85,7 +85,7 @@ jobs:
     needs: doc-deploy
     steps:
       - name: "Deploy the latest documentation index"
-        uses: ansys/actions/doc-deploy-index@v5
+        uses: ansys/actions/doc-deploy-index@v6
         with:
           cname: ${{ env.DOCUMENTATION_CNAME }}
           index-name: "pyansys-dev-guide"
