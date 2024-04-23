@@ -194,17 +194,17 @@ development. They help core developers know what kind of
 changes any given branch is introducing before looking at the code.
 
 -  ``fix/``: Bug fixes, patches, or experimental changes that are
-   minor
+   minor.
 -  ``feat/``: Changes that introduce a new feature or significant
-   addition
+   addition.
 -  ``junk/``: Experimental changes that can be deleted if they go
-   stale
--  ``maint/``: General maintenance of the repository or CI routines
--  ``doc/``: Changes pertaining only to documentation
+   stale.
+-  ``maint/``: General maintenance of the repository or CI routines.
+-  ``docs/``: Changes pertaining only to documentation.
 -  ``no-ci/``: Low-impact activity that should not trigger CI
-   routines
--  ``testing/``: Improvements or changes to testing
--  ``release/``: Releases (see below)
+   routines.
+-  ``testing/`` or ``test/``: Improvements or changes to testing.
+-  ``release/``: Releases (see below).
 
 Push your branch
 ----------------
@@ -238,6 +238,30 @@ or someone else with write permission must merge your PR and then delete your PR
 .. admonition:: Always delete your PR branch after merging it into the main branch.
 
    You can set up automatic deletion of branches in **Settings > General > Pull Requests**.
+
+
+Commit-naming conventions
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Following the `conventional commits standards <conventional_commit_types_>`_,
+helps to streamline development and improve the :ref:`Changelog <ref_changelog_file>`
+quality. Here is a list of the most common commit types:
+
+-  ``fix:``: Bug fixes.
+-  ``feat:``: Changes that introduce a new feature or significant addition.
+-  ``docs:``: Changes pertaining only to documentation.
+-  ``style``: Changes that do not affect the meaning of the code (white-space,
+   formatting, missing semi-colons, etc.).
+-  ``refactor:``: A code change that neither fixes a bug nor adds a feature.
+-  ``perf:``: A code change that improves performance.
+-  ``test:``: Improvements or changes to testing.
+-  ``build:``: Changes that affect the build system or external dependencies
+   (example scopes: pip, npm, make).
+-  ``ci:``: Changes to the CICD configuration files and scripts.
+-  ``chore:``: Other changes that don't modify the code (example scopes: release,
+   versioning, etc.).
+- ``revert:``: Reverts a previous commit.
+
 
 Use GitHub CLI
 --------------

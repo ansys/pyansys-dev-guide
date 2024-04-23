@@ -80,6 +80,7 @@
 .. _VSC_doc: https://code.visualstudio.com/Docs
 .. _VSC_doc_setup: https://code.visualstudio.com/docs/setup/setup-overview
 .. _unzip: https://7-zip.org/
+.. _conventional_commit_types: https://github.com/commitizen/conventional-commit-types/blob/master/index.json
 
 .. #Sphinx-related links
 .. _PyData_Sphinx_theme: https://github.com/pydata/pydata-sphinx-theme
