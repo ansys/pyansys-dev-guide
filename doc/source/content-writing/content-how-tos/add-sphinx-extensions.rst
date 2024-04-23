@@ -141,7 +141,7 @@ the external `sphinx-design <Sphinx_ext_sphinx_design_>`_ extension for use:
 
    - To install the external ``sphinx_toolbox.collapse`` extension, run this command::
 
-     python -m pip install sphinx_toolbox.collapse
+        python -m pip install sphinx_toolbox.collapse
 
 #. Add the external extension to the ``extensions`` variable in your project's
    :file:`conf.py` file.

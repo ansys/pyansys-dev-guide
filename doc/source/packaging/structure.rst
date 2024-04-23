@@ -143,7 +143,7 @@ Sphinx requires a ``doc`` directory with a specific structure:
 
 The ``source`` directory must contain at least these files:
 
-- ``conf.py``: Python script that declares the configuration of `Sphinx`_.
+- ``conf.py``: Python script that declares the `Sphinx`_ configuration.
   The minimum required configuration is explained in :ref:`The
   \`\`conf.py\`\` file`.
 - ``index.rst``: Main index (landing) page for the overall documentation. Some
@@ -226,7 +226,7 @@ Covenant Code of Conduct*, which is very popular across open source projects.
 
 The ``CONTRIBUTING.md`` file
 ----------------------------
-You use the `CONTRIBUTING.md`` file to provide a quick entry-point for developers
+You use the ``CONTRIBUTING.md`` file to provide a quick entry-point for developers
 who are willing to contribute to the project. It usually provides references to
 this information:
 

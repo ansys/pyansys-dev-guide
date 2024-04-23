@@ -81,7 +81,7 @@ CNAME takeover prevention
 CNAME values have been taken over in the past by external users, typically due to
 these reasons:
 
-* Ansys GitHub organizations had no domain verification set up.
+* The Ansys GitHub organizations had no domain verification set up.
 * A CNAME created did not follow the recommended CNAME guidelines.
 * More than one level of subdomain depth under the verified domain had been requested.
 * Long time lapses occurred between CNAME creation and assignment to GitHub pages.

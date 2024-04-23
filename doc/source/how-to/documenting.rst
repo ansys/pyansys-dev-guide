@@ -49,7 +49,7 @@ these extensions for docstring formatting:
 Using the ``numpydoc`` extension is preferred because it supports an API
 documentation structure with one page per method, providing Python community
 members with documentation like that generated for the
-`numpy`_ and `pandas`_ packages. If your API is very linear, you
+`NumPy <numpy>` and `pandas`_ packages. If your API is very linear, you
 can use the ``napoleon`` extension because it supports a documentation
 structure where everything needed to solve a certain problem can be shown on one page.
 
@@ -64,11 +64,11 @@ For more information, see :ref:`Documentation style`.
 
 .. _rst_files_developers:
 
-RST files
-~~~~~~~~~
+reStructuredText files
+~~~~~~~~~~~~~~~~~~~~~~
 
 To provide general usage information in your documentation, use your favorite
-editor to create RST (ReStructuredText) files that you then place in
+editor to create reStructuredText (RST) files that you then place in
 :ref:`The \`\`doc\`\` directory`. The ``index.rst`` file in the ``doc/source`` directory
 defines the first level of your documentation hierarchy. The ``toctree``
 directive (which stands for "table of contents tree") indicates the maximum
@@ -178,6 +178,8 @@ sections in your library's documentation:
 - ``Examples``: Provides fully fledged examples for using the library.
 - ``Contributing``: Refers to the *PyAnsys developer's guide*
   for overall guidance and then provides library-specific contribution information.
+
+For comprehensive information on writing content, see :ref:`content_writing`.
 
 Examples
 ~~~~~~~~

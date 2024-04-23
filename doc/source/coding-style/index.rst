@@ -25,7 +25,7 @@ formatting with the libraries for the "big three" data science packages: `NumPy`
 The purpose of this section is not to repeat coding style documentation
 but rather to describe coding best practices applicable to the `PyAnsys`_ project when there are any
 delineations, clarifications, or additional procedures above and
-beyond `PEP 8`_. For example, this section provides a topic on deprecation
+beyond PEP 8. For example, this section provides a topic on deprecation
 best practices because there is no official guidance on deprecating features
 within Python. 
 

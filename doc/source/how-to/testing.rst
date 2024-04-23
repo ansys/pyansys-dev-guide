@@ -437,7 +437,7 @@ If you do not configure code coverage properly, the resulting report does
 not show the real scope covered by the test suite.
 
 Assuming that a ``PyAnsys`` project follows :ref:`The \`\`src\`\` directory` layout,
-you must pass the following flag when :ref:`Test execution`:
+you must pass the following flag when :ref:`executing tests <Test execution>`:
 
 .. code-block:: text
 

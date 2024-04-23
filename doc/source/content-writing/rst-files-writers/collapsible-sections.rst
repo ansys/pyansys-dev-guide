@@ -14,15 +14,15 @@ can expand these sections.
    file in the ``doc/source`` directory and to your list of documentation requirements.
    For more information, see :ref:`add_sphinx_extensions`.
 
-   To see and use the collapsible sections that are shown only as an image.s on this page,
-   see :ref:`app_and_services_logging`. To see how the collapsible sections on this
+   To see and use the collapsible sections that are shown only as an image on this page,
+   see :ref:`artifact_download`. To see how the collapsible sections on this
    page are formatted, click the **Show Source** link in the page's right pane.
    As described in :ref:`rst_file_formatting`, you can copy content from the
    TXT version of this file and then paste it directly into one of your RST files
    for reuse, modifying it as needed.
 
-Here is an image of two collapsible sections. Clicking a collapsible section expands it
+Here is an image of the three collapsible sections. Clicking a collapsible section expands it
 so that additional information is shown.
 
 .. image:: ..//_static/collapsible_sections.png
-   :alt: Collapsible sections on a custom PyAnsys logger
+   :alt: Collapsible sections for downloading artifacts

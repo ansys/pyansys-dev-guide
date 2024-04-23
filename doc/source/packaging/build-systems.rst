@@ -124,8 +124,8 @@ Flit is the default tool for creating a new PyAnsys project when using the
 `Ansys templates <Ansys_templates_>`_.
 
 The ``[project]`` section specifies the project's metadata and required
-dependencies. For more information, see `flit pyproject.toml
-guidelines`_.
+dependencies. For more information, see `The pyproject.toml config file <flit pyproject.toml
+guidelines`_>`_ in the Flit documentation. 
 
 Poetry
 ------
