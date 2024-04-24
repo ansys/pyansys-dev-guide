@@ -1,7 +1,7 @@
 PyAnsys project organization
 ============================
 
-The `PyAnsys project <PyAnsys>`_ is a collection of many
+The `PyAnsys project <PyAnsys_>`_ is a collection of many
 Python packages for using Ansys products through Python. The
 `Ansys organization <Ansys GitHub organization_>`_ on GitHub contains
 several repositories with Python libraries for interfacing with Ansys
