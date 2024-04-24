@@ -476,14 +476,14 @@ You can download artifacts from the Ansys private PyPI, public PyPI, and GitHub.
     
                     .. code-block:: powershell
     
-                        $env:INDEX_URL='https://$PYANSYS_PYPI_PRIVATE_READ_PAT@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/'
+                        $env:INDEX_URL="https://$env:PYANSYS_PYPI_PRIVATE_READ_PAT@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/"
                         python -m pip install ansys-<product/tool>-<library> --index-url $env:INDEX_URL --no-dependencies
     
         .. tab-item:: macOS
     
             .. code-block:: text
     
-                export INDEX_URL='https://$PYANSYS_PYPI_PRIVATE_READ_PAT@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/'
+                export INDEX_URL="https://$PYANSYS_PYPI_PRIVATE_READ_PAT@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/"
     
                 python -m pip install ansys-<product/tool>-<library> \
                 --index-url $INDEX_URL \
@@ -493,7 +493,7 @@ You can download artifacts from the Ansys private PyPI, public PyPI, and GitHub.
     
             .. code-block:: text
     
-                export INDEX_URL='https://$PYANSYS_PYPI_PRIVATE_READ_PAT@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/'
+                export INDEX_URL="https://$PYANSYS_PYPI_PRIVATE_READ_PAT@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/"
     
                 python -m pip install ansys-<product/tool>-<library> \
                 --index-url $INDEX_URL \
