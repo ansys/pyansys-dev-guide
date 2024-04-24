@@ -4,7 +4,7 @@ Numpydoc docstrings
 ===================
 
 When writing docstrings for PyAnsys libraries, follow the syntax and best practices
-described in `Style guide <numpydoc_style_guide>_`_ in the *numpydoc Manual*.
+described in `Style guide <numpydoc_style_guide_>`_ in the *numpydoc Manual*.
 
 For consistency within PyAnsys libraries, always use ``"""`` to introduce and conclude a
 docstring, keeping the line length shorter than 70 characters. Ensure that there are
