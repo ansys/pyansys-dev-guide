@@ -90,7 +90,7 @@ page in the *Goggle developer documentation style guide*.
   correctly renders it in a monospaced font within a gray block.
 
   Always follow a code entity with a noun that indicates the object type. For general
-  guidelines, see `Code in text <Goggle_dev_doc_code_in_text>`_ in the *Goggle developer
+  guidelines, see `Code in text <Goggle_dev_doc_code_in_text>_`_ in the *Goggle developer
   documentation style guide*. 
   
   Code entities include the names of Python objects, such as packages, modules, functions,

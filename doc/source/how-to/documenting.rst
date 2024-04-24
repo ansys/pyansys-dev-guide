@@ -248,7 +248,7 @@ Document Python code
 --------------------
 
 You can use the native ``sphinx.ext.autodoc`` extension to generate documentation from your Python
-code. When using this extension, you can include these directives in your :ref:`RST files`:
+code. When using this extension, you can include these directives in your RST files:
 
 * ``automodule``: For documenting modules
 * ``autoclass``: For documenting classes
