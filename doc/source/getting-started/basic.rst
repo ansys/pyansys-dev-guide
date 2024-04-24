@@ -1,7 +1,7 @@
 PyAnsys project organization
 ============================
 
-The `PyAnsys project <https://docs.pyansys.com/>`_ is a collection of many
+The `PyAnsys project <PyAnsys>`_ is a collection of many
 Python packages for using Ansys products through Python. The
 `Ansys organization <Ansys GitHub organization_>`_ on GitHub contains
 several repositories with Python libraries for interfacing with Ansys
@@ -9,26 +9,28 @@ products or services. To go to the repository for a main PyAnsys library,
 visit one of these links:
 
 * `PyAEDT`_
-* `PyDPF-Core <https://github.com/ansys/pydpf-core>`_
-* `PyDPF-Post <https://github.com/ansys/pydpf-post>`_
+* `PyAnsys Geometry`_
+* `PyDPF-Core`_
+* `PyDPF-Post`_
 * `PyMAPDL`_
-* `PyMAPDL Legacy Reader <https://github.com/ansys/pymapdl-reader>`_
-* `PyPIM <https://github.com/ansys/pypim>`_
+* `PyMAPDL Legacy Reader`_
+* `PyMechanical`_
+* `PyPIM`_
 
 If you want to create, develop, or contribute to a PyAnsys library, 
 visit these links:
 
-* `PyAnsys developer's guide <https://github.com/ansys/pyansys-dev-guide>`_
+* `PyAnsys developer's guide <dev_guide_repo_>`_
 * `Ansys Sphinx Theme documentation <ansys-sphinx-theme-doc_>`_
-* `gRPC Hello-world example <https://github.com/ansys/pyansys-helloworld>`_
-* `Material example data <https://github.com/ansys/example-data>`_
+* `gRPC Hello-world example <grpc_hello_world_>`_
+* `Material example data <example_data_>`_
 
 Developers use the following tools to generate library packages from 
 PROTO files, create coverage reports, and report on system coverage:
 
-* `pyansys-protos-generator <https://github.com/ansys/pyansys-protos-generator>`_
-* `example-coverage <https://github.com/ansys/example-coverage>`_
-* `pyansys-tools-report <https://github.com/ansys/pyansys-tools-report>`_
+* `pyansys-protos-generator <pyansys_proto_generator_>`_
+* `example-coverage <example_coverage_>`_
+* `pyansys-tools-report <pyansys_tools_report_>`_
 
 PyAnsys repository creation
 ---------------------------
