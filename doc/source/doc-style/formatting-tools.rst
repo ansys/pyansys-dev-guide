@@ -159,7 +159,7 @@ this command:
 
    vale --config=doc/.vale.ini .
 
-To check all files in only a particular folder, typing ``vale`` followed by the
+To check all files in only a particular folder, type ``vale`` followed by the
 name of the folder.
 
 Address any warnings and issues that display by either editing the
