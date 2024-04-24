@@ -2,9 +2,9 @@ PEP 8
 =====
 
 This section summarizes important coding style guidelines from `PEP 8`_
-and how they apply to PyAnsys libraries. The Python community devised `PEP 8`_ 
+and how they apply to PyAnsys libraries. The Python community devised PEP 8 
 to increase the readability of Python code. Some of the most popular
-packages within the Python ecosystem have adopted `PEP 8`_,
+packages within the Python ecosystem have adopted PEP 8,
 including `NumPy`_, `SciPy`_, and `pandas`_.
 
 Imports
@@ -177,7 +177,7 @@ global rules to determine the correct names:
 Variables
 ~~~~~~~~~
 
-Do not use the characters ``"l"`, ``"O"``, or ``"I"`` as single-character
+Do not use the characters ``"l"``, ``"O"``, or ``"I"`` as single-character
 variable names. In some fonts, these characters are indistinguishable from the
 numerals one and zero.
 
@@ -424,7 +424,7 @@ letter.
 Here are general guidelines for writing comments:
 
 - Always try to explain yourself in code by making it
-   self-documenting with clear variable names.
+  self-documenting with clear variable names.
 - Don't be redundant.
 - Don't add obvious noise.
 - Don't use closing brace comments.

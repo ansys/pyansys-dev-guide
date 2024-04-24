@@ -241,23 +241,29 @@ To link to Python objects in your API reference documentation, you use Python-sp
 For a list of these roles, see `Cross-referencing Python objects <Sphinx_doc_ref_Python_objects_>`_ in
 the Sphinx documentation. For descriptions of fundamental Python objects, see :ref:`py_file_format`.
 
-If the role links to a Python object in the same module, you can use only the object name
+If the role links to a Python object in the same module, you only need to use the object name
 in the role (as shown in the first of the following three examples). If the role links to a
 Python object in a different module, you must use the module name and object name in the role
 (as shown in the second and third of the following three examples).
 
 Python uses a period (``.``) to denote submodules. If you need to see where a Python object is
-defined in your documentation, use the GitHub search function. For example, to see where the
-``class Primitives3DLayout`` class is defined in PyAEDT, search its repository for this string:
+defined in your API, use the GitHub search function. For example, to see where the
+``Primitives3DLayout`` class is defined in the PyAEDT API, search its repository for this string:
 
 ``class Primitives3DLayout``
 
-Search results indicate that this class is defined in ``pyaedt.modeler.Primitives3DLayout.Primitives3DLayout``.
+Search results indicate that this class is defined here: ``pyaedt.modeler.Primitives3DLayout.Primitives3DLayout``.
+
+.. tip::
+  Because using the full module name and object name in the role always works, when you perform a
+  search to see where a Python object is defined, consider collecting the result in a TXT file. When
+  you next need to link to this object, you can easily search this text file for the object name
+  and then copy its full module name and object name into your RST file.  
 
 Examples of Python object links
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Here are some examples of how you use Python-specific roles to link to Python objects.
+Here are some examples of using Python-specific roles to link to Python objects.
 
 **Example 1**
 
@@ -273,7 +279,7 @@ Assuming that your project is PyMAPDL, you can use the ``func`` role to link to 
 ``run_batch()`` function in the PyMAPDL API reference documentation::
 
   You can use the pool to run a set of pre-generated input files using the
-  :func:`run_batch <ansys.mapdl.core.LocalMapdlPool.run_batch>` method.
+  :func:`run_batch <ansys.mapdl.core.LocalMapdlPool.run_batch>` function.
 
 **Example 3**
 
@@ -282,7 +288,7 @@ Also assuming that your project is PyMAPDL, you can use both the ``func`` and
 ``selected_nodes`` attribute in the PyMAPDL API reference documentation::
 
   If you have subselected a certain component and want to also limit the result of a certain output
-  (:func:`nodal_displacement() <ansys.mapdl.core.post.PostProcessing.nodal_displacement>`), use the
+  (:func:`nodal_displacement <ansys.mapdl.core.post.PostProcessing.nodal_displacement>`), use the
   :attr:`selected_nodes <ansys.mapdl.core.post.PostProcessing.selected_nodes>` attribute to get a
   mask of the currently selected nodes.
 

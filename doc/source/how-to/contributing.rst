@@ -149,7 +149,7 @@ Install a library in editable mode
 ----------------------------------
 
 You can install a Python library in *editable mode*, which
-allows you to modify the source code and have these new changes
+lets you modify the source code and have these new changes
 reflected in your Python environment.
 
 To install a Python library in editable mode:
@@ -245,6 +245,6 @@ Use GitHub CLI
 Because developers do not like leaving their terminals when working in projects,
 GitHub offers a `command-line interface (CLI) <https://cli.github.com/>`_.
 
-This program allows you to interact with most of the features available in the
+This program lets you interact with most of the features available in the
 web version of GitHub. For available commands, see the
 `GitHub CLI <https://cli.github.com/manual/gh>`_ documentation.

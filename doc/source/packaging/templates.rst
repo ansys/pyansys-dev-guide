@@ -66,7 +66,7 @@ PyAnsys advanced template
 The ``pyansys-advanced`` template is an enhanced version of the ``pyansys`` template.
 It ships with the same directories and files and supports additional features:
 
-- Allows you to select the project file (``setup.py`` or ``pyproject.toml``)
+- lets you select the project file (``setup.py`` or ``pyproject.toml``)
 - Uses `tox`_ for testing and task automation
 - Includes `GitHub Actions`_ for CI purposes
 - Uses `pre-commit`_ for checking coding style

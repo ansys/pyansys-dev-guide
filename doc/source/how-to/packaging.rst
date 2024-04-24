@@ -424,7 +424,7 @@ Dependabot allows for two different types of updates:
     a best practice for *run-time* dependencies (that is, the usage of a package should support
     the oldest available version if possible). Thus, it is only recommended to fully pin
     **documentation** and **testing** requirements (that is, using ``==``). Having the latest
-    dependencies available in your requirements testing files allows you to test the
+    dependencies available in your requirements testing files lets you test the
     *latest* packages against your library.
 
 Dependabot version updates

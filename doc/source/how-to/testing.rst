@@ -173,7 +173,7 @@ integration, and functional.
 
 Each PyAnsys project should have all three levels of testing implemented in its
 testing framework. Consider implementing functional tests as examples within
-your project's documentation examples. This allows you to write helpful
+your project's documentation examples. This lets you write helpful
 user-facing tests while accomplishing functional testing.
 
 Unit testing

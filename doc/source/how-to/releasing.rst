@@ -279,7 +279,7 @@ Replace ``<TOKEN-REDACTED>`` with the private PyPI token.
 
 .. dropdown:: Use GitHub Actions
 
-    The following code allows you to publish Python :ref:`Artifacts` in
+    The following code lets you publish Python :ref:`Artifacts` in
     the ``dist`` directory to the private PyPI. This code is expected to be included when you
     :ref:`Use GitHub Actions`:
     
@@ -382,7 +382,7 @@ Replace ``<PACKAGE-NAME>`` and ``<TOKEN-REDACTED>`` with the package name and pr
 
 .. dropdown:: Use GitHub Actions
 
-    The following code allows you to publish any Python :ref:`Artifacts` contained in
+    The following code lets you publish any Python :ref:`Artifacts` contained in
     the ``dist`` directory to the public PyPI. It is expected to be included when you
     :ref:`Use GitHub Actions`.
     
@@ -414,7 +414,7 @@ For enabling public visibility of a repository, follow the process explained in
 
 .. dropdown:: Use GitHub Actions
 
-    The following code allows you to publish any Python :ref:`Artifacts` contained in
+    The following code lets you publish any Python :ref:`Artifacts` contained in
     the ``dist`` directory to the GitHub release created. It is expected to be included
     when you :ref:`Use GitHub Actions`:
     

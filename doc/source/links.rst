@@ -100,6 +100,7 @@
 
 .. #Google dev doc guide links:
 .. _Google_dev_doc_articles: https://developers.google.com/style/articles
+.. _Goggle_dev_doc_code_in_text: https://developers.google.com/style/code-in-text
 .. _Google_dev_doc_headings: https://developers.google.com/style/headings
 .. _Google_dev_doc_highlights: https://developers.google.com/style/highlights
 .. _Google_dev_doc_link_text: https://developers.google.com/style/link-text

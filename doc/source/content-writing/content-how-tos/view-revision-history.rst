@@ -3,7 +3,7 @@
 View revision history on GitHub
 ===============================
 
-GitHub *blame* is a feature that allows you to view the revision history of a
+GitHub *blame* is a feature that lets you view the revision history of a
 file in a repository to see who made changes and when these changes were
 made. You can use the GitHub blame feature for a variety of use cases, including
 these:

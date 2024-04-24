@@ -28,7 +28,7 @@ and lines where you must resolve them.
 
 Your objective should always be to eliminate or mitigate issues before creating
 or pushing changes to a PR. For example, running ``pre-commit`` and Vale locally
-allows you to proactively resolve typos and trailing whitespaces. However,
+lets you proactively resolve typos and trailing whitespaces. However,
 oftentimes, you must resolve issues that cause the checks run by the CI/CD
 process to fail.
 

@@ -83,20 +83,23 @@ page in the *Goggle developer documentation style guide*.
      * List item 4
      * List item 5
 
-- Indicate a code entity within a paragraph by surrounding it in double backticks
-  (:code:`\`\``). Always follow a code entity with a noun that indicates the object type. In the
-  documentation, a code entity is rendered in a monospaced font within a gray block.
-  (While the `numpydoc Style guide <numpydoc_style_guide_>`_ says to
-  surround a code entity in a single backtick, this renders it incorrectly in
-  italics in PyAnsys documentation.) Code entities include the names of Python
-  objects, such as packages, modules, functions, classes, instances, methods, and
-  attributes. In PyAnsys documentation, also surround the following objects
-  in double backticks:
+- Indicate a code entity within text by surrounding it in double backticks
+  (:code:`\`\``). While the `numpydoc Style guide <numpydoc_style_guide_>`_
+  says to surround a code entity in a single backtick, this renders it incorrectly
+  as italics in PyAnsys documentation. Surrounding it in double backticks
+  correctly renders it in a monospaced font within a gray block.
+
+  Always follow a code entity with a noun that indicates the object type. For general
+  guidelines, see `Code in text <Goggle_dev_doc_code_in_text>`_ in the *Goggle developer
+  documentation style guide*. 
+  
+  Code entities include the names of Python objects, such as packages, modules, functions,
+  classes, methods, and attributes. Code entities also include the following objects:
 
   - File paths
   - Names of directories, files, and environment variables
   - Text to type in a command line or in a GUI component
-
+   
   .. note::
     Some PyAnsys projects use the ``file`` and ``envvar`` interpretive text
     roles for names of files and environment variables:
