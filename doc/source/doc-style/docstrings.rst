@@ -265,9 +265,13 @@ feature of maintainable documentation.
 Type hints
 ----------
 
+.. vale off
+
 By default, Sphinx renders type hints as part of the function signature per
 `PEP 484 – Type Hints <https://peps.python.org/pep-0484/>`_. This can become difficult
 to read because the signature becomes very long.
+
+.. vale off
 
 Instead, you should render type hints as part of each parameter's description. To
 accomplish this, you must combine the ``sphinx.ext.autodoc.typehints``, ``sphinx.ext.napoleon``,
@@ -293,7 +297,7 @@ Additional directives
 Because Python docstrings are written using reStructuredText syntax, you can take
 advantage of some of the directives available in this plaintext markup language.
 Here are some Sphinx directives that can be used in docstrings, although they
-should be used sparignly as they do not look very good in text terminals.
+should be used sparingly as they do not look very good in text terminals.
 
 - ``note``: Highlights important information to be aware of.
 - ``warning``: Points out an action that might result in data loss or cause

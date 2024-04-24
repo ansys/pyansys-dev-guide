@@ -9,6 +9,7 @@ Brinkrolf
 CI/CD
 CLI
 CNAME
+config
 CSV
 Codespell
 [Cc]omponentization
@@ -85,6 +86,7 @@ rebasing
 recurse
 reusability
 Rey
+reStructuredText
 REST
 RPC
 RST

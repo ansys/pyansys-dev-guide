@@ -6,7 +6,7 @@ Work around Vale issues
 Some issues that Vale raises may not be considered problematic in PyAnsys
 projects. This page describes some common workarounds.
 
-Turn Vale on and off
+Turn Vale off and on
 --------------------
 
 If Vale flags content as an issue but you know that this content is
@@ -19,10 +19,10 @@ before the flagged content and then back on again after it::
 
     .. vale on
 
-As shown in the preceding example , you must insert blank lines to separate the
-directives for tuning Vale off and off from your documentation content.
+As shown in the preceding example, you must insert blank lines to separate the
+directives for tuning Vale off and on from your documentation content.
 
-In an MD file, the syntax for these two Vale directives looks like this::
+In an Markdown (MD) file, the syntax for these two Vale directives looks like this::
 
     <!-- vale off -->
 
