@@ -204,6 +204,9 @@ specific repository's ``AUTHORS`` file.
 
 .. include:: code/authors_code.rst
 
+
+.. _ref_changelog_file:
+
 The ``CHANGELOG.md`` file
 -------------------------
 

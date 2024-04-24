@@ -5,8 +5,7 @@
 .. # Emails
 .. _pyansys_core_email: pyansys.core@ansys.com
 
-.. #content writing resources
-.. _Google_dev_doc_style_guide: https://developers.google.com/style
+.. #Content writing resources
 .. _Markdown_GitHub_flavored_spec: https://github.github.com/gfm/
 .. _Material_for_Sphinx: https://bashtage.github.io/sphinx-material/basics.html
 .. _Python_doc: https://www.python.org/doc/
@@ -21,7 +20,6 @@
 .. _Ansys_templates: https://github.com/ansys/ansys-templates
 .. _ansys-templates: https://templates.ansys.com/index.html
 .. _Git: https://git-scm.com/
-
 .. _Git Extensions: https://gitextensions.github.io/
 .. _Notepadpp: https://notepad-plus-plus.org/
 .. _pip: https://pypi.org/project/pip/
@@ -33,25 +31,46 @@
 .. _VSC: https://code.visualstudio.com/
 .. _array_creation: https://numpy.org/doc/stable/user/basics.creation.html
 
-.. #Ansys libraries:
-.. _Ansys_Python_Manager_doc: https://installer.docs.pyansys.com/version/stable/
-.. _dev_guide_repo: https://github.com/ansys/pyansys-dev-guide
-.. _Fluent_faq_page: https://fluent.docs.pyansys.com/version/stable/getting_started/faqs.html
-.. _join_ansys_organization: https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706
-.. _join_ansys_internal_organization: https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706
-.. _Links_for_dev_guide: https://github.com/ansys/pyansys-dev-guide/trr/blob/main/doc/source/links.rst
-.. _Links_for_pymapdl: https://github.com/ansys/pymapdl/blob/main/doc/source/links.rst
-.. _PyAnsys_geometry_Docker_containers: https://geometry.docs.pyansys.com/version/stable/getting_started/docker/index.html
-.. _PyAnsys_landing_page: https://docs.pyansys.com/version/stable/
-.. _python_installer_qt_ui_releases: https://github.com/ansys/python-installer-qt-gui/releases
-.. _PyMAPDL_config: https://github.com/ansys/pymapdl/blob/main/doc/source/conf.py
-.. _pyansys/pymapdl-docs: https://github.com/ansys/pymapdl-docs
-.. _PyMAPDL Documentation: https://mapdl.docs.pyansys.com/
-.. _review_bot: https://github.com/ansys/review-bot
-
 .. #Ansys
 .. _ansys: https://www.ansys.com/
 .. _ansys_help: https://ansyshelp.ansys.com
+.. _join_ansys_organization: https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706
+.. _join_ansys_internal_organization: https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706
+
+.. #PyAnsys repositories
+.. _ansys-api-mapdl: https://pypi.org/project/ansys-api-mapdl/
+.. _ansys/template: https://github.com/ansys/template
+.. _Ansys_Python_Manager_doc: https://installer.docs.pyansys.com/version/stable/
+.. _dev_guide_repo: https://github.com/ansys/pyansys-dev-guide
+.. _example_data: https://github.com/ansys/example-data
+.. _example_coverage: https://github.com/ansys/example-coverage
+.. _Fluent_faq_page: https://fluent.docs.pyansys.com/version/stable/getting_started/faqs.html
+.. _grpc_chunk_stream_demo: https://github.com/ansys/grpc_chunk_stream_demo
+.. _grpc_hello_world: https://github.com/ansys/pyansys-helloworld
+.. _Links_for_pymapdl: https://github.com/ansys/pymapdl/blob/main/doc/source/links.rst
+.. _PyAEDT: https://github.com/ansys/pyaedt
+.. _PyAnsys_geometry_Docker_containers: https://geometry.docs.pyansys.com/version/stable/getting_started/docker/index.html
+.. _PyAnsys: https://docs.pyansys.com/version/stable/
+.. _PyAnsys Bot: https://github.com/apps/pyansys-bot
+.. _pyansys_proto_generator: https://github.com/ansys/pyansys-protos-generator
+.. _pyansys_tools_report: https://github.com/ansys/pyansys-tools-report
+.. _PyDPF-Core: https://github.com/ansys/pydpf-core
+.. _PyDPF-Post: https://github.com/ansys/pydpf-post
+.. _PyAnsys Geometry: https://github.com/ansys/pyansys-geometry
+.. _PyMAPDL: https://github.com/ansys/pymapdl
+.. _PyMAPDL_config: https://github.com/ansys/pymapdl/blob/main/doc/source/conf.py
+.. _PyMAPDL Documentation: https://mapdl.docs.pyansys.com/
+.. _PyMAPDL Legacy Reader: https://github.com/ansys/pymapdl-reader
+.. _PyMechanical: https://github.com/ansys/pymechanical
+.. _PyMeilisearch: https://pymeilisearch.docs.ansys.com/
+.. _PyPIM: https://github.com/ansys/pypim
+.. _python_installer_qt_ui_releases: https://github.com/ansys/python-installer-qt-gui/releases
+.. _review_bot: https://github.com/ansys/review-bot
+
+.. #PyAnsys related links
+.. _PyAnsys PyPI: https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi
+.. _PyAnsys DNS Zones: https://portal.azure.com/#@ansys.com/resource/subscriptions/2870ae10-53f8-46b1-8971-93761377c38b/resourceGroups/pyansys/providers/Microsoft.Network/dnszones/pyansys.com/overview
+.. _PyAnsys Organization: https://github.com/ansys
 
 .. #Other libraries
 .. _Black: https://black.readthedocs.io/en/latest/
@@ -66,6 +85,13 @@
 .. _tox: https://tox.wiki/en/latest/
 .. _tox_repo: https://github.com/tox-dev/tox
 .. _make: https://www.gnu.org/software/make/
+.. _blacken-docs: https://github.com/asottile/blacken-docs
+.. _interrogate: https://interrogate.readthedocs.io/en/latest/
+.. _docstr-coverage: https://docstr-coverage.readthedocs.io/en/latest/index.html
+.. _docstring-coverage: https://bitbucket.org/DataGreed/docstring-coverage/wiki/Home
+.. _doctest: https://docs.python.org/3/library/doctest.html
+.. _docformatter: https://github.com/PyCQA/docformatter
+.. _pydocstyle: https://www.pydocstyle.org/en/stable/
 
 .. #External links
 .. _Docutils: https://docutils.sourceforge.io/
@@ -80,6 +106,8 @@
 .. _VSC_doc: https://code.visualstudio.com/Docs
 .. _VSC_doc_setup: https://code.visualstudio.com/docs/setup/setup-overview
 .. _unzip: https://7-zip.org/
+.. _conventional_commit_types: https://github.com/commitizen/conventional-commit-types/blob/master/index.json
+.. _Test Driven Development (TDD): https://en.wikipedia.org/wiki/Test-driven_development
 
 .. #Sphinx-related links
 .. _PyData_Sphinx_theme: https://github.com/pydata/pydata-sphinx-theme
@@ -99,6 +127,7 @@
 .. _Sphinx_GS_doc: https://www.sphinx-doc.org/en/master/#get-started
 
 .. #Google dev doc guide links:
+.. _Google_dev_doc_style_guide: https://developers.google.com/style
 .. _Google_dev_doc_articles: https://developers.google.com/style/articles
 .. _Google_dev_doc_headings: https://developers.google.com/style/headings
 .. _Google_dev_doc_highlights: https://developers.google.com/style/highlights
@@ -117,6 +146,7 @@
 .. _GitHub Pages: https://pages.github.com/
 .. _GitHub Actions: https://github.com/features/actions
 .. _codecov: https://github.com/codecov
+.. _codecov.io: https://app.codecov.io/gh/pyansys
 .. _gh-pages: https://github.com/ansys/dev-guide/tree/gh-pages
 .. _enabling GitHub pages: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site
 .. _Creating a repository from a template: https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template
@@ -140,57 +170,29 @@
 .. _Namespace packages: https://packaging.python.org/guides/packaging-namespace-packages/
 .. _Python Packaging User Guide: https://packaging.python.org/en/latest/
 .. _Python Packaging Authority: https://www.pypa.io/en/latest/
-.. _PyAnsys: https://docs.pyansys.com/
-.. _PyMAPDL: https://github.com/ansys/pymapdl
-.. _ansys-api-mapdl: https://pypi.org/project/ansys-api-mapdl/
 .. _reStructuredText Markup Syntax: https://docutils.sourceforge.io/rst.html
 .. _Markdown Syntax: https://www.markdownguide.org/basic-syntax/
+.. _Style Guide for Python Code (PEP8): https://www.python.org/dev/peps/pep-0008
+.. _ImportError: https://docs.python.org/3/library/exceptions.html#ImportError
+.. _dunder methods: https://docs.python.org/3/reference/datamodel.html#special-method-names
+.. _PyPI: https://pypi.org/
+.. _pip Documentation: https://pip.pypa.io/en/stable/cli/pip_install/
+.. _Semantic Versioning: https://semver.org/
 
+.. #Other tools
 .. _Building and Distributing Packages with Setuptools: https://setuptools.pypa.io/en/latest/setuptools.html
 .. _Configuring setuptools using setup.cfg files: https://setuptools.pypa.io/en/latest/userguide/declarative_config.html
 .. _Setuptools: https://setuptools.pypa.io/en/latest/index.html
-
-.. _blacken-docs: https://github.com/asottile/blacken-docs
-.. _interrogate: https://interrogate.readthedocs.io/en/latest/
-.. _docstr-coverage: https://docstr-coverage.readthedocs.io/en/latest/index.html
-.. _docstring-coverage: https://bitbucket.org/DataGreed/docstring-coverage/wiki/Home
-.. _doctest: https://docs.python.org/3/library/doctest.html
-.. _docformatter: https://github.com/PyCQA/docformatter
-
-.. _pydocstyle: https://www.pydocstyle.org/en/stable/
-.. _ansys/template: https://github.com/ansys/template
-
 .. _gRPC: https://grpc.io/
 .. _pythoncom: http://timgolden.me.uk/pywin32-docs/pythoncom.html
 .. _SWIG: http://www.swig.org/
 .. _C extensions: https://docs.python.org/3/extending/extending.html
 .. _Anaconda Distribution: https://www.anaconda.com/products/individual
 .. _REST: https://en.wikipedia.org/wiki/Representational_state_transfer
-.. _PyAEDT: https://github.com/ansys/PyAEDT
-.. _Style Guide for Python Code (PEP8): https://www.python.org/dev/peps/pep-0008
-.. _grpc_chunk_stream_demo: https://github.com/ansys/grpc_chunk_stream_demo
-
-.. _ImportError: https://docs.python.org/3/library/exceptions.html#ImportError
-.. _dunder methods: https://docs.python.org/3/reference/datamodel.html#special-method-names
-
-.. _PyPI: https://pypi.org/
-.. _PyAnsys PyPI: https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi
-.. _pip Documentation: https://pip.pypa.io/en/stable/cli/pip_install/
-.. _Semantic Versioning: https://semver.org/
-
+.. _dependabot: https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates
 .. _Flit: https://flit.pypa.io/en/latest/
 .. _flit pyproject.toml guidelines: https://flit.readthedocs.io/en/latest/pyproject_toml.html
 .. _Poetry: https://python-poetry.org/
 .. _poetry pyproject.toml documentation: https://python-poetry.org/docs/pyproject/
 .. _setuptools_repo: https://pypi.org/project/setuptools/
 .. _setuptools metadata fields: https://setuptools.pypa.io/en/latest/userguide/declarative_config.html#declarative-config
-
-.. _dependabot: https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates
-
-.. _PyAnsys DNS Zones: https://portal.azure.com/#@ansys.com/resource/subscriptions/2870ae10-53f8-46b1-8971-93761377c38b/resourceGroups/pyansys/providers/Microsoft.Network/dnszones/pyansys.com/overview
-.. _Maxime Rey: https://teams.microsoft.com/l/chat/0/0?users=maxime.rey@ansys.com
-.. _Roberto Pastor Muela: https://teams.microsoft.com/l/chat/0/0?users=roberto.pastormuela@ansys.com
-.. _Alex Kaszynski: https://teams.microsoft.com/l/chat/0/0?users=alexander.kaszynski@ansys.com
-.. _PyAnsys Bot: https://github.com/apps/pyansys-bot
-.. _PyAnsys Organization: https://github.com/ansys
-.. _PyMeilisearch: https://pymeilisearch.docs.ansys.com/

@@ -53,6 +53,7 @@ Microelectromechanical
 monospaced
 Muela
 [Nn]amespace
+npm
 numpy
 [Nn]umpydoc
 [Pp]arametrizing
