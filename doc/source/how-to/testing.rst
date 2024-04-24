@@ -522,8 +522,3 @@ project `template <https://github.com/ansys/template/>`_.
 
 .. literalinclude:: code/tests.yml     
    :language: yaml
-
-
-.. _Test Driven Development (TDD): https://en.wikipedia.org/wiki/Test-driven_development
-.. _codecov.io: https://app.codecov.io/gh/pyansys
-

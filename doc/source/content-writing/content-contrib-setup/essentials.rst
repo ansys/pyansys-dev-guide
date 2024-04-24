@@ -47,7 +47,7 @@ for this guide:
    :alt: **About** area with link to the *PyAnsys developer's guide*
 
 You can also view the documentation for public PyAnsys libraries from the
-`PyAnsys <PyAnsys_landing_page_>`_ landing page or from the Ansys Python Manager by
+`PyAnsys <PyAnsys_>`_ landing page or from the Ansys Python Manager by
 selecting **Help > PyAnsys Documentation**. For more information about this Python QA
 app, see :ref:`Ansys_Python_Manager`.
 

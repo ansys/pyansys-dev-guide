@@ -42,7 +42,7 @@ html_theme_options = {
     "icon_links": [
         {
             "name": "Contribute",
-            "url": "https://dev.docs.pyansys.com/dev/how-to/contributing.html",
+            "url": "https://dev.docs.pyansys.com/how-to/contributing.html",
             "icon": "fa fa-wrench",
         },
     ],
