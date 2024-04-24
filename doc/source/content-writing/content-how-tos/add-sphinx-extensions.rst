@@ -23,7 +23,7 @@ template, the ``extensions`` variable lists these extensions by default:
 Extensions with names beginning with ``sphinx_ext`` are native (built-in) and are
 available for Sphinx's use without any additional installation. Extensions with names
 that do not begin with ``sphinx_ext`` are external extensions and require installation.
-If a non-native extension is not installed and added to the :file:`conf.py` file in the
+If a non-native extension is not installed but added to the :file:`conf.py` file in the
 ``doc/source`` directory, attempts to build the documentation fail because Sphinx cannot
 find the needed extension.
 
