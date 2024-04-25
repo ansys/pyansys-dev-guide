@@ -84,9 +84,9 @@ Differences between a Python package and library
 ------------------------------------------------
 
 Although the terms *package* and *library* are often used interchangeably, there is
-a key difference between them. A Python package is a collection of Python modules and
-subpackages, while a Python library is a collection of Python packages.
-:numref:`python pkg lib diag` exposes this.
+a key difference between them. As shown in the following image, a Python package is
+a collection of Python modules and subpackages, while a Python library is a collection
+of Python packages.
 
 .. include:: diag/python_library_diag.rst
 
@@ -124,8 +124,8 @@ A PyAnsys project typically has these documentation sections:
   project-specific contribution information
 
 Projects in the PyAnsys ecosystem take advantage of `Sphinx`_, a tool for
-building documentation for Python-based projects. As shown in :numref:`doc structure diag`,
-Sphinx requires a ``doc`` directory with a specific structure:
+building documentation for Python-based projects. Sphinx requires a ``doc``
+directory with a specific structure:
 
 .. include:: diag/doc_structure_diag.rst
 
@@ -143,7 +143,7 @@ Sphinx requires a ``doc`` directory with a specific structure:
 
 The ``source`` directory must contain at least these files:
 
-- ``conf.py``: Python script that declares the configuration of `Sphinx`_.
+- ``conf.py``: Python script that declares the `Sphinx`_ configuration.
   The minimum required configuration is explained in :ref:`The
   \`\`conf.py\`\` file`.
 - ``index.rst``: Main index (landing) page for the overall documentation. Some
@@ -173,8 +173,7 @@ There are different approaches available for creating a namespace.
 Ansys namespaces use the `native namespace packages`_ from
 `PEP 420`_.
 
-Therefore, the source directory of any PyAnsys library must look like the one
-in :numref:`src structure diag`:
+Therefore, the source directory of any PyAnsys library must look like this:
 
 .. include:: diag/src_structure_diag.rst
 
@@ -229,7 +228,7 @@ Covenant Code of Conduct*, which is very popular across open source projects.
 
 The ``CONTRIBUTING.md`` file
 ----------------------------
-You use the `CONTRIBUTING.md`` file to provide a quick entry-point for developers
+You use the ``CONTRIBUTING.md`` file to provide a quick entry-point for developers
 who are willing to contribute to the project. It usually provides references to
 this information:
 
@@ -293,7 +292,7 @@ The ``README`` file should at the minimum contain these elements:
    their ""README`` files. In the main ``index.rst`` files for their documentation,
    they then use a grid of cards to visually explain and link to documentation sections.
    This keeps the ``README`` file focused on why you might want to explore the
-   library and allows you to quickly view documentation sections of interest.
+   library and lets you quickly view documentation sections of interest.
 
 The ``README.rst`` file is also reused within the project file metadata. It is
 usually included in the ``long-description`` field.

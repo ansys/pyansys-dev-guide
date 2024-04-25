@@ -173,7 +173,7 @@ integration, and functional.
 
 Each PyAnsys project should have all three levels of testing implemented in its
 testing framework. Consider implementing functional tests as examples within
-your project's documentation examples. This allows you to write helpful
+your project's documentation examples. This lets you write helpful
 user-facing tests while accomplishing functional testing.
 
 Unit testing
@@ -437,7 +437,7 @@ If you do not configure code coverage properly, the resulting report does
 not show the real scope covered by the test suite.
 
 Assuming that a ``PyAnsys`` project follows :ref:`The \`\`src\`\` directory` layout,
-you must pass the following flag when :ref:`Test execution`:
+you must pass the following flag when :ref:`executing tests <Test execution>`:
 
 .. code-block:: text
 

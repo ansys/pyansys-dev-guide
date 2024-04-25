@@ -446,7 +446,7 @@ back to them as needed:
 - Enclose all code entities in double backticks. If you surround a code entity in only a single
   backtick (:code:`\``), it is incorrectly rendered in italics in the documentation.
 
-- Use the present tense for verbs. Occurrences of ``will`` cause `Vale <Vale_>`_ to
+- Use the present tense for verbs. Occurrences of ``will`` cause `Vale`_ to
   raise warnings about not using phrases expressing future actions.
 
 - When documenting variable length positional or keyword arguments, leave the leading single

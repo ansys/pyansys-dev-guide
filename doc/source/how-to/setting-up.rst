@@ -306,7 +306,7 @@ Dynamic
 
 It is possible to configure Git such that it selects between multiple
 configuration profiles according to whether your project is located on your system.
-This allows you to define common configurations for working under
+This lets you define common configurations for working under
 ``Ansys`` or other open source projects from which Ansys benefits.
 
 As an example, consider the following scenario for setting up two Git

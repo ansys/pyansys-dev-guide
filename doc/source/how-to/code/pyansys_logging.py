@@ -162,7 +162,7 @@ class InstanceFilter(logging.Filter):
 class Logger:
     """Logger used for each PyProject session.
 
-    This class allows you to add a handler to a file or standard output.
+    This class lets you add a handler to a file or standard output.
 
     Parameters
     ----------

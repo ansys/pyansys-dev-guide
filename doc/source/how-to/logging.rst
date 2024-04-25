@@ -5,7 +5,7 @@ The following logging guidelines are best practices discovered through implement
 logging services and modules within PyAnsys libraries. Suggestions and improvements
 are welcomed.
 
-For logging techniques, see the `Logging HOWTO
+For logging techniques, see `Logging HOWTO
 <https://docs.python.org/3/howto/logging.html>`_ in the Python
 documentation. These tutorials are particularly helpful:
 
@@ -130,6 +130,9 @@ errors occur, they are reported as logging errors and do not halt code.
 .. code:: python
 
     logger.info("Project %s has been opened.", project.GetName())
+
+
+.. _app_and_services_logging:
 
 App and service logging modules
 -------------------------------

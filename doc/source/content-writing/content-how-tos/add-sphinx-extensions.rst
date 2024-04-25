@@ -23,8 +23,9 @@ template, the ``extensions`` variable lists these extensions by default:
 Extensions with names beginning with ``sphinx_ext`` are native (built-in) and are
 available for Sphinx's use without any additional installation. Extensions with names
 that do not begin with ``sphinx_ext`` are external extensions and require installation.
-If an extension is not configured properly, attempts to build the documentation fail
-because Sphinx cannot find the needed extension.
+If a non-native extension is not installed but added to the :file:`conf.py` file in the
+``doc/source`` directory, attempts to build the documentation fail because Sphinx cannot
+find the needed extension.
 
 .. _links_to_objects_in_other_doc:
 
@@ -131,9 +132,16 @@ the external `sphinx-design <Sphinx_ext_sphinx_design_>`_ extension for use:
 
      python -m pip install <external-extension-name>
 
-   For example, to install the external ``sphinx-design`` extension, run this command::
+   Examples follow for some of the external extensions mentioned in this
+   documentation.
+   
+   - To install the external ``sphinx-design`` extension, run this command::
+    
+        python -m pip install sphinx-design
 
-     python -m pip install sphinx-design
+   - To install the external ``sphinx_toolbox.collapse`` extension, run this command::
+
+        python -m pip install sphinx_toolbox.collapse
 
 #. Add the external extension to the ``extensions`` variable in your project's
    :file:`conf.py` file.
@@ -151,8 +159,8 @@ building the documentation. Depending on the project's configuration, you list t
 packages in either the :file:`pyproject.toml` file or the :file:`requirements_doc_txt`
 file.
 
-``pyproject.toml`` file
-~~~~~~~~~~~~~~~~~~~~~~~
+The ``pyproject.toml`` file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Most projects specify documentation requirements in a :file:`pyproject.toml` file, which
 resides in the root folder. In this file, the ``doc`` variable defines the required ``pip``
@@ -183,8 +191,8 @@ packages and their versions like this.
        "vtk==9.2.6",
    ]
 
-``requirements_doc_txt`` file
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The ``requirements_doc_txt`` file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Some projects specify documentation requirements in a :file:`requirements_doc_txt`
 file. The root folder of such a project typically has a ``requirements`` directory
@@ -213,7 +221,8 @@ Learn more about extensions
 ---------------------------
 
 As you can see, PyAnsys projects add many extensions to their :file:`conf.py` files
-and documentation requirements. Here are some additional extensions that you might see:
+and documentation requirements. Here are some other native and non-native extensions
+that you might see:
 
 - ``sphinx.ext.coverage``
 - ``sphinx.ext.doctest``
@@ -221,6 +230,7 @@ and documentation requirements. Here are some additional extensions that you mig
 - ``sphinx.ext.graphviz``
 - ``sphinx.ext.napoleon``
 - ``sphinx.ext.viewcode``
+- ``sphinx_toolbox.collapse``
 
 For more information on extensions, see `Extensions <Sphinx_extensions_>`_ in the
 Sphinx documentation. In addition to the external (third-party) extensions collected

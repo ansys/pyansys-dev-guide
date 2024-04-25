@@ -12,7 +12,7 @@ to create a successful release.
 .. attention::
 
    A project must be authorized to be publicly released. For an explanation
-   of the process, see:ref:`Project approval and public release`.
+   of the process, see :ref:`Project approval and public release`.
 
 Semantic versioning
 -------------------
@@ -29,7 +29,7 @@ notation can also be understand as ``MAJOR.MINOR.PATCH``:
 * A ``PATCH`` version is when you make backwards-compatible bug fixes.
 
 To match the versioning methodology used by the "big three" data science Python
-packages, `numpy`_, `scipy`_, and `pandas`_, ``MAJOR`` versions of PyAnsys
+packages, `NumPy`_, `SciPy`_, and `pandas`_, ``MAJOR`` versions of PyAnsys
 packages are not released when any incompatible API change is made but rather
 when major, globally breaking API changes are made. 
 
@@ -279,7 +279,7 @@ Replace ``<TOKEN-REDACTED>`` with the private PyPI token.
 
 .. dropdown:: Use GitHub Actions
 
-    The following code allows you to publish Python :ref:`Artifacts` in
+    The following code lets you publish Python :ref:`Artifacts` in
     the ``dist`` directory to the private PyPI. This code is expected to be included when you
     :ref:`Use GitHub Actions`:
     
@@ -354,13 +354,13 @@ Public PyPI
 Publishing :ref:`Artifacts` to `PyPI`_ is the way of distributing :ref:`Python
 libraries`. Publishing to `PyPI`_ requires a username and a password:
 
-+-------------------------------------------+----------------+
-| Credentials for publishing to public PyPI | Value          |
-+===========================================+================+
-| Username                                  | ``__token__``  |
-+-------------------------------------------+----------------+
-| Password                                  | ``PYPI_TOKEN`` |
-+-------------------------------------------+----------------+
++-----------------------------------------------+----------------+
+| **Credentials for publishing to public PyPI** | **Value**      |
++===============================================+================+
+| Username                                      | ``__token__``  |
++-----------------------------------------------+----------------+
+| Password                                      | ``PYPI_TOKEN`` |
++-----------------------------------------------+----------------+
 
 The ``PYPI_TOKEN`` is a password in the form of a GitHub secret. This secret is
 unique to each project. It can only be obtained after the first release to the
@@ -382,7 +382,7 @@ Replace ``<PACKAGE-NAME>`` and ``<TOKEN-REDACTED>`` with the package name and pr
 
 .. dropdown:: Use GitHub Actions
 
-    The following code allows you to publish any Python :ref:`Artifacts` contained in
+    The following code lets you publish any Python :ref:`Artifacts` contained in
     the ``dist`` directory to the public PyPI. It is expected to be included when you
     :ref:`Use GitHub Actions`.
     
@@ -414,7 +414,7 @@ For enabling public visibility of a repository, follow the process explained in
 
 .. dropdown:: Use GitHub Actions
 
-    The following code allows you to publish any Python :ref:`Artifacts` contained in
+    The following code lets you publish any Python :ref:`Artifacts` contained in
     the ``dist`` directory to the GitHub release created. It is expected to be included
     when you :ref:`Use GitHub Actions`:
     
@@ -428,6 +428,8 @@ For enabling public visibility of a repository, follow the process explained in
             - uses: ansys/actions/release-github@v4
               with:
                 library-name: "ansys-<product>-<library>"
+
+.. _artifact_download:
 
 Artifact download
 -----------------

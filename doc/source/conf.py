@@ -16,7 +16,7 @@ import pyvista
 from sphinx_gallery.sorting import FileNameSortKey
 
 # Project information
-project = "PyAnsys Developer's Guide"
+project = "PyAnsys developer's guide"
 copyright = f"(c) {datetime.now().year} ANSYS, Inc. All rights reserved"
 author = "Ansys Inc."
 release = version = datetime.now().strftime("%Y-%m-%d")

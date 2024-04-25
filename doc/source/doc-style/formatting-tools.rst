@@ -18,7 +18,7 @@ The ``blacken-docs`` tool
 When writing documentation, code blocks are frequently used to provide examples.
 However, these code snippets cannot be verified with the usual code
 formatting tools. This is where `blacken-docs`_ comes into play. You can execute
-this tool by running:
+this tool by running this command:
 
 .. code:: bash
 
@@ -31,7 +31,7 @@ The `codespell`_ tool checks for common misspellings in text files. This implies
 is not limited to Python files but can run checks on any human-readable file.
 
 It is possible to ignore words that are flagged as misspelled. You can specify these words in a
-file that can then be passed to ``codespell`` by running:
+file that can then be passed to ``codespell`` by running this command:
 
 .. code:: bash
 
@@ -90,7 +90,7 @@ checks only for those objects whose docstrings must be rendered. It is not a
 command line tool that checks the style of all docstrings in your source code.
 
 Because ``numpydoc`` is a Sphinx extension, it must be configured in the
-``conf.py`` file. See :ref:`The \`\`doc\`\` directory`. Start by adding it to the
+``conf.py`` file. For more information, see :ref:`The \`\`doc\`\` directory`. Start by adding it to the
 list of extensions:
 
 .. code-block:: python
@@ -137,7 +137,7 @@ For PyAnsys libraries, ``Vale`` is configured to apply the guidelines in the
 along with any custom Ansys rules and terminology lists, to reStructuredText (RST)
 and Markdown (MD) files.
 
-After a PyAnsys team member implements ``Vale`` in your PyAnsys library, you can check
+When ``Vale`` is implemented in your PyAnsys library, you can check
 any content changes that you make in supported files locally.
 
 In the library's ``doc`` folder, download the package with this command:
@@ -146,23 +146,22 @@ In the library's ``doc`` folder, download the package with this command:
 
    vale sync
 
-Check all files in the ``doc`` folder with this command:
+Check all files in the ``doc`` folder by running this command:
 
 .. code-block:: bash
 
    vale .
 
-Check all files in the repository by going to the ``root`` directory and running
+To check all files in the repository, go to the ``root`` directory and run
 this command:
 
 .. code-block:: bash
 
    vale --config=doc/.vale.ini .
 
-Check all files in only a particular folder by typing ``vale`` followed by the
+To check all files in only a particular folder, type ``vale`` followed by the
 name of the folder.
 
 Address any warnings and issues that display by either editing the
-file to fix or adding a term to the ``accept.txt`` file under the 
-``doc`` folder in ``styles\config\vocabularies\ANSYS``.
-
+file to fix or adding a term to the ``accept.txt`` file in
+``doc\styles\config\vocabularies\ANSYS``.

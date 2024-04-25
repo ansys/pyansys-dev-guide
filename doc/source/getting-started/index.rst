@@ -34,7 +34,7 @@ ecosystem. Here are some examples:
 - Machine learning using `TensorFlow <https://www.tensorflow.org/>`_
 
 .. note::
-   If you are new to GitHub, see `The ReadMe Project
+   If you are new to GitHub and open source projects, see `The ReadMe Project
    <https://github.com/readme>`_. This monthly newsletter highlights
    the best from the open source software community, providing links
    to feature articles, developer stories, guides, and podcasts.
