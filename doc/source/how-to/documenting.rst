@@ -49,7 +49,7 @@ these extensions for docstring formatting:
 Using the ``numpydoc`` extension is preferred because it supports an API
 documentation structure with one page per method, providing Python community
 members with documentation like that generated for the
-`NumPy <numpy>` and `pandas`_ packages. If your API is very linear, you
+`NumPy`_ and `pandas`_ packages. If your API is very linear, you
 can use the ``napoleon`` extension because it supports a documentation
 structure where everything needed to solve a certain problem can be shown on one page.
 
@@ -508,7 +508,7 @@ Follow these steps to enable multi-version documentation in your library:
            ...
        }
 
-   .. admonition:: About the ``DCOUMENTATION_CNAME`` environment variable
+   .. admonition:: About the ``DOCUMENTATION_CNAME`` environment variable
   
        The ``DOCUMENTATION_CNAME`` environment variable is expected to be
        declared in the YML file controlling the deployment of the documentation.

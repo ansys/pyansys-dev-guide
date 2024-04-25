@@ -28,7 +28,7 @@ For example::
 
    While the numpydoc style guide says to surround the names of classes, methods, and
    variables in a single backtick, you must use double backticks. Surrounding text in
-   a single backtick in a PyAnsys library formats it in italic  type rather than as a
+   a single backtick in a PyAnsys library formats it in italic type rather than as a
    code entity.
 
 Required docstring sections
