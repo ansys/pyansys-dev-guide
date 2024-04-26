@@ -4,7 +4,7 @@ Show cheat sheet thumbnail
 ==========================
 
 If a cheat sheet exists for a PyAnsys library, you can show a thumbnail of it in the
-left navigaton pane of one or more documentation pages. For example,
+left navigation pane of one or more documentation pages. For example,
 this image shows a thumbnail of a cheat sheet in the left navigation pane on the
 landing page for the PyMechanical documentation:
 

@@ -33,4 +33,5 @@ can post questions, share ideas, and get community feedback on the
    edit-on-GitHub
    view-revision-history
    add-sphinx-extensions
+   show_cheat_sheet_thumbnail
    create-issues-discussions
