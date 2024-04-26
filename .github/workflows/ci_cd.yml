@@ -24,7 +24,6 @@ permissions:
 
 jobs:
 
-  # TODO: Uncomment when ansys/actions/doc-style@v5 works with single back ticks
   doc-style:
     name: "Check documentation style"
     runs-on: ubuntu-latest
@@ -33,7 +32,6 @@ jobs:
         uses: ansys/actions/doc-style@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          vale-config: "doc/.vale.ini"
 
   doc-build:
     name: "Build project documentation"
