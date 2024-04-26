@@ -143,7 +143,7 @@ version 3.4.1::
       runs-on: ubuntu-latest
       steps:
         - name: PyAnsys documentation style checks
-          uses: ansys/actions/doc-style@v4
+          uses: ansys/actions/doc-style@v6
           with:
             token: ${{ secrets.GITHUB_TOKEN }}
             vale-version: "3.4.1"
