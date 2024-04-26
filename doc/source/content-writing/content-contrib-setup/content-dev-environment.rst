@@ -371,7 +371,7 @@ locally:
 
    The window displays installation information. The Sphinx ``conf.py`` file
    in the ``doc`` directory of a PyAnsys repository is already configured to use
-   this theme. 
+   the Ansys Sphinx Theme. 
 
 Your development environment is now set up. If you are new to contributing to
 PyAnsys documentation, see :ref:`essentials_writers`. For lists of resources related
