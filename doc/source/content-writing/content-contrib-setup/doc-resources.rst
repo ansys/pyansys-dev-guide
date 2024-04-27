@@ -64,8 +64,8 @@ building of PyAnsys documentation.
   QT app for installing Python and managing your Python environment, including creating
   virtual environments, launching a command console, installing PyAnsys packages, and
   viewing PyAnsys documentation.
-- `Ansys Sphinx theme <Ansys_Sphinx_theme_repo_>`_: Provides an Ansys-branded extension
-  of the popular `PyData Sphinx theme <PyData_Sphinx_theme_>`_ that is used to generate
+- `Ansys Sphinx Theme <Ansys_Sphinx_theme_repo_>`_: Provides an Ansys-branded extension
+  of the popular `PyData Sphinx Theme <PyData_Sphinx_theme_>`_ that is used to generate
   PyAnsys documentation.
 - `Ansys templates <Ansys_templates_>`_: Provides templates for creating PyAnsys projects
   that are compliant with PyAnsys guidelines.

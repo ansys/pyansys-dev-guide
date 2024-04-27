@@ -338,18 +338,18 @@ For installation and search information, see `Downloads <Notepadpp_downloads_>`_
     Notepad\+\+ is also handy if you want to open one file in it to visually compare it to
     another file that you have open in Visual Studio Code.
 
-Install Sphinx and the Ansys Sphinx theme
+Install Sphinx and the Ansys Sphinx Theme
 -----------------------------------------
 `Sphinx <Sphinx_>`_, which uses reStructuredText as its default plaintext markup language, is
 a tool for generating documentation. While designed primarily for generating documentation
 for Python projects, it can be used for generating documentation for other programming languages
 and projects.
 
-The `Ansys Sphinx theme <Ansys_Sphinx_theme_repo_>`_ is an Ansys-branded extension of the popular
-`PyData Sphinx theme <PyData_Sphinx_theme_>`_. It is used along with Sphinx to assemble PyAnsys
+The `Ansys Sphinx Theme <Ansys_Sphinx_theme_repo_>`_ is an Ansys-branded extension of the popular
+`PyData Sphinx Theme <PyData_Sphinx_theme_>`_. It is used along with Sphinx to assemble PyAnsys
 documentation from a project's RST files and the docstrings in its PY files.
 
-Install both Sphinx and the Ansys Sphinx theme so that you can build PyAnsys documentation
+Install both Sphinx and the Ansys Sphinx Theme so that you can build PyAnsys documentation
 locally:
 
 #. If the Ansys Python Manager and **Administrator** window are not still
@@ -371,8 +371,15 @@ locally:
 
    The window displays installation information. The Sphinx ``conf.py`` file
    in the ``doc`` directory of a PyAnsys repository is already configured to use
-   this theme.
+   the Ansys Sphinx Theme. 
 
 Your development environment is now set up. If you are new to contributing to
 PyAnsys documentation, see :ref:`essentials_writers`. For lists of resources related
 to contributing to PyAnsys documentation, see :ref:`resources_writers`.
+
+.. note:: 
+   You can customize the Ansys Sphinx Theme by making changes to the
+   ``html_theme_options`` dictionary in the Sphinx configuration (``conf.py``)
+   file in the ``doc`` directory. For additional information, see
+   `HTML theme options <https://sphinxdocs.ansys.com/version/stable/user_guide/options.html>`_
+   in the Ansys Sphinx Theme documentation.

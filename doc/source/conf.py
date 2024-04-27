@@ -1,4 +1,4 @@
-"""Sphinx documentation configuration file for the pyansys developer's guide."""
+"""Sphinx documentation configuration file for the PyAnsys developer's guide."""
 
 from datetime import datetime
 import os
