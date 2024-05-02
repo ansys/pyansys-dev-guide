@@ -250,7 +250,7 @@ quality. Here is a list of the most common commit types:
 -  ``fix:``: Bug fixes.
 -  ``feat:``: Changes that introduce a new feature or significant addition.
 -  ``docs:``: Changes pertaining only to documentation.
--  ``style``: Changes that do not affect the meaning of the code (white-space,
+-  ``style:``: Changes that do not affect the meaning of the code (white-space,
    formatting, missing semi-colons, etc.).
 -  ``refactor:``: A code change that neither fixes a bug nor adds a feature.
 -  ``perf:``: A code change that improves performance.
