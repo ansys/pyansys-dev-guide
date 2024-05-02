@@ -839,6 +839,8 @@ engines rank your documentation pages higher in organic search results:
 SEO naming examples
 ~~~~~~~~~~~~~~~~~~~~
 
+This table shows how to use the preceding tips to rename example files.
+
 +--------------------------------------------------------------------+----------------------------------------------------+
 | Not recommended                                                    | Recommended                                        |
 |                                                                    |                                                    |
