@@ -165,7 +165,7 @@ For comprehensive syntax information, see the `reStrucutredText Markup Specifica
 <RST_markup_spec_>`_.
 
 Because you must be familiar with the content in this guide before contributing to
-a PyAnsys library, explore its pages and then look at the RST files in the repository'same
+a PyAnsys library, explore its pages and then look at the RST files in the repository's
 ``doc/source`` directory. This should help you to understand the syntax and see how RST
 files are nested to create the structure of this guide.
 
