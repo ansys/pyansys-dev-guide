@@ -37,6 +37,7 @@ The generation of PyAnsys documentation uses `Sphinx`_ and the `Ansys-branded Sp
 - reStructuredText (RST) files
 - Examples in PY files
 
+
 Docstrings
 ~~~~~~~~~~
 
@@ -72,13 +73,17 @@ editor to create reStructuredText (RST) files that you then place in
 :ref:`The \`\`doc\`\` directory`. The ``index.rst`` file in the ``doc/source`` directory
 defines the first level of your documentation hierarchy. The ``toctree``
 directive (which stands for "table of contents tree") indicates the maximum
-number of heading levels that the documentation is to display. Following this
-directive are the directory names for your documentation sections.
+number of heading levels that the documentation is to display in the right navigation
+pane. Following this directive are the directory names for your documentation sections.
 
 .. include:: diag/doc_layout.rst
 
-Each documentation section has its own ``index.rst`` file, as shown by the preceding
-figure. The following RST files provide examples of how to create ``index.rst`` files.
+As shown in the preceding figure, each documentation section has its own ``index.rst`` file.
+However, for search engine optimization, the names of the index files for sections should
+be short and descriptive, containing keywords and using hyphens (``-``) as word separators.
+For more information, see :ref:`SEO`.
+
+Here is an example of the hierarchical structure for RST files.
 
 .. tab-set::
 
@@ -93,44 +98,44 @@ figure. The following RST files provide examples of how to create ``index.rst`` 
 
             .. toctree::
 
-                section_A/index
-                section_B/index
+                section-A/intro
+                section-B/intro
 
-    .. tab-item:: section_A/index.rst
+    .. tab-item:: section-A/intro.rst
 
         .. code-block:: rst
 
             Section A
             #########
 
-            This is the content of the `section_A/index.rst` file.
+            This is the content of the `section-A/intro.rst` file.
 
             .. toctree::
 
-                section_1
-                section_2
+                section-1
+                section-2
                 ...
 
-    .. tab-item:: section_B/index.rst
+    .. tab-item:: section-B/intro.rst
 
         .. code-block:: rst
 
             Section B
             #########
 
-            This is the content of the `section_B/index.rst` file.
+            This is the content of the `section-B/intro.rst` file.
 
             .. toctree::
 
-                another_section
+                another-section
                 ...
 
 While you do not include the ``.rst`` extension when defining the section
 structure in the ``toctree`` directive, the index file referenced for each
-section should be named ``index.rst``.
+section should have a short descriptive name.
 
 After you build documentation locally as described in :ref:`Build
-documentation`, the first-level heading in the ``index.rst`` file for each
+documentation`, the first-level heading in the index file for each
 section is shown as a clickable link in the title bar of the
 library's HTML documentation. For more information on defining the
 documentation structure, see `Getting Started
@@ -160,9 +165,9 @@ For comprehensive syntax information, see the `reStrucutredText Markup Specifica
 <RST_markup_spec_>`_.
 
 Because you must be familiar with the content in this guide before contributing to
-a PyAnsys library, explore its pages and then the RST files in its `repository <dev_guide_repo_>`_.
-This should help you to understand the syntax and see how RST files are nested to create the
-structure of the guide.
+a PyAnsys library, explore its pages and then look at the RST files in the repository'same
+``doc/source`` directory. This should help you to understand the syntax and see how RST
+files are nested to create the structure of this guide.
 
 Recommended sections
 ++++++++++++++++++++
@@ -189,7 +194,7 @@ Examples come in two formats:
 - Basic code snippets demonstrating features
 - Full-fledged standalone examples that are meant to be run as downloadable scripts
 
-Place basic code snippets in the ``doc/source`` directory.
+Place basic code snippets in RST files in the ``doc/source`` directory.
 Place full-fledged standalone examples in the ``examples`` directory,
 which is at the root of the repository. All of these examples must be compliant
 with :ref:`PEP 8`. They are compiled dynamically during the build process.
@@ -198,7 +203,7 @@ verified through the CI performed by GitHub Actions.
 
 Adding a new standalone example consists of placing it in an applicable
 subdirectory in the ``examples`` directory. If none of the existing directories
-match the category of your example, create a new subdirectory with a
+match the category of your example, create a subdirectory with a
 ``README.txt`` file describing the new category. Here is an example of what
 the structure for a PyAnsys library typically looks like:
 
@@ -239,8 +244,7 @@ to be ``../examples`` and the ``output`` directory to be ``examples``:
      'gallery_dirs': 'examples',  # path where the gallery generated outputs are to be saved
     }
 
-Because these examples are built using Sphinx-Gallery, you must
-follow its coding guidelines.
+Because these examples are built using Sphinx-Gallery, you must follow its coding guidelines.
 
 :ref:`General example` uses Python and Sphinx-Gallery.
 
@@ -704,8 +708,8 @@ As you are making changes in this branch, you want to periodically generate the
 documentation locally so that you can test your changes before you create a
 GitHub pull request. For more information, see :ref:`Build documentation`.
 
-Using PyMeilisearch as search engine
-------------------------------------
+Using PyMeilisearch as a search engine
+--------------------------------------
 
 PyMeilisearch is a Python client library that enables you to utilize
 MeiliSearch, an open source search engine, to provide fast and relevant
@@ -732,7 +736,7 @@ a search engine for multi-version documentation in your project.
            "use_meilisearch": {
              "api_key": os.getenv("MEILISEARCH_API_KEY", ""),
              "index_uids": {
-               f"<your-index-name>{convert_version_to_pymeilisearch(__version__)}": "index name to be displayed",  # noqa: E501
+               f"<your-index-name>{convert_version_to_pymeilisearch(__version__)}": "index name to display",  # noqa: E501
              },
            },
            ...
@@ -743,7 +747,7 @@ a search engine for multi-version documentation in your project.
    The ``convert_version_to_pymeilisearch`` function converts your package's version into
    a format suitable for MeiliSearch indexing.
 
-#. Enable documentation index deployment for development and stable versions using GitHub Actions:
+#. Enable documentation index deployment for development and stable versions using Ansys GitHub Actions:
   
    .. code-block:: yaml
 
@@ -772,5 +776,78 @@ a search engine for multi-version documentation in your project.
 #. Replace *<your-package>*, *<your-index-name>*, and *<library>* with appropriate values
    for your project. 
 
-The version of your package is automatically calculated and used for indexing, ensuring that your documentation
-remains up to date. For more information, see the `PyMeilisearch`_ and `ansys-sphinx-theme-doc`_ documentation.
+The version of your package is automatically calculated and used for indexing, ensuring that
+your documentation remains up to date. For more information, see the `PyMeilisearch`_ and
+`Ansys Sphinx Theme <ansys-sphinx-theme-doc_>`_ documentation.
+
+.. _SEO:
+
+Search engine optimization
+--------------------------
+
+The PyAnsys Core team has identified some search engine optimization (SE0) challenges:
+
+- The ``robots.txt`` file, which is located in the root directory of the website for your
+  generated documentation and tells web robots about the structure of the website, blocks
+  Google and other search engines from crawling some pages.
+- Missing canonical tags result in duplicate pages being found.
+- For multi-version documentation, redirection from the base ``index.html`` file
+  to the ``version/stable/index.html`` file causes problems.
+
+To resolve these SEO challenges, upgrade your documentation deployment actions to
+``doc-deploy-stable@v6`` and ``doc-deploy-dev@v6`` or higher.
+
+Here's how the latest ``doc-deploy`` actions automatically address these challenges:
+
+- They generate a corrected ``robots.txt`` that allows Google and other search engines
+  to crawl all your documentation pages.
+- They add ``rel=canonical`` tags, which are HTML elements, in the head sections of HTML pages.
+  A canonical tag prevents duplicate content issues by specifying the preferred (canonical) URL
+  for a group of pages that have the same or very similar content. Search engines use the canonical
+  tag to determine the best representation of a page. Here is an example of a conical tag:
+  
+  ``<link rel="canonical" href="http://www.example.com/">``
+
+- They copy ``gh-pages/version/stable/index.html`` to ``gh-pages/index.html`` and prepend
+  local references with ``version/stable/``, which eliminates the need for redirection.
+
+SEO tips
+~~~~~~~~
+
+You should implement the following SEO tips so that Google and other search
+engines rank your documentation pages higher in organic search results:  
+
+- Avoid having ``index.html`` pages (except for overall one for your documentation).
+
+  Sphinx renders files named ``index.rst`` into pages named ``index.html``. Sphinx always
+  generates absolute links. For example, the absolute link for ``page/index.rst`` is
+  ``page.index.html``. Google prefers links to pages that do not  end with ``index.html``.
+
+- Use lowercase for names of directories and files and separate words with hyphens.
+
+  While these naming conventions might be difficult to achieve for auto-generated files
+  matching the names of classes, following these naming guidelines when possible makes
+  file searches easier and search results more useful. For comprehensive information, see
+  `Filenames and file types <https://developers.google.com/style/filenames>`_ in the
+  *Google developer documentation style guide*. 
+
+- Use short filenames containing keywords.
+  
+  Avoid Ansys-specific words in filenames. Use a keyword generator like `ahrefs <https://ahrefs.com/keyword-generator>`_
+  to find relevant keywords, especially those that target academics and students.
+
+SEO naming examples
+~~~~~~~~~~~~~~~~~~~~
+
++--------------------------------------------------------------------+----------------------------------------------------+
+| Not recommended                                                    | Recommended                                        |
+|                                                                    |                                                    |
++====================================================================+====================================================+
+| examples/hohmann-transfer-using-targeter.rst                       | examples-hohmann-transfer-{orbit,calculator}       |
++--------------------------------------------------------------------+----------------------------------------------------+
+| examples/gallery_examples/00-mapdl-examples/transient_thermal.html | examples-transient-thermal-{analysis,simulation}   |
++--------------------------------------------------------------------+----------------------------------------------------+
+| examples/02-HFSS/HFSS_Spiral.rst                                   | examples-design-and-simulation-of-spiral-inductors |
++--------------------------------------------------------------------+----------------------------------------------------+
+
+If you have questions about SEO, you can reach the project support team by emailing `pyansys.core@ansys.com <pyansys.core@ansys.com>`_.

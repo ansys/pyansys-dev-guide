@@ -1,8 +1,7 @@
 .. _proposed doc layout:
 .. graphviz::
-    :caption: Generic structure for PyAnsys library documentation.
-    :alt: Generic structure for PyAnsys library documentation.
-    :align: center
+    :caption: Hierarchical structure for PyAnsys library documentation.
+    :alt: Hierarchical structure for PyAnsys library documentation.
 
      digraph "sphinx-ext-graphviz" {
          size="8,6";
@@ -16,7 +15,7 @@
          ];
 
          doc [
-           label="source", shape="folder"
+           label="doc", shape="folder"
          ]
 
          source [

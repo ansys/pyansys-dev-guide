@@ -20,8 +20,13 @@ RST file setup
 
 In a repository, the ``doc`` directory contains an ``index.rst`` file that defines
 the overall hierarchy (major sections) of the documentation. Each referenced child
-directory has its own ``index.rst`` file. Its first-level heading is the name
-of the documentation section. Documentation for a PyAnsys client library generally has
+directory has its own index file. While many PyAnsys libraries also use ``index.rst``
+as the name of the section index file, for search engine optimization, this file
+should have a short and descriptive name that contains keywords and uses hyphens
+(``-``) as word separators. For more information, see :ref:`SEO`.  
+
+The first-level heading in the index file for a documentation section is the name
+of the section. Documentation for a PyAnsys client library generally has
 five sections:
 
 - Getting started
