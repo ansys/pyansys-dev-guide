@@ -254,7 +254,7 @@ Generate documentation from docstrings
 --------------------------------------
 
 You can use the native ``sphinx.ext.autodoc`` extension to generate documentation from the
-docstrings im your Python files. When using this extension, you can include these directives
+docstrings in your Python files. When using this extension, you can include these directives
 in your RST files:
 
 * ``automodule``: For documenting modules
@@ -794,7 +794,7 @@ search results. The PyAnsys Core team has identified some challenges in regard t
 search engine optimization (SE0):
 
 - The ``robots.txt`` file in the root directory of your documentation website
-  blocks Google and other search engines from crawling some pages.This file tells
+  blocks Google and other search engines from crawling some pages. This file tells
   web robots about the structure of the documentation website.
 - Missing canonical tags result in duplicate pages being found.
 - For multi-version documentation, redirection from the base ``index.html`` file
