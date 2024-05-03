@@ -695,8 +695,9 @@ the URL:
 However, most libraries do have multi-version documentation enabled, which
 means that stable and development versions are collected under the same website.
 
-On the right side of the PyAEDT documentation's title bar, you use the drop-down button
-to select the version of the documentation. For example, consider the PyAEDT documentation:
+For example, consider the PyAEDT documentation: On the right side of the title bar
+for its documentation, you use the drop-down button to select the version of the
+documentation.
 
 - The URL for documentation of the latest stable version is `<https://aedt.docs.pyansys.com/version/stable/index.html>`_.
 - The URL for documentation of the latest development version is `<https://aedt.docs.pyansys.com/version/dev/index.html>`_.
@@ -840,7 +841,8 @@ your documentation pages higher in search results:
 - Use short filenames containing keywords.
   
   Avoid Ansys-specific words in filenames. Use a keyword generator like `ahrefs <https://ahrefs.com/keyword-generator>`_
-  to find relevant keywords, especially those that target academics and students.
+  to find relevant keywords that potential users who are searching for information are
+  likely to use.
 
 SEO naming examples
 ~~~~~~~~~~~~~~~~~~~~
