@@ -84,7 +84,7 @@ pane.
    of text. For more information, see `Directives <Sphinx_doc_directives_>`_ in the
    Sphinx documentation.
 
-The ``toctree`` directive also specifies the locaations of the RST files for building
+The ``toctree`` directive also specifies the locations of the RST files for building
 each section of your documentation.
 
 .. include:: diag/doc_layout.rst
