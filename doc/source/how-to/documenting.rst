@@ -10,7 +10,7 @@ This page supplies guidance specific to PyAnsys documentation.
 
 .. note::
     For comprehensive information on contributing new content or revising existing
-    content in PyAnsys documentation, see :ref:`content_writing`.
+    content, see :ref:`content_writing`.
 
 When writing developer documentation, the relationship between code and
 documentation is key. To keep documentation up to date with evolving
@@ -24,19 +24,20 @@ code, always perform these tasks:
 Understand documentation sources
 --------------------------------
 
+The generation of PyAnsys documentation uses `Sphinx`_ and the `Ansys-branded Sphinx theme
+<Ansys_Sphinx_theme_repo_>`_.
+
 .. raw:: html
 
     <div align="center">
       <img width="30%" src="https://www.sphinx-doc.org/en/master/_static/sphinx-logo.svg">
     </div>
 
-The generation of PyAnsys documentation uses `Sphinx`_ and the `Ansys-branded Sphinx theme
-<Ansys_Sphinx_theme_repo_>`_ to assemble content from these sources:
+Sphinx assembles content from these sources:
 
 - Docstrings in Python (PY) files
 - reStructuredText (RST) files
-- Examples in PY files
-
+- Examples in PY or IPYNB files
 
 Docstrings
 ~~~~~~~~~~
@@ -50,17 +51,19 @@ these extensions for docstring formatting:
 Using the ``numpydoc`` extension is preferred because it supports an API
 documentation structure with one page per method, providing Python community
 members with documentation like that generated for the
-`NumPy`_ and `pandas`_ packages. If your API is very linear, you
-can use the ``napoleon`` extension because it supports a documentation
-structure where everything needed to solve a certain problem can be shown on one page.
+`NumPy`_ and `pandas`_ packages.
 
-The `numpydoc manual <numpydoc_>`_ explains how to use the ``numpydoc`` extension with
-Sphinx and includes a `style guide <numpydoc_style_guide_>`_. The ``napoleon`` extension,
-which parses both numpydoc and Google style docstrings, refers you to the `Google Python Style Guide
-<https://google.github.io/styleguide/pyguide.html>`_.
+If your API is very linear, you can use the ``napoleon`` extension because it supports
+a documentation structure where everything needed to solve a certain problem can be
+shown on one page.
+
+- The `numpydoc manual <numpydoc_>`_ explains how to use the ``numpydoc`` extension with
+  Sphinx and includes a `style guide <numpydoc_style_guide_>`_.
+- The ``napoleon`` extension, which parses both numpydoc and Google style docstrings, refers
+  you to the `Google Python Style Guide <https://google.github.io/styleguide/pyguide.html>`_.
 
 Regardless of the extension that you choose for generating documentation from docstrings,
-using numpy-style docstrings ensures that there is consistency within PyAnsys libraries.
+using numpydoc-style docstrings ensures that there is consistency within PyAnsys libraries.
 For more information, see :ref:`Documentation style`.
 
 .. _rst_files_developers:
@@ -74,14 +77,22 @@ editor to create reStructuredText (RST) files that you then place in
 defines the first level of your documentation hierarchy. The ``toctree``
 directive (which stands for "table of contents tree") indicates the maximum
 number of heading levels that the documentation is to display in the right navigation
-pane. Following this directive are the directory names for your documentation sections.
+pane.
+
+.. note::
+   A directive is a generic block of explicit markup that sets off a specific block
+   of text. For more information, see `Directives <Sphinx_doc_directives_>`_ in the
+   Sphinx documentation.
+
+The ``toctree`` directive also specifies the locaations of the RST files for building
+each section of your documentation.
 
 .. include:: diag/doc_layout.rst
 
 As shown in the preceding figure, each documentation section has its own ``index.rst`` file.
-However, for search engine optimization, the names of the index files for sections should
-be short and descriptive, containing keywords and using hyphens (``-``) as word separators.
-For more information, see :ref:`SEO`.
+However, to optimize web searches of the generated HTML documentation, the names of the
+index files for sections should be short and descriptive, containing keywords and using
+hyphens (``-``) as word separators. For more information, see :ref:`SEO`.
 
 Here is an example of the hierarchical structure for RST files. The main index files is
 named ``index.rst``, and the index files for the documentation sections are named ``intro.rst``.
@@ -113,8 +124,8 @@ named ``index.rst``, and the index files for the documentation sections are name
 
             .. toctree::
 
-                section-1
-                section-2
+                page-1
+                page-2
                 ...
 
     .. tab-item:: section-B/intro.rst
@@ -128,7 +139,7 @@ named ``index.rst``, and the index files for the documentation sections are name
 
             .. toctree::
 
-                another-section
+                section_B_subsection
                 ...
 
 While you do not include the ``.rst`` extension when defining the section
@@ -137,9 +148,8 @@ section should have a short descriptive name.
 
 After you build documentation locally as described in :ref:`Build
 documentation`, the first-level heading in the index file for each
-section is shown as a clickable link in the title bar of the
-library's HTML documentation. For more information on defining the
-documentation structure, see `Getting Started
+section is shown as a clickable link in the documentation's title bar.
+For more information on defining the documentation structure, see `Getting Started
 <https://www.sphinx-doc.org/en/master/usage/quickstart.html>`_ in the Sphinx
 documentation.
 
@@ -147,9 +157,9 @@ Titles and headings in RST files
 ++++++++++++++++++++++++++++++++
 
 As indicated in `Capitalization <https://developers.google.com/style/capitalization>`_
-in the *Google developer documentation style guide*, titles and headings are to use
-sentence case. In RST files, the line that follows a title or heading must have a
-string of characters that is the same length as the heading or title. If the length
+in the *Google developer documentation style guide*, titles and headings are to be in
+sentence case. In RST files, the line that follows a title or heading is a
+string of characters of the same length as the heading or title. If the length
 of the characters is less than the length of the title or heading, Sphinx generates
 a warning.
 
