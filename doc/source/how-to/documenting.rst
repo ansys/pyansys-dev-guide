@@ -870,6 +870,6 @@ files for inclusion in the documentation.
 | examples/00-mapdl-examples/transient_thermal.py | examples-transient-thermal-{analysis,simulation}.py   |
 +-------------------------------------------------+-------------------------------------------------------+
 | examples/02-HFSS/HFSS_Spiral.py                 | examples-design-and-simulation-of-spiral-inductors.py |
-+-------------------------------------------------+-------------------------------------------------===---+
++-------------------------------------------------+-------------------------------------------------------+
 
 If you have questions about SEO, email the `PyAnsy Core team <pyansys_core_email_>`_.
