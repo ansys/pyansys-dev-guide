@@ -838,7 +838,7 @@ your documentation pages higher in search results:
 
   Sphinx, which renders files named ``index.rst`` into pages named ``index.html``, always
   generates absolute links. For example, the absolute link for ``page/index.rst`` is
-  ``page.index.html``. Google prefers links to pages that do not end with ``index.html``.
+  ``page/index.html``. Google prefers links to pages that do not end with ``index.html``.
 
 - Use lowercase for names of directories and files and separate words with hyphens.
 
