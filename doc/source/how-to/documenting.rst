@@ -857,17 +857,19 @@ your documentation pages higher in search results:
 SEO naming examples
 ~~~~~~~~~~~~~~~~~~~~
 
-This table shows how to use the preceding tips to rename example files.
+This table shows how to use the preceding tips to rename example files. While the source files for examples
+are generally Python (PY) or Jupyter Notebook (IPYNB) files, Sphinx converts them to reStructuredText (RST)
+files for inclusion in the documentation.
 
-+--------------------------------------------------------------------+----------------------------------------------------+
-| Not recommended                                                    | Recommended                                        |
-|                                                                    |                                                    |
-+====================================================================+====================================================+
-| examples/hohmann-transfer-using-targeter.rst                       | examples-hohmann-transfer-{orbit,calculator}       |
-+--------------------------------------------------------------------+----------------------------------------------------+
-| examples/gallery_examples/00-mapdl-examples/transient_thermal.html | examples-transient-thermal-{analysis,simulation}   |
-+--------------------------------------------------------------------+----------------------------------------------------+
-| examples/02-HFSS/HFSS_Spiral.rst                                   | examples-design-and-simulation-of-spiral-inductors |
-+--------------------------------------------------------------------+----------------------------------------------------+
++-------------------------------------------------+-------------------------------------------------------+
+| Not recommended                                 | Recommended                                           |
+|                                                 |                                                       |
++=================================================+==================+====================================+
+| examples/hohmann-transfer-using-targeter.rst    | examples-hohmann-transfer-{orbit,calculator}.rst      |
++-------------------------------------------------+-------------------------------------------------------+
+| examples/00-mapdl-examples/transient_thermal.py | examples-transient-thermal-{analysis,simulation}.py   |
++-------------------------------------------------+-------------------------------------------------------+
+| examples/02-HFSS/HFSS_Spiral.py                 | examples-design-and-simulation-of-spiral-inductors.py |
++-------------------------------------------------+-------------------------------------------------===---+
 
 If you have questions about SEO, email the `PyAnsy Core team <pyansys_core_email_>`_.
