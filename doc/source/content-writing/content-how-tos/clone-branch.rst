@@ -33,7 +33,7 @@ repository.
 
    For example, run a command like this one::
 
-      git clone C:\AnsysDev\GitRepos\PyAnsys\pymechanical
+      git clone https://github.com/ansys/pymechanical
 
 .. _pull_from_repo:
 
