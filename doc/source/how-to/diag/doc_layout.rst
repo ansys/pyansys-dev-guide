@@ -1,8 +1,7 @@
 .. _proposed doc layout:
 .. graphviz::
-    :caption: Generic structure for PyAnsys library documentation.
-    :alt: Generic structure for PyAnsys library documentation.
-    :align: center
+    :caption: Hierarchical structure for PyAnsys library documentation.
+    :alt: Hierarchical structure for PyAnsys library documentation.
 
      digraph "sphinx-ext-graphviz" {
          size="8,6";
@@ -16,19 +15,19 @@
          ];
 
          doc [
-           label="source", shape="folder"
+           label="doc", shape="folder"
          ]
 
          source [
            label="source", shape="folder"
          ]
 
-         chapter_A [
-           label="chapter_A", shape="folder"
+         section_A [
+           label="section_A", shape="folder"
          ]
 
-         chapter_B [
-           label="chapter_B", shape="folder"
+         section_B [
+           label="section_B", shape="folder"
          ]
 
          index_file [
@@ -44,11 +43,11 @@
          ]
 
          section_A_1 [
-           label="section_1.rst", shape="file"
+           label="page_1.rst", shape="file"
          ]
 
          section_A_2 [
-           label="section_2.rst", shape="file"
+           label="page_2.rst", shape="file"
          ]
 
          another_section [
@@ -63,15 +62,15 @@
 
          source -> conf_file;
          source -> index_file;
-         source -> chapter_A;
-         source -> chapter_B;
+         source -> section_A;
+         source -> section_B;
 
-         chapter_A -> index_file_A;
-         chapter_A -> section_A_1;
-         chapter_A -> section_A_2;
+         section_A -> index_section_A;
+         section_A -> page_A_1;
+         section_A -> page_A_2;
 
-         chapter_B -> index_file_B;
-         chapter_B -> another_section;
+         section_B -> index_section_B;
+         section_B -> section_B_subsection;
      }
 
 

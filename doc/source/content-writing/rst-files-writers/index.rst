@@ -10,7 +10,7 @@ content.
 
 This page describes the setup of RST files for PyAnsys documentation. It also
 describes the option for using either a RST or Markdown (MD) file as the README
-for the GitHub repository of a PyAnsys project.
+file for the GitHub repository of a PyAnsys project.
 
 For resources related to RST and MD files, see :ref:`style_format_resources`.
 To learn how RST files for PyAnsys libraries are formatted, see :ref:`rst_file_formatting`.
@@ -18,11 +18,20 @@ To learn how RST files for PyAnsys libraries are formatted, see :ref:`rst_file_f
 RST file setup
 --------------
 
-In a repository, the ``doc`` directory contains an ``index.rst`` file that defines
-the overall hierarchy (major sections) of the documentation. Each referenced child
-directory has its own ``index.rst`` file. Its first-level heading is the name
-of the documentation section. Documentation for a PyAnsys client library generally has
-five sections:
+In a repository, the ``doc/source`` directory contains an ``index.rst`` file that defines
+the overall hierarchy (major sections) of the documentation. The child directory for each
+section has its own index file.
+
+.. note::
+   While most PyAnsys libraries use ``index.rst`` as the name for a section's index
+   file, to optimize web searches of the generated HTML documentation, this file
+   should have a short and descriptive name that contains keywords and uses hyphens
+   (``-``) to separate words. All directory names should also use hyphens to separate
+   words. For more information, see :ref:`SEO`.  
+
+In the index file for a documentation section, the first-level heading is the name
+of the section. Documentation for a PyAnsys client library generally has
+five sections with these headings:
 
 - Getting started
 - User guide
@@ -30,17 +39,11 @@ five sections:
 - Examples
 - Contribute
 
-In addition to providing the section name, the ``index.rst`` file includes the
-``toctree`` directive to specify how to build and display the content
-for this section.
+After the section heading and any additional content, the index file includes the
+``toctree`` directive to specify the pages that this section is to display.
 
-.. note::
-   A directive is a generic block of explicit markup that sets off a specific block
-   of text. For more information, see `Directives <Sphinx_doc_directives_>`_ in the
-   Sphinx documentation.
-
-For example, here is the ``toctree`` directive in the ``index.rst`` file for
-this **Content in RST files** section::
+The ``toctree`` directive for this **Content in RST files** page
+(``doc/_build/html/content-writing/rst-files-writers/index.html``), looks like this::
 
    .. toctree::
       :maxdepth: 3
@@ -58,20 +61,16 @@ this **Content in RST files** section::
       collapsible-sections
 
 The ``maxdepth`` attribute of the ``toctree`` directive specifies the maximum number of
-heading levels to show in the documentation's right pane, labeled **On this page**. In this
-guide, the ``maxdepth`` attribute is set to ``3`` for all sections. The ``toctree`` directive
-then includes an ordered list of the RST files to show in the **Section Navigation** pane. The
-RST extensions for the files in this list are omitted.
+heading levels to show in the documentation's right pane, labeled **On this page**. The
+``maxdepth`` attribute is set to ``3`` for all sections in this guide.
 
-.. note::
-
-   In the ``doc/source`` directory, folder and file names should use hyphens as space delimiters
-   for search optimization of the generated HTML documentation. For example, ``rst-file-formatting.rst``.
+The ``toctree`` directive also includes an ordered list of the RST files to show in the
+documentation's left pane, labeled **Section Navigation**. You omit the RST extensions
+from this list of files.
 
 To see the ``toctree`` directives for the other sections in this guide,
 in the project's `repository <dev_guide_repo_>`_, go to the ``doc/source``
-directory and look at the ``index.rst`` files in the child directories for the
-documentation sections.
+directory and look at the ``index.rst`` files in the child directories.
 
 For more information on RST file setup, see :ref:`rst_files_developers` and 
 `Getting Started <Sphinx_GS_doc_>`_ in the Sphinx documentation.
@@ -84,17 +83,19 @@ For more information on RST file setup, see :ref:`rst_files_developers` and
 Each PyAnsys repository has a README file in its root directory that explains the
 project and points readers to the documentation. The README file can be an RST file
 or a GitHub Flavored Markdown (MD) file. While RST and MD files are similar, the syntax
-differs. If the README file in your repository is an MD file, see
-`GitHub Flavored Markdown Spec <Markdown_GitHub_flavored_spec_>`_
+differs.
+
+If your README file is an RST file, see :ref:`rst_file_formatting` for syntax information.
+If your README file is an MD file, see `GitHub Flavored Markdown Spec <Markdown_GitHub_flavored_spec_>`_
 and `Using Markdown and Liquid in GitHub Docs <GitHub_doc_flavored_markdown_>`_ for
 syntax information.
 
-If your README file is an RST file, you can reuse content in it in within the main ``index.rst``
-file for the library's documentation or in the ``index.rst`` file for its "Getting started"
-section. However, if your README file is an MD file, you cannot reuse the content in it.
-Thus, the disadvantages of having to use a different syntax in the MD file and the
-inability to reuse content in it in your documentation may influence you to use an
-RST file for your README file.
+You can reuse content in a ``README.rst`` file in the main ``index.rst``
+file for your documentation or in the index file for its "Getting started"
+section. However, you cannot reuse content in a ``README.md`` file. Thus, the
+disadvantages of having to use a different syntax in the MD file and the
+inability to reuse content in it in your documentation might influence you to use a
+``README.rst`` file.
 
 To reuse all content in a ``README.rst`` file in the main ``index.rst`` file for your
 documentation, use the ``include`` directive::
@@ -119,13 +120,13 @@ to begin. Before this section, insert an explicit target name like this, followe
 
    .. reuse_start
 
-In the main ``index.rst`` file for your library's documentation, now insert an ``include``
+In the main ``index.rst`` file for your documentation, now insert an ``include``
 directive with a ``start-after`` attribute that specifies this explicit target name::
 
    .. include:: ../../README.rst
       :start-after: .. reuse_start
 
-If your ``README.rst`` file has links to sections or pages in the library's documentation, you must
+If your ``README.rst`` file has links to sections or pages in the documentation, you must
 use either URLs or insert explicit targets at the bottom of the ``README.rst`` file that you can then
 use in this file. If your project has a central ``links.rst`` file in the ``doc/source`` directory,
 you might be tempted to simply use the explicit target names named defined in it in the ``README.rst``

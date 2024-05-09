@@ -10,7 +10,7 @@ This page supplies guidance specific to PyAnsys documentation.
 
 .. note::
     For comprehensive information on contributing new content or revising existing
-    content in PyAnsys documentation, see :ref:`content_writing`.
+    content, see :ref:`content_writing`.
 
 When writing developer documentation, the relationship between code and
 documentation is key. To keep documentation up to date with evolving
@@ -21,8 +21,11 @@ code, always perform these tasks:
 - Support contributions from both inside and outside of the development team.
 - Perform periodic reviews.
 
-Documentation sources
----------------------
+Understand documentation sources
+--------------------------------
+
+The generation of PyAnsys documentation uses `Sphinx`_ and the `Ansys-branded Sphinx theme
+<Ansys_Sphinx_theme_repo_>`_.
 
 .. raw:: html
 
@@ -30,12 +33,11 @@ Documentation sources
       <img width="30%" src="https://www.sphinx-doc.org/en/master/_static/sphinx-logo.svg">
     </div>
 
-The generation of PyAnsys documentation uses `Sphinx`_ and the `Ansys-branded Sphinx theme
-<Ansys_Sphinx_theme_repo_>`_ to assemble content from these resources:
+Sphinx assembles content from these sources:
 
 - Docstrings in Python (PY) files
 - reStructuredText (RST) files
-- Examples in PY files
+- Examples in PY or IPYNB files
 
 Docstrings
 ~~~~~~~~~~
@@ -49,17 +51,19 @@ these extensions for docstring formatting:
 Using the ``numpydoc`` extension is preferred because it supports an API
 documentation structure with one page per method, providing Python community
 members with documentation like that generated for the
-`NumPy`_ and `pandas`_ packages. If your API is very linear, you
-can use the ``napoleon`` extension because it supports a documentation
-structure where everything needed to solve a certain problem can be shown on one page.
+`NumPy`_ and `pandas`_ packages.
 
-The `numpydoc manual <numpydoc_>`_ explains how to use the ``numpydoc`` extension with
-Sphinx and includes a `style guide <numpydoc_style_guide_>`_. The ``napoleon`` extension,
-which parses both numpydoc and Google style docstrings, refers you to the `Google Python Style Guide
-<https://google.github.io/styleguide/pyguide.html>`_.
+If your API is very linear, you can use the ``napoleon`` extension because it supports
+a documentation structure where everything needed to solve a certain problem can be
+shown on one page.
+
+- The `numpydoc manual <numpydoc_>`_ explains how to use the ``numpydoc`` extension with
+  Sphinx and includes a `style guide <numpydoc_style_guide_>`_.
+- The ``napoleon`` extension, which parses both numpydoc and Google style docstrings, refers
+  you to the `Google Python Style Guide <https://google.github.io/styleguide/pyguide.html>`_.
 
 Regardless of the extension that you choose for generating documentation from docstrings,
-using numpy-style docstrings ensures that there is consistency within PyAnsys libraries.
+using numpydoc-style docstrings ensures that there is consistency within PyAnsys libraries.
 For more information, see :ref:`Documentation style`.
 
 .. _rst_files_developers:
@@ -72,13 +76,26 @@ editor to create reStructuredText (RST) files that you then place in
 :ref:`The \`\`doc\`\` directory`. The ``index.rst`` file in the ``doc/source`` directory
 defines the first level of your documentation hierarchy. The ``toctree``
 directive (which stands for "table of contents tree") indicates the maximum
-number of heading levels that the documentation is to display. Following this
-directive are the directory names for your documentation sections.
+number of heading levels that the documentation is to display in the right navigation
+pane.
+
+.. note::
+   A directive is a generic block of explicit markup that sets off a specific block
+   of text. For more information, see `Directives <Sphinx_doc_directives_>`_ in the
+   Sphinx documentation.
+
+The ``toctree`` directive also specifies the locations of the RST files for building
+each section of your documentation.
 
 .. include:: diag/doc_layout.rst
 
-Each documentation section has its own ``index.rst`` file, as shown by the preceding
-figure. The following RST files provide examples of how to create ``index.rst`` files.
+As shown in the preceding figure, each documentation section has its own ``index.rst`` file.
+However, to optimize web searches of the generated HTML documentation, the names of the
+index files for sections should be short and descriptive, containing keywords and using
+hyphens (``-``) as word separators. For more information, see :ref:`SEO`.
+
+Here is an example of the hierarchical structure for RST files. The main index files is
+named ``index.rst``, and the index files for the documentation sections are named ``intro.rst``.
 
 .. tab-set::
 
@@ -93,62 +110,61 @@ figure. The following RST files provide examples of how to create ``index.rst`` 
 
             .. toctree::
 
-                section_A/index
-                section_B/index
+                section-A/intro
+                section-B/intro
 
-    .. tab-item:: section_A/index.rst
+    .. tab-item:: section-A/intro.rst
 
         .. code-block:: rst
 
             Section A
             #########
 
-            This is the content of the `section_A/index.rst` file.
+            This is the content of the `section-A/intro.rst` file.
 
             .. toctree::
 
-                section_1
-                section_2
+                page-1
+                page-2
                 ...
 
-    .. tab-item:: section_B/index.rst
+    .. tab-item:: section-B/intro.rst
 
         .. code-block:: rst
 
             Section B
             #########
 
-            This is the content of the `section_B/index.rst` file.
+            This is the content of the `section-B/intro.rst` file.
 
             .. toctree::
 
-                another_section
+                section_B_subsection
                 ...
 
 While you do not include the ``.rst`` extension when defining the section
 structure in the ``toctree`` directive, the index file referenced for each
-section should be named ``index.rst``.
+section should have a short descriptive name.
 
 After you build documentation locally as described in :ref:`Build
-documentation`, the first-level heading in the ``index.rst`` file for each
-section is shown as a clickable link in the title bar of the
-library's HTML documentation. For more information on defining the
-documentation structure, see `Getting Started
+documentation`, the first-level heading in the index file for each
+section is shown as a clickable link in the documentation's title bar.
+For more information on defining the documentation structure, see `Getting Started
 <https://www.sphinx-doc.org/en/master/usage/quickstart.html>`_ in the Sphinx
 documentation.
 
-Indicating RST titles
-+++++++++++++++++++++
+Titles and headings in RST files
+++++++++++++++++++++++++++++++++
 
-Within RST files, heading titles are to use sentence case per the
-`capitalization guidelines <https://developers.google.com/style/capitalization>`_
-in the *Google developer documentation style guide*. The line that follows
-the heading title must have a string of characters that is the same length
-as the heading title. If the length of the characters under the heading title
-is less than the length of the heading title, Sphinx generates a warning.
+As indicated in `Capitalization <https://developers.google.com/style/capitalization>`_
+in the *Google developer documentation style guide*, titles and headings are to be in
+sentence case. In RST files, the line that follows a title or heading is a
+string of characters of the same length as the heading or title. If the length
+of the characters is less than the length of the title or heading, Sphinx generates
+a warning.
 
-For consistency within PyAnsys libraries, the use of the following special characters
-is recommended for headings but is not enforced:
+For consistency within PyAnsys libraries, the use of these special characters
+is recommended but not enforced:
 
 - For section-level headings, use ``###``.
 - For subsection-level headings, use ``===``.
@@ -160,9 +176,9 @@ For comprehensive syntax information, see the `reStrucutredText Markup Specifica
 <RST_markup_spec_>`_.
 
 Because you must be familiar with the content in this guide before contributing to
-a PyAnsys library, explore its pages and then the RST files in its `repository <dev_guide_repo_>`_.
-This should help you to understand the syntax and see how RST files are nested to create the
-structure of the guide.
+a PyAnsys library, explore its pages and then look at the RST files in the repository's
+``doc/source`` directory. This should help you to understand the syntax and see how RST
+files are nested to create the structure of this guide.
 
 Recommended sections
 ++++++++++++++++++++
@@ -189,7 +205,7 @@ Examples come in two formats:
 - Basic code snippets demonstrating features
 - Full-fledged standalone examples that are meant to be run as downloadable scripts
 
-Place basic code snippets in the ``doc/source`` directory.
+Place basic code snippets in RST files in the ``doc/source`` directory.
 Place full-fledged standalone examples in the ``examples`` directory,
 which is at the root of the repository. All of these examples must be compliant
 with :ref:`PEP 8`. They are compiled dynamically during the build process.
@@ -198,9 +214,10 @@ verified through the CI performed by GitHub Actions.
 
 Adding a new standalone example consists of placing it in an applicable
 subdirectory in the ``examples`` directory. If none of the existing directories
-match the category of your example, create a new subdirectory with a
-``README.txt`` file describing the new category. Here is an example of what
-the structure for a PyAnsys library typically looks like:
+match the category of your example, create a subdirectory with a
+``README.txt`` file describing the new category
+
+Here is an example of what the structure for a PyAnsys library typically looks like:
 
 .. code-block:: text
 
@@ -239,16 +256,16 @@ to be ``../examples`` and the ``output`` directory to be ``examples``:
      'gallery_dirs': 'examples',  # path where the gallery generated outputs are to be saved
     }
 
-Because these examples are built using Sphinx-Gallery, you must
-follow its coding guidelines.
+Because these examples are built using Sphinx-Gallery, you must follow its coding guidelines.
 
 :ref:`General example` uses Python and Sphinx-Gallery.
 
-Document Python code
---------------------
+Generate documentation from docstrings
+--------------------------------------
 
-You can use the native ``sphinx.ext.autodoc`` extension to generate documentation from your Python
-code. When using this extension, you can include these directives in your RST files:
+You can use the native ``sphinx.ext.autodoc`` extension to generate documentation from the
+docstrings in your Python files. When using this extension, you can include these directives
+in your RST files:
 
 * ``automodule``: For documenting modules
 * ``autoclass``: For documenting classes
@@ -276,7 +293,7 @@ To describe *why* and *how* to use a class in RST files, use the
 
 .. tab-set::
 
-    .. tab-item:: Doc surce code
+    .. tab-item:: Documentation surce code
 
         .. code-block:: rst
 
@@ -290,7 +307,7 @@ To describe *why* and *how* to use a class in RST files, use the
                >>> my_obj.parm1
                'apple'
 
-    .. tab-item:: Rendered doc
+    .. tab-item:: Rendered documentation
 
         Initialize ``my_module.MyClass`` with initial parameters. These
         parameters are automatically assigned to the class.
@@ -314,14 +331,14 @@ For simple classes, use the ``autoclass`` directive:
 
 .. tab-set::
 
-    .. tab-item:: Doc Source Code
+    .. tab-item:: Documentation source code
 
         .. code-block:: rst
 
             .. autoclass:: ansys_sphinx_theme.examples.samples.ExampleClass
                :members:
 
-    .. tab-item:: Rendered Doc
+    .. tab-item:: Rendered documentation
 
         .. autoclass:: ansys_sphinx_theme.examples.samples.ExampleClass
             :members:
@@ -331,7 +348,7 @@ For complex classes with many methods, use the ``autosummary`` directive:
 
 .. tab-set::
 
-    .. tab-item:: Doc source code
+    .. tab-item:: Documentation source code
 
         .. code-block:: rst
 
@@ -344,7 +361,7 @@ For complex classes with many methods, use the ``autosummary`` directive:
                ansys_sphinx_theme.examples.samples.Complex.imag
                ansys_sphinx_theme.examples.samples.Complex.abs
 
-    .. tab-item:: Rendered doc
+    .. tab-item:: Rendered documentation
 
         .. autoclass:: ansys_sphinx_theme.examples.samples.Complex
 
@@ -353,6 +370,7 @@ For complex classes with many methods, use the ``autosummary`` directive:
            ansys_sphinx_theme.examples.samples.Complex.real
            ansys_sphinx_theme.examples.samples.Complex.imag
            ansys_sphinx_theme.examples.samples.Complex.abs
+
 
 When you use the ``autosummary`` directive, each class has its own dedicated page.
 Each method and attribute in that class also has its own page.
@@ -387,8 +405,8 @@ documented separately.
 Build documentation
 -------------------
 
-`Sphinx`_ is used to build the documentation. You configure the entire build process in the
-``conf.py`` file, which is located in the ``doc/source`` directory.
+`Sphinx`_ is used to build the documentation. You configure the entire build process in
+:ref:`The \`\`conf.py\`\` file`.
 
 The ``doc`` directory contains a ``Makefile`` file and a ``make.bat`` file for
 automating the building process. Different builders render different
@@ -478,16 +496,40 @@ The resulting PDF and intermediate LaTeX files are created in the
 Enable multi-version documentation
 ----------------------------------
 
-With the release of `ansys/actions@v4
-<https://actions.docs.ansys.com/version/stable/index.html>`_ , libraries can
-benefit from multi-version documentation. Libraries taking advantage of this
-feature need to apply different configurations according to their level of
-maturity.
+When your library has multi-version documentation enabled, the right side of the
+documentation's title bar displays a drop-down button for switching between documentation
+versions. With this button, you can switch from viewing the documentation for the latest
+stable version to the documentation for the development version or a previously
+released version.
 
-Follow these steps to enable multi-version documentation in your library:
+To take advantage of multi-version documentation, your library must use 
+`ansys/actions@v4 <https://actions.docs.ansys.com/version/stable/index.html>`_ or
+later and be configured based on its level of maturity.
 
-#. Use `ansys-sphinx-theme <Ansys_Sphinx_theme_repo_>`_ 0.8 or later for building
-   your library's documentation.
+Upgrade to ``ansys/actions@v4`` or later
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If your library uses an Ansys action earlier than ``ansys/actions@v4``, upgrade
+to a later version:
+
+#. Update all your continuous integration YML files to use ``ansys/actions@v4`` or later.
+
+#. Make sure that the ``"json_url"`` key points to ``f"https://{cname}/versions.json"``.
+
+   Note that the ``release/`` substring is dropped.
+
+#. Apply the previous steps as fix patches in all versions that you want to include
+   in your multi-version documentation.
+
+Configure multi-version documentation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Once your library uses ``ansys/actions@v4`` or later, configure multi-version
+documentation:
+
+#. Ensure that you are using `Ansys Sphinx Theme <Ansys_Sphinx_theme_repo_>`_ version 0.8
+   or later for building your library's documentation.
+
 #. Include the following lines in :ref:`The \`\`conf.py\`\` file`:
 
    .. code-block:: python
@@ -498,7 +540,7 @@ Follow these steps to enable multi-version documentation in your library:
   
   
        cname = os.getenv("DOCUMENTATION_CNAME", "<DEFAULT_CNAME>")
-       """The canonical name of the webpage hosting the documentation."""
+       """Canonical name (CNAME) of the webpage hosting the documentation."""
   
        html_theme_options = {
            "switcher": {
@@ -512,30 +554,26 @@ Follow these steps to enable multi-version documentation in your library:
   
        The ``DOCUMENTATION_CNAME`` environment variable is expected to be
        declared in the YML file controlling the deployment of the documentation.
-       The idea is that the canonical name (CNAME) is only defined in a single
+       The idea is that the canonical name is only defined in a single
        place, so it can be easily changed if required.
 
 #. Enable documentation deployment for development and stable versions. For more
    information, see :ref:`Deploy documentation`.
 
-With all the previous configuration, your library is ready to use multi-version
-documentation in an automated way. This means that every time you release a
-new version, a link to the documentation for this version is added to the
-drop-down button in the upper right corner of the documentation's title bar.
-You use this drop-down button to switch from viewing the documentation for the
-latest stable release to viewing the documentation for the development version
-or previously released versions.
+Once multi-version documentation is configured, its use is automated. Every time you
+release a new version, a link to the documentation for this version is added to the
+drop-down button.
 
 .. admonition:: Controlling the number of versions shown in the drop-down button
 
-    Only the development branch and the last three stable versions are
-    shown by default in the documentation drop-down button. To show more versions,
-    use the ``render-last`` variable in the `ansys/actions/doc-deploy-stable
-    action
+    The documentation drop-down button displays the development version and
+    last three stable versions by default. To have the button display more
+    versions, use the ``render-last`` variable in the
+    `ansys/actions/doc-deploy-stable action
     <https://actions.docs.ansys.com/version/stable/doc-actions/index.html#doc-deploy-stable-action>`_.
 
-If you require support for migrating to the multi-version documentation, contact the
-`PyAnsy core team <pyansys_core_email_>`_.
+If you require support for enabling multi-version documentation, email the
+`PyAnsy Core team <pyansys_core_email_>`_.
 
 Deploy documentation
 --------------------
@@ -547,8 +585,9 @@ HTML documentation artifact to the ``gh-pages`` branch of the library's reposito
 For more information, see `Creating a GitHub Pages site <enabling GitHub pages_>`_
 in the GitHub documentation.
 
-To deploy both development and stable documentation in an automated way, add the
-``doc-deploy-dev`` and ``doc-deploy-stable`` jobs:
+To automatically deploy both development and stable documentation, add the
+``doc-deploy-dev`` and ``doc-deploy-stable`` jobs to the ``ci_cd.yml`` file in
+the ``.github/workflows`` directory:
 
 .. code-block:: yaml
 
@@ -567,7 +606,7 @@ To deploy both development and stable documentation in an automated way, add the
           runs-on: ubuntu-latest
           needs: build-library
           steps:
-            - uses: ansys/actions/doc-deploy-dev@v4
+            - uses: ansys/actions/doc-deploy-dev@v6
               with:
                 doc-artifact-name: '<html-artifact-name>'
                 cname: ${{ env.DOCUMENTATION_CNAME }}
@@ -580,17 +619,18 @@ To deploy both development and stable documentation in an automated way, add the
           runs-on: ubuntu-latest
           needs: release
           steps:
-            - uses: ansys/actions/doc-deploy-stable@v4
+            - uses: ansys/actions/doc-deploy-stable@v6
               with:
                 doc-artifact-name: '<html-artifact-name>'
                 cname: ${{ env.DOCUMENTATION_CNAME }}
                 token: ${{ secrets.GITHUB_TOKEN }}
 
+
 Deploy to another repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you are planning to deploy documentation to a repository other than the one
-for your library, make sure you create this repository before deploying your
+for your library, make sure that you create this repository before deploying your
 documentation for the first time.
 
 Using the ``{{ secrets.GITHUB_TOKEN }}`` token when deploying to another repository is
@@ -625,7 +665,7 @@ For deploying the documentation to another repository, use this workflow:
           runs-on: ubuntu-latest
           needs: build-library
           steps:
-            - uses: ansys/actions/doc-deploy-dev@v4
+            - uses: ansys/actions/doc-deploy-dev@v6
               with:
                 doc-artifact-name: '<html-artifact-name>'
                 cname: ${{ env.DOCUMENTATION_CNAME }}
@@ -639,7 +679,7 @@ For deploying the documentation to another repository, use this workflow:
           runs-on: ubuntu-latest
           needs: release
           steps:
-            - uses: ansys/actions/doc-deploy-stable@v4
+            - uses: ansys/actions/doc-deploy-stable@v6
               with:
                 doc-artifact-name: '<html-artifact-name>'
                 cname: ${{ env.DOCUMENTATION_CNAME }}
@@ -647,54 +687,33 @@ For deploying the documentation to another repository, use this workflow:
                 external-repository: ${{ env.DOCUMENTATION_REPOSITORY }}
 
 
-Multi-version migration from ``ansys/actions@v3``  to ``ansys/actions@v4``
---------------------------------------------------------------------------
-
-Projects using the multi-version feature should upgrade to `ansys/actions@v4
-<https://actions.docs.ansys.com/version/stable/index.html>`_ or higher to
-benefit from stable links. This is achieved by introducing a new layout that is
-not compatible with older `ansys/actions` versions.
-
-To perform the migration, follow these steps:
-
-#. Update all the continuous integration ``YML`` files to use
-   ``ansys/actions@v4`` or higher.
-
-#. Make sure that the ``"json_url"`` key points to
-   ``f"https://{cname}/versions.json"``. Note that the ``release/`` substring is
-   dropped.
-
-#. Apply previous steps as fix patches in all the desired versions to be included
-   in the multi-version documentation.
-
 Access online documentation
 ---------------------------
 
 Documentation for the latest stable release of a PyAnsys library is accessible
-from its repository. The canonical name for the documentation of the project is
-constructed using the following structure:
+from its repository. The canonical name for the documentation is constructed
+using this structure:
 
 ``https://<product>.docs.pyansys.com``
 
-You can generally access the latest development version of the documentation by
-adding the ``dev`` path to the URL:
+If a library does not have multi-version documentation enabled, you can generally
+access the latest development version of the documentation by adding ``dev`` to
+the URL:
 
 ``https://<product>.docs.pyansys.com/dev``
 
-.. warning::
+However, most libraries do have multi-version documentation enabled, which
+means that stable and development versions are collected under the same website.
 
-    PyAnsys projects support now multi-version documentation, meaning that
-    stable and development versions are collected under the same website. A
-    drop-down button for selecting the desired version should be available in the
-    top right corner of the documentation's navigation bar.
+For example, consider the PyAEDT documentation: On the right side of the title bar
+for its documentation, you use the drop-down button to select the version of the
+documentation.
 
-For example, consider the PyAEDT documentation:
+- The URL for documentation of the latest stable version is `<https://aedt.docs.pyansys.com/version/stable/index.html>`_.
+- The URL for documentation of the latest development version is `<https://aedt.docs.pyansys.com/version/dev/index.html>`_.
 
-- The URL for documentation of the latest stable release is `<https://aedt.docs.pyansys.com/>`_.
-- The URL for documentation of the latest development version is `<https://aedt.docs.pyansys.com/version/dev/>`_.
-
-GitHub Actions automatically keep the latest development versions of both the
-library and its documentation up to date.
+Ansys actions are GitHub Actions for automatically keeping the latest development versions
+of both the library and its documentation up to date.
 
 To make documentation changes, you create a branch with a name that begins with
 a prefix of ``doc/`` that is then followed by a short description of what you
@@ -704,19 +723,19 @@ As you are making changes in this branch, you want to periodically generate the
 documentation locally so that you can test your changes before you create a
 GitHub pull request. For more information, see :ref:`Build documentation`.
 
-Using PyMeilisearch as search engine
-------------------------------------
+Use PyMeilisearch as a documentation search engine
+--------------------------------------------------
 
-PyMeilisearch is a Python client library that enables you to utilize
-MeiliSearch, an open source search engine, to provide fast and relevant
-search capabilities for your application's data.
+PyMeilisearch is a Python client library that lets you use MeiliSearch, an open
+source search engine, to provide fast and relevant documentation search capabilities.
 
-By completing the following steps, you can effectively enable and use PyMeilisearch as
-a search engine for multi-version documentation in your project.
+To use PyMeilisearch as a search engine for multi-version documentation, perform
+these steps.
 
-#. Use ``ansys-sphinx-theme>=0.9`` for building the documentation in your project.
+#. Ensure that you are using `Ansys Sphinx Theme <Ansys_Sphinx_theme_repo_>`_ version 0.8
+   or later for building your library's documentation.
 
-#. Include the following lines in the ``conf.py`` file:
+#. In the ``conf.py`` file in the ``doc/source`` directory, include these lines:
 
    .. code-block:: python
   
@@ -726,24 +745,24 @@ a search engine for multi-version documentation in your project.
   
   
        cname = os.getenv("DOCUMENTATION_CNAME", "<DEFAULT_CNAME>")
-       """The canonical name of the webpage hosting the documentation."""
+       """Canonical name (CNAME) of the webpage hosting the documentation."""
   
        html_theme_options = {
            "use_meilisearch": {
              "api_key": os.getenv("MEILISEARCH_API_KEY", ""),
              "index_uids": {
-               f"<your-index-name>{convert_version_to_pymeilisearch(__version__)}": "index name to be displayed",  # noqa: E501
+               f"<your-index-name>{convert_version_to_pymeilisearch(__version__)}": "index name to display",  # noqa: E501
              },
            },
            ...
        }
   
-#. In these lines, replace *<your-index-name>* with the desired name for your MeiliSearch index.
+#. In these lines, replace *<your-index-name>* with the name for your MeiliSearch index.
   
-   The ``convert_version_to_pymeilisearch`` function converts your package's version into
+   The ``convert_version_to_pymeilisearch`` function converts your library's version into
    a format suitable for MeiliSearch indexing.
 
-#. Enable documentation index deployment for development and stable versions using GitHub Actions:
+#. Enable documentation index deployment for development and stable versions using Ansys actions:
   
    .. code-block:: yaml
 
@@ -772,5 +791,85 @@ a search engine for multi-version documentation in your project.
 #. Replace *<your-package>*, *<your-index-name>*, and *<library>* with appropriate values
    for your project. 
 
-The version of your package is automatically calculated and used for indexing, ensuring that your documentation
-remains up to date. For more information, see the `PyMeilisearch`_ and `ansys-sphinx-theme-doc`_ documentation.
+The version of your package is automatically calculated and used for indexing, ensuring that
+your documentation remains up to date. For more information, see the `PyMeilisearch`_ and
+`Ansys Sphinx Theme <ansys-sphinx-theme-doc_>`_ documentation.
+
+.. _SEO:
+
+Optimize web searches
+---------------------
+
+It's important that web searches rank PyAnsys documentation pages high in organic
+search results. The PyAnsys Core team has identified some challenges in regard to
+search engine optimization (SE0):
+
+- The ``robots.txt`` file in the root directory of your documentation website
+  blocks Google and other search engines from crawling some pages. This file tells
+  web robots about the structure of the documentation website.
+- Missing canonical tags result in duplicate pages being found.
+- For multi-version documentation, redirection from the base ``index.html`` file
+  to the ``version/stable/index.html`` file causes problems.
+
+To resolve these SEO challenges, upgrade your documentation deployment actions to
+``doc-deploy-stable@v6`` and ``doc-deploy-dev@v6`` or higher.
+
+Here's how using the latest ``doc-deploy`` actions automatically address these SEO challenges:
+
+- They generate a corrected ``robots.txt`` that allows Google and other search engines
+  to crawl all your documentation pages.
+- They add ``rel="canonical"`` tags, which are HTML elements, in the head sections of HTML pages.
+  A canonical tag prevents duplicate content issues by specifying the preferred (canonical) URL
+  for a group of pages that have the same or very similar content. Search engines use the canonical
+  tag to determine the best representation of a page. Here is an example of a conical tag:
+  
+  ``<link rel="canonical" href="http://www.example.com/">``
+
+- They copy ``gh-pages/version/stable/index.html`` to ``gh-pages/index.html`` and prepend
+  local references with ``version/stable/``, which eliminates the need for redirection.
+
+SEO tips
+~~~~~~~~
+
+Here are additional SEO tips for ensuring that Google and other search engines rank
+your documentation pages higher in search results:  
+
+- Avoid having ``index.html`` pages (except for the main one for your documentation).
+
+  Sphinx, which renders files named ``index.rst`` into pages named ``index.html``, always
+  generates absolute links. For example, the absolute link for ``page/index.rst`` is
+  ``page/index.html``. Google prefers links to pages that do not end with ``index.html``.
+
+- Use lowercase for names of directories and files and separate words with hyphens.
+
+  While these naming conventions might be difficult to achieve for auto-generated files
+  matching the names of classes, following these naming guidelines when possible makes
+  file searches easier and search results more useful. For comprehensive information, see
+  `Filenames and file types <https://developers.google.com/style/filenames>`_ in the
+  *Google developer documentation style guide*. 
+
+- Use short filenames containing keywords.
+  
+  Avoid Ansys-specific words in filenames. Use a keyword generator like `ahrefs <https://ahrefs.com/keyword-generator>`_
+  to find relevant keywords that potential users who are searching for information are
+  likely to use.
+
+SEO naming examples
+~~~~~~~~~~~~~~~~~~~~
+
+This table shows how to use the preceding tips to rename example files. While the source files for examples
+are generally Python (PY) or Jupyter Notebook (IPYNB) files, Sphinx converts them to reStructuredText (RST)
+files for inclusion in the documentation.
+
++-------------------------------------------------+-------------------------------------------------------+
+| Not recommended                                 | Recommended                                           |
+|                                                 |                                                       |
++=================================================+==================+====================================+
+| examples/hohmann-transfer-using-targeter.rst    | examples-hohmann-transfer-{orbit,calculator}.rst      |
++-------------------------------------------------+-------------------------------------------------------+
+| examples/00-mapdl-examples/transient_thermal.py | examples-transient-thermal-{analysis,simulation}.py   |
++-------------------------------------------------+-------------------------------------------------------+
+| examples/02-HFSS/HFSS_Spiral.py                 | examples-design-and-simulation-of-spiral-inductors.py |
++-------------------------------------------------+-------------------------------------------------------+
+
+If you have questions about SEO, email the `PyAnsy Core team <pyansys_core_email_>`_.
