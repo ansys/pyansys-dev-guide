@@ -256,7 +256,7 @@ class Logger:
             each_handler.setLevel(level)
         self._level = level
 
-    def _make_child_logger(self, sufix, level):
+    def _make_child_logger(self, suffix, level):
         """Create a child logger.
 
         Create a child logger either using ``getChild`` or copying
@@ -264,7 +264,7 @@ class Logger:
         one.
 
         """
-        logger = logging.getLogger(sufix)
+        logger = logging.getLogger(suffix)
         logger.std_out_handler = None
         logger.file_handler = None
 
@@ -297,7 +297,7 @@ class Logger:
         logger.propagate = True
         return logger
 
-    def add_child_logger(self, sufix, level=None):
+    def add_child_logger(self, suffix, level=None):
         """Add a child logger to the main logger.
 
         This logger is more general than an instance logger which is designed
@@ -309,7 +309,7 @@ class Logger:
 
         Parameters
         ----------
-        sufix : str
+        suffix : str
             Name of the logger.
         level : str
             Level of logging
@@ -319,7 +319,7 @@ class Logger:
         logging.logger
             Logger class.
         """
-        name = self.logger.name + "." + sufix
+        name = self.logger.name + "." + suffix
         self._instances[name] = self._make_child_logger(self, name, level)
         return self._instances[name]
 

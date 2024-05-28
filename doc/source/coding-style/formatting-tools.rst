@@ -50,7 +50,6 @@ tools so that no conflicts arise. To accomplish this, use the
    profile = "black"
    force_sort_within_sections = true
    line_length = "<length>"
-   default_section = "THIRDPARTY"
    src_paths = ["doc", "src", "tests"]
 
 Flake8
