@@ -362,12 +362,12 @@ Publishing to `PyPI`_ can be performed following the
 `Trusted Publisher <PyPI Trusted Publisher_>`_ approach or the
 `API token <PyPI API token_>`_ approach. When possible, it is recommended
 to use the Trusted Publisher as it provides enhanced security and simplifies
-the management of authentication credentials. For existing repositories
-currently using the API Token approach, we encourage transitioning to the
+the management of authentication credentials. Existing repositories
+currently using the API Token approach are encouraged to transition to the
 Trusted Publisher approach to benefit from its security and management
 improvements.
 
-Publish with Trusted Publisher
+Publish with trusted publisher
 ******************************
 
 Publishing with `Trusted Publisher <PyPI Trusted Publisher_>`_ requires an
@@ -379,7 +379,7 @@ Publisher.
 It is recommended to create en environment in your Github repository to manage
 deployments. Environments provide a way to configure deployment-specific
 setting and ensure that sensitive operations are performed in a controller
-maner. For more information, see the
+manner. For more information, see the
 `Environment documentation <Github environment documentation_>`_. Contact the
 `PyAnsy core team <pyansys_core_email_>`_  in case of doubts.
 
@@ -406,7 +406,7 @@ maner. For more information, see the
                 library-name: "ansys-<product>-<library>"
                 use-trusted-publisher: true
 
-Publish with API Token
+Publish with API token
 **********************
 
 Publishing with `API token <PyPI API token_>`_ requires a username and a
