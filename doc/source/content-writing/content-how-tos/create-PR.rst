@@ -300,7 +300,7 @@ To create a PR:
    .. image:: ../_static/assigning_yourself_PR.png
       :alt: Assign yourself to the PR
 
-#. If my PR is meant to fix an issue, add **Closes #issue_number** to the PR description.
+#. If the PR is meant to fix an issue, add **Closes #issue_number** to the PR description.
 #. Click **Create pull request**. Or, if you want to create a draft pull request,
    use the dropdown to select **Create draft pull request**.
 
