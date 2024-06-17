@@ -153,6 +153,7 @@
 .. _Creating a repository from a template: https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template
 .. _repository visibility: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility
 .. _Ansys GitHub organization: https://github.com/ansys
+.. _Github environment documentation: https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment
 
 .. #Python
 .. _Python_Package_Index: https://pypi.org/
@@ -197,3 +198,5 @@
 .. _poetry pyproject.toml documentation: https://python-poetry.org/docs/pyproject/
 .. _setuptools_repo: https://pypi.org/project/setuptools/
 .. _setuptools metadata fields: https://setuptools.pypa.io/en/latest/userguide/declarative_config.html#declarative-config
+.. _PyPI Trusted Publisher: https://docs.pypi.org/trusted-publishers/
+.. _PyPI API token: https://pypi.org/help/#apitoken
