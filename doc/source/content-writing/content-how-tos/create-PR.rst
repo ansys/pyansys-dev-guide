@@ -295,6 +295,10 @@ To create a PR:
 #. Click **Compare & pull request**.
    The **Open a pull request** window opens.
 #. Supply a commit message and an optional extended description.
+#. Assign the PR to yourself by clicking **assign yourself** on the right side of the window.
+   .. image:: ..//_static/assigning_yourself_PR.png
+      :alt: Assign yourself to the PR
+#. If my PR is meant to fix an issue, add **Closes #issue_number** to the PR description.
 #. Click **Create pull request**. Or, if you want to create a draft pull request,
    use the dropdown to select **Create draft pull request**.
 
