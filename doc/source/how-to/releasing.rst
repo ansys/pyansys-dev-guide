@@ -355,7 +355,7 @@ Publishing :ref:`Artifacts` to `PyPI`_ is the way of distributing :ref:`Python
 libraries`. Before being publicly released, projects must follow the process
 :ref:`Project approval and public release` to obtain public release
 authorization. Once authorized, contact the
-`PyAnsy core team <pyansys_core_email_>`_ to get support during the first
+`PyAnsys Core team <pyansys_core_email_>`_ to get support during the first
 release of the project.
 
 Publishing to `PyPI`_ can be performed following the 
@@ -381,7 +381,7 @@ deployments. Environments provide a way to configure deployment-specific
 setting and ensure that sensitive operations are performed in a controller
 manner. For more information, see the
 `Environment documentation <Github environment documentation_>`_. Contact the
-`PyAnsy core team <pyansys_core_email_>`_  in case of doubts.
+`PyAnsys Core team <pyansys_core_email_>`_  in case of doubts.
 
 .. dropdown:: Use GitHub Actions
 
@@ -422,7 +422,7 @@ password:
 
 The ``PYPI_TOKEN`` is a password in the form of a GitHub secret. This secret is
 unique to each project. It can only be obtained after the first release to the
-public PyPI. The `PyAnsy core team <pyansys_core_email_>`_ enables the custom
+public PyPI. The `PyAnsys Core team <pyansys_core_email_>`_ enables the custom
 ``PYPI_TOKEN`` once your project has been successfully released for the first
 time. For future releases, everything is automated.
 
