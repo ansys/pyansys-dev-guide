@@ -352,7 +352,65 @@ Public PyPI
 ~~~~~~~~~~~
 
 Publishing :ref:`Artifacts` to `PyPI`_ is the way of distributing :ref:`Python
-libraries`. Publishing to `PyPI`_ requires a username and a password:
+libraries`. Before being publicly released, projects must follow the process
+:ref:`Project approval and public release` to obtain public release
+authorization. Once authorized, contact the
+`PyAnsys Core team <pyansys_core_email_>`_ to get support during the first
+release of the project.
+
+Publishing to `PyPI`_ can be performed following the 
+`Trusted Publisher <PyPI Trusted Publisher_>`_ approach or the
+`API token <PyPI API token_>`_ approach. When possible, it is recommended
+to use the Trusted Publisher as it provides enhanced security and simplifies
+the management of authentication credentials. Existing repositories
+currently using the API Token approach are encouraged to transition to the
+Trusted Publisher approach to benefit from its security and management
+improvements.
+
+Publish with trusted publisher
+******************************
+
+Publishing with `Trusted Publisher <PyPI Trusted Publisher_>`_ requires an
+initial setup to configure OIDC trust between PyPI and Github. This action is
+performed by the `PyAnsy core team <pyansys_core_email_>`_ which adds your
+project to the list of authorized repositories to release as a Trusted
+Publisher.
+
+It is recommended to create en environment in your Github repository to manage
+deployments. Environments provide a way to configure deployment-specific
+setting and ensure that sensitive operations are performed in a controller
+manner. For more information, see the
+`Environment documentation <Github environment documentation_>`_. Contact the
+`PyAnsys Core team <pyansys_core_email_>`_  in case of doubts.
+
+.. dropdown:: Use GitHub Actions
+
+    The following code lets you publish any Python :ref:`Artifacts` contained in
+    the ``dist`` directory to the public PyPI. It is expected to be included when you
+    :ref:`Use GitHub Actions`.
+    
+    .. code-block:: yaml
+
+        release-pypi-public:
+          name: Release project to public PyPI
+          runs-on: ubuntu-latest
+          if: ${{ github.event_name == 'push' && contains(github.ref, 'refs/tags') }}
+          # Specifying a GitHub environment is optional, but strongly encouraged
+          environment: release
+          permissions:
+            id-token: write
+            contents: write
+          steps:
+            - uses: ansys/actions/release-pypi-public@v6
+              with:
+                library-name: "ansys-<product>-<library>"
+                use-trusted-publisher: true
+
+Publish with API token
+**********************
+
+Publishing with `API token <PyPI API token_>`_ requires a username and a
+password:
 
 +-----------------------------------------------+----------------+
 | **Credentials for publishing to public PyPI** | **Value**      |
@@ -364,13 +422,9 @@ libraries`. Publishing to `PyPI`_ requires a username and a password:
 
 The ``PYPI_TOKEN`` is a password in the form of a GitHub secret. This secret is
 unique to each project. It can only be obtained after the first release to the
-public PyPI. Follow the process :ref:`Project approval and public release`
-process to obtain public release authorization.
-
-Once authorized, contact the `PyAnsy core team <pyansys_core_email_>`_ to
-get support during the first release of the project. The team enables the
-custom ``PYPI_TOKEN`` once your project has been successfully released for the
-first time. For future releases, everything is automated.
+public PyPI. The `PyAnsys Core team <pyansys_core_email_>`_ enables the custom
+``PYPI_TOKEN`` once your project has been successfully released for the first
+time. For future releases, everything is automated.
 
 Here's a cross-platform, one-line command for using Twine to download a package:
 
