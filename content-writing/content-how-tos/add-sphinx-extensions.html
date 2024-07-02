@@ -1,0 +1,864 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Add Sphinx extensions &#8212; PyAnsys developer&#39;s guide</title>
+
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/ansys_sphinx_theme.css?v=a362721a" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.nerdfonts.com/assets/css/webfont.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+ 
+<link href="../../_static/css/breadcrumbs.css" rel="stylesheet" />
+
+    <script src="../../_static/documentation_options.js?v=df78ad63"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/js/table.js?v=b64f5182"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content-writing/content-how-tos/add-sphinx-extensions';</script>
+    <link rel="icon" href="../../_static/ansys-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Show cheat sheet thumbnail" href="show_cheat_sheet_thumbnail.html" />
+    <link rel="prev" title="View revision history on GitHub" href="view-revision-history.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container"><!-- Debugging: html_theme_options =  -->
+ 
+<!-- Include the MeiliSearch CSS stylesheet only if theme present -->
+<link href="../../_static/css/meilisearch.css" rel="stylesheet" />
+
+<!-- Create a search bar form with a text input and a dropdown selector for the search index -->
+<form
+  class="bd-search d-flex align-items-center"
+  action="../../search.html"
+  method="get"
+>
+  <i class="fa fa-search" aria-hidden="true" id="search-icon"></i>
+  <input
+    type="search"
+    placeholder="Search"
+    class="form-control"
+    id="search-bar-input"
+    autofocus
+  />
+  <span class="search-button__kbd-shortcut"
+    ><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span
+  >
+  <style>
+    .bd-search .search-button__kbd-shortcut {
+      right: 33%;
+    }
+  </style>
+  
+  <select id="indexUidSelector" class="index-select">
+    
+    <option value="pyansys-dev-guide">PyAnsys dev guide</option>
+    
+  </select>
+  
+  <!-- Include the MeiliSearch JavaScript library for the search bar -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+
+    
+  <script>
+    var HOST_URL = "https://backend.search.pyansys.com/";
+    var API_KEY = "9fbccc76c147935ce2b562a9ee0c6669276987572dc1f22491cea72e9e99f35d";
+    var indexUid = "pyansys-dev-guide";
+  </script>
+
+  <script src="../../_static/js/meilisearch_theme_wrap.js"></script>
+</form>
+</div>
+  </div>
+   
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/pyansys-logo-black-cropped.png" class="logo__image only-light" alt="PyAnsys developer's guide - Home"/>
+    <script>document.write(`<img src="../../_static/pyansys-logo-black-cropped.png" class="logo__image only-dark" alt="PyAnsys developer's guide - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../getting-started/index.html">
+                        Getting started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../how-to/index.html">
+                        How-to
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../all-styles.html">
+                        Style
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../abstractions/index.html">
+                        Abstractions
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        Content writing
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-wrench fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+    
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../getting-started/index.html">
+                        Getting started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../how-to/index.html">
+                        How-to
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../all-styles.html">
+                        Style
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../abstractions/index.html">
+                        Abstractions
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        Content writing
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-wrench fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../content-contrib-setup/index.html">Content contribution setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rst-files-writers/index.html">Content in RST files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../py-files-writers/index.html">Content in PY files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples-writers/index.html">Content in examples</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Content how-tos</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="clone-branch.html">Clone and branch a repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="review-PR.html">Review a PR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-PR.html">Create a PR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="request-bot-review.html">Request a bot review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="work-around-Vale.html">Work around Vale issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resolve-issues-causing-check-failures.html">Resolve issues causing check failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="edit-on-GitHub.html">Edit on GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view-revision-history.html">View revision history on GitHub</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Add Sphinx extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="show_cheat_sheet_thumbnail.html">Show cheat sheet thumbnail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-issues-discussions.html">Create issues and discussions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+         
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="https://docs.pyansys.com/" class="nav-link">PyAnsys</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a
+        href="../../index.html"
+        class="nav-link"
+        aria-label="Home"
+      >
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="../index.html" class="nav-link">Content writing</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="index.html" class="nav-link">Content how-tos</a>
+    </li>
+      
+    <li class="breadcrumb-item active" aria-current="page">Add Sphinx extensions</li>
+    
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="add-sphinx-extensions">
+<span id="id1"></span><h1>Add Sphinx extensions<a class="headerlink" href="#add-sphinx-extensions" title="Link to this heading">#</a></h1>
+<p>The Sphinx configuration (<code class="docutils literal notranslate"><span class="pre">doc/source/conf.py</span></code>) file contains an <code class="docutils literal notranslate"><span class="pre">extensions</span></code>
+variable that specifies the list of extensions that are configured for use by
+Sphinx when generating documentation. When the <a class="reference external" href="https://github.com/ansys/ansys-templates">Ansys templates</a>
+tool is used to create a PyAnsys project from the <code class="docutils literal notranslate"><span class="pre">pyansys</span></code> or <code class="docutils literal notranslate"><span class="pre">pyansys-advanced</span></code>
+template, the <code class="docutils literal notranslate"><span class="pre">extensions</span></code> variable lists these extensions by default:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sphinx extensions</span>
+<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;sphinx.ext.autodoc&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sphinx.ext.autosummary&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;numpydoc&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sphinx.ext.intersphinx&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sphinx_copybutton&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Extensions with names beginning with <code class="docutils literal notranslate"><span class="pre">sphinx_ext</span></code> are native (built-in) and are
+available for Sphinx’s use without any additional installation. Extensions with names
+that do not begin with <code class="docutils literal notranslate"><span class="pre">sphinx_ext</span></code> are external extensions and require installation.
+If a non-native extension is not installed but added to the <code class="file docutils literal notranslate"><span class="pre">conf.py</span></code> file in the
+<code class="docutils literal notranslate"><span class="pre">doc/source</span></code> directory, attempts to build the documentation fail because Sphinx cannot
+find the needed extension.</p>
+<section id="link-to-python-objects-in-other-sphinx-documentation">
+<span id="links-to-objects-in-other-doc"></span><h2>Link to Python objects in other Sphinx documentation<a class="headerlink" href="#link-to-python-objects-in-other-sphinx-documentation" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">sphinx.ext.intersphinx</span></code> extension is configured by default in your project’s
+<code class="file docutils literal notranslate"><span class="pre">conf.py</span></code> file so that you can link to Python objects in other Sphinx documentation.
+The <code class="docutils literal notranslate"><span class="pre">intersphinx_mapping</span></code> variable specifies the URIs for the Sphinx documentation with
+the objects that you want to link to.</p>
+<p>For example, this <code class="docutils literal notranslate"><span class="pre">intersphinx_mapping</span></code> variable provides mappings to the Sphinx documentation
+for several other projects:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Intersphinx mapping</span>
+<span class="n">intersphinx_mapping</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;python&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;https://docs.python.org/3/&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+     <span class="s2">&quot;scipy&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;https://docs.scipy.org/doc/scipy/&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+     <span class="s2">&quot;numpy&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;https://numpy.org/doc/stable/&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+     <span class="s2">&quot;matplotlib&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;https://matplotlib.org/stable/&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+     <span class="s2">&quot;pandas&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;https://pandas.pydata.org/docs/&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+     <span class="s2">&quot;pyvista&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;https://docs.pyvista.org/version/stable/&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+     <span class="s2">&quot;grpc&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;https://grpc.github.io/grpc/python/&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+     <span class="s2">&quot;pypim&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;https://pypim.docs.pyansys.com/version/dev/&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+     <span class="s2">&quot;ansys-dpf-core&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;https://dpf.docs.pyansys.com/version/stable/&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+     <span class="s2">&quot;ansys-math-core&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;https://math.docs.pyansys.com/version/stable/&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>To be able to link to a Python object in other Sphinx documentation, the object must be part
+of that documentation’s inventory (<code class="file docutils literal notranslate"><span class="pre">object.inv</span></code>) file. You map the target (base URI of
+the external documentation or the local path) to the documentation’s <code class="file docutils literal notranslate"><span class="pre">object.inv</span></code>
+file. The keyword <code class="docutils literal notranslate"><span class="pre">None</span></code> indicates that this file is found at the same location. If it is not,
+you must supply the appropriate URI.</p>
+<p>Given that a target for a Python object exists in the Sphinx documentation that you want to
+link to, you can link to it using the same roles that you use to link to a Python object in
+your documentation. Here are some examples:</p>
+<ul class="simple">
+<li><p>SciPy <code class="docutils literal notranslate"><span class="pre">odeint()</span></code> function:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">:func:`odeint()</span> <span class="pre">&lt;scipy.integrate.odeint&gt;`</span> <span class="pre">odeint()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">:func:`scipy.integrate.odeint`</span> <span class="pre">scipy.integrate.odeint()</span></code></p></li>
+</ul>
+</li>
+<li><p>SciPy <code class="docutils literal notranslate"><span class="pre">quad()</span></code> function:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">:func:`quad()</span> <span class="pre">&lt;scipy.integrate.quad&gt;`</span> <span class="pre">quad()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">:func:`scipy.integrate.quad`</span> <span class="pre">scipy.integrate.quad()</span></code></p></li>
+</ul>
+</li>
+<li><p>Matplotlib <code class="docutils literal notranslate"><span class="pre">hist()</span></code> method:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">:meth:`hist()</span> <span class="pre">&lt;matplotlib.axes.Axes.hist&gt;`</span> <span class="pre">hist()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">:meth:`matplotlib.axes.Axes.hist`</span> <span class="pre">matplotlib.axes.Axes.hist()</span></code></p></li>
+</ul>
+</li>
+<li><p>NumPy module:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">:mod:`numpy</span> <span class="pre">&lt;numpy&gt;`</span> <span class="pre">numpy</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">:mod:`numpy`</span> <span class="pre">numpy</span></code></p></li>
+</ul>
+</li>
+<li><p>NumPy <code class="docutils literal notranslate"><span class="pre">matrix</span></code> class:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">:class:`matrix</span> <span class="pre">&lt;numpy.matrix&gt;`</span> <span class="pre">matrix</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">:class:`numpy.matrix.`</span> <span class="pre">numpy.matrix</span></code></p></li>
+</ul>
+</li>
+<li><p>NumPy matrix attribute shape:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">:attr:`shape()</span> <span class="pre">&lt;numpy.ndarray.shape&gt;`</span> <span class="pre">shape()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">:attr:`numpy.ndarray.shape`</span> <span class="pre">numpy.ndarray.shape</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>For more information, see <a class="reference internal" href="../rst-files-writers/doc-links.html#api-object-links"><span class="std std-ref">Python object links</span></a>.</p>
+</section>
+<section id="add-a-native-extension">
+<span id="add-native-sphinx-ext"></span><h2>Add a native extension<a class="headerlink" href="#add-a-native-extension" title="Link to this heading">#</a></h2>
+<p>To use the special features provided by a native Sphinx extension, you only need to add
+the extension to the <code class="docutils literal notranslate"><span class="pre">extensions</span></code> variable in the project’s <code class="file docutils literal notranslate"><span class="pre">conf.py</span></code>
+file.</p>
+<p>For example, the native <code class="docutils literal notranslate"><span class="pre">sphinx.ext.todo</span></code> extension was added to the <code class="docutils literal notranslate"><span class="pre">extensions</span></code>
+variable in the <code class="file docutils literal notranslate"><span class="pre">conf.py</span></code> file for this guide. This extension supports
+use of the <code class="docutils literal notranslate"><span class="pre">todo</span></code> directive to create a specially formatted block of text for
+a task that must still be done. The blocks for <code class="docutils literal notranslate"><span class="pre">todo</span></code> directives do not render
+in the documentation by default. However, to render them in the documentation, you
+can add a <code class="docutils literal notranslate"><span class="pre">todo_include_todos</span></code> variable to the <code class="file docutils literal notranslate"><span class="pre">conf.py</span></code> file and then set
+this variable to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</section>
+<section id="add-an-external-extension">
+<h2>Add an external extension<a class="headerlink" href="#add-an-external-extension" title="Link to this heading">#</a></h2>
+<p>To use the special features provided by an external Sphinx extension is a bit
+more complicated. You must install the extension in your development environment and then
+add it to both the project’s <code class="file docutils literal notranslate"><span class="pre">conf.py</span></code> and its list of documentation requirements.</p>
+<p>For example, to use cards and tab sets in your documentation, you must install and configure
+the external <a class="reference external" href="https://sphinx-design.readthedocs.io/en/latest/index.html">sphinx-design</a> extension for use:</p>
+<ol class="arabic">
+<li><p>If the Ansys Python Manager and <strong>Administrator</strong> window are not still
+open, open them.</p></li>
+<li><p>From the <strong>Administrator</strong> window’s command prompt, run the command
+for installing the external extension in your development environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">&lt;</span><span class="n">external</span><span class="o">-</span><span class="n">extension</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Examples follow for some of the external extensions mentioned in this
+documentation.</p>
+<ul>
+<li><p>To install the external <code class="docutils literal notranslate"><span class="pre">sphinx-design</span></code> extension, run this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">design</span>
+</pre></div>
+</div>
+</li>
+<li><p>To install the external <code class="docutils literal notranslate"><span class="pre">sphinx_toolbox.collapse</span></code> extension, run this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">sphinx_toolbox</span><span class="o">.</span><span class="n">collapse</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Add the external extension to the <code class="docutils literal notranslate"><span class="pre">extensions</span></code> variable in your project’s
+<code class="file docutils literal notranslate"><span class="pre">conf.py</span></code> file.</p></li>
+<li><p>Add the external extension to your project’s documentation requirements as indicated
+in the next topic.</p></li>
+</ol>
+</section>
+<section id="add-the-extension-to-the-documentation-requirements">
+<span id="doc-ext-requirements"></span><h2>Add the extension to the documentation requirements<a class="headerlink" href="#add-the-extension-to-the-documentation-requirements" title="Link to this heading">#</a></h2>
+<p>Documentation requirements list the <code class="docutils literal notranslate"><span class="pre">pip</span></code> packages that Sphinx requires for
+building the documentation. Depending on the project’s configuration, you list these
+packages in either the <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file or the <code class="file docutils literal notranslate"><span class="pre">requirements_doc_txt</span></code>
+file.</p>
+<section id="the-pyproject-toml-file">
+<h3>The <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file<a class="headerlink" href="#the-pyproject-toml-file" title="Link to this heading">#</a></h3>
+<p>Most projects specify documentation requirements in a <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file, which
+resides in the root folder. In this file, the <code class="docutils literal notranslate"><span class="pre">doc</span></code> variable defines the required <code class="docutils literal notranslate"><span class="pre">pip</span></code>
+packages and their versions like this.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">doc</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;ansys-sphinx-theme==0.12.3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;docker==6.1.3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ipyvtklink==0.2.3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;jupyter_sphinx==0.4.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;jupytext==1.15.2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;myst-parser==2.0.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;nbconvert==7.9.2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;nbsphinx==0.9.3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;notebook==7.0.5&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;numpydoc==1.6.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;panel==1.2.3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pyvista[trame]==0.41.1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;requests==2.31.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sphinx==7.2.5&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sphinx-autoapi==3.0.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sphinx-autodoc-typehints==1.24.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sphinx-copybutton==0.5.2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sphinx_design==0.5.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sphinx-jinja==2.0.2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;vtk==9.2.6&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="the-requirements-doc-txt-file">
+<h3>The <code class="docutils literal notranslate"><span class="pre">requirements_doc_txt</span></code> file<a class="headerlink" href="#the-requirements-doc-txt-file" title="Link to this heading">#</a></h3>
+<p>Some projects specify documentation requirements in a <code class="file docutils literal notranslate"><span class="pre">requirements_doc_txt</span></code>
+file. The root folder of such a project typically has a <code class="docutils literal notranslate"><span class="pre">requirements</span></code> directory
+that contains this TXT file, which defines the required <code class="docutils literal notranslate"><span class="pre">pip</span></code> packages and their
+versions like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sphinx</span><span class="o">==</span><span class="mf">7.1.2</span>
+<span class="n">jupyter_sphinx</span><span class="o">==</span><span class="mf">0.4.0</span>
+<span class="n">numpydoc</span><span class="o">==</span><span class="mf">1.5.0</span>
+<span class="n">matplotlib</span><span class="o">==</span><span class="mf">3.7.2</span>
+<span class="n">ansys</span><span class="o">-</span><span class="n">sphinx</span><span class="o">-</span><span class="n">theme</span><span class="o">==</span><span class="mf">0.10.2</span>
+<span class="n">pypandoc</span><span class="o">==</span><span class="mf">1.11</span>
+<span class="n">pytest</span><span class="o">-</span><span class="n">sphinx</span><span class="o">==</span><span class="mf">0.5.0</span>
+<span class="n">sphinx</span><span class="o">-</span><span class="n">autobuild</span><span class="o">==</span><span class="mf">2021.3.14</span>
+<span class="n">sphinx</span><span class="o">-</span><span class="n">autodoc</span><span class="o">-</span><span class="n">typehints</span><span class="o">==</span><span class="mf">1.24.0</span>
+<span class="n">sphinx</span><span class="o">-</span><span class="n">copybutton</span><span class="o">==</span><span class="mf">0.5.2</span>
+<span class="n">sphinx</span><span class="o">-</span><span class="n">gallery</span><span class="o">==</span><span class="mf">0.13.0</span>
+<span class="n">sphinx</span><span class="o">-</span><span class="n">notfound</span><span class="o">-</span><span class="n">page</span><span class="o">==</span><span class="mf">0.8.3</span>
+<span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">websupport</span><span class="o">==</span><span class="mf">1.2.5</span>
+<span class="n">sphinxemoji</span><span class="o">==</span><span class="mf">0.2.0</span>
+<span class="n">autodocsumm</span><span class="o">==</span><span class="mf">0.2.11</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="learn-more-about-extensions">
+<h2>Learn more about extensions<a class="headerlink" href="#learn-more-about-extensions" title="Link to this heading">#</a></h2>
+<p>As you can see, PyAnsys projects add many extensions to their <code class="file docutils literal notranslate"><span class="pre">conf.py</span></code> files
+and documentation requirements. Here are some other native and non-native extensions
+that you might see:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sphinx.ext.coverage</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sphinx.ext.doctest</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sphinx.ext.extlinks</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sphinx.ext.graphviz</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sphinx.ext.napoleon</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sphinx.ext.viewcode</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sphinx_toolbox.collapse</span></code></p></li>
+</ul>
+<p>For more information on extensions, see <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/index.html">Extensions</a> in the
+Sphinx documentation. In addition to the external (third-party) extensions collected
+in the <a class="reference external" href="https://github.com/sphinx-contrib/">sphinx-contrib</a> organization, you can search the internet
+to find other Sphinx extensions or learn more about the ones in the preceding list.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#link-to-python-objects-in-other-sphinx-documentation">Link to Python objects in other Sphinx documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-native-extension">Add a native extension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-an-external-extension">Add an external extension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-extension-to-the-documentation-requirements">Add the extension to the documentation requirements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-pyproject-toml-file">The <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-requirements-doc-txt-file">The <code class="docutils literal notranslate"><span class="pre">requirements_doc_txt</span></code> file</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-more-about-extensions">Learn more about extensions</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item"> 
+<div class="tocsection editthispage">
+  <a href="https://github.com/pyansys/dev-guide/edit/main/doc/source/content-writing/content-how-tos/add-sphinx-extensions.rst">
+    <i class="fa-solid fa-pencil"></i>
+       Edit
+    on GitHub  
+  </a>
+</div>
+
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../_sources/content-writing/content-how-tos/add-sphinx-extensions.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright (c) 2024 ANSYS, Inc. All rights reserved.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the
+  <a href="https://sphinxdocs.ansys.com/version/stable/index.html"
+    >Ansys Sphinx Theme</a
+  >
+  0.16.6. <br />Last updated on
+  <span id="date"></span>
+</p>
+<script>
+  var options = { day: "numeric", month: "long", year: "numeric" };
+  var lastModifiedDate = new Date(document.lastModified);
+  var date = lastModifiedDate.toLocaleDateString("en-US", options);
+  document.getElementById("date").innerHTML = date;
+</script></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,908 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>gRPC API packages &#8212; PyAnsys developer&#39;s guide</title>
+
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/ansys_sphinx_theme.css?v=a362721a" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.nerdfonts.com/assets/css/webfont.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+ 
+<link href="../_static/css/breadcrumbs.css" rel="stylesheet" />
+
+    <script src="../_static/documentation_options.js?v=df78ad63"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/table.js?v=b64f5182"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'how-to/grpc-api-packages';</script>
+    <link rel="icon" href="../_static/ansys-favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Logging" href="logging.html" />
+    <link rel="prev" title="Packaging" href="packaging.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container"><!-- Debugging: html_theme_options =  -->
+ 
+<!-- Include the MeiliSearch CSS stylesheet only if theme present -->
+<link href="../_static/css/meilisearch.css" rel="stylesheet" />
+
+<!-- Create a search bar form with a text input and a dropdown selector for the search index -->
+<form
+  class="bd-search d-flex align-items-center"
+  action="../search.html"
+  method="get"
+>
+  <i class="fa fa-search" aria-hidden="true" id="search-icon"></i>
+  <input
+    type="search"
+    placeholder="Search"
+    class="form-control"
+    id="search-bar-input"
+    autofocus
+  />
+  <span class="search-button__kbd-shortcut"
+    ><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span
+  >
+  <style>
+    .bd-search .search-button__kbd-shortcut {
+      right: 33%;
+    }
+  </style>
+  
+  <select id="indexUidSelector" class="index-select">
+    
+    <option value="pyansys-dev-guide">PyAnsys dev guide</option>
+    
+  </select>
+  
+  <!-- Include the MeiliSearch JavaScript library for the search bar -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+
+    
+  <script>
+    var HOST_URL = "https://backend.search.pyansys.com/";
+    var API_KEY = "9fbccc76c147935ce2b562a9ee0c6669276987572dc1f22491cea72e9e99f35d";
+    var indexUid = "pyansys-dev-guide";
+  </script>
+
+  <script src="../_static/js/meilisearch_theme_wrap.js"></script>
+</form>
+</div>
+  </div>
+   
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/pyansys-logo-black-cropped.png" class="logo__image only-light" alt="PyAnsys developer's guide - Home"/>
+    <script>document.write(`<img src="../_static/pyansys-logo-black-cropped.png" class="logo__image only-dark" alt="PyAnsys developer's guide - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting-started/index.html">
+                        Getting started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        How-to
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../all-styles.html">
+                        Style
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../abstractions/index.html">
+                        Abstractions
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../content-writing/index.html">
+                        Content writing
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-wrench fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+    
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting-started/index.html">
+                        Getting started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        How-to
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../all-styles.html">
+                        Style
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../abstractions/index.html">
+                        Abstractions
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../content-writing/index.html">
+                        Content writing
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-wrench fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="setting-up.html">Environment setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supporting-python-versions.html">Python versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packaging.html">Packaging</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">gRPC API packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documenting.html">Documenting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releasing.html">Releasing and publishing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repository-protection.html">Repository protection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns-configuration.html">DNS configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compatibility.html">Product compatibility</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+         
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="https://docs.pyansys.com/" class="nav-link">PyAnsys</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a
+        href="../index.html"
+        class="nav-link"
+        aria-label="Home"
+      >
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="index.html" class="nav-link">How-to</a>
+    </li>
+      
+    <li class="breadcrumb-item active" aria-current="page">gRPC API packages</li>
+    
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="grpc-api-packages">
+<h1>gRPC API packages<a class="headerlink" href="#grpc-api-packages" title="Link to this heading">#</a></h1>
+<p>Protobuf service definitions provide the API specification for underlying
+server implementations so that each consuming client library has a clear
+contract for gRPC data messages. Ideally, the Protobuf (<code class="docutils literal notranslate"><span class="pre">.proto</span></code>) files
+have a single repository established as the source of truth, organized by
+API version increment as the API definition expands and changes. Because
+most client libraries are custom implementations enhancing the developer
+experience when consuming the service, releasing the Protobuf definitions
+publicly gives full flexibility to developers to operate at the abstraction
+layer they choose.</p>
+<section id="maintain-api-definition-repository">
+<h2>Maintain API definition repository<a class="headerlink" href="#maintain-api-definition-repository" title="Link to this heading">#</a></h2>
+<p>Because the Protobuf definition of the service is language agnostic, the repository
+containing the PROTO files can be created within the top-level
+<a class="reference external" href="https://github.com/ansys">Ansys GitHub organization</a>.</p>
+<p>Every update of the PROTO files follows a standard pull request process as a
+sanity check for API definition accuracy. Language-specific packages can be
+generated for each merge or on a set cadence.</p>
+</section>
+<section id="manage-protobuf-definitions-for-python-clients">
+<h2>Manage Protobuf definitions for Python clients<a class="headerlink" href="#manage-protobuf-definitions-for-python-clients" title="Link to this heading">#</a></h2>
+<p>Within Ansys, and more specifically in the PyAnsys environment, most client libraries
+have a dedicated Python package containing the needed PROTO files compiled as
+Python source code. These are typically consumed by the PyAnsys client libraries
+for communicating with their respective services.</p>
+<p>For example, <a class="reference external" href="https://github.com/ansys/pymapdl">PyMAPDL</a> consumes the <code class="docutils literal notranslate"><span class="pre">ansys-api-mapdl</span></code> package, which is built in the
+<a class="reference external" href="https://pypi.org/project/ansys-api-mapdl/">ansys-api-mapdl</a> repository.</p>
+<section id="build-an-ansys-api-service-repository">
+<h3>Build an <code class="docutils literal notranslate"><span class="pre">ansys-api-&lt;service&gt;</span></code> repository<a class="headerlink" href="#build-an-ansys-api-service-repository" title="Link to this heading">#</a></h3>
+<p>The Ansys GitHub organization has a dedicated template repository for creating
+PROTO file repositories and the needed files to generate the Python API
+packages to be consumed by the PyAnsys clients.</p>
+<p>To set up an API repository like the <code class="docutils literal notranslate"><span class="pre">ansys-api-mapdl</span></code> one,
+select the <a class="reference external" href="https://github.com/ansys/ansys-api-template">ansys-api-template</a> repository
+when creating a repository within the Ansys GitHub organization.</p>
+<p>To understand how to use the <code class="docutils literal notranslate"><span class="pre">ansys-api-template</span></code> repository, see
+<a class="reference external" href="https://github.com/ansys/ansys-api-template#expected-usage">Expected usage</a>
+in this repository’s README.</p>
+</section>
+<section id="build-python-stub-classes">
+<h3>Build Python stub classes<a class="headerlink" href="#build-python-stub-classes" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">ansys-api-template</span></code> repository uses the <a class="reference external" href="https://github.com/ansys/ansys-tools-protoc-helper/">ansys-tools-protoc-helper</a>
+utility to auto-generate Python wheels that can be consumed by downstream Python client libraries.</p>
+<p>To use the <code class="docutils literal notranslate"><span class="pre">ansys-tools-protoc-helper</span></code> utility, include it in the <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file as a build dependency:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[build-system]</span>
+<span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;setuptools &gt;= 42.0.0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;wheel&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ansys_tools_protoc_helper&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Then generate a Python wheel containing the autogenerated Python source with
+these commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>pip
+pip<span class="w"> </span>install<span class="w"> </span>build
+python<span class="w"> </span>-m<span class="w"> </span>build
+</pre></div>
+</div>
+</section>
+<section id="publish-the-api-package">
+<h3>Publish the API package<a class="headerlink" href="#publish-the-api-package" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="https://pypi.org/">PyPI</a> is the common package manager where API packages are released.</p>
+<p>Here is an example of a workflow pipeline for building and publishing the Python stub package.
+In this example, the <code class="docutils literal notranslate"><span class="pre">ansys-api-geometry</span></code> workflow is shown. However, you can easily copy
+and adapt this workflow. Only the <code class="docutils literal notranslate"><span class="pre">PYTHON_PACKAGE_IMPORT</span></code> environment variable would have
+to be changed:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GitHub CI</span>
+
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tags</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;*&quot;</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+
+<span class="nt">env</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">MAIN_PYTHON_VERSION</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.10&#39;</span>
+<span class="w">  </span><span class="nt">PYTHON_PACKAGE_IMPORT</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ansys.api.geometry.v0&#39;</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build package</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Setup Python</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ env.MAIN_PYTHON_VERSION }}</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install build requirements</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">pip install -U pip</span>
+<span class="w">          </span><span class="no">pip install build</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python -m build</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install dist/*.whl</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Test import</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">mkdir tmp</span>
+<span class="w">          </span><span class="no">cd tmp</span>
+<span class="w">          </span><span class="no">python -c &quot;import ${{ env.PYTHON_PACKAGE_IMPORT }}; print(&#39;Successfully imported ${{ env.PYTHON_PACKAGE_IMPORT }}&#39;)&quot;</span>
+<span class="w">          </span><span class="no">python -c &quot;from  import __version__; print(__version__)&quot;</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload packages</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/upload-artifact@v3</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansys-api-package</span>
+<span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dist/</span>
+<span class="w">          </span><span class="nt">retention-days</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7</span>
+
+<span class="w">  </span><span class="nt">release</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Release package</span>
+<span class="w">    </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.event_name == &#39;push&#39; &amp;&amp; contains(github.ref, &#39;refs/tags&#39;)</span>
+<span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">build</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set up Python</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ env.MAIN_PYTHON_VERSION }}</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/download-artifact@v3</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Display structure of downloaded files</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ls -R</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload to Public PyPi</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">pip install twine</span>
+<span class="w">          </span><span class="no">twine upload --skip-existing ./**/*.whl</span>
+<span class="w">          </span><span class="no">twine upload --skip-existing ./**/*.tar.gz</span>
+<span class="w">        </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">TWINE_USERNAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">__token__</span>
+<span class="w">          </span><span class="nt">TWINE_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.PYPI_TOKEN }}</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Release</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">softprops/action-gh-release@v1</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">generate_release_notes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">          </span><span class="nt">files</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">            </span><span class="no">./**/*.whl</span>
+<span class="w">            </span><span class="no">./**/*.tar.gz</span>
+<span class="w">            </span><span class="no">./**/*.pdf</span>
+</pre></div>
+</div>
+<section id="version-the-api-package">
+<h4>Version the API package<a class="headerlink" href="#version-the-api-package" title="Link to this heading">#</a></h4>
+<p>PyPI packages follow semantic versioning while gRPC Protobuf API versions
+typically follow a simplified <code class="docutils literal notranslate"><span class="pre">v*</span></code> versioning pattern. The PyPI package
+version is not expected to synchronize with the Protobuf API version, and
+multiple public APIs can be exposed simultaneously. For example, if you have a
+<code class="docutils literal notranslate"><span class="pre">v0</span></code> for MAPDL exposed, you can access it with this code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ansys.api.mapdl.v0</span> <span class="kn">import</span> <span class="n">mapdl_pb2_grpc</span>
+</pre></div>
+</div>
+<p>While if the API has a <code class="docutils literal notranslate"><span class="pre">v1</span></code> API exposed, a different library could also use:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ansys.api.mapdl.v1</span> <span class="kn">import</span> <span class="n">mapdl_pb2_grpc</span>
+</pre></div>
+</div>
+<p>Ansys follows <a class="reference external" href="https://learn.microsoft.com/en-us/aspnet/core/grpc/versioning">Microsoft’s gRPC versioning</a>
+recommendations, which stipulate that incrementing the gRPC Protobuf version is
+only necessary when making a backwards breaking change. Non-breaking changes
+include:</p>
+<ul class="simple">
+<li><p>Adding a service</p></li>
+<li><p>Adding a method to a service</p></li>
+<li><p>Adding a field to a request message</p></li>
+</ul>
+<p>However, this only applies to the <code class="docutils literal notranslate"><span class="pre">vN</span></code> gRPC Protobuf API. Python packages
+tend to follow semantic versioning, and PyAnsys packages follow this
+approach. Therefore, these Python gRPC API packages should also follow semantic
+versioning.</p>
+<ul class="simple">
+<li><p>Plan on releasing a new minor version when adding or removing features, messages,
+and services.</p></li>
+<li><p>Plan on releasing a patch release when fixing bugs that do not change the behavior
+of the API.</p></li>
+</ul>
+<p>Only plan on releasing a major release once the API is stable and no
+major release is scheduled in the near future.</p>
+<p>This way, you can expose a <code class="docutils literal notranslate"><span class="pre">v0</span></code> and/or <code class="docutils literal notranslate"><span class="pre">v1</span></code> gRPC Protobuf API and release
+frequent updates using semantic versioning.</p>
+</section>
+<section id="release-the-api-package">
+<h4>Release the API package<a class="headerlink" href="#release-the-api-package" title="Link to this heading">#</a></h4>
+<p>As shown in the <code class="docutils literal notranslate"><span class="pre">release</span></code> section of the previous GitHub workflow, once the Python
+API package is compiled it is then uploaded to the public PyPI. In order to do
+so, it is necessary to have access to the <code class="docutils literal notranslate"><span class="pre">PYPI_TOKEN</span></code> within the GitHub
+repository. To get the needed credentials, contact the
+<a class="reference external" href="mailto:pyansys&#46;core&#37;&#52;&#48;ansys&#46;com">PyAnsy core team</a>.</p>
+<p>If the repository cannot be uploaded to the public PyPI yet but your Python
+client library needs to consume this Python API package, it can be
+uploaded to the private PyAnsys PyPI. For the required <code class="docutils literal notranslate"><span class="pre">PYANSYS_PYPI_PRIVATE_PAT</span></code>
+password, contact the <a class="reference external" href="mailto:pyansys&#46;core&#37;&#52;&#48;ansys&#46;com">PyAnsy core team</a>.</p>
+<p>In this last case, the <code class="docutils literal notranslate"><span class="pre">Upload</span> <span class="pre">to</span> <span class="pre">Public</span> <span class="pre">PyPi</span></code> workflow section should be
+replaced with the <code class="docutils literal notranslate"><span class="pre">Upload</span> <span class="pre">to</span> <span class="pre">Private</span> <span class="pre">PyPi</span></code> workflow section:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload to Private PyPi</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">      </span><span class="no">pip install twine</span>
+<span class="w">      </span><span class="no">twine upload --skip-existing ./**/*.whl</span>
+<span class="w">      </span><span class="no">twine upload --skip-existing ./**/*.tar.gz</span>
+<span class="w">    </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">TWINE_USERNAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PAT</span>
+<span class="w">      </span><span class="nt">TWINE_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }}</span>
+<span class="w">      </span><span class="nt">TWINE_REPOSITORY_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="consume-the-api-package-within-python">
+<h3>Consume the API package within Python<a class="headerlink" href="#consume-the-api-package-within-python" title="Link to this heading">#</a></h3>
+<p>Once the API package has been published to PyPI, you can include a reference
+within the client library build dependencies. For information on how to specify
+a project’s required dependencies, see <a class="reference internal" href="packaging.html#required-dependencies"><span class="std std-ref">Required dependencies</span></a>.</p>
+</section>
+<section id="use-the-api-package-within-the-python-client">
+<h3>Use the API package within the Python client<a class="headerlink" href="#use-the-api-package-within-the-python-client" title="Link to this heading">#</a></h3>
+<p>The stub imports follow a standard pattern. For each API service, there is a <code class="docutils literal notranslate"><span class="pre">*_pb2</span></code>
+module that defines all messages within a specific service file and
+a <code class="docutils literal notranslate"><span class="pre">*_pb2_grpc</span></code> module that defines a <code class="docutils literal notranslate"><span class="pre">Stub</span></code> class that encapsulates all service methods.</p>
+<section id="example-grpc-imports-within-the-wrapping-client-library">
+<h4>Example gRPC imports within the wrapping client library<a class="headerlink" href="#example-grpc-imports-within-the-wrapping-client-library" title="Link to this heading">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ansys.api.geometry.v0.designs_pb2</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ExportDesignRequest</span><span class="p">,</span>
+    <span class="n">NewDesignRequest</span><span class="p">,</span>
+    <span class="n">SaveAsDocumentRequest</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">ansys.api.geometry.v0.designs_pb2_grpc</span> <span class="kn">import</span> <span class="n">DesignsStub</span>
+</pre></div>
+</div>
+<p>The best practice is to create a Pythonic client library that organizes the service methods
+in a user-friendly manner. At a minimum, this library should act as a facade layer wrapping the
+service calls so that the Pythonic API can have a consistent abstraction, independent of
+underlying implementations.</p>
+<p>For each client library release, only a single gRPC API version should be wrapped
+to maintain a consistent API abstraction expectation for the supporting server instances.</p>
+</section>
+</section>
+<section id="public-versus-private-python-api-package">
+<h3>Public versus private Python API package<a class="headerlink" href="#public-versus-private-python-api-package" title="Link to this heading">#</a></h3>
+<p>Making the PROTO files for a public or private repository is up to the owner of each repository.</p>
+<p>In terms of intellectual property (IP) concerns, the PROTO files are typically not an
+issue because they do not expose any critical service logic or knowledge. In most cases,
+the APIs being exposed through the PROTO files are already exposed publicly through other
+mechanisms.</p>
+<p>Thus, the general recommendation is to make these repositories public as soon as possible. The
+main reasons for doing so follow:</p>
+<ul class="simple">
+<li><p>Private Python package dependencies usually involve workarounds when setting up the
+workflow. It is best to keep the workflows as standard and simple as possible. That
+implies making all its dependencies public, including this API Python package.</p></li>
+<li><p>The API Python package generated eventually must be uploaded to the public PyPI so
+that it can be consumed by its corresponding Python client library (when it is publicly released).
+So, if there are no issues with making it public, it is better to do so sooner rather than later.</p></li>
+<li><p>Once the Python API package is publicly released to PyPI, there is no reason to keep the
+repository private because all users who consume the Python API package have direct access
+to the PROTO files that are in the repository.</p></li>
+</ul>
+<p>However, before making any repository public in the <a class="reference external" href="https://github.com/ansys">Ansys GitHub organization</a>, review
+the <a class="reference external" href="https://supreme-invention-8c3992a9.pages.github.io/index.html">Ansys Open Source Developer’s Guide</a>
+to verify that the repository is compliant with all the needed requirements.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maintain-api-definition-repository">Maintain API definition repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manage-protobuf-definitions-for-python-clients">Manage Protobuf definitions for Python clients</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-an-ansys-api-service-repository">Build an <code class="docutils literal notranslate"><span class="pre">ansys-api-&lt;service&gt;</span></code> repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-python-stub-classes">Build Python stub classes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#publish-the-api-package">Publish the API package</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#version-the-api-package">Version the API package</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#release-the-api-package">Release the API package</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#consume-the-api-package-within-python">Consume the API package within Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-api-package-within-the-python-client">Use the API package within the Python client</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-grpc-imports-within-the-wrapping-client-library">Example gRPC imports within the wrapping client library</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#public-versus-private-python-api-package">Public versus private Python API package</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item"> 
+<div class="tocsection editthispage">
+  <a href="https://github.com/pyansys/dev-guide/edit/main/doc/source/how-to/grpc-api-packages.rst">
+    <i class="fa-solid fa-pencil"></i>
+       Edit
+    on GitHub  
+  </a>
+</div>
+
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/how-to/grpc-api-packages.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright (c) 2024 ANSYS, Inc. All rights reserved.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the
+  <a href="https://sphinxdocs.ansys.com/version/stable/index.html"
+    >Ansys Sphinx Theme</a
+  >
+  0.16.6. <br />Last updated on
+  <span id="date"></span>
+</p>
+<script>
+  var options = { day: "numeric", month: "long", year: "numeric" };
+  var lastModifiedDate = new Date(document.lastModified);
+  var date = lastModifiedDate.toLocaleDateString("en-US", options);
+  document.getElementById("date").innerHTML = date;
+</script></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
