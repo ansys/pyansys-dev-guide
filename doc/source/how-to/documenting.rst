@@ -260,6 +260,35 @@ Because these examples are built using Sphinx-Gallery, you must follow its codin
 
 :ref:`General example` uses Python and Sphinx-Gallery.
 
+Generate documentation without examples
++++++++++++++++++++++++++++++++++++++++
+
+The documentation for some PyAnsys repositories is built using Sphinx-Gallery and
+includes examples generated with the assistance of Ansys products.
+Building documentation locally is time consuming in these cases,
+particularly if you need to test changes only in the documentation excluding the examples.
+
+To generate documentation without examples, use command ``make html-noplot`` with
+appropriate changes in ``make.bat`` and ``Makefile``. Change needed for ``Makefile``
+is mentioned below. Refer `sphinx-gallery documentation 
+<https://sphinx-gallery.github.io/stable/configuration.html#building-without-executing-examples>`_.
+
+.. code:: shell
+
+    html-noplot:
+      $(SPHINXBUILD) -D plot_gallery=0 -b html $(ALLSPHINXOPTS) $(SOURCEDIR) $(BUILDDIR)/html
+      @echo
+      @echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
+
+Alternatively, you can modify ``sphinx_gallery_conf`` in ``conf.py`` as shown below
+
+.. code:: Python
+
+    sphinx_gallery_conf = {
+      ...
+      'plot_gallery': 'False',
+    }
+
 Generate documentation from docstrings
 --------------------------------------
 
