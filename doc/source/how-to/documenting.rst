@@ -269,16 +269,28 @@ Building documentation locally is time consuming in these cases,
 particularly if you need to test changes only in the documentation excluding the examples.
 
 To generate documentation without examples, use command ``make html-noplot`` with
-appropriate changes in ``make.bat`` and ``Makefile``. Change needed for ``Makefile``
-is mentioned below. Refer `sphinx-gallery documentation 
+appropriate changes in ``make.bat`` and ``Makefile`` as mentioned below.
+Refer `sphinx-gallery documentation 
 <https://sphinx-gallery.github.io/stable/configuration.html#building-without-executing-examples>`_.
 
-.. code:: shell
+.. tab-set::
 
-    html-noplot:
-      $(SPHINXBUILD) -D plot_gallery=0 -b html $(ALLSPHINXOPTS) $(SOURCEDIR) $(BUILDDIR)/html
-      @echo
-      @echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
+    .. tab-item:: Makefile
+
+      .. code:: shell
+
+          html-noplot:
+            $(SPHINXBUILD) -D plot_gallery=0 -b html $(SPHINXOPTS) $(SOURCEDIR) $(BUILDDIR)/html
+            @echo
+            @echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
+
+
+    .. tab-item:: make.bat
+
+      .. code:: shell
+
+        :html-noplot
+        %SPHINXBUILD% -D plot_gallery=0 -b html %SOURCEDIR% %BUILDDIR%/html %SPHINXOPTS% %O%
 
 Alternatively, you can modify ``sphinx_gallery_conf`` in ``conf.py`` as shown below
 
