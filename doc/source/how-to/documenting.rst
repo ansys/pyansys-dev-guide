@@ -263,8 +263,9 @@ Because these examples are built using Sphinx-Gallery, you must follow its codin
 Generate documentation without examples
 +++++++++++++++++++++++++++++++++++++++
 
-Some of the PyAnsys repositories contains examples which are generated with the help
-of Ansys products. Building documentation locally is time consuming in these cases,
+The documentation for some PyAnsys repositories is built using Sphinx-Gallery and
+includes examples generated with the assistance of Ansys products.
+Building documentation locally is time consuming in these cases,
 particularly if you need to test changes only in the documentation excluding the examples.
 
 To generate documentation without examples, use command ``make html-noplot`` with
