@@ -381,5 +381,5 @@ to contributing to PyAnsys documentation, see :ref:`resources_writers`.
    You can customize the Ansys Sphinx Theme by making changes to the
    ``html_theme_options`` dictionary in the Sphinx configuration (``conf.py``)
    file in the ``doc`` directory. For additional information, see
-   `HTML theme options <https://sphinxdocs.ansys.com/version/stable/user_guide/options.html>`_
+   `HTML theme options <https://sphinxdocs.ansys.com/version/stable/user-guide/options.html>`_
    in the Ansys Sphinx Theme documentation.
