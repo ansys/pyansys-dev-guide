@@ -12,5 +12,5 @@ shows a cheat sheet thumbnail on the landing page of the PyMechanical documentat
 
 To show a thumbnail, you add a child ``cheatsheet`` dictionary to the Sphinx
 configuration (``conf.py``) file in the ``doc`` directory as described in
-`Cheat Sheets <https://sphinxdocs.ansys.com/version/stable/user_guide/options.html#cheat-sheets>`_
+`Cheat Sheets <https://sphinxdocs.ansys.com/version/stable/user-guide/options.html#cheat-sheets>`_
 in the Ansys Sphinx Theme documentation.

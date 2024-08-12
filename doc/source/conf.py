@@ -21,7 +21,6 @@ copyright = f"(c) {datetime.now().year} ANSYS, Inc. All rights reserved"
 author = "Ansys Inc."
 release = version = datetime.now().strftime("%Y-%m-%d")
 
-html_logo = pyansys_logo_black
 html_theme = "ansys_sphinx_theme"
 html_favicon = ansys_favicon
 html_context = {
@@ -32,6 +31,7 @@ html_context = {
 }
 
 html_theme_options = {
+    "logo": "pyansys",
     "github_url": "https://github.com/ansys/dev-guide",
     "show_prev_next": False,
     "show_breadcrumbs": True,
@@ -86,7 +86,7 @@ sphinx_gallery_conf = {
     # Remove sphinx configuration comments from code blocks
     "remove_config_comments": True,
     # Sort gallery example by file name instead of number of lines (default)
-    "within_subsection_order": FileNameSortKey,
+    "within_subsection_order": "FileNameSortKey",
     # directory where function granular galleries are stored
     "backreferences_dir": None,
     # Modules for which function level galleries are created.  In
