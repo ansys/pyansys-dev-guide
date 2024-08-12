@@ -21,7 +21,6 @@ copyright = f"(c) {datetime.now().year} ANSYS, Inc. All rights reserved"
 author = "Ansys Inc."
 release = version = datetime.now().strftime("%Y-%m-%d")
 
-html_logo = pyansys_logo_black
 html_theme = "ansys_sphinx_theme"
 html_favicon = ansys_favicon
 html_context = {
@@ -32,6 +31,7 @@ html_context = {
 }
 
 html_theme_options = {
+    "logo": "pyansys",
     "github_url": "https://github.com/ansys/dev-guide",
     "show_prev_next": False,
     "show_breadcrumbs": True,
