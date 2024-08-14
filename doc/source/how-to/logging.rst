@@ -55,7 +55,7 @@ specifies how to handle the stream.
 Turn on and off handlers
 ~~~~~~~~~~~~~~~~~~~~~~~~
 You might sometimes want to turn off a specific handler, such as a file
-handler where log messages are written. If so, you must property close 
+handler where log messages are written. If so, you must properly close 
 and remove the existing handler. Otherwise, you might be denied file access
 later when you try to write new log content.
 
