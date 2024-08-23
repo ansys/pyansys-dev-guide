@@ -21,7 +21,7 @@ Getting started
       Steps to authorize the public release of a PyAnsys library.
 
 Explanations
------------
+------------
 
 .. grid:: 2
 
