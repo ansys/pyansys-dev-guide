@@ -206,6 +206,26 @@ changes any given branch is introducing before looking at the code.
 -  ``testing/`` or ``test/``: Improvements or changes to testing.
 -  ``release/``: Releases (see below).
 
+Enforcing branch-name conventions
+---------------------------------
+
+`GitHub rulesets
+<https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets>`_
+allow to enforce branch-name conventions. To do so, create a new ruleset named
+``conventional-commits``, then select the following configuration:
+
+- Enforcement status: ``Active``
+- Target branches: 
+  - Include: ``All branches``
+  - Exclude: ``main``, ``gh-pages``
+
+- Restrict branch names:
+    - Applies to: ``Branch name``
+    - Requirement: ``Must match a given regex pattern``
+    - Matching pattern: ``^(feat|fix|chore|docs|style|refactor|test|perf|ci|build|dependabot|release)\/.*``
+    - Description: ``Branch name must match the conventional commits pattern``
+
+
 Push your branch
 ----------------
 
