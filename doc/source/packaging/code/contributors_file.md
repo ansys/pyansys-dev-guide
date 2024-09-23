@@ -1,6 +1,6 @@
 # Contributors
 
-## Project Lead or Owner
+## Project Lead
 
 * [First Last](https://github.com/ghusername)
 
