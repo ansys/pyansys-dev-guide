@@ -1,5 +1,5 @@
 Sphinx==8.0.2
-ansys-sphinx-theme==1.0.8
+ansys-sphinx-theme==1.0.11
 sphinx-copybutton==0.5.2
 sphinx_toolbox==3.8.0
 sphinx_design==0.6.1
