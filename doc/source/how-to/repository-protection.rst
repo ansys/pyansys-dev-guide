@@ -70,6 +70,20 @@ The PyAnsys core team recommends setting these rules for the ``main`` branch:
   go through and resolve all comments. This ensures that all comments are read and
   possibly applied.
 
+For other branches, conventional commits can be enforced by creating a rule
+with the following parameters:
+
+- Enforcement status: ``Active``
+- Target branches: 
+  - Include: ``All branches``
+  - Exclude: ``main``, ``gh-pages``
+
+- Restrict branch names:
+    - Applies to: ``Branch name``
+    - Requirement: ``Must match a given regex pattern``
+    - Matching pattern: ``^(feat|fix|chore|docs|style|refactor|test|perf|ci|build|dependabot|release)\/.*``
+    - Description: ``Branch name must match the conventional commits pattern``
+
 Tag protection
 --------------
 
