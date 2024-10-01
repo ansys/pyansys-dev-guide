@@ -292,7 +292,7 @@ repository.
 
     The `pre-commit.ci`_ tool is not available for private repositories.
 
-From the PyAnsys ecosystem, we strongly recommend using the `pre-commit.ci`_ tool in your project. It is a
+From the PyAnsys ecosystem, it is strongly recommended to use the `pre-commit.ci`_ tool in your project. It is a
 great way to ensure that your code is compliant with the code style guidelines of the PyAnsys ecosystem.
 
 Using ``pre-commit.ci`` with conventional commits
@@ -302,7 +302,7 @@ If you are using `conventional commits <https://www.conventionalcommits.org/en/v
 via the `check PR title <https://actions.docs.ansys.com/version/stable/style-actions/index.html#pull-request-title-action>`_,
 it is important to ensure that the commit messages are compliant with the conventional commits standard.
 
-We recommend using the following configuration in your ``.pre-commit-config.yaml`` file:
+Use the following configuration in your ``.pre-commit-config.yaml`` file to be compliant:
 
 .. code-block:: yaml
 
