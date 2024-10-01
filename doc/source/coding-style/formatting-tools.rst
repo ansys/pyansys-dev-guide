@@ -282,7 +282,7 @@ the `pre-commit.ci`_ tool provides some additional features:
 - It is compatible with any CI provider.
 - It ensures that the hooks versions are up to date.
 - Any changes performed by the hooks are committed back to the repository.
-- Reduces the time spent on CI by means of a caching capability on the hooks used.
+- Reduces the time spent running CI by caching the hooks used.
 
 To use the `pre-commit.ci`_ tool, you must have a ``.pre-commit-config.yaml`` for your repository. Next,
 you should request the `PyAnsys Core team <pyansys_core_email_>`_ to enable the `pre-commit.ci`_ tool for your
