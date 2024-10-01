@@ -280,11 +280,11 @@ the `pre-commit.ci`_ tool provides some additional features:
 
 - It is free for public projects.
 - It is compatible with any CI provider.
-- It ensures that the hooks versions are up to date.
+- It ensures that hook versions are up to date.
 - Any changes performed by the hooks are committed back to the repository.
-- Reduces the time spent running CI by caching the hooks used.
+- It reduces CI run times by caching the hooks used.
 
-To use the `pre-commit.ci`_ tool, you must have a ``.pre-commit-config.yaml`` for your repository. Next,
+To use the `pre-commit.ci`_ tool, you must have a ``.pre-commit-config.yaml`` file for your repository. Next,
 you should request the `PyAnsys Core team <pyansys_core_email_>`_ to enable the `pre-commit.ci`_ tool for your
 repository.
 
@@ -292,8 +292,8 @@ repository.
 
     The `pre-commit.ci`_ tool is not available for private repositories.
 
-From the PyAnsys ecosystem, it is strongly recommended to use the `pre-commit.ci`_ tool in your project. It is a
-great way to ensure that your code is compliant with the code style guidelines of the PyAnsys ecosystem.
+The PyAnsys ecosystem strongly recommends using the `pre-commit.ci`_ tool in your project. It is a
+great way to ensure that your code is compliant with the code style guidelines set by the PyAnsys ecosystem.
 
 Using ``pre-commit.ci`` with conventional commits
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
