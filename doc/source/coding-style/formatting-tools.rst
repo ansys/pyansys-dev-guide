@@ -312,4 +312,4 @@ Use the following configuration in your ``.pre-commit-config.yaml`` file to be c
         autoupdate_schedule: weekly
 
     repos:
-        ...
+        # Your repository-specific configurations here
