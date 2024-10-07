@@ -46,11 +46,10 @@ html_theme_options = {
             "icon": "fa fa-wrench",
         },
     ],
-    "use_meilisearch": {
-        "api_key": os.getenv("MEILISEARCH_PUBLIC_API_KEY", ""),
-        "index_uids": {
-            "pyansys-dev-guide": "PyAnsys dev guide",
-        },
+    "static_search": {
+        "threshold": 0.5,
+        "min_chars_for_search": 2,
+        "ignoreLocation": True,
     },
 }
 
