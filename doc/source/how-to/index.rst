@@ -27,7 +27,7 @@ and app APIs.
       :link-type: doc
       :padding: 2 2 2 2
 
-      How to contribute to a PyAnsy library.
+      How to contribute to a PyAnsys library.
 
     .. grid-item-card:: :fas:`fa-solid fa-box-open` Packaging
       :link: packaging

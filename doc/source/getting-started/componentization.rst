@@ -23,7 +23,7 @@ The documentation for the scripting environment still remains deep within the pr
 each script execution request is hard to organize and maintain. Thus, there remains a
 significant cognitive disconnect when consuming this API abstraction. The lack of API
 definition within the top-level abstraction also makes data management difficult and direct 
-ompatibility with other PyAnsys libraries challenging. 
+compatibility with other PyAnsys libraries challenging. 
 
 In addition to API clarity, the underlying product keeps a very large installation 
 footprint that is a burden in modern, flexible cloud deployments. While avoiding re-architecting 

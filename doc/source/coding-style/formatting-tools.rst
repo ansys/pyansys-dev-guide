@@ -265,3 +265,51 @@ It is possible to run multiple environments by separating them with commas:
 ``tox -e <env-name0>,<env-name1>,...``
 
 To run all available environments, simply type ``tox``.
+
+
+The ``pre-commit.ci`` tool
+--------------------------
+
+The goal of the `pre-commit.ci <https://pre-commit.ci/>`_ tool is to run the same hooks as the
+``pre-commit`` tool, but in a CI environment. This tool is useful for
+checking the code style of your project in a CI environment.
+
+Although the PyAnsys ecosystem also has its own ``code-style`` action (see
+`Code style action <https://actions.docs.ansys.com/version/stable/style-actions/index.html#code-style-action>`_),
+the `pre-commit.ci`_ tool provides some additional features:
+
+- It is free for public projects.
+- It is compatible with any CI provider.
+- It ensures that hook versions are up to date.
+- Any changes performed by the hooks are committed back to the repository.
+- It reduces CI run times by caching the hooks used.
+
+To use the `pre-commit.ci`_ tool, you must have a ``.pre-commit-config.yaml`` file for your repository. Next,
+you should request the `PyAnsys Core team <pyansys_core_email_>`_ to enable the `pre-commit.ci`_ tool for your
+repository.
+
+.. note::
+
+    The `pre-commit.ci`_ tool is not available for private repositories.
+
+The PyAnsys ecosystem strongly recommends using the `pre-commit.ci`_ tool in your project. It is a
+great way to ensure that your code is compliant with the code style guidelines set by the PyAnsys ecosystem.
+
+Using ``pre-commit.ci`` with conventional commits
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you are using `conventional commits <https://www.conventionalcommits.org/en/v1.0.0/>`_ in your project,
+via the `check PR title <https://actions.docs.ansys.com/version/stable/style-actions/index.html#pull-request-title-action>`_,
+it is important to ensure that the commit messages are compliant with the conventional commits standard.
+
+Use the following configuration in your ``.pre-commit-config.yaml`` file to be compliant:
+
+.. code-block:: yaml
+
+    ci:
+        autofix_commit_msg: 'chore: auto fixes from pre-commit hooks'
+        autoupdate_commit_msg: 'chore: pre-commit automatic update'
+        autoupdate_schedule: weekly
+
+    repos:
+        # Your repository-specific configurations here
