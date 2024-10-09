@@ -81,7 +81,7 @@ with the following parameters:
 - Restrict branch names:
     - Applies to: ``Branch name``
     - Requirement: ``Must match a given regex pattern``
-    - Matching pattern: ``^(feat|fix|chore|docs|style|refactor|test|perf|ci|build|dependabot|release)\/.*``
+    - Matching pattern: ``^(feat|fix|chore|docs|style|refactor|test|perf|ci|build|dependabot|release|maint)\/.*``
     - Description: ``Branch name must match the conventional commits pattern``
 
 Tag protection
