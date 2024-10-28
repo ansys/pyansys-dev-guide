@@ -123,7 +123,7 @@ control system.
     :ref:`The \`\`setup.py\`\` file`, :ref:`The \`\`pyproject.toml\`\` file`, and any
     ``__init__.py`` or ``__version__.py`` files that your project may contain.
     
-    Stash and commit previous changes with these commands:
+    Stage and commit previous changes with these commands:
     
     .. code-block:: text
     
@@ -170,7 +170,7 @@ control system.
     
     Ensure that your style, tests, and documentation checks are also passing.
     
-    Increase by one unit the value of ``Z`` in your project version. Stash and
+    Increase by one unit the value of ``Z`` in your project version. Stage and
     amend these new changes with these commands:
     
     .. code-block:: text
