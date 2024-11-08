@@ -39,12 +39,12 @@ be imported and exported from Github. The PyAnsys core team provides
 template files for the branch protection and tag protection rulesets.
 
 Ruleset files:
-:download:`Main branch protection ruleset <../_rulesets/main.json>`.
-:download:`Tag create <../_rulesets/tag-create.json>`.
-:download:`Tag delete <../_rulesets/tag-delete.json>`.
+:download:`Main branch protection ruleset <../_rulesets/main.json>`
+:download:`Tag create <../_rulesets/tag-create.json>`
+:download:`Tag delete <../_rulesets/tag-delete.json>`
 
 Please refer to the `Github documentation <https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#importing-a-ruleset>`_
-to check how to import and export rulesets.
+to learn how to import and export rulesets.
 
 .. note::
     You still need to manually set the rules for the required status checks
