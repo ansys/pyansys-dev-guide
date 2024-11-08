@@ -30,12 +30,32 @@ section:
   Once a PR is merged into the ``main`` branch, the PR-related branch is
   deleted so that the repository contains only active branches.
 
+
+Rulesets
+--------
+
+Rulesets can be used to protect branches and tags. These can
+be imported and exported from Github. The PyAnsys core team provides
+template files for the branch protection and tag protection rulesets.
+
+Ruleset files:
+:download:`Main branch protection ruleset <../_rulesets/main.json>`.
+:download:`Tag create <../_rulesets/tag-create.json>`.
+:download:`Tag delete <../_rulesets/tag-delete.json>`.
+
+Please refer to the `Github documentation <https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#importing-a-ruleset>`_
+to check how to import and export rulesets.
+
+.. note::
+    You still need to manually set the rules for the required status checks
+    as described below, as they usually are specific to the repository.
+
 Branch protection
 -----------------
 
 Branch protection is critical in terms of avoiding malicious code insertion and access
 to confidential data. To access the branch protection rulesets for the repository,
-select **Settings > Code and automation > Branches**. 
+select **Settings > Code and automation > Branches**.
 
 Next to **Branch protection rules**, click **Add rule**.
 
@@ -74,7 +94,7 @@ For other branches, conventional commits can be enforced by creating a rule
 with the following parameters:
 
 - Enforcement status: ``Active``
-- Target branches: 
+- Target branches:
   - Include: ``All branches``
   - Exclude: ``main``, ``gh-pages``
 
