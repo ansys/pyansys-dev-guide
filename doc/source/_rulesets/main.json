@@ -1,0 +1,43 @@
+{
+  "id": 2045316,
+  "name": "Main branch protection",
+  "target": "branch",
+  "source_type": "Repository",
+  "enforcement": "active",
+  "conditions": {
+    "ref_name": {
+      "exclude": [],
+      "include": [
+        "~DEFAULT_BRANCH"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "type": "deletion"
+    },
+    {
+      "type": "non_fast_forward"
+    },
+    {
+      "type": "branch_name_pattern",
+      "parameters": {
+        "operator": "regex",
+        "pattern": "/release\\/*|feat\\/*|maint\\/*|fix\\/*|junk\\/*|no-ci\\/*|dependabot\\/*|test\\/*|testing\\/*/gm",
+        "negate": false,
+        "name": "Branch name must match the regex"
+      }
+    },
+    {
+      "type": "pull_request",
+      "parameters": {
+        "required_approving_review_count": 1,
+        "dismiss_stale_reviews_on_push": false,
+        "require_code_owner_review": true,
+        "require_last_push_approval": false,
+        "required_review_thread_resolution": true
+      }
+    }
+  ],
+  "bypass_actors": []
+}
