@@ -3,7 +3,6 @@
   "name": "Main branch protection",
   "target": "branch",
   "source_type": "Repository",
-  "source": "ansys-internal/pymechanical-meshworkflows",
   "enforcement": "active",
   "conditions": {
     "ref_name": {

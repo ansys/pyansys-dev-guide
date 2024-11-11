@@ -3,7 +3,6 @@
   "name": "Auto-imported tag delete protections",
   "target": "tag",
   "source_type": "Repository",
-  "source": "ansys/ansys-tools-visualization-interface",
   "enforcement": "active",
   "conditions": {
     "ref_name": {
