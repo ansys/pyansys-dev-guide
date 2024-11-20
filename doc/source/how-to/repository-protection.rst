@@ -35,7 +35,7 @@ Rulesets
 --------
 
 Rulesets can be used to protect branches and tags. These can
-be imported and exported from Github. The PyAnsys core team provides
+be imported and exported from GitHub. The PyAnsys core team provides
 template files for the branch protection and tag protection rulesets.
 
 Ruleset files:
@@ -43,7 +43,7 @@ Ruleset files:
 :download:`Tag create <../_rulesets/tag-create.json>`
 :download:`Tag delete <../_rulesets/tag-delete.json>`
 
-Please refer to the `Github documentation <https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#importing-a-ruleset>`_
+Please refer to the `GitHub documentation <https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#importing-a-ruleset>`_
 to learn how to import and export rulesets.
 
 .. note::
