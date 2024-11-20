@@ -6,7 +6,11 @@
   "enforcement": "active",
   "conditions": {
     "ref_name": {
-      "exclude": [],
+      "exclude": [
+        "refs/heads/pre-commit-ci-update-config",
+        "refs/heads/main",
+        "refs/heads/gh-pages"
+      ],
       "include": [
         "~ALL"
       ]
@@ -23,7 +27,7 @@
       "type": "branch_name_pattern",
       "parameters": {
         "operator": "regex",
-        "pattern": "release\\/*|feat\\/*|maint\\/*|fix\\/*|junk\\/*|no-ci\\/*|dependabot\\/*|test\\/*|testing\\/*|docs\\/*",
+        "pattern": "^(feat|fix|chore|docs|style|refactor|test|testing|perf|ci|no-ci|build|dependabot|release|maint|junk|)\\/.*",
         "negate": false,
         "name": ""
       }
