@@ -40,6 +40,7 @@ template files for the branch protection and tag protection rulesets.
 
 Ruleset files:
 :download:`Main branch protection ruleset <../_rulesets/main.json>`
+:download:`Branch naming protection ruleset <../_rulesets/branch_naming.json>`
 :download:`Tag create <../_rulesets/tag-create.json>`
 :download:`Tag delete <../_rulesets/tag-delete.json>`
 

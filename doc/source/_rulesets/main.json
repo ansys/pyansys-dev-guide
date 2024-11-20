@@ -20,15 +20,6 @@
       "type": "non_fast_forward"
     },
     {
-      "type": "branch_name_pattern",
-      "parameters": {
-        "operator": "regex",
-        "pattern": "/release\\/*|feat\\/*|maint\\/*|fix\\/*|junk\\/*|no-ci\\/*|dependabot\\/*|test\\/*|testing\\/*/gm",
-        "negate": false,
-        "name": "Branch name must match the regex"
-      }
-    },
-    {
       "type": "pull_request",
       "parameters": {
         "required_approving_review_count": 1,

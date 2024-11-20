@@ -173,7 +173,7 @@ Create a branch
 ---------------
 
 It is likely that the repository's default branch name is ``main`` or ``master``. This is the
-development branch for PyAnsys projects. For more information, see :ref:`Branching model`. 
+development branch for PyAnsys projects. For more information, see :ref:`Branching model`.
 
 You must implement new contributions in a different branch and then :ref:`Create a pull request`
 so that these changes can later be merged into the repository's ``main`` branch.
@@ -205,6 +205,12 @@ changes any given branch is introducing before looking at the code.
    routines.
 -  ``testing/`` or ``test/``: Improvements or changes to testing.
 -  ``release/``: Releases (see below).
+-  ``chore/``: Other changes that don't modify the code.
+-  ``style/``: Changes that only affect code style.
+-  ``refactor/``: A code change that neither fixes a bug nor adds a feature.
+-  ``perf/``: A code change that improves performance.
+-  ``ci/``: Changes to the CICD configuration files and scripts.
+-  ``build/``: Changes that affect the build system or external dependencies.
 
 Push your branch
 ----------------
