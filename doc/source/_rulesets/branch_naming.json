@@ -27,7 +27,7 @@
       "type": "branch_name_pattern",
       "parameters": {
         "operator": "regex",
-        "pattern": "^(feat|fix|chore|docs|style|refactor|test|testing|perf|ci|no-ci|build|dependabot|release|maint|junk|chore|style|refactor|perf|ci|build)\\/.*",
+        "pattern": "^(feat|fix|chore|docs|style|refactor|test|testing|perf|ci|no-ci|build|dependabot|release|maint|junk|)\\/.*",
         "negate": false,
         "name": ""
       }
