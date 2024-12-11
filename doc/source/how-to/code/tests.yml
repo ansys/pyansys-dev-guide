@@ -7,7 +7,7 @@ tests:
          python-version: ['3.10', '3.11', '3.12', '3.13']
   steps:
     - name: "Run pytest"
-      uses: ansys/actions/tests-pytest@v4
+      uses: ansys/actions/tests-pytest@v8
       with:
         python-version: ${{ matrix.python-version }}
         pytest-markers: "-k 'mocked'"
