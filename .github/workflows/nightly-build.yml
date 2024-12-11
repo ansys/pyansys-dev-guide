@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  MAIN_PYTHON_VERSION: '3.13'
+  MAIN_PYTHON_VERSION: '3.12'
 
 jobs:
   nightly-docs:
