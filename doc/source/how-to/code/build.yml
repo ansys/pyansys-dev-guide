@@ -4,10 +4,10 @@ build-wheelhouse:
   strategy:
      matrix:
          os: [ubuntu-latest, windows-latest]
-         python-version: ['3.9', '3.10', '3.11', '3.12']
+         python-version: ['3.10', '3.11', '3.12', '3.13']
   steps:
     - name: "Build a wheelhouse of the Python library"
-      uses: ansys/actions/build-wheelhouse@v4
+      uses: ansys/actions/build-wheelhouse@v8
       with:
         library-name: ${{ env.LIBRARY_NAME }}
         library-namespace: ${{ env.LIBRARY_NAMESPACE }}
@@ -19,6 +19,6 @@ build-library:
   runs-on: ubuntu-latest
   steps:
     - name: "Build library source and wheel artifacts"
-      uses: ansys/actions/build-library@v4
+      uses: ansys/actions/build-library@v8
       with:
         library-name: ${{ env.LIBRARY_NAME }}
