@@ -290,7 +290,7 @@ Replace ``<TOKEN-REDACTED>`` with the private PyPI token.
           runs-on: ubuntu-latest
           if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
           steps:
-            - uses: ansys/actions/release-pypi-private@v4
+            - uses: ansys/actions/release-pypi-private@v8
               with:
                 library-name: "ansys-<product>-<library>"
                 twine-username: "__token__"
@@ -401,7 +401,7 @@ manner. For more information, see the
             id-token: write
             contents: write
           steps:
-            - uses: ansys/actions/release-pypi-public@v6
+            - uses: ansys/actions/release-pypi-public@v8
               with:
                 library-name: "ansys-<product>-<library>"
                 use-trusted-publisher: true
@@ -447,7 +447,7 @@ Replace ``<PACKAGE-NAME>`` and ``<TOKEN-REDACTED>`` with the package name and pr
           runs-on: ubuntu-latest
           if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
           steps:
-            - uses: ansys/actions/release-pypi-public@v4
+            - uses: ansys/actions/release-pypi-public@v8
               with:
                 library-name: "ansys-<product>-<library>"
                 twine-username: "__token__"
@@ -479,7 +479,7 @@ For enabling public visibility of a repository, follow the process explained in
           runs-on: ubuntu-latest
           if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
           steps:
-            - uses: ansys/actions/release-github@v4
+            - uses: ansys/actions/release-github@v8
               with:
                 library-name: "ansys-<product>-<library>"
 

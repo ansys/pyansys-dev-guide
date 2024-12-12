@@ -3,7 +3,7 @@
     [tox]
     description = Default tox environments list
     envlist =
-        style,{py39,py310,py311,py312}{,-coverage},doc
+        style,{py310,py311,py312,py313}{,-coverage},doc
     skip_missing_interpreters = true
     isolated_build = true
     isolated_build_env = build
@@ -15,6 +15,7 @@
         py310: python3.10
         py311: python3.11
         py312: python3.12
+        py313: python3.13
         py: python3
         {style,reformat,doc,build}: python3
     setenv =

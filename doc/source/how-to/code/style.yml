@@ -3,13 +3,13 @@ code-style:
   runs-on: ubuntu-latest
   steps:
     - name: "Run PyAnsys code style checks"
-      uses: ansys/actions/code-style@v4
+      uses: ansys/actions/code-style@v8
 
 doc-style:
   name: Doc style
   runs-on: ubuntu-latest
   steps:
     - name: "Run PyAnsys documentation style checks"
-      uses: ansys/actions/doc-style@v4
+      uses: ansys/actions/doc-style@v8
       with:
         token: ${{ secrets.GITHUB_TOKEN }}

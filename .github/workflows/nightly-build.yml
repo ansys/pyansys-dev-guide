@@ -6,13 +6,16 @@ on:
   workflow_dispatch:
 
 env:
-  MAIN_PYTHON_VERSION: '3.10'
+  MAIN_PYTHON_VERSION: '3.13'
 
 jobs:
   nightly-docs:
     name: Nightly documentation
     runs-on: ubuntu-latest
     steps:
+      - name: Setup headless display
+        uses: pyvista/setup-headless-display-action@v3
+
       - uses: actions/checkout@v4
 
       - name: Set up Python
@@ -23,7 +26,7 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y xvfb texlive-latex-extra latexmk nodejs npm graphviz
+          sudo apt-get install -y texlive-latex-extra latexmk nodejs npm graphviz
           npm install -g @mermaid-js/mermaid-cli
 
       - name: Install Python dependencies
@@ -32,7 +35,7 @@ jobs:
 
       - name: Build HTML documentation
         run: |
-          xvfb-run tox -e doc
+          tox -e doc
 
       - name: Build PDF Documentation
         run: |
@@ -59,8 +62,8 @@ jobs:
         if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
         uses: JamesIves/github-pages-deploy-action@v4.7.2
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: .tox/doc_out_html/
-          CLEAN: true
-          SINGLE_COMMIT: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: .tox/doc_out_html/
+          clean: true
+          single-commit: true

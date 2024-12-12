@@ -9,7 +9,7 @@ on:
       - main
 
 env:
-  MAIN_PYTHON_VERSION: '3.12'
+  MAIN_PYTHON_VERSION: '3.13'
   DOCUMENTATION_CNAME: 'dev.docs.pyansys.com'
 
 concurrency:
@@ -35,6 +35,9 @@ jobs:
     name: "Build project documentation"
     runs-on: ubuntu-latest
     steps:
+      - name: Setup headless display
+        uses: pyvista/setup-headless-display-action@v3
+
       - name: "Install mermaid-cli"
         run: npm install -g @mermaid-js/mermaid-cli
 
@@ -50,8 +53,7 @@ jobs:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
           use-python-cache: false
           skip-install: true
-          requires-xvfb: true
-          dependencies: 'xvfb texlive-latex-extra latexmk nodejs npm'
+          dependencies: 'texlive-latex-extra latexmk nodejs npm'
 
   doc-deploy:
     name: "Deploy documentation"

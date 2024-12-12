@@ -10,19 +10,19 @@ Developer's Guide*.
 +-------------+----------------+-----------------+---------------------------+------------+
 | **Version** | **PEP**        | **Released**    | **Security support ends** | **Status** |
 +-------------+----------------+-----------------+---------------------------+------------+
+| 3.13        | `PEP 719`_     | 07 Oct 2024     |    Oct 2029               | Stable     |
++-------------+----------------+-----------------+---------------------------+------------+
 | 3.12        | `PEP 693`_     | 02 Oct 2023     |    Oct 2028               | Stable     |
 +-------------+----------------+-----------------+---------------------------+------------+
 | 3.11        | `PEP 664`_     | 03 Oct 2022     |    Oct 2027               | Stable     |
 +-------------+----------------+-----------------+---------------------------+------------+
 | 3.10        | `PEP 619`_     | 04 Oct 2021     |    Oct 2026               | Stable     |
 +-------------+----------------+-----------------+---------------------------+------------+
-| 3.9         | `PEP 596`_     | 05 Oct 2020     |    Oct 2025               | Stable     |
-+-------------+----------------+-----------------+---------------------------+------------+
 
+.. _PEP 719: https://peps.python.org/pep-0719/
 .. _PEP 693: https://peps.python.org/pep-0693/
 .. _PEP 664: https://peps.python.org/pep-0664/
 .. _PEP 619: https://peps.python.org/pep-0619/
-.. _PEP 596: https://peps.python.org/pep-0596/
 
 .. admonition:: Consider supporting stable Python versions.
 
@@ -46,20 +46,20 @@ this code:
 
     [...]
 
-    setup(name="my_package_name", python_requires=">3.9", [...])
+    setup(name="my_package_name", python_requires=">3.10", [...])
 
 
 This helps ``pip`` to know which versions of your library
 support which versions of Python. You can also impose an upper limit if you're
 sure you don't support certain versions of Python. For example, if you only
-support Python 3.9 through 3.12, your command would look like this: ``python_requires='>=3.9, <3.12'``.
+support Python 3.10 through 3.13, your command would look like this: ``python_requires='>=3.10, <3.13'``.
 
 Verify Python support
 ---------------------
 
 The best way to validate whether a Python library supports a version of Python
 is by :ref:`continuous_integration`. An example GitHub workflow testing Python
-3.9 through Python 3.12 on Windows and Linux would start like this:
+3.10 through Python 3.13 on Windows and Linux would start like this:
 
 .. code-block:: yaml
    :linenos:
@@ -72,10 +72,10 @@ is by :ref:`continuous_integration`. An example GitHub workflow testing Python
        strategy:
          matrix:
            os: [windows-latest, ubuntu-latest]
-           python-version: ['3.9', '3.10', '3.11', '3.12']
+           python-version: ['3.10', '3.11', '3.12', '3.13']
        steps:
          - name: "Run tests using pytest"
-           run: ansys/actions/test-pytest@v4
+           run: ansys/actions/test-pytest@v8
            with:
              python-version: ${{ matrix.os }}
 
