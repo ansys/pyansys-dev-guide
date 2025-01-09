@@ -91,6 +91,11 @@ number of administrative reviews and approvals needed:
         approval from the direct manager, product line, and the chief
         technology officer. No product source code is allowed.
 
+.. note::
+   Chief technology officer approval is only needed for flagship-related libraries.
+   Otherwise, business unit designated approver is sufficient.
+
+
 Legal
 ^^^^^
 
