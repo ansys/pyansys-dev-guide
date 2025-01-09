@@ -92,7 +92,7 @@ number of administrative reviews and approvals needed:
         technology officer. No product source code is allowed.
 
 .. note::
-   BU chief technology officer approval is needed for multiphysics and tools impacting
+   Business unit chief technology officer approval is needed for multiphysics and tools impacting
    several products. Flagship-related libraries require GM/VP approval.
 
 
