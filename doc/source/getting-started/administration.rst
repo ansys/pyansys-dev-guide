@@ -93,9 +93,9 @@ number of administrative reviews and approvals needed:
 
 .. note::
 
-   Chief technology officer approval is needed for multi-physics and tools impacting
-   several products. Flagship-related libraries require GM/VP approval.
-
+   For multi-physics and tools impacting several products, you must have approval from
+   the chief technology officer for Ansys. For flagship-related projects, you must have
+   general manager or vice president approval.
 
 Legal
 ^^^^^
