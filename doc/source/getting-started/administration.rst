@@ -93,7 +93,7 @@ number of administrative reviews and approvals needed:
 
 .. note::
 
-   Business unit chief technology officer approval is needed for multi-physics and tools impacting
+   Chief technology officer approval is needed for multi-physics and tools impacting
    several products. Flagship-related libraries require GM/VP approval.
 
 
