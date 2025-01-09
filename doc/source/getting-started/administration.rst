@@ -92,8 +92,8 @@ number of administrative reviews and approvals needed:
         technology officer. No product source code is allowed.
 
 .. note::
-   Chief technology officer approval is only needed for flagship-related libraries.
-   Otherwise, business unit designated approver is sufficient.
+   BU chief technology officer approval is needed for multiphysics and tools impacting
+   several products. Flagship-related libraries require GM/VP approval.
 
 
 Legal
