@@ -91,6 +91,13 @@ number of administrative reviews and approvals needed:
         approval from the direct manager, product line, and the chief
         technology officer. No product source code is allowed.
 
+.. note::
+
+    For multi-physics and tools impacting several products, you must have approval from
+    the chief technology officer for Ansys. For flagship-related projects, you must have
+    general manager or vice president approval.
+
+
 Legal
 ^^^^^
 
