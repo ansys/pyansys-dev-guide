@@ -11,7 +11,7 @@ env:
 jobs:
   nightly-docs:
     name: Nightly documentation
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Setup headless display
         uses: pyvista/setup-headless-display-action@v3
