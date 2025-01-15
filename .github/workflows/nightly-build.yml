@@ -11,7 +11,7 @@ env:
 jobs:
   nightly-docs:
     name: Nightly documentation
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Setup headless display
         uses: pyvista/setup-headless-display-action@v3
@@ -45,14 +45,14 @@ jobs:
           make -C doc pdf
 
       - name: Upload HTML documentation
-        uses: actions/upload-artifact@v4.5.0
+        uses: actions/upload-artifact@v4.6.0
         with:
           name: HTML-Documentation
           path: doc/_build/html
           retention-days: 7
 
       - name: Upload PDF Documentation
-        uses: actions/upload-artifact@v4.5.0
+        uses: actions/upload-artifact@v4.6.0
         with:
           name: PDF-Documentation
           path: doc/_build/latex/pyansys*.pdf
