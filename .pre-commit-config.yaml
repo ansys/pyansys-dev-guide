@@ -17,7 +17,7 @@ repos:
     additional_dependencies: [black==24.8.0]
 
 - repo: https://github.com/pycqa/isort
-  rev: 6.0.0
+  rev: 6.0.1
   hooks:
   - id: isort
     args: [
@@ -52,7 +52,7 @@ repos:
       types: [yaml]
 
 - repo: https://github.com/ansys/pre-commit-hooks
-  rev: v0.5.1
+  rev: v0.5.2
   hooks:
     - id: add-license-headers
       args:
