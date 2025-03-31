@@ -326,7 +326,7 @@ Optional target recommendations in the PyAnsys ecosystem
 --------------------------------------------------------
 
 PyAnsys projects, for harmonization purposes, should use the following targets or
-optional dependency groups:
+optional dependencies:
 
 - **all**: All optional dependencies. This target should be used when the user
   wants to install all optional dependencies. All PyAnsys projects should have this
@@ -338,6 +338,28 @@ optional dependency groups:
   projects that have graphics-related optional dependencies.
 - **examples**: All optional dependencies related to examples. This target should be used
   when the user wants to install all optional dependencies for running examples.
+
+.. note::
+
+   There are three types of dependencies to consider:
+
+   - **Main dependencies**: These are required for the core functionality of the library and
+     must be specified in the main dependencies section of the build system configuration.
+   - **Optional dependencies (extras)**: These are user-facing dependencies that enable
+     additional features. They are included in the `.whl` file and specified under `extras`
+     or `optional-dependencies` in the build system configuration.
+   - **Dependency groups**: These are internal-only dependencies (e.g., development or testing
+     dependencies) that are not included in the `.whl` file. They are supported by some build
+     systems (e.g., ``poetry``) but not universally, yet. Following `PEP 735 <https://peps.python.org/pep-0735/>`_,
+     build systems are adapting to support dependency groups.
+
+   When specifying dependencies:
+
+   - Use **optional dependencies (extras)** for user-facing features.
+   - Use **dependency groups** for internal-only dependencies, if supported by the build system.
+   - If the build system does not support dependency groups (e.g., ``flit``), fallback to using
+     extras to replicate similar behavior.
+   - Avoid specifying development-only dependencies in the main dependencies.
 
 Making dependencies optional allows users to install lightweight versions of
 your PyAnsys library. This is especially useful for users who are not interested in
@@ -357,7 +379,7 @@ block or a decorator, as shown in the previous section.
 A migration example of a library from not having a ``graphics`` target to having it
 is shown below:
 
- - `PyAnsys Geometry - 1782 - feat: separate graphics target <https://github.com/ansys/pyansys-geometry/pull/1782>`_
+- `PyAnsys Geometry - 1782 - feat: separate graphics target <https://github.com/ansys/pyansys-geometry/pull/1782>`_
 
 Examples of PyAnsys projects that have these optional dependencies are:
 
