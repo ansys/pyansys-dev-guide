@@ -348,16 +348,16 @@ optional dependencies:
    - **Optional dependencies (extras)**: These are user-facing dependencies that enable
      additional features. They are included in the `.whl` file and specified under `extras`
      or `optional-dependencies` in the build system configuration.
-   - **Dependency groups**: These are internal-only dependencies (e.g., development or testing
+   - **Dependency groups**: These are internal-only dependencies (for example, development or testing
      dependencies) that are not included in the `.whl` file. They are supported by some build
-     systems (e.g., ``poetry``) but not universally, yet. Following `PEP 735 <https://peps.python.org/pep-0735/>`_,
+     systems (for example, ``poetry``) but not universally, yet. Following `PEP 735 <https://peps.python.org/pep-0735/>`_,
      build systems are adapting to support dependency groups.
 
    When specifying dependencies:
 
    - Use **optional dependencies (extras)** for user-facing features.
    - Use **dependency groups** for internal-only dependencies, if supported by the build system.
-   - If the build system does not support dependency groups (e.g., ``flit``), fallback to using
+   - If the build system does not support dependency groups (for example, ``flit``), fallback to using
      extras to replicate similar behavior.
    - Avoid specifying development-only dependencies in the main dependencies.
 
