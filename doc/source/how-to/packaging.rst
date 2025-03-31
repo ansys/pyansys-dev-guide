@@ -363,10 +363,9 @@ Examples of PyAnsys projects that have these optional dependencies are:
 
 - `PyPrimeMesh targets <https://github.com/ansys/pyprimemesh/blob/034b5e134776d1623c1d2db4b4b8d4ead101abdb/pyproject.toml#L30-L58>`_
 - `PyAnsys Geometry targets <https://github.com/ansys/pyansys-geometry/blob/e6d8210f9d79718d607a2f4b2e8ead33babcbfca/pyproject.toml#L44-L58>`_
-- `PyACP targets <https://github.com/ansys/pyacp/blob/d1f27776bd0a335df6967f8f451ed9a87233a8c1/pyproject.toml#L89-L109>`
+- `PyACP targets <https://github.com/ansys/pyacp/blob/f4d8c1779cd451b1fc8ef649cc3b2cd5799ff11a/pyproject.toml#L89-L110>`_
 
 .. TODO: Add more examples of PyAnsys projects that have these optional dependencies.
-.. TODO: Adapt PyACP link once https://github.com/ansys/pyacp/pull/797 is merged.
 
 Dependabot
 ----------
