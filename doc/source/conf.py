@@ -196,12 +196,15 @@ latex_elements = {"preamble": generate_preamble(html_title)}
 
 # Linkcheck configuration
 linkcheck_ignore = [
-    "https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi",  # Private URL hosting PyAnsys packages
-    "https://github.com/ansys-internal/.*",  # Private URL
-    "https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706",  # Join Ansys GitHub account
-    "https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706",  # Join Ansys internal GitHub account
-    "https://opensource.org/licenses/MIT",  # Prevented from access
-    "https://www.gnu.org/software/make/",  # Prevented from access
+    # Needs user authentication
+    "https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706",
+    "https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706",
+    "https://opensource.org/licenses/MIT",
+    "https://www.gnu.org/software/make/",
+    # Private links
+    "https://github.com/ansys-internal/.*",
+    "https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi",
+    "https://forms.office.com/r/HwZm15ApKQ",
 ]
 
 # Linkcheck ignore broken anchors
