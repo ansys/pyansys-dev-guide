@@ -322,6 +322,73 @@ behavior that the user would expect:
    Install 'matplotlib' with:
    pip install matplotlib
 
+Optional target recommendations in the PyAnsys ecosystem
+--------------------------------------------------------
+
+PyAnsys projects, for harmonization purposes, should use the following targets or
+optional dependencies:
+
+- **all**: All optional dependencies. This target should be used when the user
+  wants to install all optional dependencies. All PyAnsys projects should have this
+  target defined.
+- **graphics**: All optional dependencies related to graphics. This target should be used
+  when the user wants to install all optional dependencies related to graphics. Graphics
+  visualization is a common feature in PyAnsys projects but users should not be forced to
+  install all graphics-related dependencies. This target should be defined in all PyAnsys
+  projects that have graphics-related optional dependencies.
+- **examples**: All optional dependencies related to examples. This target should be used
+  when the user wants to install all optional dependencies for running examples.
+
+.. note::
+
+   There are three types of dependencies to consider:
+
+   - **Main dependencies**: These are required for the core functionality of the library and
+     must be specified in the main dependencies section of the build system configuration.
+   - **Optional dependencies (extras)**: These are user-facing dependencies that enable
+     additional features. They are included in the `.whl` file and specified under `extras`
+     or `optional-dependencies` in the build system configuration.
+   - **Dependency groups**: These are internal-only dependencies (for example, development or testing
+     dependencies) that are not included in the `.whl` file. They are supported by some build
+     systems (for example, ``poetry``) but not universally, yet. Following `PEP 735 <https://peps.python.org/pep-0735/>`_,
+     build systems are adapting to support dependency groups.
+
+   When specifying dependencies:
+
+   - Use **optional dependencies (extras)** for user-facing features.
+   - Use **dependency groups** for internal-only dependencies, if supported by the build system.
+   - If the build system does not support dependency groups (for example, ``flit``), fallback to using
+     extras to replicate similar behavior.
+   - Avoid specifying development-only dependencies in the main dependencies.
+
+Making dependencies optional allows users to install lightweight versions of
+your PyAnsys library. This is especially useful for users who are not interested in
+certain features or who are using the library in a headless environment. It also
+reduces the number of dependencies that need to be installed, which can speed up the
+installation process and reduce the risk of dependency conflicts.
+
+However, it also implies that maintainers must be careful to ensure that the
+optional dependencies are properly documented and that the code that relies on them is
+protected against missing dependencies.
+
+For example, if a user tries to use a feature that requires an optional
+dependency that is not installed, the code should raise a clear error message saying
+that the feature requires the optional dependency. This can be done using a try/except
+block or a decorator, as shown in the previous section.
+
+A migration example of a library from not having a ``graphics`` target to having it
+is shown below:
+
+- `PyAnsys Geometry - 1782 - feat: separate graphics target <https://github.com/ansys/pyansys-geometry/pull/1782>`_
+
+Examples of PyAnsys projects that have these optional dependencies are:
+
+- `PyPrimeMesh targets <https://github.com/ansys/pyprimemesh/blob/034b5e134776d1623c1d2db4b4b8d4ead101abdb/pyproject.toml#L30-L58>`_
+- `PyAnsys Geometry targets <https://github.com/ansys/pyansys-geometry/blob/e6d8210f9d79718d607a2f4b2e8ead33babcbfca/pyproject.toml#L44-L58>`_
+- `PyACP targets <https://github.com/ansys/pyacp/blob/f4d8c1779cd451b1fc8ef649cc3b2cd5799ff11a/pyproject.toml#L89-L110>`_
+
+.. TODO: Add more examples of PyAnsys projects that have these optional dependencies.
+
 Dependabot
 ----------
 

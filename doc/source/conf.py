@@ -208,6 +208,8 @@ linkcheck_ignore = [
 linkcheck_anchors_ignore = [
     # these anchors are picked by linkcheck as broken but they are not.
     "38-comments-and-docstrings",
+    # Permalink anchors are not supported by linkcheck
+    "L[0-9]+(-L[0-9]+)?",  #  L9, L9-L10, L11-L12,etc.
 ]
 
 linkcheck_anchors_ignore_for_url = ["https://github.com/ansys/ansys-api-template"]
