@@ -14,19 +14,16 @@ Here are some examples of common vulnerabilities:
 Vulnerability sources
 ---------------------
 
-- **Vulnerabilities from PyAnsys library code**
-  The maintainers are responsible for deciding whether to address vulnerabilities.
-  The priority of vulnerabilities can be escalated internally if
-  they represent a roadblock for usage.
-  The Ansys business unit in charge of the project should handle
+- **Vulnerabilities from PyAnsys library code**: the maintainers are responsible for deciding whether to
+  address vulnerabilities. The priority of vulnerabilities can be escalated internally if they represent
+  a roadblock for usage. The Ansys business unit in charge of the project should handle
   vulnerabilities on a case-by-case basis.
 
-- **Vulnerabilities from external package dependencies**
-  When vulnerabilities exist in external packages used by PyAnsys libraries, such as numpy or matplotlib,
-  Ansys should not address these vulnerabilities directly. Instead, it is best to raise an issue on
-  the open source repository, pointing out the vulnerability and linking the applicable `CVE`_.
-  At most, be mindful of deprecated packages and functions, because they may not receive
-  security patches and might introduce vulnerabilities into your codebase.
+- **Vulnerabilities from external package dependencies**: when vulnerabilities exist in external packages
+  used by PyAnsys libraries, such as numpy or matplotlib, Ansys should not address these vulnerabilities
+  directly. Instead, it is best to raise an issue on the open source repository, pointing out the
+  vulnerability and linking the applicable `CVE`_. At most, be mindful of deprecated packages and functions,
+  because they may not receive security patches and might introduce vulnerabilities into your codebase.
 
 Vulnerability discovery and tracking
 -------------------------------------
@@ -35,26 +32,115 @@ Leverage available security tools, such as dependency scanners or static
 analyzers (such as PyUp, Safety, or Bandit), to automatically detect and
 remediate security vulnerabilities in Python packages and dependencies.
 
-**Continuously monitor and assess the project's security.**
-Integrate security testing into the development life cycle using
-continuous integration and deployment (CI/CD) pipelines to catch
-potential vulnerabilities before they reach production systems.
+The PyAnsys ecosystem has implemented automated mechanisms to track and
+report vulnerabilities in the codebase. These tools are intended to be integrated
+into the CI/CD pipeline of the repositories.
+
+The PyAnsys Core team has come up with a GitHub Action that can be used to
+automatically check for vulnerabilities in the codebase. This action is based on
+the following tools:
+
+- `Safety`_ - checks installed dependencies for known security vulnerabilities
+- `Bandit`_ - a tool designed to find common security issues in Python code
+
+Safety addresses external dependencies, while Bandit focuses on the codebase itself.
+Both tools have been integrated into the action ``ansys/actions/check-vulnerabilities``.
 
 .. note::
 
-   The Ansys Customer Excellence (ACE) team uses a scanner tool called *snyk* to track vulnerabilities.
-   The same tool could be used, but dedicated to the PyAnsys open source environment.
-   This means using the tool in an environment isolated from the Ansys Azure codebase.
+  The tools selected for the action are not definitive. The action can be modified to include
+  other tools or to use different versions of the tools in the future.
 
-As a first step, these security tools are planned to be used within the `metapackage`_ repository.
-This repository contains PyAnsys packages pinned to a certain version of the Ansys unified installation.
-This provides a full overview of the vulnerability status for all public PyAnsys packages.
-When a flaw is detected in a PyAnsys package, an issue is opened in the repository associated with this package.
-It is then up to the maintainers of this repository to handle it as described previously.
+For third-party packages, the PyAnsys Core team has listed a set of excluded advisories by which
+the action will not fail. This is done to avoid false positives and to ensure that the action
+does not block the CI/CD pipeline unnecessarily. You can find the list of excluded advisories
+in `the action's documentation`_.
 
-Finally, if a vulnerability is fixed, a patch release must be created.
+For potential vulnerabilities in the codebase, repositories can configure `Bandit`_ to ignore specific
+advisories. This can be due to the fact that the code is not yet ready to be fixed or that the advisory is not relevant
+to the codebase. However, it is important to note that ignoring advisories should be done with caution
+and developers should be aware of the potential risks involved. Furthermore, repository maintainers should
+document the reasons for ignoring advisories and ensure that they are regularly reviewed to determine if they
+can be addressed.
 
+.. note::
 
+  An example on how to document the ignored advisories can be found in the `PyACP Security Considerations`_
+  documentation page. This should be taken as a reference for documenting ignored advisories in other repositories.
+
+.. warning::
+
+  Testing the action locally before enabling it in the CI/CD pipeline is recommended. Information on how
+  to do this can be found in `the action's documentation`_.
+
+Vulnerability remediation and reporting
+----------------------------------------
+
+When a vulnerability is detected, the action will fail and report the vulnerabilities found in the codebase.
+These vulnerabilities will be reported as draft Security advisories in the repository's
+Security tab. Maintainers are then responsible for reviewing the advisories and deciding whether to address
+them or not. These advisories are monitored by the PyAnsys Core team and will be escalated internally if they
+represent a roadblock for usage.
+
+Repositories should also have a process in place to handle vulnerabilities that are reported by users or
+other developers. For that purpose, a ``SECURITY.md`` file should be created in the root of the repository.
+This file should contain information on how to report vulnerabilities, as well as the process for handling them.
+
+Here is an example of a ``SECURITY.md`` file:
+
+.. code-block:: markdown
+
+  ## Reporting a Vulnerability
+
+  > [!CAUTION]
+  > Please do not report any security vulnerabilities through GitHub issues.
+
+  If you detect a vulnerability, contact the [PyAnsys Core team](mailto:pyansys.core@ansys.com)
+  mentioning the repository and the details of your finding. The team will address it as soon as possible.
+
+  Please provide us with the following information:
+
+  - Any specific configuration settings needed to reproduce the problem
+  - Step-by-step guidance to reproduce the problem
+  - The exact location of the problematic source code, including tag, branch, commit, or a direct URL
+  - The potential consequences of the vulnerability, along with a description of how an attacker could take advantage of the issue
+
+Vulnerability disclosure
+------------------------
+
+When a vulnerability is detected, and it is decided to be addressed, the repository maintainers should
+create a private fork of the repository and create a pull request with the fix. This pull request should be
+reviewed in depth and should include tests to ensure that the vulnerability is fixed. Once the pull request is
+merged, the repository maintainers should create a new release with the fix and update the changelog accordingly.
+
+The release should be tagged with a new version number, and the changelog should include a note about the
+vulnerability and the fix. The note should include the following information:
+
+- The CVE number of the vulnerability (if applicable)
+- A description of the vulnerability and its potential consequences
+- A description of the fix and how it addresses the vulnerability
+- A link to the pull request that fixed the vulnerability
+
+On the other hand, the Security advisory should be published in the repository's Security tab. This advisory should include the
+same information as the changelog note. Additional information will be included in the advisory, such as the
+CVE number, the date of the advisory, and the status of the advisory (published, withdrawn, etc.).
+
+A reference of a published Security advisory can be found here: `PyAnsys Geometry subprocess advisory`_.
+This advisory was published in the PyAnsys Geometry repository and includes information about a vulnerability
+in which users could execute arbitrary code on the system by using one of our functions.
+
+Ensuring compliance across the PyAnsys ecosystem
+------------------------------------------------
+
+The PyAnsys Core team is responsible for ensuring that the action is up to date and that it is
+being used in all PyAnsys repositories considered as libraries (that is, Python packages shipped to PyPI).
+Repository maintainers are responsible for ensuring that the action is implemented correctly and that the
+results are reviewed regularly.
 
 .. _metapackage: https://github.com/pyansys/pyansys
 .. _CVE: https://www.cve.org/
+.. _Safety: https://pyup.io/safety/
+.. _Bandit: https://bandit.readthedocs.io/en/latest/
+.. _the action's documentation: https://actions.docs.ansys.com/version/stable/vulnerability-actions/index.html#check-vulnerabilities-action
+.. _PyACP Security Considerations: https://acp.docs.pyansys.com/version/dev/user_guide/security_considerations.html
+.. _PyAnsys Geometry subprocess advisory: https://github.com/ansys/pyansys-geometry/security/advisories/GHSA-38jr-29fh-w9vm
