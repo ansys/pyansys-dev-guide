@@ -20,6 +20,7 @@ cybersecurity
 dataframes
 datagrams
 [Dd]ependabot
+deserialization
 deserialize
 deserializes
 Deserializing
@@ -112,6 +113,7 @@ UDFs
 uncomment
 unittest
 untracked
+untrusted
 unvalidated
 URIs
 Vale
@@ -121,5 +123,6 @@ worktree
 (?i)WSL
 WSL2
 Sphinx-Gallery
+snyk
 README
 CSV

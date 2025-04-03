@@ -5,6 +5,7 @@ Vulnerabilities
 
 Vulnerabilities refer to potential security flaws or weaknesses in PyAnsys packages.
 Here are some examples of common vulnerabilities:
+
 - Insufficient input validation or insecure handling of file paths can lead to unauthorized access
 - Insecure code and command injection into the app
 - Remote code execution due to deserialization of untrusted code
@@ -23,7 +24,7 @@ Vulnerability sources
 - **Vulnerabilities from external package dependencies**
   When vulnerabilities exist in external packages used by PyAnsys libraries, such as numpy or matplotlib,
   Ansys should not address these vulnerabilities directly. Instead, it is best to raise an issue on
-the open source repository, pointing out the vulnerability and linking the applicable `CVE`_.
+  the open source repository, pointing out the vulnerability and linking the applicable `CVE`_.
   At most, be mindful of deprecated packages and functions, because they may not receive
   security patches and might introduce vulnerabilities into your codebase.
 
@@ -31,7 +32,7 @@ Vulnerability discovery and tracking
 -------------------------------------
 
 Leverage available security tools, such as dependency scanners or static
-analyzers (such as PyUp, Safety or Bandit), to automatically detect and
+analyzers (such as PyUp, Safety, or Bandit), to automatically detect and
 remediate security vulnerabilities in Python packages and dependencies.
 
 **Continuously monitor and assess the project's security.**
