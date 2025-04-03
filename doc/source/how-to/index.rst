@@ -98,6 +98,13 @@ and app APIs.
       :padding: 2 2 2 2
 
       How to handle compatibility issues.
+    
+    .. grid-item-card:: :fas:`fa-solid fa-shield-halved` Vulnerabilities
+      :link: vulnerabilities
+      :link-type: doc
+      :padding: 2 2 2 2
+
+      How to handle vulnerabilities in PyAnsys packages.
 
 
 .. toctree::
