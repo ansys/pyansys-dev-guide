@@ -36,13 +36,13 @@ string_to_loglevel = {
 
 
 class InstanceCustomAdapter(logging.LoggerAdapter):
-    """This is key to keep the reference to a product instance name dynamic.
+    """Keeps the reference to a product instance name dynamic.
 
-    If we use the standard approach which is supplying ``extra`` input
-    to the logger, we would need to keep inputting product instances
+    If you use the standard approach, which is supplying ``extra`` input
+    to the logger, you would need to keep inputting product instances
     every time a log is created.
 
-    Using adapters we just need to specify the product instance we refer
+    Using adapters, you just need to specify the product instance that you refer
     to once.
     """
 
@@ -117,12 +117,12 @@ class PyAnsysPercentStyle(logging.PercentStyle):
         else:
             values = record.__dict__
 
-        # Here we can make any changes we want in the record, for
-        # example adding a key.
+        # Here you can make any changes that you want in the record. For
+        # example, adding a key.
 
-        # We could create an if here if we want conditional formatting, and even
+        # You could create an ``if`` here if you want conditional formatting, and even
         # change the record.__dict__.
-        # Since now we don't want to create conditional fields, it is fine to keep
+        # If you don't want to create conditional fields, it is fine to keep
         # the same MSG_FORMAT for all of them.
 
         # For the case of logging exceptions to the logger.
@@ -162,7 +162,7 @@ class InstanceFilter(logging.Filter):
 class Logger:
     """Logger used for each PyProject session.
 
-    This class allows you to add a handler to a file or standard output.
+    This class lets you add a handler to a file or standard output.
 
     Parameters
     ----------
@@ -256,7 +256,7 @@ class Logger:
             each_handler.setLevel(level)
         self._level = level
 
-    def _make_child_logger(self, sufix, level):
+    def _make_child_logger(self, suffix, level):
         """Create a child logger.
 
         Create a child logger either using ``getChild`` or copying
@@ -264,7 +264,7 @@ class Logger:
         one.
 
         """
-        logger = logging.getLogger(sufix)
+        logger = logging.getLogger(suffix)
         logger.std_out_handler = None
         logger.file_handler = None
 
@@ -297,7 +297,7 @@ class Logger:
         logger.propagate = True
         return logger
 
-    def add_child_logger(self, sufix, level=None):
+    def add_child_logger(self, suffix, level=None):
         """Add a child logger to the main logger.
 
         This logger is more general than an instance logger which is designed
@@ -309,7 +309,7 @@ class Logger:
 
         Parameters
         ----------
-        sufix : str
+        suffix : str
             Name of the logger.
         level : str
             Level of logging
@@ -319,7 +319,7 @@ class Logger:
         logging.logger
             Logger class.
         """
-        name = self.logger.name + "." + sufix
+        name = self.logger.name + "." + suffix
         self._instances[name] = self._make_child_logger(self, name, level)
         return self._instances[name]
 

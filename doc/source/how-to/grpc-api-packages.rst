@@ -3,11 +3,11 @@ gRPC API packages
 
 Protobuf service definitions provide the API specification for underlying
 server implementations so that each consuming client library has a clear
-contract for gRPC data messages. Ideally, the ``.proto`` files have a single
-repository established as the source of truth, organized by API version
-increment as the API definition expands and changes. Because most client
-libraries are custom implementations enhancing the developer experience
-when consuming the service, releasing the Protobuf definitions
+contract for gRPC data messages. Ideally, the Protobuf (``.proto``) files
+have a single repository established as the source of truth, organized by
+API version increment as the API definition expands and changes. Because
+most client libraries are custom implementations enhancing the developer
+experience when consuming the service, releasing the Protobuf definitions
 publicly gives full flexibility to developers to operate at the abstraction
 layer they choose.
 
@@ -15,52 +15,54 @@ Maintain API definition repository
 ----------------------------------
 
 Because the Protobuf definition of the service is language agnostic, the repository
-containing the Protobuf files can be created within the top-level
-`Ansys GitHub organization <https://github.com/ansys/>`_.
-Every update of the Protobuf files follows a standard
-pull request process as a sanity check for API definition accuracy. Language-
-specific packages can be generated for each merge or on a set cadence.
+containing the PROTO files can be created within the top-level
+`Ansys GitHub organization`_.
 
-Managing Protobuf definitions for Python clients
-------------------------------------------------
+Every update of the PROTO files follows a standard pull request process as a
+sanity check for API definition accuracy. Language-specific packages can be
+generated for each merge or on a set cadence.
+
+Manage Protobuf definitions for Python clients
+----------------------------------------------
 
 Within Ansys, and more specifically in the PyAnsys environment, most client libraries
-have a dedicated Python package containing the needed ``.proto`` files compiled as
+have a dedicated Python package containing the needed PROTO files compiled as
 Python source code. These are typically consumed by the PyAnsys client libraries
-for being able to communicate with their respective services.
+for communicating with their respective services.
 
-For example, `PyMAPDL <https://github.com/pyansys/pymapdl>`_ consumes the
-``ansys-api-mapdl`` package, which is built in the
-`ansys-api-mapdl repository <https://github.com/ansys/ansys-api-mapdl>`_.
+For example, `PyMAPDL`_ consumes the ``ansys-api-mapdl`` package, which is built in the
+`ansys-api-mapdl`_ repository.
 
-How to build an ``ansys-api-<service>`` repository
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Build an ``ansys-api-<service>`` repository
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The `Ansys GitHub organization`_ has a dedicated template repository for creating
-these ``.proto`` file repositories and the needed files to generate the Python API
+The Ansys GitHub organization has a dedicated template repository for creating
+PROTO file repositories and the needed files to generate the Python API
 packages to be consumed by the PyAnsys clients.
 
-In order to set up an API repository like `ansys-api-mapdl <https://github.com/ansys/ansys-api-mapdl>`_,
+To set up an API repository like the ``ansys-api-mapdl`` one,
 select the `ansys-api-template <https://github.com/ansys/ansys-api-template>`_ repository
-when creating a new repository within the `Ansys GitHub organization`_.
+when creating a repository within the Ansys GitHub organization.
 
-Follow the instructions on the `ansys-api-template - Expected usage <https://github.com/ansys/ansys-api-template#expected-usage>`_
-section to understand how to use the template repository.
+To understand how to use the ``ansys-api-template`` repository, see
+`Expected usage <https://github.com/ansys/ansys-api-template#expected-usage>`_
+in this repository's README.
 
-Building Python stub classes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Build Python stub classes
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The template repository uses the `ansys-tools-protoc-helper <https://github.com/ansys/ansys-tools-protoc-helper/>`_
-library to auto-generate Python wheels that can be consumed by downstream Python client libraries.
+The ``ansys-api-template`` repository uses the `ansys-tools-protoc-helper <https://github.com/ansys/ansys-tools-protoc-helper/>`_
+utility to auto-generate Python wheels that can be consumed by downstream Python client libraries.
 
-To use this, include this tool in the ``pyproject.toml`` file as a build dependency:
+To use the ``ansys-tools-protoc-helper`` utility, include it in the ``pyproject.toml`` file as a build dependency:
 
 .. code-block:: toml
 
     [build-system]
     requires = ["setuptools >= 42.0.0", "wheel", "ansys_tools_protoc_helper"]
 
-Then generate a Python wheel containing the autogenerated Python source with:
+Then generate a Python wheel containing the autogenerated Python source with
+these commands:
 
 .. code-block:: bash
 
@@ -68,15 +70,15 @@ Then generate a Python wheel containing the autogenerated Python source with:
     pip install build
     python -m build
 
-Publishing Python API package
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Publish the API package
+~~~~~~~~~~~~~~~~~~~~~~~
 
-PyPI is the common package manager where API packages are released.
+`PyPI`_ is the common package manager where API packages are released.
 
 Here is an example of a workflow pipeline for building and publishing the Python stub package.
-In this example, the ``ansys-api-geometry`` workflow is shown. However, this workflow can be
-easily copied and adapted. Only the ``PYTHON_PACKAGE_IMPORT`` environment variable
-would have to be changed:
+In this example, the ``ansys-api-geometry`` workflow is shown. However, you can easily copy
+and adapt this workflow. Only the ``PYTHON_PACKAGE_IMPORT`` environment variable would have
+to be changed:
 
 .. code-block:: yaml
 
@@ -165,14 +167,14 @@ would have to be changed:
                 ./**/*.tar.gz
                 ./**/*.pdf
 
-Versioning
-^^^^^^^^^^
+Version the API package
+^^^^^^^^^^^^^^^^^^^^^^^
 
 PyPI packages follow semantic versioning while gRPC Protobuf API versions
-typically follow a simplified ``v*`` versioning pattern. It is not expected to
-synchronize the PyPI package version with the Protobuf API version, and
+typically follow a simplified ``v*`` versioning pattern. The PyPI package
+version is not expected to synchronize with the Protobuf API version, and
 multiple public APIs can be exposed simultaneously. For example, if you have a
-``v0`` for MAPDL exposed, you can access it via:
+``v0`` for MAPDL exposed, you can access it with this code:
 
 .. code:: python
 
@@ -186,48 +188,47 @@ While if the API has a ``v1`` API exposed, a different library could also use:
 
 Ansys follows `Microsoft's gRPC versioning
 <https://learn.microsoft.com/en-us/aspnet/core/grpc/versioning>`_
-recommendations which stipulate that incrementing the gRPC Protobuf version is
+recommendations, which stipulate that incrementing the gRPC Protobuf version is
 only necessary when making a backwards breaking change. Non-breaking changes
 include:
 
-* Adding a new service
-* Adding a new method to a service
+* Adding a service
+* Adding a method to a service
 * Adding a field to a request message
 
 However, this only applies to the ``vN`` gRPC Protobuf API. Python packages
-tend to follow semantic versioning, and PyAnsys packages follow that
+tend to follow semantic versioning, and PyAnsys packages follow this
 approach. Therefore, these Python gRPC API packages should also follow semantic
-versioning. Plan on releasing a new minor version when:
+versioning.
 
-* Adding or removing features, messages, services, etc.
+- Plan on releasing a new minor version when adding or removing features, messages,
+  and services.
 
-Release a patch release when:
+- Plan on releasing a patch release when fixing bugs that do not change the behavior
+  of the API.
 
-* Fixing bugs that do not change the behavior of the API.
-
-Only plan on releasing a major release once the API is stable and you plan no
-major in the near future.
+Only plan on releasing a major release once the API is stable and no
+major release is scheduled in the near future.
 
 This way, you can expose a ``v0`` and/or ``v1`` gRPC Protobuf API and release
 frequent updates using semantic versioning.
 
-Releasing
-^^^^^^^^^
+Release the API package
+^^^^^^^^^^^^^^^^^^^^^^^
 
-As shown in the ``release`` section of GitHub workflow, once the Python
+As shown in the ``release`` section of the previous GitHub workflow, once the Python
 API package is compiled it is then uploaded to the public PyPI. In order to do
 so, it is necessary to have access to the ``PYPI_TOKEN`` within the GitHub
-repository. Please contact the PyAnsys Core team at `pyansys.core@ansys.com
-<mailto:pyansys.core@ansys.com>`_ in order to get the needed credentials.
+repository. To get the needed credentials, contact the
+`PyAnsy core team <pyansys_core_email_>`_.
 
-If the repository cannot be uploaded to the public PyPI yet, but your Python
-client library needs to consume this Python API package, it can also be
-uploaded to the private PyAnsys PyPI. Email the PyAnsys Core team at
-`pyansys.core@ansys.com`_ for the required ``PYANSYS_PYPI_PRIVATE_PAT``
-password.
+If the repository cannot be uploaded to the public PyPI yet but your Python
+client library needs to consume this Python API package, it can be
+uploaded to the private PyAnsys PyPI. For the required ``PYANSYS_PYPI_PRIVATE_PAT``
+password, contact the `PyAnsy core team <pyansys_core_email_>`_.
 
-In this last case, the workflow section ``Upload to Public PyPi`` should be
-replaced by:
+In this last case, the ``Upload to Public PyPi`` workflow section should be
+replaced with the ``Upload to Private PyPi`` workflow section:
 
 .. code-block:: yaml
 
@@ -241,16 +242,15 @@ replaced by:
           TWINE_PASSWORD: ${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }} 
           TWINE_REPOSITORY_URL: https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/upload
 
+Consume the API package within Python
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Consuming the API package within Python
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Once the API package has been published to PyPI, you can include a reference
+within the client library build dependencies. For information on how to specify
+a project's required dependencies, see :ref:`Required Dependencies`.
 
-Once the API package has been published to PyPI, a reference can be included
-within the client library build dependencies. To know how to specify project
-dependencies, see :ref:`Required Dependencies`.
-
-Using the API package within the Python client
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Use the API package within the Python client
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The stub imports follow a standard pattern. For each API service, there is a ``*_pb2``
 module that defines all messages within a specific service file and
@@ -276,31 +276,31 @@ underlying implementations.
 For each client library release, only a single gRPC API version should be wrapped
 to maintain a consistent API abstraction expectation for the supporting server instances.
 
-Public vs private Python API package
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Public versus private Python API package
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Making these ``.proto`` files repositories public or private is up to the owner of each repository.
+Making the PROTO files for a public or private repository is up to the owner of each repository.
 
-In terms of intellectual property (IP) concerns, the ``.proto`` files are typically not an
-issue since they do not expose any critical service logic or knowledge - and in most cases
-the APIs being exposed through the ``.proto`` files are already exposed through other
-mechanisms publicly.
+In terms of intellectual property (IP) concerns, the PROTO files are typically not an
+issue because they do not expose any critical service logic or knowledge. In most cases,
+the APIs being exposed through the PROTO files are already exposed publicly through other
+mechanisms.
 
 Thus, the general recommendation is to make these repositories public as soon as possible. The
-main reasons behind are:
+main reasons for doing so follow:
 
 * Private Python package dependencies usually involve workarounds when setting up the
   workflow. It is best to keep the workflows as standard and simple as possible. That
-  implies making all its dependencies public - including this API Python package.
+  implies making all its dependencies public, including this API Python package.
 
-* The API Python package generated eventually has to be uploaded to the public PyPI, so
+* The API Python package generated eventually must be uploaded to the public PyPI so
   that it can be consumed by its corresponding Python client library (when it is publicly released).
-  So, better make it public sooner than later if there are no issues with it.
+  So, if there are no issues with making it public, it is better to do so sooner rather than later.
 
-* Once the Python API package is publicly released to PyPI, there is no reason behind keeping the
-  repository private since all users which consume the Python API package have direct access
-  to the ``.proto`` files that are in the repository.
+* Once the Python API package is publicly released to PyPI, there is no reason to keep the
+  repository private because all users who consume the Python API package have direct access
+  to the PROTO files that are in the repository.
 
-However, before making any repository public with the `Ansys GitHub organization`_, please review
-the `Ansys open-source guide documentation <https://supreme-invention-8c3992a9.pages.github.io/index.html>`_
+However, before making any repository public in the `Ansys GitHub organization`_, review
+the `Ansys Open Source Developer's Guide <https://supreme-invention-8c3992a9.pages.github.io/index.html>`_
 to verify that the repository is compliant with all the needed requirements.

@@ -56,7 +56,7 @@
          ]
 
          authors [
-           label="AUTHORS.md", shape="file"
+           label="AUTHORS", shape="file"
          ]
 
          changelog [
@@ -69,6 +69,10 @@
 
          contributing [
            label="CONTRIBUTING.md", shape="file"
+         ]
+
+         contributors [
+           label="CONTRIBUTORS.md", shape="file"
          ]
 
          license [
@@ -96,6 +100,7 @@
          pyproduct_library -> changelog;
          pyproduct_library -> code_of_conduct;
          pyproduct_library -> contributing;
+         pyproduct_library -> contributors;
          pyproduct_library -> readme;
          pyproduct_library -> pyproject;
          pyproduct_library -> setup;

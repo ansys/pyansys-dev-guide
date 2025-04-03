@@ -5,7 +5,7 @@ release-pypi-private:
   steps:
     - name: "Release to the private PyPI repository"
       if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-      uses: pyansys/actions/release-pypi-private@v3
+      uses: ansys/actions/release-pypi-private@v8
       with:
         library-name: ${{ env.LIBRARY_NAME }}
         twine-username: "__token__"
@@ -18,19 +18,19 @@ release-pypi-public:
   steps:
     - name: "Release to the public PyPI repository"
       if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-      uses: pyansys/actions/release-pypi-public@v3
+      uses: ansys/actions/release-pypi-public@v8
       with:
         library-name: ${{ env.LIBRARY_NAME }}
         twine-username: "__token__"
         twine-token: ${{ secrets.PYPI_TOKEN }}
 
-release-gitub:
+release-github:
   name: "Release to GitHub"
   runs-on: ubuntu-latest
   needs: [release-pypi-public]
   steps:
     - name: "Release to GitHub"
       if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-      uses: pyansys/actions/release-github@v3
+      uses: ansys/actions/release-github@v8
       with:
         library-name: ${{ env.LIBRARY_NAME }}

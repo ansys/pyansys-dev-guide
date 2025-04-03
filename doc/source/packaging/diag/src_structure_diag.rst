@@ -1,7 +1,7 @@
 .. _src structure diag:
 .. graphviz::
-    :caption: Generic structure for the src/ directory.
-    :alt: Generic structure for the src/ directory.
+    :caption: Generic structure for the ``src`` directory.
+    :alt: Generic structure for the ``src`` directory.
     :align: center
 
      digraph "sphinx-ext-graphviz" {

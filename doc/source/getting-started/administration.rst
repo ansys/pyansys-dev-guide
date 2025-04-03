@@ -1,12 +1,23 @@
 Project approval and public release
 ===================================
-Most of the projects in PyAnsys expose the functionality of Ansys
-products. Due to intellectual property reasons, the public release of a PyAnsys
-library must go through a project approval process.
 
+Most of the projects in the `Ansys organization <Ansys GitHub organization_>`_ 
+expose the functionality of Ansys products. Due to intellectual property reasons,
+the public release of a PyAnsys library must go through a project approval process.
+
+First step
+----------
+
+To trigger the public release process, project leads must first complete the
+`open source request form`_.
+
+This form lets the different parties involved in the public release process know that
+there is a request to release a project. If your intent is to release an Ansys open
+source project, then continue to the next section.
 
 Approval process
 ----------------
+
 The approval process is divided into three parts:
 
 .. grid:: 3
@@ -35,19 +46,25 @@ The approval process is divided into three parts:
 .. important::
 
     An approval from each of these three parts is required to release a project to the public.
+    Once all approvals are received, a project can be published to the :ref:`Public PyPI`.
 
-    Once approved, a project can be published to the :ref:`Public PyPI`.
 
-
-When releasing a project to the public, you should:
+When releasing a project to the public, you must perform these tasks:
 
 * Coordinate with the product line development team, if applicable.
 * Maintain the project by means of fixing bugs and providing support for new releases.
 * Uphold Ansys' reputation in the open source community.
 
+Once all three approvals have been awarded, project leads must then complete
+the `OSS (Open Source Software) approval request form <https://ansys.typeform.com/ReleaseSupport?typeform-source=gz2idtcjsw2.typeform.com/OSSapproval>`_.
+
+This form serves as a final checklist to verify that all approvals have been processed
+and to formalize the OSS approval process as a final record. For more information, see
+:ref:`Questions asked on the OSS approval request form`.
 
 Managerial
 ^^^^^^^^^^
+
 The managerial part of the approval process ensures that the direct manager,
 general managers, vice presidents, or the chief technology officer are aware of
 the project's existence and status.
@@ -74,35 +91,43 @@ number of administrative reviews and approvals needed:
         approval from the direct manager, product line, and the chief
         technology officer. No product source code is allowed.
 
+.. note::
+
+    For multi-physics and tools impacting several products, you must have approval from
+    the chief technology officer for Ansys. For flagship-related projects, you must have
+    general manager or vice president approval.
+
 
 Legal
 ^^^^^
+
 Legal review approval ensures that the entire project complies with Ansys'
 legal policies.
 
-Start by completing the legal review request form for open sourcing the code:
+Click the following button to complete the legal review request form for open sourcing the code:
 
-.. button-link:: https://ansys.sharepoint.com/:w:/r/sites/OpenSourceSoftwareOSSSuperintendence/_layouts/15/Doc.aspx?sourcedoc=%7B3296AD39-79EC-4F42-81C1-1DF988986800%7D&file=Open%20Source%20Policy_Request%20to%20Release%20Code_need%20GM%20sign-off_2021Sep.docx&action=default&mobileredirect=true
+.. button-link:: https://github.com/ansys-internal/oss-approval-tracklist/issues/new?assignees=MaxJPRey%2C+RobPasMue%2C+jorgepiloto%2C+&labels=&projects=&template=oss_final_signature.yml&title=Name+of+the+package+to+release
     :color: black
     :expand:
 
-    **Open Source Code Release Request Form**
+    **Open source code release request form**
 
-The following checks are required when performing the legal review of the project:
+These checks are required when performing the legal review of the project:
 
 .. card:: |uncheck| The project contains the right licensing.
 
-    * The project has the correct license.
-    * The contribution does not contain any strong encryption.
-    * Ansys official logos and branding images are used in the project.
-    * The Ansys copyright appears in the correct location as required by the
-      Legal department.
-    * The copyright has the proper formatting, which is ``Copyright (C) YYYY ANSYS, Inc.``.
-    * The contribution does not embody any unapproved Ansys intellectual
+    | |uncheck| The project has the correct license.
+    | |uncheck| The contribution does not contain any strong encryption.
+    | |uncheck| Ansys official logos and branding images are used in the project.
+    | |uncheck| The Ansys copyright appears in the correct location as required by the
+       Legal department.
+    | |uncheck| The copyright has the proper formatting:
+      ``Copyright (C) YYYY ANSYS, Inc. and/or its affiliates.``.
+    | |uncheck| The contribution does not embody any unapproved Ansys intellectual
       property for open sourcing.
-    * The contribution does not embody any inventions for which Ansys has
+    | |uncheck| The contribution does not embody any inventions for which Ansys has
       sought or received patent protection.
-    * Any third-party open source code included in the contribution has been
+    | |uncheck| Any third-party open source code included in the contribution has been
       reviewed for security vulnerabilities and includes their license files in
       the repository.
 
@@ -110,44 +135,45 @@ Open source dependencies not distributed as part of the project do not need
 their licenses included in the Ansys repository. Examples include dependent
 Node Package Manager (``npm``) modules or Python packages from PyPI.
 
-
 Technical
 ^^^^^^^^^
+
 Technical approval ensures that the project follows the best and latest
 software development practices. Request a technical review by sending an email
 to `pyansys.core@ansys.com <mailto:pyansys.core@ansys.com>`_.
 
-The technical review of the project verifies the following:
+The PyAnsys core team performs these checks when performing the technical review of the project:
 
 .. card:: |uncheck| The project contains the right metadata information.
     
-    * The project name follows naming conventions.
-    * The project version follows :ref:`Semantic versioning`.
-    * The project author is ANSYS, Inc.
-    * The project maintainer is ANSYS, Inc.
-    * Contact and support information is provided in the project.
-    * :ref:`The \`\`AUTHORS.md\`\` file` is present and contains the project lead and main contributors.
-    * :ref:`The \`\`LICENSE\`\` file` is present and compliant with legal requirements.
-    * :ref:`The \`\`CONTRIBUTING.md\`\` file` is present.
+    | |uncheck| The project name follows naming conventions.
+    | |uncheck| The project version follows :ref:`Semantic versioning`.
+    | |uncheck| The project author is ANSYS, Inc.
+    | |uncheck| The project maintainer is ANSYS, Inc.
+    | |uncheck| Contact and support information is provided in the project.
+    | |uncheck| :ref:`The \`\`AUTHORS\`\` file` is present and compliant with legal requirements.
+    | |uncheck| :ref:`The \`\`LICENSE\`\` file` is present and compliant with legal requirements.
+    | |uncheck| :ref:`The \`\`CONTRIBUTING.md\`\` file` is present.
+    | |uncheck| :ref:`The \`\`CONTRIBUTORS.md\`\` file` is present and contains the project lead and main contributors.
 
 .. card:: |uncheck| The project is compliant with PyAnsys style guidelines.
 
-    * The project layout follows the :ref:`Packaging style` guidelines.
-    * :ref:`Testing` guarantees at least 80% code coverage.
-    * The project adheres to the :ref:`Documentation style` guidelines.
-    * The source code docstring examples have been tested.
-    * The documentation examples are presented as a gallery.
-    * The documentation receives the documentation team's approval.
-    * The package builds properly.
-    * The project uses CI/CD, including all the :ref:`Required workflows`.
-    * The CI/CD pipeline generates project :ref:`artifacts`.
+    | |uncheck| The project layout follows the :ref:`Packaging style` guidelines.
+    | |uncheck| :ref:`Testing` guarantees at least 80% code coverage.
+    | |uncheck| The project adheres to the :ref:`Documentation style` guidelines.
+    | |uncheck| The source code docstring examples have been tested.
+    | |uncheck| The documentation examples are presented as a gallery.
+    | |uncheck| The documentation receives the documentation team's approval.
+    | |uncheck| The package builds properly.
+    | |uncheck| The project uses CI/CD, including all the :ref:`Required workflows`.
+    | |uncheck| The CI/CD pipeline generates project :ref:`artifacts`.
 
 .. card:: |uncheck| The GitHub repository is properly secured.
 
-    * The repository adheres to the :ref:`General configuration`.
-    * :ref:`Branch protection` is enabled.
-    * :ref:`Tag protection` is enabled.
-    * :ref:`Workflow protection` is enabled.
+    | |uncheck| The repository adheres to the :ref:`General configuration`.
+    | |uncheck| :ref:`Branch protection` is enabled.
+    | |uncheck| :ref:`Tag protection` is enabled.
+    | |uncheck| :ref:`Workflow protection` is enabled.
 
 
 .. |check| raw:: html
@@ -165,3 +191,65 @@ The technical review of the project verifies the following:
 .. |uncheck_| raw:: html
 
     <input disabled="" type="checkbox">
+
+Questions asked on the OSS approval request form
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When completing the OSS approval request form, project leads must
+supply responses to several types of questions:
+
+.. card:: |uncheck| General questions
+
+    * What is the name of your project?
+    * Who is the project maintainer?
+    * Who is the lead from the product team?
+    * Who is the Product Management contact?
+    * Who is the ACE/AFT owner?
+
+.. card:: |uncheck| Legal questions
+
+    * Who validated your legal readiness?
+    * Provided there are no issues with the MIT license, have you correctly applied
+      it to the GitHub Repository for your project?
+    * Is the copyright header correctly applied to your files in GitHub?
+    * Have you confirmed that any intellectual property is removed from the code, docs,
+      and examples?
+    * I and my legal reviewer, as well as my product and PM reviewer, have confirmed that
+      there is no business interest in keeping this code confidential.
+    * I and my legal reviewer confirm there is no business interest in enforcing copyright
+      protection for this code.
+    * I and my legal reviewer confirm that the code does not contain any third-party material
+      (open source, proprietary, partner, customer, or otherwise).
+    * I and my legal reviewer confirm that the code does not include any invention on which
+      the company has, or might want to seek, a patent.
+    * Have you cleaned up comments, issues, and pull requests to remove any potentially bad content?
+    * My legal reviewer and I have checked the dependencies and validated that they do not
+      impose any licensing difficulties.
+    * I and my legal reviewer confirm there is NO encryption present in the code.
+    * The repository that hosts the code is generally accessible to the public with no
+      time limits or access restrictions.
+    * This tool or library is not meant for use in any specific industry, platform, or
+      process but rather for use by general customers.
+
+.. card:: |uncheck| Technical questions
+
+    * Who verified your technical review?
+    * Has your library documentation been reviewed by a documentation team member?
+    * Has your source code documentation been reviewed by a developer team member?
+    * Has end user testing been completed?
+    * Has CI/CD testing been implemented?
+    * Has a minimum test coverage of 80% been achieved?
+    * Are usage and installation examples included and tested?
+    * Is the package definition ready and PyPi packaging completed?
+    * Does the GitHub repository supply contribution guidance and have CLA set up?
+
+.. card:: |uncheck| Business questions
+
+    * Who on the Product Marketing Manager (PMM) or Developer Ecosystem (DevEco)
+      team checked your project for readiness?
+    * Did you tell ACE and your Business Unit lead that you are ready for release?
+    * Is there something public that already has the same name as your project?
+    * Did you get PMM signoff?
+    * Did you ask the DevEco team to update links from the Developer Portal to your
+      new OSS project?
+    * Did you let the PMM team know that your library is nearing release?

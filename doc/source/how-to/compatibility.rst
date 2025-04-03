@@ -1,7 +1,8 @@
-Ansys product compatibility
-============================
-As the different PyAnsys libraries evolve, backward and forward compatibility
-issues can occur. Some of the most common cases are:
+Product compatibility
+=====================
+
+As PyAnsys libraries evolve, backward and forward compatibility issues can
+occur. Here are examples of two common issues:
 
 * An Ansys product has implemented certain features in its new server version
   that are not available in previous server versions. This causes backward
@@ -9,25 +10,23 @@ issues can occur. Some of the most common cases are:
 * New server versions have suppressed support for certain operations after a
   a given version. This causes forward incompatibility issues.
 
-Though there are different ways to handle these issues, some of the PyAnsys libraries,
-such as `PyMAPDL <https://github.com/pyansys/pymapdl>`_ and
-`PyDPF-Core <https://github.com/pyansys/pydpf-core>`_, handle them in
-the same way. To homogenize implementations in PyAnsys libraries,
-following their approach is recommended.
+Although there are different ways to handle these issues, some PyAnsys libraries,
+such as `PyMAPDL`_ and `PyDPF-Core <https://github.com/ansys/pydpf-core>`_, handle them in
+the same way. To homogenize implementations in PyAnsys libraries, following their
+approach is recommended.
 
 ``check_version.py`` module approach
 ------------------------------------
+
 A *version checking* module determines whether the Ansys product server you are connecting
-to provides support for certain operations. For implementation examples, see the
-``check_version.py`` files for the following PyAnsys libraries:
+to provides support for certain operations. For an implementation example, see the
+`check_version.py <https://github.com/ansys/pydpf-core/blob/master/src/ansys/dpf/core/check_version.py>`_
+file for the DPF-Core library.
 
-* `ansys/mapdl/core/check_version.py <https://github.com/pyansys/pymapdl/blob/main/src/ansys/mapdl/core/check_version.py>`_
-* `ansys/dpf/core/check_version.py <https://github.com/pyansys/pydpf-core/blob/master/src/ansys/dpf/core/check_version.py>`_
-
-One of the easiest ways to keep track of the versions supported is setting up a
-**minimum version** data structure, in which forward compatibility is ensured.
+One of the easiest ways to keep track of the versions supported is to set up a
+*minimum version* data structure in which forward compatibility is ensured.
 Server versions earlier than the minimum version do not have access to this
-functionality. In the case of `ansys/mapdl/core/check_version.py`_, this is the
+functionality. The previously referenced ``check_version.py`` file uses the
 ``VERSIONS_MAP`` structure.
 
 Most Ansys products provide forward compatibility, meaning that features
@@ -35,17 +34,17 @@ introduced in an earlier version are also supported in later versions. Suppressi
 a feature would lead to a backward compatibility issue.
 
 Because the same type of issues can happen with the PyAnsys servers wrapping
-Ansys products, creating a similar data structure for a  maximum version is
-is necessary. While there are no implementations yet of this feature, it should work
-in the same way as the minimum version mechanism works.
+Ansys products, creating a similar *maximum version* data structure is
+is necessary. While there are no such implementations yet, it should work
+in the same way as the minimum version data structure.
 
 ``version_requires`` decorator
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The ``@version_requires`` decorator applies version logic to the different
-functionalities and methods available in the client. You can see how this
-decorator is used in `ansys/mapdl/core/check_version.py`_ and
-`ansys/dpf/core/check_version.py`_. Here is a generalized example:
 
+The ``@version_requires`` decorator applies version logic to
+functionalities and methods available in the client. You can see how this
+decorator is used in the `check_version.py <https://github.com/ansys/pydpf-core/blob/master/src/ansys/dpf/core/check_version.py>`_
+file. Here is a generalized example:
 
 .. code:: python
 
@@ -71,7 +70,7 @@ specified in the decorator's call. If it is not, a ``VersionError`` is raised.
 The ``self._server`` member of the class is the server that the client is connected to. This
 member is expected to have version information in its ``self._server._server_version``
 attribute. The decorator uses this version information to determine if the version is
-above the threshold.
+higher than the threshold.
 
 You can create a ``@max_version_supported`` decorator to implement this same
 kind of logic for forward incompatibility. Changing the ``@version_requires``

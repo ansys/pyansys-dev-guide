@@ -5,8 +5,8 @@ Abstracted APIs should attempt to hide the implementation details of
 the remote or local API in a well organized data model. This data
 model should avoid returning raw JSON files, gRPC messages, SWIG objects,
 or .NET objects. It should preferably return standard Python objects
-like lists, strings, dictionaries when useful, and `numpy <https://numpy.org/>`_
-arrays or `pandas <https://pandas.pydata.org/>`_ dataframes for more complex data.
+like lists, strings, dictionaries when useful, and `numpy`_
+arrays or `pandas`_ dataframes for more complex data.
 
 For example, consider a simple mesh in MAPDL:
 
@@ -69,15 +69,16 @@ within the MAPDL database.
 
 REST versus RPC data and model abstraction
 ------------------------------------------
+
 Because of the nature of most Ansys products, apps and
 services can either fit into the Remote Procedure Call (RPC) interface,
 where the API is centered around operations and commands, or the
 REST model, where the API is centered around resources. Regardless of
 the interface style, there are several items to consider.
 
-
 API chattiness
 ~~~~~~~~~~~~~~
+
 APIs must be efficient to avoid creating chatty input and output.
 Because many Ansys products fit well with the RPC API implementation,
 there is a temptation to design APIs that require constant communication
@@ -93,6 +94,7 @@ expose only a limited number of RPC methods in the front-facing API.
 
 Compatibility and efficiency
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 APIs should be designed to be compatible with as many languages and
 platforms as possible.  `gRPC`_ for RPC-like interfaces should be one
 of the first choices due to its compatibility with nearly all popular
@@ -100,7 +102,7 @@ languages and its efficiency over REST in terms of speed, memory, and
 payload size.
 
 Typically, REST data exchanges should be limited to short messages
-transferred via JSON files, and gRPC should be used for large data
+that are transferred using JSON files, and gRPC should be used for large data
 transfers and bidirectional streaming.
 
 Choosing gRPC over REST is generally preferable due to the performance
@@ -108,18 +110,3 @@ benefits of a binary compatible protocol. While REST provides a variety of
 benefits, for complex client/server interactions, it is best to have an
 interface that can efficiently exchange a wide variety of data formats and
 messages.
-
-
-.. _gRPC: https://grpc.io/
-.. _pythoncom: http://timgolden.me.uk/pywin32-docs/pythoncom.html
-.. _SWIG: http://www.swig.org/
-.. _C extensions: https://docs.python.org/3/extending/extending.html
-.. _Anaconda Distribution: https://www.anaconda.com/products/individual
-.. _REST: https://en.wikipedia.org/wiki/Representational_state_transfer
-.. _PyAEDT: https://github.com/pyansys/PyAEDT
-.. _PyMAPDL: https://github.com/pyansys/pymapdl
-.. _pymapdl: https://github.com/pyansys/pymapdl
-.. _Style Guide for Python Code (PEP8): https://www.python.org/dev/peps/pep-0008
-.. _grpc_chunk_stream_demo: https://github.com/pyansys/grpc_chunk_stream_demo
-.. _numpydoc: https://numpydoc.readthedocs.io/en/latest/format.html
-.. _Namespace Packages: https://packaging.python.org/guides/packaging-namespace-packages/

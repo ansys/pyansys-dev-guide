@@ -112,6 +112,3 @@ access to ``_omodelsetup``, which is why it's protected in the
 providing (and documenting) the defaults using keyword arguments and
 placing them into the ``vars`` list, all while following the `Style
 Guide for Python Code (PEP8)`_.
-
-.. _PyAEDT: https://github.com/pyansys/pyaedt
-.. _Style Guide for Python Code (PEP8): https://www.python.org/dev/peps/pep-0008

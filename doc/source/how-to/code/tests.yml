@@ -4,17 +4,17 @@ tests:
   strategy:
      matrix:
          os: [ubuntu-latest, windows-latest]
-         python-version: ['3.7', '3.8', '3.9', '3.10']
+         python-version: ['3.10', '3.11', '3.12', '3.13']
   steps:
     - name: "Run pytest"
-      uses: pyansys/actions/tests-pytest@v3
+      uses: ansys/actions/tests-pytest@v8
       with:
         python-version: ${{ matrix.python-version }}
         pytest-markers: "-k 'mocked'"
         pytest-extra-args: "--cov=ansys.<library> --cov-report=term --cov-report=xml:.cov/coverage.xml --cov-report=html:.cov/html"
 
     - name: "Upload coverage results"
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       if: matrix.python-version == ${{ env.MAIN_PYTHON_VERSION }}
       with:
         name: coverage-html
