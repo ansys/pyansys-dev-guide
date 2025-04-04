@@ -41,7 +41,7 @@ automatically check for vulnerabilities in the codebase. This action is based on
 the following tools:
 
 - `Safety`_ : Checks installed dependencies for known security vulnerabilities.
-- `Bandit`_; Attempts to find common security issues in Python code.
+- `Bandit`_: Attempts to find common security issues in Python code.
 
 Safety addresses external dependencies, while Bandit focuses on the codebase itself.
 Both tools have been integrated into the ``ansys/actions/check-vulnerabilities`` action.
@@ -77,7 +77,7 @@ Vulnerability remediation and reporting
 ----------------------------------------
 
 When a vulnerability is detected, the action fails and reports the vulnerabilities found in the codebase.
-These vulnerabilities will be reported as draft Security advisories in the repository's
+These vulnerabilities will be reported as draft security advisories in the repository's
 **Security** tab. Maintainers are then responsible for reviewing the advisories and deciding whether to address
 them or not. These advisories are monitored by the PyAnsys Core team and are escalated internally if they
 represent a roadblock for usage.
@@ -121,10 +121,10 @@ vulnerability and the fix. The note should include this information:
 - A description of the fix and how it addresses the vulnerability
 - A link to the pull request that fixed the vulnerability
 
-Additionally, the Security advisory should be published on the repository's **Security** tab. This advisory should include the same information as the changelog note. In the advisory, also included the
+Additionally, the security advisory should be published on the repository's **Security** tab. This advisory should include the same information as the changelog note. In the advisory, also included the
 CVE number, the date of the advisory, and the status of the advisory (such as published or withdrawn).
 
-A reference of a published Security advisory can be found here: `PyAnsys Geometry subprocess advisory`_.
+A reference of a published security advisory can be found here: `PyAnsys Geometry subprocess advisory`_.
 This advisory was published in the PyAnsys Geometry repository and includes information about a vulnerability
 in which users could execute arbitrary code on the system by using one of this library's functions.
 
