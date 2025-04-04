@@ -367,7 +367,7 @@ optional dependencies:
 
       If you are using extras as a workaround for dependency groups, be cautious about the
       potential for dependency conflicts. Extras are not designed to handle complex dependency
-      scenario. More importantly, most of our projects have testing and documentation
+      scenario. More importantly, most PyAnsys projects have testing and documentation
       dependency groups that should not be user facing. Therefore, do not include inside the
       ``all`` target any of the testing or documentation dependencies (that is, ``pytest``,
       ``pytest-cov``, ``sphinx``, ``sphinx-autoapi``, and similar).
