@@ -338,6 +338,8 @@ optional dependencies:
   projects that have graphics-related optional dependencies.
 - **examples**: All optional dependencies related to examples. This target should be used
   when the user wants to install all optional dependencies for running examples.
+- **jupyter**: All optional dependencies installing utilities for the Jupyter ecosystem.
+  This target should be defined in projects providing widgets as part of their features.
 
 .. note::
 
