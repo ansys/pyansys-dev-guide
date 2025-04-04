@@ -392,6 +392,7 @@ is shown below:
 
 - `PyAnsys Geometry - 1782 - feat: separate graphics target <https://github.com/ansys/pyansys-geometry/pull/1782>`_
 - `PyMAPDL - 3820 - fix: Optional graphics dependency <https://github.com/ansys/pymapdl/pull/3820>`_
+- `PyMAPDL Reader - 567 - feat: separate graphics target <https://github.com/ansys/pymapdl-reader/pull/567>`_
 
 Examples of PyAnsys projects that have these optional dependencies are:
 
