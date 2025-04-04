@@ -65,7 +65,7 @@ can be addressed.
 
 .. note::
 
-  An example on how to document the ignored advisories can be found in the `PyACP Security Considerations`_
+  An example on how to document the ignored advisories can be found in the `PyACP security considerations`_
   documentation page. This should be taken as a reference for documenting ignored advisories in other repositories.
 
 .. warning::
@@ -141,5 +141,5 @@ results are reviewed regularly.
 .. _Safety: https://pyup.io/safety/
 .. _Bandit: https://bandit.readthedocs.io/en/latest/
 .. _the action's documentation: https://actions.docs.ansys.com/version/stable/vulnerability-actions/index.html#check-vulnerabilities-action
-.. _PyACP Security Considerations: https://acp.docs.pyansys.com/version/dev/user_guide/security_considerations.html
+.. _PyACP security considerations: https://acp.docs.pyansys.com/version/dev/user_guide/security_considerations.html
 .. _PyAnsys Geometry subprocess advisory: https://github.com/ansys/pyansys-geometry/security/advisories/GHSA-38jr-29fh-w9vm
