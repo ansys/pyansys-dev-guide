@@ -363,6 +363,15 @@ optional dependencies:
      extras to replicate similar behavior.
    - Avoid specifying development-only dependencies in the main dependencies.
 
+   .. warning::
+
+      If you are using extras as a workaround for dependency groups, be cautious that testing and
+      documentation dependencies should not be user facing. Therefore, do not include inside the
+      ``all`` target any of the testing or documentation dependencies (that is, ``pytest``, ``pytest-cov``,
+      ``sphinx``, ``sphinx-autoapi``, and similar). You should create a separate extra (``dev``,
+      ``tests``, ``doc``, or similar) for such dependencies.
+
+
 Making dependencies optional allows users to install lightweight versions of
 your PyAnsys library. This is especially useful for users who are not interested in
 certain features or who are using the library in a headless environment. It also
@@ -382,14 +391,14 @@ A migration example of a library from not having a ``graphics`` target to having
 is shown below:
 
 - `PyAnsys Geometry - 1782 - feat: separate graphics target <https://github.com/ansys/pyansys-geometry/pull/1782>`_
+- `PyMAPDL - 3820 - fix: Optional graphics dependency <https://github.com/ansys/pymapdl/pull/3820>`_
+- `PyMAPDL Reader - 567 - feat: separate graphics target <https://github.com/ansys/pymapdl-reader/pull/567>`_
 
 Examples of PyAnsys projects that have these optional dependencies are:
 
 - `PyPrimeMesh targets <https://github.com/ansys/pyprimemesh/blob/034b5e134776d1623c1d2db4b4b8d4ead101abdb/pyproject.toml#L30-L58>`_
 - `PyAnsys Geometry targets <https://github.com/ansys/pyansys-geometry/blob/e6d8210f9d79718d607a2f4b2e8ead33babcbfca/pyproject.toml#L44-L58>`_
 - `PyACP targets <https://github.com/ansys/pyacp/blob/f4d8c1779cd451b1fc8ef649cc3b2cd5799ff11a/pyproject.toml#L89-L110>`_
-
-.. TODO: Add more examples of PyAnsys projects that have these optional dependencies.
 
 Dependabot
 ----------
@@ -481,7 +490,7 @@ Dependabot allows for two different types of updates:
 * **Dependabot security updates**: Automated pull requests that help update
   dependencies with known vulnerabilities.
 * **Dependabot version updates**: Automated pull requests that keep dependencies updated,
-  even when they don’t have any vulnerabilities. To check the status of version updates,
+  even when they don't have any vulnerabilities. To check the status of version updates,
   navigate to the **Insights** tab of your repository and then select **Dependency Graph**
   and **Dependabot**.
 
