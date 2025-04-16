@@ -139,12 +139,3 @@ The PyAnsys Core team is responsible for ensuring that the ``ansys/actions/check
 being used in all PyAnsys repositories considered as libraries (that is, Python packages shipped to PyPI).
 Repository maintainers are responsible for ensuring that the action is implemented correctly and that the
 results are reviewed regularly.
-
-.. _metapackage: https://github.com/pyansys/pyansys
-.. _CVE: https://www.cve.org/
-.. _Safety: https://pyup.io/safety/
-.. _Bandit: https://bandit.readthedocs.io/en/latest/
-.. _the action's documentation: https://actions.docs.ansys.com/version/stable/vulnerability-actions/index.html#check-vulnerabilities-action
-.. _PyACP security considerations: https://acp.docs.pyansys.com/version/dev/user_guide/security_considerations.html
-.. _Github's documentation: https://docs.github.com/en/code-security/security-advisories/working-with-repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
-.. _PyAnsys Geometry subprocess advisory: https://github.com/ansys/pyansys-geometry/security/advisories/GHSA-38jr-29fh-w9vm
