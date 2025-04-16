@@ -109,12 +109,15 @@ Vulnerability disclosure
 ------------------------
 
 When a vulnerability is detected and a decision is made to address it, the repository maintainers should
-create a private fork of the repository and create a pull request with the fix. This pull request should be
-reviewed in depth and include tests to ensure that the vulnerability is fixed. Once the pull request is
-merged, the repository maintainers should create a new release with the fix and update the changelog accordingly.
+create a private fork of the repository and create a pull request with the fix. Information on
+how to create such a temporary fork to resolve a vulnerability can be found in `Github's documentation`_.
+When opened, the pull request should be reviewed in depth and include tests to ensure that the
+vulnerability is fixed. Once the pull request is merged, the repository maintainers should create a new
+release with the fix and update the changelog accordingly.
 
-The release should be tagged with a new version number, and the changelog should include a note about the
-vulnerability and the fix. The note should include this information:
+The release should be tagged with a new version number where the patch value has been incremented,
+and the changelog should include a note about the vulnerability and the fix. The note should include
+this information:
 
 - The CVE number of the vulnerability (if applicable)
 - A description of the vulnerability and its potential consequences
@@ -143,4 +146,5 @@ results are reviewed regularly.
 .. _Bandit: https://bandit.readthedocs.io/en/latest/
 .. _the action's documentation: https://actions.docs.ansys.com/version/stable/vulnerability-actions/index.html#check-vulnerabilities-action
 .. _PyACP security considerations: https://acp.docs.pyansys.com/version/dev/user_guide/security_considerations.html
+.. _Github's documentation: https://docs.github.com/en/code-security/security-advisories/working-with-repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
 .. _PyAnsys Geometry subprocess advisory: https://github.com/ansys/pyansys-geometry/security/advisories/GHSA-38jr-29fh-w9vm
