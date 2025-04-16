@@ -34,7 +34,7 @@ remediate security vulnerabilities in Python packages and dependencies.
 
 The PyAnsys ecosystem has implemented automated mechanisms to track and
 report vulnerabilities in the codebase. These tools are intended to be integrated
-into the CI/CD pipeline of the repositories.
+into the CI/CD workflow of the repositories.
 
 The PyAnsys Core team has come up with a GitHub Action that can be used to
 automatically check for vulnerabilities in the codebase. This action is based on
@@ -70,14 +70,14 @@ can be addressed.
 
 .. warning::
 
-  Testing the action locally before enabling it in the CI/CD pipeline is recommended. Information on how
+  Testing the action locally before enabling it in the CI/CD workflow is recommended. Information on how
   to do this can be found in `the action's documentation`_.
 
 Vulnerability remediation and reporting
 ----------------------------------------
 
 When a vulnerability is detected, the action fails and reports the vulnerabilities found in the codebase.
-These vulnerabilities will be reported as draft security advisories in the repository's
+Following that, these vulnerabilities are reported as draft security advisories in the repository's
 **Security** tab. Maintainers are then responsible for reviewing the advisories and deciding whether to address
 them or not. These advisories are monitored by the PyAnsys Core team and are escalated internally if they
 represent a roadblock for usage.
@@ -108,7 +108,7 @@ Here is an example of a ``SECURITY.md`` file:
 Vulnerability disclosure
 ------------------------
 
-When a vulnerability is detected and a decision is made to address it,, the repository maintainers should
+When a vulnerability is detected and a decision is made to address it, the repository maintainers should
 create a private fork of the repository and create a pull request with the fix. This pull request should be
 reviewed in depth and include tests to ensure that the vulnerability is fixed. Once the pull request is
 merged, the repository maintainers should create a new release with the fix and update the changelog accordingly.
@@ -121,7 +121,8 @@ vulnerability and the fix. The note should include this information:
 - A description of the fix and how it addresses the vulnerability
 - A link to the pull request that fixed the vulnerability
 
-Additionally, the security advisory should be published on the repository's **Security** tab. This advisory should include the same information as the changelog note. In the advisory, also included the
+Additionally, the security advisory should be published on the repository's **Security** tab.
+This advisory should include the same information as the changelog note, in other words the
 CVE number, the date of the advisory, and the status of the advisory (such as published or withdrawn).
 
 A reference of a published security advisory can be found here: `PyAnsys Geometry subprocess advisory`_.
@@ -131,7 +132,7 @@ in which users could execute arbitrary code on the system by using one of this l
 Ensuring compliance across the PyAnsys ecosystem
 ------------------------------------------------
 
-The PyAnsys Core team is responsible for ensuring that the action is up to date and that it is
+The PyAnsys Core team is responsible for ensuring that the ``ansys/actions/check-vulnerabilities`` action is up to date and that it is
 being used in all PyAnsys repositories considered as libraries (that is, Python packages shipped to PyPI).
 Repository maintainers are responsible for ensuring that the action is implemented correctly and that the
 results are reviewed regularly.
