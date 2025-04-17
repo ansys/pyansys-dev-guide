@@ -406,7 +406,7 @@ Dependency version range
 When specifying dependencies in a project, it is generally recommended to avoid
 setting upper version limits unless it is absolutely necessary. The reason for
 that is because arbitrarily restricting a dependency to be lower than a
-certain version (e.g., `numpy<2.0`) can prevent your project from working
+certain version (for example `numpy<2.0`) can prevent your project from working
 with newer and perfectly compatible versions, and often causes more problems
 than it solves. Such restrictions limit forward compatibility, block users from
 upgrading dependencies, and increase the risk of version conflicts.
@@ -445,7 +445,7 @@ your users and contributors.
 
 This helps avoiding unexpected breakages when someone installs your project
 in an environment with older versions of dependencies. Rather than encountering
-obscure runtime errors or missing features, the version constraint will prevent
+obscure runtime errors or missing features, the version constraint prevents
 your project to be installed. It also helps to maintain clarity for long-term
 maintenance and simplifies debugging.
 
