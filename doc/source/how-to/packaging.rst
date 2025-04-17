@@ -400,6 +400,91 @@ Examples of PyAnsys projects that have these optional dependencies are:
 - `PyAnsys Geometry targets <https://github.com/ansys/pyansys-geometry/blob/e6d8210f9d79718d607a2f4b2e8ead33babcbfca/pyproject.toml#L44-L58>`_
 - `PyACP targets <https://github.com/ansys/pyacp/blob/f4d8c1779cd451b1fc8ef649cc3b2cd5799ff11a/pyproject.toml#L89-L110>`_
 
+Dependency version range
+------------------------
+
+When specifying dependencies in a project, it is generally recommended to avoid
+setting upper version limits unless it is absolutely necessary. The reason for
+that is because arbitrarily restricting a dependency to be lower than a
+certain version (e.g., `numpy<2.0`) can prevent your project from working
+with newer and perfectly compatible versions, and often causes more problems
+than it solves. Such restrictions limit forward compatibility, block users from
+upgrading dependencies, and increase the risk of version conflicts.
+
+This issue is even more critical in the context of the PyAnsys `metapackage`_
+which install many PyAnsys projects. In this setup, having strict upper bounds
+on versions can easily result in unsatisfiable dependency constraints across
+the ecosystem. One package may require `numpy<2.0` for no absolute reason while
+another depends on a new feature in `numpy>=2.0.0`, making it impossible to
+install both at once, even if they're actually compatible. This leads to
+frustration for users and maintainers, and prevents packages from being used
+together smoothly.
+
+It is better to define only a minimum version (`>=`) and rely on Continuous
+Integration (CI) to detect real breakages as dependencies evolve. If a future
+version does introduce a breaking change, you can then add an upper bound with
+a clear explanation. For example,
+`numpy<2.0 # breaking changes in Python and C APIs`.
+
+.. note::
+
+   Examples of valid reasons to set an upper bound are when the dependency
+   explicitly introduces breaking changes in major releases and you want to
+   be protected against those temporarily or when strict reproducibility is
+   required, for example, in a frozen environment or a dedicated scientific
+   workflow.
+
+Setting a lower bound (`>=`) is considered good practice for multiple reasons.
+First, it documents the oldest version of a dependency that your project
+explicitly supports. Not only because it is the oldest version you have tested
+your package against, but also because it is often the version where certain
+key features your code relies on were first introduced. For instance, if your
+code uses an API or behavior that only appeared in version `1.3`, setting
+`>=1.3` communicates both a technical requirement and an implicit contract to
+your users and contributors.
+
+This helps avoiding unexpected breakages when someone installs your project
+in an environment with older versions of dependencies. Rather than encountering
+obscure runtime errors or missing features, the version constraint will prevent
+your project to be installed. It also helps to maintain clarity for long-term
+maintenance and simplifies debugging.
+
+Below is an example of a dependency specification that follows these guidelines:
+
+.. tab-set::
+
+    .. tab-item:: flit
+
+        .. code-block:: toml
+
+            [project]
+            dependencies = [
+                "matplotlib>=3.5.2",
+                "numpy>=1.20.0",
+            ]
+
+    .. tab-item:: poetry
+
+        .. code-block:: toml
+
+            [tool.poetry.dependencies]
+            matplotlib = ">=3.5.2"
+            numpy = ">=1.20.0"
+
+    .. tab-item:: setuptools
+
+        .. code-block:: python
+
+            from setuptools import setup
+
+            setup(
+                ...,
+                install_requires=[
+                    "matplotlib >= 3.5.2",
+                    "numpy >= 1.20.0",
+                ],
+            )
+
 Dependabot
 ----------
 
