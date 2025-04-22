@@ -433,6 +433,7 @@ version does introduce a breaking change, you can then add an upper bound with
 a clear explanation. For example:
 
 .. code-block:: toml
+
     [project]
         dependencies = [
             "numpy<2.0", # breaking changes in Python and C APIs'.
