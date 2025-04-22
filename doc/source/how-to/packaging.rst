@@ -405,9 +405,9 @@ Dependency version range
 
 .. note::
 
-    This guidance applies only to PyAnsys _library_ projects. For projects
-    which deliver an _application_ or dedicated workflow, we recommend
-    fully pinning all (direct and transitive) dependencies.
+    This guidance applies only to PyAnsys *library* projects. For projects
+    which deliver an *application* or *dedicated workflow*, it is
+    recommended to fully pinning all (direct and transitive) dependencies.
 
 When specifying dependencies in a project, it is generally recommended to avoid
 setting upper version limits unless it is absolutely necessary. The reason for
