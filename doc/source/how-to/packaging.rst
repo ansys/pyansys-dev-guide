@@ -423,9 +423,14 @@ together smoothly.
 It is better to define only a minimum version (`>=`) and rely on Continuous
 Integration (CI) to detect real breakages as dependencies evolve. If a future
 version does introduce a breaking change, you can then add an upper bound with
-a clear explanation. For example,
-`numpy<2.0 # breaking changes in Python and C APIs`.
+a clear explanation. For example:
 
+.. code-block:: toml
+
+    [project]
+        dependencies = [
+            "numpy<2.0", # breaking changes in Python and C APIs`.
+        ]
 .. note::
 
    Examples of valid reasons to set an upper bound are when the dependency
