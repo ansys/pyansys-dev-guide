@@ -435,9 +435,9 @@ a clear explanation. For example:
 .. code-block:: toml
 
     [project]
-        dependencies = [
-            "numpy<2.0", # breaking changes in Python and C APIs'.
-        ]
+    dependencies = [
+        "numpy<2.0", # breaking changes in Python and C APIs'.
+    ]
 
 Setting a lower bound (`>=`) is considered good practice for multiple reasons.
 First, it documents the oldest version of a dependency that your project
