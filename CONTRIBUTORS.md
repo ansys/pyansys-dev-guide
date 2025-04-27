@@ -21,6 +21,7 @@
 * [Dipin](https://github.com/dipinknair)
 * [Dominik Gresch](https://github.com/greschd)
 * [Doug Addy](https://github.com/da1910)
+* [jleonatti](https://github.com/jleonatti)
 * [Kathy Pippert](https://github.com/PipKat)
 * [Kerry McAdams](https://github.com/klmcadams)
 * [Ludovic Steinbach](https://github.com/ludovicsteinbach)
@@ -29,4 +30,3 @@
 * [Peter Krull - ANSYS](https://github.com/pkrull-ansys)
 * [Pierre Lulé](https://github.com/plule-ansys)
 * [Sébastien Morais](https://github.com/SMoraisAnsys)
-* [jleonatti](https://github.com/jleonatti)
