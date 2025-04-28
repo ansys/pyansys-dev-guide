@@ -11,6 +11,71 @@ Most of the tools presented can be configured using :ref:`the
 \`\`pyproject.toml\`\` file`. Avoiding dotfiles leads to a much
 cleaner root project directory.
 
+Ruff
+----
+
+| `Ruff`_ is a Python linter and code formatter written in Rust. 
+| It aims to be orders of magnitude faster than alternative tools while integrating more 
+ functionality behind a single, common interface.
+| Ruff can be used to replace linters and formatters like ``Flake8`` (natively re-implementing 
+ its popular plugins), ``Black`` and ``isort``: It provides drop-in parity with these tools, 
+ while executing tens or hundreds of times faster. It is actively developed and used in major 
+ open-source projects. 
+| In addition, it offers the following features and advantages:
+
+- Installable via ``pip``
+
+- ``pyproject.toml`` support
+
+- Python 3.7 to 3.13 compatibility
+
+- Built-in caching, to avoid re-analyzing unchanged files
+
+- Over 800 built-in rules
+
+- Editor integrations for VS Code or PyCharm
+
+A minimum Ruff configuration for a PyAnsys project (to be included in the ``pyproject.toml``)
+may look like this:
+
+.. code-block:: toml
+
+    [tool.ruff]
+    line-length = 100
+    fix = true
+
+    [tool.ruff.format]
+    quote-style = "double"
+    indent-style = "space"
+
+    [tool.ruff.lint]
+    select = [
+        "E",    # pycodestyle, see https://docs.astral.sh/ruff/rules/#pycodestyle-e-w
+        "D",    # pydocstyle, see https://docs.astral.sh/ruff/rules/#pydocstyle-d
+        "F",    # pyflakes, see https://docs.astral.sh/ruff/rules/#pyflakes-f
+        "I",    # isort, see https://docs.astral.sh/ruff/rules/#isort-i
+        "N",    # pep8-naming, see https://docs.astral.sh/ruff/rules/#pep8-naming-n
+        "PTH",  # flake8-use-pathlib, https://docs.astral.sh/ruff/rules/#flake8-use-pathlib-pth
+        "TD",   # flake8-todos, https://docs.astral.sh/ruff/rules/#flake8-todos-td
+    ]
+    ignore = [
+    "rule_to_ignore", # list all rules that shall be ignored by the linter
+    ]
+
+    [tool.ruff.lint.pydocstyle]
+    convention = "numpy"
+
+    [tool.ruff.lint.isort]
+    combine-as-imports = true
+    force-sort-within-sections = true
+
+| When migrating a project to Ruff, linting and formatting rules shall be added step by step, 
+ gradually resolving the triggered errors. 
+| For more information about configuring Ruff, as well as a complete description of the available 
+ rules and settings, please refer to the `tool's documentation 
+ <https://docs.astral.sh/ruff/configuration/>`__.
+
+
 Black
 -----
 
