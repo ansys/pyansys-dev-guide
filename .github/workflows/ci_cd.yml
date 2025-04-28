@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Setup headless display
-        uses: pyvista/setup-headless-display-action@v3
+        uses: pyvista/setup-headless-display-action@v4
 
       - name: "Install mermaid-cli"
         run: npm install -g @mermaid-js/mermaid-cli
