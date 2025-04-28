@@ -183,3 +183,69 @@ Workflow examples are provided for various checks, such as :ref:`code style <cod
         
         .. literalinclude:: code/release.yml     
            :language: yaml
+
+Importance of pinned dependencies
+---------------------------------
+
+.. note::
+  
+    This guidance applies to CI workflows. It does apply to the
+    `dependency version range <https://dev.docs.pyansys.com/how-to/packaging.html#dependency-version-range>`_.
+    of the project itself.
+
+To guarantee reproducibility, stability, and predictability of workflows, it is critical that
+CI uses a locked, fully resolved list of pinned versions. If a project allows floating
+versions of dependencies, for example `numpy>=1.26`, to be used in CI, it is exposed to random
+failures without any code change. In fact, problems can occur at different levels:
+
+- Runtime bugs: Update in runtime dependencies, like `numpy` or `pandas`, can introduce changes
+  in API behavior, deprecations, or regressions, affecting production code.
+- Test failures: A minor update of a testing library could introduce breaking changes or
+  modify test behavior, causing false negatives or false positives.
+- Documentation build breaks: A documentation generator like `Sphinx` might introduce
+  subtle or breaking changes, like new warnings treated as errors or theme updates breaking
+  rendering, causing your docs build to fail.
+
+Pinning dependencies avoid these issues by freezing exact versions and ensure that CI
+workflows are reliable and predictable.
+
+Additionally, having a complete, pinned set of dependencies is very useful for users and
+contributors. If an user encounters issues while running tests locally, using the frozen
+dependencies from CI could fix the problems or provide a reproducible environment for debugging.
+Overall, this improves support, debugging speed, and community contribution experience.
+
+How to pin dependencies
+-----------------------
+
+Depending on the type of project, different tools can be used to manage and pin dependencies.
+In the following, we assume that your project has defined
+`optional installation targets <https://dev.docs.pyansys.com/how-to/packaging.html#optional-target-recommendations-in-the-pyansys-ecosystem>`_
+to illustrate how to install specific subsets of dependencies.
+
+If you are using `poetry <https://python-poetry.org/>`_, you can use the ``poetry lock``
+command to generate a ``poetry.lock`` file with all the dependencies and their versions.
+Once the lock file created, you can use the following command in your CI workflow to install
+the project with `tests` dependencies:
+
+.. code-block:: yaml
+
+    - name: Install dependencies with extra tests
+      run: |
+        poetry install --with tests
+
+If your project uses `flit` or `hatch`, you can use `uv <https://github.com/astral-sh/uv>`_
+to fastly resolve the dependencies and generate a requirements file. You can use the
+``uv pip compile -o requirements.txt pyproject.toml`` command to generate a ``requirements.txt``
+file with the main dependencies defined in your project. Note that, contrary to the
+``poetry.lock`` file, the requirements file does not include the variations for each installation
+target. To create a requirements file with a specific extra, you can use the ``--extras`` option.
+For example, you can create a requirement file with the `tests` extra by running the
+``uv pip compile --extra tests -o requirements-tests.txt pyproject.toml``. Once the file created,
+you can use the following command in your CI workflow to install the project with `tests`
+dependencies:
+
+.. code-block:: yaml
+
+    - name: Install dependencies with extra tests
+      run: |
+        pip install -r requirements-tests.txt
