@@ -189,7 +189,7 @@ Importance of pinned dependencies
 
 .. note::
   
-    This guidance applies to CI workflows. It does apply to the
+    This guidance applies to CI workflows. It does not apply to the
     `dependency version range <https://dev.docs.pyansys.com/how-to/packaging.html#dependency-version-range>`_.
     of the project itself.
 
@@ -202,11 +202,11 @@ failures without any code change. In fact, problems can occur at different level
   in API behavior, deprecations, or regressions, affecting production code.
 - Test failures: A minor update of a testing library could introduce breaking changes or
   modify test behavior, causing false negatives or false positives.
-- Documentation build breaks: A documentation generator like `Sphinx` might introduce
+- Documentation build failures: A documentation generator like `Sphinx` might introduce
   subtle or breaking changes, like new warnings treated as errors or theme updates breaking
   rendering, causing your docs build to fail.
 
-Pinning dependencies avoid these issues by freezing exact versions and ensure that CI
+Pinning dependencies helps to avoid these issues by freezing exact versions and ensuring that CI
 workflows are reliable and predictable.
 
 Additionally, having a complete, pinned set of dependencies is very useful for users and
@@ -234,13 +234,13 @@ the project with `tests` dependencies:
         poetry install --with tests
 
 If your project uses `flit` or `hatch`, you can use `uv <https://github.com/astral-sh/uv>`_
-to fastly resolve the dependencies and generate a requirements file. You can use the
+to resolve the dependencies and generate a requirements file. You can use the
 ``uv pip compile -o requirements.txt pyproject.toml`` command to generate a ``requirements.txt``
-file with the main dependencies defined in your project. Note that, contrary to the
+file with the main dependencies defined in your project. Note that, unlike the
 ``poetry.lock`` file, the requirements file does not include the variations for each installation
 target. To create a requirements file with a specific extra, you can use the ``--extras`` option.
 For example, you can create a requirement file with the `tests` extra by running the
-``uv pip compile --extra tests -o requirements-tests.txt pyproject.toml``. Once the file created,
+``uv pip compile --extra tests -o requirements-tests.txt pyproject.toml``. Once the file has been created,
 you can use the following command in your CI workflow to install the project with `tests`
 dependencies:
 
