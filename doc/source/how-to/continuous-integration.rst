@@ -218,7 +218,7 @@ How to pin dependencies
 -----------------------
 
 Depending on the type of project, different tools can be used to manage and pin dependencies.
-In the following, we assume that your project has defined
+In the following, this guidance assumes that your project has defined
 `optional installation targets <https://dev.docs.pyansys.com/how-to/packaging.html#optional-target-recommendations-in-the-pyansys-ecosystem>`_
 to illustrate how to install specific subsets of dependencies.
 
