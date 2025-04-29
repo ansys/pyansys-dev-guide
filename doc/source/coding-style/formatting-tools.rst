@@ -17,13 +17,13 @@ Ruff
 | `Ruff`_ is a Python linter and code formatter written in Rust. 
 | It aims to be orders of magnitude faster than alternative tools while integrating more 
  functionality behind a single, common interface.
-| Ruff can be used to replace linters and formatters like ``Flake8`` (natively re-implementing 
- its popular plugins), ``Black`` and ``isort``: It provides drop-in parity with these tools, 
- while executing tens or hundreds of times faster. It is actively developed and used in major 
- open-source projects. 
+| Ruff can therefore be used to replace the previously preferred alternatives that were 
+ `Flake8`_ (natively re-implementing its popular plugins), `Black`_ and `isort`_: It 
+ provides drop-in parity with these tools, while executing tens or hundreds of times faster. 
+ It is actively developed and used in major open-source projects. 
 | In addition, it offers the following features and advantages:
 
-- Installable via ``pip``
+- Can be installed via ``pip install ruff``
 
 - ``pyproject.toml`` support
 
@@ -69,99 +69,11 @@ may look like this:
     combine-as-imports = true
     force-sort-within-sections = true
 
-| When migrating a project to Ruff, linting and formatting rules shall be added step by step, 
+| Linting and formatting rules shall be added step by step when migrating a project to Ruff, 
  gradually resolving the triggered errors. 
 | For more information about configuring Ruff, as well as a complete description of the available 
  rules and settings, please refer to the `tool's documentation 
  <https://docs.astral.sh/ruff/configuration/>`__.
-
-
-Black
------
-
-`Black`_ is the most popular code formatter in the Python community because it is
-maintained by the Python Software Foundation. It allows for a minimum
-configuration to ensure that the Python code format looks almost the same across
-projects. 
-
-While `PEP 8`_ imposes a default line length of 79 characters, Black has
-a default line length of 88 characters.
-
-The minimum Black configuration for a PyAnsys project should look like this:
-
-.. code-block:: toml
-
-    [tool.black]
-    line-length = "<length>"
-
-
-The ``isort`` tool
-------------------
-
-The goal of `isort`_  is to properly format ``import`` statements by making sure
-that they follow the standard order:
-
-#. Library
-#. Third-party libraries
-#. Custom libraries
-
-When using `isort`_ with `Black`_, it is important to properly configure both
-tools so that no conflicts arise. To accomplish this, use the
-``--profile black`` flag in ``isort``.
-
-.. code-block:: toml
-
-   [tool.isort]
-   profile = "black"
-   force_sort_within_sections = true
-   line_length = "<length>"
-   src_paths = ["doc", "src", "tests"]
-
-Flake8
-------
-
-The goal of `Flake8`_ is to act as a `PEP 8`_ compliance checker. Again, if
-this tool is being used with `Black`_, it is important to make sure that no
-conflicts arise.
-
-The following configuration is the minimum one to set up Flake8 together with
-Black.
-
-The configuration for Flake8 must be specified in a ``.flake8`` file.
-
-.. code-block:: toml
-
-   [flake8]
-   max-line-length = 88
-   extend-ignore = 'E203'
-
-Flake8 has many options that can be set within the configuration file.
-For more information, see `Full Listing of Options and Their Descriptions
-<https://flake8.pycqa.org/en/latest/user/options.html>`__ in the Flake8
-documentation.
-
-The example configuration defines these options:
-
-- ``exclude``
-    Subdirectories and files to exclude when checking.
-
-- ``select``
-    Sequence of error codes that Flake8 is to report errors
-    for. The set in the preceding configuration is a basic set of errors
-    for checking and is not an exhaustive list. For more information, see
-    `Error/Violation Codes <https://flake8.pycqa.org/en/3.9.2/user/error-codes.html>`__
-    in the Flake8 documentation.
-
-- ``count``
-    Total number of errors to print when checking ends.
-
-- ``max-complexity``
-    Maximum allowed McCabe complexity value for a block of code.
-    The value of 10 was chosen because it is a common default.
-
-- ``statistics``
-    Number of occurrences of each error or warning code
-    to print as a report when checking ends.
 
 
 The ``Add-license-headers`` pre-commit hook
