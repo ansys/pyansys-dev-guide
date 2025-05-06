@@ -99,11 +99,11 @@ Actions that you might take include these:
 Resolve too long line lengths and broken links
 ----------------------------------------------
 
-In PyAnsys projects, `Flake8 <Flake8_>`_ is a code style tool in the CI/CD process
-that checks the quality of the Python code. When you run ``pre-commit`` locally,
-Flake8 is one of the tools that it is configured to run. If Flake8 finds a line in a
-Python file that is too long, it raises an error. Providing that this line is a
-docstring or message string, you can manually change it in the PY file.
+In PyAnsys projects, `Ruff`_ is a code style tool in the CI/CD process that checks the 
+quality of the Python code. When you run ``pre-commit`` locally, Ruff is one of the tools 
+that it is configured to run. If Ruff finds a line in a Python file that is too long, 
+it raises an error. Providing that this line is a docstring or message string, you can 
+manually change it in the PY file.
 
 Sometimes, however, the line that is too long is for a URL added to the ``linkcheck_ignore``
 variable in the Sphinx configuration (``doc/source/conf.py``) file. Here is an example of how
@@ -150,23 +150,23 @@ Here is what adding these lines looks like:
         "38-comments-and-docstrings",
     ]
 
-If you committed the preceding changes, Sphinx would no longer find any broken links. However, Flake8
+If you committed the preceding changes, Sphinx would no longer find any broken links. However, Ruff
 would throw line length errors for the two lines that define the items for the ``linkcheck_ignore`` variable
 in the Sphinx :file:`config.py` file. Because you cannot modify the length of these lines, you must follow
-each of these URLs (and any comment about it) with a space and then ``# noqa: 501``.
+each of these URLs (and any comment about it) with a space and then ``# noqa: E501``.
 
-You can scroll to the end of these lines to see how they now conclude with ``# noqa: 501``:
+You can scroll to the end of these lines to see how they now conclude with ``# noqa: E501``:
 
 .. code::
 
     # Linkcheck ignore too long lines
 
     linkcheck_ignore = [
-        "https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706", # Join Ansys GitHub account # noqa: 501
-        "https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706", # Join Ansys internal GitHub account # noqa: 501
+        "https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706", # Join Ansys GitHub account # noqa: E501
+        "https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706", # Join Ansys internal GitHub account # noqa: E501
     ]
 
-When you commit these changes, Flake sees the ``# noqa: 501`` comments at the end of these lines
+When you commit these changes, Ruff sees the ``# noqa: E501`` comments at the end of these lines
 and knows to ignore their long line lengths.
 
 .. _resolve_mismatched_message_strings:

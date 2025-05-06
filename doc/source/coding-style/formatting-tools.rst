@@ -127,20 +127,11 @@ configuration that includes both code and documentation formatting tools.
 
     repos:
     
-    - repo: https://github.com/psf/black
-      rev: X.Y.Z
+    - repo: https://github.com/astral-sh/ruff-pre-commit
+      rev: vX.Y.Z
       hooks:
-      - id: black
-    
-    - repo: https://github.com/pycqa/isort
-      rev: X.Y.Z
-      hooks:
-      - id: isort
-    
-    - repo: https://github.com/PyCQA/flake8
-      rev: X.Y.Z
-      hooks:
-      - id: flake8
+      - id: ruff
+      - id: ruff-format
     
     - repo: https://github.com/codespell-project/codespell
       rev: vX.Y.Z
