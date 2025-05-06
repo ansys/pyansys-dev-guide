@@ -75,7 +75,6 @@ class InstanceCustomAdapter(logging.LoggerAdapter):
             Level of logging, for example ``'DEBUG'``. By default
             ``logging.DEBUG``.
         """
-
         self.logger = add_file_handler(
             self.logger, filename=filename, level=level, write_headers=True
         )
@@ -191,7 +190,6 @@ class Logger:
         cleanup=True,
     ):
         """Initialize Logger class."""
-
         self.logger = logging.getLogger("pyproject_global")  # Creating default main logger.
         self.logger.addFilter(InstanceFilter())
         self.logger.setlevel(level)
@@ -229,7 +227,6 @@ class Logger:
         level : str, optional
             Level of logging. E.x. 'DEBUG'. By default LOG_LEVEL
         """
-
         self = add_file_handler(self, filename=filename, level=level, write_headers=True)
 
     def log_to_stdout(self, level=LOG_LEVEL):
@@ -240,7 +237,6 @@ class Logger:
         level : str, optional
             Level of logging record. By default LOG_LEVEL
         """
-
         self = add_stdout_handler(self, level=level)
 
     def setlevel(self, level="DEBUG"):
@@ -377,7 +373,7 @@ class Logger:
             raise KeyError(f"There are no instances with name {key}")
 
     def add_handling_uncaught_expections(self, logger):
-        """This just redirects the output of an exception to the logger."""
+        """Just redirects the output of an exception to the logger."""
 
         def handle_exception(exc_type, exc_value, exc_traceback):
             if issubclass(exc_type, KeyboardInterrupt):
@@ -424,7 +420,6 @@ def add_file_handler(logger, filename=FILE_NAME, level=LOG_LEVEL, write_headers=
     logger
         Return the logger or Logger object.
     """
-
     file_handler = logging.FileHandler(filename)
     file_handler.setlevel(level)
     file_handler.setFormatter(logging.Formatter(FILE_MSG_FORMAT))
@@ -461,7 +456,6 @@ def add_stdout_handler(logger, level=LOG_LEVEL, write_headers=False):
     logger
         The logger or Logger object.
     """
-
     std_out_handler = logging.StreamHandler(sys.stdout)
     std_out_handler.setlevel(level)
     std_out_handler.setFormatter(PyProjectFormatter(STDOUT_MSG_FORMAT))
