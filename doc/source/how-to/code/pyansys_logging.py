@@ -95,11 +95,11 @@ class InstanceCustomAdapter(logging.LoggerAdapter):
         self.logger = add_stdout_handler(self.logger, level=level)
         self.std_out_handler = self.logger.std_out_handler
 
-    def setLevel(self, level="DEBUG"):
+    def setlevel(self, level="DEBUG"):
         """Change the log level of the object and the attached handlers."""
-        self.logger.setLevel(level)
+        self.logger.setlevel(level)
         for each_handler in self.logger.handlers:
-            each_handler.setLevel(level)
+            each_handler.setlevel(level)
         self.level = level
 
 
@@ -194,7 +194,7 @@ class Logger:
 
         self.logger = logging.getLogger("pyproject_global")  # Creating default main logger.
         self.logger.addFilter(InstanceFilter())
-        self.logger.setLevel(level)
+        self.logger.setlevel(level)
         self.logger.propagate = True
         self.level = self.logger.level  # TODO: TO REMOVE
 
@@ -243,11 +243,11 @@ class Logger:
 
         self = add_stdout_handler(self, level=level)
 
-    def setLevel(self, level="DEBUG"):
+    def setlevel(self, level="DEBUG"):
         """Change the log level of the object and the attached handlers."""
-        self.logger.setLevel(level)
+        self.logger.setlevel(level)
         for each_handler in self.logger.handlers:
-            each_handler.setLevel(level)
+            each_handler.setlevel(level)
         self._level = level
 
     def _make_child_logger(self, suffix, level):
@@ -276,17 +276,17 @@ class Logger:
                     # loglevel if the specified log level is lower
                     # than the one of the global.
                     if each_handler.level > string_to_loglevel[level.upper()]:
-                        new_handler.setLevel(level)
+                        new_handler.setlevel(level)
 
                 logger.addHandler(new_handler)
 
         if level:
             if isinstance(level, str):
                 level = string_to_loglevel[level.upper()]
-            logger.setLevel(level)
+            logger.setlevel(level)
 
         else:
-            logger.setLevel(self.logger.level)
+            logger.setlevel(self.logger.level)
 
         logger.propagate = True
         return logger
@@ -395,7 +395,7 @@ class Logger:
                 for handler in self.logger.handlers:
                     handler.close()
                     self.logger.removeHandler(handler)
-            except Exception as e:
+            except Exception:
                 try:
                     if self.logger is not None:
                         self.logger.error("The logger was not deleted properly.")
@@ -426,7 +426,7 @@ def add_file_handler(logger, filename=FILE_NAME, level=LOG_LEVEL, write_headers=
     """
 
     file_handler = logging.FileHandler(filename)
-    file_handler.setLevel(level)
+    file_handler.setlevel(level)
     file_handler.setFormatter(logging.Formatter(FILE_MSG_FORMAT))
 
     if isinstance(logger, Logger):
@@ -463,7 +463,7 @@ def add_stdout_handler(logger, level=LOG_LEVEL, write_headers=False):
     """
 
     std_out_handler = logging.StreamHandler(sys.stdout)
-    std_out_handler.setLevel(level)
+    std_out_handler.setlevel(level)
     std_out_handler.setFormatter(PyProjectFormatter(STDOUT_MSG_FORMAT))
 
     if isinstance(logger, Logger):
