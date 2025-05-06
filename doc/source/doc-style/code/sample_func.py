@@ -25,7 +25,7 @@ def func(arg1, arg2):
 
     Examples
     --------
-    >>> func(1, 'foo')
+    >>> func(1, "foo")
     True
 
     """

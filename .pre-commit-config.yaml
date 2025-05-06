@@ -5,6 +5,7 @@ repos:
   rev: v0.11.8
   hooks:
     - id: ruff
+    - id: ruff-format
 
 - repo: https://github.com/adamchainz/blacken-docs
   rev: 1.19.1

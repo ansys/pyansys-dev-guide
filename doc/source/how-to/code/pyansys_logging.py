@@ -10,9 +10,7 @@ FILE_NAME = "PyProject.log"
 
 
 # Formatting
-STDOUT_MSG_FORMAT = (
-    "%(levelname)s - %(instance_name)s - %(module)s - %(funcName)s - %(message)s"
-)
+STDOUT_MSG_FORMAT = "%(levelname)s - %(instance_name)s - %(module)s - %(funcName)s - %(message)s"
 FILE_MSG_FORMAT = STDOUT_MSG_FORMAT
 
 DEFAULT_STDOUT_HEADER = """
@@ -194,9 +192,7 @@ class Logger:
     ):
         """Initialize Logger class."""
 
-        self.logger = logging.getLogger(
-            "pyproject_global"
-        )  # Creating default main logger.
+        self.logger = logging.getLogger("pyproject_global")  # Creating default main logger.
         self.logger.addFilter(InstanceFilter())
         self.logger.setLevel(level)
         self.logger.propagate = True
@@ -234,9 +230,7 @@ class Logger:
             Level of logging. E.x. 'DEBUG'. By default LOG_LEVEL
         """
 
-        self = add_file_handler(
-            self, filename=filename, level=level, write_headers=True
-        )
+        self = add_file_handler(self, filename=filename, level=level, write_headers=True)
 
     def log_to_stdout(self, level=LOG_LEVEL):
         """Add standard output handler to the logger.
@@ -333,9 +327,7 @@ class Logger:
                 self._make_child_logger("NO_NAMED_YET", level), product_instance
             )
         else:
-            raise TypeError(
-                f"``name`` parameter must be a string or None, not f{type(name)}"
-            )
+            raise TypeError(f"``name`` parameter must be a string or None, not f{type(name)}")
 
         return instance_logger
 
@@ -391,9 +383,7 @@ class Logger:
             if issubclass(exc_type, KeyboardInterrupt):
                 sys.__excepthook__(exc_type, exc_value, exc_traceback)
                 return
-            logger.critical(
-                "Uncaught exception", exc_info=(exc_type, exc_value, exc_traceback)
-            )
+            logger.critical("Uncaught exception", exc_info=(exc_type, exc_value, exc_traceback))
 
         sys.excepthook = handle_exception
 

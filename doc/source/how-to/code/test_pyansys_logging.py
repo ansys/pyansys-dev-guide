@@ -16,10 +16,7 @@ def test_default_logger():
         test_logger = pyansys_logging.Logger()
         test_logger.info("Test stdout")
 
-    assert (
-        "INFO -  - test_pyansys_logging - test_default_logger - Test stdout"
-        in capture.content
-    )
+    assert "INFO -  - test_pyansys_logging - test_default_logger - Test stdout" in capture.content
     # File handlers are not activated.
     assert os.path.exists(os.path.exists(os.path.join(os.getcwd(), "PyProject.log")))
 
@@ -99,9 +96,7 @@ def test_file_handlers(tmpdir):
     with open(file_logger, "r") as f:
         content = f.readlines()
 
-    assert os.path.exists(
-        file_logger
-    )  # The file handler is not the default PyProject.Log
+    assert os.path.exists(file_logger)  # The file handler is not the default PyProject.Log
     assert len(content) == 6
     assert "NEW SESSION" in content[2]
     assert (
@@ -109,10 +104,7 @@ def test_file_handlers(tmpdir):
         in content[3]
     )
     assert "LEVEL - INSTANCE NAME - MODULE - FUNCTION - MESSAGE" in content[4]
-    assert (
-        "INFO -  - test_pyansys_logging - test_file_handlers - Test Misc File"
-        in content[5]
-    )
+    assert "INFO -  - test_pyansys_logging - test_file_handlers - Test Misc File" in content[5]
 
     # Delete the logger and its file handler.
     test_logger_ref = weakref.ref(test_logger)
