@@ -14,14 +14,14 @@ cleaner root project directory.
 Ruff
 ----
 
-| `Ruff`_ is a Python linter and code formatter written in Rust. 
-| It aims to be orders of magnitude faster than alternative tools while integrating more 
- functionality behind a single, common interface.
-| Ruff can therefore be used to replace the previously preferred alternatives that were 
- `Flake8`_ (natively re-implementing its popular plugins), `Black`_ and `isort`_: It 
- provides drop-in parity with these tools, while executing tens or hundreds of times faster. 
- It is actively developed and used in major open-source projects. 
-| In addition, it offers the following features and advantages:
+`Ruff`_ is a Python linter and code formatter written in Rust. It aims to be 
+orders of magnitude faster than alternative tools while integrating more 
+functionality behind a single, common interface. Ruff can therefore be used 
+to replace the previously preferred alternatives that were `Flake8`_ 
+(natively re-implementing its popular plugins), `Black`_ and `isort`_.
+
+It is actively developed, used in major open-source projects, and offers the following 
+features and advantages:
 
 - Can be installed via ``pip install ruff``
 
@@ -59,7 +59,7 @@ may look like this:
         "TD",   # flake8-todos, https://docs.astral.sh/ruff/rules/#flake8-todos-td
     ]
     ignore = [
-    "rule_to_ignore", # list all rules that shall be ignored by the linter
+        "TD003", # Missing issue link in TODOs comment
     ]
 
     [tool.ruff.lint.pydocstyle]
@@ -69,11 +69,10 @@ may look like this:
     combine-as-imports = true
     force-sort-within-sections = true
 
-| Linting and formatting rules shall be added step by step when migrating a project to Ruff, 
- gradually resolving the triggered errors. 
-| For more information about configuring Ruff, as well as a complete description of the available 
- rules and settings, please refer to the `tool's documentation 
- <https://docs.astral.sh/ruff/configuration/>`__.
+Linting and formatting rules shall be added step by step when migrating a project to Ruff, 
+gradually resolving the triggered errors. For more information about configuring Ruff, as 
+well as a complete description of the available rules and settings, please refer to the 
+`tool's documentation <https://docs.astral.sh/ruff/configuration/>`__.
 
 
 The ``Add-license-headers`` pre-commit hook
