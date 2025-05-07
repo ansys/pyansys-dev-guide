@@ -21,8 +21,9 @@
 # SOFTWARE.
 
 """
-Adding a new gallery example.
+.. _adding_a_new_gallery_example:
 
+Adding a new gallery example
 ============================
 
 This example shows how to add a new example to the PyAnsys `Sphinx-Gallery

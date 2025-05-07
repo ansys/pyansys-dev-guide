@@ -26,6 +26,7 @@ ignore = [
     "D101",  # Missing docstring in public class
     "D102",  # Missing docstring in public method
     "D105",  # Missing docstring in magic method
+    "D400",  # First line should end with a period
     "TD002", # Missing author in TODOs comment
     "TD003", # Missing issue link in TODOs comment
 ]
