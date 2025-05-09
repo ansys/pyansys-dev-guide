@@ -937,7 +937,7 @@ Two best practices for examples are:
 Providing a template
 ~~~~~~~~~~~~~~~~~~~~
 
-Here is an example of how to promote the use of templates for examples:
+Here are examples of how to promote the use of templates for examples:
 
 - `PyAnsys Geometry examples template <PyAnsys_geometry_examples_template_>`_
 - `PyPrimeMesh examples template <PyPrimemesh_examples_template_>`_
