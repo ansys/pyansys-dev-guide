@@ -51,6 +51,10 @@
 .. _Links_for_pymapdl: https://github.com/ansys/pymapdl/blob/main/doc/source/links.rst
 .. _PyAEDT: https://github.com/ansys/pyaedt
 .. _PyAnsys_geometry_Docker_containers: https://geometry.docs.pyansys.com/version/stable/getting_started/docker/index.html
+.. _PyAnsys_geometry_examples_template: https://geometry.docs.pyansys.com/version/stable/examples/99_misc/template.html
+.. _PyAnsys_geometry_examples_contribution: https://geometry.docs.pyansys.com/version/stable/contributing.html#adding-examples
+.. _PyAnsys_geometry_pull_1893 : https://github.com/ansys/pyansys-geometry/pull/1893
+.. _PyPrimemesh_examples_template: https://prime.docs.pyansys.com/version/stable/examples/gallery_examples/misc/example_template.html#sphx-glr-examples-gallery-examples-misc-example-template-py
 .. _PyAnsys: https://docs.pyansys.com/version/stable/
 .. _PyAnsys Bot: https://github.com/apps/pyansys-bot
 .. _pyansys_proto_generator: https://github.com/ansys/pyansys-protos-generator
