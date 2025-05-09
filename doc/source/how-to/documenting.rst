@@ -918,22 +918,21 @@ If you have questions about SEO, email the `PyAnsys Core team <pyansys_core_emai
 Facilitating contributions in the form of examples
 --------------------------------------------------
 
-One of the main challenges we face inside our libraries is the lack of examples. Examples are
-critical for users to understand how to use the library and present new functionality. They are also
-a great mechanism to educate users on the best practices of using it.
+A common challenge in libraries is the lack of examples. Examples are
+critical for users to understand how to use the library and present new
+functionality. They also serve as a mechanism to educate users on best practices.
 
-When users want to contribute examples, we need to make it as easy as possible for them to do so. This
-means that we need to provide a clear structure for them to follow. We also need to make sure that the
-build process is as simple as possible.
+To encourage contributions of examples, it is important to provide a clear
+structure for contributors to follow. The build process should also be straightforward.
 
-2 best practices for examples are:
+Two best practices for examples are:
 
-- **Providing a template**: This is a great way to ensure that users follow the same structure. It also makes it easy for
-  them to get started. The template should include all the necessary information, such as the name of the
-  example, a description, and the code itself.
-- **Verifying the example**: This is a great way to ensure that the example works as expected. It also helps to catch any
-  errors before they are submitted. The verification process should include running the example and checking
-  the output. If the example fails, it should be easy for the user to fix it.
+- **Providing a template**: Ensures that contributors follow a consistent structure and
+  simplifies the process of getting started. The template should include all necessary
+  information, such as the name of the example, a description, and the code itself.
+- **Verifying the example**: Ensures that the example works as expected and helps catch
+  errors before submission. The verification process should involve running the example
+  and checking the output. If the example fails, it should be easy to identify and fix the issue.
 
 Providing a template
 ~~~~~~~~~~~~~~~~~~~~
@@ -943,23 +942,24 @@ Here is an example of how to promote the use of templates for examples:
 - `PyAnsys Geometry examples template <PyAnsys_geometry_examples_template_>`_
 - `PyPrimeMesh examples template <PyPrimemesh_examples_template_>`_
 
-These templates are also referred to in the contributing guidelines:
+These templates are also referenced in the contributing guidelines:
 
 - `PyAnsys Geometry example contribution guidelines <PyAnsys_geometry_examples_contribution_>`_
 
 Verifying examples
 ~~~~~~~~~~~~~~~~~~
 
-The verification process will depend on each library and the tools used for generating the examples. Within
-our ecosystem, we are using Sphinx Gallery and NBSphinx to generate the examples, and the build process
-is slightly different for each library.
+The verification process depends on the library and the tools used for generating the examples.
+Within the PyAnsys ecosystem, Sphinx Gallery and NBSphinx are commonly used to generate examples,
+with slightly different build processes for each library.
 
-However, the following approach could be useful for all libraries:
+The following approach can be applied across libraries:
 
-- Create a Makefile target that only runs a specific example.
+- Create a ``Makefile`` target that runs a specific example.
 
-This target should be used to run the example and check the output. If the example fails, it should be easy for the user to fix it.
-An example of this is the ``make`` target in PyAnsys Geometry:
+This target is used to execute the example and check the output. If the example fails,
+it should be straightforward to identify and resolve the issue. For instance, PyAnsys Geometry
+includes a ``make`` target for this purpose:
 
 .. code-block:: console
 
@@ -969,5 +969,6 @@ An example of this is the ``make`` target in PyAnsys Geometry:
 
     make single-example examples/01_getting_started/01_math.mystnb
 
-The pull request in which this was added is: `PyAnsys Geometry PR #1893 <PyAnsys_geometry_pull_1893_>`_
-This implementation is specific for NB Sphinx, but the idea is to create a target that runs a specific example and checks the output.
+The pull request introducing this feature is: `PyAnsys Geometry PR #1893 <PyAnsys_geometry_pull_1893_>`_
+This implementation is specific to NB Sphinx, but the concept of creating a target to run a specific
+example and verify its output can be adapted to other libraries.
