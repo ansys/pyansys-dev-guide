@@ -94,11 +94,11 @@ class InstanceCustomAdapter(logging.LoggerAdapter):
         self.logger = add_stdout_handler(self.logger, level=level)
         self.std_out_handler = self.logger.std_out_handler
 
-    def setlevel(self, level="DEBUG"):
+    def setLevel(self, level="DEBUG"):
         """Change the log level of the object and the attached handlers."""
-        self.logger.setlevel(level)
+        self.logger.setLevel(level)
         for each_handler in self.logger.handlers:
-            each_handler.setlevel(level)
+            each_handler.setLevel(level)
         self.level = level
 
 
@@ -192,7 +192,7 @@ class Logger:
         """Initialize Logger class."""
         self.logger = logging.getLogger("pyproject_global")  # Creating default main logger.
         self.logger.addFilter(InstanceFilter())
-        self.logger.setlevel(level)
+        self.logger.setLevel(level)
         self.logger.propagate = True
         self.level = self.logger.level  # TODO: TO REMOVE
 
@@ -373,7 +373,7 @@ class Logger:
             raise KeyError(f"There are no instances with name {key}")
 
     def add_handling_uncaught_expections(self, logger):
-        """Just redirects the output of an exception to the logger."""
+        """Redirect the output of an exception to the logger."""
 
         def handle_exception(exc_type, exc_value, exc_traceback):
             if issubclass(exc_type, KeyboardInterrupt):
