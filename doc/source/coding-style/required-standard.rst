@@ -31,8 +31,7 @@ Required ``pyproject.toml`` file configuration
         "PTH",  # flake8-use-pathlib, https://docs.astral.sh/ruff/rules/#flake8-use-pathlib-pth
         "TD",   # flake8-todos, https://docs.astral.sh/ruff/rules/#flake8-todos-td
     ]
-    ignore = [
-    ]
+    ignore = []
 
     [tool.ruff.lint.pydocstyle]
     convention = "numpy"
