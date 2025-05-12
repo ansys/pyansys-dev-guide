@@ -239,11 +239,11 @@ class Logger:
         """
         self = add_stdout_handler(self, level=level)
 
-    def setlevel(self, level="DEBUG"):
+    def setLevel(self, level="DEBUG"):
         """Change the log level of the object and the attached handlers."""
-        self.logger.setlevel(level)
+        self.logger.setLevel(level)
         for each_handler in self.logger.handlers:
-            each_handler.setlevel(level)
+            each_handler.setLevel(level)
         self._level = level
 
     def _make_child_logger(self, suffix, level):
@@ -272,17 +272,17 @@ class Logger:
                     # loglevel if the specified log level is lower
                     # than the one of the global.
                     if each_handler.level > string_to_loglevel[level.upper()]:
-                        new_handler.setlevel(level)
+                        new_handler.setLevel(level)
 
                 logger.addHandler(new_handler)
 
         if level:
             if isinstance(level, str):
                 level = string_to_loglevel[level.upper()]
-            logger.setlevel(level)
+            logger.setLevel(level)
 
         else:
-            logger.setlevel(self.logger.level)
+            logger.setLevel(self.logger.level)
 
         logger.propagate = True
         return logger
@@ -421,7 +421,7 @@ def add_file_handler(logger, filename=FILE_NAME, level=LOG_LEVEL, write_headers=
         Return the logger or Logger object.
     """
     file_handler = logging.FileHandler(filename)
-    file_handler.setlevel(level)
+    file_handler.setLevel(level)
     file_handler.setFormatter(logging.Formatter(FILE_MSG_FORMAT))
 
     if isinstance(logger, Logger):
@@ -457,7 +457,7 @@ def add_stdout_handler(logger, level=LOG_LEVEL, write_headers=False):
         The logger or Logger object.
     """
     std_out_handler = logging.StreamHandler(sys.stdout)
-    std_out_handler.setlevel(level)
+    std_out_handler.setLevel(level)
     std_out_handler.setFormatter(PyProjectFormatter(STDOUT_MSG_FORMAT))
 
     if isinstance(logger, Logger):
