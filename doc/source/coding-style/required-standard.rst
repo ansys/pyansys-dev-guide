@@ -32,7 +32,6 @@ Required ``pyproject.toml`` file configuration
         "TD",   # flake8-todos, https://docs.astral.sh/ruff/rules/#flake8-todos-td
     ]
     ignore = [
-        "TD003", # Missing issue link in TODOs comment
     ]
 
     [tool.ruff.lint.pydocstyle]
