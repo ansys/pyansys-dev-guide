@@ -11,92 +11,68 @@ Most of the tools presented can be configured using :ref:`the
 \`\`pyproject.toml\`\` file`. Avoiding dotfiles leads to a much
 cleaner root project directory.
 
-Black
------
+Ruff
+----
 
-`Black`_ is the most popular code formatter in the Python community because it is
-maintained by the Python Software Foundation. It allows for a minimum
-configuration to ensure that the Python code format looks almost the same across
-projects. 
+`Ruff`_ is a Python linter and code formatter written in Rust. It aims to be 
+orders of magnitude faster than alternative tools while integrating more 
+functionality behind a single, common interface. Ruff can therefore be used 
+to replace the previously preferred alternatives that were `Flake8`_ 
+(natively re-implementing its popular plugins), `Black`_ and `isort`_.
 
-While `PEP 8`_ imposes a default line length of 79 characters, Black has
-a default line length of 88 characters.
+It is actively developed, used in major open-source projects, and offers the following 
+features and advantages:
 
-The minimum Black configuration for a PyAnsys project should look like this:
+- Can be installed via ``pip install ruff``
 
-.. code-block:: toml
+- ``pyproject.toml`` support
 
-    [tool.black]
-    line-length = "<length>"
+- Python 3.7 to 3.13 compatibility
 
+- Built-in caching, to avoid re-analyzing unchanged files
 
-The ``isort`` tool
-------------------
+- Over 800 built-in rules
 
-The goal of `isort`_  is to properly format ``import`` statements by making sure
-that they follow the standard order:
+- Editor integrations for VS Code or PyCharm
 
-#. Library
-#. Third-party libraries
-#. Custom libraries
-
-When using `isort`_ with `Black`_, it is important to properly configure both
-tools so that no conflicts arise. To accomplish this, use the
-``--profile black`` flag in ``isort``.
+A minimum Ruff configuration for a PyAnsys project (to be included in the ``pyproject.toml``)
+may look like this:
 
 .. code-block:: toml
 
-   [tool.isort]
-   profile = "black"
-   force_sort_within_sections = true
-   line_length = "<length>"
-   src_paths = ["doc", "src", "tests"]
+    [tool.ruff]
+    line-length = 100
+    fix = true
 
-Flake8
-------
+    [tool.ruff.format]
+    quote-style = "double"
+    indent-style = "space"
 
-The goal of `Flake8`_ is to act as a `PEP 8`_ compliance checker. Again, if
-this tool is being used with `Black`_, it is important to make sure that no
-conflicts arise.
+    [tool.ruff.lint]
+    select = [
+        "E",    # pycodestyle, see https://docs.astral.sh/ruff/rules/#pycodestyle-e-w
+        "D",    # pydocstyle, see https://docs.astral.sh/ruff/rules/#pydocstyle-d
+        "F",    # pyflakes, see https://docs.astral.sh/ruff/rules/#pyflakes-f
+        "I",    # isort, see https://docs.astral.sh/ruff/rules/#isort-i
+        "N",    # pep8-naming, see https://docs.astral.sh/ruff/rules/#pep8-naming-n
+        "PTH",  # flake8-use-pathlib, https://docs.astral.sh/ruff/rules/#flake8-use-pathlib-pth
+        "TD",   # flake8-todos, https://docs.astral.sh/ruff/rules/#flake8-todos-td
+    ]
+    ignore = [
+        "TD003", # Missing issue link in TODOs comment
+    ]
 
-The following configuration is the minimum one to set up Flake8 together with
-Black.
+    [tool.ruff.lint.pydocstyle]
+    convention = "numpy"
 
-The configuration for Flake8 must be specified in a ``.flake8`` file.
+    [tool.ruff.lint.isort]
+    combine-as-imports = true
+    force-sort-within-sections = true
 
-.. code-block:: toml
-
-   [flake8]
-   max-line-length = 88
-   extend-ignore = 'E203'
-
-Flake8 has many options that can be set within the configuration file.
-For more information, see `Full Listing of Options and Their Descriptions
-<https://flake8.pycqa.org/en/latest/user/options.html>`__ in the Flake8
-documentation.
-
-The example configuration defines these options:
-
-- ``exclude``
-    Subdirectories and files to exclude when checking.
-
-- ``select``
-    Sequence of error codes that Flake8 is to report errors
-    for. The set in the preceding configuration is a basic set of errors
-    for checking and is not an exhaustive list. For more information, see
-    `Error/Violation Codes <https://flake8.pycqa.org/en/3.9.2/user/error-codes.html>`__
-    in the Flake8 documentation.
-
-- ``count``
-    Total number of errors to print when checking ends.
-
-- ``max-complexity``
-    Maximum allowed McCabe complexity value for a block of code.
-    The value of 10 was chosen because it is a common default.
-
-- ``statistics``
-    Number of occurrences of each error or warning code
-    to print as a report when checking ends.
+Linting and formatting rules shall be added step by step when migrating a project to Ruff, 
+gradually resolving the triggered errors. For more information about configuring Ruff, as 
+well as a complete description of the available rules and settings, please refer to the 
+`tool's documentation <https://docs.astral.sh/ruff/configuration/>`__.
 
 
 The ``Add-license-headers`` pre-commit hook
@@ -151,20 +127,11 @@ configuration that includes both code and documentation formatting tools.
 
     repos:
     
-    - repo: https://github.com/psf/black
-      rev: X.Y.Z
+    - repo: https://github.com/astral-sh/ruff-pre-commit
+      rev: vX.Y.Z
       hooks:
-      - id: black
-    
-    - repo: https://github.com/pycqa/isort
-      rev: X.Y.Z
-      hooks:
-      - id: isort
-    
-    - repo: https://github.com/PyCQA/flake8
-      rev: X.Y.Z
-      hooks:
-      - id: flake8
+      - id: ruff
+      - id: ruff-format
     
     - repo: https://github.com/codespell-project/codespell
       rev: vX.Y.Z

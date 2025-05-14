@@ -28,10 +28,10 @@ Run pre-commit locally
 
 `pre-commit <pre-commit_>`_ is a tool for ensuring that all the changes that you make to
 files in your project successfully pass all checks run by the code style tools that are
-configured as part of the CI/CD process. These tools, which typically include `Black <Black_>`_,
-`isort <isort_>`_, and `Flake8 <Flake8_>`_, analyze, format, review, and improve
-code quality and security. For more information on the code style tools most commonly
-configured for use in PyAnsys projects, see :ref:`code_style_tools`.
+configured as part of the CI/CD process. These tools, which typically include `Ruff`_, 
+analyze, format, review, and improve code quality and security. For more information on 
+the code style tools most commonly configured for use in PyAnsys projects, 
+see :ref:`code_style_tools`.
 
 Because you do not want the **Code style** check for your PyAnsys project to fail
 when you create or push changes to a PR, you want to periodically run ``pre-commit``
