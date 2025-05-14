@@ -933,6 +933,9 @@ Two best practices for examples are:
 - **Verifying the example**: Ensures that the example works as expected and helps catch
   errors before submission. The verification process should involve running the example
   and checking the output. If the example fails, it should be easy to identify and fix the issue.
+- **Making the example usable in multiple contexts**: Ensures that the example can be
+  usable by a user reading the documentation, an application engineer using the library
+  through a Notebook, or a developer including the example to the documentation.
 
 Providing a template
 ~~~~~~~~~~~~~~~~~~~~
@@ -972,3 +975,52 @@ includes a ``make`` target for this purpose:
 The pull request introducing this feature is: `PyAnsys Geometry PR #1893 <PyAnsys_geometry_pull_1893_>`_
 This implementation is specific to NB Sphinx, but the concept of creating a target to run a specific
 example and verify its output can be adapted to other libraries.
+
+Making the example usable in multiple contexts
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A core objective when designing examples is to ensure they can be used seamlessly across multiple
+contexts: whether it's by end users exploring them interactively, by documentation tools rendering
+them for the web, or by engineers verifying their correctness and updating them. Achieving this
+flexibility requires a careful balance between accessibility, structure, and maintainability.
+
+To support this goal, we recommend a workflow where examples are authored and maintained as plain
+Python scripts, but using `Jupytext <https://jupytext.readthedocs.io/en/latest/>`_ to treat those
+scripts as notebooks when needed. Formatting your examples using the
+`light format <https://jupytext.readthedocs.io/en/latest/formats-scripts.html#the-light-format>`_
+makes them makes them fully compatible with JupyterLab, where they can be opened, edited, and
+executed just like traditional notebooks - all without needing a IPYNB file. Here is an example
+of a Jupytext light format script:
+
+.. code-block:: python
+
+  # # Dipole antenna
+  #
+  # Keywords: **HFSS**, **antenna**, **3D component**, **far field**.
+  #
+  # ## Prerequisites
+  #
+  # ### Perform imports
+  #
+  # Import the packages required to run this example.
+
+  # +
+  import os
+  import tempfile
+  import time
+
+  from ansys.aedt.core import Hfss
+
+  # -
+
+  # ### Define constants
+  # Constants help ensure consistency and avoid repetition throughout the example.
+
+  AEDT_VERSION = "2025.1"
+  NUM_CORES = 4
+  NG_MODE = False  # Open AEDT UI when it is launched.
+
+Here are examples of PyAnsys projects using this approach:
+
+- `PyAEDT examples repository <PyAEDT-examples_>`_
+- `PySpeos repository <PySpeos_>`_

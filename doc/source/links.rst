@@ -50,6 +50,7 @@
 .. _grpc_hello_world: https://github.com/ansys/pyansys-helloworld
 .. _Links_for_pymapdl: https://github.com/ansys/pymapdl/blob/main/doc/source/links.rst
 .. _PyAEDT: https://github.com/ansys/pyaedt
+.. _PyAEDT-examples: https://github.com/ansys/pyaedt-examples
 .. _PyAnsys_geometry_Docker_containers: https://geometry.docs.pyansys.com/version/stable/getting_started/docker/index.html
 .. _PyAnsys_geometry_examples_template: https://geometry.docs.pyansys.com/version/stable/examples/99_misc/template.html
 .. _PyAnsys_geometry_examples_contribution: https://geometry.docs.pyansys.com/version/stable/contributing.html#adding-examples
@@ -68,6 +69,7 @@
 .. _PyMAPDL Legacy Reader: https://github.com/ansys/pymapdl-reader
 .. _PyMechanical: https://github.com/ansys/pymechanical
 .. _PyMeilisearch: https://pymeilisearch.docs.ansys.com/
+.. _PySpeos:https://github.com/ansys/pyspeos
 .. _PyPIM: https://github.com/ansys/pypim
 .. _python_installer_qt_ui_releases: https://github.com/ansys/python-installer-qt-gui/releases
 .. _review_bot: https://github.com/ansys/review-bot
