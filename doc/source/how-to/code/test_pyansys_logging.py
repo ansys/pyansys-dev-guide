@@ -84,7 +84,7 @@ def test_level_stdout():
     )
 
     # File handlers are not activated.
-    assert Path.exists(Path.exists(Path(Path.cwd() / "PyProject.log")))
+    assert (Path.cwd() / "PyProject.log").exists()
 
 
 def test_file_handlers(tmpdir):
