@@ -1,3 +1,5 @@
+"""Test for PyAnsys logging."""
+
 import io
 import logging
 from pathlib import Path
@@ -120,9 +122,11 @@ class CaptureStdOut:
         self._stream = io.StringIO()
 
     def __enter__(self):
+        """Runtime context is entered."""
         sys.stdout = self._stream
 
     def __exit__(self, type, value, traceback):
+        """Runtime context is exited."""
         sys.stdout = sys.__stdout__
 
     @property

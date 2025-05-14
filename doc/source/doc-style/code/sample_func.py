@@ -1,4 +1,4 @@
-def func(arg1, arg2):
+def func(arg1, arg2):  # noqa: D100
     """Summary line <should be only one line>.
 
     Extended description of the function. The extended description,

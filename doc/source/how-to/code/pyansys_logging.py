@@ -1,3 +1,5 @@
+"""Module for PyAnsys logging."""
+
 from copy import copy
 from datetime import datetime
 import logging
@@ -57,6 +59,7 @@ class InstanceCustomAdapter(logging.LoggerAdapter):
         self.std_out_handler = logger.std_out_handler
 
     def process(self, msg, kwargs):
+        """Get instance_name for logging."""
         kwargs["extra"] = {}
         # These are the extra parameters sent to log
         # here self.extra is the argument pass to the log records.
@@ -103,6 +106,8 @@ class InstanceCustomAdapter(logging.LoggerAdapter):
 
 
 class PyAnsysPercentStyle(logging.PercentStyle):
+    """Log message formatting."""
+
     def __init__(self, fmt, *, defaults=None):
         self._fmt = fmt or self.default_format
         self._defaults = defaults
@@ -151,6 +156,7 @@ class InstanceFilter(logging.Filter):
     """Ensures that instance_name record always exists."""
 
     def filter(self, record):
+        """If record had no attribute instance_name, create it and populate with empty string."""
         if not hasattr(record, "instance_name"):
             record.instance_name = ""
         return True
@@ -194,7 +200,7 @@ class Logger:
         self.logger.addFilter(InstanceFilter())
         self.logger.setLevel(level)
         self.logger.propagate = True
-        self.level = self.logger.level  # TODO: TO REMOVE
+        self.level = self.logger.level  # noqa: TD002, TD003 # TODO: TO REMOVE
 
         # Writing logging methods.
         self.debug = self.logger.debug
@@ -367,6 +373,7 @@ class Logger:
         return self._instances[new_name]
 
     def __getitem__(self, key):
+        """Define custom KeyError message."""
         if key in self._instances.keys():
             return self._instances[key]
         else:
