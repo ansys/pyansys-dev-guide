@@ -69,7 +69,7 @@
 .. _PyMAPDL Legacy Reader: https://github.com/ansys/pymapdl-reader
 .. _PyMechanical: https://github.com/ansys/pymechanical
 .. _PyMeilisearch: https://pymeilisearch.docs.ansys.com/
-.. _PySpeos:https://github.com/ansys/pyspeos
+.. _PySpeos: https://github.com/ansys/pyspeos
 .. _PyPIM: https://github.com/ansys/pypim
 .. _python_installer_qt_ui_releases: https://github.com/ansys/python-installer-qt-gui/releases
 .. _review_bot: https://github.com/ansys/review-bot
