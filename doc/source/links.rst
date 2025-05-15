@@ -85,6 +85,7 @@
 .. _Docker: https://www.docker.com/
 .. _Flake8: https://flake8.pycqa.org/en/latest/
 .. _isort: https://pycqa.github.io/isort/
+.. _Jupytext: https://jupytext.readthedocs.io/en/latest/
 .. _numpy: https://numpy.org/
 .. _pandas: https://pandas.pydata.org/
 .. _pre-commit: https://pre-commit.com/
@@ -105,6 +106,7 @@
 .. _Docutils: https://docutils.sourceforge.io/
 .. _doctest: https://docs.python.org/3/library/doctest.html
 .. _Google_docstrings: https://github.com/google/styleguide/blob/gh-pages/pyguide.md#38-comments-and-docstrings
+.. _Jupytext_light_format: https://jupytext.readthedocs.io/en/latest/formats-scripts.html#the-light-format
 .. _Notepadpp_downloads: https://notepad-plus-plus.org/downloads/
 .. _Notepadpp_searching: https://npp-user-manual.org/docs/searching/
 .. _numpydoc: https://numpydoc.readthedocs.io/en/latest/index.html
