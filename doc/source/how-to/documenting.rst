@@ -935,7 +935,7 @@ Two best practices for examples are:
   and checking the output. If the example fails, it should be easy to identify and fix the issue.
 - **Making the example usable in multiple contexts**: Ensures that the example can be
   usable by a user reading the documentation, an application engineer using the library
-  through a Notebook, or a developer including the example to the documentation.
+  through a notebook, or a developer including the example to the documentation.
 
 Providing a template
 ~~~~~~~~~~~~~~~~~~~~
@@ -980,11 +980,11 @@ Making the example usable in multiple contexts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A core objective when designing examples is to ensure they can be used seamlessly across multiple
-contexts: whether it's by end users exploring them interactively, by documentation tools rendering
+contexts: whether it is by end users exploring them interactively, by documentation tools rendering
 them for the web, or by engineers verifying their correctness and updating them. Achieving this
 flexibility requires a careful balance between accessibility, structure, and maintainability.
 
-To support this goal, we recommend a workflow where examples are authored and maintained as plain
+A recommended approach to support this goal is to author and maintain examples as plain
 Python scripts, but using `Jupytext <https://jupytext.readthedocs.io/en/latest/>`_ to treat those
 scripts as notebooks when needed. Formatting your examples using the
 `light format <https://jupytext.readthedocs.io/en/latest/formats-scripts.html#the-light-format>`_
