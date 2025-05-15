@@ -21,7 +21,7 @@ def test_default_logger():
 
     assert "INFO -  - test_pyansys_logging - test_default_logger - Test stdout" in capture.content
     # File handlers are not activated.
-    assert Path.exists(Path.exists(Path(Path.cwd() / "PyProject.log")))
+    assert (Path.cwd() / "PyProject.log").exists()
 
 
 def test_level_stdout():
