@@ -925,7 +925,7 @@ functionality. They also serve as a mechanism to educate users on best practices
 To encourage contributions of examples, it is important to provide a clear
 structure for contributors to follow. The build process should also be straightforward.
 
-Two best practices for examples are:
+Three best practices for examples are:
 
 - **Providing a template**: Ensures that contributors follow a consistent structure and
   simplifies the process of getting started. The template should include all necessary
