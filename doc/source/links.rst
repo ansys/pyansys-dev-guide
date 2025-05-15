@@ -88,6 +88,7 @@
 .. _numpy: https://numpy.org/
 .. _pandas: https://pandas.pydata.org/
 .. _pre-commit: https://pre-commit.com/
+.. _Ruff: https://docs.astral.sh/ruff/
 .. _scipy: https://scipy.org/
 .. _tox: https://tox.wiki/en/latest/
 .. _tox_repo: https://github.com/tox-dev/tox
