@@ -960,7 +960,8 @@ The following approach can be applied across libraries:
 
 - Create a ``Makefile`` target that runs a specific example.
 
-This target is used to execute the example and check the output. If the example fails,
+This target is used to execute the example and check the output. Only one example is build in this
+case, making it very useful for documentation builds that last very long. If the example fails,
 it should be straightforward to identify and resolve the issue. For instance, PyAnsys Geometry
 includes a ``make`` target for this purpose:
 
