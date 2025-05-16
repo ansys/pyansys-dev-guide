@@ -3,7 +3,7 @@ documentation:
   - any-glob-to-any-file: ['doc/source/**/*']
 maintenance:
 - changed-files:
-  - any-glob-to-any-file: ['.github/**/*', '.flake8', 'pyproject.toml', 'docker/**/*']
+  - any-glob-to-any-file: ['.github/**/*', 'ruff.toml', 'pyproject.toml', 'docker/**/*']
 dependencies:
 - changed-files:
   - any-glob-to-any-file: ['requirements/*']
