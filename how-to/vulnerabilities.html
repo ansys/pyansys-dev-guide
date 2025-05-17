@@ -1,0 +1,753 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Vulnerabilities &#8212; PyAnsys developer&#39;s guide</title>
+  
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/ansys_sphinx_theme.css?v=0909a4fa" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.nerdfonts.com/assets/css/webfont.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+  <!-- Include desired assets -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  
+
+  
+    <link href="../_static/css/breadcrumbs.css" rel="stylesheet" />
+  
+    <script src="../_static/documentation_options.js?v=663a866f"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'how-to/vulnerabilities';</script>
+    <link rel="icon" href="../_static/ansys-favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Style" href="../all-styles.html" />
+    <link rel="prev" title="Product compatibility" href="compatibility.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="2025-05-17" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="https://docs.pyansys.com/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/pyansys_logo_transparent_black.png" class="logo__image only-light" alt="PyAnsys developer's guide - Home"/>
+    <img src="../_static/pyansys_logo_transparent_white.png" class="logo__image only-dark pst-js-only" alt="PyAnsys developer's guide - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../content-writing/index.html">
+    Content writing
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+  
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../content-writing/index.html">
+    Content writing
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="setting-up.html">Environment setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supporting-python-versions.html">Python versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packaging.html">Packaging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpc-api-packages.html">gRPC API packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documenting.html">Documenting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releasing.html">Releasing and publishing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repository-protection.html">Repository protection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns-configuration.html">DNS configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compatibility.html">Product compatibility</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Vulnerabilities</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+         
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="https://docs.pyansys.com/" class="nav-link">PyAnsys</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a
+        href="../index.html"
+        class="nav-link"
+        aria-label="Home"
+      >
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="index.html" class="nav-link">How-to</a>
+    </li>
+      
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Vulnerabilities</span></li>
+    
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="vulnerabilities">
+<h1><a class="toc-backref" href="#id3" role="doc-backlink">Vulnerabilities</a><a class="headerlink" href="#vulnerabilities" title="Link to this heading">#</a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#vulnerabilities" id="id3">Vulnerabilities</a></p>
+<ul>
+<li><p><a class="reference internal" href="#vulnerability-sources" id="id4">Vulnerability sources</a></p></li>
+<li><p><a class="reference internal" href="#vulnerability-discovery-and-tracking" id="id5">Vulnerability discovery and tracking</a></p></li>
+<li><p><a class="reference internal" href="#vulnerability-remediation-and-reporting" id="id6">Vulnerability remediation and reporting</a></p></li>
+<li><p><a class="reference internal" href="#vulnerability-disclosure" id="id7">Vulnerability disclosure</a></p></li>
+<li><p><a class="reference internal" href="#ensuring-compliance-across-the-pyansys-ecosystem" id="id8">Ensuring compliance across the PyAnsys ecosystem</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>Vulnerabilities refer to potential security flaws or weaknesses in PyAnsys packages.
+Here are some examples of common vulnerabilities:</p>
+<ul class="simple">
+<li><p>Insufficient input validation or insecure handling of file paths leading to unauthorized access</p></li>
+<li><p>Insecure code and command injection into the app</p></li>
+<li><p>Remote code execution due to deserialization of untrusted code</p></li>
+<li><p>Disclosure of sensitive information due to weak exception handling</p></li>
+</ul>
+<section id="vulnerability-sources">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Vulnerability sources</a><a class="headerlink" href="#vulnerability-sources" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Vulnerabilities from PyAnsys library code</strong>: Maintainers are responsible for deciding whether to
+address vulnerabilities. The priority of vulnerabilities can be escalated internally if they represent
+a roadblock for usage. The Ansys business unit in charge of the project should handle
+vulnerabilities on a case-by-case basis.</p></li>
+<li><p><strong>Vulnerabilities from external package dependencies</strong>: When vulnerabilities exist in external packages
+used by PyAnsys libraries, such as NumPy or Matplotlib, Ansys should not address these vulnerabilities
+directly. Instead, raise an issue on the open source repository, pointing out the
+vulnerability and linking the applicable <a class="reference external" href="https://www.cve.org/">CVE</a>. At most, be mindful of deprecated packages and functions
+because they may not receive security patches and might introduce vulnerabilities into your codebase.</p></li>
+</ul>
+</section>
+<section id="vulnerability-discovery-and-tracking">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Vulnerability discovery and tracking</a><a class="headerlink" href="#vulnerability-discovery-and-tracking" title="Link to this heading">#</a></h2>
+<p>Leverage available security tools like dependency scanners or static
+analyzers (such as PyUp, Safety, or Bandit) to automatically detect and
+remediate security vulnerabilities in Python packages and dependencies.</p>
+<p>The PyAnsys ecosystem has implemented automated mechanisms to track and
+report vulnerabilities in the codebase. These tools are intended to be integrated
+into the CI/CD workflow of the repositories.</p>
+<p>The PyAnsys Core team has come up with a GitHub Action that can be used to
+automatically check for vulnerabilities in the codebase. This action is based on
+the following tools:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pyup.io/safety/">Safety</a> : Checks installed dependencies for known security vulnerabilities.</p></li>
+<li><p><a class="reference external" href="https://bandit.readthedocs.io/en/latest/">Bandit</a>: Attempts to find common security issues in Python code.</p></li>
+</ul>
+<p>Safety addresses external dependencies, while Bandit focuses on the codebase itself.
+Both tools have been integrated into the <code class="docutils literal notranslate"><span class="pre">ansys/actions/check-vulnerabilities</span></code> action.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The tools selected for the action are not definitive. The action can be modified to include
+other tools or to use different versions of the tools in the future.</p>
+</div>
+<p>For third-party packages, the PyAnsys Core team has listed a set of excluded advisories so
+that the action does not fail. This is done to avoid false positives and to ensure that the action
+does not block the CI/CD pipeline unnecessarily. You can find the list of excluded advisories
+in <a class="reference external" href="https://actions.docs.ansys.com/version/stable/vulnerability-actions/index.html#check-vulnerabilities-action">the action’s documentation</a>.</p>
+<p>For potential vulnerabilities in the codebase, repositories can configure Bandit to ignore specific
+advisories. This can be due to the code not being ready yet to be fixed or that the advisory is not relevant
+to the codebase. However, it is important to note that ignoring advisories should be done with caution,
+and developers should be aware of the potential risks involved. Furthermore, repository maintainers should
+document the reasons for ignoring advisories and ensure that they are regularly reviewed to determine if they
+can be addressed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An example on how to document the ignored advisories can be found in the <a class="reference external" href="https://acp.docs.pyansys.com/version/dev/user_guide/security_considerations.html">PyACP security considerations</a>
+documentation page. This should be taken as a reference for documenting ignored advisories in other repositories.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Testing the action locally before enabling it in the CI/CD workflow is recommended. Information on how
+to do this can be found in <a class="reference external" href="https://actions.docs.ansys.com/version/stable/vulnerability-actions/index.html#check-vulnerabilities-action">the action’s documentation</a>.</p>
+</div>
+</section>
+<section id="vulnerability-remediation-and-reporting">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Vulnerability remediation and reporting</a><a class="headerlink" href="#vulnerability-remediation-and-reporting" title="Link to this heading">#</a></h2>
+<p>When a vulnerability is detected, the action fails and reports the vulnerabilities found in the codebase.
+Following that, these vulnerabilities are reported as draft security advisories in the repository’s
+<strong>Security</strong> tab. Maintainers are then responsible for reviewing the advisories and deciding whether to address
+them or not. These advisories are monitored by the PyAnsys Core team and are escalated internally if they
+represent a roadblock for usage.</p>
+<p>Repositories should also have a process in place to handle vulnerabilities that are reported by users or
+other developers. For that purpose, a <code class="docutils literal notranslate"><span class="pre">SECURITY.md</span></code> file should be created in the root of the repository.
+This file should contain information on how to report vulnerabilities and the process for handling them.</p>
+<p>Here is an example of a <code class="docutils literal notranslate"><span class="pre">SECURITY.md</span></code> file:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span> ## Reporting a vulnerability
+
+<span class="k"> &gt; </span><span class="ge">[!CAUTION]</span>
+<span class="k"> &gt; </span><span class="ge">Do not use GitHub issues to report any security vulnerabilities.</span>
+
+ If you detect a vulnerability, contact the [<span class="nt">PyAnsys Core team</span>](<span class="na">mailto:pyansys.core@ansys.com</span>),
+ mentioning the repository and the details of your finding. The team will address it as soon as possible.
+
+Provide the PyAnsys Core team with this information:
+
+<span class="w"> </span><span class="k">-</span><span class="w"> </span>Any specific configuration settings needed to reproduce the problem
+<span class="w"> </span><span class="k">-</span><span class="w"> </span>Step-by-step guidance to reproduce the problem
+<span class="w"> </span><span class="k">-</span><span class="w"> </span>The exact location of the problematic source code, including tag, branch, commit, or a direct URL
+<span class="w"> </span><span class="k">-</span><span class="w"> </span>The potential consequences of the vulnerability, along with a description of how an attacker could take advantage of the issue
+</pre></div>
+</div>
+</section>
+<section id="vulnerability-disclosure">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Vulnerability disclosure</a><a class="headerlink" href="#vulnerability-disclosure" title="Link to this heading">#</a></h2>
+<p>When a vulnerability is detected and a decision is made to address it, the repository maintainers should
+create a private fork of the repository and create a pull request with the fix. Information on
+how to create such a temporary fork to resolve a vulnerability can be found in <a class="reference external" href="https://docs.github.com/en/code-security/security-advisories/working-with-repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability">Github’s documentation</a>.
+When opened, the pull request should be reviewed in depth and include tests to ensure that the
+vulnerability is fixed. Once the pull request is merged, the repository maintainers should create a new
+release with the fix and update the changelog accordingly.</p>
+<p>The release should be tagged with a new version number where the patch value has been incremented,
+and the changelog should include a note about the vulnerability and the fix. The note should include
+this information:</p>
+<ul class="simple">
+<li><p>The CVE number of the vulnerability (if applicable)</p></li>
+<li><p>A description of the vulnerability and its potential consequences</p></li>
+<li><p>A description of the fix and how it addresses the vulnerability</p></li>
+<li><p>A link to the pull request that fixed the vulnerability</p></li>
+</ul>
+<p>Additionally, the security advisory should be published on the repository’s <strong>Security</strong> tab.
+This advisory should include the same information as the changelog note, in other words the
+CVE number, the date of the advisory, and the status of the advisory (such as published or withdrawn).</p>
+<p>A reference of a published security advisory can be found here: <a class="reference external" href="https://github.com/ansys/pyansys-geometry/security/advisories/GHSA-38jr-29fh-w9vm">PyAnsys Geometry subprocess advisory</a>.
+This advisory was published in the PyAnsys Geometry repository and includes information about a vulnerability
+in which users could execute arbitrary code on the system by using one of this library’s functions.</p>
+</section>
+<section id="ensuring-compliance-across-the-pyansys-ecosystem">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Ensuring compliance across the PyAnsys ecosystem</a><a class="headerlink" href="#ensuring-compliance-across-the-pyansys-ecosystem" title="Link to this heading">#</a></h2>
+<p>The PyAnsys Core team is responsible for ensuring that the <code class="docutils literal notranslate"><span class="pre">ansys/actions/check-vulnerabilities</span></code> action is up to date and that it is
+being used in all PyAnsys repositories considered as libraries (that is, Python packages shipped to PyPI).
+Repository maintainers are responsible for ensuring that the action is implemented correctly and that the
+results are reviewed regularly.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vulnerability-sources">Vulnerability sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vulnerability-discovery-and-tracking">Vulnerability discovery and tracking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vulnerability-remediation-and-reporting">Vulnerability remediation and reporting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vulnerability-disclosure">Vulnerability disclosure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensuring-compliance-across-the-pyansys-ecosystem">Ensuring compliance across the PyAnsys ecosystem</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item"> 
+<div class="tocsection editthispage">
+  <a href="https://github.com/pyansys/dev-guide/edit/main/doc/source/how-to/vulnerabilities.rst">
+    <i class="fa-solid fa-pencil"></i>
+       Edit
+    on GitHub  
+  </a>
+</div>
+
+</div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <ul class="this-page-menu">
+      <li><a href="../_sources/how-to/vulnerabilities.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <!-- Include desired assets -->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.7/require.min.js"></script>
+
+<script>
+// Passing the search options to the search.js file
+const SEARCH_OPTIONS = JSON.parse('{"ignoreLocation": true, "keys": ["title", "text"], "limit": 10, "min_chars_for_search": 2, "threshold": 0.5}');
+const SEARCH_FILE = "../_static/search.json";
+</script>
+
+
+<script src="../_static/js/search.js"></script>
+  
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright (c) 2025 ANSYS, Inc. All rights reserved.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the
+  <a href="https://sphinxdocs.ansys.com/version/stable/index.html"
+    >Ansys Sphinx Theme</a
+  >
+  1.3.3. <br />Last updated on
+  <span id="ast_build_date"></span>
+</p>
+<script>
+  var options = { day: "numeric", month: "long", year: "numeric" };
+  var ast_lastModifiedDate = new Date(document.lastModified);
+  var ast_build_date = ast_lastModifiedDate.toLocaleDateString("en-US", options);
+  document.getElementById("ast_build_date").innerHTML = ast_build_date;
+</script></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
