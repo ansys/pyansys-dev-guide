@@ -989,7 +989,7 @@ A recommended approach to support this goal is to author and maintain examples a
 Python scripts, but using `Jupytext <Jupytext_>`_ to treat those
 scripts as notebooks when needed. Formatting your examples using the
 `Jupytext light format <Jupytext_light_format_>`_
-makes them makes them fully compatible with JupyterLab, where they can be opened, edited, and
+makes them fully compatible with JupyterLab, where they can be opened, edited, and
 executed just like traditional notebooks - all without needing a IPYNB file. Here is an example
 of a Jupytext light format script:
 
