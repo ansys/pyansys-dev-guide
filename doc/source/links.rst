@@ -50,7 +50,12 @@
 .. _grpc_hello_world: https://github.com/ansys/pyansys-helloworld
 .. _Links_for_pymapdl: https://github.com/ansys/pymapdl/blob/main/doc/source/links.rst
 .. _PyAEDT: https://github.com/ansys/pyaedt
+.. _PyAEDT-examples: https://github.com/ansys/pyaedt-examples
 .. _PyAnsys_geometry_Docker_containers: https://geometry.docs.pyansys.com/version/stable/getting_started/docker/index.html
+.. _PyAnsys_geometry_examples_template: https://geometry.docs.pyansys.com/version/stable/examples/99_misc/template.html
+.. _PyAnsys_geometry_examples_contribution: https://geometry.docs.pyansys.com/version/stable/contributing.html#adding-examples
+.. _PyAnsys_geometry_pull_1893 : https://github.com/ansys/pyansys-geometry/pull/1893
+.. _PyPrimemesh_examples_template: https://prime.docs.pyansys.com/version/stable/examples/gallery_examples/misc/example_template.html#sphx-glr-examples-gallery-examples-misc-example-template-py
 .. _PyAnsys: https://docs.pyansys.com/version/stable/
 .. _PyAnsys Bot: https://github.com/apps/pyansys-bot
 .. _pyansys_proto_generator: https://github.com/ansys/pyansys-protos-generator
@@ -64,6 +69,7 @@
 .. _PyMAPDL Legacy Reader: https://github.com/ansys/pymapdl-reader
 .. _PyMechanical: https://github.com/ansys/pymechanical
 .. _PyMeilisearch: https://pymeilisearch.docs.ansys.com/
+.. _PySpeos: https://github.com/ansys/pyspeos
 .. _PyPIM: https://github.com/ansys/pypim
 .. _python_installer_qt_ui_releases: https://github.com/ansys/python-installer-qt-gui/releases
 .. _review_bot: https://github.com/ansys/review-bot
@@ -79,9 +85,11 @@
 .. _Docker: https://www.docker.com/
 .. _Flake8: https://flake8.pycqa.org/en/latest/
 .. _isort: https://pycqa.github.io/isort/
+.. _Jupytext: https://jupytext.readthedocs.io/en/latest/
 .. _numpy: https://numpy.org/
 .. _pandas: https://pandas.pydata.org/
 .. _pre-commit: https://pre-commit.com/
+.. _Ruff: https://docs.astral.sh/ruff/
 .. _scipy: https://scipy.org/
 .. _tox: https://tox.wiki/en/latest/
 .. _tox_repo: https://github.com/tox-dev/tox
@@ -98,6 +106,7 @@
 .. _Docutils: https://docutils.sourceforge.io/
 .. _doctest: https://docs.python.org/3/library/doctest.html
 .. _Google_docstrings: https://github.com/google/styleguide/blob/gh-pages/pyguide.md#38-comments-and-docstrings
+.. _Jupytext_light_format: https://jupytext.readthedocs.io/en/latest/formats-scripts.html#the-light-format
 .. _Notepadpp_downloads: https://notepad-plus-plus.org/downloads/
 .. _Notepadpp_searching: https://npp-user-manual.org/docs/searching/
 .. _numpydoc: https://numpydoc.readthedocs.io/en/latest/index.html

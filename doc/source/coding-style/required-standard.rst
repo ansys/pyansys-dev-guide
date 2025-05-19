@@ -13,15 +13,33 @@ Required ``pyproject.toml`` file configuration
 
 .. code-block:: toml
 
-    [tool.black]
-    line-length = "<length>"
+    [tool.ruff]
+    line-length = 100
+    fix = true
 
-    [tool.isort]
-    profile = "black"
-    force_sort_within_sections = true
-    line_length = "<length>"
-    src_paths = ["doc", "src", "tests"]
+    [tool.ruff.format]
+    quote-style = "double"
+    indent-style = "space"
 
+    [tool.ruff.lint]
+    select = [
+        "E",    # pycodestyle, see https://docs.astral.sh/ruff/rules/#pycodestyle-e-w
+        "D",    # pydocstyle, see https://docs.astral.sh/ruff/rules/#pydocstyle-d
+        "F",    # pyflakes, see https://docs.astral.sh/ruff/rules/#pyflakes-f
+        "I",    # isort, see https://docs.astral.sh/ruff/rules/#isort-i
+        "N",    # pep8-naming, see https://docs.astral.sh/ruff/rules/#pep8-naming-n
+        "PTH",  # flake8-use-pathlib, https://docs.astral.sh/ruff/rules/#flake8-use-pathlib-pth
+        "TD",   # flake8-todos, https://docs.astral.sh/ruff/rules/#flake8-todos-td
+    ]
+    ignore = []
+
+    [tool.ruff.lint.pydocstyle]
+    convention = "numpy"
+
+    [tool.ruff.lint.isort]
+    combine-as-imports = true
+    force-sort-within-sections = true
+    
     [tool.coverage.run]
     source = ["ansys.<product>"]
 
@@ -34,17 +52,6 @@ Required ``pyproject.toml`` file configuration
     [tool.pydocstyle]
     convention = "numpy"
 
-Required flake8 configuration
------------------------------
-
-The following ``.flake8`` file is also required:
-
-.. code-block:: toml
-
-   [flake8]
-   max-line-length = 88
-   extend-ignore = 'E203'
-
 Required ``pre-commit`` configuration
 -------------------------------------
 
@@ -54,22 +61,13 @@ You can take advantage of `pre-commit`_ by including a
 .. code-block:: yaml
 
     repos:
+    
+    - repo: https://github.com/astral-sh/ruff-pre-commit
+      rev: vX.Y.Z
+      hooks:
+      - id: ruff
+      - id: ruff-format
 
-    - repo: https://github.com/psf/black
-      rev: X.Y.Z
-      hooks:
-      - id: black
-    
-    - repo: https://github.com/pycqa/isort
-      rev: X.Y.Z
-      hooks:
-      - id: isort
-    
-    - repo: https://github.com/PyCQA/flake8
-      rev: X.Y.Z
-      hooks:
-      - id: flake8
-    
     - repo: https://github.com/codespell-project/codespell
       rev: vX.Y.Z
       hooks:

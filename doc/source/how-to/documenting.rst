@@ -913,4 +913,115 @@ files for inclusion in the documentation.
 | examples/02-HFSS/HFSS_Spiral.py                 | examples-design-and-simulation-of-spiral-inductors.py |
 +-------------------------------------------------+-------------------------------------------------------+
 
-If you have questions about SEO, email the `PyAnsy Core team <pyansys_core_email_>`_.
+If you have questions about SEO, email the `PyAnsys Core team <pyansys_core_email_>`_.
+
+Facilitating contributions in the form of examples
+--------------------------------------------------
+
+A common challenge in libraries is the lack of examples. Examples are
+critical for users to understand how to use the library and present new
+functionality. They also serve as a mechanism to educate users on best practices.
+
+To encourage contributions of examples, it is important to provide a clear
+structure for contributors to follow. The build process should also be straightforward.
+
+Three best practices for examples are:
+
+- **Providing a template**: Ensures that contributors follow a consistent structure and
+  simplifies the process of getting started. The template should include all necessary
+  information, such as the name of the example, a description, and the code itself.
+- **Verifying the example**: Ensures that the example works as expected and helps catch
+  errors before submission. The verification process should involve running the example
+  and checking the output. If the example fails, it should be easy to identify and fix the issue.
+- **Making the example usable in multiple contexts**: Ensures that the example can be
+  usable by a user reading the documentation, an application engineer using the library
+  through a notebook, or a developer including the example to the documentation.
+
+Providing a template
+~~~~~~~~~~~~~~~~~~~~
+
+Here are examples of how to promote the use of templates for examples:
+
+- `PyAnsys Geometry examples template <PyAnsys_geometry_examples_template_>`_
+- `PyPrimeMesh examples template <PyPrimemesh_examples_template_>`_
+
+These templates are also referenced in the contributing guidelines:
+
+- `PyAnsys Geometry example contribution guidelines <PyAnsys_geometry_examples_contribution_>`_
+
+Verifying examples
+~~~~~~~~~~~~~~~~~~
+
+The verification process depends on the library and the tools used for generating the examples.
+Within the PyAnsys ecosystem, Sphinx Gallery and NBSphinx are commonly used to generate examples,
+with slightly different build processes for each library.
+
+The following approach can be applied across libraries:
+
+- Create a ``Makefile`` target that runs a specific example.
+
+This target is used to execute the example and check the output. Only one example is build in this
+case, making it very useful for documentation builds that last very long. If the example fails,
+it should be straightforward to identify and resolve the issue. For instance, PyAnsys Geometry
+includes a ``make`` target for this purpose:
+
+.. code-block:: console
+
+    ./make.bat single-example examples/01_getting_started/01_math.mystnb
+
+.. code-block:: console
+
+    make single-example examples/01_getting_started/01_math.mystnb
+
+The pull request introducing this feature is: `PyAnsys Geometry PR #1893 <PyAnsys_geometry_pull_1893_>`_
+This implementation is specific to NB Sphinx, but the concept of creating a target to run a specific
+example and verify its output can be adapted to other libraries.
+
+Making the example usable in multiple contexts
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A core objective when designing examples is to ensure they can be used seamlessly across multiple
+contexts: whether it is by end users exploring them interactively, by documentation tools rendering
+them for the web, or by engineers verifying their correctness and updating them. Achieving this
+flexibility requires a careful balance between accessibility, structure, and maintainability.
+
+A recommended approach to support this goal is to author and maintain examples as plain
+Python scripts, but using `Jupytext <Jupytext_>`_ to treat those
+scripts as notebooks when needed. Formatting your examples using the
+`Jupytext light format <Jupytext_light_format_>`_
+makes them fully compatible with JupyterLab, where they can be opened, edited, and
+executed just like traditional notebooks - all without needing a IPYNB file. Here is an example
+of a Jupytext light format script:
+
+.. code-block:: python
+
+  # # Dipole antenna
+  #
+  # Keywords: **HFSS**, **antenna**, **3D component**, **far field**.
+  #
+  # ## Prerequisites
+  #
+  # ### Perform imports
+  #
+  # Import the packages required to run this example.
+
+  # +
+  import os
+  import tempfile
+  import time
+
+  from ansys.aedt.core import Hfss
+
+  # -
+
+  # ### Define constants
+  # Constants help ensure consistency and avoid repetition throughout the example.
+
+  AEDT_VERSION = "2025.1"
+  NUM_CORES = 4
+  NG_MODE = False  # Open AEDT UI when it is launched.
+
+Here are examples of PyAnsys projects using this approach:
+
+- `PyAEDT examples repository <PyAEDT-examples_>`_
+- `PySpeos repository <PySpeos_>`_
