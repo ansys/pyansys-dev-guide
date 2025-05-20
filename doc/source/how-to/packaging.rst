@@ -293,7 +293,7 @@ You use the decorator with a method like this:
             self._a = np.arange(sz)
             self._b = np.arange(sz)
 
-        @requires_package("emoo")
+        @requires_package("matplotlib")
         def plot(self):
             """Plot the internal arrays ``_a`` and ``_b``.
 
