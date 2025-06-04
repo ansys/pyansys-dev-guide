@@ -44,7 +44,7 @@ is used in this guide.
       **This repository is no longer maintained as of [DATE].**
 
       ### Reason for deprecation
-      [Explain briefly why the project is being deprecated — e.g., better alternatives, no time to maintain, outdated use case.]
+      [Explain briefly why the project is being deprecated — e.g. better alternatives, no time to maintain, outdated use case.]
 
       ### Alternatives
       If you're looking for a maintained alternative, consider:
