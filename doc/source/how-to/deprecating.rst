@@ -107,7 +107,7 @@ transition smoothly to alternatives while maintaining the integrity of the PyAns
 Core team tasks
 ---------------
 
-The PyAnsys Core team is responsbile for assisting with the deprecation process by:
+The PyAnsys Core team is responsible for assisting with the deprecation process by:
 
 - Reviewing the deprecation issue to ensure it meets the project's standards.
 - Assisting with the above steps, if necessary.
