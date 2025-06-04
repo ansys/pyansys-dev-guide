@@ -66,8 +66,8 @@ is used in this guide.
 
    See an example at `PyAdditive Widgets deprecation issue`_.
 
-4. **Adapt the README**: Update the library's README file to reflect the deprecation.
-   This should include a clear notice at the top of the README, informing users that the
+4. **Adapt the README**: Update the library's ``README`` file to reflect the deprecation.
+   This should include a clear notice at the top of the ``README``, informing users that the
    library is deprecated. See an example at `PyAdditive Widgets README`_.
 
 5. **(Optional) Add a warning in the code**: If applicable, add a warning in the code itself to inform users
@@ -91,7 +91,7 @@ is used in this guide.
    of the library that includes the deprecation warning. This ensures that users who install
    the library in the future see the warning immediately.
 
-7. **Archive the repository**: Once the deprecation issue is created and the README is updated,
+7. **Archive the repository**: Once the deprecation issue is created and the ``README`` is updated,
    you can archive the repository. This prevents any further changes to the repository and
    signals to users that the library is no longer maintained. To archive a repository, go to the
    repository settings and select "Archive this repository."
