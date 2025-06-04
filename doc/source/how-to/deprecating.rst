@@ -24,11 +24,13 @@ is used in this guide.
    the team at `pyansys.core@ansys.com <pyansys_core_email_>`_. This step ensures that the
    deprecation is communicated effectively and that the team can assist with any necessary
    changes in the PyAnsys ecosystem.
+
 2. **Close all open issues and pull requests**: Before deprecating the library, ensure that all
    open issues and pull requests in the library's repository are closed. This helps to avoid
    confusion and ensures that users are aware that the library is no longer actively maintained.
    You can close issues and pull requests with a comment explaining that the library is being
    deprecated and is no longer be supported.
+
 3. **Create a deprecation issue**: Open an issue in the library's repository to announce the
    deprecation. This issue should explain why the library is being deprecated, what alternatives
    are available, and any relevant timelines. See a template below for the issue content.
