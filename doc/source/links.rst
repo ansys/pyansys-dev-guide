@@ -212,7 +212,7 @@
 .. _PyPI API token: https://pypi.org/help/#apitoken
 
 .. #Vulnerabilities
-.. _metapackage: https://github.com/pyansys/pyansys
+.. _metapackage: https://github.com/ansys/pyansys
 .. _CVE: https://www.cve.org/
 .. _Safety: https://pyup.io/safety/
 .. _Bandit: https://bandit.readthedocs.io/en/latest/
@@ -220,3 +220,11 @@
 .. _PyACP security considerations: https://acp.docs.pyansys.com/version/dev/user_guide/security_considerations.html
 .. _Github's documentation: https://docs.github.com/en/code-security/security-advisories/working-with-repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
 .. _PyAnsys Geometry subprocess advisory: https://github.com/ansys/pyansys-geometry/security/advisories/GHSA-38jr-29fh-w9vm
+
+.. #Deprecation
+.. _PyAdditive Widgets README: https://github.com/ansys/pyadditive-widgets/blob/main/README.rst
+.. _PyAdditive Widgets deprecation issue: https://github.com/ansys/pyadditive-widgets/issues/102
+.. _PyAdditive Widgets deprecation warning: https://github.com/ansys/pyadditive-widgets/blob/600915a8db2dbb02088266c17ba2be53584079d0/src/ansys/additive/widgets/__init__.py#L24-L31
+.. _Metapackage deprecation PR: https://github.com/ansys/pyansys/pull/968
+.. _PyAnsys Dev deprecation PR: https://github.com/ansys-internal/pyansys-dev/pull/44
+.. _Automation project deprecation PR: https://github.com/ansys-internal/pyansys-maintenance-automation/pull/79
