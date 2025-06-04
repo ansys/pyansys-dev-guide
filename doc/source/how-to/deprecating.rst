@@ -13,8 +13,6 @@ This process helps maintain clarity and consistency across the projects.
 Maintainer tasks
 ----------------
 
-When a library is no longer maintained or has been replaced by a better alternative,
-
 If you are a maintainer of a library that is being deprecated, please follow these steps. As
 an illustrative example, the deprecation of `PyAdditive Widgets <https://github.com/ansys/pyadditive-widgets>`_
 is used in this guide.
