@@ -116,7 +116,7 @@ The PyAnsys Core team is responsible for assisting with the deprecation process 
 - Remove from PyPI the configuration (PyPI token or trusted publisher) for the library.
 - Archive the project on PyPI. See `PyAdditive Widgets PyPI archive`_.
 - Removing the library from the `PyAnsys metapackage <metapackage_>`_, automation project
-  and the ``ansys-internal/pyansys-dev`` repository. See example pull requests:
+  and the ``pyansys-dev`` repository. See example pull requests:
 
   - `Metapackage deprecation PR`_
   - `PyAnsys Dev deprecation PR`_
