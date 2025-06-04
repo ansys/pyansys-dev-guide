@@ -7,8 +7,8 @@ As time passes, some libraries may become outdated or replaced by better alterna
 When this happens, it is important to deprecate the old library properly to ensure users
 are aware of the change and can transition smoothly.
 
-In the PyAnsys ecosystem, we follow a specific process for deprecating libraries.
-This process helps maintain clarity and consistency across our projects.
+For the PyAnsys ecosystem, follow this specific process for deprecating libraries.
+This process helps maintain clarity and consistency across the projects.
 
 Maintainer tasks
 ----------------
@@ -28,14 +28,14 @@ is used in this guide.
    open issues and pull requests in the library's repository are closed. This helps to avoid
    confusion and ensures that users are aware that the library is no longer actively maintained.
    You can close issues and pull requests with a comment explaining that the library is being
-   deprecated and will no longer be supported.
+   deprecated and is no longer be supported.
 3. **Create a deprecation issue**: Open an issue in the library's repository to announce the
    deprecation. This issue should explain why the library is being deprecated, what alternatives
    are available, and any relevant timelines. See a template below for the issue content.
 
    .. warning::
 
-      Make sure to adapt the template to your specific library and situation!
+      Make sure to adapt the template to your specific library and situation.
 
    .. code:: markdown
 
@@ -58,7 +58,7 @@ is used in this guide.
 
       Thank you to everyone who contributed, used, or supported this project!
 
-   This issue will serve as a permanent record of the deprecation and provide users with
+   This issue serves as a permanent record of the deprecation and provide users with
    necessary information about alternatives.
 
    Make sure to pin the issue to the top of the repository so that it is easily visible to users.
@@ -89,12 +89,12 @@ is used in this guide.
 
 6. **(Optional) Make a last release**: If you carried out step 5, consider making a final release
    of the library that includes the deprecation warning. This ensures that users who install
-   the library in the future will see the warning immediately.
+   the library in the future see the warning immediately.
 
 7. **Archive the repository**: Once the deprecation issue is created and the README is updated,
-   you can archive the repository. This will prevent any further changes to the repository and
-   signal to users that the library is no longer maintained. To archive a repository, go to the
-   repository settings and select "Archive this repository".
+   you can archive the repository. This prevents any further changes to the repository and
+   signals to users that the library is no longer maintained. To archive a repository, go to the
+   repository settings and select "Archive this repository."
 
 These steps ensure that the deprecation process is clear and transparent, allowing users to
 transition smoothly to alternatives while maintaining the integrity of the PyAnsys ecosystem.
@@ -107,7 +107,7 @@ transition smoothly to alternatives while maintaining the integrity of the PyAns
 Core team tasks
 ---------------
 
-The PyAnsys Core team will assist with the deprecation process by:
+The PyAnsys Core team is responsbile for assisting with the deprecation process by:
 
 - Reviewing the deprecation issue to ensure it meets the project's standards.
 - Assisting with the above steps, if necessary.
