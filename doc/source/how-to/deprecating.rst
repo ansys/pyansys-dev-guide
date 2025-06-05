@@ -86,7 +86,7 @@ is used in this guide.
       warnings.warn(
           "This library is deprecated and will no longer be maintained. "
           "Please consider using alternatives. "
-          "For more information check https://github.com/ansys/<repository>/issues",
+          "For more information check https://github.com/ansys/<repository>/issues/<number>",
           DeprecationWarning,
       )
 
