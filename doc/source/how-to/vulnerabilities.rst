@@ -190,6 +190,7 @@ and the risk of command injection is significantly reduced.
         .. code:: python
 
           import subprocess
+
           # Example of a vulnerable command
           user_input = "malicious_command; rm -rf /"  # User input that could be malicious
           # Vulnerable code
@@ -200,6 +201,7 @@ and the risk of command injection is significantly reduced.
         .. code:: python
 
           import subprocess
+
           # Example of a vulnerable command
           user_input = "malicious_command; rm -rf /"  # User input that could be malicious
           # Removing shell=True and using a list
@@ -219,21 +221,21 @@ exceptions explicitly and log or raise them as needed.
         .. code:: python
 
           try:
-            risky_operation()  # Some code that might raise an exception
+              risky_operation()  # Some code that might raise an exception
           except:
-            continue  # This will silently ignore all the exceptions and continue execution
+              continue  # This will silently ignore all the exceptions and continue execution
 
     .. tab-item:: `try except continue` with explicit exception handling
 
         .. code:: python
 
           try:
-            risky_operation()
+              risky_operation()
           except SpecificException as e:
-            continue  # Handle specific exceptions and continue
+              continue  # Handle specific exceptions and continue
           except AnotherSpecificException as e:
-            log_error(e)  # Log the error for debugging
-            raise  # Raise the exception to notify the caller
+              log_error(e)  # Log the error for debugging
+              raise  # Raise the exception to notify the caller
 
 
 **requests.get() without timeout**
@@ -249,6 +251,7 @@ prevent this issue.
         .. code:: python
 
           import requests
+
           # Example of a vulnerable request
           response = requests.get("https://example.com")  # No timeout specified
 
@@ -257,5 +260,6 @@ prevent this issue.
         .. code:: python
 
           import requests
+
           # Example of a secure request with a timeout
           response = requests.get("https://example.com", timeout=5)  # Timeout set to 5 seconds
