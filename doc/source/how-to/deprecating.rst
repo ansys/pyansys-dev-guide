@@ -72,6 +72,10 @@ is used in this guide.
 
 5. **(Optional) Add a warning in the code**: If applicable, add a warning in the code itself to inform users
    that the library is deprecated. This can be done using Python's `warnings` module. For example:
+   
+   .. note::
+
+      Make sure to adapt the URL in the warning message.
 
    .. code:: python
 
@@ -81,7 +85,8 @@ is used in this guide.
 
       warnings.warn(
           "This library is deprecated and will no longer be maintained. "
-          "Please consider using alternatives.",
+          "Please consider using alternatives. "
+          "For more information check https://github.com/ansys/<repository>/issues",
           DeprecationWarning,
       )
 
