@@ -154,8 +154,11 @@ When developing Python applications, it's essential to be aware of common vulner
 occur in the codebase. These vulnerabilities can lead to security risks, data breaches, and other
 serious issues.
 
-Here are some common vulnerabilities that can occur in Python code, along with examples of how to
-address them.
+The `Bandit` tool provides a blacklist of known vulnerable functions and methods that should
+not be used in Python code. Using these functions can lead to security vulnerabilities and
+should be avoided. Refer to the `blacklists Bandit documentation`_ for detailed information on
+`Bandit` tool outputs.
+
 
 **Bandit blacklist**
 
@@ -190,10 +193,7 @@ and the risk of command injection is significantly reduced.
         .. code:: python
 
           import subprocess
-
-          # Example of a vulnerable command
           user_input = "malicious_command; rm -rf /"  # User input that could be malicious
-          # Vulnerable code
           subprocess.run(f"echo {user_input}", shell=True)  # Vulnerable to command injection
 
     .. tab-item:: Reduced risk of `subprocess` command injection
@@ -201,8 +201,6 @@ and the risk of command injection is significantly reduced.
         .. code:: python
 
           import subprocess
-
-          # Example of a vulnerable command
           user_input = "malicious_command; rm -rf /"  # User input that could be malicious
           # Removing shell=True and using a list
           subprocess.run(["echo", user_input])  # User input is not executed as a shell command
@@ -221,21 +219,21 @@ exceptions explicitly and log or raise them as needed.
         .. code:: python
 
           try:
-              risky_operation()  # Some code that might raise an exception
+            risky_operation()  # Some code that might raise an exception
           except:
-              continue  # This will silently ignore all the exceptions and continue execution
+            continue  # This will silently ignore all the exceptions and continue execution
 
     .. tab-item:: `try except continue` with explicit exception handling
 
         .. code:: python
 
           try:
-              risky_operation()
+            risky_operation()
           except SpecificException as e:
-              continue  # Handle specific exceptions and continue
+            continue  # Handle specific exceptions and continue
           except AnotherSpecificException as e:
-              log_error(e)  # Log the error for debugging
-              raise  # Raise the exception to notify the caller
+            log_error(e)  # Log the error for debugging
+            raise  # Raise the exception to notify the caller
 
 
 **requests.get() without timeout**
@@ -251,8 +249,6 @@ prevent this issue.
         .. code:: python
 
           import requests
-
-          # Example of a vulnerable request
           response = requests.get("https://example.com")  # No timeout specified
 
     .. tab-item:: `requests.get()` with timeout
@@ -260,6 +256,29 @@ prevent this issue.
         .. code:: python
 
           import requests
-
-          # Example of a secure request with a timeout
           response = requests.get("https://example.com", timeout=5)  # Timeout set to 5 seconds
+
+
+**random insecure functions**
+
+Using insecure functions from the `random` module can lead to predictable random number
+generation, which can be exploited by attackers. Instead, use the `secrets` module, which
+provides a secure way to generate random numbers.
+
+.. tab-set::
+
+    .. tab-item:: Insecure random functions
+
+        .. code:: python
+
+          import random
+          random_number = random.randint(1, 100)  # Predictable random number generation
+          random_letter = random.choice(["a", "b", "c"])  # Predictable choice from a list
+
+    .. tab-item:: Secure random functions
+
+        .. code:: python
+
+          import secrets
+          secure_random_number = secrets.randbelow(100)  # Secure random number generation
+          secure_random_letter = secrets.choice(["a", "b", "c"])  # Secure choice from a list
