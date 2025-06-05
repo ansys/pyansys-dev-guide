@@ -193,6 +193,7 @@ and the risk of command injection is significantly reduced.
         .. code:: python
 
           import subprocess
+
           user_input = "malicious_command; rm -rf /"  # User input that could be malicious
           subprocess.run(f"echo {user_input}", shell=True)  # Vulnerable to command injection
 
@@ -201,6 +202,7 @@ and the risk of command injection is significantly reduced.
         .. code:: python
 
           import subprocess
+
           user_input = "malicious_command; rm -rf /"  # User input that could be malicious
           # Removing shell=True and using a list
           subprocess.run(["echo", user_input])  # User input is not executed as a shell command
@@ -219,21 +221,21 @@ exceptions explicitly and log or raise them as needed.
         .. code:: python
 
           try:
-            risky_operation()  # Some code that might raise an exception
+              risky_operation()  # Some code that might raise an exception
           except:
-            continue  # This will silently ignore all the exceptions and continue execution
+              continue  # This will silently ignore all the exceptions and continue execution
 
     .. tab-item:: `try except continue` with explicit exception handling
 
         .. code:: python
 
           try:
-            risky_operation()
+              risky_operation()
           except SpecificException as e:
-            continue  # Handle specific exceptions and continue
+              continue  # Handle specific exceptions and continue
           except AnotherSpecificException as e:
-            log_error(e)  # Log the error for debugging
-            raise  # Raise the exception to notify the caller
+              log_error(e)  # Log the error for debugging
+              raise  # Raise the exception to notify the caller
 
 
 **requests.get() without timeout**
@@ -249,6 +251,7 @@ prevent this issue.
         .. code:: python
 
           import requests
+
           response = requests.get("https://example.com")  # No timeout specified
 
     .. tab-item:: `requests.get()` with timeout
@@ -256,6 +259,7 @@ prevent this issue.
         .. code:: python
 
           import requests
+
           response = requests.get("https://example.com", timeout=5)  # Timeout set to 5 seconds
 
 
@@ -272,6 +276,7 @@ provides a secure way to generate random numbers.
         .. code:: python
 
           import random
+
           random_number = random.randint(1, 100)  # Predictable random number generation
           random_letter = random.choice(["a", "b", "c"])  # Predictable choice from a list
 
@@ -280,5 +285,6 @@ provides a secure way to generate random numbers.
         .. code:: python
 
           import secrets
+
           secure_random_number = secrets.randbelow(100)  # Secure random number generation
           secure_random_letter = secrets.choice(["a", "b", "c"])  # Secure choice from a list
