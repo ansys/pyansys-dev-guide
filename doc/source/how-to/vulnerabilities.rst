@@ -179,7 +179,7 @@ To mitigate this risk, you should:
 - if the previous point is not possible, you need to disable the `shell=True` argument in 
   `subprocess.run()` or similar functions, as it allows for shell injection attacks.
 
-By removing the `shell=True` argument, a list will be needed to pass the command and its
+By removing the `shell=True` argument, a list is needed to pass the command and its
 arguments directly, which is safer. This way, user input is not executed as a shell command,
 and the risk of command injection is significantly reduced.
 
