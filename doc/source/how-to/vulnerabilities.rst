@@ -106,8 +106,7 @@ Here is an example of a ``SECURITY.md`` file:
  - Any specific configuration settings needed to reproduce the problem
  - Step-by-step guidance to reproduce the problem
  - The exact location of the problematic source code, including tag, branch, commit, or a direct URL
- - The potential consequences of the vulnerability, along with a description of how an attacker could take
-   advantage of the issue
+ - The potential consequences of the vulnerability, along with a description of how an attacker could take advantage of the issue
 
 Vulnerability disclosure
 ------------------------
