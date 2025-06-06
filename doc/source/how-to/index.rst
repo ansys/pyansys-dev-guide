@@ -106,6 +106,12 @@ and app APIs.
 
       How to handle vulnerabilities in PyAnsys packages.
 
+    .. grid-item-card:: :fas:`fa-solid fa-bug` Deprecating a library
+      :link: deprecating
+      :link-type: doc
+      :padding: 2 2 2 2
+
+      How to deprecate a PyAnsys library.
 
 .. toctree::
    :maxdepth: 3
@@ -125,3 +131,4 @@ and app APIs.
    dns-configuration
    compatibility
    vulnerabilities
+   deprecating
