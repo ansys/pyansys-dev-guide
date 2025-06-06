@@ -147,7 +147,7 @@ that the action is implemented correctly and that the results are reviewed regul
 Addressing common vulnerabilities
 ---------------------------------
 
-When developing Python applications, it's essential to be aware of common vulnerabilities that can
+When developing Python applications, it is essential to be aware of common vulnerabilities that can
 occur in the codebase. These vulnerabilities can lead to security risks, data breaches, and other
 serious issues.
 
