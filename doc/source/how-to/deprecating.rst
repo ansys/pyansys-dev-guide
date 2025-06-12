@@ -92,11 +92,24 @@ is used in this guide.
 
    See an example at `PyAdditive Widgets deprecation warning`_.
 
-6. **(Optional) Make a last release**: If you carried out step 5, consider making a final release
+6. **(Optional) Adapt the documentation**: PyAnsys libraries host documentation in GitHub Pages through
+   the ``gh-pages`` branch. If your library has documentation, consider adding a deprecation notice
+   to the documentation as well. A similar note to the one in the ``README`` can be added at the landing
+   page of the documentation. If you main landing page is an ``.rst`` file, you can add the
+   deprecation notice as a note directive:
+
+   .. code:: rst
+
+      .. warning::
+
+         This library is deprecated and will no longer be maintained. Please consider using alternatives.
+         For more information, check the `deprecation issue <URL>`_.
+
+7. **(Optional) Make a last release**: If you carried out steps 5 and 6, consider making a final release
    of the library that includes the deprecation warning. This ensures that users who install
    the library in the future see the warning immediately.
 
-7. **Archive the repository**: Once the deprecation issue is created and the ``README`` is updated,
+8. **Archive the repository**: Once the deprecation issue is created and the ``README`` is updated,
    you can archive the repository. This prevents any further changes to the repository and
    signals to users that the library is no longer maintained. To archive a repository, go to the
    repository settings and select "Archive this repository."
