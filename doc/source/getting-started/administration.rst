@@ -56,7 +56,7 @@ When releasing a project to the public, you must perform these tasks:
 * Uphold Ansys' reputation in the open source community.
 
 Once all three approvals have been awarded, project leads must then complete
-the `OSS (Open Source Software) approval request form <https://ansys.typeform.com/ReleaseSupport?typeform-source=gz2idtcjsw2.typeform.com/OSSapproval>`_.
+the `open source request form`_.
 
 This form serves as a final checklist to verify that all approvals have been processed
 and to formalize the OSS approval process as a final record. For more information, see
