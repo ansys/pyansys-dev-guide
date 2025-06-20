@@ -39,7 +39,7 @@ jobs:
         uses: pyvista/setup-headless-display-action@v4
 
       - name: "Install mermaid-cli"
-        run: npm install -g @mermaid-js/mermaid-cli
+        run: aa-exec --profile=chrome npm install -g @mermaid-js/mermaid-cli
 
       - name: "Install GraphViz"
         shell: bash
