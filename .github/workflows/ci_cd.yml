@@ -33,7 +33,7 @@ jobs:
 
   doc-build:
     name: "Build project documentation"
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Setup headless display
         uses: pyvista/setup-headless-display-action@v4
