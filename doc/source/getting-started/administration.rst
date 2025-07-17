@@ -8,6 +8,11 @@ the public release of a PyAnsys library must go through a project approval proce
 First step
 ----------
 
+.. danger:
+    Open-source grant users to only view the source code, but to modify, share and reuse it under specific conditions.
+    It differs from making it public as anyone can use and build upon the content
+    Do not commit any proprietary information belonging either to Ansys or to external sources. If you are uncertain, consult your manager.
+
 To trigger the public release process, project leads must first complete the
 `open source request form`_.
 
