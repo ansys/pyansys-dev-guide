@@ -309,7 +309,7 @@ When you ignore a Bandit warning, it is essential to provide a clear comment exp
 the warning is being ignored. This helps maintainers and other developers understand the context
 and rationale behind the decision.
 
-For example, to ignore the B604 warning, you would add `# nosec B604` to the end of the line:
+For example, to ignore the B404 warning, you would add `# nosec B404` to the end of the line:
 
 .. code:: python
 
