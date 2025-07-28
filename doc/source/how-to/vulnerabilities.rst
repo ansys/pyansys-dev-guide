@@ -204,6 +204,13 @@ and the risk of command injection is significantly reduced.
           # Removing shell=True and using a list
           subprocess.run(["echo", user_input])  # User input is not executed as a shell command
 
+.. note::
+
+  Bandit warning will still be raised after deactivating the `shell=True` argument.
+  If you are sure that the command is safe, you can ignore the Bandit warning. Please
+  check the `Ignore Bandit warnings`_ section for more information on how to do so.
+
+
 
 **try except continue statements**
 
@@ -285,3 +292,41 @@ provides a secure way to generate random numbers.
 
           secure_random_number = secrets.randbelow(100)  # Secure random number generation
           secure_random_letter = secrets.choice(["a", "b", "c"])  # Secure choice from a list
+
+
+Ignore Bandit warnings
+----------------------
+
+In-line comment
+~~~~~~~~~~~~~~~
+
+When using Bandit, you may encounter warnings that you believe are not relevant to your codebase
+or that you have already addressed. In such cases, you can ignore specific Bandit warnings by
+adding a comment to the end of the line that triggers the warning. The comment should be in the
+format ``# nosec <warning_id>``, where ``<warning_id>`` is the ID of the warning you want to ignore.
+
+When you ignore a Bandit warning, it is essential to provide a clear comment explaining why
+the warning is being ignored. This helps maintainers and other developers understand the context
+and rationale behind the decision.
+
+For example, to ignore the B604 warning, you would add `# nosec B604` to the end of the line:
+
+.. code:: python
+
+  # Subprocess is needed to start the backend. But
+  # the input is controlled by the library. Excluding bandit check.
+  import subprocess  # nosec B404
+
+
+Please note that ignoring Bandit warnings should be done with caution, and you should ensure
+that the code is safe and does not introduce any security risks. It is recommended to review the
+`bandit documentation`_ for more information on each warning and the potential risks involved.
+
+
+Security considerations file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In addition to ignoring specific Bandit warnings, it is a good practice to document the ignored
+advisories in a dedicated file. You can find an example of such a file in the `PyACP security
+considerations`_ documentation page. This way, you can provide to the users a clear overview of
+the vulnerabilities that need to be taken into account when using the library.
