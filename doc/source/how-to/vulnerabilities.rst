@@ -317,8 +317,9 @@ For example, to ignore the B404 warning, you would add `# nosec B404` to the end
   # the input is controlled by the library. Excluding bandit check.
   import subprocess  # nosec B404
 
+
 .. warning::
-  
+
   Please note that ignoring Bandit warnings should be done with caution, and you should ensure
   that the code is safe and does not introduce any security risks. It is recommended to review the
   `bandit documentation`_ for more information on each warning and the potential risks involved.
