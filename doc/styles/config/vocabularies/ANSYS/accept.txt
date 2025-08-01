@@ -56,6 +56,7 @@ Microelectromechanical
 monospaced
 Muela
 [Nn]amespace
+nosec
 npm
 numpy
 [Nn]umpydoc
