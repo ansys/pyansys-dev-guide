@@ -206,7 +206,7 @@ and the risk of command injection is significantly reduced.
 
 .. note::
 
-  Bandit warning will still be raised after deactivating the `shell=True` argument.
+  Bandit warning remains even after deactivating the `shell=True` argument.
   If you are sure that the command is safe, you can ignore the Bandit warning. Please
   check the `Ignore Bandit warnings`_ section for more information on how to do so.
 
