@@ -118,6 +118,7 @@
 .. _unzip: https://7-zip.org/
 .. _conventional_commit_types: https://github.com/commitizen/conventional-commit-types/blob/master/index.json
 .. _Test Driven Development (TDD): https://en.wikipedia.org/wiki/Test-driven_development
+.. _bandit documentation: https://bandit.readthedocs.io/en/latest/
 .. _blacklists bandit documentation: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html
 
 .. #Sphinx-related links
