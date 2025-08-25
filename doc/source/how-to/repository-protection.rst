@@ -147,4 +147,5 @@ are mutable in the sense that an attacker who gains access to a project, or even
 updating a tag, could introduce breaking changes or malicious code without you noticing. Pinning to a
 commit SHA eliminates that risk by locking the dependency to a known version. On top of that, since the
 action's code cannot change silently in the background, it guarantees that every workflow run uses the
-exact same version of the action.
+exact same version of the action. For more details and additional best practices, you can consult the
+`official GitHub documentation on securely using third-party actions <https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions>`_.
