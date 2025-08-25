@@ -23,31 +23,31 @@ permissions:
 jobs:
 
   doc-style:
-    name: "Check documentation style"
+    name: Check documentation style
     runs-on: ubuntu-latest
     steps:
-      - name: "Check documentation style"
+      - name: Check documentation style
         uses: ansys/actions/doc-style@1096998b81f7ebdea116b683e11f3a8bda759ca6 # v10.0.14
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
   doc-build:
-    name: "Build project documentation"
+    name: Build project documentation
     runs-on: ubuntu-22.04
     steps:
       - name: Setup headless display
         uses: pyvista/setup-headless-display-action@7d84ae825e6d9297a8e99bdbbae20d1b919a0b19 # v4.2
 
-      - name: "Install mermaid-cli"
+      - name: Install mermaid-cli
         run: npm install -g @mermaid-js/mermaid-cli
 
-      - name: "Install GraphViz"
+      - name: Install GraphViz
         shell: bash
         run: |
           sudo apt-get update
           sudo apt-get install graphviz
 
-      - name: "Build project documentation"
+      - name: Build project documentation
         uses: ansys/actions/doc-build@1096998b81f7ebdea116b683e11f3a8bda759ca6 # v10.0.14
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
