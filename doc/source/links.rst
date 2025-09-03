@@ -120,6 +120,8 @@
 .. _Test Driven Development (TDD): https://en.wikipedia.org/wiki/Test-driven_development
 .. _bandit documentation: https://bandit.readthedocs.io/en/latest/
 .. _blacklists bandit documentation: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html
+.. _zizmor: https://docs.zizmor.sh/
+.. _zizmor audit rules: https://docs.zizmor.sh/audits/#remediation_1
 
 .. #Sphinx-related links
 .. _PyData_Sphinx_theme: https://github.com/pydata/pydata-sphinx-theme

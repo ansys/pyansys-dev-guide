@@ -144,8 +144,8 @@ action is up to date and that it is being used in all PyAnsys repositories consi
 that the action is implemented correctly and that the results are reviewed regularly.
 
 
-Addressing common vulnerabilities
----------------------------------
+Addressing common vulnerabilities in python libraries and applications
+----------------------------------------------------------------------
 
 When developing Python applications, it is essential to be aware of common vulnerabilities that can
 occur in the codebase. These vulnerabilities can lead to security risks, data breaches, and other
@@ -295,10 +295,10 @@ provides a secure way to generate random numbers.
 
 
 Ignore Bandit warnings
-----------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 In-line comment
-~~~~~~~~~~~~~~~
++++++++++++++++
 
 When using Bandit, you may encounter warnings that you believe are not relevant to your codebase
 or that you have already addressed. In such cases, you can ignore specific Bandit warnings by
@@ -326,9 +326,31 @@ For example, to ignore the B404 warning, you would add `# nosec B404` to the end
 
 
 Security considerations file
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+++++++++++++++++++++++++++++
 
 In addition to ignoring specific Bandit warnings, it is a good practice to document the ignored
 advisories in a dedicated file. You can find an example of such a file in the `PyACP security
 considerations`_ documentation page. This way, you can provide to the users a clear overview of
 the vulnerabilities that need to be taken into account when using the library.
+
+Addressing common vulnerabilities in Github Actions
+---------------------------------------------------
+Vulnerabilities can exist in continuous integration pipelines the same way can exist in the codebase.
+Therefore, it is important to secure your actions / workflows against known vulnerabilities to prevent
+security breaches and supply chain attacks.
+
+`zizmor`_ is a static analysis tool that can help audit Github Actions CI/CD setups. It provides functionality
+for detecting common vulnerabilities and in some cases, fixing them. Refer to `zizmor audit rules`_ for detailed
+information about the rules `zizmor` applies when auditing workflows.
+
+Auditing CI/CD setups in the PyAnsys ecosystem
+++++++++++++++++++++++++++++++++++++++++++++++
+The recommended process for workflow audits by PyAnsys ecosystem projects is using the ``ansys/actions/check-actions-security``
+action. The action is wraps ``zizmor`` lightly to provide additional functionalities and configurations sensible for projects
+within the ecosystem. Refer to the action's documentation for information on how to set it up.
+
+How to fix common issues detected by ``zizmor``
++++++++++++++++++++++++++++++++++++++++++++++++
+
+How to ignore ``zizmor`` warnings
++++++++++++++++++++++++++++++++++
