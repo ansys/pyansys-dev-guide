@@ -335,32 +335,33 @@ the vulnerabilities that need to be taken into account when using the library.
 
 Addressing common vulnerabilities in Github Actions
 ---------------------------------------------------
-Vulnerabilities can exist in continuous integration pipelines the same way can exist in the codebase.
-Therefore, it is important to secure your actions / workflows against known vulnerabilities to prevent
-security breaches and supply chain attacks.
+Vulnerabilities can exist in continuous integration (CI) pipelines just as they can in a codebase.
+To reduce the risk of security breaches and supply chain attacks, it is important to secure your
+GitHub Actions workflows against known vulnerabilities.
 
-`zizmor`_ is a static analysis tool that can help audit Github Actions CI/CD setups. It provides functionality
-for detecting common vulnerabilities and in some cases, fixing them. Refer to `zizmor audit rules`_ for detailed
-information about the rules `zizmor` applies when auditing workflows.
+`zizmor`_ is a static analysis tool that audits GitHub Actions CI/CD setups. It detects common
+vulnerabilities and, in some cases, can automatically fix them. For detailed information about
+the rules that zizmor applies when auditing workflows, see `zizmor audit rules`_.
 
 Auditing CI/CD setups in the PyAnsys ecosystem
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The recommended workflow auditing process for PyAnsys ecosystem projects is using the ``ansys/actions/check-actions-security``
-action. The action is wraps ``zizmor`` lightly to provide additional functionalities and configurations sensible for projects
-within the ecosystem. Refer to `the check-actions-security-action documentation`_ for information on how to set it up.
+For PyAnsys ecosystem projects, the recommended way to audit workflows is to use the
+``ansys/actions/check-actions-security`` action. The action wraps ``zizmor`` and provides
+additional functionality and configuration tailored to PyAnsys projects. For setup instructions,
+see `the check-actions-security-action documentation`_.
 
-How to fix common issues detected by ``zizmor``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-This section provides information on fixing common workflow vulnerabilities. Project maintainers can also consult the
-following pull requests for examples of workflows / actions already fixed within the PyAnsys ecosystem: 
+Fixing common issues detected by ``zizmor``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This section describes how to fix common workflow vulnerabilities.
+For practical examples, see these pull requests with fixes already applied in the PyAnsys ecosystem:
 
 - `Ansys actions security fixes 1`_
 - `Ansys actions security fixes 2`_
 - `Ansys actions security fixes 3`_
 - `PyConverter-XML2Py security fixes`_
 
-For vulnerabilities not list here, refer to `zizmor audit rules`_ for remediation steps. For more examples on fixing
-issues detected by zizmor, consult `zizmor trophy case`_.
+For vulnerabilities not listed here, refer to `zizmor audit rules`_ for remediation steps.
+For additional examples of fixes, see the `zizmor trophy case`_.
 
 **artipacked**
 
@@ -390,8 +391,8 @@ issues detected by zizmor, consult `zizmor trophy case`_.
 
 .. note::
 
-  When ``git`` commands requiring credentials to be persisted are executed in subsequent steps
-  within the same job, this vulnerability can be ignored. See `ignoring zizmor results`_
+  When you run git commands that require persisted credentials in subsequent steps within the same job,
+  you can ignore this audit finding. For details, see `ignoring zizmor results`_
 
 **unpinned-uses**
 
@@ -425,12 +426,13 @@ issues detected by zizmor, consult `zizmor trophy case`_.
 
 .. note::
 
-  ``ansys/actions/check-actions-security`` has a ``trust-ansys-actions`` option that allows using tags
-  for ``ansys/actions``. With this option, only external actions need to be pinned.
+  The ``ansys/actions/check-actions-security`` action has a ``trust-ansys-actions`` option that
+  allows you to use tags for ``ansys/actions``.
+  When this option is enabled, you only need to pin external actions.
 
 .. tip::
 
-  The `pinact`_ tool can be used to automatically pin versions of actions and reusable workflows.
+  You can use the `pinact`_ tool to automatically pin versions of actions and reusable workflows.
 
 **github-env**
 
@@ -561,8 +563,7 @@ issues detected by zizmor, consult `zizmor trophy case`_.
 .. note::
 
   The trick is to pass state between steps using ``GITHUB_OUTPUT`` instead of ``GITHUB_ENV`` or ``GITHUB_PATH``.
-  For commands expected to run on ``cmd`` or ``pwsh`` on windows runners, the principle is the same, only the
-  syntax changes.
+  On Windows runners, the same principle applies when running commands in ``cmd`` or ``pwsh``; only the syntax differs.
 
 **template-injection**
 
@@ -638,12 +639,12 @@ issues detected by zizmor, consult `zizmor trophy case`_.
 
 .. note::
 
-  Notice that RUNNER_TEMP and GITHUB_WORKSPACE were not explicitly set in the ``env`` block. This
-  is because some github context variables have corresponding environment variables, such as ``runner.temp``
-  and ``github.workspace`` in this case.
+  Notice that ``RUNNER_TEMP`` and ``GITHUB_WORKSPACE`` were not explicitly set in the ``env`` block.
+  Some GitHub context variables automatically map to environment variables, such as
+  ``runner.temp`` to ``RUNNER_TEMP`` and ``github.workspace`` to ``GITHUB_WORKSPACE``
   
-  When corresponding environment variables are not automatically available, they must be set in the
-  ``env`` block of the job or step where they are needed before they can be used.
+  If a corresponding environment variable is not automatically available, you must set it in the ``env``
+  block of the job or step where it is needed before you can use it.
 
 **excessive-permissions**
 
@@ -784,23 +785,34 @@ Ignoring ``zizmor`` findings
 
 One-off comments
 ++++++++++++++++
-While auditing workflows with zizmor, you may have to ignore audit findings that are not relevant
-to your workflows. zizmor audits are ignored by adding a comment to any line within the span where
-the audit finding is located, so long as it can be identified as a YAML comment.
+While auditing workflows with ``zizmor``, you might need to ignore findings that are not relevant to your workflows.  
+You can ignore ``zizmor`` audits by adding a YAML comment on any line within the span of the finding.
 
-The comment should be in the format ``# zizmor: ignore[rulename]``, where ``<rulename>`` is audit rule type.
-To ignore ``artipacked`` for example, ``# zizmor: ignore[artipacked]`` would be added. Ignoring
-multiple audits within the same span is achieved by separating each rule with a comma, e.g.
-``zizmor: ignore[github-env,template-injection]``.
+Use the following format:
 
-For more information, refer to `ignoring zizmor results`_.
+.. code:: yaml
+
+  # zizmor: ignore[<rule-name>]
+
+For example, to ignore the ``artipacked`` rule:
+
+.. code:: yaml
+
+  # zizmor: ignore[artipacked]
+
+To ignore multiple rules in the same span, separate them with commas:
+
+.. code:: yaml
+  # zizmor: ignore[github-env,template-injection]
+
+For more information, see `ignoring zizmor results`_.
 
 ``zizmor.yml`` configuration file
 +++++++++++++++++++++++++++++++++
-A ``zizmor.yml`` configuration file is easier to maintain than one-off comments when ignoring multiple
-findings or entire files.
+If you need to ignore multiple findings or entire files, a ``zizmor.yml`` configuration file is
+easier to maintain than one-off comments.
 
-A ``zizmor.yml`` may look like the following:
+A ``zizmor.yml`` file might look like this:
 
 .. code:: yaml
 
@@ -818,9 +830,9 @@ A ``zizmor.yml`` may look like the following:
 
 This configuration file achieves the following:
 
-- Declares that ``ansys/actions`` can be pinned with tags but ``actions/*`` must be pinned with a SHA.
-- Ignores all ``template-injection`` findings in safe.yml, regardless of line/column location.
-- Ignores any ``template-injection`` findings in somewhat-safe.yml that occur on line 123
-- Ignores one ``template-injection`` finding in one-exact-spot.yml that occurs on line 123, column 456
+- Declares that ``ansys/actions`` can be pinned with tags, but ``actions/*`` must be pinned with a SHA.
+- Ignores all ``template-injection`` findings in ``safe.yml``, regardless of line or column location.
+- Ignores any ``template-injection`` findings in ``somewhat-safe.yml`` that occur on line 123.
+- Ignores one ``template-injection`` finding in ``one-exact-spot.yml`` that occurs on line 123, column 456.
 
-For more information, refer to `ignoring zizmor results`_.
+For more information, see `ignoring zizmor results`_.
