@@ -127,3 +127,4 @@ Sphinx-Gallery
 snyk
 README
 CSV
+zizmor

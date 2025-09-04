@@ -121,7 +121,11 @@
 .. _bandit documentation: https://bandit.readthedocs.io/en/latest/
 .. _blacklists bandit documentation: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html
 .. _zizmor: https://docs.zizmor.sh/
-.. _zizmor audit rules: https://docs.zizmor.sh/audits/#remediation_1
+.. _zizmor audit rules: https://docs.zizmor.sh/audits/
+.. _zizmor trophy case: https://docs.zizmor.sh/trophy-case/
+.. _ignoring zizmor results: https://docs.zizmor.sh/usage/#ignoring-results
+.. _pinact: https://github.com/suzuki-shunsuke/pinact
+
 
 .. #Sphinx-related links
 .. _PyData_Sphinx_theme: https://github.com/pydata/pydata-sphinx-theme
@@ -220,10 +224,15 @@
 .. _CVE: https://www.cve.org/
 .. _Safety: https://pyup.io/safety/
 .. _Bandit: https://bandit.readthedocs.io/en/latest/
-.. _the action's documentation: https://actions.docs.ansys.com/version/stable/vulnerability-actions/index.html#check-vulnerabilities-action
+.. _the check-vulnerability-action documentation: https://actions.docs.ansys.com/version/stable/vulnerability-actions/index.html#check-vulnerabilities-action
+.. _the check-actions-security-action documentation: https://actions.docs.ansys.com/version/stable/vulnerability-actions/index.html#check-actions-security-action
 .. _PyACP security considerations: https://acp.docs.pyansys.com/version/dev/user_guide/security_considerations.html
 .. _Github's documentation: https://docs.github.com/en/code-security/security-advisories/working-with-repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
 .. _PyAnsys Geometry subprocess advisory: https://github.com/ansys/pyansys-geometry/security/advisories/GHSA-38jr-29fh-w9vm
+.. _Ansys actions security fixes 1: https://github.com/ansys/actions/pull/739
+.. _Ansys actions security fixes 2: https://github.com/ansys/actions/pull/725
+.. _Ansys actions security fixes 3: https://github.com/ansys/actions/pull/967
+.. _PyConverter-XML2Py security fixes: https://github.com/ansys/pyconverter-xml2py/pull/452
 
 .. #Deprecation
 .. _PyAdditive Widgets README: https://github.com/ansys/pyadditive-widgets/blob/main/README.rst

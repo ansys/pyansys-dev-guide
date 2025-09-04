@@ -54,7 +54,7 @@ have been integrated into the ``ansys/actions/check-vulnerabilities`` action.
 For third-party packages, the PyAnsys Core team has listed a set of excluded advisories so that
 the action does not fail. This is done to avoid false positives and to ensure that the action does
 not block the CI/CD pipeline unnecessarily. You can find the list of excluded advisories in
-`the action's documentation`_.
+`the check-vulnerabilities-action documentation`_.
 
 For potential vulnerabilities in the codebase, repositories can configure Bandit to ignore
 specific advisories. This can be due to the code not being ready yet to be fixed or that the
@@ -72,7 +72,7 @@ and ensure that they are regularly reviewed to determine if they can be addresse
 .. warning::
 
   Testing the action locally before enabling it in the CI/CD workflow is recommended. Information
-  on how to do this can be found in `the action's documentation`_.
+  on how to do this can be found in `the check-vulnerabilities-action documentation`_.
 
 Vulnerability remediation and reporting
 ----------------------------------------
@@ -344,13 +344,442 @@ for detecting common vulnerabilities and in some cases, fixing them. Refer to `z
 information about the rules `zizmor` applies when auditing workflows.
 
 Auditing CI/CD setups in the PyAnsys ecosystem
-++++++++++++++++++++++++++++++++++++++++++++++
-The recommended process for workflow audits by PyAnsys ecosystem projects is using the ``ansys/actions/check-actions-security``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The recommended workflow auditing process for PyAnsys ecosystem projects is using the ``ansys/actions/check-actions-security``
 action. The action is wraps ``zizmor`` lightly to provide additional functionalities and configurations sensible for projects
-within the ecosystem. Refer to the action's documentation for information on how to set it up.
+within the ecosystem. Refer to `the check-actions-security-action documentation`_ for information on how to set it up.
 
 How to fix common issues detected by ``zizmor``
-+++++++++++++++++++++++++++++++++++++++++++++++
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This section provides information on fixing common workflow vulnerabilities. Project maintainers can also consult the
+following pull requests for examples of workflows / actions already fixed within the PyAnsys ecosystem: 
 
-How to ignore ``zizmor`` warnings
-+++++++++++++++++++++++++++++++++
+- `Ansys actions security fixes 1`_
+- `Ansys actions security fixes 2`_
+- `Ansys actions security fixes 3`_
+- `PyConverter-XML2Py security fixes`_
+
+For vulnerabilities not list here, refer to `zizmor audit rules`_ for remediation steps. For more examples on fixing
+issues detected by zizmor, consult `zizmor trophy case`_.
+
+**artipacked**
+
+.. tab-set::
+
+
+  .. tab-item:: Before
+
+    .. code:: yaml
+
+      steps:
+
+      - name: "Checkout project"
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+
+  .. tab-item:: After
+
+    .. code:: yaml
+
+      steps:
+  
+      - name: "Checkout project"
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+
+.. note::
+
+  When ``git`` commands requiring credentials to be persisted are executed in subsequent steps
+  within the same job, this vulnerability can be ignored. See `ignoring zizmor results`_
+
+**unpinned-uses**
+
+.. tab-set::
+
+
+  .. tab-item:: Before
+
+    .. code:: yaml
+
+      steps:
+
+      - name: "Upload distribution artifacts to GitHub artifacts"
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.LIBRARY_NAME }}-artifacts
+          path: ~/${{ env.LIBRARY_NAME }}/dist/
+
+
+  .. tab-item:: After
+
+    .. code:: yaml
+
+      steps:
+
+      - name: "Upload distribution artifacts to GitHub artifacts"
+        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
+        with:
+          name: ${{ env.LIBRARY_NAME }}-artifacts
+          path: ~/${{ env.LIBRARY_NAME }}/dist/
+
+.. note::
+
+  ``ansys/actions/check-actions-security`` has a ``trust-ansys-actions`` option that allows using tags
+  for ``ansys/actions``. With this option, only external actions need to be pinned.
+
+.. tip::
+
+  The `pinact`_ tool can be used to automatically pin versions of actions and reusable workflows.
+
+**github-env**
+
+.. tab-set::
+
+
+  .. tab-item:: Before
+
+    .. code:: yaml
+
+      steps:
+
+      - name: "Decompose tag into components"
+        shell: bash
+        run: |
+          if [[ ${{ github.ref_name }} =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            # Split the tag into its components
+            IFS='.' read -ra PARTS <<< "${{ github.ref_name }}"
+            echo "V_AND_MAJOR=${PARTS[0]}" >> $GITHUB_ENV
+            echo "MINOR=${PARTS[1]}" >> $GITHUB_ENV
+            echo "PATCH=${PARTS[2]}" >> $GITHUB_ENV
+          else
+            echo "Invalid tag format. Expected vX.Y.Z but got ${{ github.ref_name }}"
+            exit 1
+          fi
+
+      - name: "Check tag is valid for current branch"
+        shell: bash
+        run: |
+          # Remove leading "v" from env.X
+          V_AND_MAJOR=${{ env.V_AND_MAJOR }}
+          MAJOR="${V_AND_MAJOR#v}"
+          echo "MAJOR=${MAJOR}" >> $GITHUB_ENV
+          if [[ ${{ github.event.base_ref }} != "refs/heads/release/$MAJOR.${{ env.MINOR }}" ]]; then
+            echo "::error::Tag ${{ github.ref_name }} does not match branch version. wrong branch."
+            exit 1
+          fi
+
+      - name: "Remove v${{ env.MAJOR }} tag"
+        shell: bash
+        run: |
+          git push --delete origin v${{ env.MAJOR }} && \
+            echo "Deleted v${{ env.MAJOR }} tag" || \
+            echo "Tag v${{ env.MAJOR }} not found"
+
+      - name: "Remove v${{ env.MAJOR }}.${{ env.MINOR }} tag"
+        shell: bash
+        run: |
+          git push --delete origin v${{ env.MAJOR }}.${{ env.MINOR }} && \
+            echo "Deleted v${{ env.MAJOR }}.${{ env.MINOR }} tag" || \
+            echo "Tag v${{ env.MAJOR }}.${{ env.MINOR }} not found"
+
+      - name: "Create new tags"
+        shell: bash
+        run: |
+          git tag v${{ env.MAJOR }}.${{ env.MINOR }}
+          git tag v${{ env.MAJOR }}
+          git push origin v${{ env.MAJOR }}.${{ env.MINOR }}
+          git push origin v${{ env.MAJOR }}
+
+
+  .. tab-item:: After
+
+    .. code:: yaml
+
+      steps:
+
+      - name: "Decompose tag into components"
+        id: tag-components
+        shell: bash
+        run: |
+          if [[ ${{ github.ref_name }} =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            # Split the tag into its components
+            IFS='.' read -ra PARTS <<< "${{ github.ref_name }}"
+            echo "V_AND_MAJOR=${PARTS[0]}" >> $GITHUB_OUTPUT
+            echo "MINOR=${PARTS[1]}" >> $GITHUB_OUTPUT
+            echo "PATCH=${PARTS[2]}" >> $GITHUB_OUTPUT
+          else
+            echo "Invalid tag format. Expected vX.Y.Z but got ${{ github.ref_name }}"
+            exit 1
+          fi
+
+      - name: "Check tag is valid for current branch"
+        id: current-branch-tag-validity
+        shell: bash
+        env:
+          V_AND_MAJOR: ${{ steps.tag-components.outputs.V_AND_MAJOR }}
+          MINOR: ${{ steps.tag-components.outputs.MINOR }}
+        run: |
+          # Remove leading "v" from env.X
+          MAJOR="${V_AND_MAJOR#v}"
+          echo "MAJOR=${MAJOR}" >> $GITHUB_OUTPUT
+          if [[ ${{ github.event.base_ref }} != "refs/heads/release/${MAJOR}.${MINOR}" ]]; then
+            echo "::error::Tag ${{ github.ref_name }} does not match branch version. wrong branch."
+            exit 1
+          fi
+
+      - name: "Remove v${{ steps.current-branch-tag-validity.outputs.MAJOR }} tag"
+        shell: bash
+        env:
+          MAJOR: ${{ steps.current-branch-tag-validity.outputs.MAJOR }}
+        run: |
+          git push --delete origin v${MAJOR} && \
+            echo "Deleted v${MAJOR} tag" || \
+            echo "Tag v${MAJOR} not found"
+
+      - name: "Remove v${{ steps.current-branch-tag-validity.outputs.MAJOR }}.${{ steps.tag-components.outputs.MINOR }} tag"
+        shell: bash
+        env:
+          MAJOR: ${{ steps.current-branch-tag-validity.outputs.MAJOR }}
+          MINOR: ${{ steps.tag-components.outputs.MINOR }}
+        run: |
+          git push --delete origin v${MAJOR}.${MINOR} && \
+            echo "Deleted v${MAJOR}.${MINOR} tag" || \
+            echo "Tag v${MAJOR}.${MINOR} not found"
+
+      - name: "Create new tags"
+        shell: bash
+        env:
+          MAJOR: ${{ steps.current-branch-tag-validity.outputs.MAJOR }}
+          MINOR: ${{ steps.tag-components.outputs.MINOR }}
+        run: |
+          git tag v${MAJOR}.${MINOR}
+          git tag v${MAJOR}
+          git push origin v${MAJOR}.${MINOR}
+          git push origin v${MAJOR}
+
+.. note::
+
+  The trick is to pass state between steps using ``GITHUB_OUTPUT`` instead of ``GITHUB_ENV`` or ``GITHUB_PATH``.
+  For commands expected to run on ``cmd`` or ``pwsh`` on windows runners, the principle is the same, only the
+  syntax changes.
+
+**template-injection**
+
+.. tab-set::
+
+
+  .. tab-item:: Before
+
+    .. code:: yaml
+
+      name: Example reusable workflow
+
+      on:
+        workflow_call:
+          inputs:
+            user-input:
+              required: false
+              type: string
+              default: "user input"
+
+        workflow_dispatch:
+          inputs:
+            required: false
+            type: string
+            default: "user input"
+
+      jobs:
+        example-job:
+          name: "Example job"
+          runs-on: ubuntu-latest
+          steps:
+
+          - name: "Inspect context variables and workflow input"
+            run: |
+              echo ${{ github.workspace }}
+              echo ${{ runner.temp }}
+              echo ${{ input.user-input }}
+
+
+  .. tab-item:: After
+
+    .. code:: yaml
+
+      name: Example reusable workflow
+
+      on:
+        workflow_call:
+          inputs:
+            user-input:
+              required: false
+              type: string
+              default: "user input"
+
+        workflow_dispatch:
+          inputs:
+            required: false
+            type: string
+            default: "user input"
+
+      jobs:
+        example-job:
+          name: "Example job"
+          runs-on: ubuntu-latest
+          steps:
+
+          - name: "Inspect context variables and workflow input"
+            env:
+              USER_INPUT: ${{ inputs.user-input }}
+            run: |
+              echo ${USER_INPUT}
+              echo ${RUNNER_TEMP}
+              echo ${GITHUB_WORKSPACE}
+
+.. note::
+
+  Notice that RUNNER_TEMP and GITHUB_WORKSPACE were not explicitly set in the ``env`` block. This
+  is because some github context variables have corresponding environment variables, such as ``runner.temp``
+  and ``github.workspace`` in this case.
+  
+  When corresponding environment variables are not automatically available, they must be set in the
+  ``env`` block of the job or step where they are needed before they can be used.
+
+**excessive-permissions**
+
+.. tab-set::
+
+
+  .. tab-item:: Before
+
+    .. code:: yaml
+
+      name: Github CI
+
+      on:
+        pull_request:
+        push:
+          tags:
+            - "*"
+          branches:
+            - main
+
+      env:
+        MAIN_PYTHON_VERSION: '3.12'
+        DOCUMENTATION_CNAME: 'actions.docs.ansys.com'
+
+      concurrency:
+        group: ${{ github.workflow }}-${{ github.ref }}
+        cancel-in-progress: true
+
+      jobs:
+        doc-build:
+          name: "Doc build"
+          runs-on: ubuntu-latest
+          steps:
+            - uses: ansys/actions/doc-build@v10.1.0a0
+              with:
+                skip-install: true
+                python-version: ${{ env.MAIN_PYTHON_VERSION }}
+                use-python-cache: false
+                needs-quarto: true
+
+        doc-deploy-dev:
+          name: "Deploy development documentation"
+          runs-on: ubuntu-latest
+          needs: [doc-build]
+          steps:
+            - uses: ansys/actions/doc-deploy-dev@v10.1.0a0
+              with:
+                cname: ${{ env.DOCUMENTATION_CNAME }}
+                token: ${{ secrets.GITHUB_TOKEN }}
+                bot-user: ${{ secrets.PYANSYS_CI_BOT_USERNAME }}
+                bot-email: ${{ secrets.PYANSYS_CI_BOT_EMAIL }}
+
+
+  .. tab-item:: After
+
+    .. code:: yaml
+
+      name: Github CI
+
+      on:
+        pull_request:
+        push:
+          tags:
+            - "*"
+          branches:
+            - main
+
+      env:
+        MAIN_PYTHON_VERSION: '3.12'
+        DOCUMENTATION_CNAME: 'actions.docs.ansys.com'
+
+      permissions: {}
+
+      concurrency:
+        group: ${{ github.workflow }}-${{ github.ref }}
+        cancel-in-progress: true
+
+      jobs:
+        doc-build:
+          name: "Doc build"
+          runs-on: ubuntu-latest
+          steps:
+            - uses: ansys/actions/doc-build@v10.1.0a0
+              with:
+                skip-install: true
+                python-version: ${{ env.MAIN_PYTHON_VERSION }}
+                use-python-cache: false
+                needs-quarto: true
+
+        doc-deploy-dev:
+          name: "Deploy development documentation"
+          runs-on: ubuntu-latest
+          needs: [doc-build]
+          permissions:
+            contents: write
+          steps:
+            - uses: ansys/actions/doc-deploy-dev@v10.1.0a0
+              with:
+                cname: ${{ env.DOCUMENTATION_CNAME }}
+                token: ${{ secrets.GITHUB_TOKEN }}
+                bot-user: ${{ secrets.PYANSYS_CI_BOT_USERNAME }}
+                bot-email: ${{ secrets.PYANSYS_CI_BOT_EMAIL }}
+
+**anonymous-definition**
+
+.. tab-set::
+
+
+  .. tab-item:: Before
+
+    .. code:: yaml
+
+      on: push
+
+      jobs:
+        build:
+          runs-on: ubuntu-latest
+          steps:
+            - run: echo "Hello!"
+
+
+  .. tab-item:: After
+
+    .. code:: yaml
+
+      name: Echo Test
+      on: push
+
+      jobs:
+        build:
+          runs-on: ubuntu-latest
+          steps:
+            - run: echo "Hello!"
+
+
+Ignoring ``zizmor`` findings
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To add content about ignoring zizmor findings
