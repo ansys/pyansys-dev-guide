@@ -782,4 +782,45 @@ issues detected by zizmor, consult `zizmor trophy case`_.
 Ignoring ``zizmor`` findings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To add content about ignoring zizmor findings
+One-off comments
+++++++++++++++++
+While auditing workflows with zizmor, you may have to ignore audit findings that are not relevant
+to your workflows. zizmor audits are ignored by adding a comment to any line within the span where
+the audit finding is located, so long as it can be identified as a YAML comment.
+
+The comment should be in the format ``# zizmor: ignore[rulename]``, where ``<rulename>`` is audit rule type.
+To ignore ``artipacked`` for example, ``# zizmor: ignore[artipacked]`` would be added. Ignoring
+multiple audits within the same span is achieved by separating each rule with a comma, e.g.
+``zizmor: ignore[github-env,template-injection]``.
+
+For more information, refer to `ignoring zizmor results`_.
+
+``zizmor.yml`` configuration file
++++++++++++++++++++++++++++++++++
+A ``zizmor.yml`` configuration file is easier to maintain than one-off comments when ignoring multiple
+findings or entire files.
+
+A ``zizmor.yml`` may look like the following:
+
+.. code:: yaml
+
+  rules:
+    unpinned-uses:
+      config:
+        policies:
+          ansys/*: ref-pin
+          actions/*: hash-pin
+    template-injection:
+      ignore:
+        - safe.yml
+        - somewhat-safe.yml:123
+        - one-exact-spot.yml:123:456
+
+This configuration file achieves the following:
+
+- Declares that ``ansys/actions`` can be pinned with tags but ``actions/*`` must be pinned with a SHA.
+- Ignores all ``template-injection`` findings in safe.yml, regardless of line/column location.
+- Ignores any ``template-injection`` findings in somewhat-safe.yml that occur on line 123
+- Ignores one ``template-injection`` finding in one-exact-spot.yml that occurs on line 123, column 456
+
+For more information, refer to `ignoring zizmor results`_.
