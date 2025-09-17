@@ -371,6 +371,7 @@ For additional examples of fixes, see the `zizmor trophy case`_.
   .. tab-item:: Before
 
     .. code:: yaml
+
       # See https://docs.zizmor.sh/audits/#artipacked for more information.
       steps:
 
@@ -381,6 +382,7 @@ For additional examples of fixes, see the `zizmor trophy case`_.
   .. tab-item:: After
 
     .. code:: yaml
+
       # See https://docs.zizmor.sh/audits/#artipacked for more information.
       steps:
   
@@ -402,6 +404,7 @@ For additional examples of fixes, see the `zizmor trophy case`_.
   .. tab-item:: Before
 
     .. code:: yaml
+
       # See https://docs.zizmor.sh/audits/#unpinned-uses for more information.
       steps:
 
@@ -415,6 +418,7 @@ For additional examples of fixes, see the `zizmor trophy case`_.
   .. tab-item:: After
 
     .. code:: yaml
+
       # See https://docs.zizmor.sh/audits/#unpinned-uses for more information.
       steps:
 
@@ -442,6 +446,7 @@ For additional examples of fixes, see the `zizmor trophy case`_.
   .. tab-item:: Before
 
     .. code:: yaml
+
       # See https://docs.zizmor.sh/audits/#github-env for more information.
       steps:
 
@@ -495,6 +500,7 @@ For additional examples of fixes, see the `zizmor trophy case`_.
   .. tab-item:: After
 
     .. code:: yaml
+
       # See https://docs.zizmor.sh/audits/#github-env for more information.
       steps:
 
@@ -569,6 +575,7 @@ For additional examples of fixes, see the `zizmor trophy case`_.
   .. tab-item:: Before
 
     .. code:: yaml
+
       # See https://docs.zizmor.sh/audits/#template-injection for more information.
       name: Example reusable workflow
 
@@ -602,6 +609,7 @@ For additional examples of fixes, see the `zizmor trophy case`_.
   .. tab-item:: After
 
     .. code:: yaml
+
       # See https://docs.zizmor.sh/audits/#template-injection for more information.
       name: Example reusable workflow
 
@@ -650,6 +658,7 @@ For additional examples of fixes, see the `zizmor trophy case`_.
   .. tab-item:: Before
 
     .. code:: yaml
+
       # See https://docs.zizmor.sh/audits/#excessive-permissions for more information.
       name: Github CI
 
@@ -701,6 +710,7 @@ For additional examples of fixes, see the `zizmor trophy case`_.
   .. tab-item:: After
 
     .. code:: yaml
+
       # See https://docs.zizmor.sh/audits/#excessive-permissions for more information.
       name: Github CI
 
@@ -757,6 +767,7 @@ For additional examples of fixes, see the `zizmor trophy case`_.
   .. tab-item:: Before
 
     .. code:: yaml
+
       # See https://docs.zizmor.sh/audits/#anonymous-definition for more information.
       on: push # This workflow has no name.
 
@@ -770,6 +781,7 @@ For additional examples of fixes, see the `zizmor trophy case`_.
   .. tab-item:: After
 
     .. code:: yaml
+
       # See https://docs.zizmor.sh/audits/#anonymous-definition for more information.
       name: Echo Test # It is good practice to always name workflows.
       on: push
