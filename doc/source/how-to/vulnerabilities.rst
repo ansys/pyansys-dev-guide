@@ -601,7 +601,7 @@ For additional examples of fixes, see the `zizmor trophy case`_.
 
           - name: "Inspect context variables and workflow input"
             run: |
-              echo ${{ github.workspace }} # which are resolved before workflows and jobs run. These expansions
+              echo ${{ github.workspace }} # Template expansions are resolved before workflows and jobs run. These expansions
               echo ${{ runner.temp }} # insert their results directly into the context, which can accidentally introduce shell injection risks.
               echo ${{ input.user-input }} # This is especially through when such expansion is from a user input.
 
