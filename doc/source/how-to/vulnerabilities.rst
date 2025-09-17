@@ -144,7 +144,7 @@ action is up to date and that it is being used in all PyAnsys repositories consi
 that the action is implemented correctly and that the results are reviewed regularly.
 
 
-Addressing common vulnerabilities in python libraries and applications
+Addressing common vulnerabilities in Python libraries and applications
 ----------------------------------------------------------------------
 
 When developing Python applications, it is essential to be aware of common vulnerabilities that can
@@ -372,9 +372,10 @@ For additional examples of fixes, see the `zizmor trophy case`_.
 
     .. code:: yaml
 
+      # See https://docs.zizmor.sh/audits/#artipacked for more information.
       steps:
 
-      - name: "Checkout project"
+      - name: "Checkout project" # actions/checkout persists git credentials by default.
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
 
@@ -382,11 +383,12 @@ For additional examples of fixes, see the `zizmor trophy case`_.
 
     .. code:: yaml
 
+      # See https://docs.zizmor.sh/audits/#artipacked for more information.
       steps:
   
       - name: "Checkout project"
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        with:
+        with: # Unless needed for git operations in subsequent steps, do not persist credentials.
           persist-credentials: false
 
 .. note::
@@ -403,10 +405,11 @@ For additional examples of fixes, see the `zizmor trophy case`_.
 
     .. code:: yaml
 
+      # See https://docs.zizmor.sh/audits/#unpinned-uses for more information.
       steps:
 
       - name: "Upload distribution artifacts to GitHub artifacts"
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4 # The commit a tag-pinned action points to can change due to various factors.
         with:
           name: ${{ env.LIBRARY_NAME }}-artifacts
           path: ~/${{ env.LIBRARY_NAME }}/dist/
@@ -416,23 +419,24 @@ For additional examples of fixes, see the `zizmor trophy case`_.
 
     .. code:: yaml
 
+      # See https://docs.zizmor.sh/audits/#unpinned-uses for more information.
       steps:
 
       - name: "Upload distribution artifacts to GitHub artifacts"
-        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
+        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1 # Pinning with a SHA prevents this.
         with:
           name: ${{ env.LIBRARY_NAME }}-artifacts
           path: ~/${{ env.LIBRARY_NAME }}/dist/
+
+.. tip::
+
+  You can use the `pinact`_ tool to automatically pin versions of actions and reusable workflows.
 
 .. note::
 
   The ``ansys/actions/check-actions-security`` action has a ``trust-ansys-actions`` option that
   allows you to use tags for ``ansys/actions``.
   When this option is enabled, you only need to pin external actions.
-
-.. tip::
-
-  You can use the `pinact`_ tool to automatically pin versions of actions and reusable workflows.
 
 **github-env**
 
@@ -443,16 +447,16 @@ For additional examples of fixes, see the `zizmor trophy case`_.
 
     .. code:: yaml
 
+      # See https://docs.zizmor.sh/audits/#github-env for more information.
       steps:
 
       - name: "Decompose tag into components"
         shell: bash
         run: |
           if [[ ${{ github.ref_name }} =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            # Split the tag into its components
             IFS='.' read -ra PARTS <<< "${{ github.ref_name }}"
-            echo "V_AND_MAJOR=${PARTS[0]}" >> $GITHUB_ENV
-            echo "MINOR=${PARTS[1]}" >> $GITHUB_ENV
+            echo "V_AND_MAJOR=${PARTS[0]}" >> $GITHUB_ENV # When used in workflows with dangerous triggers, such as pull_request_target
+            echo "MINOR=${PARTS[1]}" >> $GITHUB_ENV # and workflow_run, GITHUB_ENV and GITHUB_PATH can be an arbitrary code execution risk.
             echo "PATCH=${PARTS[2]}" >> $GITHUB_ENV
           else
             echo "Invalid tag format. Expected vX.Y.Z but got ${{ github.ref_name }}"
@@ -462,7 +466,6 @@ For additional examples of fixes, see the `zizmor trophy case`_.
       - name: "Check tag is valid for current branch"
         shell: bash
         run: |
-          # Remove leading "v" from env.X
           V_AND_MAJOR=${{ env.V_AND_MAJOR }}
           MAJOR="${V_AND_MAJOR#v}"
           echo "MAJOR=${MAJOR}" >> $GITHUB_ENV
@@ -498,6 +501,7 @@ For additional examples of fixes, see the `zizmor trophy case`_.
 
     .. code:: yaml
 
+      # See https://docs.zizmor.sh/audits/#github-env for more information.
       steps:
 
       - name: "Decompose tag into components"
@@ -505,11 +509,10 @@ For additional examples of fixes, see the `zizmor trophy case`_.
         shell: bash
         run: |
           if [[ ${{ github.ref_name }} =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            # Split the tag into its components
             IFS='.' read -ra PARTS <<< "${{ github.ref_name }}"
-            echo "V_AND_MAJOR=${PARTS[0]}" >> $GITHUB_OUTPUT
-            echo "MINOR=${PARTS[1]}" >> $GITHUB_OUTPUT
-            echo "PATCH=${PARTS[2]}" >> $GITHUB_OUTPUT
+            echo "V_AND_MAJOR=${PARTS[0]}" >> $GITHUB_OUTPUT # Writing to GITHUB_OUTPUT is safe.
+            echo "MINOR=${PARTS[1]}" >> $GITHUB_OUTPUT # Writing to GITHUB_OUTPUT is safe.
+            echo "PATCH=${PARTS[2]}" >> $GITHUB_OUTPUT # Writing to GITHUB_OUTPUT is safe.
           else
             echo "Invalid tag format. Expected vX.Y.Z but got ${{ github.ref_name }}"
             exit 1
@@ -519,10 +522,9 @@ For additional examples of fixes, see the `zizmor trophy case`_.
         id: current-branch-tag-validity
         shell: bash
         env:
-          V_AND_MAJOR: ${{ steps.tag-components.outputs.V_AND_MAJOR }}
-          MINOR: ${{ steps.tag-components.outputs.MINOR }}
+          V_AND_MAJOR: ${{ steps.tag-components.outputs.V_AND_MAJOR }} # Then share information between steps
+          MINOR: ${{ steps.tag-components.outputs.MINOR }} # through the env block.
         run: |
-          # Remove leading "v" from env.X
           MAJOR="${V_AND_MAJOR#v}"
           echo "MAJOR=${MAJOR}" >> $GITHUB_OUTPUT
           if [[ ${{ github.event.base_ref }} != "refs/heads/release/${MAJOR}.${MINOR}" ]]; then
@@ -574,6 +576,7 @@ For additional examples of fixes, see the `zizmor trophy case`_.
 
     .. code:: yaml
 
+      # See https://docs.zizmor.sh/audits/#template-injection for more information.
       name: Example reusable workflow
 
       on:
@@ -598,15 +601,16 @@ For additional examples of fixes, see the `zizmor trophy case`_.
 
           - name: "Inspect context variables and workflow input"
             run: |
-              echo ${{ github.workspace }}
-              echo ${{ runner.temp }}
-              echo ${{ input.user-input }}
+              echo ${{ github.workspace }} # Template expansions are resolved before workflows and jobs run. These expansions
+              echo ${{ runner.temp }} # insert their results directly into the context, which can accidentally introduce shell injection risks.
+              echo ${{ input.user-input }} # This is especially through when such expansion is from a user input.
 
 
   .. tab-item:: After
 
     .. code:: yaml
 
+      # See https://docs.zizmor.sh/audits/#template-injection for more information.
       name: Example reusable workflow
 
       on:
@@ -631,17 +635,17 @@ For additional examples of fixes, see the `zizmor trophy case`_.
 
           - name: "Inspect context variables and workflow input"
             env:
-              USER_INPUT: ${{ inputs.user-input }}
+              USER_INPUT: ${{ inputs.user-input }} # Expand inputs and relevant context variables in the env block.
             run: |
-              echo ${USER_INPUT}
-              echo ${RUNNER_TEMP}
-              echo ${GITHUB_WORKSPACE}
+              echo ${USER_INPUT} # Then use that directly within the run block.
+              echo ${RUNNER_TEMP} # Also, most Github context variables have equivalent environment variables
+              echo ${GITHUB_WORKSPACE} # that can be directly used in place of template expansions.
 
 .. note::
 
   Notice that ``RUNNER_TEMP`` and ``GITHUB_WORKSPACE`` were not explicitly set in the ``env`` block.
   Some GitHub context variables automatically map to environment variables, such as
-  ``runner.temp`` to ``RUNNER_TEMP`` and ``github.workspace`` to ``GITHUB_WORKSPACE``
+  ``runner.temp`` to ``RUNNER_TEMP`` and ``github.workspace`` to ``GITHUB_WORKSPACE``.
   
   If a corresponding environment variable is not automatically available, you must set it in the ``env``
   block of the job or step where it is needed before you can use it.
@@ -655,6 +659,7 @@ For additional examples of fixes, see the `zizmor trophy case`_.
 
     .. code:: yaml
 
+      # See https://docs.zizmor.sh/audits/#excessive-permissions for more information.
       name: Github CI
 
       on:
@@ -668,6 +673,10 @@ For additional examples of fixes, see the `zizmor trophy case`_.
       env:
         MAIN_PYTHON_VERSION: '3.12'
         DOCUMENTATION_CNAME: 'actions.docs.ansys.com'
+
+      # When not specified, the default permission assigned to workflows might be too excessive
+      # for what the jobs need to do. Furthermore, all job steps automatically inherit this
+      # default permission
 
       concurrency:
         group: ${{ github.workflow }}-${{ github.ref }}
@@ -702,6 +711,7 @@ For additional examples of fixes, see the `zizmor trophy case`_.
 
     .. code:: yaml
 
+      # See https://docs.zizmor.sh/audits/#excessive-permissions for more information.
       name: Github CI
 
       on:
@@ -716,7 +726,8 @@ For additional examples of fixes, see the `zizmor trophy case`_.
         MAIN_PYTHON_VERSION: '3.12'
         DOCUMENTATION_CNAME: 'actions.docs.ansys.com'
 
-      permissions: {}
+      permissions: {} # Zero permissions can be granted at the workflow level if not all jobs require permissions.
+                      # As a good rule of thumb, this normally includes jobs that don't use secrets.
 
       concurrency:
         group: ${{ github.workflow }}-${{ github.ref }}
@@ -739,7 +750,7 @@ For additional examples of fixes, see the `zizmor trophy case`_.
           runs-on: ubuntu-latest
           needs: [doc-build]
           permissions:
-            contents: write
+            contents: write # The specific permission type needed is set for a job that actually needs it.
           steps:
             - uses: ansys/actions/doc-deploy-dev@v10.1.0a0
               with:
@@ -757,7 +768,8 @@ For additional examples of fixes, see the `zizmor trophy case`_.
 
     .. code:: yaml
 
-      on: push
+      # See https://docs.zizmor.sh/audits/#anonymous-definition for more information.
+      on: push # This workflow has no name.
 
       jobs:
         build:
@@ -770,7 +782,8 @@ For additional examples of fixes, see the `zizmor trophy case`_.
 
     .. code:: yaml
 
-      name: Echo Test
+      # See https://docs.zizmor.sh/audits/#anonymous-definition for more information.
+      name: Echo Test # It is good practice to always name workflows.
       on: push
 
       jobs:
@@ -779,6 +792,9 @@ For additional examples of fixes, see the `zizmor trophy case`_.
           steps:
             - run: echo "Hello!"
 
+.. note::
+
+  This finding has no security impact and is more of reinforcing good practices.
 
 Ignoring ``zizmor`` findings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
