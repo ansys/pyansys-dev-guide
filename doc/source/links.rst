@@ -124,6 +124,12 @@
 .. _zizmor audit rules: https://docs.zizmor.sh/audits/
 .. _zizmor trophy case: https://docs.zizmor.sh/trophy-case/
 .. _ignoring zizmor results: https://docs.zizmor.sh/usage/#ignoring-results
+.. _artipacked audit rule: https://docs.zizmor.sh/audits/#artipacked
+.. _unpinned-uses audit rule: https://docs.zizmor.sh/audits/#unpinned-uses
+.. _github-env audit rule: https://docs.zizmor.sh/audits/#github-env
+.. _template-injection audit rule: https://docs.zizmor.sh/audits/#template-injection
+.. _excessive-permissions audit rule: https://docs.zizmor.sh/audits/#excessive-permissions
+.. _anonymous-definition audit rule: https://docs.zizmor.sh/audits/#anonymous-definition
 .. _pinact: https://github.com/suzuki-shunsuke/pinact
 
 

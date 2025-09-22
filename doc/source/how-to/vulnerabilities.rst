@@ -365,25 +365,29 @@ For additional examples of fixes, see the `zizmor trophy case`_.
 
 **artipacked**
 
+The vulnerability is that using ``actions/checkout`` in GitHub Actions can store repository credentials in ``.git/config``, 
+which may be unintentionally exposed through artifacts or workflow steps.
+
+Fixing is important because leaked credentials could grant attackers unauthorized access to your repositories,
+which can allow them push malicious code, among other things. See `artipacked audit rule`_ for more information.
+
 .. tab-set::
 
 
-  .. tab-item:: Before
+  .. tab-item:: Potential risk
 
     .. code:: yaml
 
-      # See https://docs.zizmor.sh/audits/#artipacked for more information.
       steps:
 
       - name: "Checkout project" # actions/checkout persists git credentials by default.
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
 
-  .. tab-item:: After
+  .. tab-item:: Remediation
 
     .. code:: yaml
 
-      # See https://docs.zizmor.sh/audits/#artipacked for more information.
       steps:
   
       - name: "Checkout project"
@@ -398,14 +402,20 @@ For additional examples of fixes, see the `zizmor trophy case`_.
 
 **unpinned-uses**
 
+The vulnerability is that using unpinned ``uses:`` clauses in GitHub Actions allows workflows to pull in action
+code that can change at any time, including through branch or tag updates.
+
+Fixing it is important because unpinned actions could be modified by attackers or upstream maintainers, leading
+to unexpected or malicious code execution in your workflows. See `unpinned-uses audit rule`_ for more
+information.
+
 .. tab-set::
 
 
-  .. tab-item:: Before
+  .. tab-item:: Potential risk
 
     .. code:: yaml
 
-      # See https://docs.zizmor.sh/audits/#unpinned-uses for more information.
       steps:
 
       - name: "Upload distribution artifacts to GitHub artifacts"
@@ -415,11 +425,10 @@ For additional examples of fixes, see the `zizmor trophy case`_.
           path: ~/${{ env.LIBRARY_NAME }}/dist/
 
 
-  .. tab-item:: After
+  .. tab-item:: Remediation
 
     .. code:: yaml
 
-      # See https://docs.zizmor.sh/audits/#unpinned-uses for more information.
       steps:
 
       - name: "Upload distribution artifacts to GitHub artifacts"
@@ -440,14 +449,20 @@ For additional examples of fixes, see the `zizmor trophy case`_.
 
 **github-env**
 
+Writing to ``GITHUB_ENV`` or ``GITHUB_PATH`` in workflows with dangerous triggers (such as ``pull_request_target`` and
+``workflow_run``) can let attackers inject arbitrary environment variables / variable contents.
+
+A fix is required because this exposure could allow attackers to run malicious code in your GitHub Actions workflows
+either implictly in subsequent steps, or by shadowing ordinary system executables (such as ``ssh``). See
+`github-env audit rule`_ for more information.
+
 .. tab-set::
 
 
-  .. tab-item:: Before
+  .. tab-item:: Potential risk
 
     .. code:: yaml
 
-      # See https://docs.zizmor.sh/audits/#github-env for more information.
       steps:
 
       - name: "Decompose tag into components"
@@ -497,11 +512,10 @@ For additional examples of fixes, see the `zizmor trophy case`_.
           git push origin v${{ env.MAJOR }}
 
 
-  .. tab-item:: After
+  .. tab-item:: Remediation
 
     .. code:: yaml
 
-      # See https://docs.zizmor.sh/audits/#github-env for more information.
       steps:
 
       - name: "Decompose tag into components"
@@ -569,14 +583,19 @@ For additional examples of fixes, see the `zizmor trophy case`_.
 
 **template-injection**
 
+The vulnerability is that template expansions (``${{ ... }}``) in GitHub Actions can allow code injection when used with
+attacker-controlled inputs, such as issue titles (``github.event.issue.title`` which the attacker can fully control by supplying a new issue title).
+
+Fixing it is important because malicious inputs could execute unintended commands, compromising the security of your workflows. See
+`template-injection audit rule`_ for more information.
+
 .. tab-set::
 
 
-  .. tab-item:: Before
+  .. tab-item:: Potential risk
 
     .. code:: yaml
 
-      # See https://docs.zizmor.sh/audits/#template-injection for more information.
       name: Example reusable workflow
 
       on:
@@ -606,11 +625,10 @@ For additional examples of fixes, see the `zizmor trophy case`_.
               echo ${{ input.user-input }} # This is especially through when such expansion is from a user input.
 
 
-  .. tab-item:: After
+  .. tab-item:: Remediation
 
     .. code:: yaml
 
-      # See https://docs.zizmor.sh/audits/#template-injection for more information.
       name: Example reusable workflow
 
       on:
@@ -652,14 +670,19 @@ For additional examples of fixes, see the `zizmor trophy case`_.
 
 **excessive-permissions**
 
+The vulnerability is that workflows with excessive permissions grant more access than needed, either at the
+workflow or job level, including through the default ``GITHUB_TOKEN``.
+
+Fixing it is important because over-scoped permissions increase the risk that a compromised workflow could
+perform unauthorized actions on your repository. See `excessive-permissions audit rule`_ for more information.
+
 .. tab-set::
 
 
-  .. tab-item:: Before
+  .. tab-item:: Potential risk
 
     .. code:: yaml
 
-      # See https://docs.zizmor.sh/audits/#excessive-permissions for more information.
       name: Github CI
 
       on:
@@ -707,11 +730,10 @@ For additional examples of fixes, see the `zizmor trophy case`_.
                 bot-email: ${{ secrets.PYANSYS_CI_BOT_EMAIL }}
 
 
-  .. tab-item:: After
+  .. tab-item:: Remediation
 
     .. code:: yaml
 
-      # See https://docs.zizmor.sh/audits/#excessive-permissions for more information.
       name: Github CI
 
       on:
@@ -761,14 +783,19 @@ For additional examples of fixes, see the `zizmor trophy case`_.
 
 **anonymous-definition**
 
+This issue is raised when workflows omit the ``name:`` field. When ``name:`` is omitted, the workflow is rendered
+anonymously in the Github Actions UI, making it harder to understand which definition is running.
+
+There is no security impact associated with this issue. However, it is good practice to always include the ``name:``
+field. See `anonymous-definition audit rule`_ for more information.
+
 .. tab-set::
 
 
-  .. tab-item:: Before
+  .. tab-item:: Potential risk
 
     .. code:: yaml
 
-      # See https://docs.zizmor.sh/audits/#anonymous-definition for more information.
       on: push # This workflow has no name.
 
       jobs:
@@ -778,11 +805,10 @@ For additional examples of fixes, see the `zizmor trophy case`_.
             - run: echo "Hello!"
 
 
-  .. tab-item:: After
+  .. tab-item:: Remediation
 
     .. code:: yaml
 
-      # See https://docs.zizmor.sh/audits/#anonymous-definition for more information.
       name: Echo Test # It is good practice to always name workflows.
       on: push
 
@@ -791,10 +817,6 @@ For additional examples of fixes, see the `zizmor trophy case`_.
           runs-on: ubuntu-latest
           steps:
             - run: echo "Hello!"
-
-.. note::
-
-  This finding has no security impact and is more of reinforcing good practices.
 
 Ignoring ``zizmor`` findings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
