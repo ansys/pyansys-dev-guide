@@ -19,10 +19,9 @@ help:
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 
-# customized clean due to examples gallery
+# customized clean
 clean:
-	rm -rf build
-	rm -rf source/examples/
+	rm -rf _build
 
 # customized pdf fov svg format images
 pdf:

@@ -34,9 +34,9 @@ introduced in an earlier version are also supported in later versions. Suppressi
 a feature would lead to a backward compatibility issue.
 
 Because the same type of issues can happen with the PyAnsys servers wrapping
-Ansys products, creating a similar *maximum version* data structure is
-is necessary. While there are no such implementations yet, it should work
-in the same way as the minimum version data structure.
+Ansys products, creating a similar *maximum version* data structure is necessary.
+While there are no such implementations yet, it should work in the same way as the
+minimum version data structure.
 
 ``version_requires`` decorator
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
