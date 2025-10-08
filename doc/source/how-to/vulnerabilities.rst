@@ -622,7 +622,7 @@ Fixing it is important because malicious inputs could execute unintended command
             run: |
               echo ${{ github.workspace }} # Template expansions are resolved before workflows and jobs run. These expansions
               echo ${{ runner.temp }} # insert their results directly into the context, which can accidentally introduce shell injection risks.
-              echo ${{ input.user-input }} # This is especially through when such expansion is from a user input.
+              echo ${{ input.user-input }} # This is especially true when such expansion is from a user input.
 
 
   .. tab-item:: Remediation
