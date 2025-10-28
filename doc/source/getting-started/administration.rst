@@ -110,9 +110,9 @@ Legal
 Legal review approval ensures that the entire project complies with Ansys'
 legal policies.
 
-Click the following button to complete the legal review request form for open sourcing the code:
+Click the following button to complete the Chain of liability:
 
-.. button-link:: https://github.com/ansys-internal/oss-approval-tracklist/issues/new?assignees=MaxJPRey%2C+RobPasMue%2C+jorgepiloto%2C+&labels=&projects=&template=oss_final_signature.yml&title=Name+of+the+package+to+release
+.. button-link:: https://forms.office.com/Pages/ResponsePage.aspx?id=Z87GNLgV_06A6VLai-iXBlohdWpH-0xMs83xmsDFYEBUNEZNM0dBS0taWlMzWlpDRklIQ0tFVEVSTC4u
     :color: black
     :expand:
 
