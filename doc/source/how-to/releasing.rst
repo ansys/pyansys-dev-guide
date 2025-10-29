@@ -98,8 +98,9 @@ control system.
 .. note:: Pre-releases
 
    To perform a pre-release, the process is the same as described below, with the exception
-   of using a pre-release tag that follows `PEP 440 <https://peps.python.org/pep-0440/>`__.
-   (e.g: v1.0.0a0, v5.4.0rc1, etc)
+   of using a pre-release tag that follows `PEP 440 <https://peps.python.org/pep-0440/>`_.
+   Furthermore, limiting pre-release tags to ``N.N.N[{a|b|rc}N]`` subset is encouraged for
+   PyAnsys libraries.
 
 .. dropdown:: Release major and minor versions
 
