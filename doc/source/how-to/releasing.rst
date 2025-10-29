@@ -95,6 +95,12 @@ control system.
     | |uncheck| All documentation builds successfully.
     | |uncheck| The project builds successfully.
 
+.. note:: Pre-releases
+
+   To perform a pre-release, the process is the same as described below, with the exception
+   of using a pre-release tag that follows `PEP 440 <https://peps.python.org/pep-0440/#pre-releases/>`__.
+   (e.g: v1.0.0a0, v5.4.0rc1, etc)
+
 .. dropdown:: Release major and minor versions
 
     Before performing a release, you must verify that your ``origin main`` branch is up to date
