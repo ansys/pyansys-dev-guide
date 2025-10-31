@@ -307,6 +307,9 @@ for build-system backend tools commonly used in the Python ecosystem:
 
 .. include:: code/pyproject_code.rst
 
+Optional files
+==============
+
 The ``setup.py`` file
 ---------------------
 
