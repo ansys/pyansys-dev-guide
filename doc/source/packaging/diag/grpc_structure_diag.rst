@@ -19,6 +19,10 @@
            label="ansys-api-product", shape="folder"
          ];
 
+         src [
+           label="src", shape="folder"
+         ];
+
          ansys [
            label="ansys", shape="folder"
          ];
@@ -44,7 +48,8 @@
          ];
 
 
-         ansys_api_product -> ansys;
+         ansys_api_product -> src;
+         src -> ansys;
          ansys -> api;
          api -> product;
          product -> version;
