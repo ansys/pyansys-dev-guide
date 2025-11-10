@@ -65,9 +65,6 @@ When releasing a project to the public, you must perform these tasks:
 * Maintain the project by means of fixing bugs and providing support for new releases.
 * Uphold Ansys' reputation in the open source community.
 
-Once all three approvals have been awarded, project leads must then complete
-the `open source request form`_.
-
 Managerial
 ^^^^^^^^^^
 
