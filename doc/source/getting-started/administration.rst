@@ -21,6 +21,10 @@ This form lets the different parties involved in the public release process know
 there is a request to release a project. If your intent is to release an Ansys open
 source project, then continue to the next section.
 
+For more information, see
+:ref:`Questions asked on the OSS approval request form`.
+
+
 Approval process
 ----------------
 
@@ -60,13 +64,6 @@ When releasing a project to the public, you must perform these tasks:
 * Coordinate with the product line development team, if applicable.
 * Maintain the project by means of fixing bugs and providing support for new releases.
 * Uphold Ansys' reputation in the open source community.
-
-Once all three approvals have been awarded, project leads must then complete
-the `open source request form`_.
-
-This form serves as a final checklist to verify that all approvals have been processed
-and to formalize the OSS approval process as a final record. For more information, see
-:ref:`Questions asked on the OSS approval request form`.
 
 Managerial
 ^^^^^^^^^^
@@ -110,9 +107,9 @@ Legal
 Legal review approval ensures that the entire project complies with Ansys'
 legal policies.
 
-Click the following button to complete the legal review request form for open sourcing the code:
+Click the following button to complete the Chain of liability:
 
-.. button-link:: https://github.com/ansys-internal/oss-approval-tracklist/issues/new?assignees=MaxJPRey%2C+RobPasMue%2C+jorgepiloto%2C+&labels=&projects=&template=oss_final_signature.yml&title=Name+of+the+package+to+release
+.. button-link:: https://forms.office.com/Pages/ResponsePage.aspx?id=Z87GNLgV_06A6VLai-iXBlohdWpH-0xMs83xmsDFYEBUNEZNM0dBS0taWlMzWlpDRklIQ0tFVEVSTC4u
     :color: black
     :expand:
 
