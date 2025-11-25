@@ -177,6 +177,7 @@ The PyAnsys core team performs these checks when performing the technical review
     | |uncheck| :ref:`Branch protection` is enabled.
     | |uncheck| :ref:`Tag protection` is enabled.
     | |uncheck| :ref:`Workflow protection` is enabled.
+    | |uncheck| :ref:`Pin actions with full-length commit SHA` is enabled.
 
 
 .. |check| raw:: html

@@ -132,3 +132,20 @@ their PR workflows do not have to be accepted every time that they intend to run
 
 Internal and private repositories are only available to organization users and repository members,
 respectively. Thus, no specific rules for outside collaborators are needed.
+
+Pin actions with full-length commit SHA
+---------------------------------------
+
+Protect your workflows by requiring actions to be pinned to a full-length commit SHA.
+To enable the setting **Require actions to be pinned to a full-length commit SHA**, select
+**Settings > Actions > General** and see the **Actions permissions** section.
+
+When this option is active, all GitHub Actions used in workflows must reference a specific
+commit hash, for example `actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2` instead
+of a moving tag such as `v4`. The main advantage of this option is supply chain security. Indeed, tags
+are mutable in the sense that an attacker who gains access to a project, or even a legitimate maintainer
+updating a tag, could introduce breaking changes or malicious code without you noticing. Pinning to a
+commit SHA eliminates that risk by locking the dependency to a known version. On top of that, since the
+action's code cannot change silently in the background, it guarantees that every workflow run uses the
+exact same version of the action. For more details and additional best practices, you can consult the
+`official GitHub documentation on securely using third-party actions <https://docs.github.com/en/actions/reference/security/secure-use#using-third-party-actions>`_.
