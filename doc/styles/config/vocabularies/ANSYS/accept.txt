@@ -17,6 +17,7 @@ Codespell
 [Cc]omponentization
 [Cc]omponentizing
 composability
+cyberchannel
 cybersecurity
 dataframes
 datagrams
