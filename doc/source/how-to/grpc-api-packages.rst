@@ -276,6 +276,23 @@ underlying implementations.
 For each client library release, only a single gRPC API version should be wrapped
 to maintain a consistent API abstraction expectation for the supporting server instances.
 
+Securing connections
+~~~~~~~~~~~~~~~~~~~~
+
+It is possible to secure connections between the Python client library and the
+product servers.
+
+For developers, use the `cyberchannel`_ module provided in the
+`ansys-tools-common`_ to implement secure connections. This ensures compliance
+with the latest security standards defined by PyAnsys.
+
+For users, refer to the `certificates`_ section for creating and managing
+all necessary certificates for secure connections.
+
+.. _cyberchannel: https://tools.docs.pyansys.com/version/stable/user_guide/secure_grpc.html#the-cyberchannel-module
+.. _ansys-tools-common: https://tools.docs.pyansys.com
+.. _certificates: https://tools.docs.pyansys.com/version/0.3/user_guide/secure_grpc.html#generating-certificates-for-mtls
+
 Public versus private Python API package
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

@@ -61,14 +61,76 @@ jobs:
     runs-on: ubuntu-latest
     needs: doc-build
     steps:
-
-      - name: Download HTML documentation artifacts
-        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
+  
+      - name: "Download HTML documentation artifacts"
+        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
         with:
           name: documentation-html
           path: documentation-html
 
-      - uses: peaceiris/actions-gh-pages@v4
+      - uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: documentation-html
+          cname: ${{ env.DOCUMENTATION_CNAME }}
+          full_commit_message: ${{ github.event.head_commit.message }}
+          force_orphan: true
+
+  release-github:
+    name: "Release to GitHub"
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+    needs: doc-build
+    steps:
+
+    - name: "Download HTML documentation"
+      uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
+      with:
+        name: documentation-html
+        path: documentation-html
+
+    - name: "Zip HTML documentation"
+      uses: vimtor/action-zip@1379ea20d4c5705669ba81fd626dd01b1c738f26 # v1.2
+      with:
+        files: documentation-html
+        dest: documentation-html.zip
+
+    - name: "Download PDF documentation"
+      uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
+      with:
+        name: documentation-pdf
+        path: documentation-pdf
+
+    - name: "Zip PDF documentation"
+      uses: vimtor/action-zip@1379ea20d4c5705669ba81fd626dd01b1c738f26 # v1.2
+      with:
+        files: documentation-pdf
+        dest: documentation-pdf
+
+    - name: "Display the structure of downloaded files"
+      shell: bash
+      run: ls -R
+
+    - name: "Release to GitHub"
+      uses: softprops/action-gh-release@5be0e66d93ac7ed76da52eca8bb058f665c3a5fe # v2.4.2
+      with:
+        files: |
+          documentation-html.zip
+          documentation-pdf
+
+  doc-deploy-github-release:
+    name: "Deploy documentation (stable)"
+    runs-on: ubuntu-latest
+    needs: [release-github]
+    steps:
+  
+      - name: "Download HTML documentation artifacts"
+        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
+        with:
+          name: documentation-html
+          path: documentation-html
+
+      - uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: documentation-html
