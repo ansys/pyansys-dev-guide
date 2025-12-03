@@ -23,32 +23,32 @@ permissions:
 jobs:
 
   doc-style:
-    name: "Check documentation style"
+    name: Check documentation style
     runs-on: ubuntu-latest
     steps:
-      - name: "Check documentation style"
-        uses: ansys/actions/doc-style@v10
+      - name: Check documentation style
+        uses: ansys/actions/doc-style@1096998b81f7ebdea116b683e11f3a8bda759ca6 # v10.0.14
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
   doc-build:
-    name: "Build project documentation"
+    name: Build project documentation
     runs-on: ubuntu-22.04
     steps:
       - name: Setup headless display
-        uses: pyvista/setup-headless-display-action@v4
+        uses: pyvista/setup-headless-display-action@7d84ae825e6d9297a8e99bdbbae20d1b919a0b19 # v4.2
 
-      - name: "Install mermaid-cli"
+      - name: Install mermaid-cli
         run: npm install -g @mermaid-js/mermaid-cli
 
-      - name: "Install GraphViz"
+      - name: Install GraphViz
         shell: bash
         run: |
           sudo apt-get update
           sudo apt-get install graphviz
 
-      - name: "Build project documentation"
-        uses: ansys/actions/doc-build@v10
+      - name: Build project documentation
+        uses: ansys/actions/doc-build@1096998b81f7ebdea116b683e11f3a8bda759ca6 # v10.0.14
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
           use-python-cache: false
@@ -56,19 +56,19 @@ jobs:
           dependencies: 'texlive-latex-extra latexmk nodejs npm'
 
   doc-deploy:
-    name: "Deploy documentation"
+    name: Deploy documentation
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && !contains(github.ref, 'refs/tags')
     needs: doc-build
     steps:
   
       - name: "Download HTML documentation artifacts"
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
         with:
           name: documentation-html
           path: documentation-html
 
-      - uses: peaceiris/actions-gh-pages@v4
+      - uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: documentation-html
@@ -84,25 +84,25 @@ jobs:
     steps:
 
     - name: "Download HTML documentation"
-      uses: actions/download-artifact@v6
+      uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
       with:
         name: documentation-html
         path: documentation-html
 
     - name: "Zip HTML documentation"
-      uses: vimtor/action-zip@v1
+      uses: vimtor/action-zip@1379ea20d4c5705669ba81fd626dd01b1c738f26 # v1.2
       with:
         files: documentation-html
         dest: documentation-html.zip
 
     - name: "Download PDF documentation"
-      uses: actions/download-artifact@v6
+      uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
       with:
         name: documentation-pdf
         path: documentation-pdf
 
     - name: "Zip PDF documentation"
-      uses: vimtor/action-zip@v1
+      uses: vimtor/action-zip@1379ea20d4c5705669ba81fd626dd01b1c738f26 # v1.2
       with:
         files: documentation-pdf
         dest: documentation-pdf
@@ -112,7 +112,7 @@ jobs:
       run: ls -R
 
     - name: "Release to GitHub"
-      uses: softprops/action-gh-release@v2
+      uses: softprops/action-gh-release@5be0e66d93ac7ed76da52eca8bb058f665c3a5fe # v2.4.2
       with:
         files: |
           documentation-html.zip
@@ -125,12 +125,12 @@ jobs:
     steps:
   
       - name: "Download HTML documentation artifacts"
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
         with:
           name: documentation-html
           path: documentation-html
 
-      - uses: peaceiris/actions-gh-pages@v4
+      - uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: documentation-html
