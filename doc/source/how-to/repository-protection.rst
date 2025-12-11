@@ -188,4 +188,4 @@ you can modify the configuration as follows:
           interval: "weekly"
 
 For more dependabot configuration options, see GitHub's
-`Dependabot options reference <https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference>`.
+`Dependabot options reference <https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference>`_.
