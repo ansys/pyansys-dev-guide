@@ -132,3 +132,60 @@ their PR workflows do not have to be accepted every time that they intend to run
 
 Internal and private repositories are only available to organization users and repository members,
 respectively. Thus, no specific rules for outside collaborators are needed.
+
+Dependabot cooldown
+^^^^^^^^^^^^^^^^^^^
+
+Another way to protect your repository is to set a cooldown period for Dependabot
+updates. This setting delays version updates for a certain number of days. By
+default, we recommend setting the ``default-days`` cooldown period to 10 days.
+
+To set the cooldown period, create a file named ``.github/dependabot.yml``
+with the following content:
+
+.. code-block:: yaml
+
+    version: 2
+    updates:
+      - package-ecosystem: "pip"
+        cooldown:
+          default-days: 10
+        directory: "/"
+        schedule:
+          interval: "weekly"
+      - package-ecosystem: "github-actions"
+        cooldown:
+          default-days: 10
+        directory: "/"
+        schedule:
+          interval: "weekly"
+
+This configuration file sets a cooldown period of 10 days for both
+Python packages (managed by ``pip``) and GitHub Actions workflows.
+
+To exclude certain packages from the cooldown period, you can specify them by
+adding an ``exclude`` section under the respective package ecosystem. For example,
+to exclude all ``ansys*`` packages from the cooldown period in the ``pip`` ecosystem,
+you can modify the configuration as follows:
+
+.. code-block:: yaml
+
+    version: 2
+    updates:
+      - package-ecosystem: "pip"
+        cooldown:
+          default-days: 10
+          exclude:
+            - "ansys*"
+        directory: "/"
+        schedule:
+          interval: "weekly"
+      - package-ecosystem: "github-actions"
+        cooldown:
+          default-days: 10
+        directory: "/"
+        schedule:
+          interval: "weekly"
+
+For more dependabot configuration options, see GitHub's
+`Dependabot options reference <https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference>`.
