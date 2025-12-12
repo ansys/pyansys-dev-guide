@@ -138,7 +138,7 @@ Dependabot cooldown
 
 Another way to protect your repository is to set a cooldown period for Dependabot
 updates. This setting delays version updates for a certain number of days. By
-default, we recommend setting the ``default-days`` cooldown period to 10 days.
+default, the recommended setting for the ``default-days`` cooldown period is 10 days.
 
 To set the cooldown period, create a file named ``.github/dependabot.yml``
 with the following content:
@@ -173,19 +173,12 @@ you can modify the configuration as follows:
     version: 2
     updates:
       - package-ecosystem: "pip"
+        ...
         cooldown:
-          default-days: 10
+          ...
           exclude:
             - "ansys*"
-        directory: "/"
-        schedule:
-          interval: "weekly"
-      - package-ecosystem: "github-actions"
-        cooldown:
-          default-days: 10
-        directory: "/"
-        schedule:
-          interval: "weekly"
+        ...
 
 For more dependabot configuration options, see GitHub's
 `Dependabot options reference <https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference>`_.
