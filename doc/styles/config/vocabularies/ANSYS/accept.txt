@@ -12,6 +12,7 @@ CI/CD
 CLI
 CNAME
 config
+cooldown
 CSV
 Codespell
 [Cc]omponentization
