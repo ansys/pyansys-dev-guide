@@ -72,6 +72,8 @@ extensions = [
     "sphinx_gallery.gen_gallery",
 ]
 
+autodoc_use_legacy_class_based = True
+
 # -- Sphinx Gallery Options ---------------------------------------------------
 sphinx_gallery_conf = {
     # path to your examples scripts
