@@ -1,0 +1,972 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Content development environment &#8212; PyAnsys developer&#39;s guide</title>
+  
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/ansys-sphinx-theme.css?v=9e79609d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/ansys-sphinx-theme.css?v=9e79609d" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.nerdfonts.com/assets/css/webfont.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+  <!-- Include desired assets -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  
+
+  
+    <link href="../../_static/css/breadcrumbs.css" rel="stylesheet" />
+  
+    <script src="../../_static/documentation_options.js?v=92d7cc4e"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content-writing/content-contrib-setup/content-dev-environment';</script>
+    <link rel="icon" href="../../_static/ansys-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Essentials for content writing" href="essentials.html" />
+    <link rel="prev" title="Client libraries" href="client-libraries.html" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="2026-02-17" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="https://docs.pyansys.com/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/pyansys_logo_transparent_black.png" class="logo__image only-light" alt="PyAnsys developer's guide - Home"/>
+    <img src="../../_static/pyansys_logo_transparent_white.png" class="logo__image only-dark pst-js-only" alt="PyAnsys developer's guide - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html" title="PyAnsys developer's guide home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../how-to/index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="../index.html">
+    Content writing
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+      
+        <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+  
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html" title="PyAnsys developer's guide home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../how-to/index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    Content writing
+  </a>
+</li>
+
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Content contribution setup</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="client-libraries.html">Client libraries</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Content development environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="essentials.html">Essentials for content writing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc-resources.html">PyAnsys documentation resources</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../rst-files-writers/index.html">Content in RST files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../py-files-writers/index.html">Content in PY files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples-writers/index.html">Content in examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content-how-tos/index.html">Content how-tos</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+         
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="https://docs.pyansys.com/" class="nav-link">PyAnsys</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a
+        href="../../index.html"
+        class="nav-link"
+        aria-label="Home"
+      >
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="../index.html" class="nav-link">Content writing</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="index.html" class="nav-link">Content contribution setup</a>
+    </li>
+      
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Content development environment</span></li>
+    
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="content-development-environment">
+<span id="dev-environment-writers"></span><h1>Content development environment<a class="headerlink" href="#content-development-environment" title="Link to this heading">#</a></h1>
+<p>Before you can contribute to PyAnsys documentation, you must set up your
+content development environment. Setup consists of creating a few accounts and
+installing some apps and tools.</p>
+<p>If you intend only to <a class="reference internal" href="../content-how-tos/review-PR.html#review-pr"><span class="std std-ref">review PRs</span></a> created by others, you do not
+have to set up a full content development environment. Instead, you need only perform the
+steps in these topics:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#doc-for-create-github-account"><span class="std std-ref">Create a GitHub account</span></a></p></li>
+<li><p><a class="reference internal" href="#install-git"><span class="std std-ref">Install Git</span></a></p></li>
+<li><p><a class="reference internal" href="#join-ansys-github-orgs"><span class="std std-ref">Join Ansys GitHub organizations</span></a></p></li>
+</ul>
+<p>If you intend to <a class="reference internal" href="../content-how-tos/create-PR.html#create-pr"><span class="std std-ref">create your own PRs</span></a>, perform the steps in all
+topics to set up a full content development environment.</p>
+<section id="create-a-github-account">
+<span id="doc-for-create-github-account"></span><h2>Create a GitHub account<a class="headerlink" href="#create-a-github-account" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/">GitHub</a> is a web-based platform with more than 100 million users
+and 330 million repositories. A repository contains everything about a project
+and is the root of the project.</p>
+<p>While GitHub uses the <a class="reference external" href="https://git-scm.com/">Git version control system</a> for tracking changes
+in source code, it goes way beyond version control, offering a
+collaborative environment for hosting, managing, and sharing Git repositories.</p>
+<p>To view or contribute to a GitHub project, you must have a GitHub user account.</p>
+<ol class="arabic simple">
+<li><p>Go to the <a class="reference external" href="https://github.com/join">Join GitHub</a> page and complete the user account form.</p></li>
+<li><p>Once your account is created, set it up to require two-factor authentication.
+For more information, see <a class="reference external" href="https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication">Configuring two-factor authentication</a> in the GitHub documentation.</p></li>
+</ol>
+<p>In a GitHub project, you can perform many tasks, including these:</p>
+<ul class="simple">
+<li><p>Browse the codebase to explore the project’s structure and architecture.</p></li>
+<li><p>Read the project-hosted documentation to understand how the project works,
+how to use it effectively, and how to contribute.</p></li>
+<li><p>Review a PR created by a fellow contributor to ensure that the code being
+added or changed meets established coding standards, follows best practices,
+and is of high quality before the PR can be approved for merging into the
+codebase.</p></li>
+<li><p>Create a local branch, make commits with suggested additions or changes, and
+then create your own PR for project maintainers to review, approve, and merge.</p></li>
+<li><p>Integrate GitHub CI/CD.</p></li>
+<li><p>Automate testing and deployment processes.</p></li>
+<li><p>Manage discussions and build a community around your project.</p></li>
+</ul>
+<p>While some of the preceding GitHub tasks are usually performed only by project
+maintainers, many of them are regularly performed by all team members, including
+content contributors.</p>
+<p>For more information on GitHub, see <a class="reference internal" href="../../how-to/contributing.html#contributing"><span class="std std-ref">Contributing</span></a> and the <a class="reference external" href="https://docs.github.com/en">GitHub documentation</a>.</p>
+</section>
+<section id="install-git">
+<span id="id1"></span><h2>Install Git<a class="headerlink" href="#install-git" title="Link to this heading">#</a></h2>
+<p>You must have <a class="reference external" href="https://git-scm.com/">Git</a> or a graphical user interface (GUI) client for Git installed.</p>
+<p>Because developers are accustomed to working in terminal environments, they
+tend to prefer using the Git command line, especially because it provides for
+greater control, customization, and automation. However, non-developer team members, such
+as project managers, designers, and writers, tend to prefer using a GUI client for Git.</p>
+<p>With a GUI client like <a class="reference external" href="https://desktop.github.com/">GitHub Desktop</a> or <a class="reference external" href="https://gitextensions.github.io/">Git Extensions</a>, rather than having to
+remember complex command sequences, non-developer team members can use the visual clues
+that the GUI provides to better understand branching, PRs, merging, and history visualization.</p>
+<p>If you do not yet have Git or a GUI client for Git installed, install your
+preferred tool from an official channel.</p>
+</section>
+<section id="join-ansys-github-organizations">
+<span id="join-ansys-github-orgs"></span><h2>Join Ansys GitHub organizations<a class="headerlink" href="#join-ansys-github-organizations" title="Link to this heading">#</a></h2>
+<p>Ansys has two GitHub organizations:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ansys</span></code>: Contains Ansys public repositories</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ansys-internal</span></code>: Contains Ansys internal repositories</p></li>
+</ul>
+<p>Ansys employees can join these Ansys organizations by clicking the following
+links to sign in first with their Ansys credentials and then with their
+GitHub credentials.</p>
+<ul class="simple">
+<li><p>Join the <a class="reference external" href="https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706">Ansys GitHub organization</a>.</p></li>
+<li><p>Join the <a class="reference external" href="https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706">Ansys Internal GitHub organization</a>.</p></li>
+</ul>
+<p>Writers outside of Ansys who want to contribute to the documentation for a PyAnsys
+library can contact the <a class="reference external" href="mailto:pyansys&#46;core&#37;&#52;&#48;ansys&#46;com">PyAnsy core team</a>
+for permission to access this project’s repository.</p>
+</section>
+<section id="install-and-use-the-ansys-python-manager">
+<span id="ansys-python-manager"></span><h2>Install and use the Ansys Python Manager<a class="headerlink" href="#install-and-use-the-ansys-python-manager" title="Link to this heading">#</a></h2>
+<p>Because installing Python on Windows is a complex process for people new to
+the Python ecosystem, various groups within Ansys have worked together to
+create the <strong>Ansys Python Manager</strong>, an open source Python QT app. This app streamlines
+installing Python on Windows, simplifies creating and managing virtual environments,
+centralizes installing and using other development tools, and facilitates both
+installing PyAnsys packages and viewing PyAnsys documentation.</p>
+<p>While <a class="reference external" href="https://installer.docs.pyansys.com/version/stable/">Ansys Python Manager documentation</a> is available,
+you can perform these steps to install and immediately begin using this app:</p>
+<ol class="arabic">
+<li><p>Go to the <a class="reference external" href="https://github.com/ansys/python-installer-qt-gui/releases">Releases</a> page in the <code class="docutils literal notranslate"><span class="pre">python-installer-qt-gui</span></code>
+repository.</p></li>
+<li><p>To download the executable (EXE) file for the latest release, under <strong>Assets</strong>,
+click <strong>Ansys-Python-Manager-Setup-v[latest version].exe</strong>.</p></li>
+<li><p>In your <strong>Downloads</strong> directory, double-click this EXE file to open the <strong>Ansys
+Python Manager Setup</strong> window, where you can accept the defaults on each page.</p>
+<p>When the installation completes, the Ansys Python Manager opens. If you close
+this app, you can open it again at any time from the Windows <strong>Start</strong> menu by
+selecting <strong>Ansys Python Manager</strong>.</p>
+</li>
+<li><p>On the <strong>Install Python</strong> tab, install a selected Python version:</p>
+<ol class="arabic">
+<li><p>For <strong>Installation type</strong>, choose <strong>Standard</strong> to install the standard
+installation from the <a class="reference external" href="https://www.python.org/">Python</a> organization.</p></li>
+<li><p>For <strong>Python version</strong>, choose <strong>Python 3.11</strong> to install the latest available
+version.</p></li>
+<li><p>At the bottom of the page, click <strong>Install</strong>.</p>
+<p>A <strong>Setup Progress</strong> window opens while Python is being installed and
+then closes when the installation finishes.</p>
+</li>
+</ol>
+</li>
+<li><p>On the <strong>Create virtual environments</strong> tab, create and activate a virtual environment:</p>
+<ol class="arabic">
+<li><p>For <strong>Select Python version</strong>, choose the Python version that you want to
+create a virtual environment for.</p>
+<p>You likely have only the one Python version that you just installed.
+However, developers might have several Python versions installed.</p>
+<p>A virtual environment makes your life easier because you do not have
+to worry about dependency conflicts in the same environment. For more information,
+see <a class="reference external" href="https://docs.python.org/3/library/venv.html">Creation of virtual environments</a> in the
+Python documentation.</p>
+</li>
+<li><p>For <strong>Virtual environment name</strong>, type the name to give your virtual environment.</p>
+<p>For example, type <code class="docutils literal notranslate"><span class="pre">my_venv</span></code>.</p>
+</li>
+<li><p>At the bottom of the page, click <strong>Create</strong>.</p>
+<p>After a few seconds, an <strong>Information</strong> window opens, indicating that your
+virtual environment has been successfully created. As indicated on the tab, virtual
+environments are created in an <code class="docutils literal notranslate"><span class="pre">.ansys_python_venvs</span></code> folder in your user directory.</p>
+</li>
+<li><p>Click <strong>OK</strong> to close the <strong>Information</strong> window.</p></li>
+</ol>
+</li>
+<li><p>On the <strong>Manage Python Environments</strong> tab, use some of its many features to set up and
+explore your development environment:</p>
+<ol class="arabic">
+<li><p>For <strong>Available virtual environments</strong>, choose the virtual environment
+that you have just created.</p>
+<p>Writers generally find having one virtual environment sufficient. However, developers
+might have several virtual environments for managing different packages and
+launching options.</p>
+</li>
+<li><p>Under <strong>General package management</strong>, click <strong>Install Python default packages</strong> to install
+all the open source packages that are commonly used by PyAnsys libraries in your virtual
+environment.</p>
+<p>The <strong>Administrator</strong> window opens, showing the installation of the default packages.
+Once these packages are installed, this window closes.</p>
+</li>
+<li><p>To see a list of all packages installed in your virtual environment, under
+<strong>General package management</strong> in the app, click <strong>List installed packages</strong>.</p>
+<p>The <strong>Administrator</strong> window opens, showing the names and versions of all installed packages.</p>
+<p>If you create an issue on the <strong>Issues</strong> page for a project’s GitHub repository, you are
+asked for your Python version, which you selected on the <strong>Install Python</strong> tab, and
+your installed packages. You can copy the package information from here in the <strong>Administrator</strong>
+window and paste it into the issue template.</p>
+<p>If a new release of an installed package is available, in addition to listing the installed
+packages, the <strong>Administrator</strong> window displays notices, which include the command for updating
+to the new release. Thus, you should periodically click <strong>List installed packages</strong> to see if
+you need to update an installed package.</p>
+<img alt="New package release notices" src="../../_images/notice-new-package-release.png" />
+<p>After copying the update command for a package, you can paste it in the command prompt,
+which is the final line in the window that shows the name of your virtual environment in
+parentheses. You then press the <strong>enter</strong> key to run the command. The window displays
+information about uninstalling the current package and installing the updated package.</p>
+<p>When finished, close the <strong>Administrator</strong> window.</p>
+</li>
+<li><p>Under <strong>PyAnsys package management</strong>, choose the PyAnsys package to install,
+the desired version, and click <strong>Install</strong>.</p>
+<p>Choosing <strong>PyAnsys-Metapackge</strong> and an Ansys version installs all PyAnsys
+packages that are compatible for use with this Ansys version. While you can choose
+to install a metapackage for a particular Ansys version, if you are contributing
+to PyAnsys documentation for only one package, or only for a few packages, choosing
+to install only these individual packages saves disk space.</p>
+<p>Once the package is installed, this window closes.</p>
+</li>
+</ol>
+</li>
+<li><p>From the app’s <strong>File</strong> menu, periodically select <strong>Check for Updates</strong> to check for and install
+any updates available for the Ansys Python Manager.</p></li>
+<li><p>From the app’s <strong>Help</strong> menu, select <strong>Online Documentation</strong> to see this app’s documentation.
+If this app is not open, you can go directly to the latest stable version of the
+<a class="reference external" href="https://installer.docs.pyansys.com/version/stable/">Ansys Python Manager documentation</a> on GitHub.</p></li>
+<li><p>From the app’s <strong>Help</strong> menu, select <strong>PyAnsys Documentation</strong> to open the <strong>PyAnsys Documentation</strong>
+window, where you can choose the documentation that you want to view. Then, click <strong>Open Website</strong>
+to go directly to this documentation. When finished, you can close this window.</p></li>
+</ol>
+<p>While you can close and reopen the Ansys Python Manager as needed, leaving this app open while you work
+is helpful because you can click <strong>Launch console</strong> under <strong>Launch options</strong> to open a console to run commands
+in your virtual environment.</p>
+<p>If you click any other button under <strong>Launch options</strong>, the Ansys Python Manager installs this tool
+if it is not yet installed and then opens it. However, most of these tools are for developers and project
+maintainers who use them to write and test Python scripts. Because editing the reStructuredText
+(RST) and Python (PY) files for PyAnsys documentation is more easily accomplished using Visual Studio
+Code and the Python in Visual Studio Code extension, you likely do not need to use these other tools.</p>
+</section>
+<section id="install-visual-studio-code">
+<h2>Install Visual Studio Code<a class="headerlink" href="#install-visual-studio-code" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a> is a lightweight but powerful source code editor that
+runs on your desktop. As indicated in the <a class="reference external" href="https://code.visualstudio.com/Docs">Visual Studio Code documentation</a>,
+it is available for Windows, macOS, and Linux. For information on installing and
+running Visual Studio Code on your operating system, see <a class="reference external" href="https://code.visualstudio.com/docs/setup/setup-overview">SETUP</a> in the
+Visual Studio Code documentation.</p>
+<p>While you can use another source code editor to modify RST and PY files, Visual Studio Code is
+one of the most commonly used source code editors worldwide. This guide assumes that you are
+using Visual Studio Code with the Python in Visual Studio Code extension.</p>
+</section>
+<section id="install-the-python-in-visual-studio-code-extension">
+<h2>Install the Python in Visual Studio Code extension<a class="headerlink" href="#install-the-python-in-visual-studio-code-extension" title="Link to this heading">#</a></h2>
+<p>The Python in Visual Studio Code extension makes Visual Studio Code an excellent Python editor.
+This extension, which works on any operating system with a variety of Python interpreters,
+leverages Visual Studio Code’s power to provide autocompletion and IntelliSense, linting,
+debugging, and unit testing.</p>
+<p>Install the Python in Visual Studio Code extension:</p>
+<ol class="arabic">
+<li><p>From the <strong>View</strong> menu in Visual Studio Code, select <strong>Extensions</strong>.</p></li>
+<li><p>At the top of the <strong>EXTENSIONS</strong> pane, type <code class="docutils literal notranslate"><span class="pre">python</span></code> in the search box to filter the
+list of available extensions.</p></li>
+<li><p>Select the Python extension published by Microsoft, which is described as IntelliSense
+(Pylance) and is usually the first one in the list.</p>
+<p>You can view information about this extension in the main pane on the right.</p>
+</li>
+<li><p>In either the <strong>EXTENSIONS</strong> pane or the main pane, click <strong>Install</strong>.</p></li>
+</ol>
+<p>The <strong>Install</strong> button changes to a settings (gear) icon in the <strong>EXTENSIONS</strong> pane or to
+two buttons, <strong>Disable</strong> and <strong>Uninstall</strong>, in the main pane. This lets you know that the
+Python extension for Windows has been installed successfully.</p>
+</section>
+<section id="install-pre-commit">
+<h2>Install pre-commit<a class="headerlink" href="#install-pre-commit" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://pre-commit.com/">pre-commit</a> is a tool for ensuring that all the changes that you make to
+files in a project successfully pass all checks run by the code style tools that are
+configured as part of the CI/CD process. For more information on the code style tools most
+commonly used in PyAnsys projects, see <a class="reference internal" href="../../coding-style/formatting-tools.html#code-style-tools"><span class="std std-ref">Code style tools</span></a>.</p>
+<p>To run <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> locally, you must install it in your development environment:</p>
+<ol class="arabic">
+<li><p>If the Ansys Python Manager and <strong>Administrator</strong> window are not still
+open, open them.</p></li>
+<li><p>From the <strong>Administrator</strong> window’s command prompt, run this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pre</span><span class="o">-</span><span class="n">commit</span>
+</pre></div>
+</div>
+<p>The window displays installation information.</p>
+</li>
+</ol>
+</section>
+<section id="install-vale">
+<span id="install-vale-locally"></span><h2>Install Vale<a class="headerlink" href="#install-vale" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="http://vale.sh/">Vale</a> is a tool for maintaining a consistent style and voice in your
+documentation based on a given style guide. When the <a class="reference external" href="https://github.com/ansys/ansys-templates">Ansys templates</a>
+tool is used to create a PyAnsys project from the <code class="docutils literal notranslate"><span class="pre">pyansys</span></code> or <code class="docutils literal notranslate"><span class="pre">pyansys-advanced</span></code> template,
+Vale is one of the many documentation style tools that is configured to run as part of the
+CI/CD process. For more information, see <a class="reference internal" href="../../doc-style/formatting-tools.html#doc-style-tools"><span class="std std-ref">Documentation style tools</span></a>.</p>
+<p>To run Vale locally, you must install it in your development environment:</p>
+<ol class="arabic">
+<li><p>If the Ansys Python Manager and <strong>Administrator</strong> window are not still
+open, open them.</p></li>
+<li><p>From the <strong>Administrator</strong> window’s command prompt, run this command to
+install Vale:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">vale</span>
+</pre></div>
+</div>
+<p>The window displays installation information.</p>
+</li>
+</ol>
+</section>
+<section id="install-notepad">
+<h2>Install Notepad++<a class="headerlink" href="#install-notepad" title="Link to this heading">#</a></h2>
+<p>Links for using various GitHub search functions are available in <a class="reference external" href="https://docs.github.com/en/search-github">Search on GitHub documentation</a> in the GitHub documentation. However, to find occurrences of a
+particular word or phrase in a project, using <a class="reference external" href="https://notepad-plus-plus.org/">Notepad++</a> is often easier. This app’s
+<strong>Find in Files</strong> option provides for quickly searching any given directory for a search string.
+For installation and search information, see <a class="reference external" href="https://notepad-plus-plus.org/downloads/">Downloads</a> on the Notepad++ website and
+<a class="reference external" href="https://npp-user-manual.org/docs/searching/">Searching</a> in the <em>Notepad++ User Manual</em>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notepad++ is also handy if you want to open one file in it to visually compare it to
+another file that you have open in Visual Studio Code.</p>
+</div>
+</section>
+<section id="install-sphinx-and-the-ansys-sphinx-theme">
+<h2>Install Sphinx and the Ansys Sphinx Theme<a class="headerlink" href="#install-sphinx-and-the-ansys-sphinx-theme" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a>, which uses reStructuredText as its default plaintext markup language, is
+a tool for generating documentation. While designed primarily for generating documentation
+for Python projects, it can be used for generating documentation for other programming languages
+and projects.</p>
+<p>The <a class="reference external" href="https://github.com/ansys/ansys-sphinx-theme">Ansys Sphinx Theme</a> is an Ansys-branded extension of the popular
+<a class="reference external" href="https://github.com/pydata/pydata-sphinx-theme">PyData Sphinx Theme</a>. It is used along with Sphinx to assemble PyAnsys
+documentation from a project’s RST files and the docstrings in its PY files.</p>
+<p>Install both Sphinx and the Ansys Sphinx Theme so that you can build PyAnsys documentation
+locally:</p>
+<ol class="arabic">
+<li><p>If the Ansys Python Manager and <strong>Administrator</strong> window are not still
+open, open them.</p></li>
+<li><p>To install Sphinx in your virtual environment from PyPI (Python Package Index),
+from the <strong>Administrator</strong> window’s command prompt, run this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">sphinx</span>
+</pre></div>
+</div>
+<p>The window displays installation information.</p>
+</li>
+<li><p>To see the version of the installed Sphinx package, run this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx</span><span class="o">-</span><span class="n">build</span> <span class="o">--</span><span class="n">version</span>
+</pre></div>
+</div>
+</li>
+<li><p>To install the Ansys-branded theme, run this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">ansys</span><span class="o">-</span><span class="n">sphinx</span><span class="o">-</span><span class="n">theme</span>
+</pre></div>
+</div>
+<p>The window displays installation information. The Sphinx <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file
+in the <code class="docutils literal notranslate"><span class="pre">doc</span></code> directory of a PyAnsys repository is already configured to use
+the Ansys Sphinx Theme.</p>
+</li>
+</ol>
+<p>Your development environment is now set up. If you are new to contributing to
+PyAnsys documentation, see <a class="reference internal" href="essentials.html#essentials-writers"><span class="std std-ref">Essentials for content writing</span></a>. For lists of resources related
+to contributing to PyAnsys documentation, see <a class="reference internal" href="doc-resources.html#resources-writers"><span class="std std-ref">PyAnsys documentation resources</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can customize the Ansys Sphinx Theme by making changes to the
+<code class="docutils literal notranslate"><span class="pre">html_theme_options</span></code> dictionary in the Sphinx configuration (<code class="docutils literal notranslate"><span class="pre">conf.py</span></code>)
+file in the <code class="docutils literal notranslate"><span class="pre">doc</span></code> directory. For additional information, see
+<a class="reference external" href="https://sphinxdocs.ansys.com/version/stable/user-guide/options.html">HTML theme options</a>
+in the Ansys Sphinx Theme documentation.</p>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-github-account">Create a GitHub account</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-git">Install Git</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#join-ansys-github-organizations">Join Ansys GitHub organizations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-use-the-ansys-python-manager">Install and use the Ansys Python Manager</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-visual-studio-code">Install Visual Studio Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-the-python-in-visual-studio-code-extension">Install the Python in Visual Studio Code extension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-pre-commit">Install pre-commit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-vale">Install Vale</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-notepad">Install Notepad++</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-sphinx-and-the-ansys-sphinx-theme">Install Sphinx and the Ansys Sphinx Theme</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item"> 
+<div class="tocsection editthispage">
+  <a href="https://github.com/pyansys/dev-guide/edit/main/doc/source/content-writing/content-contrib-setup/content-dev-environment.rst">
+    <i class="fa-solid fa-pencil"></i>
+       Edit
+    on GitHub  
+  </a>
+</div>
+
+</div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/content-writing/content-contrib-setup/content-dev-environment.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <!-- Include desired assets -->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.7/require.min.js"></script>
+
+<script>
+// Passing the search options to the search.js file
+const SEARCH_OPTIONS = JSON.parse('{"ignoreLocation": true, "keys": ["title", "text", "objectID"], "limit": 10, "min_chars_for_search": 2, "threshold": 0.5}');
+const SEARCH_FILE = "../../_static/search.json";
+const ADVANCE_SEARCH_PATH = "../../search.html";
+const EXTRA_SOURCES = JSON.parse('""');
+</script>
+
+
+<script src="../../_static/js/search.js"></script>
+
+  
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright (c) 2026 ANSYS, Inc. All rights reserved.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the
+  <a href="https://sphinxdocs.ansys.com/version/stable/index.html"
+    >Ansys Sphinx Theme</a
+  >
+  1.6.4. <br />Last updated on
+  <span id="ast_build_date"></span>
+</p>
+<script>
+  var options = { day: "numeric", month: "long", year: "numeric" };
+  var ast_lastModifiedDate = new Date(document.lastModified);
+  var ast_build_date = ast_lastModifiedDate.toLocaleDateString("en-US", options);
+  document.getElementById("ast_build_date").innerHTML = ast_build_date;
+</script></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

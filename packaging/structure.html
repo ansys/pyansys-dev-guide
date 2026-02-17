@@ -1,0 +1,1241 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Project structure &#8212; PyAnsys developer&#39;s guide</title>
+  
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/ansys-sphinx-theme.css?v=9e79609d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/ansys-sphinx-theme.css?v=9e79609d" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.nerdfonts.com/assets/css/webfont.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+  <!-- Include desired assets -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  
+
+  
+    <link href="../_static/css/breadcrumbs.css" rel="stylesheet" />
+  
+    <script src="../_static/documentation_options.js?v=92d7cc4e"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'packaging/structure';</script>
+    <link rel="icon" href="../_static/ansys-favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Build system" href="build-systems.html" />
+    <link rel="prev" title="Templates" href="templates.html" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="2026-02-17" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="https://docs.pyansys.com/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/pyansys_logo_transparent_black.png" class="logo__image only-light" alt="PyAnsys developer's guide - Home"/>
+    <img src="../_static/pyansys_logo_transparent_white.png" class="logo__image only-dark pst-js-only" alt="PyAnsys developer's guide - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html" title="PyAnsys developer's guide home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../how-to/index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../content-writing/index.html">
+    Content writing
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+      
+        <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+  
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html" title="PyAnsys developer's guide home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../how-to/index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../content-writing/index.html">
+    Content writing
+  </a>
+</li>
+
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Packaging style</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="templates.html">Templates</a></li>
+
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Project structure</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="build-systems.html">Build system</a></li>
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../coding-style/index.html">Coding style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doc-style/index.html">Documentation style</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+         
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="https://docs.pyansys.com/" class="nav-link">PyAnsys</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a
+        href="../index.html"
+        class="nav-link"
+        aria-label="Home"
+      >
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="../all-styles.html" class="nav-link">Style</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="index.html" class="nav-link">Packaging style</a>
+    </li>
+      
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Project structure</span></li>
+    
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="project-structure">
+<span id="ref-project-structure"></span><h1>Project structure<a class="headerlink" href="#project-structure" title="Link to this heading">#</a></h1>
+<p>Most of the projects in the PyAnsys ecosystem ship in the form of a Python
+library with other additional files. All these files form what it is called a
+<em>project</em>. A project can be uploaded to a repository to better track the changes
+applied to it.</p>
+</section>
+<section id="naming-convention">
+<h1>Naming convention<a class="headerlink" href="#naming-convention" title="Link to this heading">#</a></h1>
+<p>Large organizations providing Python packages follow a consistent naming
+convention. Ansys follows two naming conventions, depending on the nature of the project.</p>
+<section id="pyansys-library">
+<h2>PyAnsys library<a class="headerlink" href="#pyansys-library" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The project name is in the format <code class="docutils literal notranslate"><span class="pre">Py&lt;project&gt;</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">PyAEDT</span></code> is the
+project name for AEDT (Ansys Electronics Desktop) and <code class="docutils literal notranslate"><span class="pre">PyMAPDL</span></code> is the
+project name for MAPDL (an abbreviation for Mechanical APDL).</p></li>
+<li><p>The repository name as hosted on GitHub should be all lowercase to follow
+GitHub community standards. For example, <a class="reference external" href="https://github.com/ansys/pyaedt">pyaedt</a> and <a class="reference external" href="https://github.com/ansys/pymapdl">pymapdl</a>.</p></li>
+<li><p>The Python library name is in the format <code class="docutils literal notranslate"><span class="pre">ansys-&lt;product/service&gt;-&lt;feature&gt;</span></code>.
+For example, <a class="reference external" href="https://pypi.org/project/ansys-mapdl-core/">ansys-mapdl-core</a>
+is the name for the core MAPDL library.</p></li>
+</ul>
+<figure class="align-center" id="id3">
+<span id="pyansys-namespace-diag"></span><div class="graphviz"><img src="../_images/graphviz-c7b1d49eedd7707380d42109eb55fa5f0cddc76b.png" alt="Namespace convention for PyAnsys projects." class="graphviz" /></div>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Namespace convention for PyAnsys projects.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The previous structure leads to the following namespace when executing the import
+statement:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ansys.product</span><span class="w"> </span><span class="kn">import</span> <span class="n">library</span>
+</pre></div>
+</div>
+<p>Using long Python library names provides two primary advantages:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://packaging.python.org/guides/packaging-namespace-packages/">Namespace packages</a> can be used to designate official Ansys packages.</p></li>
+<li><p>Consistent branding and style can be applied to PyAnsys libraries.</p></li>
+</ul>
+</section>
+<section id="grpc-interface-package">
+<h2>gRPC interface package<a class="headerlink" href="#grpc-interface-package" title="Link to this heading">#</a></h2>
+<p>Lower-level gRPC interface packages like <a class="reference external" href="https://pypi.org/project/ansys-api-mapdl/">ansys-api-mapdl</a> should always be
+named <code class="docutils literal notranslate"><span class="pre">ansys-api-&lt;product/service&gt;</span></code> and may contain an additional level:
+<code class="docutils literal notranslate"><span class="pre">ansys-api-&lt;product/service&gt;-&lt;secondlevel&gt;</span></code>.</p>
+<figure class="align-center" id="id4">
+<span id="grpc-structure-diag"></span><div class="graphviz"><img src="../_images/graphviz-da4748b7fd0a4047119cc27ec41dc8fee9f814c4.png" alt="Namespace convention for gRPC interface packages." class="graphviz" /></div>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Namespace convention for gRPC interface packages.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This structure leads to the following namespace within Protobuf (PROTO) files:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">ansys</span><span class="o">.</span><span class="n">api</span><span class="o">.&lt;</span><span class="n">product</span><span class="o">/</span><span class="n">service</span><span class="o">&gt;.</span><span class="n">v0</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-libraries">
+<h1>Python libraries<a class="headerlink" href="#python-libraries" title="Link to this heading">#</a></h1>
+<p>A Python library is the formal way of distributing Python source code. It allows
+for reuse and for specifying Python code dependencies. Guidelines in this section
+are compliant with <a class="reference external" href="https://www.pypa.io/en/latest/">Python Packaging Authority</a> (PyPA) and PyAnsys recommendations.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The best way to keep up to date with Python packaging is to check the <a class="reference external" href="https://packaging.python.org/en/latest/">Python
+Packaging User Guide</a>, maintained by the PyPA. PyAnsys guidelines are built
+on top of the PyPA guidelines.</p>
+</div>
+<section id="scripts-modules-subpackages-and-packages">
+<h2>Scripts, modules, subpackages, and packages<a class="headerlink" href="#scripts-modules-subpackages-and-packages" title="Link to this heading">#</a></h2>
+<p>To understand the structure of a Python Library, it is important to know
+the difference between Python scripts, modules, subpackages, and packages.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Script</span></code>: Any Python file with logic source code</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Module</span></code>: Any Python script hosted next to an <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Subpackage</span></code>: Any directory containing various Python modules</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Package</span></code>: Any directory containing Python modules and subpackages</p></li>
+</ul>
+</section>
+<section id="differences-between-a-python-package-and-library">
+<h2>Differences between a Python package and library<a class="headerlink" href="#differences-between-a-python-package-and-library" title="Link to this heading">#</a></h2>
+<p>Although the terms <em>package</em> and <em>library</em> are often used interchangeably, there is
+a key difference between them. As shown in the following image, a Python package is
+a collection of Python modules and subpackages, while a Python library is a collection
+of Python packages.</p>
+<figure class="align-center" id="id5">
+<span id="python-pkg-lib-diag"></span><div class="graphviz"><img src="../_images/graphviz-f53a2cb74c12a23c1c7e370a9d43f8f62f054209.png" alt="A Python library is a collection of packages." class="graphviz" /></div>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">A Python library is a collection of packages.</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="required-files">
+<h1>Required files<a class="headerlink" href="#required-files" title="Link to this heading">#</a></h1>
+<p>The structure of any PyAnsys library contains these directories and files:</p>
+<figure class="align-center" id="id6">
+<span id="pyproduct-library-structure-diag"></span><div class="graphviz"><img src="../_images/graphviz-590d95f8adbb7f4c00c7204630d32d22a44813c8.png" alt="Minimum required PyAnsys project structure." class="graphviz" /></div>
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Minimum required PyAnsys project structure.</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Descriptions follow for some of the directories in this structure:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">doc</span></code>: Contains files related to documentation, guidelines, and examples</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src</span></code>: Contains all Python modules and scripts that form the project</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tests</span></code>: Contains all unit tests for checking the integrity of the project</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setup.py</span></code> or <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>: Configures the project.</p></li>
+</ul>
+<section id="the-doc-directory">
+<h2>The <code class="docutils literal notranslate"><span class="pre">doc</span></code> directory<a class="headerlink" href="#the-doc-directory" title="Link to this heading">#</a></h2>
+<p>Prior to distributing software, it is important to document it. Documenting software
+consists of explaining how to install and use all functions, classes, and methods that
+it ships with. The documentation should also include use case scenarios.</p>
+<p>A PyAnsys project typically has these documentation sections:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Getting</span> <span class="pre">started</span></code>: Defines requirements and provides installation information</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">User</span> <span class="pre">guide</span></code>: Explains how to use the software</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">API</span> <span class="pre">reference</span></code>: Describes the source code</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Examples</span></code>: Provides use case scenarios that demonstrate the capabilities of the software</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Contribute</span></code>: Links to the <em>PyAnsys developer’s guide</em> for overall guidance and supplies
+project-specific contribution information</p></li>
+</ul>
+<p>Projects in the PyAnsys ecosystem take advantage of <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a>, a tool for
+building documentation for Python-based projects. Sphinx requires a <code class="docutils literal notranslate"><span class="pre">doc</span></code>
+directory with a specific structure:</p>
+<figure class="align-center" id="id7">
+<span id="doc-structure-diag"></span><div class="graphviz"><img src="../_images/graphviz-84709b6935069ababd9e50150cc49b8878afc431.png" alt="Generic structure for the ``doc`` directory." class="graphviz" /></div>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Generic structure for the <code class="docutils literal notranslate"><span class="pre">doc</span></code> directory.</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_build</span></code>: Contains the rendered documentation in various formats, such as HTML
+and PDF.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">source</span></code>: Contains the RST files with the manually authored content. Folder
+and file names in this directory should use hyphens as space delimiters for search
+optimization of the generated HTML documentation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make.bat</span></code> and <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>: Automates documentation cleaning and building
+commands. You use <code class="docutils literal notranslate"><span class="pre">make.bat</span></code> when running on Windows and <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>
+when running on macOS or Linux. For information on the required configuration for
+these files, see <a class="reference internal" href="../doc-style/doc-configuration.html#automation-files"><span class="std std-ref">Automation files</span></a>.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">source</span></code> directory must contain at least these files:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">conf.py</span></code>: Python script that declares the <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a> configuration.
+The minimum required configuration is explained in <a class="reference internal" href="../doc-style/doc-configuration.html#the-conf-py-file"><span class="std std-ref">The conf.py file</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">index.rst</span></code>: Main index (landing) page for the overall documentation. Some
+projects reuse <code class="docutils literal notranslate"><span class="pre">README.rst</span></code> files in the main <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> file.
+For more information, see <a class="reference internal" href="../content-writing/rst-files-writers/index.html#readme-files"><span class="std std-ref">README.rst files</span></a>. In newer projects, however, the <code class="docutils literal notranslate"><span class="pre">index.rst</span></code>
+file uses a grid of cards to present the organization of the documentation in a visual manner.</p></li>
+</ul>
+<p>You generally add any images or documents that you would like to include in a <code class="docutils literal notranslate"><span class="pre">_static</span></code>
+directory.</p>
+</section>
+<section id="the-src-directory">
+<h2>The <code class="docutils literal notranslate"><span class="pre">src</span></code> directory<a class="headerlink" href="#the-src-directory" title="Link to this heading">#</a></h2>
+<p>All the Python source code must be located in the <code class="docutils literal notranslate"><span class="pre">src</span></code> directory. This is where the
+build system looks when generating the wheel and source distributions.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The names of directories and files in the <code class="docutils literal notranslate"><span class="pre">src</span></code> directory cannot contain spaces or hyphens.
+Replace these characters with an underscore (<code class="docutils literal notranslate"><span class="pre">_</span></code>).</p>
+</div>
+<p>The structure of the <code class="docutils literal notranslate"><span class="pre">src</span></code> directory determines the namespace of the PyAnsys
+library. A namespace allow you to easily split subpackages from a package into
+single, independent distributions.</p>
+<p>There are different approaches available for creating a namespace.
+Ansys namespaces use the <a class="reference external" href="https://packaging.python.org/en/latest/guides/packaging-namespace-packages/#native-namespace-packages">native namespace packages</a> from
+<a class="reference external" href="https://peps.python.org/pep-0420/">PEP 420</a>.</p>
+<p>Therefore, the source directory of any PyAnsys library must look like this:</p>
+<figure class="align-center" id="id8">
+<span id="src-structure-diag"></span><div class="graphviz"><img src="../_images/graphviz-8a171dcf249382bb07715bfb1fb445b36bcc3b15.png" alt="Generic structure for the ``src`` directory." class="graphviz" /></div>
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Generic structure for the <code class="docutils literal notranslate"><span class="pre">src</span></code> directory.</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="the-tests-directory">
+<h2>The <code class="docutils literal notranslate"><span class="pre">tests</span></code> directory<a class="headerlink" href="#the-tests-directory" title="Link to this heading">#</a></h2>
+<p>To guarantee the integrity of a PyAnsys project, a good test suite is required.
+PyAnsys projects use the <a class="reference external" href="https://docs.pytest.org/en/stable/">pytest</a> framework.</p>
+<p>A good practice is to emulate the structure of the <code class="docutils literal notranslate"><span class="pre">src/ansys/product/library</span></code>
+directory, although this is not always necessary.</p>
+<figure class="align-center" id="id9">
+<span id="tests-structure-diag"></span><div class="graphviz"><img src="../_images/graphviz-69db104a69735e97e6ba57b6ae7b42c485e494c2.png" alt="Minimum required PyAnsys project structure." class="graphviz" /></div>
+<figcaption>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Minimum required PyAnsys project structure.</span><a class="headerlink" href="#id9" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Notice the use of <code class="docutils literal notranslate"><span class="pre">tests_*</span></code> when creating child directories within the
+<code class="docutils literal notranslate"><span class="pre">tests</span></code> directory. For unit testing files, names use the <code class="docutils literal notranslate"><span class="pre">test_*.py</span></code> prefix.
+This is the preferred way of naming directories and files in the
+<code class="docutils literal notranslate"><span class="pre">tests</span></code> directory.</p>
+</section>
+<section id="the-authors-file">
+<h2>The <code class="docutils literal notranslate"><span class="pre">AUTHORS</span></code> file<a class="headerlink" href="#the-authors-file" title="Link to this heading">#</a></h2>
+<p>You use the <code class="docutils literal notranslate"><span class="pre">AUTHORS</span></code> file to specify the authorship of the repository. The
+Ansys Legal department has defined its format. You can add external contributors
+to this file on demand. Make sure that you adapt the project name on your
+specific repository’s <code class="docutils literal notranslate"><span class="pre">AUTHORS</span></code> file.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># This is the list of &lt;PROJECT-NAME&gt;&#39;s significant contributors.
+#
+# This file does not necessarily list everyone who has contributed code.
+#
+# For contributions made under a Corporate CLA, the organization is
+# added to this file.
+#
+# If you have contributed to the repository and want to be added to this file,
+# submit a request.
+#
+#
+ANSYS, Inc.
+</pre></div>
+</div>
+</section>
+<section id="the-changelog-md-file">
+<span id="ref-changelog-file"></span><h2>The <code class="docutils literal notranslate"><span class="pre">CHANGELOG.md</span></code> file<a class="headerlink" href="#the-changelog-md-file" title="Link to this heading">#</a></h2>
+<p>You use the <code class="docutils literal notranslate"><span class="pre">CHANGELOG.md</span></code> file to collect new features, fixed bugs, documentation
+improvements, and new contributors. It provides a summary of the latest
+enhancements to the project.</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Changelog</span>
+
+<span class="gu">## &lt;pyproduct-library&gt; &lt;version X.Y.Z&gt;, &lt;Release Date YYYY-MM-DD&gt;</span>
+
+<span class="gu">### Bugs fixed</span>
+
+<span class="k">*</span><span class="w"> </span>Brief description of the bug. Link to the associated issue and pull request
+
+<span class="gu">### New features</span>
+
+<span class="k">*</span><span class="w"> </span>Brief description of the feature. Link to the associated issue and pull request.
+
+<span class="gu">### Doc improvements</span>
+
+<span class="k">*</span><span class="w"> </span>Brief description of the improvement. Link to the associated issue and pull request.
+
+<span class="gu">### Contributors</span>
+
+<span class="k">*</span><span class="w"> </span>&lt;Name of the contributor&gt; - &lt;Email of the contributor&gt;
+
+<span class="gu">## &lt;pyproduct-library&gt; &lt;version X.Y.Z&gt;, &lt;Release Date YYYY-MM-DD&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="the-code-of-conduct-md-file">
+<h2>The <code class="docutils literal notranslate"><span class="pre">CODE_OF_CONDUCT.md</span></code> file<a class="headerlink" href="#the-code-of-conduct-md-file" title="Link to this heading">#</a></h2>
+<p>You use the <code class="docutils literal notranslate"><span class="pre">CODE_OF_CONDUCT.md</span></code> to specify how users, developers, and maintainers
+are to behave while working in the project. PyAnsys projects usually adopt the <em>Contributor
+Covenant Code of Conduct</em>, which is very popular across open source projects.</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Contributor covenant code of conduct</span>
+
+<span class="gu">## Pledge</span>
+
+In the interest of fostering an open and welcoming environment,
+all contributors and maintainers pledge to making participation
+in the Ansys project and community a harassment-free experience
+for everyone, regardless of age, body size, disability, ethnicity,
+sex characteristics, gender identity and expression, level of
+experience, education, socioeconomic status, nationality, personal
+appearance, race, religion, or sexual identity and orientation.
+
+<span class="gu">## Standards</span>
+
+Examples of behavior that contribute to creating a positive environment
+include:
+
+<span class="k">*</span><span class="w"> </span>Using welcoming and inclusive language
+<span class="k">*</span><span class="w"> </span>Being respectful of differing viewpoints and experiences
+<span class="k">*</span><span class="w"> </span>Gracefully accepting constructive criticism
+<span class="k">*</span><span class="w"> </span>Focusing on what is best for the community
+<span class="k">*</span><span class="w"> </span>Showing empathy towards other community members
+
+Examples of unacceptable behavior by participants include:
+
+<span class="k">*</span><span class="w"> </span>The use of sexualized language or imagery and unwelcome sexual
+  attention or advances
+<span class="k">*</span><span class="w"> </span>Trolling, insulting/derogatory comments, and personal or political attacks
+<span class="k">*</span><span class="w"> </span>Public or private harassment
+<span class="k">*</span><span class="w"> </span>Publishing others&#39; private information, such as a physical or electronic
+  address, without explicit permission
+<span class="k">*</span><span class="w"> </span>Other conduct which could reasonably be considered inappropriate in a
+  professional setting
+
+<span class="gu">## Responsibilities</span>
+
+Project maintainers are responsible for clarifying the standards of acceptable
+behavior and are expected to take appropriate and fair corrective action in
+response to any instances of unacceptable behavior.
+
+Project maintainers have the right and responsibility to remove, edit, or reject
+comments, commits, code, wiki edits, issues, and other contributions that are
+not aligned to this Code of Conduct, or to ban temporarily or permanently any
+contributor for other behaviors that they deem inappropriate, threatening,
+offensive, or harmful.
+
+<span class="gu">## Scope</span>
+
+This Code of Conduct applies both within project spaces and in public spaces
+when an individual is representing the project or its community. Examples of
+representing a project or community include using an official project email
+address, posting using an official social media account, or acting as an appointed
+representative at an online or offline event. Representation of a project may be
+further defined and clarified by project maintainers.
+
+<span class="gu">## Attribution</span>
+
+This code of conduct is adapted from the [<span class="nt">Contributor Covenant</span>][<span class="nl">homepage</span>],
+version 1.4, available at
+https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
+
+[<span class="nl">homepage</span>]: <span class="na">https://www.contributor-covenant.org</span>
+
+For answers to common questions about this code of conduct, see
+https://www.contributor-covenant.org/faq
+</pre></div>
+</div>
+</section>
+<section id="the-contributing-md-file">
+<h2>The <code class="docutils literal notranslate"><span class="pre">CONTRIBUTING.md</span></code> file<a class="headerlink" href="#the-contributing-md-file" title="Link to this heading">#</a></h2>
+<p>You use the <code class="docutils literal notranslate"><span class="pre">CONTRIBUTING.md</span></code> file to provide a quick entry-point for developers
+who are willing to contribute to the project. It usually provides references to
+this information:</p>
+<ul class="simple">
+<li><p>Where the source code of the project is hosted.</p></li>
+<li><p>Which steps must be followed to install the software in “development” mode.</p></li>
+<li><p>Ways of contributing to the source code.</p></li>
+</ul>
+<p>Ideally, the <code class="docutils literal notranslate"><span class="pre">CONTRIBUTING.md</span></code> file for a PyAnsys project should link
+to the <a class="reference external" href="https://docs.pyansys.com/">PyAnsys developer’s guide</a> for overall
+guidance.</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Contribute</span>
+
+Overall guidance on contributing to a PyAnsys library appears in the
+[Contributing] topic in the <span class="ge">*PyAnsys developer&#39;s guide*</span>. Ensure that you
+are thoroughly familiar with this guide before attempting to contribute to
+X.
+
+The following contribution information is specific to X.
+
+[<span class="nl">Contributing</span>]: <span class="na">https://dev.docs.pyansys.com/how-to/contributing.html</span>
+
+&lt;!-- In the previous content, replace X with the name of your library. For example, PyAEDT. --&gt;
+&lt;!-- Begin content specific to your library here. --&gt;
+</pre></div>
+</div>
+</section>
+<section id="the-contributors-md-file">
+<h2>The <code class="docutils literal notranslate"><span class="pre">CONTRIBUTORS.md</span></code> file<a class="headerlink" href="#the-contributors-md-file" title="Link to this heading">#</a></h2>
+<p>You use the <code class="docutils literal notranslate"><span class="pre">CONTRIBUTORS.md</span></code> file to list the contributors to the repository. Its
+purpose is to credit the authors for their individual contributions and provide a
+record of authorship for the codebase. Provide first and last names and
+links to GitHub usernames.</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Contributors</span>
+
+<span class="gu">## Project Lead</span>
+
+<span class="k">*</span><span class="w"> </span>[<span class="nt">First Last</span>](<span class="na">https://github.com/ghusername</span>)
+
+<span class="gu">## Individual Contributors</span>
+
+<span class="k">*</span><span class="w"> </span>[<span class="nt">First Last</span>](<span class="na">https://github.com/ghusername</span>)
+</pre></div>
+</div>
+</section>
+<section id="the-license-file">
+<h2>The <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code> file<a class="headerlink" href="#the-license-file" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code> file provides the legal framework for the software. PyAnsys projects
+must use the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT License</a>. Here is the template:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>MIT License
+
+Copyright (c) &lt;YEAR&gt; ANSYS, Inc. All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+</pre></div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Just because a software does not ship with a <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code> file, it does not mean
+it is free or open source. If you need to use unlicensed software, contact
+its development team so that they can provide you with the correct license.</p>
+</div>
+</section>
+<section id="the-readme-file">
+<h2>The <code class="docutils literal notranslate"><span class="pre">README</span></code> file<a class="headerlink" href="#the-readme-file" title="Link to this heading">#</a></h2>
+<p>Each PyAnsys library must have a <code class="docutils literal notranslate"><span class="pre">README</span></code> file in the root directory.</p>
+<p>The preferred format of this file is <a class="reference external" href="https://docutils.sourceforge.io/rst.html">reStructuredText Markup Syntax</a>,
+although you can also use <a class="reference external" href="https://www.markdownguide.org/basic-syntax/">Markdown Syntax</a>. While Markdown syntax has better
+GitHub support, you can reuse ReStructuredText (RST) files within Sphinx documentation.
+For more information, see <a class="reference internal" href="../content-writing/rst-files-writers/index.html#readme-files"><span class="std std-ref">README.rst files</span></a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">README</span></code> file should at the minimum contain these elements:</p>
+<ul class="simple">
+<li><p>PyAnsys library title</p></li>
+<li><p>General description</p></li>
+<li><p>Installation instructions (using <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code>) but only if the library
+reuses <code class="docutils literal notranslate"><span class="pre">README</span></code> file content in its documentation</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>While older projects tend to reuse content in their <code class="docutils literal notranslate"><span class="pre">README.rst</span></code> files in the
+main <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> files in their <code class="docutils literal notranslate"><span class="pre">doc/source</span></code> directories, newer projects do not.
+Instead, they provide a bulleted list with documentation links and descriptions in
+their “”README`` files. In the main <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> files for their documentation,
+they then use a grid of cards to visually explain and link to documentation sections.
+This keeps the <code class="docutils literal notranslate"><span class="pre">README</span></code> file focused on why you might want to explore the
+library and lets you quickly view documentation sections of interest.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">README.rst</span></code> file is also reused within the project file metadata. It is
+usually included in the <code class="docutils literal notranslate"><span class="pre">long-description</span></code> field.</p>
+</section>
+<section id="the-pyproject-toml-file">
+<h2>The <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file<a class="headerlink" href="#the-pyproject-toml-file" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://peps.python.org/pep-0518/">PEP 518</a> introduced the use of a project file named <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>.
+This file is mandatory because it allows <a class="reference external" href="https://pypi.org/project/pip/">pip</a> to resolve the
+requirements for building the library. The following tabs expose the <code class="docutils literal notranslate"><span class="pre">[build-system]</span></code> section
+for build-system backend tools commonly used in the Python ecosystem:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+setuptools</label><div class="sd-tab-content docutils">
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[build-system]</span>
+<span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;setuptools&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;wheel&quot;</span><span class="p">]</span>
+<span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;setuptools.build_meta&quot;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+flit</label><div class="sd-tab-content docutils">
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[build-system]</span>
+<span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;flit_core &gt;=3.2,&lt;4&quot;</span><span class="p">]</span>
+<span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;flit_core.buildapi&quot;</span>
+
+<span class="k">[project]</span>
+<span class="c1"># Check https://flit.readthedocs.io/en/latest/pyproject_toml.html for all available sections</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Py&lt;Product&gt; &lt;Library&gt;&quot;</span>
+<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;version&gt;&quot;</span>
+<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;A Python wrapper for Ansys &lt;Product&gt; &lt;Library&gt;&quot;</span>
+<span class="n">readme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;README.rst&quot;</span>
+<span class="n">requires-python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&gt;=3.&lt;minor&gt;&quot;</span>
+<span class="n">license</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">file</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;LICENSE&quot;</span><span class="p">}</span>
+<span class="n">authors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;ANSYS, Inc.&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;pyansys.core@ansys.com&quot;</span><span class="p">},</span>
+<span class="p">]</span>
+<span class="n">maintainers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;PyAnsys developers&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;pyansys.maintainers@ansys.com&quot;</span><span class="p">},</span>
+<span class="p">]</span>
+
+<span class="n">classifiers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;Development Status :: 4 - Beta&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Programming Language :: Python :: 3&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;License :: OSI Approved :: MIT License&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Operating System :: OS Independent&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;importlib-metadata &gt;=4.0&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="k">[tool.flit.module]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ansys.&lt;product&gt;.&lt;library&gt;&quot;</span>
+
+<span class="k">[project.urls]</span>
+<span class="n">Source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://github.com/ansys/py&lt;product&gt;-&lt;library&gt;&quot;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+poetry</label><div class="sd-tab-content docutils">
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[build-system]</span>
+<span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;poetry-core&gt;=1.0.0&quot;</span><span class="p">]</span>
+<span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;poetry.core.masonry.api&quot;</span>
+
+<span class="k">[tool.poetry]</span>
+<span class="c1"># Check https://python-poetry.org/docs/pyproject/ for all available sections</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Py&lt;Product&gt; &lt;Library&gt;&quot;</span>
+<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&lt;version&gt;&quot;</span>
+<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;A Python wrapper for &lt;Product&gt; &lt;Library&gt;&quot;</span>
+<span class="n">license</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;MIT&quot;</span>
+<span class="n">authors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ANSYS, Inc. &lt;pyansys.core@ansys.com&gt;&quot;</span><span class="p">]</span>
+<span class="n">maintainers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;PyAnsys developers &lt;pyansys.maintainers@ansys.com&gt;&quot;</span><span class="p">]</span>
+<span class="n">readme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;README.rst&quot;</span>
+<span class="n">repository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://github.com/ansys/py&lt;product&gt;-&lt;library&gt;&quot;</span>
+<span class="n">classifiers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;Development Status :: 4 - Beta&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Programming Language :: Python :: 3&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;License :: OSI Approved :: MIT License&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Operating System :: OS Independent&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">packages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">include</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;ansys&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;src&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="p">]</span>
+
+<span class="k">[tool.poetry.dependencies]</span>
+<span class="n">python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&gt;=3.&lt;minor&gt;&quot;</span>
+<span class="n">importlib-metadata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">version</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;^4.0&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">python</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;&lt;3.8&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="optional-files">
+<h1>Optional files<a class="headerlink" href="#optional-files" title="Link to this heading">#</a></h1>
+<section id="the-setup-py-file">
+<h2>The <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file<a class="headerlink" href="#the-setup-py-file" title="Link to this heading">#</a></h2>
+<p>For a long time, Python developers used the <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file to build and
+distribute their libraries. Unlike a static <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file, the
+<code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file is a Python script. This means that Python code is interpreted
+when building the library. This approach supports customizing the build
+process but can also introduce security issues.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file is only compatible with <a class="reference external" href="https://setuptools.pypa.io/en/latest/index.html">Setuptools</a>, which is why
+you should consider using a <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file instead.</p>
+</div>
+<p>While you can use a <code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code> file to specify the metadata and packages, the <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>
+file must also be present. For more information, see these pages in the Setuptools
+documentation:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://setuptools.pypa.io/en/latest/setuptools.html">Building and Distributing Packages with Setuptools</a></p></li>
+<li><p><a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/declarative_config.html">Configuring setuptools using setup.cfg files</a></p></li>
+</ul>
+<p>As a minimum configuration for a PyAnsys project, you can use this <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>
+template:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Installation file for ansys-mapdl-core.&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">setuptools</span><span class="w"> </span><span class="kn">import</span> <span class="n">find_namespace_packages</span><span class="p">,</span> <span class="n">setup</span>
+
+<span class="n">setup</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;ansys-&lt;product&gt;-&lt;library&gt;&quot;</span><span class="p">,</span>
+    <span class="n">packages</span><span class="o">=</span><span class="n">find_namespace_packages</span><span class="p">(</span><span class="n">where</span><span class="o">=</span><span class="s2">&quot;src&quot;</span><span class="p">,</span> <span class="n">include</span><span class="o">=</span><span class="s2">&quot;ansys*&quot;</span><span class="p">),</span>
+    <span class="n">package_dir</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;&quot;</span><span class="p">:</span> <span class="s2">&quot;src&quot;</span><span class="p">},</span>
+    <span class="n">version</span><span class="o">=</span><span class="s2">&quot;&lt;version&gt;&quot;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&lt;Short description of the package&gt;&quot;</span><span class="p">,</span>
+    <span class="n">long_description</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;README.rst&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span>
+    <span class="n">license</span><span class="o">=</span><span class="s2">&quot;MIT&quot;</span><span class="p">,</span>
+    <span class="n">author</span><span class="o">=</span><span class="s2">&quot;ANSYS, Inc.&quot;</span><span class="p">,</span>
+    <span class="n">author_email</span><span class="o">=</span><span class="s2">&quot;pyansys.core@ansys.com&quot;</span><span class="p">,</span>
+    <span class="n">maintainer</span><span class="o">=</span><span class="s2">&quot;PyAnsys developers&quot;</span><span class="p">,</span>
+    <span class="n">maintainer_email</span><span class="o">=</span><span class="s2">&quot;pyansys.maintainers@ansys.com&quot;</span><span class="p">,</span>
+    <span class="n">classifiers</span><span class="o">=</span><span class="p">[</span>
+        <span class="s2">&quot;Development Status :: 4 - Beta&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Programming Language :: Python :: 3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;License :: OSI Approved :: MIT License&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Operating System :: OS Independent&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;&lt;https://github.com/ansys/py&lt;product&gt;-&lt;library&gt;&quot;</span><span class="p">,</span>
+    <span class="n">python_requires</span><span class="o">=</span><span class="s2">&quot;&gt;=3.&lt;minor&gt;&quot;</span><span class="p">,</span>
+    <span class="n">install_requires</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;importlib-metadata &gt;=4.0&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Project structure</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#naming-convention">Naming convention</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyansys-library">PyAnsys library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grpc-interface-package">gRPC interface package</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#python-libraries">Python libraries</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scripts-modules-subpackages-and-packages">Scripts, modules, subpackages, and packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-between-a-python-package-and-library">Differences between a Python package and library</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#required-files">Required files</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-doc-directory">The <code class="docutils literal notranslate"><span class="pre">doc</span></code> directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-src-directory">The <code class="docutils literal notranslate"><span class="pre">src</span></code> directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-tests-directory">The <code class="docutils literal notranslate"><span class="pre">tests</span></code> directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-authors-file">The <code class="docutils literal notranslate"><span class="pre">AUTHORS</span></code> file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-changelog-md-file">The <code class="docutils literal notranslate"><span class="pre">CHANGELOG.md</span></code> file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-code-of-conduct-md-file">The <code class="docutils literal notranslate"><span class="pre">CODE_OF_CONDUCT.md</span></code> file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-contributing-md-file">The <code class="docutils literal notranslate"><span class="pre">CONTRIBUTING.md</span></code> file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-contributors-md-file">The <code class="docutils literal notranslate"><span class="pre">CONTRIBUTORS.md</span></code> file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-license-file">The <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code> file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-readme-file">The <code class="docutils literal notranslate"><span class="pre">README</span></code> file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-pyproject-toml-file">The <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-files">Optional files</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-setup-py-file">The <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item"> 
+<div class="tocsection editthispage">
+  <a href="https://github.com/pyansys/dev-guide/edit/main/doc/source/packaging/structure.rst">
+    <i class="fa-solid fa-pencil"></i>
+       Edit
+    on GitHub  
+  </a>
+</div>
+
+</div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <ul class="this-page-menu">
+      <li><a href="../_sources/packaging/structure.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <!-- Include desired assets -->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.7/require.min.js"></script>
+
+<script>
+// Passing the search options to the search.js file
+const SEARCH_OPTIONS = JSON.parse('{"ignoreLocation": true, "keys": ["title", "text", "objectID"], "limit": 10, "min_chars_for_search": 2, "threshold": 0.5}');
+const SEARCH_FILE = "../_static/search.json";
+const ADVANCE_SEARCH_PATH = "../search.html";
+const EXTRA_SOURCES = JSON.parse('""');
+</script>
+
+
+<script src="../_static/js/search.js"></script>
+
+  
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright (c) 2026 ANSYS, Inc. All rights reserved.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the
+  <a href="https://sphinxdocs.ansys.com/version/stable/index.html"
+    >Ansys Sphinx Theme</a
+  >
+  1.6.4. <br />Last updated on
+  <span id="ast_build_date"></span>
+</p>
+<script>
+  var options = { day: "numeric", month: "long", year: "numeric" };
+  var ast_lastModifiedDate = new Date(document.lastModified);
+  var ast_build_date = ast_lastModifiedDate.toLocaleDateString("en-US", options);
+  document.getElementById("ast_build_date").innerHTML = ast_build_date;
+</script></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

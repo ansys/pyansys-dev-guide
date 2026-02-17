@@ -1,0 +1,1233 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Packaging &#8212; PyAnsys developer&#39;s guide</title>
+  
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/ansys-sphinx-theme.css?v=9e79609d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/ansys-sphinx-theme.css?v=9e79609d" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.nerdfonts.com/assets/css/webfont.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+  <!-- Include desired assets -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  
+
+  
+    <link href="../_static/css/breadcrumbs.css" rel="stylesheet" />
+  
+    <script src="../_static/documentation_options.js?v=92d7cc4e"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'how-to/packaging';</script>
+    <link rel="icon" href="../_static/ansys-favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="gRPC API packages" href="grpc-api-packages.html" />
+    <link rel="prev" title="Contributing" href="contributing.html" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="2026-02-17" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="https://docs.pyansys.com/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/pyansys_logo_transparent_black.png" class="logo__image only-light" alt="PyAnsys developer's guide - Home"/>
+    <img src="../_static/pyansys_logo_transparent_white.png" class="logo__image only-dark pst-js-only" alt="PyAnsys developer's guide - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html" title="PyAnsys developer's guide home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../content-writing/index.html">
+    Content writing
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+      
+        <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+  
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html" title="PyAnsys developer's guide home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../content-writing/index.html">
+    Content writing
+  </a>
+</li>
+
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="setting-up.html">Environment setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supporting-python-versions.html">Python versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Packaging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpc-api-packages.html">gRPC API packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documenting.html">Documenting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releasing.html">Releasing and publishing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repository-protection.html">Repository protection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns-configuration.html">DNS configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compatibility.html">Product compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vulnerabilities.html">Vulnerabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deprecating.html">Deprecating a library</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+         
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="https://docs.pyansys.com/" class="nav-link">PyAnsys</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a
+        href="../index.html"
+        class="nav-link"
+        aria-label="Home"
+      >
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="index.html" class="nav-link">How-to</a>
+    </li>
+      
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Packaging</span></li>
+    
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="packaging">
+<h1>Packaging<a class="headerlink" href="#packaging" title="Link to this heading">#</a></h1>
+<p>Packaging is the process for distributing software to guarantee that final users
+can use it. By packaging Python libraries, it is possible to declare which
+source code or binary files must be distributed, project metadata, and
+third-party dependencies.</p>
+<p><a class="reference internal" href="../packaging/index.html#packaging-style"><span class="std std-ref">Packaging style</span></a> collects the fundamentals of Python packaging and packaging style
+guidelines that apply to PyAnsys projects.</p>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading">#</a></h2>
+<p>It is common to take advantage of third-party libraries to simplify
+source code. The formal way of doing so is by specifying these third-party
+libraries as dependencies. There are two types of dependencies: <a class="reference internal" href="#required-dependencies"><span class="std std-ref">Required dependencies</span></a> and <a class="reference internal" href="#optional-dependencies"><span class="std std-ref">Optional dependencies</span></a>.</p>
+<section id="required-dependencies">
+<h3>Required dependencies<a class="headerlink" href="#required-dependencies" title="Link to this heading">#</a></h3>
+<p>Required dependencies are third-party libraries that a software requires to
+properly function. If these dependencies are not installed or present, the
+software does not work as expected.</p>
+<p>Required dependencies must be declared in <a class="reference internal" href="../packaging/structure.html#the-setup-py-file"><span class="std std-ref">The setup.py file</span></a> or
+in <a class="reference internal" href="../packaging/structure.html#the-pyproject-toml-file"><span class="std std-ref">The pyproject.toml file</span></a>, according to the
+selected <a class="reference internal" href="../packaging/build-systems.html#build-system"><span class="std std-ref">Build system</span></a>:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+flit</label><div class="sd-tab-content docutils">
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project]</span>
+<span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;ansys-api-service==X.Y.Z&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;matplotlib&gt;=3.5.2&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;numpy&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+poetry</label><div class="sd-tab-content docutils">
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[tool.poetry.dependencies]</span>
+<span class="n">ansys-api-service</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;^X.Y.Z&quot;</span>
+<span class="n">matplotlib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;^3.5.2&quot;</span>
+<span class="n">numpy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;*&quot;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+setuptools</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">setuptools</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup</span>
+
+<span class="n">setup</span><span class="p">(</span>
+    <span class="o">...</span><span class="p">,</span>
+    <span class="n">install_requires</span><span class="o">=</span><span class="p">[</span>
+        <span class="s2">&quot;ansys-api-service==X.Y.Z&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;matplotlib &gt;= 3.5.2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;numpy&quot;</span><span class="p">,</span>
+        <span class="o">...</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="optional-dependencies">
+<h3>Optional dependencies<a class="headerlink" href="#optional-dependencies" title="Link to this heading">#</a></h3>
+<p>Optional dependencies are third-party libraries without which a software is not
+able to execute particular features. This makes it convenient to declare
+dependencies for ancillary functions such as plotting, tests, or documentation. You
+can programmatically integrate dependencies that are to be installed as optional
+requirements rather than individual packages.</p>
+<p>You may want to have optional packages for your PyAnsys library for a variety of
+reasons, including:</p>
+<ul class="simple">
+<li><p><strong>Not all users want to use the feature.</strong> For example, you might want
+to make using <a class="reference external" href="https://matplotlib.org/">Matplotlib</a> or <a class="reference external" href="https://docs.pyvista.org/">PyVista</a> optional if you expect your PyAnsys library is
+to be used primarily for headless scripting rather than visualization.</p></li>
+<li><p><strong>Not all users can install the optional package.</strong> For certain less popular
+or obscure environments, some binary wheels might not be available or compatible
+with the user’s environment. For example, if a user of CentOS 6.9 needs to
+have the <code class="docutils literal notranslate"><span class="pre">manylinux1</span></code> package but CentOS 6.9 only supports <code class="docutils literal notranslate"><span class="pre">manylinux2014</span></code> (CentOS
+7+ and later), the user’s environment wouldn’t be able to run the PyAnsys
+library.</p></li>
+<li><p><strong>Reduce dependency bloat.</strong> Removing the package as a “required”
+dependency reduces the number of packages to install at installation time,
+speeding up the installation and reducing the possibility of dependency
+conflicts. The trade-off here is that any user who wants to access features that
+require the optional package must install it separately.</p></li>
+</ul>
+<p>If you choose to implement optional packages for your PyAnsys library, some helpful
+best practices follow.</p>
+<section id="implement-optional-packages-in-the-build-system">
+<h4>Implement optional packages in the build system<a class="headerlink" href="#implement-optional-packages-in-the-build-system" title="Link to this heading">#</a></h4>
+<p>The following code snippets show how to implement and use optional requirements for
+the three most popular build systems:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-3">
+flit</label><div class="sd-tab-content docutils">
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project.optional-dependencies]</span>
+<span class="n">all</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;pyvista&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;pyside&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">plotting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;pyvista&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">qt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;pyside&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Install <code class="docutils literal notranslate"><span class="pre">package-name</span></code> with the optional <code class="docutils literal notranslate"><span class="pre">qt</span></code> packages with this command</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pip install package-name --extras=all
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-4" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-4">
+poetry</label><div class="sd-tab-content docutils">
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="p">...</span>
+<span class="k">[tool.poetry.dependencies]</span>
+<span class="n">matplotlib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">version</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;^3.5&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="p">}</span>
+<span class="n">pyvista</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">version</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;^0.32&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="p">}</span>
+<span class="n">pyside</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">version</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;^1.2&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="p">}</span>
+<span class="p">...</span>
+
+<span class="k">[tool.poetry.extras]</span>
+<span class="n">all</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;pyvista&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;pyside&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">plotting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;pyvista&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">qt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;pyside&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Install <code class="docutils literal notranslate"><span class="pre">package-name</span></code> with the optional <code class="docutils literal notranslate"><span class="pre">qt</span></code> packages with this command:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>poetry install --extras &quot;plotting qt&quot;
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-5">
+setuptools</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">setuptools</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup</span>
+
+<span class="n">setup</span><span class="p">(</span>
+    <span class="o">...</span><span class="p">,</span>
+    <span class="n">extras_require</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;all&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span> <span class="s2">&quot;pyvista&quot;</span><span class="p">,</span> <span class="s2">&quot;pyside&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;plotting&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span> <span class="s2">&quot;pyvista&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;qt&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;pyside&quot;</span><span class="p">],</span>
+    <span class="p">},</span>
+    <span class="o">...</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Install <code class="docutils literal notranslate"><span class="pre">package-name</span></code> with the optional <code class="docutils literal notranslate"><span class="pre">qt</span></code> packages with this command:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pip install package-name[qt]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="implement-optional-libraries-in-features">
+<h4>Implement optional libraries in features<a class="headerlink" href="#implement-optional-libraries-in-features" title="Link to this heading">#</a></h4>
+<p>One of the best ways to implement an optional dependency is to execute a <em>lazy
+import</em> at runtime for the feature in question. For example, if your library
+has an optional dependency on Matplotlib, you can implement it like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot two numpy arrays.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : numpy.ndarray</span>
+<span class="sd">        Numpy array sized (n, ).</span>
+<span class="sd">    y : numpy.ndarray</span>
+<span class="sd">        Numpy array sized (n, ).</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This function requires ``matplotlib``.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+    <span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+        <span class="k">raise</span> <span class="ne">ModuleNotFoundError</span><span class="p">(</span>
+            <span class="s2">&quot;To use this feature, install &#39;matplotlib&#39; with:</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;pip install matplotlib&quot;</span>
+        <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement is within the method and not at the module
+level. Normally this is a bad practice because it can cause runtime errors. However,
+for optional features where the user isn’t expected to have the library
+installed, this is one of the best ways of handling it. Otherwise, the PyAnsys
+library might fail to import because the optional package might not be installed.</p>
+<p>Also note how this code snippet adds a helpful <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ModuleNotFoundError">ModuleNotFoundError</a> rather
+than simply allowing the error to be raised. This lets the user know that this
+error is expected because the feature relies on an optional dependency.</p>
+<p>If you have many methods that rely on an optional feature, you can implement a
+<a class="reference external" href="https://realpython.com/primer-on-python-decorators/">decorator</a> to make it
+easier to add these lazy imports and helpful error messages. Here is an example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">wraps</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">importlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">requires_package</span><span class="p">(</span><span class="n">package_name</span><span class="p">,</span> <span class="n">raise_error</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check if a package is installed by importing it.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    package_name : str</span>
+<span class="sd">        Name of the package.</span>
+<span class="sd">    raise_error : bool, optional</span>
+<span class="sd">        Raise ``ModuleNotFoundError`` if the package is not installed. The default</span>
+<span class="sd">        is ``False``.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ModuleNotFoundError</span>
+<span class="sd">        Raise when a package is not installed and ``raise_error=True``.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">decorator</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
+        <span class="nd">@wraps</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">package_name</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+            <span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;To use the method &#39;</span><span class="si">{</span><span class="n">function</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39;, &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;the package &#39;</span><span class="si">{</span><span class="n">package_name</span><span class="si">}</span><span class="s2">&#39; is required.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;Install &#39;</span><span class="si">{</span><span class="n">package_name</span><span class="si">}</span><span class="s2">&#39; with:</span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;pip install </span><span class="si">{</span><span class="n">package_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="s1">&#39;ansys&#39;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">package_name</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">package_name</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">raise_error</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ModuleNotFoundError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                    <span class="k">return</span>
+
+        <span class="k">return</span> <span class="n">wrapper</span>
+
+    <span class="k">return</span> <span class="n">decorator</span>
+</pre></div>
+</div>
+<p>You use the decorator with a method like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sz</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">sz</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">sz</span><span class="p">)</span>
+
+    <span class="nd">@requires_package</span><span class="p">(</span><span class="s2">&quot;matplotlib&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Plot the internal arrays ``_a`` and ``_b``.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        This method requires ``matplotlib``.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_b</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In practice, if the user does not have Matplotlib installed, this is the
+behavior that the user would expect:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_inst</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_inst</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+
+<span class="gr">ModuleNotFoundError</span>: <span class="n">To use the method &#39;plot&#39;, the package &#39;matplotlib&#39; is required.</span>
+
+<span class="x">Install &#39;matplotlib&#39; with:</span>
+<span class="x">pip install matplotlib</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="optional-target-recommendations-in-the-pyansys-ecosystem">
+<h2>Optional target recommendations in the PyAnsys ecosystem<a class="headerlink" href="#optional-target-recommendations-in-the-pyansys-ecosystem" title="Link to this heading">#</a></h2>
+<p>PyAnsys projects, for harmonization purposes, should use the following targets or
+optional dependencies:</p>
+<ul class="simple">
+<li><p><strong>all</strong>: All optional dependencies. This target should be used when the user
+wants to install all optional dependencies. All PyAnsys projects should have this
+target defined.</p></li>
+<li><p><strong>graphics</strong>: All optional dependencies related to graphics. This target should be used
+when the user wants to install all optional dependencies related to graphics. Graphics
+visualization is a common feature in PyAnsys projects but users should not be forced to
+install all graphics-related dependencies. This target should be defined in all PyAnsys
+projects that have graphics-related optional dependencies.</p></li>
+<li><p><strong>examples</strong>: All optional dependencies related to examples. This target should be used
+when the user wants to install all optional dependencies for running examples.</p></li>
+<li><p><strong>jupyter</strong>: All optional dependencies installing utilities for the Jupyter ecosystem.
+This target should be defined in projects providing widgets as part of their features.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are three types of dependencies to consider:</p>
+<ul class="simple">
+<li><p><strong>Main dependencies</strong>: These are required for the core functionality of the library and
+must be specified in the main dependencies section of the build system configuration.</p></li>
+<li><p><strong>Optional dependencies (extras)</strong>: These are user-facing dependencies that enable
+additional features. They are included in the <cite>.whl</cite> file and specified under <cite>extras</cite>
+or <cite>optional-dependencies</cite> in the build system configuration.</p></li>
+<li><p><strong>Dependency groups</strong>: These are internal-only dependencies (for example, development or testing
+dependencies) that are not included in the <cite>.whl</cite> file. They are supported by some build
+systems (for example, <code class="docutils literal notranslate"><span class="pre">poetry</span></code>) but not universally, yet. Following <a class="reference external" href="https://peps.python.org/pep-0735/">PEP 735</a>,
+build systems are adapting to support dependency groups.</p></li>
+</ul>
+<p>When specifying dependencies:</p>
+<ul class="simple">
+<li><p>Use <strong>optional dependencies (extras)</strong> for user-facing features.</p></li>
+<li><p>Use <strong>dependency groups</strong> for internal-only dependencies, if supported by the build system.</p></li>
+<li><p>If the build system does not support dependency groups (for example, <code class="docutils literal notranslate"><span class="pre">flit</span></code>), fallback to using
+extras to replicate similar behavior.</p></li>
+<li><p>Avoid specifying development-only dependencies in the main dependencies.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you are using extras as a workaround for dependency groups, be cautious that testing and
+documentation dependencies should not be user facing. Therefore, do not include inside the
+<code class="docutils literal notranslate"><span class="pre">all</span></code> target any of the testing or documentation dependencies (that is, <code class="docutils literal notranslate"><span class="pre">pytest</span></code>, <code class="docutils literal notranslate"><span class="pre">pytest-cov</span></code>,
+<code class="docutils literal notranslate"><span class="pre">sphinx</span></code>, <code class="docutils literal notranslate"><span class="pre">sphinx-autoapi</span></code>, and similar). You should create a separate extra (<code class="docutils literal notranslate"><span class="pre">dev</span></code>,
+<code class="docutils literal notranslate"><span class="pre">tests</span></code>, <code class="docutils literal notranslate"><span class="pre">doc</span></code>, or similar) for such dependencies.</p>
+</div>
+</div>
+<p>Making dependencies optional allows users to install lightweight versions of
+your PyAnsys library. This is especially useful for users who are not interested in
+certain features or who are using the library in a headless environment. It also
+reduces the number of dependencies that need to be installed, which can speed up the
+installation process and reduce the risk of dependency conflicts.</p>
+<p>However, it also implies that maintainers must be careful to ensure that the
+optional dependencies are properly documented and that the code that relies on them is
+protected against missing dependencies.</p>
+<p>For example, if a user tries to use a feature that requires an optional
+dependency that is not installed, the code should raise a clear error message saying
+that the feature requires the optional dependency. This can be done using a try/except
+block or a decorator, as shown in the previous section.</p>
+<p>A migration example of a library from not having a <code class="docutils literal notranslate"><span class="pre">graphics</span></code> target to having it
+is shown below:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ansys/pyansys-geometry/pull/1782">PyAnsys Geometry - 1782 - feat: separate graphics target</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ansys/pymapdl/pull/3820">PyMAPDL - 3820 - fix: Optional graphics dependency</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ansys/pymapdl-reader/pull/567">PyMAPDL Reader - 567 - feat: separate graphics target</a></p></li>
+</ul>
+<p>Examples of PyAnsys projects that have these optional dependencies are:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ansys/pyprimemesh/blob/034b5e134776d1623c1d2db4b4b8d4ead101abdb/pyproject.toml#L30-L58">PyPrimeMesh targets</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ansys/pyansys-geometry/blob/e6d8210f9d79718d607a2f4b2e8ead33babcbfca/pyproject.toml#L44-L58">PyAnsys Geometry targets</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ansys/pyacp/blob/f4d8c1779cd451b1fc8ef649cc3b2cd5799ff11a/pyproject.toml#L89-L110">PyACP targets</a></p></li>
+</ul>
+</section>
+<section id="dependency-version-range">
+<h2>Dependency version range<a class="headerlink" href="#dependency-version-range" title="Link to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This guidance applies only to PyAnsys <em>library</em> projects. For projects
+which deliver an <em>application</em> or <em>dedicated workflow</em>, it is
+recommended to fully pinning all (direct and transitive) dependencies.</p>
+</div>
+<p>When specifying dependencies in a project, it is generally recommended to avoid
+setting upper version limits unless it is absolutely necessary. The reason for
+that is because arbitrarily restricting a dependency to be lower than a
+certain version (for example <cite>numpy&lt;2.0</cite>) can prevent your project from working
+with newer and perfectly compatible versions, and often causes more problems
+than it solves. Such restrictions limit forward compatibility, block users from
+upgrading dependencies, and increase the risk of version conflicts.</p>
+<p>This issue is even more critical in the context of the PyAnsys <a class="reference external" href="https://github.com/ansys/pyansys">metapackage</a>
+which install many PyAnsys projects. In this setup, having strict upper bounds
+on versions can easily result in unsatisfiable dependency constraints across
+the ecosystem. For instance, if a package declares a dependency on <cite>numpy&lt;2.0</cite>
+despite being compatible with later versions, and another package requires
+<cite>numpy&gt;=2.0.0</cite> to leverage a new feature, it becomes impossible to install
+both packages simultaneously. This occurs even though no actual incompatibility
+exists between them, and it can lead to frustration for users and maintainers
+as it prevents otherwise compatible packages from being used together seamlessly.</p>
+<p>It is better to define only a minimum version (<cite>&gt;=</cite>) and rely on Continuous
+Integration (CI) to detect real breakages as dependencies evolve. If a future
+version does introduce a breaking change, you can then add an upper bound with
+a clear explanation. For example:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project]</span>
+<span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;numpy&lt;2.0&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1"># breaking changes in Python and C APIs&#39;.</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Setting a lower bound (<cite>&gt;=</cite>) is considered good practice for multiple reasons.
+First, it documents the oldest version of a dependency that your project
+explicitly supports. It is often the oldest version that is compatible with
+the Python versions you support. For example, if your project supports
+Python versions from <cite>3.11</cite> to <cite>3.13</cite>, you need to ensure that all dependencies
+are compatible with at least Python <cite>3.11</cite>. This is important for users who may
+be using older versions of Python and want to ensure compatibility with your
+project. In other cases, the lower bound is related to the version where
+certain key features your code relies on were first introduced. For instance,
+if your code uses an API or behavior that only appeared in version <cite>1.3</cite>,
+setting <cite>&gt;=1.3</cite> communicates both a technical requirement and an implicit
+contract to your users and contributors.</p>
+<p>This helps avoiding unexpected breakages when someone installs your project
+in an environment with older versions of dependencies. Rather than encountering
+obscure runtime errors or missing features, the version constraint prevents
+your project to be installed. It also helps to maintain clarity for long-term
+maintenance and simplifies debugging.</p>
+<p>Below is an example of a dependency specification that follows these guidelines:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-6" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-6">
+flit</label><div class="sd-tab-content docutils">
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project]</span>
+<span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;matplotlib&gt;=3.5.2&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;numpy&gt;=1.20.0&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-7" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-7">
+poetry</label><div class="sd-tab-content docutils">
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[tool.poetry.dependencies]</span>
+<span class="n">matplotlib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&gt;=3.5.2&quot;</span>
+<span class="n">numpy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&gt;=1.20.0&quot;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-8" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-8">
+setuptools</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">setuptools</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup</span>
+
+<span class="n">setup</span><span class="p">(</span>
+    <span class="o">...</span><span class="p">,</span>
+    <span class="n">install_requires</span><span class="o">=</span><span class="p">[</span>
+        <span class="s2">&quot;matplotlib &gt;= 3.5.2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;numpy &gt;= 1.20.0&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="dependabot">
+<h2>Dependabot<a class="headerlink" href="#dependabot" title="Link to this heading">#</a></h2>
+<p>Dependabot is a built-in tool for keeping project dependencies updated. It informs
+you of the latest releases of the packages being used.</p>
+<section id="the-dependabot-yml-file">
+<h3>The <code class="docutils literal notranslate"><span class="pre">dependabot.yml</span></code> file<a class="headerlink" href="#the-dependabot-yml-file" title="Link to this heading">#</a></h3>
+<p>Dependabot version updates are performed by checking a <code class="docutils literal notranslate"><span class="pre">dependabot.yml</span></code>
+configuration file into your repository. In this file, one should specify the
+location of the project’s requirement files, so that Dependabot knows where to
+look. On top of that, Dependabot is also capable of updating GitHub actions
+versions.</p>
+<p>The following code snippets show the required configuration for Dependabot
+according to the type of file in which the dependencies are specified:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-9" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-9">
+With requirements/*.txt</label><div class="sd-tab-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="nt">updates</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">package-ecosystem</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pip&quot;</span><span class="w"> </span><span class="c1"># See documentation for possible values</span>
+<span class="w">    </span><span class="nt">directory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/requirements&quot;</span><span class="w"> </span><span class="c1"># Location of package manifests</span>
+<span class="w">    </span><span class="nt">schedule</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;daily&quot;</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">package-ecosystem</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;github-actions&quot;</span>
+<span class="w">  </span><span class="nt">directory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/&quot;</span>
+<span class="w">  </span><span class="nt">schedule</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;daily&quot;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-10" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-10">
+With pyproject.toml</label><div class="sd-tab-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="nt">updates</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">package-ecosystem</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pip&quot;</span><span class="w"> </span><span class="c1"># See documentation for possible values</span>
+<span class="w">    </span><span class="nt">directory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pyproject.toml&quot;</span><span class="w"> </span><span class="c1"># Location of package manifests</span>
+<span class="w">    </span><span class="nt">schedule</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;daily&quot;</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">package-ecosystem</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;github-actions&quot;</span>
+<span class="w">  </span><span class="nt">directory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/&quot;</span>
+<span class="w">  </span><span class="nt">schedule</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;daily&quot;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-11" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-11">
+With setup.py</label><div class="sd-tab-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="nt">updates</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">package-ecosystem</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pip&quot;</span><span class="w"> </span><span class="c1"># See documentation for possible values</span>
+<span class="w">    </span><span class="nt">directory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;setup.py&quot;</span><span class="w"> </span><span class="c1"># Location of package manifests</span>
+<span class="w">    </span><span class="nt">schedule</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;daily&quot;</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">package-ecosystem</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;github-actions&quot;</span>
+<span class="w">  </span><span class="nt">directory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/&quot;</span>
+<span class="w">  </span><span class="nt">schedule</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;daily&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This file should be located in the <code class="docutils literal notranslate"><span class="pre">.github</span></code> folder of your repository for
+GitHub to detect it automatically. There are several main options:</p>
+<ul class="simple">
+<li><p><strong>package-ecosystem</strong>: Lets Dependabot know what your package manager is.
+PyAnsys projects typically use <code class="docutils literal notranslate"><span class="pre">pip</span></code>. However, <code class="docutils literal notranslate"><span class="pre">conda</span></code> could also be used.</p></li>
+<li><p><strong>directory</strong>: Lets Dependabot know where your requirement files are located.
+PyAnsys projects typically contain all their requirements inside a <code class="docutils literal notranslate"><span class="pre">requirements</span></code>
+directory. Other directories could be used.</p></li>
+<li><p><strong>schedule</strong>: Lets Dependabot know the frequency to perform subroutines
+for checking for updates.</p></li>
+</ul>
+</section>
+<section id="dependabot-updates">
+<h3>Dependabot updates<a class="headerlink" href="#dependabot-updates" title="Link to this heading">#</a></h3>
+<p>Dependabot determines (using semantic versioning) whether a requirement should
+be updated due to the existence of a newer version. When Dependabot identifies
+an outdated dependency, it raises a pull request to update these requirement
+files.</p>
+<p>Dependabot allows for two different types of updates:</p>
+<ul class="simple">
+<li><p><strong>Dependabot security updates</strong>: Automated pull requests that help update
+dependencies with known vulnerabilities.</p></li>
+<li><p><strong>Dependabot version updates</strong>: Automated pull requests that keep dependencies updated,
+even when they don’t have any vulnerabilities. To check the status of version updates,
+navigate to the <strong>Insights</strong> tab of your repository and then select <strong>Dependency Graph</strong>
+and <strong>Dependabot</strong>.</p></li>
+</ul>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Dependabot only works for <em>pinned-down</em> versions of requirements (or, at most, versions
+with an <em>upper-limits</em> requirement such as <code class="docutils literal notranslate"><span class="pre">pyvista</span> <span class="pre">&lt;=</span> <span class="pre">0.34.0</span></code>). However, this is not
+a best practice for <em>run-time</em> dependencies (that is, the usage of a package should support
+the oldest available version if possible). Thus, it is only recommended to fully pin
+<strong>documentation</strong> and <strong>testing</strong> requirements (that is, using <code class="docutils literal notranslate"><span class="pre">==</span></code>). Having the latest
+dependencies available in your requirements testing files lets you test the
+<em>latest</em> packages against your library.</p>
+</div>
+</section>
+<section id="dependabot-version-updates">
+<h3>Dependabot version updates<a class="headerlink" href="#dependabot-version-updates" title="Link to this heading">#</a></h3>
+<p>To enable version updates for your repository, see
+<a class="reference external" href="https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates">Enabling Dependabot version updates</a>
+in the GitHub documentation.</p>
+</section>
+<section id="dependabot-security-updates">
+<h3>Dependabot security updates<a class="headerlink" href="#dependabot-security-updates" title="Link to this heading">#</a></h3>
+<p>Dependabot security updates make it easier for you to fix vulnerable dependencies in your
+repository. If you enable this feature, when a Dependabot alert is raised for a vulnerable
+dependency in the dependency graph of your repository, Dependabot automatically tries to fix it.</p>
+<p>For information on enabling security updates and notifications for your repository, see
+<a class="reference external" href="https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#enabling-or-disabling-dependabot-security-updates-for-an-individual-repository">Enabling or disabling Dependabot security updates for an individual repository</a>
+in the GitHub documentation.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies">Dependencies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#required-dependencies">Required dependencies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-dependencies">Optional dependencies</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-optional-packages-in-the-build-system">Implement optional packages in the build system</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-optional-libraries-in-features">Implement optional libraries in features</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-target-recommendations-in-the-pyansys-ecosystem">Optional target recommendations in the PyAnsys ecosystem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependency-version-range">Dependency version range</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependabot">Dependabot</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-dependabot-yml-file">The <code class="docutils literal notranslate"><span class="pre">dependabot.yml</span></code> file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependabot-updates">Dependabot updates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependabot-version-updates">Dependabot version updates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependabot-security-updates">Dependabot security updates</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item"> 
+<div class="tocsection editthispage">
+  <a href="https://github.com/pyansys/dev-guide/edit/main/doc/source/how-to/packaging.rst">
+    <i class="fa-solid fa-pencil"></i>
+       Edit
+    on GitHub  
+  </a>
+</div>
+
+</div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <ul class="this-page-menu">
+      <li><a href="../_sources/how-to/packaging.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <!-- Include desired assets -->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.7/require.min.js"></script>
+
+<script>
+// Passing the search options to the search.js file
+const SEARCH_OPTIONS = JSON.parse('{"ignoreLocation": true, "keys": ["title", "text", "objectID"], "limit": 10, "min_chars_for_search": 2, "threshold": 0.5}');
+const SEARCH_FILE = "../_static/search.json";
+const ADVANCE_SEARCH_PATH = "../search.html";
+const EXTRA_SOURCES = JSON.parse('""');
+</script>
+
+
+<script src="../_static/js/search.js"></script>
+
+  
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright (c) 2026 ANSYS, Inc. All rights reserved.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the
+  <a href="https://sphinxdocs.ansys.com/version/stable/index.html"
+    >Ansys Sphinx Theme</a
+  >
+  1.6.4. <br />Last updated on
+  <span id="ast_build_date"></span>
+</p>
+<script>
+  var options = { day: "numeric", month: "long", year: "numeric" };
+  var ast_lastModifiedDate = new Date(document.lastModified);
+  var ast_build_date = ast_lastModifiedDate.toLocaleDateString("en-US", options);
+  document.getElementById("ast_build_date").innerHTML = ast_build_date;
+</script></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

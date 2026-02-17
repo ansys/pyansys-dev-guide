@@ -1,0 +1,768 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Documentation style tools &#8212; PyAnsys developer&#39;s guide</title>
+  
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/ansys-sphinx-theme.css?v=9e79609d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/ansys-sphinx-theme.css?v=9e79609d" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.nerdfonts.com/assets/css/webfont.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+  <!-- Include desired assets -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  
+
+  
+    <link href="../_static/css/breadcrumbs.css" rel="stylesheet" />
+  
+    <script src="../_static/documentation_options.js?v=92d7cc4e"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'doc-style/formatting-tools';</script>
+    <link rel="icon" href="../_static/ansys-favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Abstractions" href="../abstractions/index.html" />
+    <link rel="prev" title="Numpydoc docstrings" href="docstrings.html" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="2026-02-17" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="https://docs.pyansys.com/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/pyansys_logo_transparent_black.png" class="logo__image only-light" alt="PyAnsys developer's guide - Home"/>
+    <img src="../_static/pyansys_logo_transparent_white.png" class="logo__image only-dark pst-js-only" alt="PyAnsys developer's guide - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html" title="PyAnsys developer's guide home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../how-to/index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../content-writing/index.html">
+    Content writing
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+      
+        <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+  
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html" title="PyAnsys developer's guide home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../how-to/index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../content-writing/index.html">
+    Content writing
+  </a>
+</li>
+
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../packaging/index.html">Packaging style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../coding-style/index.html">Coding style</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Documentation style</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="doc-configuration.html">Required Sphinx configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docstrings.html">Numpydoc docstrings</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Documentation style tools</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+         
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="https://docs.pyansys.com/" class="nav-link">PyAnsys</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a
+        href="../index.html"
+        class="nav-link"
+        aria-label="Home"
+      >
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="../all-styles.html" class="nav-link">Style</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="index.html" class="nav-link">Documentation style</a>
+    </li>
+      
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Documentation style tools</span></li>
+    
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="documentation-style-tools">
+<span id="doc-style-tools"></span><h1>Documentation style tools<a class="headerlink" href="#documentation-style-tools" title="Link to this heading">#</a></h1>
+<p>There are plenty of tools for documentation style and coverage. This section
+presents some of the most popular ones in the Python ecosystem. A minimum
+configuration is provided for each one so you can easily include them in your
+PyAnsys project.</p>
+<p>Most of the tools presented can be configured using <a class="reference internal" href="../packaging/structure.html#the-pyproject-toml-file"><span class="std std-ref">The pyproject.toml file</span></a>, avoiding dotfiles and thus leading to a much
+cleaner root project directory.</p>
+<section id="the-blacken-docs-tool">
+<h2>The <code class="docutils literal notranslate"><span class="pre">blacken-docs</span></code> tool<a class="headerlink" href="#the-blacken-docs-tool" title="Link to this heading">#</a></h2>
+<p>When writing documentation, code blocks are frequently used to provide examples.
+However, these code snippets cannot be verified with the usual code
+formatting tools. This is where <a class="reference external" href="https://github.com/asottile/blacken-docs">blacken-docs</a> comes into play. You can execute
+this tool by running this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>blacken-docs<span class="w"> </span>-l<span class="w"> </span>&lt;line-length&gt;<span class="w"> </span>doc/**/*.rst
+</pre></div>
+</div>
+</section>
+<section id="the-codespell-tool">
+<h2>The <code class="docutils literal notranslate"><span class="pre">codespell</span></code> tool<a class="headerlink" href="#the-codespell-tool" title="Link to this heading">#</a></h2>
+<p>The <a class="reference external" href="https://github.com/codespell-project/codespell">codespell</a> tool checks for common misspellings in text files. This implies that it
+is not limited to Python files but can run checks on any human-readable file.</p>
+<p>It is possible to ignore words that are flagged as misspelled. You can specify these words in a
+file that can then be passed to <code class="docutils literal notranslate"><span class="pre">codespell</span></code> by running this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>codespell<span class="w"> </span>--write-changes<span class="w"> </span>--ignore-words<span class="o">=</span>&lt;FILE&gt;
+</pre></div>
+</div>
+</section>
+<section id="the-docformatter-tool">
+<h2>The <code class="docutils literal notranslate"><span class="pre">docformatter</span></code> tool<a class="headerlink" href="#the-docformatter-tool" title="Link to this heading">#</a></h2>
+<p>The <a class="reference external" href="https://github.com/PyCQA/docformatter">docformatter</a> tool automatically formats Python docstrings according
+to <a class="reference external" href="https://peps.python.org/pep-0257">PEP 257</a>. To make sure <code class="docutils literal notranslate"><span class="pre">docformatter</span></code> wraps your docstrings at a given
+number of characters, use this configuration:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docformatter<span class="w"> </span>-r<span class="w"> </span>-i<span class="w"> </span>--wrap-summaries<span class="w"> </span>&lt;length&gt;<span class="w"> </span>--wrap-descriptions<span class="w"> </span>&lt;length&gt;<span class="w"> </span>src
+</pre></div>
+</div>
+</section>
+<section id="the-doctest-tool">
+<h2>The <code class="docutils literal notranslate"><span class="pre">doctest</span></code> tool<a class="headerlink" href="#the-doctest-tool" title="Link to this heading">#</a></h2>
+<p>The <a class="reference external" href="https://docs.python.org/3/library/doctest.html">doctest</a> tool is a module from the Python standard library, which means it is
+included by default with your Python installation. It is used for checking the
+examples provided inside docstrings to make sure that they reflect the current usage
+of the source code. You can integrate <a class="reference external" href="https://docs.python.org/3/library/doctest.html">doctest</a> with <code class="docutils literal notranslate"><span class="pre">pytest</span></code> in <a class="reference internal" href="../packaging/structure.html#the-pyproject-toml-file"><span class="std std-ref">The pyproject.toml file</span></a>:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[tool.pytest.ini_options]</span>
+<span class="n">addopts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;--doctest-modules&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="the-interrogate-tool">
+<h2>The <code class="docutils literal notranslate"><span class="pre">interrogate</span></code> tool<a class="headerlink" href="#the-interrogate-tool" title="Link to this heading">#</a></h2>
+<p>The <a class="reference external" href="https://interrogate.readthedocs.io/en/latest/">interrogate</a> tool checks docstring coverage. Similar to source code
+coverage tools, this tool tests how many modules, functions, classes, and
+methods in a Python library hold a docstring.</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[tool.interrogate]</span>
+<span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;setup.py&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;doc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;tests&quot;</span><span class="p">]</span>
+<span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="n">verbose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>Alternate tools to <a class="reference external" href="https://interrogate.readthedocs.io/en/latest/">interrogate</a> are <a class="reference external" href="https://docstr-coverage.readthedocs.io/en/latest/index.html">docstr-coverage</a> and
+<a class="reference external" href="https://bitbucket.org/DataGreed/docstring-coverage/wiki/Home">docstring-coverage</a>. However, <a class="reference external" href="https://interrogate.readthedocs.io/en/latest/">interrogate</a> is modern and maintained, with
+output resembling that of <a class="reference external" href="https://pytest-cov.readthedocs.io/en/latest/">pytest-cov</a>, which is the equivalent tool
+for source code coverage.</p>
+</section>
+<section id="numpydoc-validation">
+<h2>Numpydoc validation<a class="headerlink" href="#numpydoc-validation" title="Link to this heading">#</a></h2>
+<p>To validate the style of <a class="reference internal" href="docstrings.html#numpydoc-docstrings"><span class="std std-ref">Numpydoc docstrings</span></a>, you can
+take advantage of the Sphinx <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/index.html">numpydoc</a> extension. Note that this extension
+checks only for those objects whose docstrings must be rendered. It is not a
+command line tool that checks the style of all docstrings in your source code.</p>
+<p>Because <code class="docutils literal notranslate"><span class="pre">numpydoc</span></code> is a Sphinx extension, it must be configured in the
+<code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file. For more information, see <a class="reference internal" href="../packaging/structure.html#the-doc-directory"><span class="std std-ref">The doc directory</span></a>. Start by adding it to the
+list of extensions:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;numpydoc&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Once the <code class="docutils literal notranslate"><span class="pre">numpydoc</span></code> extension is added, you can select which <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/validation.html#built-in-validation-checks">built-in validation checks</a>
+must be addressed by using the <code class="docutils literal notranslate"><span class="pre">numpydoc_validation_checks</span></code> dictionary:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numpydoc_validation_checks</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;GL08&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>This issues the following warning for any object without a docstring:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;The object does not have a docstring&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="the-pydocstyle-tool">
+<h2>The <code class="docutils literal notranslate"><span class="pre">pydocstyle</span></code> tool<a class="headerlink" href="#the-pydocstyle-tool" title="Link to this heading">#</a></h2>
+<p>The <a class="reference external" href="https://www.pydocstyle.org/en/stable/">pydocstyle</a> tool checks the compliance of Python docstrings with <a class="reference external" href="https://peps.python.org/pep-0257">PEP 257</a>.
+Its configuration can be defined in the <a class="reference internal" href="../packaging/structure.html#the-pyproject-toml-file"><span class="std std-ref">The pyproject.toml file</span></a>.
+By default, <a class="reference external" href="https://www.pydocstyle.org/en/stable/">pydocstyle</a> matches all <code class="docutils literal notranslate"><span class="pre">*.py</span></code> files except those starting with
+<code class="docutils literal notranslate"><span class="pre">test_*.py</span></code>. The default configuration should be enough for a PyAnsys project.
+However, if additional configuration is needed, it must be included under the
+<code class="docutils literal notranslate"><span class="pre">[tool.pydocstyle]</span></code> entry:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[tool.pydocstyle]</span>
+<span class="n">convention</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;numpy&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="vale">
+<h2>Vale<a class="headerlink" href="#vale" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="http://vale.sh/">Vale</a> is a tool for maintaining a consistent style and voice in your documentation.
+Its configuration is defined in a <code class="docutils literal notranslate"><span class="pre">.vale.ini</span></code> file in the library’s <code class="docutils literal notranslate"><span class="pre">doc</span></code> folder.
+For PyAnsys libraries, <code class="docutils literal notranslate"><span class="pre">Vale</span></code> is configured to apply the guidelines in the
+<a class="reference external" href="https://developers.google.com/style/">Google developer documentation style guide</a>,
+along with any custom Ansys rules and terminology lists, to reStructuredText (RST)
+and Markdown (MD) files.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">Vale</span></code> is implemented in your PyAnsys library, you can check
+any content changes that you make in supported files locally.</p>
+<p>In the library’s <code class="docutils literal notranslate"><span class="pre">doc</span></code> folder, download the package with this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vale<span class="w"> </span>sync
+</pre></div>
+</div>
+<p>Check all files in the <code class="docutils literal notranslate"><span class="pre">doc</span></code> folder by running this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vale<span class="w"> </span>.
+</pre></div>
+</div>
+<p>To check all files in the repository, go to the <code class="docutils literal notranslate"><span class="pre">root</span></code> directory and run
+this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vale<span class="w"> </span>--config<span class="o">=</span>doc/.vale.ini<span class="w"> </span>.
+</pre></div>
+</div>
+<p>To check all files in only a particular folder, type <code class="docutils literal notranslate"><span class="pre">vale</span></code> followed by the
+name of the folder.</p>
+<p>Address any warnings and issues that display by either editing the
+file to fix or adding a term to the <code class="docutils literal notranslate"><span class="pre">accept.txt</span></code> file in
+<code class="docutils literal notranslate"><span class="pre">doc\styles\config\vocabularies\ANSYS</span></code>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-blacken-docs-tool">The <code class="docutils literal notranslate"><span class="pre">blacken-docs</span></code> tool</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-codespell-tool">The <code class="docutils literal notranslate"><span class="pre">codespell</span></code> tool</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-docformatter-tool">The <code class="docutils literal notranslate"><span class="pre">docformatter</span></code> tool</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-doctest-tool">The <code class="docutils literal notranslate"><span class="pre">doctest</span></code> tool</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-interrogate-tool">The <code class="docutils literal notranslate"><span class="pre">interrogate</span></code> tool</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpydoc-validation">Numpydoc validation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-pydocstyle-tool">The <code class="docutils literal notranslate"><span class="pre">pydocstyle</span></code> tool</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vale">Vale</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item"> 
+<div class="tocsection editthispage">
+  <a href="https://github.com/pyansys/dev-guide/edit/main/doc/source/doc-style/formatting-tools.rst">
+    <i class="fa-solid fa-pencil"></i>
+       Edit
+    on GitHub  
+  </a>
+</div>
+
+</div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <ul class="this-page-menu">
+      <li><a href="../_sources/doc-style/formatting-tools.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <!-- Include desired assets -->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.7/require.min.js"></script>
+
+<script>
+// Passing the search options to the search.js file
+const SEARCH_OPTIONS = JSON.parse('{"ignoreLocation": true, "keys": ["title", "text", "objectID"], "limit": 10, "min_chars_for_search": 2, "threshold": 0.5}');
+const SEARCH_FILE = "../_static/search.json";
+const ADVANCE_SEARCH_PATH = "../search.html";
+const EXTRA_SOURCES = JSON.parse('""');
+</script>
+
+
+<script src="../_static/js/search.js"></script>
+
+  
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright (c) 2026 ANSYS, Inc. All rights reserved.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the
+  <a href="https://sphinxdocs.ansys.com/version/stable/index.html"
+    >Ansys Sphinx Theme</a
+  >
+  1.6.4. <br />Last updated on
+  <span id="ast_build_date"></span>
+</p>
+<script>
+  var options = { day: "numeric", month: "long", year: "numeric" };
+  var ast_lastModifiedDate = new Date(document.lastModified);
+  var ast_build_date = ast_lastModifiedDate.toLocaleDateString("en-US", options);
+  document.getElementById("ast_build_date").innerHTML = ast_build_date;
+</script></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

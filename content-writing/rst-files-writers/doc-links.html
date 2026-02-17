@@ -1,0 +1,938 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Links &#8212; PyAnsys developer&#39;s guide</title>
+  
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/ansys-sphinx-theme.css?v=9e79609d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/ansys-sphinx-theme.css?v=9e79609d" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.nerdfonts.com/assets/css/webfont.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+  <!-- Include desired assets -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  
+
+  
+    <link href="../../_static/css/breadcrumbs.css" rel="stylesheet" />
+  
+    <script src="../../_static/documentation_options.js?v=92d7cc4e"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content-writing/rst-files-writers/doc-links';</script>
+    <link rel="icon" href="../../_static/ansys-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Code blocks" href="code-blocks.html" />
+    <link rel="prev" title="Notices" href="notices.html" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="2026-02-17" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="https://docs.pyansys.com/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/pyansys_logo_transparent_black.png" class="logo__image only-light" alt="PyAnsys developer's guide - Home"/>
+    <img src="../../_static/pyansys_logo_transparent_white.png" class="logo__image only-dark pst-js-only" alt="PyAnsys developer's guide - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html" title="PyAnsys developer's guide home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../how-to/index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="../index.html">
+    Content writing
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+      
+        <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+  
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html" title="PyAnsys developer's guide home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../how-to/index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    Content writing
+  </a>
+</li>
+
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../content-contrib-setup/index.html">Content contribution setup</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Content in RST files</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rst-file-formatting.html">RST file formatting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rst-format-rules.html">RST formatting rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notices.html">Notices</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-blocks.html">Code blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tables.html">Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cards.html">Cards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tab-sets.html">Tab sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collapsible-sections.html">Collapsible sections</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../py-files-writers/index.html">Content in PY files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples-writers/index.html">Content in examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../content-how-tos/index.html">Content how-tos</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+         
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="https://docs.pyansys.com/" class="nav-link">PyAnsys</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a
+        href="../../index.html"
+        class="nav-link"
+        aria-label="Home"
+      >
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="../index.html" class="nav-link">Content writing</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="index.html" class="nav-link">Content in RST files</a>
+    </li>
+      
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Links</span></li>
+    
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="links">
+<span id="doc-links"></span><h1>Links<a class="headerlink" href="#links" title="Link to this heading">#</a></h1>
+<p>A link consists of some explicit markup with a <em>named target</em> that is either
+internal or external to your project. You can also create a link for downloading
+a file or for going to the description of a Python object in your API reference
+documentation.</p>
+<section id="internal-links">
+<span id="doc-links-internal"></span><h2>Internal links<a class="headerlink" href="#internal-links" title="Link to this heading">#</a></h2>
+<p>You use the <code class="docutils literal notranslate"><span class="pre">ref</span></code> role to link to a target that you place before a heading.
+This allows Sphinx to use the heading as the display text for the link, thereby
+reducing maintenance if the heading later changes.</p>
+<p>You first insert the target in the RST file before the heading that you want
+to link to. The target consists of these parts:</p>
+<ul class="simple">
+<li><p>An explicit markup start (<code class="docutils literal notranslate"><span class="pre">..</span></code>) followed by a space</p></li>
+<li><p>An underscore followed by the target name and a colon</p></li>
+</ul>
+<p>Always insert blanks lines both before and after the target.</p>
+<p>Here is the target for <a class="reference internal" href="../content-contrib-setup/content-dev-environment.html#ansys-python-manager"><span class="std std-ref">Install and use the Ansys Python Manager</span></a> in this guide:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">_Ansys_Python_Manager</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>To link to this target from any RST or PY file in this guide, use the
+<code class="docutils literal notranslate"><span class="pre">ref</span></code> role and the target name within a sentence, surrounding the target name
+in single backticks:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>For more information, see :ref:`Ansys_Python_Manager`.
+</pre></div>
+</div>
+<p>In the documentation, the display text for the link is the heading that follows this target.</p>
+<p>If the target is not placed before a heading, or if you want to customize the display text,
+you must provide the display text:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>This :ref:`open source Python QT app &lt;Ansys_Python_Manager&gt;` streamlines the setup of
+development environments for people new to the Python ecosystem.
+</pre></div>
+</div>
+</section>
+<section id="external-links">
+<span id="doc-links-external"></span><h2>External links<a class="headerlink" href="#external-links" title="Link to this heading">#</a></h2>
+<p>There are several methods that you can use to link to external targets. The
+simplest way is to specify the display text for the link and a URL directly in
+a sentence:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>For more information on creating NumPy arrays, see
+`Array creation &lt;https://numpy.org/doc/stable/user/basics.creation.html&gt;`_
+in the NumPy documentation.
+</pre></div>
+</div>
+<p>The display text for a link should either exactly match the title or heading
+that you are referencing or provide a description of the destination page, as
+specified in <a class="reference external" href="https://developers.google.com/style/link-text">Link text</a> in the
+<em>Google developer documentation style guide</em>. As shown in the example sentence,
+you should follow a link with a descriptor that indicates where the
+linked content resides, such as in a product’s documentation or on an
+organization’s website.</p>
+<p>The problem with specifying a URL as a target is that if the URL changes or the
+page is later removed, you must update the URL in every place where it is used. This can
+become quite burdensome if you have many links to the same URL.</p>
+<p>To reduce maintenance of external links, you can use one of these methods to link to
+named targets:</p>
+<ul class="simple">
+<li><p>Insert named targets at the bottom of individual RST files. For more information,
+see <a class="reference internal" href="#named-targets-bottom-rst-files"><span class="std std-ref">Named targets at the bottom of RST files</span></a>.</p></li>
+<li><p>Insert named targets in a central list file, which is usually the <code class="file docutils literal notranslate"><span class="pre">list.rst</span></code>
+file, in the project’s <code class="docutils literal notranslate"><span class="pre">doc/source</span></code> directory. For more information, see
+<a class="reference internal" href="#named-targets-link-rst-file"><span class="std std-ref">Named targets in a list.rst file</span></a>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You should choose only one of these methods. If you mix them, you might use
+the same target name in both an individual RST file and the <code class="file docutils literal notranslate"><span class="pre">list.rst</span></code> file,
+which causes Sphinx to raises errors about duplicated targets when building the
+documentation.</p>
+</div>
+<section id="guidelines-for-target-names">
+<h3>Guidelines for target names<a class="headerlink" href="#guidelines-for-target-names" title="Link to this heading">#</a></h3>
+<p>When naming targets, you must adhere to these guidelines to avoid errors
+that Sphinx might otherwise raise when building the documentation:</p>
+<ul class="simple">
+<li><p>Do not use spaces in target names. Instead, use underscores to separate words.
+For example, <code class="docutils literal notranslate"><span class="pre">_numpy</span></code> is the name of the target that links
+to the <a class="reference external" href="https://numpy.org/">NumPy website</a>.</p></li>
+<li><p>Abbreviate target names however you want. Keep in mind that longer, more
+descriptive names are easier to find if you ever need to replace them.
+For example, <code class="docutils literal notranslate"><span class="pre">_python_main</span></code> is a better target name for the Python organization
+than <code class="docutils literal notranslate"><span class="pre">_python</span></code>.</p></li>
+<li><p>Do not use the same names for both internal and external targets. Varying how the
+names are capitalized does not cause Sphinx to see them as unique. For example, having an
+internal target named <code class="docutils literal notranslate"><span class="pre">_RST_files</span></code> and an external target named <code class="docutils literal notranslate"><span class="pre">_rst_files</span></code> causes
+Sphinx to raise errors when building the documentation because it sees them as
+duplicate targets.</p></li>
+</ul>
+</section>
+<section id="named-targets-at-the-bottom-of-rst-files">
+<span id="named-targets-bottom-rst-files"></span><h3>Named targets at the bottom of RST files<a class="headerlink" href="#named-targets-at-the-bottom-of-rst-files" title="Link to this heading">#</a></h3>
+<p>Assume that you want to add links in a RST file to the websites for <a class="reference external" href="https://numpy.org/">NumPy</a>, <a class="reference external" href="https://scipy.org/">SciPy</a>,
+and <a class="reference external" href="https://pandas.pydata.org/">pandas</a>, the  “big three” data science packages. At the bottom of
+the RST file, you insert named targets to these websites like this:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="c">.. LINKS AND REFERENCES</span>
+
+<span class="p">..</span> <span class="nt">_NumPy_link:</span> https://numpy.org/
+<span class="p">..</span> <span class="nt">_SciPy_link:</span> https://www.scipy.org/
+<span class="p">..</span> <span class="nt">_pandas_link:</span> https://pandas.pydata.org/
+</pre></div>
+</div>
+<p>To insert links to these targets in a sentence in the RST file, you surround
+each target name in single backticks and follow it with an underscore:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>All PyAnsys libraries are expected be consistent in style and formatting with the
+libraries for the &quot;big three&quot; data science packages: <span class="s">`NumPy_link`_</span>, <span class="s">`SciPy_link`_</span>, and <span class="s">`pandas_link`_</span>.
+</pre></div>
+</div>
+<p>When using this named target method, you must add targets to the bottom of every RST file
+where you want to insert links to these targets, which requires much more effort and
+maintenance than if you insert all targets in a central <code class="file docutils literal notranslate"><span class="pre">list.rst</span></code> file.</p>
+</section>
+<section id="named-targets-in-a-list-rst-file">
+<span id="named-targets-link-rst-file"></span><h3>Named targets in a <code class="file docutils literal notranslate"><span class="pre">list.rst</span></code> file<a class="headerlink" href="#named-targets-in-a-list-rst-file" title="Link to this heading">#</a></h3>
+<p>You can add a central RST file in your project’s <code class="docutils literal notranslate"><span class="pre">doc/source</span></code> directory and have the
+Sphinx configuration file read this file to load all named targets, allowing you to insert
+links to any of these targets in any RST file. Consolidating all targets in one file,
+which is usually the <code class="file docutils literal notranslate"><span class="pre">list.rst</span></code> file, can significantly reduce maintenance over
+time.</p>
+<section id="set-up-the-sphinx-configuration-file">
+<h4>Set up the Sphinx configuration file<a class="headerlink" href="#set-up-the-sphinx-configuration-file" title="Link to this heading">#</a></h4>
+<p>To use a <code class="file docutils literal notranslate"><span class="pre">list.rst</span></code> file, you must set it up in the Sphinx configuration file
+(<code class="docutils literal notranslate"><span class="pre">doc/source/conf.py</span></code>):</p>
+<ol class="arabic">
+<li><p>Open the <code class="file docutils literal notranslate"><span class="pre">conf.py</span></code> file.</p></li>
+<li><p>Search to see if the <code class="docutils literal notranslate"><span class="pre">exclude_patterns</span></code> variable is defined.</p></li>
+<li><p>If this variable is defined, add this line to the list of files and
+directories that Sphinx is to ignore  when looking for source files:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>``links.rst,``
+</pre></div>
+</div>
+</li>
+<li><p>If this variable is not defined, after the lines configuring
+<code class="docutils literal notranslate"><span class="pre">numpydoc</span></code> and enabling <code class="docutils literal notranslate"><span class="pre">numpydoc</span></code> validation, define this variable and add the
+<code class="file docutils literal notranslate"><span class="pre">links.rst</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exclude_patterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;links.rst&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>If you do not add the <code class="file docutils literal notranslate"><span class="pre">links.rst</span></code> file to the <code class="docutils literal notranslate"><span class="pre">exclude_patterns</span></code> variable,
+Sphinx raises this warning during documentation generation: <code class="docutils literal notranslate"><span class="pre">document</span> <span class="pre">isn't</span> <span class="pre">included</span> <span class="pre">in</span> <span class="pre">any</span> <span class="pre">toctree</span></code>.</p>
+</li>
+<li><p>Beneath the <code class="docutils literal notranslate"><span class="pre">exclude_patterns</span></code> variable, add these lines to enable the <code class="docutils literal notranslate"><span class="pre">rst_epilog</span></code>
+reStructuredText string:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># make rst_epilog a variable, so you can add other epilog parts to it</span>
+<span class="n">rst_epilog</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+<span class="c1"># Read link all targets from file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;links.rst&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">rst_epilog</span> <span class="o">+=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>You might want to look at the <a class="reference external" href="https://github.com/ansys/pymapdl/blob/main/doc/source/conf.py">config.py</a> file for PyMAPDL because
+the <code class="docutils literal notranslate"><span class="pre">exclude_patterns</span></code> variable for this project lists many files and directories for
+Sphinx to ignore when looking for source files. Additionally, the <code class="docutils literal notranslate"><span class="pre">rst_epilog</span></code>
+string contains a <code class="docutils literal notranslate"><span class="pre">replace</span></code> step that look for a <code class="docutils literal notranslate"><span class="pre">VERSION</span></code> variable
+to easily update targets with the MAPDL version for the latest MAPDL release.</p>
+</li>
+</ol>
+<p>When building the documentation, Sphinx dynamically includes the content in the <code class="docutils literal notranslate"><span class="pre">rst_epilog</span></code>
+string at the bottom of every RST file. Because this string tells Sphinx to read all targets
+in the <code class="file docutils literal notranslate"><span class="pre">list.rst</span></code> file, you are able to link to any of these targets from any RST or PY
+file in the project.</p>
+<p>You can use another name for the <code class="file docutils literal notranslate"><span class="pre">list.rst</span></code> file or use multiple RST files for organizing
+external links as long as you make the appropriate changes to the lines enabling the
+<code class="docutils literal notranslate"><span class="pre">rst_epilog</span></code> string.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When documentation checks run on a PR, Sphinx might indicate some links or link anchors are broken,
+which results in errors. For more information on resolving these errors, see
+<a class="reference internal" href="../content-how-tos/resolve-issues-causing-check-failures.html#resolve-too-long-lines-broken-links"><span class="std std-ref">Resolve too long line lengths and broken links</span></a>.</p>
+</div>
+</section>
+<section id="link-to-named-targets-in-the-list-rst-file">
+<h4>Link to named targets in the <code class="file docutils literal notranslate"><span class="pre">list.rst</span></code> file<a class="headerlink" href="#link-to-named-targets-in-the-list-rst-file" title="Link to this heading">#</a></h4>
+<p>To link to a named target in the <code class="file docutils literal notranslate"><span class="pre">list.rst</span></code> file, you drop the leading underscore in the
+target name and add a trailing underscore after the target name. For example, the <code class="file docutils literal notranslate"><span class="pre">list.rst</span></code>
+file for this project includes a target named <code class="docutils literal notranslate"><span class="pre">_Style_guide_Sphinx_doc</span></code>. To link to this target
+from any RST or PY file in this guide, here is how you insert the link:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>The `Style guide for Sphinx-based documentation &lt;Style_guide_Sphinx_doc_&gt;`_
+indicates that lines should be limited to a maximum of 79 characters.
+</pre></div>
+</div>
+<p>While the link still begins with a single backtick and the display text for the link,
+carats surround the target name and an underscore. Following the closing carat, you must
+have a closing single backtick and another underscore.</p>
+<p>For examples of named targets and how to organize them by categories, see the
+<code class="file docutils literal notranslate"><span class="pre">list.rst</span></code> file in the <code class="docutils literal notranslate"><span class="pre">doc/source</span></code> directory for this project or the
+<a class="reference external" href="https://github.com/ansys/pymapdl/blob/main/doc/source/links.rst">PyMAPDL</a> project.</p>
+</section>
+</section>
+</section>
+<section id="download-links">
+<h2>Download links<a class="headerlink" href="#download-links" title="Link to this heading">#</a></h2>
+<p>To create a link that downloads a file, you can use either a <code class="docutils literal notranslate"><span class="pre">download</span></code> link that specifies
+a URL for the file or the <code class="docutils literal notranslate"><span class="pre">download</span></code> role and a named target in the <code class="file docutils literal notranslate"><span class="pre">list.rst</span></code> file.</p>
+<p>This sentence uses a <code class="docutils literal notranslate"><span class="pre">download</span></code> link that specifies the URL to download the PDF file for the
+PyFluent cheat sheet:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>You can `download &lt;https://cheatsheets.docs.pyansys.com/pyfluent_cheat_sheet.pdf&gt;`_ the PyFluent
+cheat sheet, which is a one-page reference that provides syntax rules and commands for using PyFluent.
+</pre></div>
+</div>
+<p>This next sentence uses the <code class="docutils literal notranslate"><span class="pre">download</span></code> role and a named target in the <code class="file docutils literal notranslate"><span class="pre">list.rst</span></code> file
+for the PyMAPDL project to download the PDF file for the PyMAPDL cheat sheet:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Download the :download:`PyMAPDL cheat sheet &lt;Cheat_Sheet_PyMAPDL.pdf&gt;` to help you to learn PyMAPDL.
+</pre></div>
+</div>
+</section>
+<section id="python-object-links">
+<span id="api-object-links"></span><h2>Python object links<a class="headerlink" href="#python-object-links" title="Link to this heading">#</a></h2>
+<p>To link to Python objects in your API reference documentation, you use Python-specific roles.
+For a list of these roles, see <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/domains.html#cross-referencing-python-objects">Cross-referencing Python objects</a> in
+the Sphinx documentation. For descriptions of fundamental Python objects, see <a class="reference internal" href="../py-files-writers/py-formatting.html#py-file-format"><span class="std std-ref">PY file formatting</span></a>.</p>
+<p>If the role links to a Python object in the same module, you only need to use the object name
+in the role (as shown in the first of the following three examples). If the role links to a
+Python object in a different module, you must use the module name and object name in the role
+(as shown in the second and third of the following three examples).</p>
+<p>Python uses a period (<code class="docutils literal notranslate"><span class="pre">.</span></code>) to denote submodules. If you need to see where a Python object is
+defined in your API, use the GitHub search function. For example, to see where the
+<code class="docutils literal notranslate"><span class="pre">Primitives3DLayout</span></code> class is defined in the PyAEDT API, search its repository for this string:</p>
+<p><code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">Primitives3DLayout</span></code></p>
+<p>Search results indicate that this class is defined here: <code class="docutils literal notranslate"><span class="pre">pyaedt.modeler.Primitives3DLayout.Primitives3DLayout</span></code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Because using the full module name and object name in the role always works, when you perform a
+search to see where a Python object is defined, consider collecting the result in a TXT file. When
+you next need to link to this object, you can easily search this text file for the object name
+and then copy its full module name and object name into your RST file.</p>
+</div>
+<section id="examples-of-python-object-links">
+<h3>Examples of Python object links<a class="headerlink" href="#examples-of-python-object-links" title="Link to this heading">#</a></h3>
+<p>Here are some examples of using Python-specific roles to link to Python objects.</p>
+<p><strong>Example 1</strong></p>
+<p>Assuming that your project is PyAEDT, you can use the <code class="docutils literal notranslate"><span class="pre">class</span></code> role to link to the
+<code class="docutils literal notranslate"><span class="pre">Desktop</span></code> class in the PyAEDT API reference documentation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>The :class:`pyaedt.Desktop` class initializes AEDT and starts the specified version in
+the specified mode.
+</pre></div>
+</div>
+<p><strong>Example 2</strong></p>
+<p>Assuming that your project is PyMAPDL, you can use the <code class="docutils literal notranslate"><span class="pre">func</span></code> role to link to the
+<code class="docutils literal notranslate"><span class="pre">run_batch()</span></code> function in the PyMAPDL API reference documentation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>You can use the pool to run a set of pre-generated input files using the
+:func:`run_batch &lt;ansys.mapdl.core.LocalMapdlPool.run_batch&gt;` function.
+</pre></div>
+</div>
+<p><strong>Example 3</strong></p>
+<p>Also assuming that your project is PyMAPDL, you can use both the <code class="docutils literal notranslate"><span class="pre">func</span></code> and
+<code class="docutils literal notranslate"><span class="pre">attr</span></code> roles to link to the <code class="docutils literal notranslate"><span class="pre">nodal_displacement()</span></code> function and then the
+<code class="docutils literal notranslate"><span class="pre">selected_nodes</span></code> attribute in the PyMAPDL API reference documentation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>If you have subselected a certain component and want to also limit the result of a certain output
+(:func:`nodal_displacement &lt;ansys.mapdl.core.post.PostProcessing.nodal_displacement&gt;`), use the
+:attr:`selected_nodes &lt;ansys.mapdl.core.post.PostProcessing.selected_nodes&gt;` attribute to get a
+mask of the currently selected nodes.
+</pre></div>
+</div>
+</section>
+<section id="more-examples-of-python-object-links">
+<h3>More examples of Python object links<a class="headerlink" href="#more-examples-of-python-object-links" title="Link to this heading">#</a></h3>
+<p>To see more examples of how to use Python-specific roles to link to Python objects
+in your API reference documentation, use the GitHub search feature to find the following
+strings in the repositories for PyAnsys libraries, keeping in mind that only some subset
+of these roles is likely used in any library:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mod</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">func</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">const</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">class</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">meth</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">attr</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">exc</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">obj</span></code></p></li>
+</ul>
+<p>To learn how you can also use Python-specific roles to link to Python objects in the
+Sphinx documentation for other projects, see <a class="reference internal" href="../content-how-tos/add-sphinx-extensions.html#links-to-objects-in-other-doc"><span class="std std-ref">Link to Python objects in other Sphinx documentation</span></a>.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-links">Internal links</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#external-links">External links</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#guidelines-for-target-names">Guidelines for target names</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#named-targets-at-the-bottom-of-rst-files">Named targets at the bottom of RST files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#named-targets-in-a-list-rst-file">Named targets in a <code class="file docutils literal notranslate"><span class="pre">list.rst</span></code> file</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-the-sphinx-configuration-file">Set up the Sphinx configuration file</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#link-to-named-targets-in-the-list-rst-file">Link to named targets in the <code class="file docutils literal notranslate"><span class="pre">list.rst</span></code> file</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-links">Download links</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-object-links">Python object links</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-of-python-object-links">Examples of Python object links</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-examples-of-python-object-links">More examples of Python object links</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item"> 
+<div class="tocsection editthispage">
+  <a href="https://github.com/pyansys/dev-guide/edit/main/doc/source/content-writing/rst-files-writers/doc-links.rst">
+    <i class="fa-solid fa-pencil"></i>
+       Edit
+    on GitHub  
+  </a>
+</div>
+
+</div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/content-writing/rst-files-writers/doc-links.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <!-- Include desired assets -->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.7/require.min.js"></script>
+
+<script>
+// Passing the search options to the search.js file
+const SEARCH_OPTIONS = JSON.parse('{"ignoreLocation": true, "keys": ["title", "text", "objectID"], "limit": 10, "min_chars_for_search": 2, "threshold": 0.5}');
+const SEARCH_FILE = "../../_static/search.json";
+const ADVANCE_SEARCH_PATH = "../../search.html";
+const EXTRA_SOURCES = JSON.parse('""');
+</script>
+
+
+<script src="../../_static/js/search.js"></script>
+
+  
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright (c) 2026 ANSYS, Inc. All rights reserved.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the
+  <a href="https://sphinxdocs.ansys.com/version/stable/index.html"
+    >Ansys Sphinx Theme</a
+  >
+  1.6.4. <br />Last updated on
+  <span id="ast_build_date"></span>
+</p>
+<script>
+  var options = { day: "numeric", month: "long", year: "numeric" };
+  var ast_lastModifiedDate = new Date(document.lastModified);
+  var ast_build_date = ast_lastModifiedDate.toLocaleDateString("en-US", options);
+  document.getElementById("ast_build_date").innerHTML = ast_build_date;
+</script></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

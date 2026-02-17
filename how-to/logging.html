@@ -1,0 +1,1554 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Logging &#8212; PyAnsys developer&#39;s guide</title>
+  
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/ansys-sphinx-theme.css?v=9e79609d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/ansys-sphinx-theme.css?v=9e79609d" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.nerdfonts.com/assets/css/webfont.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+  <!-- Include desired assets -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  
+
+  
+    <link href="../_static/css/breadcrumbs.css" rel="stylesheet" />
+  
+    <script src="../_static/documentation_options.js?v=92d7cc4e"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'how-to/logging';</script>
+    <link rel="icon" href="../_static/ansys-favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Documenting" href="documenting.html" />
+    <link rel="prev" title="gRPC API packages" href="grpc-api-packages.html" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="2026-02-17" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="https://docs.pyansys.com/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/pyansys_logo_transparent_black.png" class="logo__image only-light" alt="PyAnsys developer's guide - Home"/>
+    <img src="../_static/pyansys_logo_transparent_white.png" class="logo__image only-dark pst-js-only" alt="PyAnsys developer's guide - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html" title="PyAnsys developer's guide home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../content-writing/index.html">
+    Content writing
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+      
+        <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+  
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html" title="PyAnsys developer's guide home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../content-writing/index.html">
+    Content writing
+  </a>
+</li>
+
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="setting-up.html">Environment setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supporting-python-versions.html">Python versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packaging.html">Packaging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpc-api-packages.html">gRPC API packages</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documenting.html">Documenting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releasing.html">Releasing and publishing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repository-protection.html">Repository protection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns-configuration.html">DNS configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compatibility.html">Product compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vulnerabilities.html">Vulnerabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deprecating.html">Deprecating a library</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+         
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="https://docs.pyansys.com/" class="nav-link">PyAnsys</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a
+        href="../index.html"
+        class="nav-link"
+        aria-label="Home"
+      >
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="index.html" class="nav-link">How-to</a>
+    </li>
+      
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Logging</span></li>
+    
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="logging">
+<h1>Logging<a class="headerlink" href="#logging" title="Link to this heading">#</a></h1>
+<p>The following logging guidelines are best practices discovered through implementing
+logging services and modules within PyAnsys libraries. Suggestions and improvements
+are welcomed.</p>
+<p>For logging techniques, see <a class="reference external" href="https://docs.python.org/3/howto/logging.html">Logging HOWTO</a> in the Python
+documentation. These tutorials are particularly helpful:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/howto/logging.html#basic-logging-tutorial">Basic Logging Tutorial</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/howto/logging.html#advanced-logging-tutorial">Advanced Logging Tutorial</a></p></li>
+</ul>
+<section id="logging-overview">
+<h2>Logging overview<a class="headerlink" href="#logging-overview" title="Link to this heading">#</a></h2>
+<p>Logging helps to track events occurring in the app. A log record is
+created for each event. This record contains detailed information about the
+current app operation. Whenever information must be exposed, displayed,
+and shared, logging is the way to do it.</p>
+<p>Logging is beneficial to both users and app developers. It serves several
+purposes, including these:</p>
+<ul class="simple">
+<li><p>Extracts some valuable data for users to know the status of their work</p></li>
+<li><p>Tracks the progress and course of app usage</p></li>
+<li><p>Provides the developer with as much information as possible if an issue happens</p></li>
+</ul>
+<p>The message logged can contain generic information or embed data specific to the
+current session. Message content is associated with a severity level, such as <code class="docutils literal notranslate"><span class="pre">INFO</span></code>,
+<code class="docutils literal notranslate"><span class="pre">WARNING</span></code>, <code class="docutils literal notranslate"><span class="pre">ERROR</span></code>, and <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>. Generally, the severity level indicates the
+recipient of the message. For example, an <code class="docutils literal notranslate"><span class="pre">INFO</span></code> message is directed to the user,
+while a <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> message is directed to the developer.</p>
+</section>
+<section id="logging-best-practices">
+<h2>Logging best practices<a class="headerlink" href="#logging-best-practices" title="Link to this heading">#</a></h2>
+<p>The logging capabilities in PyAnsys libraries should be built upon Python’s standard
+<a class="reference external" href="https://docs.python.org/dev/library/logging.html#module-logging" title="(in Python v3.15)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> library. A PyAnsys library should not replace the standard logging library
+but rather provide a way for both it and the PyAnsys library to interact. Subsequent
+sections provide best logging practices.</p>
+<section id="avoid-printing-to-the-console">
+<h3>Avoid printing to the console<a class="headerlink" href="#avoid-printing-to-the-console" title="Link to this heading">#</a></h3>
+<p>A common habit while prototyping a new feature is to print a message into the
+command line executable. Instead of using the common <a class="reference external" href="https://github.com/ansys/pyansys-tools-report">print</a> method, you should use a
+<a class="reference external" href="https://docs.python.org/3/library/logging.handlers.html#logging.StreamHandler">stream handler</a>
+and redirect its content. This allows messages to be filtered based on
+their severity level and apply formatting properly. To accomplish this, add a
+Boolean argument in the initializer of the <a class="reference external" href="https://docs.python.org/dev/library/logging.html#logging.Logger" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">logging.Logger</span></code></a> class that
+specifies how to handle the stream.</p>
+</section>
+<section id="turn-on-and-off-handlers">
+<h3>Turn on and off handlers<a class="headerlink" href="#turn-on-and-off-handlers" title="Link to this heading">#</a></h3>
+<p>You might sometimes want to turn off a specific handler, such as a file
+handler where log messages are written. If so, you must properly close
+and remove the existing handler. Otherwise, you might be denied file access
+later when you try to write new log content.</p>
+<p>This code snippet shows how to turn off a log handler:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">handler</span> <span class="ow">in</span> <span class="n">design_logger</span><span class="o">.</span><span class="n">handlers</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handler</span><span class="p">,</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">):</span>
+        <span class="n">handler</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">design_logger</span><span class="o">.</span><span class="n">removeHandler</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="use-app-filters">
+<h3>Use app filters<a class="headerlink" href="#use-app-filters" title="Link to this heading">#</a></h3>
+<p>An app filter shows all its value when the content of a message depends on some
+conditions. It injects contextual information in the core of the message.
+This can be used to harmonize message rendering when the app output varies
+based on the data processed.</p>
+<p>Using an app filter requires the creation of a class based on the <a class="reference external" href="https://docs.python.org/dev/library/logging.html#logging.Filter" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">logging.Filter</span></code></a>
+class from the <a class="reference external" href="https://docs.python.org/dev/library/logging.html#module-logging" title="(in Python v3.15)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> module and the implementation of its <a class="reference external" href="https://docs.python.org/dev/library/functions.html#filter" title="(in Python v3.15)"><code class="xref py py-func docutils literal notranslate"><span class="pre">filter()</span></code></a>
+function. This function contains all modified content to send to the stream:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">AppFilter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Filter</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">destination</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">destination</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_destination</span> <span class="o">=</span> <span class="s2">&quot;Global&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">extra</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_extra</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Modify the record sent to the stream.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        record :</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">record</span><span class="o">.</span><span class="n">destination</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_destination</span>
+
+        <span class="c1"># This will avoid the extra &#39;::&#39; for Global that does not have any extra info.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extra</span><span class="p">:</span>
+            <span class="n">record</span><span class="o">.</span><span class="n">extra</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extra</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">record</span><span class="o">.</span><span class="n">extra</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extra</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span>
+        <span class="k">return</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">CustomLogger</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">messenger</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="n">to_stdout</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">to_stdout</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_std_out_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_std_out_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_std_out_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">FORMATTER</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">global_logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_std_out_handler</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="use-formatting-for-strings">
+<h3>Use %-formatting for strings<a class="headerlink" href="#use-formatting-for-strings" title="Link to this heading">#</a></h3>
+<p>Although using the f-string for formatting most strings is often recommended,
+when it comes to logging, using the former %-formatting is preferable.
+When %-formatting is used, the string is not evaluated at runtime. Instead, it
+is evaluated only when the message is emitted. If any formatting or evaluation
+errors occur, they are reported as logging errors and do not halt code.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Project </span><span class="si">%s</span><span class="s2"> has been opened.&quot;</span><span class="p">,</span> <span class="n">project</span><span class="o">.</span><span class="n">GetName</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="app-and-service-logging-modules">
+<span id="app-and-services-logging"></span><h2>App and service logging modules<a class="headerlink" href="#app-and-service-logging-modules" title="Link to this heading">#</a></h2>
+<p>PyAnsys libraries use app and service logging modules to extend
+or expose features from an Ansys app, product, or service, which can
+be local or remote.</p>
+<p>For a PyAnsys library, there are two main loggers that expose or
+extend a service-based app:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#global-logger"><span class="std std-ref">Global logger</span></a></p></li>
+<li><p><a class="reference internal" href="#instance-logger"><span class="std std-ref">Instance logger</span></a></p></li>
+</ul>
+<p>These loggers are customized classes that wrap the <a class="reference external" href="https://docs.python.org/dev/library/logging.html#logging.Logger" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">logging.Logger</span></code></a>
+class from the <a class="reference external" href="https://docs.python.org/dev/library/logging.html#module-logging" title="(in Python v3.15)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> module and add specific features to it. This
+image shows the logging approach used by PyMAPDL and the scopes
+of the global and instance loggers.</p>
+<figure class="align-center" id="logging-in-pymapdl-figure">
+<img alt="Logging in PyMAPDL" src="../_images/guidelines_chart.png" />
+</figure>
+<p>You can see the source for a custom PyAnsys logger in the first of the following
+collapsible sections and in the <a class="reference external" href="https://github.com/ansys/pyansys-dev-guide/blob/main/doc/source/how-to/code/pyansys_logging.py">pyansys_logging.py</a>
+file in the <code class="docutils literal notranslate"><span class="pre">pyansys-dev-guide</span></code> repository. The second collapsible section shows some unit tests
+that show how to use this custom PyAnsys logger:</p>
+<details class="summary-example-of-a-custom-pyansys-logger">
+<summary>Example of a custom PyAnsys logger</summary><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Module for PyAnsys logging.&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">copy</span><span class="w"> </span><span class="kn">import</span> <span class="n">copy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">CRITICAL</span><span class="p">,</span> <span class="n">DEBUG</span><span class="p">,</span> <span class="n">ERROR</span><span class="p">,</span> <span class="n">INFO</span><span class="p">,</span> <span class="n">WARN</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="c1"># Default configuration</span>
+<span class="n">LOG_LEVEL</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span>
+<span class="n">FILE_NAME</span> <span class="o">=</span> <span class="s2">&quot;PyProject.log&quot;</span>
+
+
+<span class="c1"># Formatting</span>
+<span class="n">STDOUT_MSG_FORMAT</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%(levelname)s</span><span class="s2"> - </span><span class="si">%(instance_name)s</span><span class="s2"> - </span><span class="si">%(module)s</span><span class="s2"> - </span><span class="si">%(funcName)s</span><span class="s2"> - </span><span class="si">%(message)s</span><span class="s2">&quot;</span>
+<span class="n">FILE_MSG_FORMAT</span> <span class="o">=</span> <span class="n">STDOUT_MSG_FORMAT</span>
+
+<span class="n">DEFAULT_STDOUT_HEADER</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">LEVEL - INSTANCE NAME - MODULE - FUNCTION - MESSAGE</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">DEFAULT_FILE_HEADER</span> <span class="o">=</span> <span class="n">DEFAULT_STDOUT_HEADER</span>
+
+<span class="n">NEW_SESSION_HEADER</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">===============================================================================</span>
+<span class="s2">       NEW SESSION - </span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%m/</span><span class="si">%d</span><span class="s2">/%Y, %H:%M:%S&quot;</span><span class="p">)</span><span class="si">}</span>
+<span class="s2">===============================================================================&quot;&quot;&quot;</span>
+
+<span class="n">string_to_loglevel</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;DEBUG&quot;</span><span class="p">:</span> <span class="n">DEBUG</span><span class="p">,</span>
+    <span class="s2">&quot;INFO&quot;</span><span class="p">:</span> <span class="n">INFO</span><span class="p">,</span>
+    <span class="s2">&quot;WARN&quot;</span><span class="p">:</span> <span class="n">WARN</span><span class="p">,</span>
+    <span class="s2">&quot;WARNING&quot;</span><span class="p">:</span> <span class="n">WARN</span><span class="p">,</span>
+    <span class="s2">&quot;ERROR&quot;</span><span class="p">:</span> <span class="n">ERROR</span><span class="p">,</span>
+    <span class="s2">&quot;CRITICAL&quot;</span><span class="p">:</span> <span class="n">CRITICAL</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">InstanceCustomAdapter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">LoggerAdapter</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Keeps the reference to a product instance name dynamic.</span>
+
+<span class="sd">    If you use the standard approach, which is supplying ``extra`` input</span>
+<span class="sd">    to the logger, you would need to keep inputting product instances</span>
+<span class="sd">    every time a log is created.</span>
+
+<span class="sd">    Using adapters, you just need to specify the product instance that you refer</span>
+<span class="sd">    to once.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># level is kept for compatibility with ``suppress_logging``,</span>
+    <span class="c1"># but it does nothing.</span>
+    <span class="n">level</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">file_handler</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">stdout_handler</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logger</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logger</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extra</span> <span class="o">=</span> <span class="n">extra</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_handler</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">file_handler</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">std_out_handler</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">std_out_handler</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get instance_name for logging.&quot;&quot;&quot;</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;extra&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1"># These are the extra parameters sent to log</span>
+        <span class="c1"># here self.extra is the argument pass to the log records.</span>
+        <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;extra&quot;</span><span class="p">][</span><span class="s2">&quot;instance_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra</span><span class="o">.</span><span class="n">get_name</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">msg</span><span class="p">,</span> <span class="n">kwargs</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">log_to_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">FILE_NAME</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">LOG_LEVEL</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add file handler to logger.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        filename : str, optional</span>
+<span class="sd">            Name of the file where the logs are recorded. By default</span>
+<span class="sd">            ``PyProject.log``</span>
+<span class="sd">        level : str, optional</span>
+<span class="sd">            Level of logging, for example ``&#39;DEBUG&#39;``. By default</span>
+<span class="sd">            ``logging.DEBUG``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">add_file_handler</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span> <span class="n">write_headers</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_handler</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">file_handler</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">log_to_stdout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">LOG_LEVEL</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add standard output handler to the logger.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        level : str, optional</span>
+<span class="sd">            Level of logging record. By default ``logging.DEBUG``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">std_out_handler</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Stdout logger already defined.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">add_stdout_handler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">std_out_handler</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">std_out_handler</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">setLevel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Change the log level of the object and the attached handlers.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">each_handler</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">handlers</span><span class="p">:</span>
+            <span class="n">each_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">level</span> <span class="o">=</span> <span class="n">level</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PyAnsysPercentStyle</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">PercentStyle</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Log message formatting.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fmt</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">defaults</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fmt</span> <span class="o">=</span> <span class="n">fmt</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_format</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_defaults</span> <span class="o">=</span> <span class="n">defaults</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
+        <span class="n">defaults</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_defaults</span>
+        <span class="k">if</span> <span class="n">defaults</span><span class="p">:</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="n">defaults</span> <span class="o">|</span> <span class="n">record</span><span class="o">.</span><span class="vm">__dict__</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="vm">__dict__</span>
+
+        <span class="c1"># Here you can make any changes that you want in the record. For</span>
+        <span class="c1"># example, adding a key.</span>
+
+        <span class="c1"># You could create an ``if`` here if you want conditional formatting, and even</span>
+        <span class="c1"># change the record.__dict__.</span>
+        <span class="c1"># If you don&#39;t want to create conditional fields, it is fine to keep</span>
+        <span class="c1"># the same MSG_FORMAT for all of them.</span>
+
+        <span class="c1"># For the case of logging exceptions to the logger.</span>
+        <span class="n">values</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;instance_name&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">STDOUT_MSG_FORMAT</span> <span class="o">%</span> <span class="n">values</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PyProjectFormatter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Customized ``Formatter`` class used to overwrite the defaults format styles.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">fmt</span><span class="o">=</span><span class="n">STDOUT_MSG_FORMAT</span><span class="p">,</span>
+        <span class="n">datefmt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">style</span><span class="o">=</span><span class="s2">&quot;%&quot;</span><span class="p">,</span>
+        <span class="n">validate</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">defaults</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">:</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">fmt</span><span class="p">,</span> <span class="n">datefmt</span><span class="p">,</span> <span class="n">style</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># 3.8: The validate parameter was added</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">fmt</span><span class="p">,</span> <span class="n">datefmt</span><span class="p">,</span> <span class="n">style</span><span class="p">,</span> <span class="n">validate</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_style</span> <span class="o">=</span> <span class="n">PyAnsysPercentStyle</span><span class="p">(</span><span class="n">fmt</span><span class="p">,</span> <span class="n">defaults</span><span class="o">=</span><span class="n">defaults</span><span class="p">)</span>  <span class="c1"># overwriting</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">InstanceFilter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Filter</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Ensures that instance_name record always exists.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;If record had no attribute instance_name, create it and populate with empty string.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="s2">&quot;instance_name&quot;</span><span class="p">):</span>
+            <span class="n">record</span><span class="o">.</span><span class="n">instance_name</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Logger</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Logger used for each PyProject session.</span>
+
+<span class="sd">    This class lets you add a handler to a file or standard output.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    level : int, optional</span>
+<span class="sd">        Logging level to filter the message severity allowed in the logger.</span>
+<span class="sd">        The default is ``logging.DEBUG``.</span>
+<span class="sd">    to_file : bool, optional</span>
+<span class="sd">        Write log messages to a file. The default is ``False``.</span>
+<span class="sd">    to_stdout : bool, optional</span>
+<span class="sd">        Write log messages into the standard output. The</span>
+<span class="sd">        default is ``True``.</span>
+<span class="sd">    filename : str, optional</span>
+<span class="sd">        Name of the file where log messages are written to.</span>
+<span class="sd">        The default is ``None``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">file_handler</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">std_out_handler</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">_level</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span>
+    <span class="n">_instances</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+        <span class="n">to_file</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">to_stdout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">filename</span><span class="o">=</span><span class="n">FILE_NAME</span><span class="p">,</span>
+        <span class="n">cleanup</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize Logger class.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;pyproject_global&quot;</span><span class="p">)</span>  <span class="c1"># Creating default main logger.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">addFilter</span><span class="p">(</span><span class="n">InstanceFilter</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">propagate</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">level</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">level</span>  <span class="c1"># noqa: TD002, TD003 # TODO: TO REMOVE</span>
+
+        <span class="c1"># Writing logging methods.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">warning</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warning</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">critical</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">critical</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">log</span>
+
+        <span class="k">if</span> <span class="n">to_file</span> <span class="ow">or</span> <span class="n">filename</span> <span class="o">!=</span> <span class="n">FILE_NAME</span><span class="p">:</span>
+            <span class="c1"># We record to file.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log_to_file</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">to_stdout</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log_to_stdout</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_handling_uncaught_expections</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span>
+        <span class="p">)</span>  <span class="c1"># Using logger to record unhandled exceptions.</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cleanup</span> <span class="o">=</span> <span class="n">cleanup</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">log_to_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">FILE_NAME</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">LOG_LEVEL</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add file handler to logger.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        filename : str, optional</span>
+<span class="sd">            Name of the file where the logs are recorded. By default FILE_NAME</span>
+<span class="sd">        level : str, optional</span>
+<span class="sd">            Level of logging. E.x. &#39;DEBUG&#39;. By default LOG_LEVEL</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span> <span class="o">=</span> <span class="n">add_file_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span> <span class="n">write_headers</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">log_to_stdout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">LOG_LEVEL</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add standard output handler to the logger.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        level : str, optional</span>
+<span class="sd">            Level of logging record. By default LOG_LEVEL</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span> <span class="o">=</span> <span class="n">add_stdout_handler</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">setLevel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Change the log level of the object and the attached handlers.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">each_handler</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">handlers</span><span class="p">:</span>
+            <span class="n">each_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_level</span> <span class="o">=</span> <span class="n">level</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_make_child_logger</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">suffix</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a child logger.</span>
+
+<span class="sd">        Create a child logger either using ``getChild`` or copying</span>
+<span class="sd">        attributes between ``pyproject_global`` logger and the new</span>
+<span class="sd">        one.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">suffix</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">std_out_handler</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">file_handler</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">hasHandlers</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">each_handler</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">handlers</span><span class="p">:</span>
+                <span class="n">new_handler</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">each_handler</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">each_handler</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">file_handler</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">file_handler</span> <span class="o">=</span> <span class="n">new_handler</span>
+                <span class="k">elif</span> <span class="n">each_handler</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">std_out_handler</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">std_out_handler</span> <span class="o">=</span> <span class="n">new_handler</span>
+
+                <span class="k">if</span> <span class="n">level</span><span class="p">:</span>
+                    <span class="c1"># The logger handlers are copied and changed the</span>
+                    <span class="c1"># loglevel if the specified log level is lower</span>
+                    <span class="c1"># than the one of the global.</span>
+                    <span class="k">if</span> <span class="n">each_handler</span><span class="o">.</span><span class="n">level</span> <span class="o">&gt;</span> <span class="n">string_to_loglevel</span><span class="p">[</span><span class="n">level</span><span class="o">.</span><span class="n">upper</span><span class="p">()]:</span>
+                        <span class="n">new_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+
+                <span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">new_handler</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">level</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="n">level</span> <span class="o">=</span> <span class="n">string_to_loglevel</span><span class="p">[</span><span class="n">level</span><span class="o">.</span><span class="n">upper</span><span class="p">()]</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">level</span><span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">propagate</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="n">logger</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_child_logger</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">suffix</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add a child logger to the main logger.</span>
+
+<span class="sd">        This logger is more general than an instance logger which is designed</span>
+<span class="sd">        to track the state of the application instances.</span>
+
+<span class="sd">        If the logging level is in the arguments, a new logger with a</span>
+<span class="sd">        reference to the ``_global`` logger handlers is created</span>
+<span class="sd">        instead of a child.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        suffix : str</span>
+<span class="sd">            Name of the logger.</span>
+<span class="sd">        level : str</span>
+<span class="sd">            Level of logging</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        logging.logger</span>
+<span class="sd">            Logger class.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">suffix</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_instances</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_child_logger</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_instances</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_add_product_instance_logger</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">product_instance</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">instance_logger</span> <span class="o">=</span> <span class="n">InstanceCustomAdapter</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_make_child_logger</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">level</span><span class="p">),</span> <span class="n">product_instance</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">instance_logger</span> <span class="o">=</span> <span class="n">InstanceCustomAdapter</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_make_child_logger</span><span class="p">(</span><span class="s2">&quot;NO_NAMED_YET&quot;</span><span class="p">,</span> <span class="n">level</span><span class="p">),</span> <span class="n">product_instance</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;``name`` parameter must be a string or None, not f</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">instance_logger</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_instance_logger</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">product_instance</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a logger for an application instance.</span>
+
+<span class="sd">        This instance logger is a logger with an adapter which add the</span>
+<span class="sd">        contextual information such as &lt;product/service&gt; instance</span>
+<span class="sd">        name. This logger is returned and you can use it to log events</span>
+<span class="sd">        as a normal logger. It is also stored in the ``_instances``</span>
+<span class="sd">        attribute.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name : str</span>
+<span class="sd">            Name for the new logger</span>
+<span class="sd">        product_instance : ansys.product.service.module.ProductClass</span>
+<span class="sd">            Class instance. This must contain the attribute ``name``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        InstanceCustomAdapter</span>
+<span class="sd">            Logger adapter customized to add additional information to</span>
+<span class="sd">            the logs. You can use this class to log events in the</span>
+<span class="sd">            same way you would with a logger class.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            You can only input strings as ``name`` to this method.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">count_</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">new_name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="k">while</span> <span class="n">new_name</span> <span class="ow">in</span> <span class="n">logging</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">count_</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">new_name</span> <span class="o">=</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">count_</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_instances</span><span class="p">[</span><span class="n">new_name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_product_instance_logger</span><span class="p">(</span>
+            <span class="n">new_name</span><span class="p">,</span> <span class="n">product_instance</span><span class="p">,</span> <span class="n">level</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_instances</span><span class="p">[</span><span class="n">new_name</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Define custom KeyError message.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_instances</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_instances</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There are no instances with name </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_handling_uncaught_expections</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">logger</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Redirect the output of an exception to the logger.&quot;&quot;&quot;</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">handle_exception</span><span class="p">(</span><span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_value</span><span class="p">,</span> <span class="n">exc_traceback</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">exc_type</span><span class="p">,</span> <span class="ne">KeyboardInterrupt</span><span class="p">):</span>
+                <span class="n">sys</span><span class="o">.</span><span class="n">__excepthook__</span><span class="p">(</span><span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_value</span><span class="p">,</span> <span class="n">exc_traceback</span><span class="p">)</span>
+                <span class="k">return</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;Uncaught exception&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="p">(</span><span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_value</span><span class="p">,</span> <span class="n">exc_traceback</span><span class="p">))</span>
+
+        <span class="n">sys</span><span class="o">.</span><span class="n">excepthook</span> <span class="o">=</span> <span class="n">handle_exception</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Close the logger and all its handlers.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Collecting logger&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleanup</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">handler</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">handlers</span><span class="p">:</span>
+                    <span class="n">handler</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">removeHandler</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;The logger was not deleted properly.&quot;</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                    <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Collecting but not exiting due to &#39;cleanup = False&#39;&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">add_file_handler</span><span class="p">(</span><span class="n">logger</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">FILE_NAME</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">LOG_LEVEL</span><span class="p">,</span> <span class="n">write_headers</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add a file handler to the input.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    logger : logging.Logger or logging.Logger</span>
+<span class="sd">        Logger where to add the file handler.</span>
+<span class="sd">    filename : str, optional</span>
+<span class="sd">        Name of the output file. By default FILE_NAME</span>
+<span class="sd">    level : str, optional</span>
+<span class="sd">        Level of log recording. By default LOG_LEVEL</span>
+<span class="sd">    write_headers : bool, optional</span>
+<span class="sd">        Record the headers to the file. By default ``False``.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    logger</span>
+<span class="sd">        Return the logger or Logger object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">file_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">file_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+    <span class="n">file_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="n">FILE_MSG_FORMAT</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">logger</span><span class="p">,</span> <span class="n">Logger</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">file_handler</span> <span class="o">=</span> <span class="n">file_handler</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">file_handler</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">logger</span><span class="p">,</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">file_handler</span> <span class="o">=</span> <span class="n">file_handler</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">file_handler</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">write_headers</span><span class="p">:</span>
+        <span class="n">file_handler</span><span class="o">.</span><span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">NEW_SESSION_HEADER</span><span class="p">)</span>
+        <span class="n">file_handler</span><span class="o">.</span><span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">DEFAULT_FILE_HEADER</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">logger</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">add_stdout_handler</span><span class="p">(</span><span class="n">logger</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">LOG_LEVEL</span><span class="p">,</span> <span class="n">write_headers</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add a stream handler to the logger.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    logger : logging.Logger or logging.Logger</span>
+<span class="sd">        Logger where to add the stream handler.</span>
+<span class="sd">    level : str, optional</span>
+<span class="sd">        Level of log recording. By default ``logging.DEBUG``.</span>
+<span class="sd">    write_headers : bool, optional</span>
+<span class="sd">        Record the headers to the stream. By default ``False``.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    logger</span>
+<span class="sd">        The logger or Logger object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">std_out_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+    <span class="n">std_out_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+    <span class="n">std_out_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">PyProjectFormatter</span><span class="p">(</span><span class="n">STDOUT_MSG_FORMAT</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">logger</span><span class="p">,</span> <span class="n">Logger</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">std_out_handler</span> <span class="o">=</span> <span class="n">std_out_handler</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">std_out_handler</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">logger</span><span class="p">,</span> <span class="n">logging</span><span class="o">.</span><span class="n">Logger</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">std_out_handler</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">write_headers</span><span class="p">:</span>
+        <span class="n">std_out_handler</span><span class="o">.</span><span class="n">stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">DEFAULT_STDOUT_HEADER</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">logger</span>
+</pre></div>
+</div>
+</details><details class="summary-how-to-use-the-pyansys-custom-logger">
+<summary>How to use the PyAnsys custom logger</summary><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Test for PyAnsys logging.&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">weakref</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyansys_logging</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_default_logger</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a logger with default options.</span>
+
+<span class="sd">    Only stdout logger must be used.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">capture</span> <span class="o">=</span> <span class="n">CaptureStdOut</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">capture</span><span class="p">:</span>
+        <span class="n">test_logger</span> <span class="o">=</span> <span class="n">pyansys_logging</span><span class="o">.</span><span class="n">Logger</span><span class="p">()</span>
+        <span class="n">test_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Test stdout&quot;</span><span class="p">)</span>
+
+    <span class="k">assert</span> <span class="s2">&quot;INFO -  - test_pyansys_logging - test_default_logger - Test stdout&quot;</span> <span class="ow">in</span> <span class="n">capture</span><span class="o">.</span><span class="n">content</span>
+    <span class="c1"># File handlers are not activated.</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">/</span> <span class="s2">&quot;PyProject.log&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_level_stdout</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a logger with default options.</span>
+
+<span class="sd">    Only stdout logger must be used.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">capture</span> <span class="o">=</span> <span class="n">CaptureStdOut</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">capture</span><span class="p">:</span>
+        <span class="n">test_logger</span> <span class="o">=</span> <span class="n">pyansys_logging</span><span class="o">.</span><span class="n">Logger</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+        <span class="n">test_logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Debug stdout with level=INFO&quot;</span><span class="p">)</span>
+        <span class="n">test_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Info stdout with level=INFO&quot;</span><span class="p">)</span>
+        <span class="n">test_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Warning stdout with level=INFO&quot;</span><span class="p">)</span>
+        <span class="n">test_logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Error stdout with level=INFO&quot;</span><span class="p">)</span>
+        <span class="n">test_logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;Critical stdout with level=INFO&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Modify the level</span>
+        <span class="n">test_logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">)</span>
+        <span class="n">test_logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Debug stdout with level=WARNING&quot;</span><span class="p">)</span>
+        <span class="n">test_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Info stdout with level=WARNING&quot;</span><span class="p">)</span>
+        <span class="n">test_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Warning stdout with level=WARNING&quot;</span><span class="p">)</span>
+        <span class="n">test_logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Error stdout with level=WARNING&quot;</span><span class="p">)</span>
+        <span class="n">test_logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;Critical stdout with level=WARNING&quot;</span><span class="p">)</span>
+
+    <span class="c1"># level=INFO</span>
+    <span class="k">assert</span> <span class="p">(</span>
+        <span class="s2">&quot;DEBUG -  - test_pyansys_logging - test_level_stdout - Debug stdout with level=INFO&quot;</span>
+        <span class="ow">not</span> <span class="ow">in</span> <span class="n">capture</span><span class="o">.</span><span class="n">content</span>
+    <span class="p">)</span>
+    <span class="k">assert</span> <span class="p">(</span>
+        <span class="s2">&quot;INFO -  - test_pyansys_logging - test_level_stdout - Info stdout with level=INFO&quot;</span>
+        <span class="ow">in</span> <span class="n">capture</span><span class="o">.</span><span class="n">content</span>
+    <span class="p">)</span>
+    <span class="k">assert</span> <span class="p">(</span>
+        <span class="s2">&quot;WARNING -  - test_pyansys_logging - test_level_stdout - Warning stdout with level=INFO&quot;</span>
+        <span class="ow">in</span> <span class="n">capture</span><span class="o">.</span><span class="n">content</span>
+    <span class="p">)</span>
+    <span class="k">assert</span> <span class="p">(</span>
+        <span class="s2">&quot;ERROR -  - test_pyansys_logging - test_level_stdout - Error stdout with level=INFO&quot;</span>
+        <span class="ow">in</span> <span class="n">capture</span><span class="o">.</span><span class="n">content</span>
+    <span class="p">)</span>
+    <span class="k">assert</span> <span class="p">(</span>
+        <span class="s2">&quot;CRITICAL -  - test_pyansys_logging - test_level_stdout - Critical stdout with level=INFO&quot;</span>
+        <span class="ow">in</span> <span class="n">capture</span><span class="o">.</span><span class="n">content</span>
+    <span class="p">)</span>
+    <span class="c1"># level=WARNING</span>
+    <span class="k">assert</span> <span class="p">(</span>
+        <span class="s2">&quot;INFO -  - test_pyansys_logging - test_level_stdout - Info stdout with level=WARNING&quot;</span>
+        <span class="ow">not</span> <span class="ow">in</span> <span class="n">capture</span><span class="o">.</span><span class="n">content</span>
+    <span class="p">)</span>
+    <span class="k">assert</span> <span class="p">(</span>
+        <span class="s2">&quot;WARNING -  - test_pyansys_logging - test_level_stdout - Warning stdout with level=WARNING&quot;</span>
+        <span class="ow">in</span> <span class="n">capture</span><span class="o">.</span><span class="n">content</span>
+    <span class="p">)</span>
+    <span class="k">assert</span> <span class="p">(</span>
+        <span class="s2">&quot;ERROR -  - test_pyansys_logging - test_level_stdout - Error stdout with level=WARNING&quot;</span>
+        <span class="ow">in</span> <span class="n">capture</span><span class="o">.</span><span class="n">content</span>
+    <span class="p">)</span>
+    <span class="k">assert</span> <span class="p">(</span>
+        <span class="s2">&quot;CRITICAL -  - test_pyansys_logging - test_level_stdout - Critical stdout with level=WARNING&quot;</span>  <span class="c1"># noqa: E501</span>
+        <span class="ow">in</span> <span class="n">capture</span><span class="o">.</span><span class="n">content</span>
+    <span class="p">)</span>
+
+    <span class="c1"># File handlers are not activated.</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">/</span> <span class="s2">&quot;PyProject.log&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_file_handlers</span><span class="p">(</span><span class="n">tmpdir</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Activate a file handler different from `PyProject.log`.&quot;&quot;&quot;</span>
+    <span class="n">file_logger</span> <span class="o">=</span> <span class="n">tmpdir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;sub&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;test_logger.txt&quot;</span><span class="p">)</span>
+
+    <span class="n">test_logger</span> <span class="o">=</span> <span class="n">pyansys_logging</span><span class="o">.</span><span class="n">Logger</span><span class="p">(</span><span class="n">to_file</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">file_logger</span><span class="p">)</span>
+    <span class="n">test_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Test Misc File&quot;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">Path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file_logger</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+    <span class="k">assert</span> <span class="n">Path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">file_logger</span><span class="p">)</span>  <span class="c1"># The file handler is not the default PyProject.Log</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">content</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span>
+    <span class="k">assert</span> <span class="s2">&quot;NEW SESSION&quot;</span> <span class="ow">in</span> <span class="n">content</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="p">(</span>
+        <span class="s2">&quot;===============================================================================&quot;</span>
+        <span class="ow">in</span> <span class="n">content</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="p">)</span>
+    <span class="k">assert</span> <span class="s2">&quot;LEVEL - INSTANCE NAME - MODULE - FUNCTION - MESSAGE&quot;</span> <span class="ow">in</span> <span class="n">content</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="s2">&quot;INFO -  - test_pyansys_logging - test_file_handlers - Test Misc File&quot;</span> <span class="ow">in</span> <span class="n">content</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+
+    <span class="c1"># Delete the logger and its file handler.</span>
+    <span class="n">test_logger_ref</span> <span class="o">=</span> <span class="n">weakref</span><span class="o">.</span><span class="n">ref</span><span class="p">(</span><span class="n">test_logger</span><span class="p">)</span>
+    <span class="k">del</span> <span class="n">test_logger</span>
+    <span class="k">assert</span> <span class="n">test_logger_ref</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">CaptureStdOut</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Capture standard output with a context manager.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stream</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Runtime context is entered.&quot;&quot;&quot;</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stream</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Runtime context is exited.&quot;&quot;&quot;</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">__stdout__</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">content</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the captured content.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stream</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
+</pre></div>
+</div>
+</details></section>
+<section id="global-logger">
+<span id="id1"></span><h2>Global logger<a class="headerlink" href="#global-logger" title="Link to this heading">#</a></h2>
+<p>A global logger named <code class="docutils literal notranslate"><span class="pre">py*_global</span></code> is created when importing
+<code class="docutils literal notranslate"><span class="pre">ansys.product.service</span></code> (<code class="docutils literal notranslate"><span class="pre">ansys.product.service.__init__</span></code>). This logger
+does not track instances but rather is used globally. Consequently, its use
+is recommended for most scenarios, especially those where simple modules
+or classes are involved.</p>
+<p>For example, if you intend to log the initialization of a library or module,
+import the global logger at the top of your script or module:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ansys.product.service</span><span class="w"> </span><span class="kn">import</span> <span class="n">LOG</span>
+</pre></div>
+</div>
+<p>If the default name of the global logger is in conflict with the name of
+another logger, rename it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ansys.product.service</span><span class="w"> </span><span class="kn">import</span> <span class="n">LOG</span> <span class="k">as</span> <span class="n">logger</span>
+</pre></div>
+</div>
+<p>The default logging level of the global logger is <code class="docutils literal notranslate"><span class="pre">ERROR</span></code> (<code class="docutils literal notranslate"><span class="pre">logging.ERROR</span></code>).
+You can change the output to a different error level like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LOG</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">)</span>
+<span class="n">LOG</span><span class="o">.</span><span class="n">file_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">)</span>  <span class="c1"># if present</span>
+<span class="n">LOG</span><span class="o">.</span><span class="n">stdout_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">)</span>  <span class="c1"># if present</span>
+</pre></div>
+</div>
+<p>Alternatively, to ensure that all handlers are set to the desired log level,
+use this approach:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LOG</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>By default, the global logger does not log to a file. However, you can
+enable logging to both a file and the standard output by adding
+a file handler:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s2">&quot;pylibrary.log&quot;</span><span class="p">)</span>
+<span class="n">LOG</span><span class="o">.</span><span class="n">log_to_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you want to change the characteristics of the global logger from the beginning of
+the execution, you must edit the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> file in the directory of your
+library.</p>
+<p>To log using the global logger, simply call the desired method as a normal logger:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ansys.mapdl.core.logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">Logger</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">LOG</span> <span class="o">=</span> <span class="n">Logger</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="n">to_file</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">to_stdout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">LOG</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;This is LOG debug message.&quot;</span><span class="p">)</span>
+
+<span class="go">| Level    | Instance   | Module       | Function    | Message</span>
+<span class="go">|----------|------------|--------------|-------------|---------------------------</span>
+<span class="go">| DEBUG    |            | __init__     | &lt;module&gt;    | This is LOG debug message.</span>
+</pre></div>
+</div>
+</section>
+<section id="instance-logger">
+<span id="id2"></span><h2>Instance logger<a class="headerlink" href="#instance-logger" title="Link to this heading">#</a></h2>
+<p>An instance logger is created every time that the <code class="docutils literal notranslate"><span class="pre">_MapdlCore</span></code> class is
+instantiated. Using this instance logger is recommended when using the <code class="docutils literal notranslate"><span class="pre">pool</span></code>
+library or when using multiple instances of MAPDL. The main feature of the instance
+logger is that it tracks each instance and includes the instance name when logging.
+The names of instances are unique. For example, when using the MAPDL gRPC
+version, the instance name includes the IP and port of the corresponding instance,
+making the logger unique.</p>
+<p>You can access instance loggers in two places:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_MapdlCore._log</span></code> for backward compatibility</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LOG._instances</span></code>, which is a field of the <code class="docutils literal notranslate"><span class="pre">dict</span></code> data type with a key that
+is the name of the created logger</p></li>
+</ul>
+<p>These instance loggers inherit from the <code class="docutils literal notranslate"><span class="pre">pymapdl_global</span></code> output handlers and
+logging level unless otherwise specified. An instance logger works similarly to
+the global logger. If you want to add a file handler, use the <code class="docutils literal notranslate"><span class="pre">log_to_file</span></code>
+method. If you want to change the log level, use the <a class="reference external" href="https://docs.python.org/dev/library/logging.html#logging.Logger.setLevel" title="(in Python v3.15)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">logging.Logger.setLevel()</span></code></a>
+method.</p>
+<p>This code snippet shows how to use an instance logger:</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ansys.mapdl.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">launch_mapdl</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span> <span class="o">=</span> <span class="n">launch_mapdl</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapdl</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;This is an useful message&quot;</span><span class="p">)</span>
+
+<span class="go">| Level    | Instance        | Module   | Function    | Message</span>
+<span class="go">|----------|-----------------|----------|-------------|--------------------------</span>
+<span class="go">| INFO     | 127.0.0.1:50052 | test     | &lt;module&gt;    | This is an useful message</span>
+</pre></div>
+</div>
+</section>
+<section id="ansys-product-loggers">
+<h2>Ansys product loggers<a class="headerlink" href="#ansys-product-loggers" title="Link to this heading">#</a></h2>
+<p>An Ansys product, due to its architecture, can have several loggers. The
+<a class="reference external" href="https://docs.python.org/dev/library/logging.html#module-logging" title="(in Python v3.15)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> library supports working with a finite number of loggers. The
+<a class="reference external" href="https://docs.python.org/dev/library/logging.html#logging.getLogger" title="(in Python v3.15)"><code class="xref py py-func docutils literal notranslate"><span class="pre">logging.getLogger()</span></code></a> factory function helps to access each logger by its name. In
+addition to name mappings, a hierarchy can be established to structure the
+loggers’ parenting and their connections.</p>
+<p>For example, if an Ansys product is using a pre-existing custom logger
+encapsulated inside the product itself, the PyAnsys library benefits from
+exposing it through the standard Python tools. You should use the
+standard library as much as possible. It facilitates every contribution
+to the PyAnsys library, both external and internal, by exposing common tools that
+are widely adopted. Each developer is able to operate quickly and
+autonomously. The project takes advantage of the entire set of features exposed
+in the standard logger and all the upcoming improvements.</p>
+</section>
+<section id="custom-log-handlers">
+<h2>Custom log handlers<a class="headerlink" href="#custom-log-handlers" title="Link to this heading">#</a></h2>
+<p>You might need to catch Ansys product messages and redirect them to another
+logger. For example, Ansys Electronics Desktop (AEDT) has its own internal
+logger called the <strong>message manager</strong>, which has three main destinations:</p>
+<ul class="simple">
+<li><p><strong>Global</strong> which is for the entire project manager</p></li>
+<li><p><strong>Project</strong>, which is related to the project</p></li>
+<li><p><strong>Design</strong>, which is related to the design, making it the most specific destination of the three loggers</p></li>
+</ul>
+<p>The message manager does not use the standard Python logging module, which
+can be a problem when exporting messages and data from it to a common tool.
+In most cases, it is easier to work with the standard Python module to extract
+data. To overcome this AEDT limitation, you must wrap the existing message
+manager into a logger based on the standard <a class="reference external" href="https://docs.python.org/dev/library/logging.html#module-logging" title="(in Python v3.15)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> library:</p>
+<figure class="align-center">
+<img alt="Loggers message passing flow." src="../_images/log_flow.png" />
+</figure>
+<p>The wrapper implementation is essentially a custom handler based on a
+class inherited from the <a class="reference external" href="https://docs.python.org/dev/library/logging.html#logging.Handler" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">logging.Handler</span></code></a> class. The initializer
+of this class requires the message manager to be passed as an argument to link the standard
+logging service with the AEDT message manager:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">LogHandler</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Handler</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">internal_app_messenger</span><span class="p">,</span> <span class="n">log_destination</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">):</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">Handler</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
+        <span class="c1"># destination is used if when the internal message manager</span>
+        <span class="c1"># is made of several different logs. Otherwise it is not relevant.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">destination</span> <span class="o">=</span> <span class="n">log_destination</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">messenger</span> <span class="o">=</span> <span class="n">internal_app_messenger</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">emit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+<p>The purpose of the <a class="reference external" href="https://docs.python.org/dev/library/logging.html#logging.Handler" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">logging.Handler</span></code></a> class is to send log messages in the
+AEDT logging stream. One of the mandatory actions is to overwrite the <code class="xref py py-func docutils literal notranslate"><span class="pre">emit()</span></code>
+function. This function operates as a proxy, dispatching all log messages to the
+message manager. Based on the record level, the message is sent to the appropriate
+log level, such as <code class="docutils literal notranslate"><span class="pre">INFO</span></code>, <code class="docutils literal notranslate"><span class="pre">ERROR</span></code>, or <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>, into the message manager to
+fit the level provided by the Ansys product. As a reminder, the record is an object
+containing all kind of information related to the event logged.</p>
+<p>This custom handler is use in the new logger instance (the one based on the
+<a class="reference external" href="https://docs.python.org/dev/library/logging.html#module-logging" title="(in Python v3.15)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a> library). To avoid any conflict or message duplication, before adding
+a handler on any logger, verify if an appropriate handler is already available.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-overview">Logging overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-best-practices">Logging best practices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avoid-printing-to-the-console">Avoid printing to the console</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#turn-on-and-off-handlers">Turn on and off handlers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-app-filters">Use app filters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-formatting-for-strings">Use %-formatting for strings</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#app-and-service-logging-modules">App and service logging modules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-logger">Global logger</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instance-logger">Instance logger</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ansys-product-loggers">Ansys product loggers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-log-handlers">Custom log handlers</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item"> 
+<div class="tocsection editthispage">
+  <a href="https://github.com/pyansys/dev-guide/edit/main/doc/source/how-to/logging.rst">
+    <i class="fa-solid fa-pencil"></i>
+       Edit
+    on GitHub  
+  </a>
+</div>
+
+</div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <ul class="this-page-menu">
+      <li><a href="../_sources/how-to/logging.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <!-- Include desired assets -->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.7/require.min.js"></script>
+
+<script>
+// Passing the search options to the search.js file
+const SEARCH_OPTIONS = JSON.parse('{"ignoreLocation": true, "keys": ["title", "text", "objectID"], "limit": 10, "min_chars_for_search": 2, "threshold": 0.5}');
+const SEARCH_FILE = "../_static/search.json";
+const ADVANCE_SEARCH_PATH = "../search.html";
+const EXTRA_SOURCES = JSON.parse('""');
+</script>
+
+
+<script src="../_static/js/search.js"></script>
+
+  
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright (c) 2026 ANSYS, Inc. All rights reserved.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the
+  <a href="https://sphinxdocs.ansys.com/version/stable/index.html"
+    >Ansys Sphinx Theme</a
+  >
+  1.6.4. <br />Last updated on
+  <span id="ast_build_date"></span>
+</p>
+<script>
+  var options = { day: "numeric", month: "long", year: "numeric" };
+  var ast_lastModifiedDate = new Date(document.lastModified);
+  var ast_build_date = ast_lastModifiedDate.toLocaleDateString("en-US", options);
+  document.getElementById("ast_build_date").innerHTML = ast_build_date;
+</script></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

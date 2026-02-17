@@ -1,0 +1,1094 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Create a PR &#8212; PyAnsys developer&#39;s guide</title>
+  
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/ansys-sphinx-theme.css?v=9e79609d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/ansys-sphinx-theme.css?v=9e79609d" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.nerdfonts.com/assets/css/webfont.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+  <!-- Include desired assets -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  
+
+  
+    <link href="../../_static/css/breadcrumbs.css" rel="stylesheet" />
+  
+    <script src="../../_static/documentation_options.js?v=92d7cc4e"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content-writing/content-how-tos/create-PR';</script>
+    <link rel="icon" href="../../_static/ansys-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Request a bot review" href="request-bot-review.html" />
+    <link rel="prev" title="Review a PR" href="review-PR.html" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="2026-02-17" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="https://docs.pyansys.com/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/pyansys_logo_transparent_black.png" class="logo__image only-light" alt="PyAnsys developer's guide - Home"/>
+    <img src="../../_static/pyansys_logo_transparent_white.png" class="logo__image only-dark pst-js-only" alt="PyAnsys developer's guide - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html" title="PyAnsys developer's guide home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../how-to/index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="../index.html">
+    Content writing
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+      
+        <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+  
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html" title="PyAnsys developer's guide home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../how-to/index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    Content writing
+  </a>
+</li>
+
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../content-contrib-setup/index.html">Content contribution setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rst-files-writers/index.html">Content in RST files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../py-files-writers/index.html">Content in PY files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples-writers/index.html">Content in examples</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Content how-tos</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="clone-branch.html">Clone and branch a repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="review-PR.html">Review a PR</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Create a PR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="request-bot-review.html">Request a bot review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="work-around-Vale.html">Work around Vale issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resolve-issues-causing-check-failures.html">Resolve issues causing check failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="edit-on-GitHub.html">Edit on GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view-revision-history.html">View revision history on GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="add-sphinx-extensions.html">Add Sphinx extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="show_cheat_sheet_thumbnail.html">Show cheat sheet thumbnail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-issues-discussions.html">Create issues and discussions</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+         
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="https://docs.pyansys.com/" class="nav-link">PyAnsys</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a
+        href="../../index.html"
+        class="nav-link"
+        aria-label="Home"
+      >
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="../index.html" class="nav-link">Content writing</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="index.html" class="nav-link">Content how-tos</a>
+    </li>
+      
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Create a PR</span></li>
+    
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="create-a-pr">
+<span id="create-pr"></span><h1>Create a PR<a class="headerlink" href="#create-a-pr" title="Link to this heading">#</a></h1>
+<p>This page describes how to create a PR to update or enhance PyAnsys documentation.
+If you have not yet cloned the repository and created a local branch to work in,
+see <a class="reference internal" href="clone-branch.html#clone-branch"><span class="std std-ref">Clone and branch a repository</span></a>.</p>
+<section id="make-changes-in-your-local-branch">
+<h2>Make changes in your local branch<a class="headerlink" href="#make-changes-in-your-local-branch" title="Link to this heading">#</a></h2>
+<p>In your local branch, make changes to RST and PY files to improve the
+PyAnsys documentation. As you work, periodically run the tools described in the
+next few topics to check your changes. You should also periodically build the
+documentation locally so that you can verify if new or changed content is
+rendered correctly.</p>
+<p>As you work, remember to use your preferred Git tool to periodically commit your changes
+and pull merged changes from the remote main branch into your local branch. Because
+resolving conflicts is always painful, you want to do all that you can to minimize
+the possible occurrence of conflicts and resolve any that do arise locally.</p>
+</section>
+<section id="run-pre-commit-locally">
+<span id="run-precommit"></span><h2>Run pre-commit locally<a class="headerlink" href="#run-pre-commit-locally" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://pre-commit.com/">pre-commit</a> is a tool for ensuring that all the changes that you make to
+files in your project successfully pass all checks run by the code style tools that are
+configured as part of the CI/CD process. These tools, which typically include <a class="reference external" href="https://docs.astral.sh/ruff/">Ruff</a>,
+analyze, format, review, and improve code quality and security. For more information on
+the code style tools most commonly configured for use in PyAnsys projects,
+see <a class="reference internal" href="../../coding-style/formatting-tools.html#code-style-tools"><span class="std std-ref">Code style tools</span></a>.</p>
+<p>Because you do not want the <strong>Code style</strong> check for your PyAnsys project to fail
+when you create or push changes to a PR, you want to periodically run <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code>
+locally to proactively check if your changes are compliant. This tool resolves most
+code style issues automatically and adds any files it changes to Git’s commit list.</p>
+<p>To run pre-commit locally:</p>
+<ol class="arabic">
+<li><p>If the Ansys Python Manager and <strong>Administrator</strong> window are not still
+open, then open them. For more information, see <a class="reference internal" href="../content-contrib-setup/content-dev-environment.html#ansys-python-manager"><span class="std std-ref">Install and use the Ansys Python Manager</span></a>.</p></li>
+<li><p>In the <strong>Administrator</strong> window, run this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pre</span><span class="o">-</span><span class="n">commit</span> <span class="n">run</span> <span class="o">--</span><span class="nb">all</span><span class="o">-</span><span class="n">files</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> initializes the code style tools configured for your PyAnsys project
+if this is the first time that you are running it in this session. It then shows
+status information for the various checks.</p>
+</li>
+<li><p>In the Windows <strong>Administrator</strong> window, press the up arrow to display
+the command for running <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> again and then run it to see if
+all issues have been automatically resolved.</p>
+<p>For issues that <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> could not automatically resolve, such as those
+found by the <code class="docutils literal notranslate"><span class="pre">codespell</span></code> check, it tells you where the issues are so that you
+can manually resolve them. Here are some issues that you might have to resolve:</p>
+<ul>
+<li><p>An occurrence of a spelling error or an unrecognized word</p></li>
+<li><p>A line of code that exceeds the maximum line length</p></li>
+<li><p>A failure when creating a cross reference to find the target title or caption</p></li>
+<li><p>A formatting error such as this one:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Explicit</span> <span class="n">markup</span> <span class="n">ends</span> <span class="k">with</span> <span class="n">a</span> <span class="n">blank</span> <span class="n">line</span><span class="p">;</span> <span class="n">unexpected</span> <span class="n">indent</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>You can configure <code class="docutils literal notranslate"><span class="pre">codespell</span></code> to ignore words that it flags as errors in PY files by adding one
+of two arguments to the <code class="docutils literal notranslate"><span class="pre">codespell</span></code> hook in the <code class="file docutils literal notranslate"><span class="pre">pre-commit-config.yaml</span></code> file in the
+repository’s root directory.</p>
+<ul>
+<li><p>To have <code class="docutils literal notranslate"><span class="pre">codespell</span></code> ignore words that you place in a TXT file named <code class="file docutils literal notranslate"><span class="pre">ignore_words.txt</span></code>
+in the repositority’s root directory, add this argument to the <code class="docutils literal notranslate"><span class="pre">codespell</span></code> hook:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hooks</span><span class="p">:</span>
+<span class="o">-</span> <span class="nb">id</span><span class="p">:</span> <span class="n">codespell</span>
+  <span class="n">args</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;--ignore-words=ignore_words.txt&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>To have <code class="docutils literal notranslate"><span class="pre">codespell</span></code> accept words that you place in the <code class="file docutils literal notranslate"><span class="pre">accept.txt</span></code> file for
+Vale, which is described in the next topic, add this argument to the <code class="docutils literal notranslate"><span class="pre">codespell</span></code> hook:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hooks</span><span class="p">:</span>
+<span class="o">-</span> <span class="nb">id</span><span class="p">:</span> <span class="n">codespell</span>
+  <span class="n">args</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;--ignore-words&quot;</span><span class="p">,</span> <span class="s2">&quot;doc/styles/config/vocabularies/ANSYS/accept.txt&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Manually resolve any issues that <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> could not resolve. For more information,
+see <a class="reference internal" href="resolve-issues-causing-check-failures.html#resolve-failing-checks"><span class="std std-ref">Resolve issues causing check failures</span></a>.</p></li>
+<li><p>In the Windows <strong>Administrator</strong> window, press the up arrow to display
+the command for running <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> again and then run it.</p></li>
+<li><p>Resolve any issues, repeating these last few steps until <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code>
+shows that all code style checks have passed.</p></li>
+</ol>
+</section>
+<section id="run-vale-locally">
+<span id="id1"></span><h2>Run Vale locally<a class="headerlink" href="#run-vale-locally" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="http://vale.sh/">Vale</a> is a tool for maintaining a consistent style and voice in your
+documentation based on a given style guide. For PyAnsys projects, Vale
+uses rules from the <a class="reference external" href="https://developers.google.com/style">Google developer documentation style guide</a>
+to check the content in RST and MD files. In addition to checking for style guide violations,
+Vale checks for other common problems, such as extra spaces, repeated words, excessive use of
+jargon, sexist language, and incorrect capitalization. Vale does not check the content surrounded
+in double backticks or in code blocks.</p>
+<p>When Vale detects an issue, it displays a suggestion, warning, or error. While you can choose
+to ignore a suggestion or warning, you must resolve all errors. Otherwise, when you
+create or push changes to a PR, the <strong>Vale</strong> check fails, which also causes the
+<strong>Documentation style</strong> check to fail.</p>
+<p>Because you do not want these checks to fail on the PR, you want to periodically run Vale
+locally to proactively check that your changes are compliant.</p>
+<p>To run Vale locally:</p>
+<ol class="arabic">
+<li><p>If the Ansys Python Manager and <strong>Administrator</strong> window are not still
+open, open them. For more information, see <a class="reference internal" href="../content-contrib-setup/content-dev-environment.html#ansys-python-manager"><span class="std std-ref">Install and use the Ansys Python Manager</span></a>.</p></li>
+<li><p>From the Windows <strong>Administrator</strong> window, use the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command to go to the
+library’s <code class="docutils literal notranslate"><span class="pre">doc</span></code> directory.</p>
+<p>For example, to go to the <code class="docutils literal notranslate"><span class="pre">doc</span></code> directory for this guide, you might
+run this <code class="docutils literal notranslate"><span class="pre">cd</span></code> command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>C:<span class="se">\A</span>nsysDev<span class="se">\G</span>itRepos<span class="se">\P</span>yAnsys<span class="se">\p</span>yansys-dev-guide<span class="se">\d</span>oc
+</pre></div>
+</div>
+</li>
+<li><p>To ensure that the latest rules for the Google style guidelines are installed
+locally, run this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vale<span class="w"> </span>sync
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The preceding command downloads the latest rules for the
+<em>Google developer’s documentation style guide</em> to the <code class="docutils literal notranslate"><span class="pre">doc/styles/Google</span></code>
+folder. If the <code class="file docutils literal notranslate"><span class="pre">.gitignore</span></code> file in your project’s root directory is not
+set up to ignore these YML style files, add the following lines to the end of
+this file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="c1"># Vale</span>
+doc/styles/Google
+
+<span class="se">\#</span>*
+.<span class="se">\#</span>*
+/.ipynb_checkpoints
+</pre></div>
+</div>
+</div>
+<p>The next several steps show how to use various Vale commands to check RST and MD
+files in different directories.</p>
+</li>
+<li><p>To check all RST and MD files in the <code class="docutils literal notranslate"><span class="pre">doc</span></code> directory, run this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vale<span class="w"> </span>.
+</pre></div>
+</div>
+<p>If Vale displays errors in <code class="docutils literal notranslate"><span class="pre">build\html\_static\404.rst</span></code>, it is checking files generated
+by a previous local build of the documentation. Delete the <code class="docutils literal notranslate"><span class="pre">html</span></code> directory and
+then run the preceding command again.</p>
+</li>
+<li><p>To check all RST and MD files in the repository, go to the root directory and
+run this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vale<span class="w"> </span>--config<span class="o">=</span>doc/.vale.ini<span class="w"> </span>.
+</pre></div>
+</div>
+</li>
+<li><p>To check all RST and MD files in only a particular directory, start the command
+with <code class="docutils literal notranslate"><span class="pre">vale</span></code> followed a space and then the name of the directory.</p></li>
+<li><p>To resolve errors and other issues that Vale raises, either edit files or
+add words or phrases to the <code class="docutils literal notranslate"><span class="pre">accept.txt</span></code> file in <code class="docutils literal notranslate"><span class="pre">doc\styles\config\vocabularies\ANSYS</span></code>.</p></li>
+</ol>
+<p>Here is an explanation of how Vale is set up in a PyAnsys project. The <code class="docutils literal notranslate"><span class="pre">doc</span></code> directory
+contains the <code class="docutils literal notranslate"><span class="pre">.vale.ini</span></code> configuration file and the <code class="docutils literal notranslate"><span class="pre">styles</span></code> directory.</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">.vale.ini</span></code> configuration file specifies that Vale is to check content
+in RST and MD files to ensure that it is compliant with the
+<em>Google developer documentation style guide</em>, along with any custom Ansys rules.</p></li>
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">styles</span></code> directory, the <code class="docutils literal notranslate"><span class="pre">config/vocabularies/ANSYS</span></code> directory contains <code class="docutils literal notranslate"><span class="pre">accept.txt</span></code>
+and <code class="docutils literal notranslate"><span class="pre">reject.txt</span></code> files. You can add words or phrases that Vale does not recognize
+to the <code class="docutils literal notranslate"><span class="pre">accept.txt</span></code> file, and you can add recognized words or phrases that you want
+Vale to raise as issues to the <code class="docutils literal notranslate"><span class="pre">reject.txt</span></code> file.</p></li>
+</ul>
+<p>Vale is case-aware. When adding words to the <code class="docutils literal notranslate"><span class="pre">accept.txt</span></code> file, use an appropriate
+regular express if an entry should be case-insensitive.</p>
+<ul class="simple">
+<li><p>To make an entire word case-insensitive, use a <code class="docutils literal notranslate"><span class="pre">(?i)</span></code> prefix. For example,
+add <code class="docutils literal notranslate"><span class="pre">(?i)Ansys</span></code> to have Vale accept “Ansys,” “ANSYS,” and “ansys.”</p></li>
+<li><p>To make it acceptable for a word to start in either uppercase or lowercase, place
+both cases of the first letter in brackets. For example, add <code class="docutils literal notranslate"><span class="pre">[Dd]ocstrings</span></code>.</p></li>
+</ul>
+<p>Occasionally Vale raises issues that are not considered errors in PyAnsys
+projects. For more information, see <a class="reference internal" href="work-around-Vale.html#work-around-vale-issues"><span class="std std-ref">Work around Vale issues</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If Vale raises a runtime error when running locally, the error indicates the
+file where the issue exists. In all likelihood, the file has two links that use
+the same display text to the same named target. Modifying the display text for one
+of the two links should resolve the issue.</p>
+</div>
+</section>
+<section id="build-documentation-locally">
+<span id="pull-changes-from-main"></span><h2>Build documentation locally<a class="headerlink" href="#build-documentation-locally" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a> is a tool for generating documentation. While designed primarily for
+generating documentation for Python projects, it can be used for documenting other programming
+languages and projects.</p>
+<p>The build process for a project’s documentation is specified in a configuration (<code class="file docutils literal notranslate"><span class="pre">conf.py</span></code>)
+file in the <code class="docutils literal notranslate"><span class="pre">doc/source</span></code> directory. This directory also contains a <code class="file docutils literal notranslate"><span class="pre">Makefile</span></code> file and a
+<code class="file docutils literal notranslate"><span class="pre">make.bat</span></code> file for automating the building process. Different builders render different
+documentation output, such as <code class="docutils literal notranslate"><span class="pre">HTML</span></code>, <code class="docutils literal notranslate"><span class="pre">LaTeX</span></code>, or <code class="docutils literal notranslate"><span class="pre">PDF</span></code>.</p>
+<p>When making lots of changes, consider building the HTML documentation locally so that you can
+see if your changes are rendered correctly. Otherwise, you can download and view the documentation
+artifacts that are built by the pipeline’s <code class="file docutils literal notranslate"><span class="pre">ci-build.yml</span></code> file once the <strong>Documentation building</strong>
+check on the PR passes. For more information, see <a class="reference internal" href="#view-artifacts"><span class="std std-ref">Download and view documentation artifacts</span></a>.</p>
+<p>To build documentation locally:</p>
+<ol class="arabic">
+<li><p>If the Ansys Python Manager and <strong>Administrator</strong> window are not still
+open, open them. For more information, see <a class="reference internal" href="../content-contrib-setup/content-dev-environment.html#ansys-python-manager"><span class="std std-ref">Install and use the Ansys Python Manager</span></a>.</p></li>
+<li><p>From the Windows <strong>Administrator</strong> window, use the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command to go to the
+library’s <code class="docutils literal notranslate"><span class="pre">doc</span></code> directory.</p>
+<p>For example, to go to the <code class="docutils literal notranslate"><span class="pre">doc</span></code> directory for this guide, you might
+run this <code class="docutils literal notranslate"><span class="pre">cd</span></code> command:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cd C:\AnsysDev\GitRepos\PyAnsys\pyansys-dev-guide\doc
+</pre></div>
+</div>
+</li>
+<li><p>Run the <code class="docutils literal notranslate"><span class="pre">make</span></code> command for you operating system.</p>
+<ul class="simple">
+<li><p>On Windows, run <code class="docutils literal notranslate"><span class="pre">make.bat</span> <span class="pre">html</span></code>.</p></li>
+<li><p>On Linux or macOS, run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code>.</p></li>
+</ul>
+<p>The resulting HTML files are created in the project’s <code class="docutils literal notranslate"><span class="pre">doc/_build/html</span></code> directory by default.</p>
+</li>
+<li><p>To view the HTML documentation, use your favorite browser to open the <code class="docutils literal notranslate"><span class="pre">index.html</span></code> file:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;browser&gt; .doc/_build/html/index.html
+</pre></div>
+</div>
+</li>
+</ol>
+<p>If a project’s CI/CD process uses <a class="reference external" href="https://tox.wiki/en/latest/">tox</a> for testing and task automation, rather than
+using the Sphinx documentation-building method, check the integrity of the documentation
+by running this command locally:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>tox -e doc
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">tox</span></code> places the resulting HTML files in the project’s <code class="docutils literal notranslate"><span class="pre">.tox/doc_out</span></code> directory by default.
+To view the HTML documentation, use your favorite browser to open the <code class="docutils literal notranslate"><span class="pre">index.html</span></code> file in
+this directory:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;browser&gt; .tox/doc_out_html/index.html
+</pre></div>
+</div>
+<p>If you would like <code class="docutils literal notranslate"><span class="pre">tox</span></code> to place the resulting HTML files in the project’s <code class="docutils literal notranslate"><span class="pre">doc/_build/html</span></code> directory,
+you can replace the last two lines in the <code class="file docutils literal notranslate"><span class="pre">tox.ini</span></code> file with these two lines:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>commands =
+    sphinx-build -d &quot;{toxworkdir}/doc_doctree&quot; doc/source &quot;{toxinidir}/doc/_build/html&quot; --color -vW -b html -j auto
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h2>Create a PR<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>Before you use your Git tool to push your changes to a PR, first use it to pull merged changes
+from the remote main branch to your local branch. If there are any conflicts, resolve
+them in your local branch.</p>
+<p>To create a PR:</p>
+<ol class="arabic">
+<li><p>Use your Git tool to push your changes to the remote main branch.</p>
+<p>On the main page of the repository, a notification indicates that a branch had recent pushes.</p>
+<img alt="Recent pushes notification" src="../../_images/notice-recent-pushes.png" />
+</li>
+<li><p>Click <strong>Compare &amp; pull request</strong>.
+The <strong>Open a pull request</strong> window opens.</p></li>
+<li><p>Supply a commit message and an optional extended description.</p></li>
+<li><p>Assign the PR to yourself by clicking <strong>assign yourself</strong> on the right side of the window.</p>
+<img alt="Assign yourself to the PR" src="../../_images/assigning_yourself_PR.png" />
+</li>
+<li><p>If the PR is meant to fix an issue, add <strong>Closes #issue_number</strong> to the PR description.</p></li>
+<li><p>Click <strong>Create pull request</strong>. Or, if you want to create a draft pull request,
+use the dropdown to select <strong>Create draft pull request</strong>.</p>
+<p>A draft pull request cannot be merged until you mark it as ready for review,</p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <a class="reference external" href="https://github.com/ansys/review-bot">Ansys Review Bot</a> can perform a review of your changes. For more information,
+see <a class="reference internal" href="request-bot-review.html#bot-reviews"><span class="std std-ref">Request a bot review</span></a>.</p>
+</div>
+</section>
+<section id="resolve-failed-checks">
+<h2>Resolve failed checks<a class="headerlink" href="#resolve-failed-checks" title="Link to this heading">#</a></h2>
+<p>GitHub integrates with tools that automate code and documentation style
+checking, testing, and deployment, which makes it far easier to streamline the development
+process and maintain high code quality. When you create or submit changes to a PR, all checks that
+are configured in the project’s CI/CD process run. When a check fails, you must resolve the issues causing
+the failure. For more information, see <a class="reference internal" href="resolve-issues-causing-check-failures.html#resolve-failing-checks"><span class="std std-ref">Resolve issues causing check failures</span></a>.</p>
+</section>
+<section id="download-and-view-documentation-artifacts">
+<span id="view-artifacts"></span><h2>Download and view documentation artifacts<a class="headerlink" href="#download-and-view-documentation-artifacts" title="Link to this heading">#</a></h2>
+<p>If the <strong>Documentation building</strong> check on the PR completes successfully, both HTML and PDF
+documentation artifacts are generated:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">documentation-html</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">documentation-pdf</span></code></p></li>
+</ul>
+<p>You can download and unzip these artifacts to see how the documentation for this PR is
+rendered. While you generally do not need to download the PDF artifact, you should
+download and extract the HTML artifact so that you can confirm that the changes in the PR
+render correctly in the documentation.</p>
+<p>To download and view documentation artifacts:</p>
+<ol class="arabic">
+<li><p>On the repository’s <strong>Actions</strong> page, click the GitHub CI workflow run for your pull request.</p></li>
+<li><p>Under <strong>Artifacts</strong>, which is at the bottom of the page, click the artifacts to download.</p>
+<p>As mentioned earlier, you likely only want to download the <code class="docutils literal notranslate"><span class="pre">documentation-html</span></code> artifact.</p>
+</li>
+<li><p>Go to your <code class="docutils literal notranslate"><span class="pre">Downloads</span></code> folder and use a tool like <a class="reference external" href="https://7-zip.org/">7-Zip</a> to extract the HTML
+artifact (and PDF artifact if you also downloaded it).</p></li>
+<li><p>To view the generated HTML documentation, in the folder that you extracted this artifact’s
+files to, double-click the <code class="file docutils literal notranslate"><span class="pre">index.html</span></code> file to open the HTML documentation.</p></li>
+<li><p>To view the generated PDF documentation, in the folder that you extracted this artifact’s file
+to, double-click the PDF file to open it.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The artifacts for a PR are only available if the <strong>Documentation building</strong> check completed
+successfully. If you click the GitHub CI workflow run for a PR where this check failed,
+no artifacts are shown under <strong>Artifacts</strong>. Artifacts remain available after PRs are
+merged.</p>
+</div>
+</section>
+<section id="tag-reviewers">
+<h2>Tag reviewers<a class="headerlink" href="#tag-reviewers" title="Link to this heading">#</a></h2>
+<p>In the PR, the right pane of the <strong>Conversation</strong> page displays a <strong>Reviewers</strong> area. In many
+PyAnsys projects, maintainers are automatically assigned as reviewers. You can manually
+assign any number of reviewers. You can also see how many approving reviewers are
+required before the PR can be merged. This number varies from one PyAnsys project to another.</p>
+<p>Manually add reviewers to your PR:</p>
+<ol class="arabic simple">
+<li><p>Click the gear icon on the right side of this area.</p></li>
+<li><p>Choose the reviewer to add.</p></li>
+</ol>
+<p>If a specified number of maintainers must review and approve the PR, the PR displays a
+<strong>Code owner review required</strong> area with status information.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can add comments to your own PR as indicated in <a class="reference internal" href="review-PR.html#add-comments"><span class="std std-ref">Add a comment</span></a> and then
+resolve them as indicated in the next topic. If you intend to keep working in
+your local branch, remember to always use your Git tool to pull all changes made
+in the remote branch for your PR into your local branch.</p>
+</div>
+</section>
+<section id="resolve-reviewer-comments">
+<span id="id3"></span><h2>Resolve reviewer comments<a class="headerlink" href="#resolve-reviewer-comments" title="Link to this heading">#</a></h2>
+<p>A reviewer can make a general comment on your overall PR and both general and specific
+comments on a single changed line or multiple consecutive changed lines in
+your PR. For more information, see <a class="reference internal" href="review-PR.html#add-comments"><span class="std std-ref">Add a comment</span></a> in the information for reviewing
+a PR.</p>
+<p>The <strong>Conversation</strong> page of your PR shows all overall comments on your PR and all
+unresolved comments on changed lines in your PR. Because overall comments are informational,
+they do not display <code class="docutils literal notranslate"><span class="pre">Resolve</span> <span class="pre">conversation</span></code> buttons. However, all unresolved comments on
+changed lines do display this button.</p>
+<p>Here is how to review and resolve comments on changed lines:</p>
+<ol class="arabic">
+<li><p>On the <strong>Conversation</strong> page, determine whether the comment requires you to
+make changes to one or more files in your local branch.</p>
+<ul>
+<li><p>If the comment is merely informational, click <code class="docutils literal notranslate"><span class="pre">Resolve</span> <span class="pre">conversation</span></code>.</p></li>
+<li><p>If you must make changes in your local branch, do not click <code class="docutils literal notranslate"><span class="pre">Resolve</span> <span class="pre">conversation</span></code>.</p>
+<p>Instead, make these changes and push them to the PR.</p>
+</li>
+</ul>
+</li>
+<li><p>If the comment makes changes to one or more lines, determine if you want
+to commit the suggestion.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you click <strong>Commit suggestion</strong> on a reviewer’s suggestion and then
+click <strong>Commit changes</strong> in the window that opens, the suggestion is
+immediately committed to the PR, which triggers a build. Because the CI/CD
+process is resource intensive, best practice is to commit suggestions in batch,
+which triggers the build process only once. Subsequent steps assume that you
+are following this best practice.</p>
+</div>
+</li>
+<li><p>To commit the suggestion, click <strong>Add suggestion to batch</strong>.</p></li>
+<li><p>Repeat the preceding steps to review and resolve comments or commit suggestions.</p>
+<p>At the top of the PR, the <strong>Commit suggestions</strong> option indicates
+the number of suggestions that are waiting to be committed in batch.</p>
+</li>
+<li><p>When you are ready to commit all suggestions in batch, click
+<strong>Commit suggestions</strong> at the top of the PR and, in the window that opens,
+click <strong>Commit Changes</strong>.</p></li>
+<li><p>If you intend to keep working in your local branch, use your Git tool
+to pull all changes made in the remote branch for your PR into your local branch.</p></li>
+</ol>
+<p>GitHub notifies you if there are any merge conflicts. You can use the GitHub editor
+to find and edit the conflicts.</p>
+</section>
+<section id="merge-your-pr">
+<h2>Merge your PR<a class="headerlink" href="#merge-your-pr" title="Link to this heading">#</a></h2>
+<p>You can merge your PR only after these criteria are met:</p>
+<ul class="simple">
+<li><p>All required reviewers have approved the PR.</p></li>
+<li><p>All conversations in the PR are resolved.</p></li>
+<li><p>All checks configured in the CI/CD process have passed.</p></li>
+<li><p>The branch has no conflicts with the base branch.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the branch is out of date with the remote main branch, merging is blocked.
+To the right of the <strong>This branch is out-of-date with the base branch</strong>
+notification is an <strong>Update branch</strong> option. Clicking it merges the latest
+changes in the main branch into this branch with a merge commit. While the
+dropdown provides an option for rebasing this PR on top of the latest changes
+and then force pushing the PR, choosing this option is not advised.</p>
+</div>
+<p>When these criteria are met, a required reviewer might merge the PR for you.
+If not, you can merge the PR:</p>
+<ol class="arabic simple">
+<li><p>Click the <strong>Squash and merge</strong> option.</p></li>
+<li><p>In the window that opens, provide an optional extended description and
+click <strong>Confirm squash and merge</strong>.</p></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When you finish resolving comments, you can click the <strong>Enable auto-merge (squash)</strong> option
+to have PR be automatically merged when all criteria are met.</p>
+</div>
+</section>
+<section id="pull-changes-and-delete-the-merged-branch">
+<h2>Pull changes and delete the merged branch<a class="headerlink" href="#pull-changes-and-delete-the-merged-branch" title="Link to this heading">#</a></h2>
+<p>One the PR is merged, use your GitHub tool to pull all changes from the remote main
+branch on GitHub into the main branch of your locally cloned repository. Also delete
+the local branch with the changes that have now been merged. For additional changes,
+create another local branch to work in.</p>
+</section>
+<section id="remove-untracked-files-and-directories">
+<h2>Remove untracked files and directories<a class="headerlink" href="#remove-untracked-files-and-directories" title="Link to this heading">#</a></h2>
+<p>To remove untracked files and directories from your working directory, from the
+<code class="docutils literal notranslate"><span class="pre">doc</span></code> folder, periodically run this command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clean</span> <span class="pre">-fdx</span> <span class="pre">.</span></code></p>
+<p>For more information on this Git command, see <a class="reference internal" href="../../how-to/setting-up.html#git-clean"><span class="std std-ref">Remove files and directories untracked by Git</span></a>.</p>
+<p>When you next run <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code>, the code style tools configured for
+your PyAnsys project must be initialized once again. For more information,
+see <a class="reference internal" href="#run-precommit"><span class="std std-ref">Run pre-commit locally</span></a>.</p>
+<p>Before you can run Vale again locally, you must download the latest rules for the
+<em>Google developer’s documentation style guide</em> to the <code class="docutils literal notranslate"><span class="pre">doc/styles/Google</span></code> folder
+by running this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vale<span class="w"> </span>sync
+</pre></div>
+</div>
+<p>You can then run Vale with this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vale<span class="w"> </span>.
+</pre></div>
+</div>
+<p>For more information, see <a class="reference internal" href="#run-vale-locally"><span class="std std-ref">Run Vale locally</span></a>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-changes-in-your-local-branch">Make changes in your local branch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-pre-commit-locally">Run pre-commit locally</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-vale-locally">Run Vale locally</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-documentation-locally">Build documentation locally</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Create a PR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resolve-failed-checks">Resolve failed checks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-view-documentation-artifacts">Download and view documentation artifacts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tag-reviewers">Tag reviewers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resolve-reviewer-comments">Resolve reviewer comments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-your-pr">Merge your PR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pull-changes-and-delete-the-merged-branch">Pull changes and delete the merged branch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-untracked-files-and-directories">Remove untracked files and directories</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item"> 
+<div class="tocsection editthispage">
+  <a href="https://github.com/pyansys/dev-guide/edit/main/doc/source/content-writing/content-how-tos/create-PR.rst">
+    <i class="fa-solid fa-pencil"></i>
+       Edit
+    on GitHub  
+  </a>
+</div>
+
+</div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/content-writing/content-how-tos/create-PR.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <!-- Include desired assets -->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.7/require.min.js"></script>
+
+<script>
+// Passing the search options to the search.js file
+const SEARCH_OPTIONS = JSON.parse('{"ignoreLocation": true, "keys": ["title", "text", "objectID"], "limit": 10, "min_chars_for_search": 2, "threshold": 0.5}');
+const SEARCH_FILE = "../../_static/search.json";
+const ADVANCE_SEARCH_PATH = "../../search.html";
+const EXTRA_SOURCES = JSON.parse('""');
+</script>
+
+
+<script src="../../_static/js/search.js"></script>
+
+  
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright (c) 2026 ANSYS, Inc. All rights reserved.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the
+  <a href="https://sphinxdocs.ansys.com/version/stable/index.html"
+    >Ansys Sphinx Theme</a
+  >
+  1.6.4. <br />Last updated on
+  <span id="ast_build_date"></span>
+</p>
+<script>
+  var options = { day: "numeric", month: "long", year: "numeric" };
+  var ast_lastModifiedDate = new Date(document.lastModified);
+  var ast_build_date = ast_lastModifiedDate.toLocaleDateString("en-US", options);
+  document.getElementById("ast_build_date").innerHTML = ast_build_date;
+</script></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,856 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Required Sphinx configuration &#8212; PyAnsys developer&#39;s guide</title>
+  
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/ansys-sphinx-theme.css?v=9e79609d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/ansys-sphinx-theme.css?v=9e79609d" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.nerdfonts.com/assets/css/webfont.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+  <!-- Include desired assets -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  
+
+  
+    <link href="../_static/css/breadcrumbs.css" rel="stylesheet" />
+  
+    <script src="../_static/documentation_options.js?v=92d7cc4e"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'doc-style/doc-configuration';</script>
+    <link rel="icon" href="../_static/ansys-favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Numpydoc docstrings" href="docstrings.html" />
+    <link rel="prev" title="Documentation style" href="index.html" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="2026-02-17" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="https://docs.pyansys.com/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/pyansys_logo_transparent_black.png" class="logo__image only-light" alt="PyAnsys developer's guide - Home"/>
+    <img src="../_static/pyansys_logo_transparent_white.png" class="logo__image only-dark pst-js-only" alt="PyAnsys developer's guide - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html" title="PyAnsys developer's guide home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../how-to/index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../content-writing/index.html">
+    Content writing
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+      
+        <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+  
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html" title="PyAnsys developer's guide home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../how-to/index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../content-writing/index.html">
+    Content writing
+  </a>
+</li>
+
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../packaging/index.html">Packaging style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../coding-style/index.html">Coding style</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Documentation style</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Required Sphinx configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docstrings.html">Numpydoc docstrings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="formatting-tools.html">Documentation style tools</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+         
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="https://docs.pyansys.com/" class="nav-link">PyAnsys</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a
+        href="../index.html"
+        class="nav-link"
+        aria-label="Home"
+      >
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="../all-styles.html" class="nav-link">Style</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="index.html" class="nav-link">Documentation style</a>
+    </li>
+      
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Required Sphinx configuration</span></li>
+    
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="required-sphinx-configuration">
+<h1>Required Sphinx configuration<a class="headerlink" href="#required-sphinx-configuration" title="Link to this heading">#</a></h1>
+<p>This page explains the minimum required <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a> configuration for
+building the documentation of a PyAnsys library.</p>
+<p>When installing <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a>, a program named <code class="docutils literal notranslate"><span class="pre">sphinx-build</span></code> also gets installed.
+This program is in charge of collecting, parsing, and rendering all
+ReStructuredText (RST) files in <a class="reference internal" href="../packaging/structure.html#the-doc-directory"><span class="std std-ref">The doc directory</span></a>.</p>
+<p>The behavior of the <code class="docutils literal notranslate"><span class="pre">sphinx-build</span></code> program is controlled through either
+a <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> (for POSIX systems) or a <code class="docutils literal notranslate"><span class="pre">make.bat</span></code> file (for Windows systems).
+Once the <code class="docutils literal notranslate"><span class="pre">sphinx-build</span></code> command is triggered, the configuration declared in the
+<code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file is applied when rendering the documentation pages.</p>
+<section id="the-conf-py-file">
+<h2>The <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file<a class="headerlink" href="#the-conf-py-file" title="Link to this heading">#</a></h2>
+<p>The following <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file provides the minimum required configuration for a
+PyAnsys library. To guarantee consistency across PyAnsys libraries, you should
+only make custom additions on top of this configuration.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Sphinx documentation configuration file.&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">ansys_sphinx_theme</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyansys_logo_black</span> <span class="k">as</span> <span class="n">logo</span>
+
+<span class="c1"># Project information</span>
+<span class="n">project</span> <span class="o">=</span> <span class="s2">&quot;ansys-product-library&quot;</span>
+<span class="n">copyright</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;(c) </span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s2"> ANSYS, Inc. All rights reserved&quot;</span>
+<span class="n">author</span> <span class="o">=</span> <span class="s2">&quot;ANSYS, Inc.&quot;</span>
+<span class="n">release</span> <span class="o">=</span> <span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;0.1.dev0&quot;</span>
+
+<span class="c1"># Select desired logo, theme, and declare the html title</span>
+<span class="n">html_logo</span> <span class="o">=</span> <span class="n">logo</span>
+<span class="n">html_theme</span> <span class="o">=</span> <span class="s2">&quot;ansys_sphinx_theme&quot;</span>
+<span class="n">html_short_title</span> <span class="o">=</span> <span class="n">html_title</span> <span class="o">=</span> <span class="s2">&quot;pyproduct-library&quot;</span>
+
+<span class="c1"># specify the location of your github repo</span>
+<span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;github_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/ansys/pyproduct-library&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;show_prev_next&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s2">&quot;show_breadcrumbs&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">&quot;additional_breadcrumbs&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s2">&quot;PyAnsys&quot;</span><span class="p">,</span> <span class="s2">&quot;https://docs.pyansys.com/&quot;</span><span class="p">),</span>
+    <span class="p">],</span>
+<span class="p">}</span>
+
+<span class="c1"># Sphinx extensions</span>
+<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;sphinx.ext.autodoc&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sphinx.ext.autosummary&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sphinx.ext.autosectionlabel&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;numpydoc&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sphinx.ext.intersphinx&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sphinx_copybutton&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="c1"># Intersphinx mapping</span>
+<span class="n">intersphinx_mapping</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;python&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;https://docs.python.org/dev&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+    <span class="c1"># kept here as an example</span>
+    <span class="c1"># &quot;scipy&quot;: (&quot;https://docs.scipy.org/doc/scipy/reference&quot;, None),</span>
+    <span class="c1"># &quot;numpy&quot;: (&quot;https://numpy.org/devdocs&quot;, None),</span>
+    <span class="c1"># &quot;matplotlib&quot;: (&quot;https://matplotlib.org/stable&quot;, None),</span>
+    <span class="c1"># &quot;pandas&quot;: (&quot;https://pandas.pydata.org/pandas-docs/stable&quot;, None),</span>
+    <span class="c1"># &quot;pyvista&quot;: (&quot;https://docs.pyvista.org/&quot;, None),</span>
+    <span class="c1"># &quot;grpc&quot;: (&quot;https://grpc.github.io/grpc/python/&quot;, None),</span>
+<span class="p">}</span>
+
+<span class="c1"># numpydoc configuration</span>
+<span class="n">numpydoc_show_class_members</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">numpydoc_xref_param_type</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># Consider enabling numpydoc validation. See:</span>
+<span class="c1"># https://numpydoc.readthedocs.io/en/latest/validation.html#</span>
+<span class="n">numpydoc_validate</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">numpydoc_validation_checks</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;GL06&quot;</span><span class="p">,</span>  <span class="c1"># Found unknown section</span>
+    <span class="s2">&quot;GL07&quot;</span><span class="p">,</span>  <span class="c1"># Sections are in the wrong order.</span>
+    <span class="s2">&quot;GL08&quot;</span><span class="p">,</span>  <span class="c1"># The object does not have a docstring</span>
+    <span class="s2">&quot;GL09&quot;</span><span class="p">,</span>  <span class="c1"># Deprecation warning should precede extended summary</span>
+    <span class="s2">&quot;GL10&quot;</span><span class="p">,</span>  <span class="c1"># reST directives {directives} must be followed by two colons</span>
+    <span class="s2">&quot;SS01&quot;</span><span class="p">,</span>  <span class="c1"># No summary found</span>
+    <span class="s2">&quot;SS02&quot;</span><span class="p">,</span>  <span class="c1"># Summary does not start with a capital letter</span>
+    <span class="s2">&quot;SS03&quot;</span><span class="p">,</span>  <span class="c1"># Summary does not end with a period</span>
+    <span class="s2">&quot;SS04&quot;</span><span class="p">,</span>  <span class="c1"># Summary contains heading whitespaces</span>
+    <span class="s2">&quot;SS05&quot;</span><span class="p">,</span>  <span class="c1"># Summary must start with infinitive verb, not third person</span>
+    <span class="s2">&quot;RT02&quot;</span><span class="p">,</span>  <span class="c1"># The first line of the Returns section should contain only the</span>
+    <span class="c1"># type, unless multiple values are being returned&quot;</span>
+<span class="p">}</span>
+
+
+<span class="c1"># static path</span>
+<span class="n">html_static_path</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;_static&quot;</span><span class="p">]</span>
+
+<span class="c1"># Add any paths that contain templates here, relative to this directory.</span>
+<span class="n">templates_path</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;_templates&quot;</span><span class="p">]</span>
+
+<span class="c1"># The suffix(es) of source filenames.</span>
+<span class="n">source_suffix</span> <span class="o">=</span> <span class="s2">&quot;.rst&quot;</span>
+
+<span class="c1"># The master toctree document.</span>
+<span class="n">master_doc</span> <span class="o">=</span> <span class="s2">&quot;index&quot;</span>
+
+<span class="c1"># Generate section labels up to four levels deep</span>
+<span class="n">autosectionlabel_maxdepth</span> <span class="o">=</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</section>
+<section id="automation-files">
+<h2>Automation files<a class="headerlink" href="#automation-files" title="Link to this heading">#</a></h2>
+<p>As indicated earlier on this page, the <code class="docutils literal notranslate"><span class="pre">sphinx-build</span></code> program and
+all its options and arguments can be automated by using a
+<code class="docutils literal notranslate"><span class="pre">Makefile</span></code> file or a <code class="docutils literal notranslate"><span class="pre">make.bat</span></code> file. These files should be placed at the
+first level of the <code class="docutils literal notranslate"><span class="pre">doc</span></code> directory, next to the <code class="docutils literal notranslate"><span class="pre">source</span></code> directory.</p>
+<p>Notice that both files contain a <code class="docutils literal notranslate"><span class="pre">SPHINXOPTS</span></code> variable with these options: <code class="docutils literal notranslate"><span class="pre">-j</span></code>,
+<code class="docutils literal notranslate"><span class="pre">-W</span></code>, and <code class="docutils literal notranslate"><span class="pre">--keep-going</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-j</span></code>: Indicates the number of jobs (number of cores) to use.
+The default value is <code class="docutils literal notranslate"><span class="pre">auto</span></code>, which means that the number of cores in
+the CPU is to be automatically detected.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-W</span></code>: turns warnings into errors. This guarantees that documentation
+health is maximized.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--keep-going</span></code>: Specifies whether to render the whole documentation,
+even if a warning is found. This option enables developers to be aware of the
+full set of warnings.</p></li>
+</ul>
+<p>A special rule named <code class="docutils literal notranslate"><span class="pre">pdf</span></code> is also included. This rule is in charge of
+generating a PDF file for the library’s documentation.</p>
+<section id="example-for-makefile">
+<h3>Example for <code class="docutils literal notranslate"><span class="pre">Makefile</span></code><a class="headerlink" href="#example-for-makefile" title="Link to this heading">#</a></h3>
+<p>The following code collects the required options and automation rules for the
+<code class="docutils literal notranslate"><span class="pre">Makefile</span></code> program to use when building documentation for a PyAnsys library:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Minimal makefile for Sphinx documentation
+
+# You can set these variables from the command line:
+SPHINXOPTS    = -j auto -W --keep-going
+SPHINXBUILD   = sphinx-build
+SOURCEDIR     = source
+BUILDDIR      = build
+
+# Put the &quot;help&quot; rule the first one so that &quot;make&quot; without argument behaves like &quot;make help&quot;.
+help:
+	@$(SPHINXBUILD) -M help &quot;$(SOURCEDIR)&quot; &quot;$(BUILDDIR)&quot; $(SPHINXOPTS) $(O)
+
+.PHONY: help Makefile
+
+# Catch-all target: route all unknown targets to Sphinx using the new
+# &quot;make mode&quot; option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
+%: Makefile
+	@$(SPHINXBUILD) -M $@ &quot;$(SOURCEDIR)&quot; &quot;$(BUILDDIR)&quot; $(SPHINXOPTS) $(O)
+	
+# Clean build directory files
+clean:
+	rm -rf build
+	find . -type d -name &quot;_autosummary&quot; -exec rm -rf {} +
+
+# Build PDF documentation
+pdf:
+	@$(SPHINXBUILD) -M latex &quot;$(SOURCEDIR)&quot; &quot;$(BUILDDIR)&quot; $(SPHINXOPTS) $(O)
+	cd build/latex &amp;&amp; latexmk -r latexmkrc -pdf *.tex -interaction=nonstopmode || true
+	(test -f build/latex/*.pdf &amp;&amp; echo pdf exists) || exit 1
+</pre></div>
+</div>
+</section>
+<section id="example-for-make-bat">
+<h3>Example for <code class="docutils literal notranslate"><span class="pre">make.bat</span></code><a class="headerlink" href="#example-for-make-bat" title="Link to this heading">#</a></h3>
+<p>The following code collects the required options and automation rules for the
+<code class="docutils literal notranslate"><span class="pre">make.bat</span></code> program to use when building documentation for a PyAnsys project:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@ECHO</span> <span class="n">OFF</span>
+
+<span class="n">pushd</span> <span class="o">%~</span><span class="n">dp0</span>
+
+<span class="n">REM</span> <span class="n">Command</span> <span class="n">file</span> <span class="k">for</span> <span class="n">Sphinx</span> <span class="n">documentation</span>
+
+<span class="k">if</span> <span class="s2">&quot;%SPHINXBUILD%&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="p">(</span>
+	<span class="nb">set</span> <span class="n">SPHINXBUILD</span><span class="o">=</span><span class="n">sphinx</span><span class="o">-</span><span class="n">build</span>
+<span class="p">)</span>
+<span class="nb">set</span> <span class="n">SOURCEDIR</span><span class="o">=</span><span class="n">source</span>
+<span class="nb">set</span> <span class="n">BUILDDIR</span><span class="o">=</span><span class="n">build</span>
+<span class="nb">set</span> <span class="n">SPHINXOPTS</span><span class="o">=-</span><span class="n">j</span> <span class="n">auto</span> <span class="o">-</span><span class="n">W</span> <span class="o">--</span><span class="n">keep</span><span class="o">-</span><span class="n">going</span>
+
+<span class="k">if</span> <span class="s2">&quot;%1&quot;</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="n">goto</span> <span class="n">help</span>
+<span class="k">if</span> <span class="s2">&quot;%1&quot;</span> <span class="o">==</span> <span class="s2">&quot;clean&quot;</span> <span class="n">goto</span> <span class="n">clean</span>
+<span class="k">if</span> <span class="s2">&quot;%1&quot;</span> <span class="o">==</span> <span class="s2">&quot;pdf&quot;</span> <span class="n">goto</span> <span class="n">pdf</span>
+
+<span class="o">%</span><span class="n">SPHINXBUILD</span><span class="o">%</span> <span class="o">&gt;</span><span class="n">NUL</span> <span class="mi">2</span><span class="o">&gt;</span><span class="n">NUL</span>
+<span class="k">if</span> <span class="n">errorlevel</span> <span class="mi">9009</span> <span class="p">(</span>
+	<span class="n">echo</span><span class="o">.</span>
+	<span class="n">echo</span><span class="o">.</span><span class="n">The</span> <span class="s1">&#39;sphinx-build&#39;</span> <span class="n">command</span> <span class="n">was</span> <span class="ow">not</span> <span class="n">found</span><span class="o">.</span> <span class="n">Make</span> <span class="n">sure</span> <span class="n">you</span> <span class="n">have</span> <span class="n">Sphinx</span>
+	<span class="n">echo</span><span class="o">.</span><span class="n">installed</span><span class="p">,</span> <span class="n">then</span> <span class="nb">set</span> <span class="n">the</span> <span class="n">SPHINXBUILD</span> <span class="n">environment</span> <span class="n">variable</span> <span class="n">to</span> <span class="n">point</span>
+	<span class="n">echo</span><span class="o">.</span><span class="n">to</span> <span class="n">the</span> <span class="n">full</span> <span class="n">path</span> <span class="n">of</span> <span class="n">the</span> <span class="s1">&#39;sphinx-build&#39;</span> <span class="n">executable</span><span class="o">.</span> <span class="n">Alternatively</span> <span class="n">you</span>
+	<span class="n">echo</span><span class="o">.</span><span class="n">may</span> <span class="n">add</span> <span class="n">the</span> <span class="n">Sphinx</span> <span class="n">directory</span> <span class="n">to</span> <span class="n">PATH</span><span class="o">.</span>
+	<span class="n">echo</span><span class="o">.</span>
+	<span class="n">echo</span><span class="o">.</span><span class="n">If</span> <span class="n">you</span> <span class="n">don</span><span class="s1">&#39;t have Sphinx installed, grab it from</span>
+	<span class="n">echo</span><span class="o">.</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">sphinx</span><span class="o">-</span><span class="n">doc</span><span class="o">.</span><span class="n">org</span><span class="o">/</span>
+	<span class="n">exit</span> <span class="o">/</span><span class="n">b</span> <span class="mi">1</span>
+<span class="p">)</span>
+
+<span class="o">%</span><span class="n">SPHINXBUILD</span><span class="o">%</span> <span class="o">-</span><span class="n">M</span> <span class="o">%</span><span class="mi">1</span> <span class="o">%</span><span class="n">SOURCEDIR</span><span class="o">%</span> <span class="o">%</span><span class="n">BUILDDIR</span><span class="o">%</span> <span class="o">%</span><span class="n">SPHINXOPTS</span><span class="o">%</span> <span class="o">%</span><span class="n">O</span><span class="o">%</span>
+<span class="n">goto</span> <span class="n">end</span>
+
+<span class="p">:</span><span class="n">help</span>
+<span class="o">%</span><span class="n">SPHINXBUILD</span><span class="o">%</span> <span class="o">-</span><span class="n">M</span> <span class="n">help</span> <span class="o">%</span><span class="n">SOURCEDIR</span><span class="o">%</span> <span class="o">%</span><span class="n">BUILDDIR</span><span class="o">%</span> <span class="o">%</span><span class="n">SPHINXOPTS</span><span class="o">%</span> <span class="o">%</span><span class="n">O</span><span class="o">%</span>
+
+<span class="p">:</span><span class="n">clean</span>
+<span class="n">rmdir</span> <span class="o">/</span><span class="n">s</span> <span class="o">/</span><span class="n">q</span> <span class="o">%</span><span class="n">BUILDDIR</span><span class="o">%</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">NUL</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span> 
+<span class="k">for</span> <span class="o">/</span><span class="n">d</span> <span class="o">/</span><span class="n">r</span> <span class="o">%</span><span class="n">SOURCEDIR</span><span class="o">%</span> <span class="o">%%</span><span class="n">d</span> <span class="ow">in</span> <span class="p">(</span><span class="n">_autosummary</span><span class="p">)</span> <span class="n">do</span> <span class="nd">@if</span> <span class="n">exist</span> <span class="s2">&quot;</span><span class="si">%%</span><span class="s2">d&quot;</span> <span class="n">rmdir</span> <span class="o">/</span><span class="n">s</span> <span class="o">/</span><span class="n">q</span> <span class="s2">&quot;</span><span class="si">%%</span><span class="s2">d&quot;</span>
+<span class="n">goto</span> <span class="n">end</span>
+
+<span class="p">:</span><span class="n">pdf</span>
+	<span class="o">%</span><span class="n">SPHINXBUILD</span><span class="o">%</span> <span class="o">-</span><span class="n">M</span> <span class="n">latex</span> <span class="o">%</span><span class="n">SOURCEDIR</span><span class="o">%</span> <span class="o">%</span><span class="n">BUILDDIR</span><span class="o">%</span> <span class="o">%</span><span class="n">SPHINXOPTS</span><span class="o">%</span> <span class="o">%</span><span class="n">O</span><span class="o">%</span>
+	<span class="n">cd</span> <span class="s2">&quot;%BUILDDIR%\latex&quot;</span>
+	<span class="k">for</span> <span class="o">%%</span><span class="n">f</span> <span class="ow">in</span> <span class="p">(</span><span class="o">*.</span><span class="n">tex</span><span class="p">)</span> <span class="n">do</span> <span class="p">(</span>
+	<span class="n">pdflatex</span> <span class="s2">&quot;</span><span class="si">%%</span><span class="s2">f&quot;</span> <span class="o">--</span><span class="n">interaction</span><span class="o">=</span><span class="n">nonstopmode</span><span class="p">)</span>
+	
+<span class="p">:</span><span class="n">end</span>
+<span class="n">popd</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-conf-py-file">The <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automation-files">Automation files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-for-makefile">Example for <code class="docutils literal notranslate"><span class="pre">Makefile</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-for-make-bat">Example for <code class="docutils literal notranslate"><span class="pre">make.bat</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item"> 
+<div class="tocsection editthispage">
+  <a href="https://github.com/pyansys/dev-guide/edit/main/doc/source/doc-style/doc-configuration.rst">
+    <i class="fa-solid fa-pencil"></i>
+       Edit
+    on GitHub  
+  </a>
+</div>
+
+</div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <ul class="this-page-menu">
+      <li><a href="../_sources/doc-style/doc-configuration.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <!-- Include desired assets -->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.7/require.min.js"></script>
+
+<script>
+// Passing the search options to the search.js file
+const SEARCH_OPTIONS = JSON.parse('{"ignoreLocation": true, "keys": ["title", "text", "objectID"], "limit": 10, "min_chars_for_search": 2, "threshold": 0.5}');
+const SEARCH_FILE = "../_static/search.json";
+const ADVANCE_SEARCH_PATH = "../search.html";
+const EXTRA_SOURCES = JSON.parse('""');
+</script>
+
+
+<script src="../_static/js/search.js"></script>
+
+  
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright (c) 2026 ANSYS, Inc. All rights reserved.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the
+  <a href="https://sphinxdocs.ansys.com/version/stable/index.html"
+    >Ansys Sphinx Theme</a
+  >
+  1.6.4. <br />Last updated on
+  <span id="ast_build_date"></span>
+</p>
+<script>
+  var options = { day: "numeric", month: "long", year: "numeric" };
+  var ast_lastModifiedDate = new Date(document.lastModified);
+  var ast_build_date = ast_lastModifiedDate.toLocaleDateString("en-US", options);
+  document.getElementById("ast_build_date").innerHTML = ast_build_date;
+</script></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

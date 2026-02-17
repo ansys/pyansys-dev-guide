@@ -1,0 +1,1674 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Documenting &#8212; PyAnsys developer&#39;s guide</title>
+  
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/ansys-sphinx-theme.css?v=9e79609d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/ansys-sphinx-theme.css?v=9e79609d" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.nerdfonts.com/assets/css/webfont.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+  <!-- Include desired assets -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  
+
+  
+    <link href="../_static/css/breadcrumbs.css" rel="stylesheet" />
+  
+    <script src="../_static/documentation_options.js?v=92d7cc4e"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'how-to/documenting';</script>
+    <link rel="icon" href="../_static/ansys-favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Testing" href="testing.html" />
+    <link rel="prev" title="Logging" href="logging.html" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="2026-02-17" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="https://docs.pyansys.com/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/pyansys_logo_transparent_black.png" class="logo__image only-light" alt="PyAnsys developer's guide - Home"/>
+    <img src="../_static/pyansys_logo_transparent_white.png" class="logo__image only-dark pst-js-only" alt="PyAnsys developer's guide - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html" title="PyAnsys developer's guide home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../content-writing/index.html">
+    Content writing
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+      
+        <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+  
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html" title="PyAnsys developer's guide home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../content-writing/index.html">
+    Content writing
+  </a>
+</li>
+
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="setting-up.html">Environment setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supporting-python-versions.html">Python versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packaging.html">Packaging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpc-api-packages.html">gRPC API packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">Logging</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Documenting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releasing.html">Releasing and publishing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repository-protection.html">Repository protection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns-configuration.html">DNS configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compatibility.html">Product compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vulnerabilities.html">Vulnerabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deprecating.html">Deprecating a library</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+         
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="https://docs.pyansys.com/" class="nav-link">PyAnsys</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a
+        href="../index.html"
+        class="nav-link"
+        aria-label="Home"
+      >
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="index.html" class="nav-link">How-to</a>
+    </li>
+      
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Documenting</span></li>
+    
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="documenting">
+<span id="documenting-developers"></span><h1>Documenting<a class="headerlink" href="#documenting" title="Link to this heading">#</a></h1>
+<p>PyAnsys documentation must not only be written but also maintained. If you are
+contributing to PyAnsys documentation, see the <a class="reference external" href="https://developers.google.com/style">Google developer documentation style guide</a>, which provides the general guidelines that you are to follow.
+This page supplies guidance specific to PyAnsys documentation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For comprehensive information on contributing new content or revising existing
+content, see <a class="reference internal" href="../content-writing/index.html#content-writing"><span class="std std-ref">Content writing</span></a>.</p>
+</div>
+<p>When writing developer documentation, the relationship between code and
+documentation is key. To keep documentation up to date with evolving
+code, always perform these tasks:</p>
+<ul class="simple">
+<li><p>Minimize the content footprint.</p></li>
+<li><p>Write <a class="reference external" href="https://developers.google.com/style/timeless-documentation">timeless documentation</a>.</p></li>
+<li><p>Support contributions from both inside and outside of the development team.</p></li>
+<li><p>Perform periodic reviews.</p></li>
+</ul>
+<section id="understand-documentation-sources">
+<h2>Understand documentation sources<a class="headerlink" href="#understand-documentation-sources" title="Link to this heading">#</a></h2>
+<p>The generation of PyAnsys documentation uses <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a> and the <a class="reference external" href="https://github.com/ansys/ansys-sphinx-theme">Ansys-branded Sphinx theme</a>.</p>
+<div align="center">
+  <img width="30%" src="https://www.sphinx-doc.org/en/master/_static/sphinx-logo.svg">
+</div><p>Sphinx assembles content from these sources:</p>
+<ul class="simple">
+<li><p>Docstrings in Python (PY) files</p></li>
+<li><p>reStructuredText (RST) files</p></li>
+<li><p>Examples in PY or IPYNB files</p></li>
+</ul>
+<section id="docstrings">
+<h3>Docstrings<a class="headerlink" href="#docstrings" title="Link to this heading">#</a></h3>
+<p>You must format docstrings in PY files so that Sphinx can parse them. Sphinx provides
+these extensions for docstring formatting:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pypi.org/project/numpydoc/">numpydoc extension</a></p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/sphinxcontrib-napoleon/">napoleon extension</a></p></li>
+</ul>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">numpydoc</span></code> extension is preferred because it supports an API
+documentation structure with one page per method, providing Python community
+members with documentation like that generated for the
+<a class="reference external" href="https://numpy.org/">NumPy</a> and <a class="reference external" href="https://pandas.pydata.org/">pandas</a> packages.</p>
+<p>If your API is very linear, you can use the <code class="docutils literal notranslate"><span class="pre">napoleon</span></code> extension because it supports
+a documentation structure where everything needed to solve a certain problem can be
+shown on one page.</p>
+<ul class="simple">
+<li><p>The <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/index.html">numpydoc manual</a> explains how to use the <code class="docutils literal notranslate"><span class="pre">numpydoc</span></code> extension with
+Sphinx and includes a <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">style guide</a>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">napoleon</span></code> extension, which parses both numpydoc and Google style docstrings, refers
+you to the <a class="reference external" href="https://google.github.io/styleguide/pyguide.html">Google Python Style Guide</a>.</p></li>
+</ul>
+<p>Regardless of the extension that you choose for generating documentation from docstrings,
+using numpydoc-style docstrings ensures that there is consistency within PyAnsys libraries.
+For more information, see <a class="reference internal" href="../doc-style/index.html#documentation-style"><span class="std std-ref">Documentation style</span></a>.</p>
+</section>
+<section id="restructuredtext-files">
+<span id="rst-files-developers"></span><h3>reStructuredText files<a class="headerlink" href="#restructuredtext-files" title="Link to this heading">#</a></h3>
+<p>To provide general usage information in your documentation, use your favorite
+editor to create reStructuredText (RST) files that you then place in
+<a class="reference internal" href="../packaging/structure.html#the-doc-directory"><span class="std std-ref">The doc directory</span></a>. The <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> file in the <code class="docutils literal notranslate"><span class="pre">doc/source</span></code> directory
+defines the first level of your documentation hierarchy. The <code class="docutils literal notranslate"><span class="pre">toctree</span></code>
+directive (which stands for “table of contents tree”) indicates the maximum
+number of heading levels that the documentation is to display in the right navigation
+pane.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A directive is a generic block of explicit markup that sets off a specific block
+of text. For more information, see <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html">Directives</a> in the
+Sphinx documentation.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">toctree</span></code> directive also specifies the locations of the RST files for building
+each section of your documentation.</p>
+<figure class="align-default" id="id3">
+<span id="proposed-doc-layout"></span><div class="graphviz"><img src="../_images/graphviz-4159a8394319cd763fd773c484a6b8c03ec0ddcb.png" alt="Hierarchical structure for PyAnsys library documentation." class="graphviz" /></div>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Hierarchical structure for PyAnsys library documentation.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>As shown in the preceding figure, each documentation section has its own <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> file.
+However, to optimize web searches of the generated HTML documentation, the names of the
+index files for sections should be short and descriptive, containing keywords and using
+hyphens (<code class="docutils literal notranslate"><span class="pre">-</span></code>) as word separators. For more information, see <a class="reference internal" href="#seo"><span class="std std-ref">Optimize web searches</span></a>.</p>
+<p>Here is an example of the hierarchical structure for RST files. The main index files is
+named <code class="docutils literal notranslate"><span class="pre">index.rst</span></code>, and the index files for the documentation sections are named <code class="docutils literal notranslate"><span class="pre">intro.rst</span></code>.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+index.rst</label><div class="sd-tab-content docutils">
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">Welcome to the library documentation</span>
+<span class="gh">####################################</span>
+
+This is the content of the root <span class="nv">`index.rst`</span> file.
+
+<span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+
+    section-A/intro
+    section-B/intro
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+section-A/intro.rst</label><div class="sd-tab-content docutils">
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">Section A</span>
+<span class="gh">#########</span>
+
+This is the content of the <span class="nv">`section-A/intro.rst`</span> file.
+
+<span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+
+    page-1
+    page-2
+<span class="c">    ...</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+section-B/intro.rst</label><div class="sd-tab-content docutils">
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">Section B</span>
+<span class="gh">#########</span>
+
+This is the content of the <span class="nv">`section-B/intro.rst`</span> file.
+
+<span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+
+    section_B_subsection
+<span class="c">    ...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>While you do not include the <code class="docutils literal notranslate"><span class="pre">.rst</span></code> extension when defining the section
+structure in the <code class="docutils literal notranslate"><span class="pre">toctree</span></code> directive, the index file referenced for each
+section should have a short descriptive name.</p>
+<p>After you build documentation locally as described in <a class="reference internal" href="#build-documentation"><span class="std std-ref">Build documentation</span></a>, the first-level heading in the index file for each
+section is shown as a clickable link in the documentation’s title bar.
+For more information on defining the documentation structure, see <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/quickstart.html">Getting Started</a> in the Sphinx
+documentation.</p>
+<section id="titles-and-headings-in-rst-files">
+<h4>Titles and headings in RST files<a class="headerlink" href="#titles-and-headings-in-rst-files" title="Link to this heading">#</a></h4>
+<p>As indicated in <a class="reference external" href="https://developers.google.com/style/capitalization">Capitalization</a>
+in the <em>Google developer documentation style guide</em>, titles and headings are to be in
+sentence case. In RST files, the line that follows a title or heading is a
+string of characters of the same length as the heading or title. If the length
+of the characters is less than the length of the title or heading, Sphinx generates
+a warning.</p>
+<p>For consistency within PyAnsys libraries, the use of these special characters
+is recommended but not enforced:</p>
+<ul class="simple">
+<li><p>For section-level headings, use <code class="docutils literal notranslate"><span class="pre">###</span></code>.</p></li>
+<li><p>For subsection-level headings, use <code class="docutils literal notranslate"><span class="pre">===</span></code>.</p></li>
+<li><p>For subsubsection-level headings, use <code class="docutils literal notranslate"><span class="pre">---</span></code>.</p></li>
+<li><p>For subsubsubsection-level headings, use <code class="docutils literal notranslate"><span class="pre">~~~</span></code>.</p></li>
+<li><p>For paragraph-level headings, use <code class="docutils literal notranslate"><span class="pre">+++</span></code>.</p></li>
+</ul>
+<p>For comprehensive syntax information, see the <a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html">reStrucutredText Markup Specification</a>.</p>
+<p>Because you must be familiar with the content in this guide before contributing to
+a PyAnsys library, explore its pages and then look at the RST files in the repository’s
+<code class="docutils literal notranslate"><span class="pre">doc/source</span></code> directory. This should help you to understand the syntax and see how RST
+files are nested to create the structure of this guide.</p>
+</section>
+<section id="recommended-sections">
+<h4>Recommended sections<a class="headerlink" href="#recommended-sections" title="Link to this heading">#</a></h4>
+<p>Although each PyAnsys library is different, its documentation has the same goal, which
+is to provide instructions and guidelines for users. Thus, you can find some common sections
+across the documentation for many PyAnsys libraries. Try to include these top-level
+sections in your library’s documentation:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Getting</span> <span class="pre">started</span></code>: Explains how to install and set up the library.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">User</span> <span class="pre">guide</span></code>: Describes how to use basic features of the library.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">API</span> <span class="pre">reference</span></code> Documents API resources provided by the library.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Examples</span></code>: Provides fully fledged examples for using the library.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Contribute</span></code>: Refers to the <em>PyAnsys developer’s guide</em>
+for overall guidance and then provides library-specific contribution information.</p></li>
+</ul>
+<p>For comprehensive information on writing content, see <a class="reference internal" href="../content-writing/index.html#content-writing"><span class="std std-ref">Content writing</span></a>.</p>
+</section>
+</section>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h3>
+<p>Examples come in two formats:</p>
+<ul class="simple">
+<li><p>Basic code snippets demonstrating features</p></li>
+<li><p>Full-fledged standalone examples that are meant to be run as downloadable scripts</p></li>
+</ul>
+<p>Place basic code snippets in RST files in the <code class="docutils literal notranslate"><span class="pre">doc/source</span></code> directory.
+Place full-fledged standalone examples in the <code class="docutils literal notranslate"><span class="pre">examples</span></code> directory,
+which is at the root of the repository. All of these examples must be compliant
+with <a class="reference internal" href="../coding-style/pep8.html#pep-8"><span class="std std-ref">PEP 8</span></a>. They are compiled dynamically during the build process.
+Always ensure that your examples run properly locally because they are
+verified through the CI performed by GitHub Actions.</p>
+<p>Adding a new standalone example consists of placing it in an applicable
+subdirectory in the <code class="docutils literal notranslate"><span class="pre">examples</span></code> directory. If none of the existing directories
+match the category of your example, create a subdirectory with a
+<code class="docutils literal notranslate"><span class="pre">README.txt</span></code> file describing the new category</p>
+<p>Here is an example of what the structure for a PyAnsys library typically looks like:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.
+├── doc
+│   ├── conf.py
+│   ├── index.rst
+|   ├── make.bat
+│   └── Makefile
+├── my_python_module
+│   ├── __init__.py
+│   └── mod.py
+└── examples
+    ├── plot_example.py
+    ├── example.py
+    └── README.txt (or .rst)
+</pre></div>
+</div>
+<p>In the Sphinx configuration file (<code class="docutils literal notranslate"><span class="pre">doc/conf.py</span></code>), enable the <a class="reference external" href="https://sphinx-gallery.github.io/stable/index.html">Sphinx-Gallery</a> extension:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">...</span>
+    <span class="s1">&#39;sphinx_gallery.gen_gallery&#39;</span><span class="p">,</span>
+    <span class="p">]</span>
+</pre></div>
+</div>
+<p>The following configuration declares the location of the <code class="docutils literal notranslate"><span class="pre">examples</span></code> directory
+to be <code class="docutils literal notranslate"><span class="pre">../examples</span></code> and the <code class="docutils literal notranslate"><span class="pre">output</span></code> directory to be <code class="docutils literal notranslate"><span class="pre">examples</span></code>:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx_gallery_conf</span> <span class="o">=</span> <span class="p">{</span>
+ <span class="s1">&#39;examples_dirs&#39;</span><span class="p">:</span> <span class="s1">&#39;../examples&#39;</span><span class="p">,</span>   <span class="c1"># path to your example scripts</span>
+ <span class="s1">&#39;gallery_dirs&#39;</span><span class="p">:</span> <span class="s1">&#39;examples&#39;</span><span class="p">,</span>  <span class="c1"># path where the gallery generated outputs are to be saved</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Because these examples are built using Sphinx-Gallery, you must follow its coding guidelines.</p>
+<p><a class="reference internal" href="../examples/index.html#general-example"><span class="std std-ref">General example</span></a> uses Python and Sphinx-Gallery.</p>
+<section id="generate-documentation-without-examples">
+<h4>Generate documentation without examples<a class="headerlink" href="#generate-documentation-without-examples" title="Link to this heading">#</a></h4>
+<p>The documentation for some PyAnsys repositories is built using Sphinx-Gallery and
+includes examples generated with the assistance of Ansys products.
+Building documentation locally is time consuming in these cases,
+particularly if you need to test changes only in the documentation excluding the examples.</p>
+<p>To generate documentation without examples, use command <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html-noplot</span></code> with
+appropriate changes in <code class="docutils literal notranslate"><span class="pre">make.bat</span></code> and <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> as mentioned below.
+Refer <a class="reference external" href="https://sphinx-gallery.github.io/stable/configuration.html#building-without-executing-examples">sphinx-gallery documentation</a>.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-3">
+Makefile</label><div class="sd-tab-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>html-noplot:
+<span class="w">  </span><span class="k">$(</span>SPHINXBUILD<span class="k">)</span><span class="w"> </span>-D<span class="w"> </span><span class="nv">plot_gallery</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>-b<span class="w"> </span>html<span class="w"> </span><span class="k">$(</span>SPHINXOPTS<span class="k">)</span><span class="w"> </span><span class="k">$(</span>SOURCEDIR<span class="k">)</span><span class="w"> </span><span class="k">$(</span>BUILDDIR<span class="k">)</span>/html
+<span class="w">  </span>@echo
+<span class="w">  </span>@echo<span class="w"> </span><span class="s2">&quot;Build finished. The HTML pages are in </span><span class="k">$(</span>BUILDDIR<span class="k">)</span><span class="s2">/html.&quot;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-4" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-4">
+make.bat</label><div class="sd-tab-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>:html-noplot
+%SPHINXBUILD%<span class="w"> </span>-D<span class="w"> </span><span class="nv">plot_gallery</span><span class="o">=</span><span class="m">0</span><span class="w"> </span>-b<span class="w"> </span>html<span class="w"> </span>%SOURCEDIR%<span class="w"> </span>%BUILDDIR%/html<span class="w"> </span>%SPHINXOPTS%<span class="w"> </span>%O%
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alternatively, you can modify <code class="docutils literal notranslate"><span class="pre">sphinx_gallery_conf</span></code> in <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> as shown below</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx_gallery_conf</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="o">...</span>
+  <span class="s1">&#39;plot_gallery&#39;</span><span class="p">:</span> <span class="s1">&#39;False&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="generate-documentation-from-docstrings">
+<h2>Generate documentation from docstrings<a class="headerlink" href="#generate-documentation-from-docstrings" title="Link to this heading">#</a></h2>
+<p>You can use the native <code class="docutils literal notranslate"><span class="pre">sphinx.ext.autodoc</span></code> extension to generate documentation from the
+docstrings in your Python files. When using this extension, you can include these directives
+in your RST files:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">automodule</span></code>: For documenting modules</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">autoclass</span></code>: For documenting classes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">autofunction</span></code>: For documenting methods and functions</p></li>
+</ul>
+<p>For a full list of <code class="docutils literal notranslate"><span class="pre">auto</span></code> directives, see <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html">Include documentation from docstrings</a> in the Sphinx
+documentation.</p>
+<section id="document-classes">
+<h3>Document classes<a class="headerlink" href="#document-classes" title="Link to this heading">#</a></h3>
+<p>There are two main ways of using Sphinx to document a class:</p>
+<ul class="simple">
+<li><p>Manually describe <em>why</em> and <em>how</em> you use a class in RST files.</p></li>
+<li><p>Automatically generate documentation for classes using the <code class="docutils literal notranslate"><span class="pre">autoclass</span></code> or
+<code class="docutils literal notranslate"><span class="pre">autosummary</span></code> directive in RST files.</p></li>
+</ul>
+<section id="manually-generate-documentation">
+<h4>Manually generate documentation<a class="headerlink" href="#manually-generate-documentation" title="Link to this heading">#</a></h4>
+<p>To describe <em>why</em> and <em>how</em> to use a class in RST files, use the
+<code class="docutils literal notranslate"><span class="pre">code-block</span></code> directive:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-5">
+Documentation surce code</label><div class="sd-tab-content docutils">
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>Initialize <span class="s">``my_module.MyClass``</span> with initial parameters. These
+parameters are automatically assigned to the class.
+
+<span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> <span class="k">pycon</span>
+
+   <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">my_module</span><span class="w"> </span><span class="kn">import</span> <span class="n">MyClass</span>
+   <span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">(</span><span class="n">parm1</span><span class="o">=</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="n">parm2</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">)</span>
+   <span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span><span class="o">.</span><span class="n">parm1</span>
+   <span class="go">&#39;apple&#39;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-6" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-6">
+Rendered documentation</label><div class="sd-tab-content docutils">
+<p>Initialize <code class="docutils literal notranslate"><span class="pre">my_module.MyClass</span></code> with initial parameters. These
+parameters are automatically assigned to the class.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">my_module</span><span class="w"> </span><span class="kn">import</span> <span class="n">MyClass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">(</span><span class="n">parm1</span><span class="o">=</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="n">parm2</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_obj</span><span class="o">.</span><span class="n">parm1</span>
+<span class="go">&#39;apple&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="automatically-generate-documentation">
+<h4>Automatically generate documentation<a class="headerlink" href="#automatically-generate-documentation" title="Link to this heading">#</a></h4>
+<p>To automatically generate class descriptions from the numpydoc strings in
+your Python files, use either the <code class="docutils literal notranslate"><span class="pre">autoclass</span></code> or <code class="docutils literal notranslate"><span class="pre">autosummary</span></code> directive
+in your RST files. For information on docstrings and required docstring
+sections, see <a class="reference internal" href="../doc-style/docstrings.html#numpydoc-docstrings"><span class="std std-ref">Numpydoc docstrings</span></a>.</p>
+<p>For simple classes, use the <code class="docutils literal notranslate"><span class="pre">autoclass</span></code> directive:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-7">
+Documentation source code</label><div class="sd-tab-content docutils">
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">autoclass</span><span class="p">::</span> ansys_sphinx_theme.examples.samples.ExampleClass
+   <span class="nc">:members:</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-8" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-8">
+Rendered documentation</label><div class="sd-tab-content docutils">
+<dl class="py class">
+<dt class="sig sig-object py" id="ansys_sphinx_theme.examples.samples.ExampleClass">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ansys_sphinx_theme.examples.samples.</span></span><span class="sig-name descname"><span class="pre">ExampleClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param3</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ansys_sphinx_theme.examples.samples.ExampleClass" title="Link to this definition">#</a></dt>
+<dd><p>The summary line for a class docstring should fit on one line.</p>
+<p>Attributes should be documented inline with the attribute’s
+declaration.</p>
+<p>Properties created with the <code class="docutils literal notranslate"><span class="pre">&#64;property</span></code> decorator should be
+documented in the property’s getter method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>param1</strong> (<a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – Description of <cite>param1</cite>.</p></li>
+<li><p><strong>param2</strong> (<a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#list" title="(in Python v3.15)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#str" title="(in Python v3.15)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>) – Description of <cite>param2</cite>. Multiple
+lines are supported.</p></li>
+<li><p><strong>param3</strong> (<a class="reference external" href="https://docs.python.org/dev/library/functions.html#int" title="(in Python v3.15)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>, optional) – Description of <cite>param3</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>An example of how to initialize this class should be given.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ansys_sphinx_theme</span><span class="w"> </span><span class="kn">import</span> <span class="n">samples</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">example</span> <span class="o">=</span> <span class="n">samples</span><span class="o">.</span><span class="n">ExampleClass</span><span class="p">(</span><span class="s2">&quot;mystr&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="ansys_sphinx_theme.examples.samples.ExampleClass.example_method">
+<span class="sig-name descname"><span class="pre">example_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ansys_sphinx_theme.examples.samples.ExampleClass.example_method" title="Link to this definition">#</a></dt>
+<dd><p>Class methods are similar to regular functions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>param1</strong> (<a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – The first parameter.</p></li>
+<li><p><strong>param2</strong> (<a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – The second parameter.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if successful, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/dev/library/functions.html#bool" title="(in Python v3.15)">bool</a></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Do not include the <code class="docutils literal notranslate"><span class="pre">self</span></code> parameter in the <code class="docutils literal notranslate"><span class="pre">Parameters</span></code> section.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">example_method</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ansys_sphinx_theme.examples.samples.ExampleClass.readonly_property">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">readonly_property</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#str" title="(in Python v3.15)"><span class="pre">str</span></a></em><a class="headerlink" href="#ansys_sphinx_theme.examples.samples.ExampleClass.readonly_property" title="Link to this definition">#</a></dt>
+<dd><p>Properties should be documented in their getter method.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">readonly_property</span>
+<span class="go">&quot;readonly_property&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ansys_sphinx_theme.examples.samples.ExampleClass.readwrite_property">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">readwrite_property</span></span><a class="headerlink" href="#ansys_sphinx_theme.examples.samples.ExampleClass.readwrite_property" title="Link to this definition">#</a></dt>
+<dd><p>Set or return the readwrite property.</p>
+<p>Properties with both a getter and setter should only be documented in
+their getter method.</p>
+<p>If the setter method contains notable behavior, it should be mentioned
+here.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">readwrite_property</span>
+<span class="go">&quot;readwrite_property&quot;</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">readwrite_property</span> <span class="o">=</span> <span class="s2">&quot;hello world&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">example</span><span class="o">.</span><span class="n">readwrite_property</span>
+<span class="go">&#39;hello world&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<p>For complex classes with many methods, use the <code class="docutils literal notranslate"><span class="pre">autosummary</span></code> directive:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-9" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-9">
+Documentation source code</label><div class="sd-tab-content docutils">
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">autoclass</span><span class="p">::</span> ansys_sphinx_theme.examples.samples.Complex
+
+<span class="p">..</span> <span class="ow">autosummary</span><span class="p">::</span>
+   <span class="nc">:toctree:</span> api/
+
+   ansys_sphinx_theme.examples.samples.Complex.real
+   ansys_sphinx_theme.examples.samples.Complex.imag
+   ansys_sphinx_theme.examples.samples.Complex.abs
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-10" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-10">
+Rendered documentation</label><div class="sd-tab-content docutils">
+<dl class="py class">
+<dt class="sig sig-object py" id="ansys_sphinx_theme.examples.samples.Complex">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ansys_sphinx_theme.examples.samples.</span></span><span class="sig-name descname"><span class="pre">Complex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">real</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">imag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ansys_sphinx_theme.examples.samples.Complex" title="Link to this definition">#</a></dt>
+<dd><p>Custom implementation of a complex number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>real</strong> (<a class="reference external" href="https://docs.python.org/dev/library/functions.html#float" title="(in Python v3.15)"><em>float</em></a>) – Real component of the complex number.</p></li>
+<li><p><strong>imag</strong> (<a class="reference external" href="https://docs.python.org/dev/library/functions.html#float" title="(in Python v3.15)"><em>float</em></a><em>, </em><em>optional</em>) – Imaginary component of the complex number.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_num</span> <span class="o">=</span> <span class="n">Complex</span><span class="p">(</span><span class="n">real</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">imag</span><span class="o">=-</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_num</span>
+<span class="go">(1.0 + 1.0j)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ansys_sphinx_theme.examples.samples.Complex.real</span></code></p></td>
+<td><p>Real component of this complex number.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ansys_sphinx_theme.examples.samples.Complex.imag</span></code></p></td>
+<td><p>Real component of this complex number.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ansys_sphinx_theme.examples.samples.Complex.abs</span></code></p></td>
+<td><p>Return the absolute value of this number.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>When you use the <code class="docutils literal notranslate"><span class="pre">autosummary</span></code> directive, each class has its own dedicated page.
+Each method and attribute in that class also has its own page.</p>
+</section>
+<section id="document-multiple-classes">
+<h4>Document multiple classes<a class="headerlink" href="#document-multiple-classes" title="Link to this heading">#</a></h4>
+<p>To document a set of small but highly cohesive classes, you can combine
+the two preceding approaches. To accomplish this, you include multiple
+<code class="docutils literal notranslate"><span class="pre">autoclass</span></code> directives in the same RST file with headings and text blocks as
+necessary to describe the relationships between the classes.</p>
+<p>For example, the Granta MI BoM Analytics library uses this combined approach:
+<a class="reference external" href="https://bomanalytics.grantami.docs.pyansys.com/version/stable/api/compliance/parts.html" title="(in ansys-grantami-bomanalytics v2.3.1)"><span class="xref std std-doc">Part compliance</span></a>
+first describes the
+<a class="reference external" href="https://bomanalytics.grantami.docs.pyansys.com/version/stable/api/compliance/parts.html#ansys.grantami.bomanalytics.queries.PartComplianceQuery" title="(in ansys-grantami-bomanalytics v2.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">PartComplianceQuery</span></code></a>
+class. It then describes the
+<a class="reference external" href="https://bomanalytics.grantami.docs.pyansys.com/version/stable/api/compliance/parts.html#ansys.grantami.bomanalytics._query_results.PartComplianceQueryResult" title="(in ansys-grantami-bomanalytics v2.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">PartComplianceQueryResult</span></code></a>
+and
+<a class="reference external" href="https://bomanalytics.grantami.docs.pyansys.com/version/stable/api/compliance/parts.html#ansys.grantami.bomanalytics._item_results.PartWithComplianceResult" title="(in ansys-grantami-bomanalytics v2.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">PartWithComplianceResult</span></code></a>
+classes returned by the query. Because the classes are only ever
+encountered together in this context, they are documented on a
+single page.</p>
+<p>In contrast, the
+<a class="reference external" href="https://bomanalytics.grantami.docs.pyansys.com/version/stable/api/compliance/indicators.html#ansys.grantami.bomanalytics.indicators.RoHSIndicator" title="(in ansys-grantami-bomanalytics v2.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">RoHSIndicator</span></code></a>
+and
+<a class="reference external" href="https://bomanalytics.grantami.docs.pyansys.com/version/stable/api/compliance/indicators.html#ansys.grantami.bomanalytics.indicators.WatchListIndicator" title="(in ansys-grantami-bomanalytics v2.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">WatchListIndicator</span></code></a>
+classes are shared across multiple queries. Consequently, these classes are
+documented separately.</p>
+</section>
+</section>
+</section>
+<section id="build-documentation">
+<h2>Build documentation<a class="headerlink" href="#build-documentation" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a> is used to build the documentation. You configure the entire build process in
+<a class="reference internal" href="../doc-style/doc-configuration.html#the-conf-py-file"><span class="std std-ref">The conf.py file</span></a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">doc</span></code> directory contains a <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> file and a <code class="docutils literal notranslate"><span class="pre">make.bat</span></code> file for
+automating the building process. Different builders render different
+documentation output, such as <code class="docutils literal notranslate"><span class="pre">HTML</span></code> and <code class="docutils literal notranslate"><span class="pre">PDF</span></code>.</p>
+<section id="build-html-documentation">
+<h3>Build HTML documentation<a class="headerlink" href="#build-html-documentation" title="Link to this heading">#</a></h3>
+<p>You can build HTML documentation locally with the command for your OS. On macOS
+or Linux, you use <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>. On Windows, you use the <code class="docutils literal notranslate"><span class="pre">make.bat</span></code> file.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-11" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-11">
+Makefile</label><div class="sd-tab-content docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>html
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-12" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-12">
+make.bat</label><div class="sd-tab-content docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make.bat<span class="w"> </span>html
+</pre></div>
+</div>
+</div>
+</div>
+<p>The resulting HTML files are created in the <code class="docutils literal notranslate"><span class="pre">doc/_build/html</span></code> directory.</p>
+<p>To view the HTML documentation in your browser, navigate to this directory
+and double-click the <code class="docutils literal notranslate"><span class="pre">index.html</span></code> file.</p>
+</section>
+<section id="build-pdf-documentation">
+<h3>Build PDF documentation<a class="headerlink" href="#build-pdf-documentation" title="Link to this heading">#</a></h3>
+<p>To build PDF documentation locally, you must add the following rules to
+the <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> and <code class="docutils literal notranslate"><span class="pre">make.bat</span></code> files:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-13" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-13">
+Makefile</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.PHONY: pdf
+
+pdf:
+        @$(SPHINXBUILD) -M latex &quot;$(SOURCEDIR)&quot; &quot;$(BUILDDIR)&quot; $(SPHINXOPTS) $(O)
+        cd $(BUILDDIR)/latex &amp;&amp; latexmk -r latexmkrc -pdf *.tex -interaction=nonstopmode || true
+        (test -f $(BUILDDIR)/latex/*.pdf &amp;&amp; echo pdf exists) || exit 1
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-14" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-14">
+make.bat</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>:PHONY pdf
+
+:pdf
+        %SPHINXBUILD% -M latex %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+        cd &quot;%BUILDDIR%\latex&quot;
+        pdflatex \*.tex --interaction=nonstopmode
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can then build the PDF documentation locally with the command for your OS:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-15" name="sd-tab-set-7" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-15">
+Makefile</label><div class="sd-tab-content docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>pdf
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-16" name="sd-tab-set-7" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-16">
+make.bat</label><div class="sd-tab-content docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make.bat<span class="w"> </span>pdf
+</pre></div>
+</div>
+</div>
+</div>
+<p>The resulting PDF and intermediate LaTeX files are created in the
+<code class="docutils literal notranslate"><span class="pre">doc/_build/latex</span></code> directory.</p>
+<div class="admonition-always-verify-the-content-of-your-pdf-file admonition">
+<p class="admonition-title">Always verify the content of your PDF file.</p>
+<p>Because warnings and errors that occur during the LaTeX building and rendering
+processes are ignored, it is possible that the PDF file has text formatting errors.</p>
+</div>
+</section>
+</section>
+<section id="enable-multi-version-documentation">
+<span id="multi-version-enabling"></span><h2>Enable multi-version documentation<a class="headerlink" href="#enable-multi-version-documentation" title="Link to this heading">#</a></h2>
+<p>When your library has multi-version documentation enabled, the right side of the
+documentation’s title bar displays a drop-down button for switching between documentation
+versions. With this button, you can switch from viewing the documentation for the latest
+stable version to the documentation for the development version or a previously
+released version.</p>
+<p>To take advantage of multi-version documentation, your library must use
+<a class="reference external" href="https://actions.docs.ansys.com/version/stable/index.html">ansys/actions&#64;v4</a> or
+later and be configured based on its level of maturity.</p>
+<section id="upgrade-to-ansys-actions-v4-or-later">
+<h3>Upgrade to <code class="docutils literal notranslate"><span class="pre">ansys/actions&#64;v4</span></code> or later<a class="headerlink" href="#upgrade-to-ansys-actions-v4-or-later" title="Link to this heading">#</a></h3>
+<p>If your library uses an Ansys action earlier than <code class="docutils literal notranslate"><span class="pre">ansys/actions&#64;v4</span></code>, upgrade
+to a later version:</p>
+<ol class="arabic">
+<li><p>Update all your continuous integration YML files to use <code class="docutils literal notranslate"><span class="pre">ansys/actions&#64;v4</span></code> or later.</p></li>
+<li><p>Make sure that the <code class="docutils literal notranslate"><span class="pre">&quot;json_url&quot;</span></code> key points to <code class="docutils literal notranslate"><span class="pre">f&quot;https://{cname}/versions.json&quot;</span></code>.</p>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">release/</span></code> substring is dropped.</p>
+</li>
+<li><p>Apply the previous steps as fix patches in all versions that you want to include
+in your multi-version documentation.</p></li>
+</ol>
+</section>
+<section id="configure-multi-version-documentation">
+<h3>Configure multi-version documentation<a class="headerlink" href="#configure-multi-version-documentation" title="Link to this heading">#</a></h3>
+<p>Once your library uses <code class="docutils literal notranslate"><span class="pre">ansys/actions&#64;v4</span></code> or later, configure multi-version
+documentation:</p>
+<ol class="arabic">
+<li><p>Ensure that you are using <a class="reference external" href="https://github.com/ansys/ansys-sphinx-theme">Ansys Sphinx Theme</a> version 0.8
+or later for building your library’s documentation.</p></li>
+<li><p>Include the following lines in <a class="reference internal" href="../doc-style/doc-configuration.html#the-conf-py-file"><span class="std std-ref">The conf.py file</span></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">ansys_sphinx_theme</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_version_match</span>
+
+
+<span class="n">cname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;DOCUMENTATION_CNAME&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;DEFAULT_CNAME&gt;&quot;</span><span class="p">)</span>
+<span class="sd">&quot;&quot;&quot;Canonical name (CNAME) of the webpage hosting the documentation.&quot;&quot;&quot;</span>
+
+<span class="n">html_theme_options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;switcher&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;json_url&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;https://</span><span class="si">{</span><span class="n">cname</span><span class="si">}</span><span class="s2">/versions.json&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;version_match&quot;</span><span class="p">:</span> <span class="n">get_version_match</span><span class="p">(</span><span class="n">__version__</span><span class="p">),</span>
+    <span class="p">},</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition-about-the-documentation-cname-environment-variable admonition">
+<p class="admonition-title">About the <code class="docutils literal notranslate"><span class="pre">DOCUMENTATION_CNAME</span></code> environment variable</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">DOCUMENTATION_CNAME</span></code> environment variable is expected to be
+declared in the YML file controlling the deployment of the documentation.
+The idea is that the canonical name is only defined in a single
+place, so it can be easily changed if required.</p>
+</div>
+</li>
+<li><p>Enable documentation deployment for development and stable versions. For more
+information, see <a class="reference internal" href="#deploy-documentation"><span class="std std-ref">Deploy documentation</span></a>.</p></li>
+</ol>
+<p>Once multi-version documentation is configured, its use is automated. Every time you
+release a new version, a link to the documentation for this version is added to the
+drop-down button.</p>
+<div class="admonition-controlling-the-number-of-versions-shown-in-the-drop-down-button admonition">
+<p class="admonition-title">Controlling the number of versions shown in the drop-down button</p>
+<p>The documentation drop-down button displays the development version and
+last three stable versions by default. To have the button display more
+versions, use the <code class="docutils literal notranslate"><span class="pre">render-last</span></code> variable in the
+<a class="reference external" href="https://actions.docs.ansys.com/version/stable/doc-actions/index.html#doc-deploy-stable-action">ansys/actions/doc-deploy-stable action</a>.</p>
+</div>
+<p>If you require support for enabling multi-version documentation, email the
+<a class="reference external" href="mailto:pyansys&#46;core&#37;&#52;&#48;ansys&#46;com">PyAnsy Core team</a>.</p>
+</section>
+</section>
+<section id="deploy-documentation">
+<h2>Deploy documentation<a class="headerlink" href="#deploy-documentation" title="Link to this heading">#</a></h2>
+<p>PyAnsys libraries use <a class="reference external" href="https://github.com/features/actions">GitHub Actions</a> to deploy their documentation online to
+<a class="reference external" href="https://pages.github.com/">GitHub Pages</a>. This documentation is hosted on the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch of the
+library’s repository. Documentation deployment is done by uploading the
+HTML documentation artifact to the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch of the library’s repository.
+For more information, see <a class="reference external" href="https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site">Creating a GitHub Pages site</a>
+in the GitHub documentation.</p>
+<p>To automatically deploy both development and stable documentation, add the
+<code class="docutils literal notranslate"><span class="pre">doc-deploy-dev</span></code> and <code class="docutils literal notranslate"><span class="pre">doc-deploy-stable</span></code> jobs to the <code class="docutils literal notranslate"><span class="pre">ci_cd.yml</span></code> file in
+the <code class="docutils literal notranslate"><span class="pre">.github/workflows</span></code> directory:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">env</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">DOCUMENTATION_CNAME</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&lt;library&gt;.docs.pyansys.com&#39;</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+
+<span class="w">    </span><span class="c1"># Artifacts for HTML documentation need to be generated before</span>
+<span class="w">    </span><span class="c1"># executing the deployment jobs</span>
+
+<span class="w">    </span><span class="nt">doc-deploy-dev</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Deploy</span><span class="nv"> </span><span class="s">development</span><span class="nv"> </span><span class="s">documentation&quot;</span>
+<span class="w">      </span><span class="c1"># Deploy development only when merging or pushing to the &#39;main&#39; branch</span>
+<span class="w">      </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.event_name == &#39;push&#39; &amp;&amp; !contains(github.ref, &#39;refs/tags&#39;)</span>
+<span class="w">      </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">      </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build-library</span>
+<span class="w">      </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansys/actions/doc-deploy-dev@v6</span>
+<span class="w">          </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">doc-artifact-name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&lt;html-artifact-name&gt;&#39;</span>
+<span class="w">            </span><span class="nt">cname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ env.DOCUMENTATION_CNAME }}</span>
+<span class="w">            </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span>
+
+<span class="w">    </span><span class="nt">doc-deploy-stable</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Deploy</span><span class="nv"> </span><span class="s">stable</span><span class="nv"> </span><span class="s">documentation&quot;</span>
+<span class="w">      </span><span class="c1"># Deploy release documentation when creating a new tag</span>
+<span class="w">      </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.event_name == &#39;push&#39; &amp;&amp; contains(github.ref, &#39;refs/tags&#39;)</span>
+<span class="w">      </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">      </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">release</span>
+<span class="w">      </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansys/actions/doc-deploy-stable@v6</span>
+<span class="w">          </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">doc-artifact-name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&lt;html-artifact-name&gt;&#39;</span>
+<span class="w">            </span><span class="nt">cname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ env.DOCUMENTATION_CNAME }}</span>
+<span class="w">            </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span>
+</pre></div>
+</div>
+<section id="deploy-to-another-repository">
+<h3>Deploy to another repository<a class="headerlink" href="#deploy-to-another-repository" title="Link to this heading">#</a></h3>
+<p>If you are planning to deploy documentation to a repository other than the one
+for your library, make sure that you create this repository before deploying your
+documentation for the first time.</p>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">secrets.GITHUB_TOKEN</span> <span class="pre">}}</span></code> token when deploying to another repository is
+not possible due to the level of credentials of this token. Instead, use the
+secrets generated by the PyAnsy Bot app.</p>
+<p>For deploying the documentation to another repository, use this workflow:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">env</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">DOCUMENTATION_CNAME</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&lt;library&gt;.docs.pyansys.com&#39;</span>
+<span class="w">  </span><span class="nt">DOCUMENTATION_REPOSITORY</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&lt;organization-name&gt;/&lt;repository-name&gt;&#39;</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+
+<span class="w">    </span><span class="c1"># Artifacts for HTML documentation need to be generated before</span>
+<span class="w">    </span><span class="c1"># executing the deployment jobs</span>
+
+<span class="w">    </span><span class="nt">generate-token</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Generate</span><span class="nv"> </span><span class="s">deployment</span><span class="nv"> </span><span class="s">token&quot;</span>
+<span class="w">      </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">get_workflow_token</span>
+<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">peter-murray/workflow-application-token-action@v1</span>
+<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">application_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.BOT_APPLICATION_ID }}</span>
+<span class="w">        </span><span class="nt">application_private_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.BOT_APPLICATION_PRIVATE_KEY }}</span>
+
+<span class="w">    </span><span class="nt">doc-deploy-dev</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Deploy</span><span class="nv"> </span><span class="s">development</span><span class="nv"> </span><span class="s">documentation&quot;</span>
+<span class="w">      </span><span class="c1"># Deploy development only when merging or pushing to the &#39;main&#39; branch</span>
+<span class="w">      </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.event_name == &#39;push&#39; &amp;&amp; !contains(github.ref, &#39;refs/tags&#39;)</span>
+<span class="w">      </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">      </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build-library</span>
+<span class="w">      </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansys/actions/doc-deploy-dev@v6</span>
+<span class="w">          </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">doc-artifact-name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&lt;html-artifact-name&gt;&#39;</span>
+<span class="w">            </span><span class="nt">cname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ env.DOCUMENTATION_CNAME }}</span>
+<span class="w">            </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ steps.get_workflow_token.outputs.token }}</span>
+<span class="w">            </span><span class="nt">external-repository</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ env.DOCUMENTATION_REPOSITORY }}</span>
+
+<span class="w">    </span><span class="nt">doc-deploy-stable</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Deploy</span><span class="nv"> </span><span class="s">stable</span><span class="nv"> </span><span class="s">documentation&quot;</span>
+<span class="w">      </span><span class="c1"># Deploy release documentation when creating a new tag</span>
+<span class="w">      </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.event_name == &#39;push&#39; &amp;&amp; contains(github.ref, &#39;refs/tags&#39;)</span>
+<span class="w">      </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">      </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">release</span>
+<span class="w">      </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansys/actions/doc-deploy-stable@v6</span>
+<span class="w">          </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">doc-artifact-name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&lt;html-artifact-name&gt;&#39;</span>
+<span class="w">            </span><span class="nt">cname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ env.DOCUMENTATION_CNAME }}</span>
+<span class="w">            </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ steps.get_workflow_token.outputs.token }}</span>
+<span class="w">            </span><span class="nt">external-repository</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ env.DOCUMENTATION_REPOSITORY }}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="access-online-documentation">
+<h2>Access online documentation<a class="headerlink" href="#access-online-documentation" title="Link to this heading">#</a></h2>
+<p>Documentation for the latest stable release of a PyAnsys library is accessible
+from its repository. The canonical name for the documentation is constructed
+using this structure:</p>
+<p><code class="docutils literal notranslate"><span class="pre">https://&lt;product&gt;.docs.pyansys.com</span></code></p>
+<p>If a library does not have multi-version documentation enabled, you can generally
+access the latest development version of the documentation by adding <code class="docutils literal notranslate"><span class="pre">dev</span></code> to
+the URL:</p>
+<p><code class="docutils literal notranslate"><span class="pre">https://&lt;product&gt;.docs.pyansys.com/dev</span></code></p>
+<p>However, most libraries do have multi-version documentation enabled, which
+means that stable and development versions are collected under the same website.</p>
+<p>For example, consider the PyAEDT documentation: On the right side of the title bar
+for its documentation, you use the drop-down button to select the version of the
+documentation.</p>
+<ul class="simple">
+<li><p>The URL for documentation of the latest stable version is <a class="reference external" href="https://aedt.docs.pyansys.com/version/stable/index.html">https://aedt.docs.pyansys.com/version/stable/index.html</a>.</p></li>
+<li><p>The URL for documentation of the latest development version is <a class="reference external" href="https://aedt.docs.pyansys.com/version/dev/index.html">https://aedt.docs.pyansys.com/version/dev/index.html</a>.</p></li>
+</ul>
+<p>Ansys actions are GitHub Actions for automatically keeping the latest development versions
+of both the library and its documentation up to date.</p>
+<p>To make documentation changes, you create a branch with a name that begins with
+a prefix of <code class="docutils literal notranslate"><span class="pre">doc/</span></code> that is then followed by a short description of what you
+are changing. For more information, see <a class="reference internal" href="releasing.html#branching-model"><span class="std std-ref">Branching model</span></a>.</p>
+<p>As you are making changes in this branch, you want to periodically generate the
+documentation locally so that you can test your changes before you create a
+GitHub pull request. For more information, see <a class="reference internal" href="#build-documentation"><span class="std std-ref">Build documentation</span></a>.</p>
+</section>
+<section id="optimize-web-searches">
+<span id="seo"></span><h2>Optimize web searches<a class="headerlink" href="#optimize-web-searches" title="Link to this heading">#</a></h2>
+<p>It’s important that web searches rank PyAnsys documentation pages high in organic
+search results. The PyAnsys Core team has identified some challenges in regard to
+search engine optimization (SE0):</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">robots.txt</span></code> file in the root directory of your documentation website
+blocks Google and other search engines from crawling some pages. This file tells
+web robots about the structure of the documentation website.</p></li>
+<li><p>Missing canonical tags result in duplicate pages being found.</p></li>
+<li><p>For multi-version documentation, redirection from the base <code class="docutils literal notranslate"><span class="pre">index.html</span></code> file
+to the <code class="docutils literal notranslate"><span class="pre">version/stable/index.html</span></code> file causes problems.</p></li>
+</ul>
+<p>To resolve these SEO challenges, upgrade your documentation deployment actions to
+<code class="docutils literal notranslate"><span class="pre">doc-deploy-stable&#64;v6</span></code> and <code class="docutils literal notranslate"><span class="pre">doc-deploy-dev&#64;v6</span></code> or higher.</p>
+<p>Here’s how using the latest <code class="docutils literal notranslate"><span class="pre">doc-deploy</span></code> actions automatically address these SEO challenges:</p>
+<ul>
+<li><p>They generate a corrected <code class="docutils literal notranslate"><span class="pre">robots.txt</span></code> that allows Google and other search engines
+to crawl all your documentation pages.</p></li>
+<li><p>They add <code class="docutils literal notranslate"><span class="pre">rel=&quot;canonical&quot;</span></code> tags, which are HTML elements, in the head sections of HTML pages.
+A canonical tag prevents duplicate content issues by specifying the preferred (canonical) URL
+for a group of pages that have the same or very similar content. Search engines use the canonical
+tag to determine the best representation of a page. Here is an example of a conical tag:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;link</span> <span class="pre">rel=&quot;canonical&quot;</span> <span class="pre">href=&quot;http://www.example.com/&quot;&gt;</span></code></p>
+</li>
+<li><p>They copy <code class="docutils literal notranslate"><span class="pre">gh-pages/version/stable/index.html</span></code> to <code class="docutils literal notranslate"><span class="pre">gh-pages/index.html</span></code> and prepend
+local references with <code class="docutils literal notranslate"><span class="pre">version/stable/</span></code>, which eliminates the need for redirection.</p></li>
+</ul>
+<section id="seo-tips">
+<h3>SEO tips<a class="headerlink" href="#seo-tips" title="Link to this heading">#</a></h3>
+<p>Here are additional SEO tips for ensuring that Google and other search engines rank
+your documentation pages higher in search results:</p>
+<ul>
+<li><p>Avoid having <code class="docutils literal notranslate"><span class="pre">index.html</span></code> pages (except for the main one for your documentation).</p>
+<p>Sphinx, which renders files named <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> into pages named <code class="docutils literal notranslate"><span class="pre">index.html</span></code>, always
+generates absolute links. For example, the absolute link for <code class="docutils literal notranslate"><span class="pre">page/index.rst</span></code> is
+<code class="docutils literal notranslate"><span class="pre">page/index.html</span></code>. Google prefers links to pages that do not end with <code class="docutils literal notranslate"><span class="pre">index.html</span></code>.</p>
+</li>
+<li><p>Use lowercase for names of directories and files and separate words with hyphens.</p>
+<p>While these naming conventions might be difficult to achieve for auto-generated files
+matching the names of classes, following these naming guidelines when possible makes
+file searches easier and search results more useful. For comprehensive information, see
+<a class="reference external" href="https://developers.google.com/style/filenames">Filenames and file types</a> in the
+<em>Google developer documentation style guide</em>.</p>
+</li>
+<li><p>Use short filenames containing keywords.</p>
+<p>Avoid Ansys-specific words in filenames. Use a keyword generator like <a class="reference external" href="https://ahrefs.com/keyword-generator">ahrefs</a>
+to find relevant keywords that potential users who are searching for information are
+likely to use.</p>
+</li>
+</ul>
+</section>
+<section id="seo-naming-examples">
+<h3>SEO naming examples<a class="headerlink" href="#seo-naming-examples" title="Link to this heading">#</a></h3>
+<p>This table shows how to use the preceding tips to rename example files. While the source files for examples
+are generally Python (PY) or Jupyter Notebook (IPYNB) files, Sphinx converts them to reStructuredText (RST)
+files for inclusion in the documentation.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Not recommended</p></th>
+<th class="head" colspan="2"><p>Recommended</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>examples/hohmann-transfer-using-targeter.rst</p></td>
+<td colspan="2"><p>examples-hohmann-transfer-{orbit,calculator}.rst</p></td>
+</tr>
+<tr class="row-odd"><td><p>examples/00-mapdl-examples/transient_thermal.py</p></td>
+<td colspan="2"><p>examples-transient-thermal-{analysis,simulation}.py</p></td>
+</tr>
+<tr class="row-even"><td><p>examples/02-HFSS/HFSS_Spiral.py</p></td>
+<td colspan="2"><p>examples-design-and-simulation-of-spiral-inductors.py</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If you have questions about SEO, email the <a class="reference external" href="mailto:pyansys&#46;core&#37;&#52;&#48;ansys&#46;com">PyAnsys Core team</a>.</p>
+</section>
+</section>
+<section id="facilitating-contributions-in-the-form-of-examples">
+<h2>Facilitating contributions in the form of examples<a class="headerlink" href="#facilitating-contributions-in-the-form-of-examples" title="Link to this heading">#</a></h2>
+<p>A common challenge in libraries is the lack of examples. Examples are
+critical for users to understand how to use the library and present new
+functionality. They also serve as a mechanism to educate users on best practices.</p>
+<p>To encourage contributions of examples, it is important to provide a clear
+structure for contributors to follow. The build process should also be straightforward.</p>
+<p>Three best practices for examples are:</p>
+<ul class="simple">
+<li><p><strong>Providing a template</strong>: Ensures that contributors follow a consistent structure and
+simplifies the process of getting started. The template should include all necessary
+information, such as the name of the example, a description, and the code itself.</p></li>
+<li><p><strong>Verifying the example</strong>: Ensures that the example works as expected and helps catch
+errors before submission. The verification process should involve running the example
+and checking the output. If the example fails, it should be easy to identify and fix the issue.</p></li>
+<li><p><strong>Making the example usable in multiple contexts</strong>: Ensures that the example can be
+usable by a user reading the documentation, an application engineer using the library
+through a notebook, or a developer including the example to the documentation.</p></li>
+</ul>
+<section id="providing-a-template">
+<h3>Providing a template<a class="headerlink" href="#providing-a-template" title="Link to this heading">#</a></h3>
+<p>Here are examples of how to promote the use of templates for examples:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://geometry.docs.pyansys.com/version/stable/examples/99_misc/template.html">PyAnsys Geometry examples template</a></p></li>
+<li><p><a class="reference external" href="https://prime.docs.pyansys.com/version/stable/examples/gallery_examples/misc/example_template.html#sphx-glr-examples-gallery-examples-misc-example-template-py">PyPrimeMesh examples template</a></p></li>
+</ul>
+<p>These templates are also referenced in the contributing guidelines:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://geometry.docs.pyansys.com/version/stable/contributing.html#adding-examples">PyAnsys Geometry example contribution guidelines</a></p></li>
+</ul>
+</section>
+<section id="verifying-examples">
+<h3>Verifying examples<a class="headerlink" href="#verifying-examples" title="Link to this heading">#</a></h3>
+<p>The verification process depends on the library and the tools used for generating the examples.
+Within the PyAnsys ecosystem, Sphinx Gallery and NBSphinx are commonly used to generate examples,
+with slightly different build processes for each library.</p>
+<p>The following approach can be applied across libraries:</p>
+<ul class="simple">
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> target that runs a specific example.</p></li>
+</ul>
+<p>This target is used to execute the example and check the output. Only one example is build in this
+case, making it very useful for documentation builds that last very long. If the example fails,
+it should be straightforward to identify and resolve the issue. For instance, PyAnsys Geometry
+includes a <code class="docutils literal notranslate"><span class="pre">make</span></code> target for this purpose:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./make.bat single-example examples/01_getting_started/01_math.mystnb</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">make single-example examples/01_getting_started/01_math.mystnb</span>
+</pre></div>
+</div>
+<p>The pull request introducing this feature is: <a class="reference external" href="https://github.com/ansys/pyansys-geometry/pull/1893">PyAnsys Geometry PR #1893</a>
+This implementation is specific to NB Sphinx, but the concept of creating a target to run a specific
+example and verify its output can be adapted to other libraries.</p>
+</section>
+<section id="making-the-example-usable-in-multiple-contexts">
+<h3>Making the example usable in multiple contexts<a class="headerlink" href="#making-the-example-usable-in-multiple-contexts" title="Link to this heading">#</a></h3>
+<p>A core objective when designing examples is to ensure they can be used seamlessly across multiple
+contexts: whether it is by end users exploring them interactively, by documentation tools rendering
+them for the web, or by engineers verifying their correctness and updating them. Achieving this
+flexibility requires a careful balance between accessibility, structure, and maintainability.</p>
+<p>A recommended approach to support this goal is to author and maintain examples as plain
+Python scripts, but using <a class="reference external" href="https://jupytext.readthedocs.io/en/latest/">Jupytext</a> to treat those
+scripts as notebooks when needed. Formatting your examples using the
+<a class="reference external" href="https://jupytext.readthedocs.io/en/latest/formats-scripts.html#the-light-format">Jupytext light format</a>
+makes them fully compatible with JupyterLab, where they can be opened, edited, and
+executed just like traditional notebooks - all without needing a IPYNB file. Here is an example
+of a Jupytext light format script:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># # Dipole antenna</span>
+<span class="c1">#</span>
+<span class="c1"># Keywords: **HFSS**, **antenna**, **3D component**, **far field**.</span>
+<span class="c1">#</span>
+<span class="c1"># ## Prerequisites</span>
+<span class="c1">#</span>
+<span class="c1"># ### Perform imports</span>
+<span class="c1">#</span>
+<span class="c1"># Import the packages required to run this example.</span>
+
+<span class="c1"># +</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tempfile</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">ansys.aedt.core</span><span class="w"> </span><span class="kn">import</span> <span class="n">Hfss</span>
+
+<span class="c1"># -</span>
+
+<span class="c1"># ### Define constants</span>
+<span class="c1"># Constants help ensure consistency and avoid repetition throughout the example.</span>
+
+<span class="n">AEDT_VERSION</span> <span class="o">=</span> <span class="s2">&quot;2025.1&quot;</span>
+<span class="n">NUM_CORES</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">NG_MODE</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># Open AEDT UI when it is launched.</span>
+</pre></div>
+</div>
+<p>Here are examples of PyAnsys projects using this approach:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ansys/pyaedt-examples">PyAEDT examples repository</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ansys/pyspeos">PySpeos repository</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#understand-documentation-sources">Understand documentation sources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docstrings">Docstrings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#restructuredtext-files">reStructuredText files</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#titles-and-headings-in-rst-files">Titles and headings in RST files</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-sections">Recommended sections</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-documentation-without-examples">Generate documentation without examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-documentation-from-docstrings">Generate documentation from docstrings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-classes">Document classes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#manually-generate-documentation">Manually generate documentation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#automatically-generate-documentation">Automatically generate documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ansys_sphinx_theme.examples.samples.ExampleClass"><code class="docutils literal notranslate"><span class="pre">ExampleClass</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#ansys_sphinx_theme.examples.samples.ExampleClass.example_method"><code class="docutils literal notranslate"><span class="pre">ExampleClass.example_method()</span></code></a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#ansys_sphinx_theme.examples.samples.ExampleClass.readonly_property"><code class="docutils literal notranslate"><span class="pre">ExampleClass.readonly_property</span></code></a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#ansys_sphinx_theme.examples.samples.ExampleClass.readwrite_property"><code class="docutils literal notranslate"><span class="pre">ExampleClass.readwrite_property</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ansys_sphinx_theme.examples.samples.Complex"><code class="docutils literal notranslate"><span class="pre">Complex</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#document-multiple-classes">Document multiple classes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-documentation">Build documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-html-documentation">Build HTML documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-pdf-documentation">Build PDF documentation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-multi-version-documentation">Enable multi-version documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upgrade-to-ansys-actions-v4-or-later">Upgrade to <code class="docutils literal notranslate"><span class="pre">ansys/actions@v4</span></code> or later</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-multi-version-documentation">Configure multi-version documentation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deploy-documentation">Deploy documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deploy-to-another-repository">Deploy to another repository</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#access-online-documentation">Access online documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize-web-searches">Optimize web searches</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seo-tips">SEO tips</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#seo-naming-examples">SEO naming examples</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#facilitating-contributions-in-the-form-of-examples">Facilitating contributions in the form of examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#providing-a-template">Providing a template</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verifying-examples">Verifying examples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-the-example-usable-in-multiple-contexts">Making the example usable in multiple contexts</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item"> 
+<div class="tocsection editthispage">
+  <a href="https://github.com/pyansys/dev-guide/edit/main/doc/source/how-to/documenting.rst">
+    <i class="fa-solid fa-pencil"></i>
+       Edit
+    on GitHub  
+  </a>
+</div>
+
+</div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <ul class="this-page-menu">
+      <li><a href="../_sources/how-to/documenting.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <!-- Include desired assets -->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.7/require.min.js"></script>
+
+<script>
+// Passing the search options to the search.js file
+const SEARCH_OPTIONS = JSON.parse('{"ignoreLocation": true, "keys": ["title", "text", "objectID"], "limit": 10, "min_chars_for_search": 2, "threshold": 0.5}');
+const SEARCH_FILE = "../_static/search.json";
+const ADVANCE_SEARCH_PATH = "../search.html";
+const EXTRA_SOURCES = JSON.parse('""');
+</script>
+
+
+<script src="../_static/js/search.js"></script>
+
+  
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright (c) 2026 ANSYS, Inc. All rights reserved.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the
+  <a href="https://sphinxdocs.ansys.com/version/stable/index.html"
+    >Ansys Sphinx Theme</a
+  >
+  1.6.4. <br />Last updated on
+  <span id="ast_build_date"></span>
+</p>
+<script>
+  var options = { day: "numeric", month: "long", year: "numeric" };
+  var ast_lastModifiedDate = new Date(document.lastModified);
+  var ast_build_date = ast_lastModifiedDate.toLocaleDateString("en-US", options);
+  document.getElementById("ast_build_date").innerHTML = ast_build_date;
+</script></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

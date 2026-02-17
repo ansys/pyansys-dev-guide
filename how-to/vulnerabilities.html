@@ -1,0 +1,1505 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Vulnerabilities &#8212; PyAnsys developer&#39;s guide</title>
+  
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/ansys-sphinx-theme.css?v=9e79609d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/ansys-sphinx-theme.css?v=9e79609d" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.nerdfonts.com/assets/css/webfont.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+  <!-- Include desired assets -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  
+
+  
+    <link href="../_static/css/breadcrumbs.css" rel="stylesheet" />
+  
+    <script src="../_static/documentation_options.js?v=92d7cc4e"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'how-to/vulnerabilities';</script>
+    <link rel="icon" href="../_static/ansys-favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Deprecating a library" href="deprecating.html" />
+    <link rel="prev" title="Product compatibility" href="compatibility.html" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="2026-02-17" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="https://docs.pyansys.com/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/pyansys_logo_transparent_black.png" class="logo__image only-light" alt="PyAnsys developer's guide - Home"/>
+    <img src="../_static/pyansys_logo_transparent_white.png" class="logo__image only-dark pst-js-only" alt="PyAnsys developer's guide - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html" title="PyAnsys developer's guide home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../content-writing/index.html">
+    Content writing
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+      
+        <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+  
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html" title="PyAnsys developer's guide home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../content-writing/index.html">
+    Content writing
+  </a>
+</li>
+
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="setting-up.html">Environment setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supporting-python-versions.html">Python versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packaging.html">Packaging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpc-api-packages.html">gRPC API packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documenting.html">Documenting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releasing.html">Releasing and publishing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repository-protection.html">Repository protection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns-configuration.html">DNS configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compatibility.html">Product compatibility</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Vulnerabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deprecating.html">Deprecating a library</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+         
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="https://docs.pyansys.com/" class="nav-link">PyAnsys</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a
+        href="../index.html"
+        class="nav-link"
+        aria-label="Home"
+      >
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="index.html" class="nav-link">How-to</a>
+    </li>
+      
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Vulnerabilities</span></li>
+    
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="vulnerabilities">
+<h1><a class="toc-backref" href="#id3" role="doc-backlink">Vulnerabilities</a><a class="headerlink" href="#vulnerabilities" title="Link to this heading">#</a></h1>
+<nav class="contents" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#vulnerabilities" id="id3">Vulnerabilities</a></p>
+<ul>
+<li><p><a class="reference internal" href="#vulnerability-sources" id="id4">Vulnerability sources</a></p></li>
+<li><p><a class="reference internal" href="#vulnerability-discovery-and-tracking" id="id5">Vulnerability discovery and tracking</a></p></li>
+<li><p><a class="reference internal" href="#vulnerability-remediation-and-reporting" id="id6">Vulnerability remediation and reporting</a></p></li>
+<li><p><a class="reference internal" href="#vulnerability-disclosure" id="id7">Vulnerability disclosure</a></p></li>
+<li><p><a class="reference internal" href="#ensuring-compliance-across-the-pyansys-ecosystem" id="id8">Ensuring compliance across the PyAnsys ecosystem</a></p></li>
+<li><p><a class="reference internal" href="#addressing-common-vulnerabilities-in-python-libraries-and-applications" id="id9">Addressing common vulnerabilities in Python libraries and applications</a></p>
+<ul>
+<li><p><a class="reference internal" href="#ignore-bandit-warnings" id="id10">Ignore Bandit warnings</a></p>
+<ul>
+<li><p><a class="reference internal" href="#in-line-comment" id="id11">In-line comment</a></p></li>
+<li><p><a class="reference internal" href="#security-considerations-file" id="id12">Security considerations file</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#addressing-common-vulnerabilities-in-github-actions" id="id13">Addressing common vulnerabilities in Github Actions</a></p>
+<ul>
+<li><p><a class="reference internal" href="#auditing-ci-cd-setups-in-the-pyansys-ecosystem" id="id14">Auditing CI/CD setups in the PyAnsys ecosystem</a></p></li>
+<li><p><a class="reference internal" href="#fixing-common-issues-detected-by-zizmor" id="id15">Fixing common issues detected by <code class="docutils literal notranslate"><span class="pre">zizmor</span></code></a></p></li>
+<li><p><a class="reference internal" href="#ignoring-zizmor-findings" id="id16">Ignoring <code class="docutils literal notranslate"><span class="pre">zizmor</span></code> findings</a></p>
+<ul>
+<li><p><a class="reference internal" href="#one-off-comments" id="id17">One-off comments</a></p></li>
+<li><p><a class="reference internal" href="#zizmor-yml-configuration-file" id="id18"><code class="docutils literal notranslate"><span class="pre">zizmor.yml</span></code> configuration file</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>Vulnerabilities refer to potential security flaws or weaknesses in PyAnsys packages.
+Here are some examples of common vulnerabilities:</p>
+<ul class="simple">
+<li><p>Insufficient input validation or insecure handling of file paths leading to unauthorized access</p></li>
+<li><p>Insecure code and command injection into the app</p></li>
+<li><p>Remote code execution due to deserialization of untrusted code</p></li>
+<li><p>Disclosure of sensitive information due to weak exception handling</p></li>
+</ul>
+<section id="vulnerability-sources">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Vulnerability sources</a><a class="headerlink" href="#vulnerability-sources" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Vulnerabilities from PyAnsys library code</strong>: Maintainers are responsible for deciding whether
+to address vulnerabilities. The priority of vulnerabilities can be escalated internally if they
+represent a roadblock for usage. The Ansys business unit in charge of the project should handle
+vulnerabilities on a case-by-case basis.</p></li>
+<li><p><strong>Vulnerabilities from external package dependencies</strong>: When vulnerabilities exist in external
+packages used by PyAnsys libraries, such as NumPy or Matplotlib, Ansys should not address these
+vulnerabilities directly. Instead, raise an issue on the open source repository, pointing out
+the vulnerability and linking the applicable <a class="reference external" href="https://www.cve.org/">CVE</a>. At most, be mindful of deprecated packages
+and functions because they may not receive security patches and might introduce vulnerabilities
+into your codebase.</p></li>
+</ul>
+</section>
+<section id="vulnerability-discovery-and-tracking">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Vulnerability discovery and tracking</a><a class="headerlink" href="#vulnerability-discovery-and-tracking" title="Link to this heading">#</a></h2>
+<p>Leverage available security tools like dependency scanners or static analyzers (such as PyUp,
+Safety, or Bandit) to automatically detect and remediate security vulnerabilities in Python
+packages and dependencies.</p>
+<p>The PyAnsys ecosystem has implemented automated mechanisms to track and report vulnerabilities
+in the codebase. These tools are intended to be integrated into the CI/CD workflow of the
+repositories.</p>
+<p>The PyAnsys Core team has come up with a GitHub Action that can be used to automatically check
+for vulnerabilities in the codebase. This action is based on the following tools:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pyup.io/safety/">Safety</a> : Checks installed dependencies for known security vulnerabilities.</p></li>
+<li><p><a class="reference external" href="https://bandit.readthedocs.io/en/latest/">Bandit</a>: Attempts to find common security issues in Python code.</p></li>
+</ul>
+<p>Safety addresses external dependencies, while Bandit focuses on the codebase itself. Both tools
+have been integrated into the <code class="docutils literal notranslate"><span class="pre">ansys/actions/check-vulnerabilities</span></code> action.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The tools selected for the action are not definitive. The action can be modified to include
+other tools or to use different versions of the tools in the future.</p>
+</div>
+<p>For third-party packages, the PyAnsys Core team has listed a set of excluded advisories so that
+the action does not fail. This is done to avoid false positives and to ensure that the action does
+not block the CI/CD pipeline unnecessarily. You can find the list of excluded advisories in
+<a class="reference external" href="https://actions.docs.ansys.com/version/stable/vulnerability-actions/index.html#check-vulnerabilities-action">the check-vulnerabilities action documentation</a>.</p>
+<p>For potential vulnerabilities in the codebase, repositories can configure Bandit to ignore
+specific advisories. This can be due to the code not being ready yet to be fixed or that the
+advisory is not relevant to the codebase. However, it is important to note that ignoring
+advisories should be done with caution, and developers should be aware of the potential risks
+involved. Furthermore, repository maintainers should document the reasons for ignoring advisories
+and ensure that they are regularly reviewed to determine if they can be addressed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An example on how to document the ignored advisories can be found in the <a class="reference external" href="https://acp.docs.pyansys.com/version/dev/user_guide/security_considerations.html">PyACP security
+considerations</a> documentation page. This should be taken as a reference for documenting ignored
+advisories in other repositories.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Testing the action locally before enabling it in the CI/CD workflow is recommended. Information
+on how to do this can be found in <a class="reference external" href="https://actions.docs.ansys.com/version/stable/vulnerability-actions/index.html#check-vulnerabilities-action">the check-vulnerabilities action documentation</a>.</p>
+</div>
+</section>
+<section id="vulnerability-remediation-and-reporting">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Vulnerability remediation and reporting</a><a class="headerlink" href="#vulnerability-remediation-and-reporting" title="Link to this heading">#</a></h2>
+<p>When a vulnerability is detected, the action fails and reports the vulnerabilities found in the
+codebase. Following that, these vulnerabilities are reported as draft security advisories in the
+repository’s <strong>Security</strong> tab. Maintainers are then responsible for reviewing the advisories and
+deciding whether to address them or not. These advisories are monitored by the PyAnsys Core team
+and are escalated internally if they represent a roadblock for usage.</p>
+<p>Repositories should also have a process in place to handle vulnerabilities that are reported by
+users or other developers. For that purpose, a <code class="docutils literal notranslate"><span class="pre">SECURITY.md</span></code> file should be created in the root
+of the repository. This file should contain information on how to report vulnerabilities and the
+process for handling them.</p>
+<p>Here is an example of a <code class="docutils literal notranslate"><span class="pre">SECURITY.md</span></code> file:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gu">## Reporting a vulnerability</span>
+
+<span class="k">&gt; </span><span class="ge">[!CAUTION]</span>
+<span class="k">&gt; </span><span class="ge">Do not use GitHub issues to report any security vulnerabilities.</span>
+
+If you detect a vulnerability, contact the [<span class="nt">PyAnsys Core team</span>](<span class="na">mailto:pyansys.core@ansys.com</span>),
+mentioning the repository and the details of your finding. The team will address it as soon as possible.
+
+Provide the PyAnsys Core team with this information:
+
+<span class="k">-</span><span class="w"> </span>Any specific configuration settings needed to reproduce the problem
+<span class="k">-</span><span class="w"> </span>Step-by-step guidance to reproduce the problem
+<span class="k">-</span><span class="w"> </span>The exact location of the problematic source code, including tag, branch, commit, or a direct URL
+<span class="k">-</span><span class="w"> </span>The potential consequences of the vulnerability, along with a description of how an attacker could take advantage of the issue
+</pre></div>
+</div>
+</section>
+<section id="vulnerability-disclosure">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Vulnerability disclosure</a><a class="headerlink" href="#vulnerability-disclosure" title="Link to this heading">#</a></h2>
+<p>When a vulnerability is detected and a decision is made to address it, the repository maintainers
+should create a private fork of the repository and create a pull request with the fix. Information
+on how to create such a temporary fork to resolve a vulnerability can be found in <a class="reference external" href="https://docs.github.com/en/code-security/security-advisories/working-with-repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability">Github’s
+documentation</a>. When opened, the pull request should be reviewed in depth and include tests to
+ensure that the vulnerability is fixed. Once the pull request is merged, the repository
+maintainers should create a new release with the fix and update the changelog accordingly.</p>
+<p>The release should be tagged with a new version number where the patch value has been incremented,
+and the changelog should include a note about the vulnerability and the fix. The note should
+include this information:</p>
+<ul class="simple">
+<li><p>The CVE number of the vulnerability (if applicable)</p></li>
+<li><p>A description of the vulnerability and its potential consequences</p></li>
+<li><p>A description of the fix and how it addresses the vulnerability</p></li>
+<li><p>A link to the pull request that fixed the vulnerability</p></li>
+</ul>
+<p>Additionally, the security advisory should be published on the repository’s <strong>Security</strong> tab. This
+advisory should include the same information as the changelog note, in other words the CVE number,
+the date of the advisory, and the status of the advisory (such as published or withdrawn).</p>
+<p>A reference of a published security advisory can be found here: <a class="reference external" href="https://github.com/ansys/pyansys-geometry/security/advisories/GHSA-38jr-29fh-w9vm">PyAnsys Geometry subprocess
+advisory</a>. This advisory was published in the PyAnsys Geometry repository and includes
+information about a vulnerability in which users could execute arbitrary code on the system by
+using one of this library’s functions.</p>
+</section>
+<section id="ensuring-compliance-across-the-pyansys-ecosystem">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Ensuring compliance across the PyAnsys ecosystem</a><a class="headerlink" href="#ensuring-compliance-across-the-pyansys-ecosystem" title="Link to this heading">#</a></h2>
+<p>The PyAnsys Core team is responsible for ensuring that the <code class="docutils literal notranslate"><span class="pre">ansys/actions/check-vulnerabilities</span></code>
+action is up to date and that it is being used in all PyAnsys repositories considered as libraries
+(that is, Python packages shipped to PyPI). Repository maintainers are responsible for ensuring
+that the action is implemented correctly and that the results are reviewed regularly.</p>
+</section>
+<section id="addressing-common-vulnerabilities-in-python-libraries-and-applications">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Addressing common vulnerabilities in Python libraries and applications</a><a class="headerlink" href="#addressing-common-vulnerabilities-in-python-libraries-and-applications" title="Link to this heading">#</a></h2>
+<p>When developing Python applications, it is essential to be aware of common vulnerabilities that can
+occur in the codebase. These vulnerabilities can lead to security risks, data breaches, and other
+serious issues.</p>
+<p>The <cite>Bandit</cite> tool provides a blacklist of known vulnerable functions and methods that should
+not be used in Python code. Using these functions can lead to security vulnerabilities and
+should be avoided. Refer to the <a class="reference external" href="https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html">blacklists Bandit documentation</a> for detailed information on
+<cite>Bandit</cite> tool outputs.</p>
+<p><strong>Bandit blacklist</strong></p>
+<p>The <cite>Bandit</cite> tool provides a blacklist of known vulnerable functions and methods that should
+not be used in Python code. Using these functions can lead to security vulnerabilities and
+should be avoided.</p>
+<p>Address each requested changes proposed by <cite>Bandit</cite> to ensure that your code is secure.
+You can find information on how to improve your code in the <a class="reference external" href="https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html">blacklists Bandit documentation</a>.</p>
+<p><strong>subprocess command injection</strong></p>
+<p>The <cite>subprocess</cite> module can be vulnerable to command injection if user input is not properly
+sanitized. This can lead to arbitrary command execution, which is a significant security risk.</p>
+<p>To mitigate this risk, you should:</p>
+<ul class="simple">
+<li><p>avoid using the <cite>subprocess</cite> module to execute shell commands with user input, as it can lead
+to command injection vulnerabilities.</p></li>
+<li><p>if the previous point is not possible, you need to disable the <cite>shell=True</cite> argument in
+<cite>subprocess.run()</cite> or similar functions, as it allows for shell injection attacks.</p></li>
+</ul>
+<p>By removing the <cite>shell=True</cite> argument, a list is needed to pass the command and its
+arguments directly, which is safer. This way, user input is not executed as a shell command,
+and the risk of command injection is significantly reduced.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+Risk of <cite>subprocess</cite> command injection</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="n">user_input</span> <span class="o">=</span> <span class="s2">&quot;malicious_command; rm -rf /&quot;</span>  <span class="c1"># User input that could be malicious</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;echo </span><span class="si">{</span><span class="n">user_input</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Vulnerable to command injection</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+Reduced risk of <cite>subprocess</cite> command injection</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="n">user_input</span> <span class="o">=</span> <span class="s2">&quot;malicious_command; rm -rf /&quot;</span>  <span class="c1"># User input that could be malicious</span>
+<span class="c1"># Removing shell=True and using a list</span>
+<span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;echo&quot;</span><span class="p">,</span> <span class="n">user_input</span><span class="p">])</span>  <span class="c1"># User input is not executed as a shell command</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Bandit warning remains even after deactivating the <cite>shell=True</cite> argument.
+If you are sure that the command is safe, you can ignore the Bandit warning. Please
+check the <a class="reference internal" href="#ignore-bandit-warnings">Ignore Bandit warnings</a> section for more information on how to do so.</p>
+</div>
+<p><strong>try except continue statements</strong></p>
+<p>Using <cite>try except continue</cite> statements can lead to silent failures, making it difficult to debug
+issues and potentially allowing vulnerabilities to go unnoticed. Instead, you should handle
+exceptions explicitly and log or raise them as needed.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+<cite>try except continue</cite> without handling exceptions</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">risky_operation</span><span class="p">()</span>  <span class="c1"># Some code that might raise an exception</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">continue</span>  <span class="c1"># This will silently ignore all the exceptions and continue execution</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-3">
+<cite>try except continue</cite> with explicit exception handling</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">risky_operation</span><span class="p">()</span>
+<span class="k">except</span> <span class="n">SpecificException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">continue</span>  <span class="c1"># Handle specific exceptions and continue</span>
+<span class="k">except</span> <span class="n">AnotherSpecificException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">log_error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>  <span class="c1"># Log the error for debugging</span>
+    <span class="k">raise</span>  <span class="c1"># Raise the exception to notify the caller</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>requests.get() without timeout</strong></p>
+<p>Using <cite>requests.get()</cite> without a timeout can lead to hanging requests, which can be exploited
+by attackers to cause denial of service (DoS) conditions. Always specify a timeout value to
+prevent this issue.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-4">
+<cite>requests.get()</cite> without timeout</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://example.com&quot;</span><span class="p">)</span>  <span class="c1"># No timeout specified</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-5">
+<cite>requests.get()</cite> with timeout</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://example.com&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># Timeout set to 5 seconds</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>random insecure functions</strong></p>
+<p>Using insecure functions from the <cite>random</cite> module can lead to predictable random number
+generation, which can be exploited by attackers. Instead, use the <cite>secrets</cite> module, which
+provides a secure way to generate random numbers.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-6">
+Insecure random functions</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+
+<span class="n">random_number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># Predictable random number generation</span>
+<span class="n">random_letter</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">])</span>  <span class="c1"># Predictable choice from a list</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-7">
+Secure random functions</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">secrets</span>
+
+<span class="n">secure_random_number</span> <span class="o">=</span> <span class="n">secrets</span><span class="o">.</span><span class="n">randbelow</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>  <span class="c1"># Secure random number generation</span>
+<span class="n">secure_random_letter</span> <span class="o">=</span> <span class="n">secrets</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">])</span>  <span class="c1"># Secure choice from a list</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="ignore-bandit-warnings">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Ignore Bandit warnings</a><a class="headerlink" href="#ignore-bandit-warnings" title="Link to this heading">#</a></h3>
+<section id="in-line-comment">
+<h4><a class="toc-backref" href="#id11" role="doc-backlink">In-line comment</a><a class="headerlink" href="#in-line-comment" title="Link to this heading">#</a></h4>
+<p>When using Bandit, you may encounter warnings that you believe are not relevant to your codebase
+or that you have already addressed. In such cases, you can ignore specific Bandit warnings by
+adding a comment to the end of the line that triggers the warning. The comment should be in the
+format <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">nosec</span> <span class="pre">&lt;warning_id&gt;</span></code>, where <code class="docutils literal notranslate"><span class="pre">&lt;warning_id&gt;</span></code> is the ID of the warning you want to ignore.</p>
+<p>When you ignore a Bandit warning, it is essential to provide a clear comment explaining why
+the warning is being ignored. This helps maintainers and other developers understand the context
+and rationale behind the decision.</p>
+<p>For example, to ignore the B404 warning, you would add <cite># nosec B404</cite> to the end of the line:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Subprocess is needed to start the backend. But</span>
+<span class="c1"># the input is controlled by the library. Excluding bandit check.</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>  <span class="c1"># nosec B404</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Please note that ignoring Bandit warnings should be done with caution, and you should ensure
+that the code is safe and does not introduce any security risks. It is recommended to review the
+<a class="reference external" href="https://bandit.readthedocs.io/en/latest/">bandit documentation</a> for more information on each warning and the potential risks involved.</p>
+</div>
+</section>
+<section id="security-considerations-file">
+<h4><a class="toc-backref" href="#id12" role="doc-backlink">Security considerations file</a><a class="headerlink" href="#security-considerations-file" title="Link to this heading">#</a></h4>
+<p>In addition to ignoring specific Bandit warnings, it is a good practice to document the ignored
+advisories in a dedicated file. You can find an example of such a file in the <a class="reference external" href="https://acp.docs.pyansys.com/version/dev/user_guide/security_considerations.html">PyACP security
+considerations</a> documentation page. This way, you can provide to the users a clear overview of
+the vulnerabilities that need to be taken into account when using the library.</p>
+</section>
+</section>
+</section>
+<section id="addressing-common-vulnerabilities-in-github-actions">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Addressing common vulnerabilities in Github Actions</a><a class="headerlink" href="#addressing-common-vulnerabilities-in-github-actions" title="Link to this heading">#</a></h2>
+<p>Vulnerabilities can exist in continuous integration (CI) pipelines just as they can in a codebase.
+To reduce the risk of security breaches and supply chain attacks, it is important to secure your
+GitHub Actions workflows against known vulnerabilities.</p>
+<p><a class="reference external" href="https://docs.zizmor.sh/">zizmor</a> is a static analysis tool that audits GitHub Actions CI/CD setups. It detects common
+vulnerabilities and, in some cases, can automatically fix them. For detailed information about
+the rules that zizmor applies when auditing workflows, see <a class="reference external" href="https://docs.zizmor.sh/audits/">zizmor audit rules</a>.</p>
+<section id="auditing-ci-cd-setups-in-the-pyansys-ecosystem">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Auditing CI/CD setups in the PyAnsys ecosystem</a><a class="headerlink" href="#auditing-ci-cd-setups-in-the-pyansys-ecosystem" title="Link to this heading">#</a></h3>
+<p>For PyAnsys ecosystem projects, the recommended way to audit workflows is to use the
+<code class="docutils literal notranslate"><span class="pre">ansys/actions/check-actions-security</span></code> action. The action wraps <code class="docutils literal notranslate"><span class="pre">zizmor</span></code> and provides
+additional functionality and configuration tailored to PyAnsys projects. For setup instructions,
+see <a class="reference external" href="https://actions.docs.ansys.com/version/stable/vulnerability-actions/index.html#check-actions-security-action">the check-actions-security action documentation</a>.</p>
+</section>
+<section id="fixing-common-issues-detected-by-zizmor">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Fixing common issues detected by <code class="docutils literal notranslate"><span class="pre">zizmor</span></code></a><a class="headerlink" href="#fixing-common-issues-detected-by-zizmor" title="Link to this heading">#</a></h3>
+<p>This section describes how to fix common workflow vulnerabilities.
+For practical examples, see these pull requests with fixes already applied in the PyAnsys ecosystem:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ansys/actions/pull/739">Ansys actions security fixes 1</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ansys/actions/pull/725">Ansys actions security fixes 2</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ansys/actions/pull/967">Ansys actions security fixes 3</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ansys/pyconverter-xml2py/pull/452">PyConverter-XML2Py security fixes</a></p></li>
+</ul>
+<p>For vulnerabilities not listed here, refer to <a class="reference external" href="https://docs.zizmor.sh/audits/">zizmor audit rules</a> for remediation steps.
+For additional examples of fixes, see the <a class="reference external" href="https://docs.zizmor.sh/trophy-case/">zizmor trophy case</a>.</p>
+<p><strong>artipacked</strong></p>
+<p>The vulnerability is that using <code class="docutils literal notranslate"><span class="pre">actions/checkout</span></code> in GitHub Actions can store repository credentials in <code class="docutils literal notranslate"><span class="pre">.git/config</span></code>,
+which may be unintentionally exposed through artifacts or workflow steps.</p>
+<p>Fixing is important because leaked credentials could grant attackers unauthorized access to your repositories,
+which can allow them push malicious code, among other things. See <a class="reference external" href="https://docs.zizmor.sh/audits/#artipacked">artipacked audit rule</a> for more information.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-8" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-8">
+Potential risk</label><div class="sd-tab-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">steps</span><span class="p">:</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Checkout</span><span class="nv"> </span><span class="s">project&quot;</span><span class="w"> </span><span class="c1"># actions/checkout persists git credentials by default.</span>
+<span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683</span><span class="w"> </span><span class="c1"># v4.2.2</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-9" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-9">
+Remediation</label><div class="sd-tab-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">steps</span><span class="p">:</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Checkout</span><span class="nv"> </span><span class="s">project&quot;</span>
+<span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683</span><span class="w"> </span><span class="c1"># v4.2.2</span>
+<span class="w">  </span><span class="nt">with</span><span class="p">:</span><span class="w"> </span><span class="c1"># Unless needed for git operations in subsequent steps, do not persist credentials.</span>
+<span class="w">    </span><span class="nt">persist-credentials</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you run git commands that require persisted credentials in subsequent steps within the same job,
+you can ignore this audit finding. For details, see <a class="reference external" href="https://docs.zizmor.sh/usage/#ignoring-results">ignoring zizmor results</a></p>
+</div>
+<p><strong>unpinned-uses</strong></p>
+<p>The vulnerability is that using unpinned <code class="docutils literal notranslate"><span class="pre">uses:</span></code> clauses in GitHub Actions allows workflows to pull in action
+code that can change at any time, including through branch or tag updates.</p>
+<p>Fixing it is important because unpinned actions could be modified by attackers or upstream maintainers, leading
+to unexpected or malicious code execution in your workflows. See <a class="reference external" href="https://docs.zizmor.sh/audits/#unpinned-uses">unpinned-uses audit rule</a> for more
+information.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-10" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-10">
+Potential risk</label><div class="sd-tab-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">steps</span><span class="p">:</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Upload</span><span class="nv"> </span><span class="s">distribution</span><span class="nv"> </span><span class="s">artifacts</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">GitHub</span><span class="nv"> </span><span class="s">artifacts&quot;</span>
+<span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/upload-artifact@v4</span><span class="w"> </span><span class="c1"># The commit a tag-pinned action points to can change due to various factors.</span>
+<span class="w">  </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ env.LIBRARY_NAME }}-artifacts</span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~/${{ env.LIBRARY_NAME }}/dist/</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-11" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-11">
+Remediation</label><div class="sd-tab-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">steps</span><span class="p">:</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Upload</span><span class="nv"> </span><span class="s">distribution</span><span class="nv"> </span><span class="s">artifacts</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">GitHub</span><span class="nv"> </span><span class="s">artifacts&quot;</span>
+<span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1</span><span class="w"> </span><span class="c1"># v4.6.1 # Pinning with a SHA prevents this.</span>
+<span class="w">  </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ env.LIBRARY_NAME }}-artifacts</span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~/${{ env.LIBRARY_NAME }}/dist/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can use the <a class="reference external" href="https://github.com/suzuki-shunsuke/pinact">pinact</a> tool to automatically pin versions of actions and reusable workflows.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ansys/actions/check-actions-security</span></code> action has a <code class="docutils literal notranslate"><span class="pre">trust-ansys-actions</span></code> option that
+allows you to use tags for <code class="docutils literal notranslate"><span class="pre">ansys/actions</span></code>.
+When this option is enabled, you only need to pin external actions.</p>
+</div>
+<p><strong>github-env</strong></p>
+<p>Writing to <code class="docutils literal notranslate"><span class="pre">GITHUB_ENV</span></code> or <code class="docutils literal notranslate"><span class="pre">GITHUB_PATH</span></code> in workflows with dangerous triggers (such as <code class="docutils literal notranslate"><span class="pre">pull_request_target</span></code> and
+<code class="docutils literal notranslate"><span class="pre">workflow_run</span></code>) can let attackers inject arbitrary environment variables / variable contents.</p>
+<p>A fix is required because this exposure could allow attackers to run malicious code in your GitHub Actions workflows
+either implictly in subsequent steps, or by shadowing ordinary system executables (such as <code class="docutils literal notranslate"><span class="pre">ssh</span></code>). See
+<a class="reference external" href="https://docs.zizmor.sh/audits/#github-env">github-env audit rule</a> for more information.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-12" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-12">
+Potential risk</label><div class="sd-tab-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">steps</span><span class="p">:</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Decompose</span><span class="nv"> </span><span class="s">tag</span><span class="nv"> </span><span class="s">into</span><span class="nv"> </span><span class="s">components&quot;</span>
+<span class="w">  </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">if [[ ${{ github.ref_name }} =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then</span>
+<span class="w">      </span><span class="no">IFS=&#39;.&#39; read -ra PARTS &lt;&lt;&lt; &quot;${{ github.ref_name }}&quot;</span>
+<span class="w">      </span><span class="no">echo &quot;V_AND_MAJOR=${PARTS[0]}&quot; &gt;&gt; $GITHUB_ENV # When used in workflows with dangerous triggers, such as pull_request_target</span>
+<span class="w">      </span><span class="no">echo &quot;MINOR=${PARTS[1]}&quot; &gt;&gt; $GITHUB_ENV # and workflow_run, GITHUB_ENV and GITHUB_PATH can be an arbitrary code execution risk.</span>
+<span class="w">      </span><span class="no">echo &quot;PATCH=${PARTS[2]}&quot; &gt;&gt; $GITHUB_ENV</span>
+<span class="w">    </span><span class="no">else</span>
+<span class="w">      </span><span class="no">echo &quot;Invalid tag format. Expected vX.Y.Z but got ${{ github.ref_name }}&quot;</span>
+<span class="w">      </span><span class="no">exit 1</span>
+<span class="w">    </span><span class="no">fi</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Check</span><span class="nv"> </span><span class="s">tag</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">valid</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">current</span><span class="nv"> </span><span class="s">branch&quot;</span>
+<span class="w">  </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">V_AND_MAJOR=${{ env.V_AND_MAJOR }}</span>
+<span class="w">    </span><span class="no">MAJOR=&quot;${V_AND_MAJOR#v}&quot;</span>
+<span class="w">    </span><span class="no">echo &quot;MAJOR=${MAJOR}&quot; &gt;&gt; $GITHUB_ENV</span>
+<span class="w">    </span><span class="no">if [[ ${{ github.event.base_ref }} != &quot;refs/heads/release/$MAJOR.${{ env.MINOR }}&quot; ]]; then</span>
+<span class="w">      </span><span class="no">echo &quot;::error::Tag ${{ github.ref_name }} does not match branch version. wrong branch.&quot;</span>
+<span class="w">      </span><span class="no">exit 1</span>
+<span class="w">    </span><span class="no">fi</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Remove</span><span class="nv"> </span><span class="s">v${{</span><span class="nv"> </span><span class="s">env.MAJOR</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">tag&quot;</span>
+<span class="w">  </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">git push --delete origin v${{ env.MAJOR }} &amp;&amp; \</span>
+<span class="w">      </span><span class="no">echo &quot;Deleted v${{ env.MAJOR }} tag&quot; || \</span>
+<span class="w">      </span><span class="no">echo &quot;Tag v${{ env.MAJOR }} not found&quot;</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Remove</span><span class="nv"> </span><span class="s">v${{</span><span class="nv"> </span><span class="s">env.MAJOR</span><span class="nv"> </span><span class="s">}}.${{</span><span class="nv"> </span><span class="s">env.MINOR</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">tag&quot;</span>
+<span class="w">  </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">git push --delete origin v${{ env.MAJOR }}.${{ env.MINOR }} &amp;&amp; \</span>
+<span class="w">      </span><span class="no">echo &quot;Deleted v${{ env.MAJOR }}.${{ env.MINOR }} tag&quot; || \</span>
+<span class="w">      </span><span class="no">echo &quot;Tag v${{ env.MAJOR }}.${{ env.MINOR }} not found&quot;</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Create</span><span class="nv"> </span><span class="s">new</span><span class="nv"> </span><span class="s">tags&quot;</span>
+<span class="w">  </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">git tag v${{ env.MAJOR }}.${{ env.MINOR }}</span>
+<span class="w">    </span><span class="no">git tag v${{ env.MAJOR }}</span>
+<span class="w">    </span><span class="no">git push origin v${{ env.MAJOR }}.${{ env.MINOR }}</span>
+<span class="w">    </span><span class="no">git push origin v${{ env.MAJOR }}</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-13" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-13">
+Remediation</label><div class="sd-tab-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">steps</span><span class="p">:</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Decompose</span><span class="nv"> </span><span class="s">tag</span><span class="nv"> </span><span class="s">into</span><span class="nv"> </span><span class="s">components&quot;</span>
+<span class="w">  </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tag-components</span>
+<span class="w">  </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">if [[ ${{ github.ref_name }} =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then</span>
+<span class="w">      </span><span class="no">IFS=&#39;.&#39; read -ra PARTS &lt;&lt;&lt; &quot;${{ github.ref_name }}&quot;</span>
+<span class="w">      </span><span class="no">echo &quot;V_AND_MAJOR=${PARTS[0]}&quot; &gt;&gt; $GITHUB_OUTPUT # Writing to GITHUB_OUTPUT is safe.</span>
+<span class="w">      </span><span class="no">echo &quot;MINOR=${PARTS[1]}&quot; &gt;&gt; $GITHUB_OUTPUT # Writing to GITHUB_OUTPUT is safe.</span>
+<span class="w">      </span><span class="no">echo &quot;PATCH=${PARTS[2]}&quot; &gt;&gt; $GITHUB_OUTPUT # Writing to GITHUB_OUTPUT is safe.</span>
+<span class="w">    </span><span class="no">else</span>
+<span class="w">      </span><span class="no">echo &quot;Invalid tag format. Expected vX.Y.Z but got ${{ github.ref_name }}&quot;</span>
+<span class="w">      </span><span class="no">exit 1</span>
+<span class="w">    </span><span class="no">fi</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Check</span><span class="nv"> </span><span class="s">tag</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">valid</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">current</span><span class="nv"> </span><span class="s">branch&quot;</span>
+<span class="w">  </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">current-branch-tag-validity</span>
+<span class="w">  </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span>
+<span class="w">  </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">V_AND_MAJOR</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ steps.tag-components.outputs.V_AND_MAJOR }}</span><span class="w"> </span><span class="c1"># Then share information between steps</span>
+<span class="w">    </span><span class="nt">MINOR</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ steps.tag-components.outputs.MINOR }}</span><span class="w"> </span><span class="c1"># through the env block.</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">MAJOR=&quot;${V_AND_MAJOR#v}&quot;</span>
+<span class="w">    </span><span class="no">echo &quot;MAJOR=${MAJOR}&quot; &gt;&gt; $GITHUB_OUTPUT</span>
+<span class="w">    </span><span class="no">if [[ ${{ github.event.base_ref }} != &quot;refs/heads/release/${MAJOR}.${MINOR}&quot; ]]; then</span>
+<span class="w">      </span><span class="no">echo &quot;::error::Tag ${{ github.ref_name }} does not match branch version. wrong branch.&quot;</span>
+<span class="w">      </span><span class="no">exit 1</span>
+<span class="w">    </span><span class="no">fi</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Remove</span><span class="nv"> </span><span class="s">v${{</span><span class="nv"> </span><span class="s">steps.current-branch-tag-validity.outputs.MAJOR</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">tag&quot;</span>
+<span class="w">  </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span>
+<span class="w">  </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">MAJOR</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ steps.current-branch-tag-validity.outputs.MAJOR }}</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">git push --delete origin v${MAJOR} &amp;&amp; \</span>
+<span class="w">      </span><span class="no">echo &quot;Deleted v${MAJOR} tag&quot; || \</span>
+<span class="w">      </span><span class="no">echo &quot;Tag v${MAJOR} not found&quot;</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Remove</span><span class="nv"> </span><span class="s">v${{</span><span class="nv"> </span><span class="s">steps.current-branch-tag-validity.outputs.MAJOR</span><span class="nv"> </span><span class="s">}}.${{</span><span class="nv"> </span><span class="s">steps.tag-components.outputs.MINOR</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">tag&quot;</span>
+<span class="w">  </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span>
+<span class="w">  </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">MAJOR</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ steps.current-branch-tag-validity.outputs.MAJOR }}</span>
+<span class="w">    </span><span class="nt">MINOR</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ steps.tag-components.outputs.MINOR }}</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">git push --delete origin v${MAJOR}.${MINOR} &amp;&amp; \</span>
+<span class="w">      </span><span class="no">echo &quot;Deleted v${MAJOR}.${MINOR} tag&quot; || \</span>
+<span class="w">      </span><span class="no">echo &quot;Tag v${MAJOR}.${MINOR} not found&quot;</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Create</span><span class="nv"> </span><span class="s">new</span><span class="nv"> </span><span class="s">tags&quot;</span>
+<span class="w">  </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bash</span>
+<span class="w">  </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">MAJOR</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ steps.current-branch-tag-validity.outputs.MAJOR }}</span>
+<span class="w">    </span><span class="nt">MINOR</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ steps.tag-components.outputs.MINOR }}</span>
+<span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">git tag v${MAJOR}.${MINOR}</span>
+<span class="w">    </span><span class="no">git tag v${MAJOR}</span>
+<span class="w">    </span><span class="no">git push origin v${MAJOR}.${MINOR}</span>
+<span class="w">    </span><span class="no">git push origin v${MAJOR}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The trick is to pass state between steps using <code class="docutils literal notranslate"><span class="pre">GITHUB_OUTPUT</span></code> instead of <code class="docutils literal notranslate"><span class="pre">GITHUB_ENV</span></code> or <code class="docutils literal notranslate"><span class="pre">GITHUB_PATH</span></code>.
+On Windows runners, the same principle applies when running commands in <code class="docutils literal notranslate"><span class="pre">cmd</span></code> or <code class="docutils literal notranslate"><span class="pre">pwsh</span></code>; only the syntax differs.</p>
+</div>
+<p><strong>template-injection</strong></p>
+<p>The vulnerability is that template expansions (<code class="docutils literal notranslate"><span class="pre">${{</span> <span class="pre">...</span> <span class="pre">}}</span></code>) in GitHub Actions can allow code injection when used with
+attacker-controlled inputs, such as issue titles (<code class="docutils literal notranslate"><span class="pre">github.event.issue.title</span></code> which the attacker can fully control by supplying a new issue title).</p>
+<p>Fixing it is important because malicious inputs could execute unintended commands, compromising the security of your workflows. See
+<a class="reference external" href="https://docs.zizmor.sh/audits/#template-injection">template-injection audit rule</a> for more information.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-14" name="sd-tab-set-7" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-14">
+Potential risk</label><div class="sd-tab-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Example reusable workflow</span>
+
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">workflow_call</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">inputs</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">user-input</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">        </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;user</span><span class="nv"> </span><span class="s">input&quot;</span>
+
+<span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">inputs</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">      </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;user</span><span class="nv"> </span><span class="s">input&quot;</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">example-job</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Example</span><span class="nv"> </span><span class="s">job&quot;</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Inspect</span><span class="nv"> </span><span class="s">context</span><span class="nv"> </span><span class="s">variables</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">workflow</span><span class="nv"> </span><span class="s">input&quot;</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">echo ${{ github.workspace }} # Template expansions are resolved before workflows and jobs run. These expansions</span>
+<span class="w">        </span><span class="no">echo ${{ runner.temp }} # insert their results directly into the context, which can accidentally introduce shell injection risks.</span>
+<span class="w">        </span><span class="no">echo ${{ input.user-input }} # This is especially true when such expansion is from a user input.</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-15" name="sd-tab-set-7" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-15">
+Remediation</label><div class="sd-tab-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Example reusable workflow</span>
+
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">workflow_call</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">inputs</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">user-input</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">        </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;user</span><span class="nv"> </span><span class="s">input&quot;</span>
+
+<span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">inputs</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">      </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;user</span><span class="nv"> </span><span class="s">input&quot;</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">example-job</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Example</span><span class="nv"> </span><span class="s">job&quot;</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Inspect</span><span class="nv"> </span><span class="s">context</span><span class="nv"> </span><span class="s">variables</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">workflow</span><span class="nv"> </span><span class="s">input&quot;</span>
+<span class="w">      </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">USER_INPUT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ inputs.user-input }}</span><span class="w"> </span><span class="c1"># Expand inputs and relevant context variables in the env block.</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">echo ${USER_INPUT} # Then use that directly within the run block.</span>
+<span class="w">        </span><span class="no">echo ${RUNNER_TEMP} # Also, most Github context variables have equivalent environment variables</span>
+<span class="w">        </span><span class="no">echo ${GITHUB_WORKSPACE} # that can be directly used in place of template expansions.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notice that <code class="docutils literal notranslate"><span class="pre">RUNNER_TEMP</span></code> and <code class="docutils literal notranslate"><span class="pre">GITHUB_WORKSPACE</span></code> were not explicitly set in the <code class="docutils literal notranslate"><span class="pre">env</span></code> block.
+Some GitHub context variables automatically map to environment variables, such as
+<code class="docutils literal notranslate"><span class="pre">runner.temp</span></code> to <code class="docutils literal notranslate"><span class="pre">RUNNER_TEMP</span></code> and <code class="docutils literal notranslate"><span class="pre">github.workspace</span></code> to <code class="docutils literal notranslate"><span class="pre">GITHUB_WORKSPACE</span></code>.</p>
+<p>If a corresponding environment variable is not automatically available, you must set it in the <code class="docutils literal notranslate"><span class="pre">env</span></code>
+block of the job or step where it is needed before you can use it.</p>
+</div>
+<p><strong>excessive-permissions</strong></p>
+<p>The vulnerability is that workflows with excessive permissions grant more access than needed, either at the
+workflow or job level, including through the default <code class="docutils literal notranslate"><span class="pre">GITHUB_TOKEN</span></code>.</p>
+<p>Fixing it is important because over-scoped permissions increase the risk that a compromised workflow could
+perform unauthorized actions on your repository. See <a class="reference external" href="https://docs.zizmor.sh/audits/#excessive-permissions">excessive-permissions audit rule</a> for more information.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-16" name="sd-tab-set-8" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-16">
+Potential risk</label><div class="sd-tab-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Github CI</span>
+
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tags</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;*&quot;</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+
+<span class="nt">env</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">MAIN_PYTHON_VERSION</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.12&#39;</span>
+<span class="w">  </span><span class="nt">DOCUMENTATION_CNAME</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;actions.docs.ansys.com&#39;</span>
+
+<span class="c1"># When not specified, the default permission assigned to workflows might be too excessive</span>
+<span class="c1"># for what the jobs need to do. Furthermore, all job steps automatically inherit this</span>
+<span class="c1"># default permission</span>
+
+<span class="nt">concurrency</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ github.workflow }}-${{ github.ref }}</span>
+<span class="w">  </span><span class="nt">cancel-in-progress</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">doc-build</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Doc</span><span class="nv"> </span><span class="s">build&quot;</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansys/actions/doc-build@v10.1.0a0</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">skip-install</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ env.MAIN_PYTHON_VERSION }}</span>
+<span class="w">          </span><span class="nt">use-python-cache</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">          </span><span class="nt">needs-quarto</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="w">  </span><span class="nt">doc-deploy-dev</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Deploy</span><span class="nv"> </span><span class="s">development</span><span class="nv"> </span><span class="s">documentation&quot;</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">doc-build</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansys/actions/doc-deploy-dev@v10.1.0a0</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">cname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ env.DOCUMENTATION_CNAME }}</span>
+<span class="w">          </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span>
+<span class="w">          </span><span class="nt">bot-user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.PYANSYS_CI_BOT_USERNAME }}</span>
+<span class="w">          </span><span class="nt">bot-email</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.PYANSYS_CI_BOT_EMAIL }}</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-17" name="sd-tab-set-8" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-17">
+Remediation</label><div class="sd-tab-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Github CI</span>
+
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">tags</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;*&quot;</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+
+<span class="nt">env</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">MAIN_PYTHON_VERSION</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.12&#39;</span>
+<span class="w">  </span><span class="nt">DOCUMENTATION_CNAME</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;actions.docs.ansys.com&#39;</span>
+
+<span class="nt">permissions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"> </span><span class="c1"># Zero permissions can be granted at the workflow level if not all jobs require permissions.</span>
+<span class="w">                </span><span class="c1"># As a good rule of thumb, this normally includes jobs that don&#39;t use secrets.</span>
+
+<span class="nt">concurrency</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ github.workflow }}-${{ github.ref }}</span>
+<span class="w">  </span><span class="nt">cancel-in-progress</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">doc-build</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Doc</span><span class="nv"> </span><span class="s">build&quot;</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansys/actions/doc-build@v10.1.0a0</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">skip-install</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ env.MAIN_PYTHON_VERSION }}</span>
+<span class="w">          </span><span class="nt">use-python-cache</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">          </span><span class="nt">needs-quarto</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="w">  </span><span class="nt">doc-deploy-dev</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Deploy</span><span class="nv"> </span><span class="s">development</span><span class="nv"> </span><span class="s">documentation&quot;</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">doc-build</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">permissions</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">contents</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">write</span><span class="w"> </span><span class="c1"># The specific permission type needed is set for a job that actually needs it.</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansys/actions/doc-deploy-dev@v10.1.0a0</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">cname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ env.DOCUMENTATION_CNAME }}</span>
+<span class="w">          </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GITHUB_TOKEN }}</span>
+<span class="w">          </span><span class="nt">bot-user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.PYANSYS_CI_BOT_USERNAME }}</span>
+<span class="w">          </span><span class="nt">bot-email</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.PYANSYS_CI_BOT_EMAIL }}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>anonymous-definition</strong></p>
+<p>This issue is raised when workflows omit the <code class="docutils literal notranslate"><span class="pre">name:</span></code> field. When <code class="docutils literal notranslate"><span class="pre">name:</span></code> is omitted, the workflow is rendered
+anonymously in the Github Actions UI, making it harder to understand which definition is running.</p>
+<p>There is no security impact associated with this issue. However, it is good practice to always include the <code class="docutils literal notranslate"><span class="pre">name:</span></code>
+field. See <a class="reference external" href="https://docs.zizmor.sh/audits/#anonymous-definition">anonymous-definition audit rule</a> for more information.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-18" name="sd-tab-set-9" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-18">
+Potential risk</label><div class="sd-tab-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">push</span><span class="w"> </span><span class="c1"># This workflow has no name.</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;Hello!&quot;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-19" name="sd-tab-set-9" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-19">
+Remediation</label><div class="sd-tab-content docutils">
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Echo Test</span><span class="w"> </span><span class="c1"># It is good practice to always name workflows.</span>
+<span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">push</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo &quot;Hello!&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ignoring-zizmor-findings">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Ignoring <code class="docutils literal notranslate"><span class="pre">zizmor</span></code> findings</a><a class="headerlink" href="#ignoring-zizmor-findings" title="Link to this heading">#</a></h3>
+<section id="one-off-comments">
+<h4><a class="toc-backref" href="#id17" role="doc-backlink">One-off comments</a><a class="headerlink" href="#one-off-comments" title="Link to this heading">#</a></h4>
+<p>While auditing workflows with <code class="docutils literal notranslate"><span class="pre">zizmor</span></code>, you might need to ignore findings that are not relevant to your workflows.
+You can ignore <code class="docutils literal notranslate"><span class="pre">zizmor</span></code> audits by adding a YAML comment on any line within the span of the finding.</p>
+<p>Use the following format:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># zizmor: ignore[&lt;rule-name&gt;]</span>
+</pre></div>
+</div>
+<p>For example, to ignore the <code class="docutils literal notranslate"><span class="pre">artipacked</span></code> rule:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># zizmor: ignore[artipacked]</span>
+</pre></div>
+</div>
+<p>To ignore multiple rules in the same span, separate them with commas:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># zizmor: ignore[github-env,template-injection]</span>
+</pre></div>
+</div>
+<p>For more information, see <a class="reference external" href="https://docs.zizmor.sh/usage/#ignoring-results">ignoring zizmor results</a>.</p>
+</section>
+<section id="zizmor-yml-configuration-file">
+<h4><a class="toc-backref" href="#id18" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">zizmor.yml</span></code> configuration file</a><a class="headerlink" href="#zizmor-yml-configuration-file" title="Link to this heading">#</a></h4>
+<p>If you need to ignore multiple findings or entire files, a <code class="docutils literal notranslate"><span class="pre">zizmor.yml</span></code> configuration file is
+easier to maintain than one-off comments.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">zizmor.yml</span></code> file might look like this:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">rules</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">unpinned-uses</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">policies</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">ansys/*</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ref-pin</span>
+<span class="w">        </span><span class="nt">actions/*</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hash-pin</span>
+<span class="w">  </span><span class="nt">template-injection</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">ignore</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">safe.yml</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">somewhat-safe.yml:123</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">one-exact-spot.yml:123:456</span>
+</pre></div>
+</div>
+<p>This configuration file achieves the following:</p>
+<ul class="simple">
+<li><p>Declares that <code class="docutils literal notranslate"><span class="pre">ansys/actions</span></code> can be pinned with tags, but <code class="docutils literal notranslate"><span class="pre">actions/*</span></code> must be pinned with a SHA.</p></li>
+<li><p>Ignores all <code class="docutils literal notranslate"><span class="pre">template-injection</span></code> findings in <code class="docutils literal notranslate"><span class="pre">safe.yml</span></code>, regardless of line or column location.</p></li>
+<li><p>Ignores any <code class="docutils literal notranslate"><span class="pre">template-injection</span></code> findings in <code class="docutils literal notranslate"><span class="pre">somewhat-safe.yml</span></code> that occur on line 123.</p></li>
+<li><p>Ignores one <code class="docutils literal notranslate"><span class="pre">template-injection</span></code> finding in <code class="docutils literal notranslate"><span class="pre">one-exact-spot.yml</span></code> that occurs on line 123, column 456.</p></li>
+</ul>
+<p>For more information, see <a class="reference external" href="https://docs.zizmor.sh/usage/#ignoring-results">ignoring zizmor results</a>.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vulnerability-sources">Vulnerability sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vulnerability-discovery-and-tracking">Vulnerability discovery and tracking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vulnerability-remediation-and-reporting">Vulnerability remediation and reporting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vulnerability-disclosure">Vulnerability disclosure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensuring-compliance-across-the-pyansys-ecosystem">Ensuring compliance across the PyAnsys ecosystem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#addressing-common-vulnerabilities-in-python-libraries-and-applications">Addressing common vulnerabilities in Python libraries and applications</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignore-bandit-warnings">Ignore Bandit warnings</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#in-line-comment">In-line comment</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#security-considerations-file">Security considerations file</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#addressing-common-vulnerabilities-in-github-actions">Addressing common vulnerabilities in Github Actions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auditing-ci-cd-setups-in-the-pyansys-ecosystem">Auditing CI/CD setups in the PyAnsys ecosystem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixing-common-issues-detected-by-zizmor">Fixing common issues detected by <code class="docutils literal notranslate"><span class="pre">zizmor</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignoring-zizmor-findings">Ignoring <code class="docutils literal notranslate"><span class="pre">zizmor</span></code> findings</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#one-off-comments">One-off comments</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#zizmor-yml-configuration-file"><code class="docutils literal notranslate"><span class="pre">zizmor.yml</span></code> configuration file</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item"> 
+<div class="tocsection editthispage">
+  <a href="https://github.com/pyansys/dev-guide/edit/main/doc/source/how-to/vulnerabilities.rst">
+    <i class="fa-solid fa-pencil"></i>
+       Edit
+    on GitHub  
+  </a>
+</div>
+
+</div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <ul class="this-page-menu">
+      <li><a href="../_sources/how-to/vulnerabilities.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <!-- Include desired assets -->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.7/require.min.js"></script>
+
+<script>
+// Passing the search options to the search.js file
+const SEARCH_OPTIONS = JSON.parse('{"ignoreLocation": true, "keys": ["title", "text", "objectID"], "limit": 10, "min_chars_for_search": 2, "threshold": 0.5}');
+const SEARCH_FILE = "../_static/search.json";
+const ADVANCE_SEARCH_PATH = "../search.html";
+const EXTRA_SOURCES = JSON.parse('""');
+</script>
+
+
+<script src="../_static/js/search.js"></script>
+
+  
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright (c) 2026 ANSYS, Inc. All rights reserved.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the
+  <a href="https://sphinxdocs.ansys.com/version/stable/index.html"
+    >Ansys Sphinx Theme</a
+  >
+  1.6.4. <br />Last updated on
+  <span id="ast_build_date"></span>
+</p>
+<script>
+  var options = { day: "numeric", month: "long", year: "numeric" };
+  var ast_lastModifiedDate = new Date(document.lastModified);
+  var ast_build_date = ast_lastModifiedDate.toLocaleDateString("en-US", options);
+  document.getElementById("ast_build_date").innerHTML = ast_build_date;
+</script></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

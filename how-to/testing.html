@@ -1,0 +1,1171 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Testing &#8212; PyAnsys developer&#39;s guide</title>
+  
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/ansys-sphinx-theme.css?v=9e79609d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/ansys-sphinx-theme.css?v=9e79609d" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.nerdfonts.com/assets/css/webfont.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+  <!-- Include desired assets -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  
+
+  
+    <link href="../_static/css/breadcrumbs.css" rel="stylesheet" />
+  
+    <script src="../_static/documentation_options.js?v=92d7cc4e"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'how-to/testing';</script>
+    <link rel="icon" href="../_static/ansys-favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Continuous integration" href="continuous-integration.html" />
+    <link rel="prev" title="Documenting" href="documenting.html" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="2026-02-17" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="https://docs.pyansys.com/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/pyansys_logo_transparent_black.png" class="logo__image only-light" alt="PyAnsys developer's guide - Home"/>
+    <img src="../_static/pyansys_logo_transparent_white.png" class="logo__image only-dark pst-js-only" alt="PyAnsys developer's guide - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html" title="PyAnsys developer's guide home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../content-writing/index.html">
+    Content writing
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+      
+        <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+  
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html" title="PyAnsys developer's guide home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../content-writing/index.html">
+    Content writing
+  </a>
+</li>
+
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="setting-up.html">Environment setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supporting-python-versions.html">Python versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packaging.html">Packaging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpc-api-packages.html">gRPC API packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documenting.html">Documenting</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releasing.html">Releasing and publishing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repository-protection.html">Repository protection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns-configuration.html">DNS configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compatibility.html">Product compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vulnerabilities.html">Vulnerabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deprecating.html">Deprecating a library</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+         
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="https://docs.pyansys.com/" class="nav-link">PyAnsys</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a
+        href="../index.html"
+        class="nav-link"
+        aria-label="Home"
+      >
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="index.html" class="nav-link">How-to</a>
+    </li>
+      
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Testing</span></li>
+    
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="testing">
+<span id="id1"></span><h1>Testing<a class="headerlink" href="#testing" title="Link to this heading">#</a></h1>
+<p>Unit testing and integration testing are critical for the successful continuous
+integration (CI) and delivery of any library belonging to the PyAnsys
+project.</p>
+<p>In 1993, Kent Beck developed <a class="reference external" href="https://en.wikipedia.org/wiki/Test-driven_development">Test Driven Development (TDD)</a> as part
+of the Extreme Programming software development process. TDD is the practice
+of writing unit tests before writing production code. The benefit of this practice
+is that you know each new line of code is working as soon as it is written. It’s
+easier to track down problems because only a small amount of code has been implemented
+since the execution of the last test. Furthermore, all test cases do not have to be
+implemented at once but rather gradually as the code evolves.</p>
+<p>You should follow TDD when developing your PyAnsys project. Examples
+and best practices for unit tests follow.</p>
+<section id="test-framework">
+<h2>Test framework<a class="headerlink" href="#test-framework" title="Link to this heading">#</a></h2>
+<div align="center">
+  <img width="30%"; src="https://docs.pytest.org/en/7.1.x/_static/pytest_logo_curves.svg">
+</div><p>For consistency, PyAnsys tools and libraries should use either the <a class="reference external" href="https://docs.pytest.org/en/stable/">pytest</a> or
+<a class="reference external" href="https://docs.python.org/3/library/unittest.html">unittest</a> framework
+for unit testing. The <code class="docutils literal notranslate"><span class="pre">pytest</span></code> framework is recommended unless a constraint
+in your project prevents you from using it. As described in <a class="reference internal" href="../packaging/structure.html#required-files"><span class="std std-ref">Required files</span></a>,
+you should place unit tests in <a class="reference internal" href="../packaging/structure.html#the-tests-directory"><span class="std std-ref">The tests directory</span></a> in the library’s
+root directory.</p>
+<section id="add-testing-dependencies">
+<h3>Add testing dependencies<a class="headerlink" href="#add-testing-dependencies" title="Link to this heading">#</a></h3>
+<p>Requirements for testing dependencies should be included in <a class="reference internal" href="../packaging/structure.html#the-setup-py-file"><span class="std std-ref">The setup.py file</span></a>, <a class="reference internal" href="../packaging/structure.html#the-pyproject-toml-file"><span class="std std-ref">The pyproject.toml file</span></a>, or a
+<code class="docutils literal notranslate"><span class="pre">requirements_tests.txt</span></code> file. Only <code class="docutils literal notranslate"><span class="pre">pytest</span></code> and <a class="reference external" href="https://pytest-cov.readthedocs.io/en/latest/">pytest-cov</a>
+must be specified as third-party dependencies because <code class="docutils literal notranslate"><span class="pre">unittest</span></code> is included
+in <a class="reference external" href="https://docs.python.org/3/library/">The Python Standard Library</a>.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+Flit</label><div class="sd-tab-content docutils">
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project.optional-dependencies]</span>
+<span class="n">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;pytest&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;pytest-cov&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+Poetry</label><div class="sd-tab-content docutils">
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[tool.poetry.group.test.dependencies]</span>
+<span class="n">pytest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;*&quot;</span>
+<span class="n">pytest-cov</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;*&quot;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+Setuptools</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">setup</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;ansys-&lt;product&gt;-&lt;library&gt;&quot;</span><span class="p">,</span>
+    <span class="o">...</span><span class="p">,</span>
+    <span class="n">extras_require</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;test&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;pytest&quot;</span><span class="p">,</span> <span class="s2">&quot;pytest-cov&quot;</span><span class="p">],</span>
+    <span class="p">},</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-3">
+Requirements</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pytest
+pytest-cov
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">pip</span></code> to install these testing dependencies:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-4">
+From setup.py or pyproject.toml</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>python -m pip install .[test]
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-5">
+From requirements_tests.txt</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>python -m pip install -r requirements_tests.txt
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="organize-test-files">
+<h3>Organize test files<a class="headerlink" href="#organize-test-files" title="Link to this heading">#</a></h3>
+<p>You must place your test files in <a class="reference internal" href="../packaging/structure.html#the-tests-directory"><span class="std std-ref">The tests directory</span></a>. To
+guarantee that tests are run against the library source code, follow a <code class="docutils literal notranslate"><span class="pre">src</span></code>
+layout as explained in <a class="reference internal" href="../packaging/structure.html#the-src-directory"><span class="std std-ref">The src directory</span></a> rather than
+having your Python library source located directly in the repository root directory.</p>
+<p>This helps you to achieve these objectives:</p>
+<ul class="simple">
+<li><p>Avoid testing the source of the repository rather than testing the installed package.</p></li>
+<li><p>Catch errors caused by files that might be missed by the installer, including any
+C extensions or additional internal packages.</p></li>
+</ul>
+</section>
+</section>
+<section id="test-execution">
+<h2>Test execution<a class="headerlink" href="#test-execution" title="Link to this heading">#</a></h2>
+<p>Once you have installed <code class="docutils literal notranslate"><span class="pre">pytest</span></code>, you can execute the test suite with this command:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pytest -v tests/
+</pre></div>
+</div>
+<section id="filter-tests">
+<h3>Filter tests<a class="headerlink" href="#filter-tests" title="Link to this heading">#</a></h3>
+<p>To run a subset of all available tests, you can taking advantage
+of the <code class="docutils literal notranslate"><span class="pre">keywords</span></code> and <code class="docutils literal notranslate"><span class="pre">markers</span></code> flags:</p>
+<p><strong>Filter tests by keywords</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pytest -k &#39;&lt;name pattern&gt;&#39;
+pytest -k &#39;not &lt;name pattern&gt;&#39;
+</pre></div>
+</div>
+<p><strong>Filter tests by markers</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pytest -m slow
+</pre></div>
+</div>
+<p>For more information about filtering tests, see <a class="reference external" href="https://docs.pytest.org/en/latest/example/markers.html">Working with custom markers</a> in the <code class="docutils literal notranslate"><span class="pre">pytest</span></code>
+documentation.</p>
+</section>
+</section>
+<section id="testing-methodology">
+<h2>Testing methodology<a class="headerlink" href="#testing-methodology" title="Link to this heading">#</a></h2>
+<p>You should consider three levels of testing for your PyAnsys library: unit,
+integration, and functional.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#unit-testing"><span class="std std-ref">Unit testing</span></a> validates your library at the lowest possible level, isolating
+individual classes and methods without any communication with other libraries
+or services.</p></li>
+<li><p><a class="reference internal" href="#integration-testing"><span class="std std-ref">Integration testing</span></a> validates that your library works in the context of an
+app or software stack. For example, if your library extends or wraps
+the features of an external service, you must test that service
+in conjunction with your library. On GitHub, the ideal approach for this would
+be to start your service using <a class="reference external" href="https://www.docker.com/">Docker</a> and then test accordingly. You should still be
+testing at the individual class or method level, but you can now test how
+multiple libraries or services interact. This is mandatory for testing APIs and
+is preferred over mocking the service.</p></li>
+<li><p><a class="reference internal" href="#functional-testing"><span class="std std-ref">Functional testing</span></a> should be used for validating workflows or long-running
+examples. Assume that you have a library that wraps a CAD service. You
+would validate that you can create complex geometry while directly interfacing
+with the service. Functional tests are great at discovering edge cases that are
+not normally found at the unit or integration level. However, functional testing
+should be limited to only a handful of examples because these tend to be long
+running and difficult to validate.</p></li>
+</ul>
+<p>Each PyAnsys project should have all three levels of testing implemented in its
+testing framework. Consider implementing functional tests as examples within
+your project’s documentation examples. This lets you write helpful
+user-facing tests while accomplishing functional testing.</p>
+<section id="unit-testing">
+<h3>Unit testing<a class="headerlink" href="#unit-testing" title="Link to this heading">#</a></h3>
+<p>Unit testing tests at the lowest possible level, isolated
+from other applications or libraries. For Python tool libraries like
+<a class="reference external" href="https://github.com/ansys/ansys-tools-protoc-helper">ansys-tools-protoc-helper</a>, unit testing is sufficient to get high coverage
+(&gt; 80%) of your library while actually testing the library.</p>
+<p>These tests should be written to test a single method in isolation. For example,
+the following <code class="docutils literal notranslate"><span class="pre">parse_chunks.py</span></code> file has a method that deserializes chunks. The
+associated <code class="docutils literal notranslate"><span class="pre">test_parse_chunks_py</span></code> file tests this method in isolation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This example assumes that you do not have a <code class="docutils literal notranslate"><span class="pre">serialize_chunks</span></code> function in your
+library. If you did, you could exclude it from the <code class="docutils literal notranslate"><span class="pre">test_parse_chunks.py</span></code> file.</p>
+</div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-6" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-6">
+parse_chunks.py</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">parse_chunks</span><span class="p">(</span><span class="n">chunks</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Deserialize gRPC chunks into a Numpy array.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    chunks : generator</span>
+<span class="sd">        Generator from gRPC. Each chunk contains a bytes payload.</span>
+
+<span class="sd">    dtype : np.dtype</span>
+<span class="sd">        Numpy data type to interpret chunks as.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    array : np.ndarray</span>
+<span class="sd">        Deserialized Numpy array.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">arrays</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">chunks</span><span class="p">:</span>
+        <span class="n">arrays</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">chunk</span><span class="o">.</span><span class="n">payload</span><span class="p">,</span> <span class="n">ANSYS_VALUE_TYPE</span><span class="p">[</span><span class="n">chunk</span><span class="o">.</span><span class="n">value_type</span><span class="p">]))</span>
+
+     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">arrays</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-7" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-7">
+test_parse_chunks.py</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ansys.api.mapdl.v0</span><span class="w"> </span><span class="kn">import</span> <span class="n">ansys_kernel_pb2</span> <span class="k">as</span> <span class="n">anskernel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">ansys.mapdl.core.common_grpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">parse_chunks</span>
+
+<span class="n">DEFAULT_CHUNKSIZE</span> <span class="o">=</span> <span class="mi">256</span><span class="o">*</span><span class="mi">1024</span>  <span class="c1"># 256 kB</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">()</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sample_array</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate a non-trivial (n x 3) float array.&quot;&quot;&quot;</span>
+    <span class="n">sz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">100000</span><span class="p">,</span> <span class="mi">200000</span><span class="p">)</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="n">sz</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">array</span><span class="o">.</span><span class="n">nbytes</span> <span class="o">&gt;</span> <span class="n">DEFAULT_CHUNKSIZE</span>
+    <span class="k">return</span> <span class="n">array</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">serialize_chunks</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Serialize an array into chunks.&quot;&quot;&quot;</span>
+    <span class="c1"># convert to raw</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">tobytes</span><span class="p">()</span>
+    <span class="n">value_type</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># float64</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">piece</span> <span class="o">=</span> <span class="n">raw</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">DEFAULT_CHUNKSIZE</span><span class="p">]</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="n">DEFAULT_CHUNKSIZE</span>
+        <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">piece</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="k">yield</span> <span class="n">anskernel</span><span class="o">.</span><span class="n">Chunk</span><span class="p">(</span><span class="n">payload</span><span class="o">=</span><span class="n">piece</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">length</span><span class="p">,</span> <span class="n">value_type</span><span class="o">=</span><span class="n">value_type</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_deserialize_chunks</span><span class="p">(</span><span class="n">sample_array</span><span class="p">):</span>
+    <span class="n">parsed_array</span> <span class="o">=</span> <span class="n">parse_chunks</span><span class="p">(</span><span class="n">serialize_chunks</span><span class="p">(</span><span class="n">sample_array</span><span class="p">))</span>
+    <span class="n">parsed_array</span> <span class="o">=</span> <span class="n">parsed_array</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">sample_array</span><span class="p">,</span> <span class="n">parsed_array</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="integration-testing">
+<h3>Integration testing<a class="headerlink" href="#integration-testing" title="Link to this heading">#</a></h3>
+<p>This section explains <a class="reference internal" href="#wrapped-service-methods"><span class="std std-ref">Wrapped service methods</span></a> and how to
+<a class="reference internal" href="#test-using-remote-method-invocation"><span class="std std-ref">Test using remote method invocation</span></a>.</p>
+<section id="wrapped-service-methods">
+<h4>Wrapped service methods<a class="headerlink" href="#wrapped-service-methods" title="Link to this heading">#</a></h4>
+<p>Any PyAnsys library that provides features by wrapping a gRPC interface
+should include tests of the gRPC methods exposed by the PROTO files and wrapped
+by the Python library. They would not be expected to test the features of
+the server but rather the APIs exposed by the server. For example, if testing
+the <code class="docutils literal notranslate"><span class="pre">GetNode</span></code> gRPC method, then your integration test would test the wrapped
+Python function. If the Python library wraps this gRPC method with a
+<code class="docutils literal notranslate"><span class="pre">get_node</span></code> method, your test would be implemented within the
+<code class="docutils literal notranslate"><span class="pre">tests/test_nodes.py</span></code> file.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-8" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-8">
+gRPC code</label><div class="sd-tab-content docutils">
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="n">Node</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">int32</span><span class="w">      </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">   </span><span class="n">double</span><span class="w">     </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">   </span><span class="n">double</span><span class="w">     </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">   </span><span class="n">double</span><span class="w">     </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+
+<span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="n">NodeRequest</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">int32</span><span class="w">      </span><span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+
+<span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="n">NodeResponse</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">Node</span><span class="w">       </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+
+<span class="n">service</span><span class="w"> </span><span class="n">SomeService</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">   </span><span class="n">rpc</span><span class="w"> </span><span class="n">GetNode</span><span class="p">(</span><span class="n">NodeRequest</span><span class="p">)</span><span class="w">  </span><span class="n">returns</span><span class="w"> </span><span class="p">(</span><span class="n">NodeResponse</span><span class="p">);</span>
+<span class="w">   </span><span class="c1">// other methods</span>
+<span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-9" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-9">
+Python code</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ansys.product.service.v0</span><span class="w"> </span><span class="kn">import</span> <span class="n">service_pb2</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the coordinates of a node for a given index.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    index : int</span>
+<span class="sd">        Index of the node.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple</span>
+<span class="sd">        Coordinates of the node.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from ansys.product.service import SomeService</span>
+<span class="sd">    &gt;&gt;&gt; srv = SomeService()</span>
+<span class="sd">    &gt;&gt;&gt; srv.create_node(1, 4.5, 9.0, 3.2)</span>
+<span class="sd">    &gt;&gt;&gt; node = srv.get_node(1)</span>
+<span class="sd">    &gt;&gt;&gt; node</span>
+<span class="sd">    (4.5, 9.0, 3.2)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">service_pb2</span><span class="o">.</span><span class="n">GetNode</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">resp</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">resp</span><span class="o">.</span><span class="n">z</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-10" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-10">
+Unit test</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_get_node</span><span class="p">(</span><span class="n">srv</span><span class="p">):</span>
+    <span class="n">srv</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+    <span class="n">node_index</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">node_coord</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span>
+    <span class="n">srv</span><span class="o">.</span><span class="n">create_node</span><span class="p">(</span><span class="n">node_index</span><span class="p">,</span> <span class="n">node_coord</span><span class="o">*</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">srv</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="n">node_index</span><span class="p">)</span> <span class="o">==</span> <span class="n">node_coord</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The goal of the unit test should be to test the API rather than the product or
+service. The <code class="docutils literal notranslate"><span class="pre">GetNode</span></code> gRPC method should have already been tested when
+designing and developing the service.</p>
+</section>
+<section id="test-using-remote-method-invocation">
+<h4>Test using remote method invocation<a class="headerlink" href="#test-using-remote-method-invocation" title="Link to this heading">#</a></h4>
+<p>For a Remote Method Invocation (RMI)-like method, it is only
+necessary to test the method with a basic case and potentially with any edge
+cases. A RMI-like API might send and receive strings that are executed on the
+server using a custom API or language only available within the context of the
+service.</p>
+<p>For example, if a method has a RMI service definition named <code class="docutils literal notranslate"><span class="pre">SendCommand()</span></code> and
+a Python wrapping named <code class="docutils literal notranslate"><span class="pre">send_command</span></code>, your code and the example test would look
+like this:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-11" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-11">
+gRPC code</label><div class="sd-tab-content docutils">
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">message</span><span class="w"> </span><span class="n">SendCommand</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-12" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-12">
+Python code</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">send_command</span><span class="p">(</span><span class="n">command</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run a command on the remote server.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    command : str</span>
+<span class="sd">        Command to run on the remote server.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-13" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-13">
+Unit test</label><div class="sd-tab-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_send_command</span><span class="p">(</span><span class="n">srv</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">srv</span><span class="o">.</span><span class="n">send_command</span><span class="p">(</span><span class="s2">&quot;CREATE,1&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="s2">&quot;Created 1&quot;</span> <span class="ow">in</span> <span class="n">output</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that this test only validates that the <code class="docutils literal notranslate"><span class="pre">&quot;CREATE,1&quot;</span></code> command has been
+received, executed, and sent back to the client. It does not validate all
+commands. Running such a test is necessary only if there are edge cases, which
+include characters that cannot be streamed or use long-running commands.</p>
+</section>
+</section>
+<section id="functional-testing">
+<h3>Functional testing<a class="headerlink" href="#functional-testing" title="Link to this heading">#</a></h3>
+<p>Functional testing should test the Python library using scripts or examples
+that are expected to be executed by the user. Unlike unit or integration
+testing, functional tests are testing the library as a whole by calling
+several methods to accomplish a task. You should run these tests only after unit
+and integration testing is complete. Ideally, you should run them outside the
+<code class="docutils literal notranslate"><span class="pre">pytest</span></code> framework while building documentation with <a class="reference external" href="https://sphinx-gallery.github.io/">Sphinx-Gallery</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Functional tests should not contribute to global library coverage. Testing
+should always be done on individual functions or methods.</p>
+</div>
+</section>
+</section>
+<section id="test-code-coverage">
+<h2>Test code coverage<a class="headerlink" href="#test-code-coverage" title="Link to this heading">#</a></h2>
+<p>Because Python is an interpreted language, syntax errors can only be
+caught during the almost trivial compile times. Thus, developers of Python libraries
+should aim to have high coverage for their libraries. Coverage is defined as parts
+of the executable and usable source that are tested by unit tests. You can use
+the <a class="reference external" href="https://pytest-cov.readthedocs.io/en/latest/">pytest-cov</a> library to view the coverage for your library.</p>
+<section id="configure-code-coverage">
+<h3>Configure code coverage<a class="headerlink" href="#configure-code-coverage" title="Link to this heading">#</a></h3>
+<p>If you do not configure code coverage properly, the resulting report does
+not show the real scope covered by the test suite.</p>
+<p>Assuming that a <code class="docutils literal notranslate"><span class="pre">PyAnsys</span></code> project follows <a class="reference internal" href="../packaging/structure.html#the-src-directory"><span class="std std-ref">The src directory</span></a> layout,
+you must pass the following flag when <a class="reference internal" href="#test-execution"><span class="std std-ref">executing tests</span></a>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pytest --cov=ansys.&lt;product&gt;.&lt;library&gt; --cov-report=term tests/
+</pre></div>
+</div>
+<p>This command tells <code class="docutils literal notranslate"><span class="pre">pytest-cov</span></code> to look for source code in the
+<code class="docutils literal notranslate"><span class="pre">src/ansys/&lt;product&gt;</span></code> directory and generate a terminal report for all tests
+located in <a class="reference internal" href="../packaging/structure.html#the-tests-directory"><span class="std std-ref">The tests directory</span></a>.</p>
+<p>While 100% coverage is ideal, the law of diminishing returns applies to
+the coverage of a Python library. Consequently, achieving 80-90% coverage is
+often sufficient. For parts of your library that are difficult or impossible
+to test, consider using <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">pragma:</span> <span class="pre">no</span> <span class="pre">cover</span></code> at the end of the method
+definition, branch, or line to denote that part of the code cannot be
+reasonably tested. For example, if part of your module performs a simple
+<code class="docutils literal notranslate"><span class="pre">import</span></code> test of <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> and raises an error when the library is not
+installed, it is not reasonable to attempt to test this and assume full
+coverage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+    <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s2">&quot;Install matplotlib to use this feature.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You should only avoid coverage of parts of your library where you cannot
+reasonably test without an extensive testing suite or setup. Most methods and
+classes, including edge cases, can be reasonably tested. Even parts of your code
+that raise errors like <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> or <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> when users input the
+wrong data type or value can be reasonably tested.</p>
+</section>
+<section id="enforce-code-coverage">
+<h3>Enforce code coverage<a class="headerlink" href="#enforce-code-coverage" title="Link to this heading">#</a></h3>
+<p>One way of enforcing unit test coverage with a project on GitHub is to use
+<code class="docutils literal notranslate"><span class="pre">codecov.io</span></code> to enforce minimum patch (and optionally project) coverage. Because
+this app is already available to the <a class="reference external" href="https://github.com/ansys">Ansys GitHub organization</a>, you can simply
+add a <code class="docutils literal notranslate"><span class="pre">codecov.yml</span></code> file to the root directory of your repository. This example
+file provides a sample configuration:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">comment</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">layout</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;diff&quot;</span>
+<span class="w">  </span><span class="nt">behavior</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+
+<span class="nt">coverage</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">status</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">project</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">default</span><span class="p">:</span>
+<span class="w">        </span><span class="c1"># basic</span>
+<span class="w">        </span><span class="c1"># target: 50%</span>
+<span class="w">        </span><span class="nt">threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0%</span>
+<span class="w">        </span><span class="c1"># advanced</span>
+<span class="w">        </span><span class="nt">if_not_found</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">success</span>
+<span class="w">        </span><span class="nt">if_ci_failed</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">error</span>
+<span class="w">        </span><span class="nt">if_no_uploads</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">error</span>
+<span class="w">    </span><span class="nt">patch</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">default</span><span class="p">:</span>
+<span class="w">        </span><span class="c1"># basic</span>
+<span class="w">        </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90%</span>
+<span class="w">        </span><span class="nt">if_not_found</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">success</span>
+<span class="w">        </span><span class="nt">if_ci_failed</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">error</span>
+<span class="w">        </span><span class="nt">if_no_uploads</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">error</span>
+</pre></div>
+</div>
+<p>Using a <code class="docutils literal notranslate"><span class="pre">codecov.yml</span></code> file requires that each PR has a patch coverage of 90%, meaning that 90% of any
+source added to the repository (unless ignored) must be covered by unit tests.</p>
+</section>
+</section>
+<section id="test-using-github-actions">
+<h2>Test using GitHub Actions<a class="headerlink" href="#test-using-github-actions" title="Link to this heading">#</a></h2>
+<p>Effective CI/CD assumes that unit testing is developed during feature
+development or bug fixes. However, given the limited scope of the local
+development environment, it is often not possible to enforce testing on
+multiple platforms, or even to enforce unit testing in general. However, with the proper
+automated CI/CD, such testing can still occur and be enforced automatically.</p>
+<p><a class="reference external" href="https://github.com/features/actions">GitHub Actions</a> is the preferred automated CI/CD platform for running Python
+library unit tests for PyAnsys. It can be used immediately by cloning the
+project <a class="reference external" href="https://github.com/ansys/template/">template</a>.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">tests</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Test</span><span class="nv"> </span><span class="s">library&quot;</span>
+<span class="w">  </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ matrix.os }}</span>
+<span class="w">  </span><span class="nt">strategy</span><span class="p">:</span>
+<span class="w">     </span><span class="nt">matrix</span><span class="p">:</span>
+<span class="w">         </span><span class="nt">os</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">ubuntu-latest</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">windows-latest</span><span class="p p-Indicator">]</span>
+<span class="w">         </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;3.10&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;3.11&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;3.12&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;3.13&#39;</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Run</span><span class="nv"> </span><span class="s">pytest&quot;</span>
+<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansys/actions/tests-pytest@v8</span>
+<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ matrix.python-version }}</span>
+<span class="w">        </span><span class="nt">pytest-markers</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;-k</span><span class="nv"> </span><span class="s">&#39;mocked&#39;&quot;</span>
+<span class="w">        </span><span class="nt">pytest-extra-args</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;--cov=ansys.&lt;library&gt;</span><span class="nv"> </span><span class="s">--cov-report=term</span><span class="nv"> </span><span class="s">--cov-report=xml:.cov/coverage.xml</span><span class="nv"> </span><span class="s">--cov-report=html:.cov/html&quot;</span>
+
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Upload</span><span class="nv"> </span><span class="s">coverage</span><span class="nv"> </span><span class="s">results&quot;</span>
+<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/upload-artifact@v4</span>
+<span class="w">      </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">matrix.python-version == ${{ env.MAIN_PYTHON_VERSION }}</span>
+<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">coverage-html</span>
+<span class="w">        </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.cov/html</span>
+<span class="w">        </span><span class="nt">retention-days</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-framework">Test framework</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-testing-dependencies">Add testing dependencies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#organize-test-files">Organize test files</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-execution">Test execution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-tests">Filter tests</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-methodology">Testing methodology</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-testing">Unit testing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-testing">Integration testing</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#wrapped-service-methods">Wrapped service methods</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test-using-remote-method-invocation">Test using remote method invocation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functional-testing">Functional testing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-code-coverage">Test code coverage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-code-coverage">Configure code coverage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enforce-code-coverage">Enforce code coverage</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-using-github-actions">Test using GitHub Actions</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item"> 
+<div class="tocsection editthispage">
+  <a href="https://github.com/pyansys/dev-guide/edit/main/doc/source/how-to/testing.rst">
+    <i class="fa-solid fa-pencil"></i>
+       Edit
+    on GitHub  
+  </a>
+</div>
+
+</div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <ul class="this-page-menu">
+      <li><a href="../_sources/how-to/testing.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <!-- Include desired assets -->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.7/require.min.js"></script>
+
+<script>
+// Passing the search options to the search.js file
+const SEARCH_OPTIONS = JSON.parse('{"ignoreLocation": true, "keys": ["title", "text", "objectID"], "limit": 10, "min_chars_for_search": 2, "threshold": 0.5}');
+const SEARCH_FILE = "../_static/search.json";
+const ADVANCE_SEARCH_PATH = "../search.html";
+const EXTRA_SOURCES = JSON.parse('""');
+</script>
+
+
+<script src="../_static/js/search.js"></script>
+
+  
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright (c) 2026 ANSYS, Inc. All rights reserved.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the
+  <a href="https://sphinxdocs.ansys.com/version/stable/index.html"
+    >Ansys Sphinx Theme</a
+  >
+  1.6.4. <br />Last updated on
+  <span id="ast_build_date"></span>
+</p>
+<script>
+  var options = { day: "numeric", month: "long", year: "numeric" };
+  var ast_lastModifiedDate = new Date(document.lastModified);
+  var ast_build_date = ast_lastModifiedDate.toLocaleDateString("en-US", options);
+  document.getElementById("ast_build_date").innerHTML = ast_build_date;
+</script></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

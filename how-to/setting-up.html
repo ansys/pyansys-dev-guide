@@ -1,0 +1,1123 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Environment setup &#8212; PyAnsys developer&#39;s guide</title>
+  
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/ansys-sphinx-theme.css?v=9e79609d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/ansys-sphinx-theme.css?v=9e79609d" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.nerdfonts.com/assets/css/webfont.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+  <!-- Include desired assets -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  
+
+  
+    <link href="../_static/css/breadcrumbs.css" rel="stylesheet" />
+  
+    <script src="../_static/documentation_options.js?v=92d7cc4e"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'how-to/setting-up';</script>
+    <link rel="icon" href="../_static/ansys-favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Python versions" href="supporting-python-versions.html" />
+    <link rel="prev" title="How-to" href="index.html" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="2026-02-17" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="https://docs.pyansys.com/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/pyansys_logo_transparent_black.png" class="logo__image only-light" alt="PyAnsys developer's guide - Home"/>
+    <img src="../_static/pyansys_logo_transparent_white.png" class="logo__image only-dark pst-js-only" alt="PyAnsys developer's guide - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html" title="PyAnsys developer's guide home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../content-writing/index.html">
+    Content writing
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+      
+        <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+  
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html" title="PyAnsys developer's guide home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../content-writing/index.html">
+    Content writing
+  </a>
+</li>
+
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Environment setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supporting-python-versions.html">Python versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packaging.html">Packaging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpc-api-packages.html">gRPC API packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documenting.html">Documenting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="continuous-integration.html">Continuous integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releasing.html">Releasing and publishing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="repository-protection.html">Repository protection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dns-configuration.html">DNS configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compatibility.html">Product compatibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vulnerabilities.html">Vulnerabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deprecating.html">Deprecating a library</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+         
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="https://docs.pyansys.com/" class="nav-link">PyAnsys</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a
+        href="../index.html"
+        class="nav-link"
+        aria-label="Home"
+      >
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="index.html" class="nav-link">How-to</a>
+    </li>
+      
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Environment setup</span></li>
+    
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="environment-setup">
+<span id="setting-up-dev-environment"></span><h1>Environment setup<a class="headerlink" href="#environment-setup" title="Link to this heading">#</a></h1>
+<p>Before you can contribute to any PyAnsys project, you must set up
+your developer environment.</p>
+<section id="python">
+<h2>Python<a class="headerlink" href="#python" title="Link to this heading">#</a></h2>
+<div align="center">
+    <img
+        src="https://github.com/python/pythondotorg/raw/main/static/community_logos/python-logo-inkscape.svg"
+        width="40%"
+    >
+</div><p>All PyAnsys projects require a Python interpreter for interacting
+with PyAnsys libraries. Therefore, you must ensure that at least one Python
+interpreter is installed on your local machine.</p>
+<section id="install-python">
+<h3>Install Python<a class="headerlink" href="#install-python" title="Link to this heading">#</a></h3>
+<p>There are several ways to install a Python package on your local machine:</p>
+<ul class="simple">
+<li><p>Use an installer from the <a class="reference external" href="https://www.python.org/downloads/">official Python download page</a>.</p></li>
+<li><p>Use a package manager or “store” on your machine.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Ensure that you install Python from an official channel. Do not trust
+third-party websites or download executable content from them.</p>
+</div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+Windows</label><div class="sd-tab-content docutils">
+<p>To install Python on a machine running Windows:</p>
+<ol class="arabic simple">
+<li><p>Download the <a class="reference external" href="https://www.python.org/downloads/windows/">latest stable Python version for Windows</a>.</p></li>
+<li><p>Execute the installer, referring to  <a class="reference external" href="https://docs.python.org/3/using/windows.html">Using Python on
+Windows</a> for
+detailed installation instructions.</p></li>
+</ol>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+macOS</label><div class="sd-tab-content docutils">
+<p>To install Python on a machine running macOS:</p>
+<ol class="arabic simple">
+<li><p>Download the <a class="reference external" href="https://www.python.org/downloads/macos/">latest stable Python version for macOS</a>.</p></li>
+<li><p>Execute the installer, referring to <a class="reference external" href="https://docs.python.org/3/using/mac.html">Using Python on
+a Mac</a> for
+detailed installation instructions.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is likely that your macOS distribution already comes with some
+version of Python installed. For more information, see <a class="reference internal" href="#verify-python-version"><span class="std std-ref">Verify Python version</span></a>.</p>
+</div>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+Linux/UNIX</label><div class="sd-tab-content docutils">
+<p>To install Python on a machine running Linux/UNIX:</p>
+<ol class="arabic simple">
+<li><p>Download the <a class="reference external" href="https://www.python.org/downloads/source/">latest stable Python version for Linux/UNIX</a>.</p></li>
+<li><p>Decompress the source code and follow the installation instructions in the
+<code class="docutils literal notranslate"><span class="pre">README.rst</span></code> file. For more information, see <a class="reference external" href="https://docs.python.org/3/using/unix.html">Using Python on Unix Platforms</a>.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is likely that your Linux/UNIX distribution already comes with some
+version of Python installed. For more information, see <a class="reference internal" href="#verify-python-version"><span class="std std-ref">Verify Python version</span></a>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="verify-python-version">
+<h3>Verify Python version<a class="headerlink" href="#verify-python-version" title="Link to this heading">#</a></h3>
+<p>Once your Python installation is complete, verify it with this command:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>python --version
+</pre></div>
+</div>
+</section>
+</section>
+<section id="virtual-environments">
+<h2>Virtual environments<a class="headerlink" href="#virtual-environments" title="Link to this heading">#</a></h2>
+<p>When working in multiple Python projects, it is likely each of these projects has its
+own requirements. Sometimes, requirements across projects can be incompatible.
+Virtual environments were devised to isolate Python environments, which guarantees
+that you do not face dependency problems when working in multiple projects.</p>
+<p>For information on the most fundamental commands for manipulating and
+interacting with a Python virtual environment, see the <a class="reference external" href="https://docs.python.org/3/library/venv.html">official Python documentation on
+the venv module</a>.</p>
+<section id="check">
+<h3>Check<a class="headerlink" href="#check" title="Link to this heading">#</a></h3>
+<p>Before creating a virtual environment, you must run the command for your OS to see if you are already
+using one:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-3">
+Windows</label><div class="sd-tab-content docutils">
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-5">
+CMD</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>where python
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-6" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-6">
+PowerShell</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>where.exe python
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<input id="sd-tab-item-4" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-4">
+macOS/Linux/UNIX</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>which python
+</pre></div>
+</div>
+</div>
+</div>
+<p>The command returns the path to the Python virtual environment that your system is currently using.</p>
+<p>Ensure that it points to your default installation and not to a virtual
+environment. If it points to a virtual environment, see <a class="reference internal" href="#deactivate"><span class="std std-ref">Deactivate</span></a> for
+information on deactivating the virtual environment.</p>
+</section>
+<section id="create">
+<h3>Create<a class="headerlink" href="#create" title="Link to this heading">#</a></h3>
+<p>Usually, virtual environments are named <code class="docutils literal notranslate"><span class="pre">venv</span></code> or <code class="docutils literal notranslate"><span class="pre">.venv</span></code>.
+You can create a virtual environment named <code class="docutils literal notranslate"><span class="pre">&lt;venv&gt;</span></code> with this command:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>python -m venv &lt;venv&gt;
+</pre></div>
+</div>
+</section>
+<section id="activate">
+<h3>Activate<a class="headerlink" href="#activate" title="Link to this heading">#</a></h3>
+<p>You would activate the preceding virtual environment with the command for your OS:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-7">
+Windows</label><div class="sd-tab-content docutils">
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-9" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-9">
+CMD</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;venv&gt;\Scripts\activate.bat
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-10" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-10">
+PowerShell</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;venv&gt;\Scripts\Activate.ps1
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<input id="sd-tab-item-8" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-8">
+macOS/Linux/UNIX</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>source &lt;venv&gt;/bin/activate
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="deactivate">
+<h3>Deactivate<a class="headerlink" href="#deactivate" title="Link to this heading">#</a></h3>
+<p>You can deactivate a virtual environment with the command for your OS:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>deactivate
+</pre></div>
+</div>
+</section>
+</section>
+<section id="git">
+<h2>Git<a class="headerlink" href="#git" title="Link to this heading">#</a></h2>
+<div align="center">
+    <img
+        src="https://github.com/git/git-scm.com/raw/main/public/images/logo%402x.png"
+        width="20%"
+    >
+</div><p><a class="reference external" href="https://git-scm.com/">Git</a> is an open source VCS (version control system). It
+is used to track changes and register new content in software-related projects. Git
+registers the author and date of the changes so that accurate tracking of the
+software’s evolution is available.</p>
+<section id="install-git">
+<h3>Install Git<a class="headerlink" href="#install-git" title="Link to this heading">#</a></h3>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-11" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-11">
+Windows</label><div class="sd-tab-content docutils">
+<p>To install Git on a machine running Windows:</p>
+<ol class="arabic simple">
+<li><p>Download the <a class="reference external" href="https://git-scm.com/download/win">latest stable standalone Git version for Windows</a>.</p></li>
+<li><p>Execute the installer and follow the installation instructions.</p></li>
+</ol>
+</div>
+<input id="sd-tab-item-12" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-12">
+macOS</label><div class="sd-tab-content docutils">
+<p>To install Git on a machine running macOS:</p>
+<ol class="arabic simple">
+<li><p>Check the <a class="reference external" href="https://git-scm.com/download/mac">latest stable Git version for macOS</a>.</p></li>
+<li><p>Run the installation command for your package manager.</p></li>
+</ol>
+</div>
+<input id="sd-tab-item-13" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-13">
+Linux/UNIX</label><div class="sd-tab-content docutils">
+<p>To install Git on a machine running Linux/UNIX:</p>
+<ol class="arabic simple">
+<li><p>Check the <a class="reference external" href="https://git-scm.com/download/linux">latest stable Git version for Linux/UNIX</a>.</p></li>
+<li><p>Run the installation command for your package manager.</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="verify-git-version">
+<h3>Verify Git version<a class="headerlink" href="#verify-git-version" title="Link to this heading">#</a></h3>
+<p>Once your Git installation finishes, verify it with this command:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>git --version
+</pre></div>
+</div>
+</section>
+<section id="use-git">
+<h3>Use Git<a class="headerlink" href="#use-git" title="Link to this heading">#</a></h3>
+<p>If you’re new to Git, see the <a class="reference external" href="https://git-scm.com/doc">Git documentation</a>
+for comprehensive usage information.</p>
+<p>For an understanding of Git workflows and branching strategies,
+see the <a class="reference external" href="https://learngitbranching.js.org/">Learn Git Branching</a> tutorial.</p>
+<p>If you’re unfamiliar with GitHub, see
+<a class="reference external" href="https://githubtraining.github.io/training-manual/">The Official GitHub Training Manual</a>
+for guidance.</p>
+</section>
+<section id="configure-git">
+<h3>Configure Git<a class="headerlink" href="#configure-git" title="Link to this heading">#</a></h3>
+<p>It is very important to properly configure Git so that every modification that you make
+to the code points to you. There are two types of Git configuration:
+<a class="reference internal" href="#global"><span class="std std-ref">Global</span></a> and <a class="reference internal" href="#local"><span class="std std-ref">Local</span></a>. It is also possible to combine both to have
+a <a class="reference internal" href="#dynamic"><span class="std std-ref">Dynamic</span></a> configuration.</p>
+<section id="global">
+<h4>Global<a class="headerlink" href="#global" title="Link to this heading">#</a></h4>
+<p>A global configuration is automatically included in every Git repository on
+your machine unless overridden by a <a class="reference internal" href="#local"><span class="std std-ref">Local</span></a> configuration, which
+is located in <code class="docutils literal notranslate"><span class="pre">C:\Users\&lt;username&gt;\.gitconfig</span></code> for Windows users or in
+<code class="docutils literal notranslate"><span class="pre">/home/&lt;username&gt;/.gitconfig</span></code> for macOS, Linux, or UNIX users.</p>
+<p>You can set the value for any variable in a field with this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>&lt;field&gt;.&lt;varname&gt;<span class="w"> </span>&lt;value&gt;
+</pre></div>
+</div>
+<p>Some examples of setting values follow.</p>
+<p><strong>Set your name</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span>&lt;Your<span class="w"> </span>Name&gt;
+</pre></div>
+</div>
+<p><strong>Set your email</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span>&lt;Ansys<span class="w"> </span>Email&gt;
+</pre></div>
+</div>
+<p><strong>Set the default branch name</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>init.defaultBranch<span class="w"> </span>main
+</pre></div>
+</div>
+</section>
+<section id="local">
+<h4>Local<a class="headerlink" href="#local" title="Link to this heading">#</a></h4>
+<p>There might be a time when you want to declare a specific configuration to use only
+in a given project. To override the global configuration, you can declare a local
+configuration.</p>
+<p>In a local configuration, the commands are the same as in the global configuration. The
+one exception is that instead of using the <code class="docutils literal notranslate"><span class="pre">--global</span></code> flag, you use the <code class="docutils literal notranslate"><span class="pre">--local</span></code> flag.
+Ensure that you run the commands in the root directory of your project and that a <code class="docutils literal notranslate"><span class="pre">.git</span></code>
+directory exists.</p>
+<p>If you would like to manually modify your local configuration, it is saved in
+the <code class="docutils literal notranslate"><span class="pre">.git/config</span></code> file.</p>
+</section>
+<section id="dynamic">
+<h4>Dynamic<a class="headerlink" href="#dynamic" title="Link to this heading">#</a></h4>
+<p>It is possible to configure Git such that it selects between multiple
+configuration profiles according to whether your project is located on your system.
+This lets you define common configurations for working under
+<code class="docutils literal notranslate"><span class="pre">Ansys</span></code> or other open source projects from which Ansys benefits.</p>
+<p>As an example, consider the following scenario for setting up two Git
+configuration profiles for working with Ansys projects and personal projects.</p>
+<p>Create the two files, naming them so that they are easily distinguishable. For
+example, name them <code class="docutils literal notranslate"><span class="pre">.gitconfig-ansys</span></code> and <code class="docutils literal notranslate"><span class="pre">.gitconfig-personal</span></code>. Then, use Git
+<a class="reference external" href="https://git-scm.com/docs/git-config#_conditional_includes">Conditional includes</a>
+to control which Git configuration is applied based on whether the project is located
+on your system.</p>
+<p>Here are examples of what these files might look like:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-14" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-14">
+.gitconfig</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[includeIf &quot;gitdir:path/to/your/ansys/folder/of/projects&quot;]
+  path = path/to/.gitconfig-ansys
+
+[includeIf &quot;gitdir:path/to/your/personal/folder/of/projects&quot;]
+  path = path/to/.gitconfig-personal
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-15" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-15">
+.gitconfig-ansys</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[user]
+
+  name = &lt;Ansys Name&gt;
+  email = &lt;Ansys Email&gt;
+  signingkey = &lt;Ansys GPG Key&gt;
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-16" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-16">
+.gitconfig-personal</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[user]
+
+  name = &lt;Name or Nickname&gt;
+  email = &lt;Personal Email&gt;
+  signingkey = &lt;Personal GPG Key&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sign-commits">
+<h3>Sign commits<a class="headerlink" href="#sign-commits" title="Link to this heading">#</a></h3>
+<p>To verify which code changes were made by you, signing the commit
+is required. To sign a commit, you must generate a <code class="docutils literal notranslate"><span class="pre">GPG</span></code> key, associate it with
+GitHub, and specify it in your Git configuration.</p>
+<p>For an explanation of the process, see <a class="reference external" href="https://docs.github.com/en/authentication/managing-commit-signature-verification">Manage commit signature verification</a>
+in the GitHub documentation.</p>
+</section>
+<section id="enable-ssh">
+<h3>Enable SSH<a class="headerlink" href="#enable-ssh" title="Link to this heading">#</a></h3>
+<p>Working with Secure Shell Protocol (SSH) is not only a good practice but
+also required for contributing to PyAnsys projects. Without an SSH key,
+you are not able to clone <strong>internal</strong> or <strong>private</strong> repositories or
+to push new changes.</p>
+<p>For information on setting up SSH with GitHub, see <a class="reference external" href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh">Connecting to GitHub with SSH</a>
+in the GitHub documentation.</p>
+</section>
+<section id="handle-line-endings">
+<h3>Handle line endings<a class="headerlink" href="#handle-line-endings" title="Link to this heading">#</a></h3>
+<p>Every time you introduce a new line by pressing the <strong>enter</strong> key, an invisible
+character is introduced to represent a line ending. Each operating system manages
+these end-of-line (EOL) characters in its own way. For Windows, the EOL is
+also known as a <cite>CRLF</cite>, while in Linux it is known as a <cite>LF</cite>.</p>
+<p>To avoid problems between developers working in the same repository but using
+different operating systems, you can specify an EOL policy in a <code class="docutils literal notranslate"><span class="pre">.gitattributes</span></code> file.</p>
+<p>In a <code class="docutils literal notranslate"><span class="pre">.gitattributes</span></code> file that you have committed to your repository, you can
+customize the type of EOL characters that you expect developers to use. Git
+then automatically manages these EOL characters so that developers do not
+need to worry about them. Consider this example in <a class="reference external" href="https://docs.github.com/en/get-started/getting-started-with-git/configuring-git-to-handle-line-endings#example">Configuring Git to handle line endings</a>
+in the GitHub documentations:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># Set the default behavior, in case people don&#39;t have ``core.autocrlf`` set.
+* text=auto
+
+# Explicitly declare text files that you want to always be normalized and converted
+# to native line endings on checkout.
+*.c text
+*.h text
+
+# Declare files that always have CRLF line endings on checkout.
+*.sln text eol=crlf
+
+# Denote all files that are truly binary and should not be modified.
+*.png binary
+*.jpg binary
+</pre></div>
+</div>
+</section>
+<section id="remove-files-and-directories-untracked-by-git">
+<span id="git-clean"></span><h3>Remove files and directories untracked by Git<a class="headerlink" href="#remove-files-and-directories-untracked-by-git" title="Link to this heading">#</a></h3>
+<p>To remove files and directories that are not tracked by Git from your working directory,
+you want to periodically run this command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clean</span> <span class="pre">-fdx</span> <span class="pre">.</span></code></p>
+<p>Descriptions follow for each command option:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">f</span></code> forces deletion of untracked files (and directories if <code class="docutils literal notranslate"><span class="pre">d</span></code> is also specified)
+without requiring additional confirmation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">d</span></code> deletes untracked directories. By default, the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clean</span></code>
+command does not recurse into untracked directories to avoid deleting too much.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> deletes ignored files, which are those specified in your <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file.
+You use this option when you want to clean up all untracked files, including build
+products.</p></li>
+</ul>
+<p>The trailing <code class="docutils literal notranslate"><span class="pre">.</span></code> specifies the current directory as the starting point for the
+cleaning. For example, to clean all of the untracked files that are generated by
+building documentation locally, you would run the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clean</span> <span class="pre">-fdx</span> <span class="pre">.</span></code> command
+from the <code class="docutils literal notranslate"><span class="pre">doc</span></code> directory.</p>
+</section>
+</section>
+<section id="wsl2">
+<h2>WSL2<a class="headerlink" href="#wsl2" title="Link to this heading">#</a></h2>
+<p>Some developers prefer using Windows as the operating system for their machines.
+However, they might like to take advantage of some features provided by a Linux
+operating system. The Windows Subsystem for Linux (WSL) was devised to solve
+this problem. For installation information, see <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install">How to install Linux on Windows with WSL</a> in the Microsoft Windows
+documentation.</p>
+<section id="install-wsl2">
+<h3>Install WSL2<a class="headerlink" href="#install-wsl2" title="Link to this heading">#</a></h3>
+<p>Open a new PowerShell session and install WSL with this command:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">wsl</span> <span class="p">-</span><span class="n">-install</span>
+</pre></div>
+</div>
+<p>After installing WSL, ensure that you are running the WSL2 version with this
+command:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">wsl</span> <span class="p">-</span><span class="n">-set-default-version</span> <span class="n">2</span>
+</pre></div>
+</div>
+</section>
+<section id="verify-wsl-version">
+<h3>Verify WSL version<a class="headerlink" href="#verify-wsl-version" title="Link to this heading">#</a></h3>
+<p>Verify your WSL version with this command:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">wsl</span> <span class="p">-</span><span class="n">-list</span> <span class="n">-v</span>
+</pre></div>
+</div>
+</section>
+<section id="install-linux-distribution">
+<h3>Install Linux distribution<a class="headerlink" href="#install-linux-distribution" title="Link to this heading">#</a></h3>
+<p>After WSL2 is installed, install a Linux distribution.
+To get a list of available distributions, run this command:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">wsl</span> <span class="p">-</span><span class="n">-list</span> <span class="p">-</span><span class="n">-online</span>
+</pre></div>
+</div>
+<p>Most developers choose <a class="reference external" href="https://ubuntu.com/download">Ubuntu</a> because it is a
+well maintained Linux distribution with a huge collection of packages.</p>
+<p>To install the Linux distribution of your choice, run this command:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">wsl</span> <span class="p">-</span><span class="n">-install</span> <span class="n">-d</span> <span class="p">&lt;</span><span class="n">distribution</span> <span class="n">name</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>You can use the preceding command to install multiple Linux distributions. Indicate
+the distributions that you would like to use with WSL2 with this command:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">wsl</span> <span class="n">-d</span> <span class="p">&lt;</span><span class="n">distribution</span> <span class="n">name</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="windows-terminal">
+<h2>Windows terminal<a class="headerlink" href="#windows-terminal" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/windows/terminal/">Windows Terminal</a> is
+an app that integrates multiple shells into a single console. Windows
+ships by default with two shells: <code class="docutils literal notranslate"><span class="pre">CMD</span></code> and <code class="docutils literal notranslate"><span class="pre">PowerShell</span></code>. If <a class="reference internal" href="#wsl2"><span class="std std-ref">WSL2</span></a> is
+installed, a Linux shell is added. Hence, the goal of Windows Terminal
+is to collect and manage all shell sessions in a single program. You can install
+Windows Terminal from the <a class="reference external" href="https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701?hl=en-us&amp;gl=US">Windows Terminal page</a>
+on the Microsoft Store.</p>
+<img alt="Windows Terminal with different active shell sessions." class="align-center" src="../_images/windows_terminal.png" />
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-python">Install Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-python-version">Verify Python version</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-environments">Virtual environments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check">Check</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create">Create</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#activate">Activate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deactivate">Deactivate</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git">Git</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-git">Install Git</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-git-version">Verify Git version</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-git">Use Git</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-git">Configure Git</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#global">Global</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#local">Local</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic">Dynamic</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sign-commits">Sign commits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-ssh">Enable SSH</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handle-line-endings">Handle line endings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-files-and-directories-untracked-by-git">Remove files and directories untracked by Git</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wsl2">WSL2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-wsl2">Install WSL2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-wsl-version">Verify WSL version</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-linux-distribution">Install Linux distribution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-terminal">Windows terminal</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item"> 
+<div class="tocsection editthispage">
+  <a href="https://github.com/pyansys/dev-guide/edit/main/doc/source/how-to/setting-up.rst">
+    <i class="fa-solid fa-pencil"></i>
+       Edit
+    on GitHub  
+  </a>
+</div>
+
+</div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <ul class="this-page-menu">
+      <li><a href="../_sources/how-to/setting-up.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <!-- Include desired assets -->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.7/require.min.js"></script>
+
+<script>
+// Passing the search options to the search.js file
+const SEARCH_OPTIONS = JSON.parse('{"ignoreLocation": true, "keys": ["title", "text", "objectID"], "limit": 10, "min_chars_for_search": 2, "threshold": 0.5}');
+const SEARCH_FILE = "../_static/search.json";
+const ADVANCE_SEARCH_PATH = "../search.html";
+const EXTRA_SOURCES = JSON.parse('""');
+</script>
+
+
+<script src="../_static/js/search.js"></script>
+
+  
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright (c) 2026 ANSYS, Inc. All rights reserved.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the
+  <a href="https://sphinxdocs.ansys.com/version/stable/index.html"
+    >Ansys Sphinx Theme</a
+  >
+  1.6.4. <br />Last updated on
+  <span id="ast_build_date"></span>
+</p>
+<script>
+  var options = { day: "numeric", month: "long", year: "numeric" };
+  var ast_lastModifiedDate = new Date(document.lastModified);
+  var ast_build_date = ast_lastModifiedDate.toLocaleDateString("en-US", options);
+  document.getElementById("ast_build_date").innerHTML = ast_build_date;
+</script></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

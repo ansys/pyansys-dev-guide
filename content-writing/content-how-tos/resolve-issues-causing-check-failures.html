@@ -1,0 +1,808 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Resolve issues causing check failures &#8212; PyAnsys developer&#39;s guide</title>
+  
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/ansys-sphinx-theme.css?v=9e79609d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/ansys-sphinx-theme.css?v=9e79609d" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.nerdfonts.com/assets/css/webfont.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+  <!-- Include desired assets -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  
+
+  
+    <link href="../../_static/css/breadcrumbs.css" rel="stylesheet" />
+  
+    <script src="../../_static/documentation_options.js?v=92d7cc4e"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content-writing/content-how-tos/resolve-issues-causing-check-failures';</script>
+    <link rel="icon" href="../../_static/ansys-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Edit on GitHub" href="edit-on-GitHub.html" />
+    <link rel="prev" title="Work around Vale issues" href="work-around-Vale.html" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="2026-02-17" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="https://docs.pyansys.com/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/pyansys_logo_transparent_black.png" class="logo__image only-light" alt="PyAnsys developer's guide - Home"/>
+    <img src="../../_static/pyansys_logo_transparent_white.png" class="logo__image only-dark pst-js-only" alt="PyAnsys developer's guide - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html" title="PyAnsys developer's guide home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../how-to/index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="../index.html">
+    Content writing
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+      
+        <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+  
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html" title="PyAnsys developer's guide home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting-started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../how-to/index.html">
+    How-to
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../all-styles.html">
+    Style
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../abstractions/index.html">
+    Abstractions
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    Content writing
+  </a>
+</li>
+
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/dev-guide" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://dev.docs.pyansys.com/how-to/contributing.html" title="Contribute" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-wrench fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contribute</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../content-contrib-setup/index.html">Content contribution setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rst-files-writers/index.html">Content in RST files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../py-files-writers/index.html">Content in PY files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples-writers/index.html">Content in examples</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Content how-tos</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="clone-branch.html">Clone and branch a repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="review-PR.html">Review a PR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-PR.html">Create a PR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="request-bot-review.html">Request a bot review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="work-around-Vale.html">Work around Vale issues</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Resolve issues causing check failures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="edit-on-GitHub.html">Edit on GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view-revision-history.html">View revision history on GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="add-sphinx-extensions.html">Add Sphinx extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="show_cheat_sheet_thumbnail.html">Show cheat sheet thumbnail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-issues-discussions.html">Create issues and discussions</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+         
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="https://docs.pyansys.com/" class="nav-link">PyAnsys</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a
+        href="../../index.html"
+        class="nav-link"
+        aria-label="Home"
+      >
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="../index.html" class="nav-link">Content writing</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="index.html" class="nav-link">Content how-tos</a>
+    </li>
+      
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Resolve issues causing check failures</span></li>
+    
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="resolve-issues-causing-check-failures">
+<span id="resolve-failing-checks"></span><h1>Resolve issues causing check failures<a class="headerlink" href="#resolve-issues-causing-check-failures" title="Link to this heading">#</a></h1>
+<p>All checks in the CI/CD process must pass before a PR can be approved and
+merged. Even if you remember to run <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> and Vale locally and resolve
+all issues, when you push your changes to the PR, checks in the CI/CD process
+can still fail.</p>
+<p>For information on continuous integration and the required workflows that run
+checks on a PR for a PyAnsys library, see <a class="reference internal" href="../../how-to/continuous-integration.html#continuous-integration"><span class="std std-ref">Continuous integration</span></a>.</p>
+<p>When a check in the CI/CD process fails, you can click <strong>Details</strong> to the right
+of the check to view its log. You are taken to the bottom of the log, where you can see
+the total number of warnings and errors.</p>
+<p>While you can scroll the log to find these warnings and errors, the log can be quite
+long. Use the <strong>Search logs</strong> option in the upper right of the window to search
+first for <code class="docutils literal notranslate"><span class="pre">warning</span></code> and then for <code class="docutils literal notranslate"><span class="pre">error</span></code>. (This sequence is recommended because
+warnings and errors are often related.)</p>
+<p>The first occurrence of <code class="docutils literal notranslate"><span class="pre">warning</span></code> in the log is a hint about how to suppress a
+warning about the name of the initial branch of the repository. This is not
+a warning included in the count to resolve and can be safely ignored. Subsequent
+occurrences of <code class="docutils literal notranslate"><span class="pre">warning</span></code>, and then <code class="docutils literal notranslate"><span class="pre">error</span></code>, reveal the issues, with the filenames
+and lines where you must resolve them.</p>
+<p>Your objective should always be to eliminate or mitigate issues before creating
+or pushing changes to a PR. For example, running <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> and Vale locally
+lets you proactively resolve typos and trailing whitespaces. However,
+oftentimes, you must resolve issues that cause the checks run by the CI/CD
+process to fail.</p>
+<section id="resolve-typos">
+<h2>Resolve typos<a class="headerlink" href="#resolve-typos" title="Link to this heading">#</a></h2>
+<p>In PyAnsys projects, two tools in the CI/CD process check for typos,
+<a class="reference external" href="https://github.com/codespell-project/codespell">codespell</a> and <a class="reference external" href="http://vale.sh/">Vale</a>. <code class="docutils literal notranslate"><span class="pre">codespell</span></code> is one
+of the code style tools that <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> is configured to run. If
+you always run <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> and <code class="docutils literal notranslate"><span class="pre">Vale</span></code> before creating or
+pushing changes to a PR, these two checks in the CI/CD process
+should not fail.</p>
+<ul class="simple">
+<li><p>For more information, see <a class="reference internal" href="create-PR.html#run-precommit"><span class="std std-ref">Run pre-commit locally</span></a>.</p></li>
+<li><p>For more information, see <a class="reference internal" href="create-PR.html#run-vale-locally"><span class="std std-ref">Run Vale locally</span></a>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the <strong>Vale</strong> check on a PR fails, the <strong>Documentation style</strong> check also
+fails. Resolving the Vale issues might be all you need to do to get
+the <strong>Documentation style</strong> check to pass successfully.</p>
+</div>
+</section>
+<section id="resolve-trailing-whitespaces">
+<h2>Resolve trailing whitespaces<a class="headerlink" href="#resolve-trailing-whitespaces" title="Link to this heading">#</a></h2>
+<p>If you forget to run <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> locally, when you create or push
+changes to a PR, the CI/CD process is likely to raise errors about
+trailing whitespaces. Rather than locating and resolving these errors manually,
+run <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> locally to have it find and automatically trim these trailing
+whitespaces for you. Then, commit and push the files that <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> has modified
+to the PR.</p>
+</section>
+<section id="resolve-formatting-issues">
+<h2>Resolve formatting issues<a class="headerlink" href="#resolve-formatting-issues" title="Link to this heading">#</a></h2>
+<p>When you push changes to a PR, you might see one of the documentation checks fail,
+even if you ran <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> locally and all configured tools ran successfully.
+Documentation check failures are usually the result of formatting issues and
+incorrect links, resulting in warnings and errors like these:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">WARNING</span><span class="p">:</span> <span class="n">Inline</span> <span class="n">emphasis</span> <span class="n">start</span><span class="o">-</span><span class="n">string</span> <span class="n">without</span> <span class="n">end</span><span class="o">-</span><span class="n">string</span><span class="o">.</span>
+<span class="n">WARNING</span><span class="p">:</span> <span class="n">Inline</span> <span class="n">literal</span> <span class="n">start</span><span class="o">-</span><span class="n">string</span> <span class="n">without</span> <span class="n">end</span><span class="o">-</span><span class="n">string</span><span class="o">.</span>
+<span class="n">WARNING</span><span class="p">:</span> <span class="n">document</span> <span class="n">isn</span><span class="s1">&#39;t included in any toctree</span>
+<span class="n">WARNING</span><span class="p">:</span> <span class="n">Literal</span> <span class="n">block</span> <span class="n">ends</span> <span class="n">without</span> <span class="n">a</span> <span class="n">blank</span> <span class="n">line</span><span class="p">;</span> <span class="n">unexpected</span> <span class="n">unindent</span><span class="o">.</span>
+<span class="n">WARNING</span><span class="p">:</span> <span class="n">Enumerated</span> <span class="nb">list</span> <span class="n">ends</span> <span class="n">without</span> <span class="n">a</span> <span class="n">blank</span> <span class="n">line</span><span class="p">,</span> <span class="n">unexpected</span> <span class="n">unindent</span><span class="o">.</span>
+<span class="n">WARNING</span><span class="p">:</span> <span class="n">undefined</span> <span class="n">label</span><span class="p">:</span> <span class="s1">&#39;py_file_formatting&#39;</span>
+<span class="n">WARNING</span><span class="p">:</span> <span class="n">Duplicate</span> <span class="n">explicit</span> <span class="n">target</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;py_code_comments&quot;</span><span class="o">.</span>
+<span class="n">ERROR</span><span class="p">:</span> <span class="n">Unexpected</span> <span class="n">indentation</span><span class="o">.</span>
+<span class="n">ERROR</span><span class="p">:</span> <span class="n">Unknown</span> <span class="n">interpreted</span> <span class="n">text</span> <span class="n">role</span> <span class="s2">&quot;files&quot;</span><span class="o">.</span>
+<span class="n">ERROR</span><span class="p">:</span> <span class="n">Indirect</span> <span class="n">hyperlink</span> <span class="n">target</span> <span class="s2">&quot;numpydoc docstrings&quot;</span> <span class="n">refers</span> <span class="n">to</span> <span class="n">target</span> <span class="s2">&quot;dev_guide_numpy_docstrings&quot;</span><span class="p">,</span> <span class="n">which</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">exist</span><span class="o">.</span>
+<span class="n">ERROR</span><span class="p">:</span> <span class="n">Unknown</span> <span class="n">target</span> <span class="n">name</span><span class="p">:</span> <span class="s2">&quot;dev_guide_numpy_docstrings&quot;</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>For each warning and error, a filename and line is indicated. You must go to these
+locations and make the changes necessary to resolve the warnings and errors.
+Actions that you might take include these:</p>
+<ul class="simple">
+<li><p>Add missing start or end strings to various types of format tags.</p></li>
+<li><p>Add a new RST file to the appropriate <code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> file.</p></li>
+<li><p>Indent all lines in a literal block correctly.</p></li>
+<li><p>Add blank lines both before and after a list or literal block.</p></li>
+<li><p>Correct links to internal labels and external targets.</p></li>
+</ul>
+</section>
+<section id="resolve-too-long-line-lengths-and-broken-links">
+<span id="resolve-too-long-lines-broken-links"></span><h2>Resolve too long line lengths and broken links<a class="headerlink" href="#resolve-too-long-line-lengths-and-broken-links" title="Link to this heading">#</a></h2>
+<p>In PyAnsys projects, <a class="reference external" href="https://docs.astral.sh/ruff/">Ruff</a> is a code style tool in the CI/CD process that checks the
+quality of the Python code. When you run <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> locally, Ruff is one of the tools
+that it is configured to run. If Ruff finds a line in a Python file that is too long,
+it raises an error. Providing that this line is a docstring or message string, you can
+manually change it in the PY file.</p>
+<p>Sometimes, however, the line that is too long is for a URL added to the <code class="docutils literal notranslate"><span class="pre">linkcheck_ignore</span></code>
+variable in the Sphinx configuration (<code class="docutils literal notranslate"><span class="pre">doc/source/conf.py</span></code>) file. Here is an example of how
+this can happen. The central links (<code class="docutils literal notranslate"><span class="pre">doc/source/links.rst</span></code>) file for this guide contains
+explicit target names for joining the two Ansys GitHub accounts:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. _join_ansys_organization: https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706
+.. _join_ansys_internal_organization: https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706
+</pre></div>
+</div>
+<p>When building documentation, Sphinx checks all links to ensure that they are valid. In most cases,
+broken links are the result of formatting errors that you must fix manually. However, the
+URLs for the preceding targets are behind firewall rules. Because Sphinx is unable to validate these links,
+it indicates that they are broken.</p>
+<p>Because Sphinx is also unable to validate the <code class="docutils literal notranslate"><span class="pre">38-comments-and-docstrings</span></code>
+anchor in the following named target to a section in the <em>Google Python Style Guide</em>, it identifies it as broken:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">_Google_docstrings</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">google</span><span class="o">/</span><span class="n">styleguide</span><span class="o">/</span><span class="n">blob</span><span class="o">/</span><span class="n">gh</span><span class="o">-</span><span class="n">pages</span><span class="o">/</span><span class="n">pyguide</span><span class="o">.</span><span class="n">md</span><span class="c1">#38-comments-and-docstrings</span>
+</pre></div>
+</div>
+<p>To resolve links that are identified as broken because they are behind firewall rules, you must add the
+URLs (and any comments about these URLs) to the <code class="docutils literal notranslate"><span class="pre">linkcheck_ignore</span></code> variable in the Sphinx
+<code class="file docutils literal notranslate"><span class="pre">config.py</span></code> file. To resolve links with anchors that are identified as broken, you must
+add the anchor to the <code class="docutils literal notranslate"><span class="pre">linkcheck_anchors_ignore</span></code> variable in the Sphinx <code class="file docutils literal notranslate"><span class="pre">config.py</span></code> file.</p>
+<p>Here is what adding these lines looks like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Linkcheck ignore too long lines</span>
+
+<span class="n">linkcheck_ignore</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706&quot;</span><span class="p">,</span> <span class="c1"># Join Ansys GitHub account</span>
+    <span class="s2">&quot;https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706&quot;</span><span class="p">,</span> <span class="c1"># Join Ansys internal GitHub account</span>
+<span class="p">]</span>
+
+<span class="c1"># Linkcheck ignore broken anchors:</span>
+
+<span class="n">linkcheck_anchors_ignore</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># these anchors are picked by linkcheck as broken but they are not.</span>
+    <span class="s2">&quot;38-comments-and-docstrings&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>If you committed the preceding changes, Sphinx would no longer find any broken links. However, Ruff
+would throw line length errors for the two lines that define the items for the <code class="docutils literal notranslate"><span class="pre">linkcheck_ignore</span></code> variable
+in the Sphinx <code class="file docutils literal notranslate"><span class="pre">config.py</span></code> file. Because you cannot modify the length of these lines, you must follow
+each of these URLs (and any comment about it) with a space and then <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">noqa:</span> <span class="pre">E501</span></code>.</p>
+<p>You can scroll to the end of these lines to see how they now conclude with <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">noqa:</span> <span class="pre">E501</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Linkcheck ignore too long lines</span>
+
+<span class="n">linkcheck_ignore</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706&quot;</span><span class="p">,</span> <span class="c1"># Join Ansys GitHub account # noqa: E501</span>
+    <span class="s2">&quot;https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706&quot;</span><span class="p">,</span> <span class="c1"># Join Ansys internal GitHub account # noqa: E501</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>When you commit these changes, Ruff sees the <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">noqa:</span> <span class="pre">E501</span></code> comments at the end of these lines
+and knows to ignore their long line lengths.</p>
+</section>
+<section id="resolve-mismatched-message-strings">
+<span id="id1"></span><h2>Resolve mismatched message strings<a class="headerlink" href="#resolve-mismatched-message-strings" title="Link to this heading">#</a></h2>
+<p>As indicated in <a class="reference internal" href="../py-files-writers/code-comments-message-strings.html#py-message-strings"><span class="std std-ref">Message strings</span></a>, you want to ensure that the message
+strings in PY files provide clear and understandable information or instructions
+to users. Sometimes, editing a message string can cause a test on the PR to fail.
+This occurs when a test checks for the occurrence of a particular message string,
+but this message string is no longer found in the PY file.</p>
+<p>When a test on a PR fails, you can click <code class="docutils literal notranslate"><span class="pre">Details</span></code> to the right of this test to
+see the log. An error indicates that the message string in the test does not match
+a message string in the PY file.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To quickly find the error, you can use the <strong>Search logs</strong> option in the
+upper right of the window to search for <code class="docutils literal notranslate"><span class="pre">match=</span></code>.</p>
+</div>
+<p>To resolve the error, you must open the indicated test file and edit the message
+string in it to match the message string in the PY file.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resolve-typos">Resolve typos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resolve-trailing-whitespaces">Resolve trailing whitespaces</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resolve-formatting-issues">Resolve formatting issues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resolve-too-long-line-lengths-and-broken-links">Resolve too long line lengths and broken links</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resolve-mismatched-message-strings">Resolve mismatched message strings</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item"> 
+<div class="tocsection editthispage">
+  <a href="https://github.com/pyansys/dev-guide/edit/main/doc/source/content-writing/content-how-tos/resolve-issues-causing-check-failures.rst">
+    <i class="fa-solid fa-pencil"></i>
+       Edit
+    on GitHub  
+  </a>
+</div>
+
+</div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/content-writing/content-how-tos/resolve-issues-causing-check-failures.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <!-- Include desired assets -->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.7/require.min.js"></script>
+
+<script>
+// Passing the search options to the search.js file
+const SEARCH_OPTIONS = JSON.parse('{"ignoreLocation": true, "keys": ["title", "text", "objectID"], "limit": 10, "min_chars_for_search": 2, "threshold": 0.5}');
+const SEARCH_FILE = "../../_static/search.json";
+const ADVANCE_SEARCH_PATH = "../../search.html";
+const EXTRA_SOURCES = JSON.parse('""');
+</script>
+
+
+<script src="../../_static/js/search.js"></script>
+
+  
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright (c) 2026 ANSYS, Inc. All rights reserved.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the
+  <a href="https://sphinxdocs.ansys.com/version/stable/index.html"
+    >Ansys Sphinx Theme</a
+  >
+  1.6.4. <br />Last updated on
+  <span id="ast_build_date"></span>
+</p>
+<script>
+  var options = { day: "numeric", month: "long", year: "numeric" };
+  var ast_lastModifiedDate = new Date(document.lastModified);
+  var ast_build_date = ast_lastModifiedDate.toLocaleDateString("en-US", options);
+  document.getElementById("ast_build_date").innerHTML = ast_build_date;
+</script></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
