@@ -59,7 +59,6 @@ html_short_title = html_title = project
 # Sphinx extensions
 extensions = [
     "sphinx_copybutton",
-    "sphinx_toolbox.collapse",
     "sphinx.ext.autodoc",
     "sphinx.ext.autosectionlabel",
     "sphinx.ext.autosummary",
