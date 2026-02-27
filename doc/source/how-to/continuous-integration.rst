@@ -127,7 +127,7 @@ Consider this example of a parametrized workflow:
               example_matrix:
                 strategy:
                   matrix:
-                    python: ['3.10', '3.11', '3.12', '3.13']
+                    python: ['3.10', '3.11', '3.12', '3.13', '3.14']
                     os: [windows-latest, macos-latest, ubuntu-latest]
                 
                 steps:
@@ -141,14 +141,17 @@ Consider this example of a parametrized workflow:
             Running Python 3.11 in windows-latest
             Running Python 3.12 in windows-latest
             Running Python 3.13 in windows-latest
+            Running Python 3.14 in windows-latest
             Running Python 3.10 in macos-latest
             Running Python 3.11 in macos-latest
             Running Python 3.12 in macos-latest
             Running Python 3.13 in macos-latest
+            Running Python 3.14 in macos-latest
             Running Python 3.10 in ubuntu-latest
             Running Python 3.11 in ubuntu-latest
             Running Python 3.12 in ubuntu-latest
             Running Python 3.13 in ubuntu-latest
+            Running Python 3.14 in ubuntu-latest
 
 Workflow examples
 -----------------
