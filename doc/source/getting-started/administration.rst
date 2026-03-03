@@ -158,6 +158,8 @@ The PyAnsys core team performs these checks when performing the technical review
     | |uncheck| :ref:`The \`\`LICENSE\`\` file` is present and compliant with legal requirements.
     | |uncheck| :ref:`The \`\`CONTRIBUTING.md\`\` file` is present.
     | |uncheck| :ref:`The \`\`CONTRIBUTORS.md\`\` file` is present and contains the project lead and main contributors.
+    | |uncheck| :ref:`The \`\`CODE_OF_CONDUCT.md\`\` file` is present.
+    | |uncheck| :ref:`The \`\`SECURITY.md\`\` file` is present.
 
 .. card:: |uncheck| The project is compliant with PyAnsys style guidelines.
 
