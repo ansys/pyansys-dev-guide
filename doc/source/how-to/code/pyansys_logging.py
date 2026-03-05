@@ -217,7 +217,7 @@ class Logger:
         if to_stdout:
             self.log_to_stdout(level=level)
 
-        self.add_handling_uncaught_expections(
+        self.add_handling_uncaught_exceptions(
             self.logger
         )  # Using logger to record unhandled exceptions.
 
@@ -379,7 +379,7 @@ class Logger:
         else:
             raise KeyError(f"There are no instances with name {key}")
 
-    def add_handling_uncaught_expections(self, logger):
+    def add_handling_uncaught_exceptions(self, logger):
         """Redirect the output of an exception to the logger."""
 
         def handle_exception(exc_type, exc_value, exc_traceback):

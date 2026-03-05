@@ -2,31 +2,31 @@ repos:
 
 
 - repo: https://github.com/astral-sh/ruff-pre-commit
-  rev: v0.15.4
+  rev: a27a2e47c7751b639d2b5badf0ef6ff11fee893f  # frozen: v0.15.4
   hooks:
     - id: ruff-check
     - id: ruff-format
 
 - repo: https://github.com/adamchainz/blacken-docs
-  rev: 1.20.0
+  rev: dda8db18cfc68df532abf33b185ecd12d5b7b326  # frozen: 1.20.0
   hooks:
   - id: blacken-docs
     additional_dependencies: [black==24.8.0]
 
 - repo: https://github.com/codespell-project/codespell
-  rev: v2.4.1
+  rev: 2ccb47ff45ad361a21071a7eedda4c37e6ae8c5a  # frozen: v2.4.2
   hooks:
   - id: codespell
     args: ["--ignore-words", "doc/styles/config/vocabularies/ANSYS/accept.txt"]
 
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v6.0.0
+  rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c  # frozen: v6.0.0
   hooks:
   - id: check-merge-conflict
   - id: debug-statements
 
 - repo: https://github.com/python-jsonschema/check-jsonschema
-  rev: 0.37.0
+  rev: 8db279a37c552206d2df62269ff6f9d31125815a  # frozen: 0.37.0
   hooks:
     - id: check-github-workflows
       name: "Check GitHub workflows"
@@ -34,8 +34,16 @@ repos:
       types: [yaml]
 
 - repo: https://github.com/ansys/pre-commit-hooks
-  rev: v0.5.2
+  rev: fd1d6b0b4baeb08e32d4de0909999576695c0433  # frozen: v0.5.2
   hooks:
     - id: add-license-headers
       args:
       - --start_year=2021
+
+
+- repo: https://github.com/crate-ci/typos
+  rev: 5745f2a8dd91cd7b684680e2e10a2b388ba6e5cf  # frozen: v1
+  hooks:
+    - id: typos
+      args: ["--config", "doc/styles/typos.toml"]
+      exclude: "doc/styles/config/vocabularies"
