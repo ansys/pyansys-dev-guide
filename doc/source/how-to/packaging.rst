@@ -290,8 +290,8 @@ You use the decorator with a method like this:
 
     class MyClass:
         def __init__(self, sz):
-            self._a = np.arange(sz) 
-            self._b = np.arange(sz) 
+            self._a = np.arange(sz)
+            self._b = np.arange(sz)
 
         @requires_package("matplotlib")
         def plot(self):
