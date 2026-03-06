@@ -216,7 +216,7 @@ you can perform these steps to install and immediately begin using this app:
    #. Under **PyAnsys package management**, choose the PyAnsys package to install,
       the desired version, and click **Install**.
 
-      Choosing **PyAnsys-Metapackge** and an Ansys version installs all PyAnsys
+      Choosing **PyAnsys-Metapackage** and an Ansys version installs all PyAnsys
       packages that are compatible for use with this Ansys version. While you can choose
       to install a metapackage for a particular Ansys version, if you are contributing
       to PyAnsys documentation for only one package, or only for a few packages, choosing
