@@ -100,7 +100,7 @@
 .. _docstring-coverage: https://bitbucket.org/DataGreed/docstring-coverage/wiki/Home
 .. _doctest: https://docs.python.org/3/library/doctest.html
 .. _docformatter: https://github.com/PyCQA/docformatter
-.. _pydocstyle: https://www.pydocstyle.org/en/stable/
+.. _pydocstyle: https://pydocstyle.pycqa.org/en/stable/
 
 .. #External links
 .. _Docutils: https://docutils.sourceforge.io/

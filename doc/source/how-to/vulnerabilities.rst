@@ -453,7 +453,7 @@ Writing to ``GITHUB_ENV`` or ``GITHUB_PATH`` in workflows with dangerous trigger
 ``workflow_run``) can let attackers inject arbitrary environment variables / variable contents.
 
 A fix is required because this exposure could allow attackers to run malicious code in your GitHub Actions workflows
-either implictly in subsequent steps, or by shadowing ordinary system executables (such as ``ssh``). See
+either implicitly in subsequent steps, or by shadowing ordinary system executables (such as ``ssh``). See
 `github-env audit rule`_ for more information.
 
 .. tab-set::

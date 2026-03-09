@@ -172,7 +172,7 @@ is recommended but not enforced:
 - For subsubsubsection-level headings, use ``~~~``.
 - For paragraph-level headings, use ``+++``.
 
-For comprehensive syntax information, see the `reStrucutredText Markup Specification
+For comprehensive syntax information, see the `reStructuredText Markup Specification
 <RST_markup_spec_>`_.
 
 Because you must be familiar with the content in this guide before contributing to
@@ -344,8 +344,8 @@ To describe *why* and *how* to use a class in RST files, use the
             .. code-block:: pycon
 
                >>> from my_module import MyClass
-               >>> my_obj = MyClass(parm1="apple", parm2="orange")
-               >>> my_obj.parm1
+               >>> my_obj = MyClass(param1="apple", param2="orange")
+               >>> my_obj.param1
                'apple'
 
     .. tab-item:: Rendered documentation
@@ -356,8 +356,8 @@ To describe *why* and *how* to use a class in RST files, use the
         .. code-block:: pycon
 
            >>> from my_module import MyClass
-           >>> my_obj = MyClass(parm1="apple", parm2="orange")
-           >>> my_obj.parm1
+           >>> my_obj = MyClass(param1="apple", param2="orange")
+           >>> my_obj.param1
            'apple'
 
 Automatically generate documentation
