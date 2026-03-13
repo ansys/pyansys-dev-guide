@@ -87,7 +87,7 @@ PyAnsys projects require workflows for performing these types of checks:
 
 - :ref:`Code style <coding_style>`
 - :ref:`Documentation style`
-- :ref:`Security checks <the check-vulnerabilities action documentation>`
+- `Security checks <check_vulnerabilities_>`_
 - :ref:`Documentation building <Build documentation>`
 - :ref:`Documentation deployment <Deploy documentation>`
 - :ref:`Testing`
@@ -106,7 +106,7 @@ pull requests to update them.
 
 Dependabot can be configured to run on different schedules, such as daily, weekly, or monthly.
 To configure Dependabot, create a ``dependabot.yml`` file in the ``.github`` directory of your
-repository. You can check the `Dependabot cooldown`_ section in :ref:`Repository protection` for
+repository. You can check the :ref:`Dependabot cooldown` section in :ref:`Repository protection` for
 an example of a ``dependabot.yml`` file.
 
 Parametrize workflows
