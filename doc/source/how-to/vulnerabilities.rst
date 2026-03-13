@@ -54,7 +54,7 @@ have been integrated into the ``ansys/actions/check-vulnerabilities`` action.
 For third-party packages, the PyAnsys Core team has listed a set of excluded advisories so that
 the action does not fail. This is done to avoid false positives and to ensure that the action does
 not block the CI/CD pipeline unnecessarily. You can find the list of excluded advisories in
-`the check-vulnerabilities action documentation`_.
+the `check-vulnerabilities action documentation <check_vulnerabilities_>`_.
 
 For potential vulnerabilities in the codebase, repositories can configure Bandit to ignore
 specific advisories. This can be due to the code not being ready yet to be fixed or that the
@@ -72,7 +72,8 @@ and ensure that they are regularly reviewed to determine if they can be addresse
 .. warning::
 
   Testing the action locally before enabling it in the CI/CD workflow is recommended. Information
-  on how to do this can be found in `the check-vulnerabilities action documentation`_.
+  on how to do this can be found in the
+  `check-vulnerabilities action documentation <check_vulnerabilities_>`_.
 
 Vulnerability remediation and reporting
 ----------------------------------------
@@ -348,7 +349,7 @@ Auditing CI/CD setups in the PyAnsys ecosystem
 For PyAnsys ecosystem projects, the recommended way to audit workflows is to use the
 ``ansys/actions/check-actions-security`` action. The action wraps ``zizmor`` and provides
 additional functionality and configuration tailored to PyAnsys projects. For setup instructions,
-see `the check-actions-security action documentation`_.
+see `the check-actions-security action documentation <check_action_security_>`_.
 
 Fixing common issues detected by ``zizmor``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
