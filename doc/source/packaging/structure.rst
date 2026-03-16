@@ -303,7 +303,7 @@ The ``SECURITY.md`` file
 The ``SECURITY.md`` file provides instructions for users to report security vulnerabilities
 in the project. It should include contact information and guidelines for responsible disclosure.
 
-.. include:: code/security_file_code.md
+.. include:: code/security_file.md
 
 The ``pyproject.toml`` file
 ---------------------------
