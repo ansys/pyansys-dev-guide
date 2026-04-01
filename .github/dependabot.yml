@@ -1,14 +1,22 @@
 version: 2
 updates:
   - package-ecosystem: "pip"
+    cooldown:
+      default-days: 10 # Fallback cooldown if no specific rule applies
     directory: "/requirements"
     schedule:
       interval: "weekly"
     labels:
       - "maintenance"
       - "dependencies"
+    groups:
+      build-deps:
+        patterns:
+          - "*"
 
   - package-ecosystem: "github-actions"
+    cooldown:
+      default-days: 10 # Fallback cooldown if no specific rule applies
     directory: "/"
     schedule:
       interval: "weekly"
@@ -16,3 +24,7 @@ updates:
       - "maintenance"
     commit-message:
       prefix: "maint"
+    groups:
+      actions:
+        patterns:
+          - "*"

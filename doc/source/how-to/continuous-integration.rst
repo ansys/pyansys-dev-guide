@@ -87,14 +87,27 @@ PyAnsys projects require workflows for performing these types of checks:
 
 - :ref:`Code style <coding_style>`
 - :ref:`Documentation style`
+- `Security checks <check_vulnerabilities_>`_
 - :ref:`Documentation building <Build documentation>`
 - :ref:`Documentation deployment <Deploy documentation>`
 - :ref:`Testing`
 - :ref:`Test code coverage`
 - :ref:`release_publish`
 
-You should collect all workflows in a common ``ci.yml`` file. For more information,
-see :ref:`Workflow examples`.
+You should collect all workflows in a common ``ci.yml`` file in the ``.github/workflows``
+directory. For more information, see :ref:`Workflow examples`.
+
+Dependabot parametrization
+--------------------------
+
+PyAnsys projects use Dependabot to keep dependencies up to date.
+Dependabot is a GitHub feature that automatically checks for outdated dependencies and creates
+pull requests to update them.
+
+Dependabot can be configured to run on different schedules, such as daily, weekly, or monthly.
+To configure Dependabot, create a ``dependabot.yml`` file in the ``.github`` directory of your
+repository. You can check the :ref:`Dependabot cooldown` section in :ref:`Repository protection` for
+an example of a ``dependabot.yml`` file.
 
 Parametrize workflows
 ---------------------
@@ -127,7 +140,7 @@ Consider this example of a parametrized workflow:
               example_matrix:
                 strategy:
                   matrix:
-                    python: ['3.10', '3.11', '3.12', '3.13']
+                    python: ['3.10', '3.11', '3.12', '3.13', '3.14']
                     os: [windows-latest, macos-latest, ubuntu-latest]
                 
                 steps:
@@ -141,14 +154,17 @@ Consider this example of a parametrized workflow:
             Running Python 3.11 in windows-latest
             Running Python 3.12 in windows-latest
             Running Python 3.13 in windows-latest
+            Running Python 3.14 in windows-latest
             Running Python 3.10 in macos-latest
             Running Python 3.11 in macos-latest
             Running Python 3.12 in macos-latest
             Running Python 3.13 in macos-latest
+            Running Python 3.14 in macos-latest
             Running Python 3.10 in ubuntu-latest
             Running Python 3.11 in ubuntu-latest
             Running Python 3.12 in ubuntu-latest
             Running Python 3.13 in ubuntu-latest
+            Running Python 3.14 in ubuntu-latest
 
 Workflow examples
 -----------------
