@@ -2,7 +2,7 @@ repos:
 
 
 - repo: https://github.com/astral-sh/ruff-pre-commit
-  rev: aca6d4c8045a504e2812ea4bedff1d0a09e437bc  # frozen: v0.15.8
+  rev: c60c980e561ed3e73101667fe8365c609d19a438  # frozen: v0.15.9
   hooks:
     - id: ruff-check
     - id: ruff-format
@@ -42,7 +42,7 @@ repos:
 
 
 - repo: https://github.com/crate-ci/typos
-  rev: 5745f2a8dd91cd7b684680e2e10a2b388ba6e5cf  # frozen: v1
+  rev: 02ea592e44b3a53c302f697cddca7641cd051c3d  # frozen: v1.45.0
   hooks:
     - id: typos
       args: ["--config", "doc/styles/typos.toml"]
