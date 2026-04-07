@@ -42,7 +42,7 @@ repos:
 
 
 - repo: https://github.com/crate-ci/typos
-  rev: f06b85043a5ab470afbb0a5592456e733243983a  # frozen: v1
+  rev: 02ea592e44b3a53c302f697cddca7641cd051c3d  # frozen: v1.45.0
   hooks:
     - id: typos
       args: ["--config", "doc/styles/typos.toml"]
