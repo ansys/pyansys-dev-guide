@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Check documentation style"
-        uses: ansys/actions/doc-style@1f4f0896a8e49d3aec2f02ced215b04a32c85f28 # v10.2.7
+        uses: ansys/actions/doc-style@7d55ff0b9f67c77dae50a286d711ee1ae27b0a25 # v10.2.12
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -48,7 +48,7 @@ jobs:
           sudo apt-get install graphviz
 
       - name: "Build project documentation"
-        uses: ansys/actions/doc-build@1f4f0896a8e49d3aec2f02ced215b04a32c85f28 # v10.2.7
+        uses: ansys/actions/doc-build@7d55ff0b9f67c77dae50a286d711ee1ae27b0a25 # v10.2.12
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
           use-python-cache: false
