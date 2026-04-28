@@ -2,7 +2,7 @@ repos:
 
 
 - repo: https://github.com/astral-sh/ruff-pre-commit
-  rev: d1b833175a5d08a925900115526febd8fe71c98e  # frozen: v0.15.11
+  rev: 6fec9b7edb08fd9989088709d864a7826dc74e80  # frozen: v0.15.12
   hooks:
     - id: ruff-check
     - id: ruff-format
@@ -34,7 +34,7 @@ repos:
       types: [yaml]
 
 - repo: https://github.com/ansys/pre-commit-hooks
-  rev: 680b297da7584a07eb7c92b6b4e9baf88ece3e0e  # frozen: v0.6.0
+  rev: 4c4d32dbb88444eac57f3fad6e3b1a2d52978f64  # frozen: v0.7.1
   hooks:
     - id: add-license-headers
       args:
@@ -42,7 +42,7 @@ repos:
 
 
 - repo: https://github.com/crate-ci/typos
-  rev: 141bf8d1d11823cd5dc44d6b3c17d83b19015bcb  # frozen: v1
+  rev: c96c46fae465ab9e3607401d9ce93d75e7998023  # frozen: v1
   hooks:
     - id: typos
       args: ["--config", "doc/styles/typos.toml"]
