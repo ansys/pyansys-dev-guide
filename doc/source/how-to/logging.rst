@@ -165,12 +165,12 @@ collapsible sections and in the `pyansys_logging.py
 file in the ``pyansys-dev-guide`` repository. The second collapsible section shows some unit tests
 that show how to use this custom PyAnsys logger:
 
-.. collapse:: Example of a custom PyAnsys logger
+.. dropdown:: Example of a custom PyAnsys logger
 
     .. literalinclude:: code/pyansys_logging.py
 
 
-.. collapse:: How to use the PyAnsys custom logger
+.. dropdown:: How to use the PyAnsys custom logger
 
     .. literalinclude:: code/test_pyansys_logging.py
 

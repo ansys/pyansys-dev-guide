@@ -65,13 +65,13 @@ Important example
 Here is a formatting example for an ``important`` directive::
 
   .. important::
-      Net tracing is a critical requirement for using the ``auto_compoments``
+      Net tracing is a critical requirement for using the ``auto_components``
       definition type when defining components on the die.
 
 Here is how this important notice is rendered in the documentation:
 
 .. important::
-    Net tracing is a critical requirement for using the ``auto_compoments``
+    Net tracing is a critical requirement for using the ``auto_components``
     definition type when defining components on the die.
 
 Tip example

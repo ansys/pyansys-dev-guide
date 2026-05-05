@@ -83,6 +83,10 @@
            label="README.rst", shape="file"
          ]
 
+         security [
+           label="SECURITY.md", shape="file"
+        ]
+
          pyproject [
            label="pyproject.toml", shape="file"
          ]

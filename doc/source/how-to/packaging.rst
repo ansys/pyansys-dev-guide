@@ -443,7 +443,7 @@ Setting a lower bound (`>=`) is considered good practice for multiple reasons.
 First, it documents the oldest version of a dependency that your project
 explicitly supports. It is often the oldest version that is compatible with
 the Python versions you support. For example, if your project supports
-Python versions from `3.11` to `3.13`, you need to ensure that all dependencies
+Python versions from `3.11` to `3.14`, you need to ensure that all dependencies
 are compatible with at least Python `3.11`. This is important for users who may
 be using older versions of Python and want to ensure compatibility with your
 project. In other cases, the lower bound is related to the version where
