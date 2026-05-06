@@ -26,7 +26,7 @@ repos:
   - id: debug-statements
 
 - repo: https://github.com/python-jsonschema/check-jsonschema
-  rev: ed81924a8b1cecdaa570b072528fa80c9c4d6ccd  # frozen: 0.37.1
+  rev: f805888065fdb6162e1f800e50bb9460cbd223d6  # frozen: 0.37.2
   hooks:
     - id: check-github-workflows
       name: "Check GitHub workflows"
@@ -34,7 +34,7 @@ repos:
       types: [yaml]
 
 - repo: https://github.com/ansys/pre-commit-hooks
-  rev: 4c4d32dbb88444eac57f3fad6e3b1a2d52978f64  # frozen: v0.7.1
+  rev: ad4e7598809ad98cde5aaf52d80040c7ac56e7cf  # frozen: v0.7.2
   hooks:
     - id: add-license-headers
       args:
@@ -42,7 +42,7 @@ repos:
 
 
 - repo: https://github.com/crate-ci/typos
-  rev: c96c46fae465ab9e3607401d9ce93d75e7998023  # frozen: v1
+  rev: bbaefadf97b0ec5fdc942684b647f1a6ab250274  # frozen: v1
   hooks:
     - id: typos
       args: ["--config", "doc/styles/typos.toml"]
