@@ -622,4 +622,4 @@ in the GitHub documentation.
 .. caution::
 
     In the past, dependabot security updates were enabled by default for public repositories.
-    However, this has evoled over time and you might need to enable it manually for your repository.
+    However, this has evolved over time and you might need to enable it manually for your repository.
