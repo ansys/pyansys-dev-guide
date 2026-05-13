@@ -564,7 +564,7 @@ This file should be located in the ``.github`` folder of your repository for
 GitHub to detect it automatically. There are several main options:
 
 * **package-ecosystem**: Lets Dependabot know what your package manager is.
-  PyAnsys projects typically use ``pip``. However, ``conda`` could also be used.
+  PyAnsys projects typically use ``pip`` or ``uv``. However, ``conda`` could also be used.
 * **directory**: Lets Dependabot know where your requirement files are located.
   PyAnsys projects typically contain all their requirements inside a ``requirements``
   directory. Other directories could be used.
@@ -581,12 +581,12 @@ files.
 
 Dependabot allows for two different types of updates:
 
-* **Dependabot security updates**: Automated pull requests that help update
-  dependencies with known vulnerabilities.
 * **Dependabot version updates**: Automated pull requests that keep dependencies updated,
   even when they don't have any vulnerabilities. To check the status of version updates,
   navigate to the **Insights** tab of your repository and then select **Dependency Graph**
   and **Dependabot**.
+* **Dependabot security updates**: Automated pull requests that help update
+  dependencies with known vulnerabilities.
 
 
 .. caution::
@@ -618,3 +618,8 @@ For information on enabling security updates and notifications for your reposito
 `Enabling or disabling Dependabot security updates for an individual repository
 <https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#enabling-or-disabling-dependabot-security-updates-for-an-individual-repository>`_
 in the GitHub documentation.
+
+.. caution::
+
+    In the past, dependabot security updates were enabled by default for public repositories.
+    However, this has evolved over time and you might need to enable it manually for your repository.
