@@ -586,7 +586,9 @@ Dependabot allows for two different types of updates:
   navigate to the **Insights** tab of your repository and then select **Dependency Graph**
   and **Dependabot**.
 * **Dependabot security updates**: Automated pull requests that help update
-  dependencies with known vulnerabilities.
+  dependencies with known vulnerabilities. Dependabot relies on the
+  `GitHub Advisory Database <https://github.com/advisories>`_ to detect
+  vulnerable dependencies.
 
 
 .. caution::
