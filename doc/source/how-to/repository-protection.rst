@@ -158,7 +158,7 @@ Dependabot > vulnerabilities**. Each alert includes:
 
 * A description of the vulnerability (CVE identifier when available).
 * The affected dependency and version range.
-* A suggested fix or upgrade path.
+* A suggested fix or recommended upgrade path.
 
 From the alert page, you can manually trigger a Dependabot pull request to resolve
 the vulnerability by clicking **Create Dependabot security update**. This automatically
