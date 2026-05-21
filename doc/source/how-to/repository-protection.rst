@@ -162,7 +162,7 @@ Dependabot > vulnerabilities**. Each alert includes:
 
 From the alert page, you can manually trigger a Dependabot pull request to resolve
 the vulnerability by clicking **Create Dependabot security update**. This automatically
-opens a PR that upgrades the affected dependency to a safe version.
+opens a PR to upgrade the affected dependency to a secure version.
 
 .. note::
 
