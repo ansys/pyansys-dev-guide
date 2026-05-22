@@ -56,8 +56,8 @@ these tools help you create professional, publication-ready graphics.
      - Design optimization studies, data analysis, validation studies
 
 
-Matplotlib - The engineering standard for 2D plotting
-=====================================================
+Matplotlib: the engineering standard for 2D plotting
+====================================================
 
 `Matplotlib`_ remains the standard for engineering visualization in Python. Its precise
 control over every plot element makes it ideal for creating publication-ready figures that
@@ -65,7 +65,8 @@ meet the rigorous standards expected in engineering documentation and research p
 
 **PyAnsys example: Structural analysis results**
 
-Let's visualize stress distribution results from a PyMAPDL structural analysis:
+The following example demonstrates how to use `Matplotlib`_ to visualize stress distribution results
+from a PyMAPDL structural analysis.
 
 .. code-block:: python
 
@@ -147,8 +148,8 @@ Key benefits for engineering applications:
 
 
 
-Plotly - Interactive engineering dashboards
-===========================================
+Plotly: interactive engineering dashboards
+==========================================
 
 `Plotly`_ excels at creating interactive visualizations that allow engineers to explore their
 data dynamically. This is particularly valuable for complex datasets where interactive
@@ -296,8 +297,8 @@ Interactive features for engineers:
 :bdg-success:`web-based reporting`
 
 
-Seaborn - Statistical analysis of engineering data
-==================================================
+Seaborn: statistical analysis of engineering data
+=================================================
 
 `Seaborn`_ excels at statistical visualization, making it perfect for analyzing experimental
 data, validation studies, and uncertainty quantification in engineering applications.
@@ -501,14 +502,7 @@ Library selection guide
    `Seaborn`_ for statistical insights.
 
 
-Conclusion
-==========
-
 Effective presentation of engineering results requires the right combination of visualization
 tools and techniques. Python's 2D graphics libraries, when properly applied to PyAnsys
 workflows, enable engineers to transform complex simulation data into clear, actionable
 insights.
-
-The goal is not just to display data, but to communicate engineering insights that
-drive informed decision-making. The most effective visualizations are those that clearly
-tell your data's story while maintaining the technical rigor expected in engineering practice.
