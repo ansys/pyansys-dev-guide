@@ -20,16 +20,46 @@ crucial as generating them. Python's rich ecosystem of 2D plotting libraries pro
 tools for transforming raw simulation data into compelling visual insights that communicate
 your findings clearly to stakeholders, colleagues, and decision-makers.
 
-This article explores how to leverage Python's most effective 2D graphics libraries to present
-engineering data results, with practical examples drawn from the PyAnsys ecosystem. Whether
-you're visualizing structural analysis results, fluid dynamics data, or electromagnetic field
-distributions, these tools will help you create professional, publication-ready graphics.
+This article explores how to leverage three of Python's most effective 2D graphics
+libraries, `Matplotlib`_, `Plotly`_, and `Seaborn`_, for presenting engineering data results,
+with practical examples drawn from the PyAnsys ecosystem. Whether you are visualizing
+structural analysis results, fluid dynamics data, or electromagnetic field distributions,
+these tools help you create professional, publication-ready graphics.
+
+.. note::
+
+   Install the required libraries with ``pip`` before running the examples:
+
+   .. code-block:: bash
+
+      pip install matplotlib plotly seaborn
+
+.. list-table:: Python 2D plotting library comparison
+   :header-rows: 1
+   :widths: 15 40 20 25
+
+   * - Library
+     - Strengths
+     - Output type
+     - Best use case
+   * - `Matplotlib`_
+     - Precise control, LaTeX support, comprehensive subplot layouts
+     - Static (PNG, PDF, SVG)
+     - Technical reports, research papers, detailed analysis
+   * - `Plotly`_
+     - Interactivity, hover tooltips, web deployment
+     - Interactive (HTML)
+     - Dashboards, stakeholder presentations, web-based reporting
+   * - `Seaborn`_
+     - Statistical visualization, attractive defaults, tight pandas integration
+     - Static (PNG, PDF, SVG)
+     - Design optimization studies, data analysis, validation studies
 
 
 Matplotlib - The engineering standard for 2D plotting
 =====================================================
 
-Matplotlib remains the gold standard for engineering visualization in Python. Its precise
+`Matplotlib`_ remains the standard for engineering visualization in Python. Its precise
 control over every plot element makes it ideal for creating publication-ready figures that
 meet the rigorous standards expected in engineering documentation and research papers.
 
@@ -98,6 +128,9 @@ Let's visualize stress distribution results from a PyMAPDL structural analysis:
    :alt: Matplotlib engineering stress visualization example
    :align: center
 
+   Von Mises stress distribution (left) and centerline stress profile (right) from a
+   structural analysis simulation.
+
 
 Key benefits for engineering applications:
 
@@ -117,7 +150,7 @@ Key benefits for engineering applications:
 Plotly - Interactive engineering dashboards
 ===========================================
 
-Plotly excels at creating interactive visualizations that allow engineers to explore their
+`Plotly`_ excels at creating interactive visualizations that allow engineers to explore their
 data dynamically. This is particularly valuable for complex datasets where interactive
 exploration reveals insights that static plots cannot provide.
 
@@ -126,7 +159,6 @@ exploration reveals insights that static plots cannot provide.
 .. code-block:: python
 
    import plotly.graph_objects as go
-   import plotly.express as px
    from plotly.subplots import make_subplots
    import numpy as np
    import pandas as pd
@@ -247,6 +279,9 @@ exploration reveals insights that static plots cannot provide.
    :alt: Plotly interactive CFD dashboard example
    :align: center
 
+   Interactive CFD analysis dashboard showing velocity magnitude, pressure distribution,
+   velocity profile, and centerline pressure.
+
 Interactive features for engineers:
 
 - Zoom and pan: detailed examination of critical regions
@@ -264,7 +299,7 @@ Interactive features for engineers:
 Seaborn - Statistical analysis of engineering data
 ==================================================
 
-Seaborn excels at statistical visualization, making it perfect for analyzing experimental
+`Seaborn`_ excels at statistical visualization, making it perfect for analyzing experimental
 data, validation studies, and uncertainty quantification in engineering applications.
 
 **PyAnsys example: Design study results analysis**
@@ -367,10 +402,6 @@ data, validation studies, and uncertainty quantification in engineering applicat
    axes[1, 1].set_title("Thickness distribution by material", fontweight="bold")
 
    # Pairwise relationships
-   # Select subset for pair plot
-   subset_data = design_data[
-       ["Thickness (mm)", "Safety factor", "Weight (kg)", "Material"]
-   ]
    sns.scatterplot(
        data=design_data, x="Thickness (mm)", y="Weight (kg)", hue="Material", ax=axes[1, 2]
    )
@@ -392,8 +423,11 @@ data, validation studies, and uncertainty quantification in engineering applicat
    print(f"Lightest design: {design_data['Weight (kg)'].min():.2f} kg")
 
 .. figure:: images/seaborn.png
-    :alt: Seaborn statistical analysis of design study example
-    :align: center
+   :alt: Seaborn statistical analysis of design study example
+   :align: center
+
+   Statistical visualization of a parametric design study with 200 samples across three
+   material grades.
 
 Statistical analysis benefits:
 
@@ -414,7 +448,7 @@ Best practices for engineering 2D graphics
 
 **1. Know your audience**
 - **Technical teams**: Detailed plots with comprehensive annotations
-- **Management**: High-level summaries with clear pass/fail indicators  
+- **Management**: High-level summaries with clear pass/fail indicators
 - **Publications**: Publication-quality figures with proper citations
 
 **2. Choose appropriate scales**
@@ -460,11 +494,11 @@ Library selection guide
 - Analyzing experimental data
 - Creating correlation matrices
 
-.. admonition:: Tip
+.. tip::
 
    You can also combine these libraries to leverage their strengths. For example, use
-   Matplotlib for static report figures, Plotly for interactive presentations, and Seaborn
-   for statistical insights.
+   `Matplotlib`_ for static report figures, `Plotly`_ for interactive presentations, and
+   `Seaborn`_ for statistical insights.
 
 
 Conclusion
@@ -478,5 +512,3 @@ insights.
 The goal is not just to display data, but to communicate engineering insights that
 drive informed decision-making. The most effective visualizations are those that clearly
 tell your data's story while maintaining the technical rigor expected in engineering practice.
-
-Happy engineering and visualizing!
