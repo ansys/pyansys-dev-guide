@@ -113,6 +113,13 @@ and app APIs.
 
       How to deprecate a PyAnsys library.
 
+    .. grid-item-card:: :fas:`fa-solid fa-lightbulb` Tutorials and best practices
+      :link: tutorials/index
+      :link-type: doc
+      :padding: 2 2 2 2
+
+      How to use Python libraries effectively and efficiently.
+
 .. toctree::
    :maxdepth: 3
    :hidden:
@@ -132,3 +139,4 @@ and app APIs.
    compatibility
    vulnerabilities
    deprecating
+   tutorials/index.rst
