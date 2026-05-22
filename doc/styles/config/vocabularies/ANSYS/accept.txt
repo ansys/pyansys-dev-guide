@@ -134,7 +134,8 @@ URIs
 Vale
 venv
 Visual Studio Code
-Von Mises
+Von
+Mises
 worktree
 (?i)WSL
 WSL2
