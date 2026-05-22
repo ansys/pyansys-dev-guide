@@ -133,6 +133,70 @@ their PR workflows do not have to be accepted every time that they intend to run
 Internal and private repositories are only available to organization users and repository members,
 respectively. Thus, no specific rules for outside collaborators are needed.
 
+Dependabot
+----------
+
+Dependabot is a built-in tool for keeping project dependencies updated. It informs
+you of the latest releases of the packages being used and can alert you of any
+vulnerabilities in those packages.
+
+Dependabot alerts
+^^^^^^^^^^^^^^^^^
+
+Dependabot alerts notify you when your repository uses a dependency with a known
+security vulnerability. When a vulnerability is detected, GitHub creates an alert
+in the **Security** tab of the repository and, optionally, sends a notification
+to the repository owners.
+
+To enable Dependabot alerts for your repository:
+
+#. Go to **Settings > Advanced Security > Dependabot**.
+#. To the right of **Dependabot alerts**, click **Enable**.
+
+Once alerts are enabled, you can view them under **Security and quality > 
+Dependabot > vulnerabilities**. Each alert includes:
+
+* A description of the vulnerability (CVE identifier when available).
+* The affected dependency and version range.
+* A suggested fix or recommended upgrade path.
+
+From the alert page, you can manually trigger a Dependabot pull request to resolve
+the vulnerability by clicking **Create Dependabot security update**. This automatically
+opens a PR to upgrade the affected dependency to a secure version.
+
+.. note::
+
+    If your repository has already enabled **Dependabot security updates**, the manual
+    trigger for security updates may not be available, as Dependabot automatically 
+    generates pull requests when vulnerabilities are detected.
+
+
+Dependabot malware alerts
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Dependabot malware alerts notify you when a package in your dependency graph is
+identified as malicious. Unlike security vulnerability alerts, which flag packages with
+known CVEs, malware alerts specifically target packages that have been reported as
+containing intentionally harmful code. When a malware alert is triggered, GitHub
+displays a **critical** severity alert in the **Security** tab of the repository.
+
+To enable Dependabot malware alerts for your repository:
+
+#. Go to **Settings > Advanced Security > Dependabot**.
+#. To the right of **Dependabot alerts**, click **Enable** (malware alerts are
+   included as part of the Dependabot alerts feature).
+
+
+.. note::
+
+    Currently the 
+    `malware alerts documentation <https://docs.github.com/en/code-security/concepts/supply-chain-security/dependabot-malware-alerts#availability>`_
+    indicates that this feature is only available for packages in the `npm` ecosystem.
+    As the worst case scenario would be a manual deactivation of the feature in case of
+    false positives, it is recommended to enable this feature to benefit from it once
+    the support for other ecosystems is extended.
+
+
 Dependabot cooldown
 ^^^^^^^^^^^^^^^^^^^
 
