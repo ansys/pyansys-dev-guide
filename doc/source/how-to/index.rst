@@ -6,7 +6,7 @@ for interfacing with Ansys products and services. It also explains how apps
 and complex services expose functionalities such as logging, data transfer,
 and app APIs.
 
-.. rubric:: Project Setup
+.. rubric:: Contributor Setup
 
 .. grid:: 3
 
@@ -16,13 +16,6 @@ and app APIs.
       :padding: 2 2 2 2
 
       How to configure your Python environment before contributing to a PyAnsys project.
-
-    .. grid-item-card:: :fas:`fa-solid fa-code-compare` Python versions
-      :link: supporting-python-versions
-      :link-type: doc
-      :padding: 2 2 2 2
-
-      How to choose which Python versions to support and keep them up to date.
 
     .. grid-item-card:: :fas:`fa-solid fa-people-group` Contributing
       :link: contributing
@@ -34,6 +27,13 @@ and app APIs.
 .. rubric:: Library Development
 
 .. grid:: 3
+
+    .. grid-item-card:: :fas:`fa-solid fa-code-compare` Python versions
+      :link: supporting-python-versions
+      :link-type: doc
+      :padding: 2 2 2 2
+
+      How to define which Python versions your library supports and configure CI accordingly.
 
     .. grid-item-card:: :fas:`fa-solid fa-box-open` Packaging
       :link: packaging
@@ -134,10 +134,9 @@ and app APIs.
 .. toctree::
    :hidden:
    :maxdepth: 1
-   :caption: Project Setup
+   :caption: Onboarding
 
    setting-up
-   supporting-python-versions
    contributing
 
 .. toctree::
@@ -145,6 +144,7 @@ and app APIs.
    :maxdepth: 1
    :caption: Library Development
 
+   supporting-python-versions
    packaging
    grpc-api-packages
    logging
