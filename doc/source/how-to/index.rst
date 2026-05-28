@@ -6,7 +6,7 @@ for interfacing with Ansys products and services. It also explains how apps
 and complex services expose functionalities such as logging, data transfer,
 and app APIs.
 
-.. rubric:: Onboarding
+.. rubric:: Prerequisites
 
 .. grid:: 3
 
@@ -134,7 +134,7 @@ and app APIs.
 .. toctree::
    :hidden:
    :maxdepth: 1
-   :caption: Onboarding
+   :caption: Prerequisites
 
    setting-up
    contributing
