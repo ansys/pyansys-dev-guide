@@ -6,7 +6,7 @@ for interfacing with Ansys products and services. It also explains how apps
 and complex services expose functionalities such as logging, data transfer,
 and app APIs.
 
-.. rubric:: Contributor Setup
+.. rubric:: Onboarding
 
 .. grid:: 3
 
