@@ -515,3 +515,13 @@ on the Microsoft Store.
 .. image:: images/windows_terminal.png
     :align: center
     :alt: Windows Terminal with different active shell sessions.
+
+Next steps
+----------
+
+With your development environment ready, you can:
+
+* Read :doc:`contributing` to understand the PyAnsys coding standards and
+  contribution workflow before opening your first pull request.
+* Read :doc:`supporting-python-versions` to decide which Python versions
+  your library should support.

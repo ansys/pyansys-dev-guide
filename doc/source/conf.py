@@ -35,6 +35,7 @@ html_theme_options = {
     "github_url": "https://github.com/ansys/dev-guide",
     "show_prev_next": False,
     "show_breadcrumbs": True,
+    "show_nav_level": 2,
     "use_edit_page_button": True,
     "additional_breadcrumbs": [
         ("PyAnsys", "https://docs.pyansys.com/"),
