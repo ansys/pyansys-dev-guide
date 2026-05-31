@@ -52,6 +52,7 @@ html_theme_options = {
         "min_chars_for_search": 2,
         "ignoreLocation": True,
     },
+    "header_links_before_dropdown": 6,
 }
 
 # necessary for proper breadcrumb title

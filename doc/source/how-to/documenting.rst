@@ -8,9 +8,25 @@ contributing to PyAnsys documentation, see the `Google developer documentation s
 <Google_dev_doc_style_guide_>`_, which provides the general guidelines that you are to follow.
 This page supplies guidance specific to PyAnsys documentation.
 
-.. note::
-    For comprehensive information on contributing new content or revising existing
-    content, see :ref:`content_writing`.
+Use this page as the entry point for documentation maintenance workflows.
+
+.. grid:: 2
+
+    .. grid-item-card:: :fas:`fa-solid fa-code` Documentation for developers
+      :link: ../doc-style/index
+      :link-type: doc
+      :padding: 2 2 2 2
+
+      Standards, API doc quality rules, and documentation style guidance.
+
+    .. grid-item-card:: :fas:`fa-solid fa-pen-nib` Documentation for documentarians
+      :link: ../content-writing/index
+      :link-type: doc
+      :padding: 2 2 2 2
+
+      Writing, editing, and reviewing user-facing documentation content.
+
+For setup, build, deployment, versioning, and search behavior, continue on this page.
 
 When writing developer documentation, the relationship between code and
 documentation is key. To keep documentation up to date with evolving

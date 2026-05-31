@@ -7,6 +7,12 @@ There are many tools for checking code style. This section presents some of
 the most popular ones in the Python ecosystem. A minimum configuration is
 provided for each one so that you can easily include them in your PyAnsys project.
 
+.. note::
+    This page focuses on code-quality automation for Python projects.
+    For documentation-focused tools such as ``blacken-docs``, ``docformatter``,
+    ``doctest``, ``Vale``, and ``numpydoc`` validation, see
+    :ref:`doc_style_tools`.
+
 Most of the tools presented can be configured using :ref:`the
 \`\`pyproject.toml\`\` file`. Avoiding dotfiles leads to a much
 cleaner root project directory.

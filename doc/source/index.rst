@@ -3,8 +3,8 @@
 
 .. include:: ../../README.rst
 
-Getting started
----------------
+Start here
+----------
 
 .. grid:: 2
     
@@ -20,8 +20,8 @@ Getting started
 
       Steps to authorize the public release of a PyAnsys library.
 
-Explanations
-------------
+Build and maintain
+------------------
 
 .. grid:: 2
 
@@ -37,9 +37,8 @@ Explanations
 
       Explanations of the PyAnsys architecture.
 
-
-Style guidelines
-----------------
+Style reference
+---------------
 
 .. grid:: 3
     
@@ -61,12 +60,35 @@ Style guidelines
     
       Best practices for writing documentation.
 
+Contribute docs
+---------------
+
+.. grid:: 3
+
+   .. grid-item-card:: :octicon:`book` Documentation for documentarians
+      :link: content-writing/index
+      :link-type: doc
+
+      Guidance for writing and revising PyAnsys documentation content.
+
+   .. grid-item-card:: :octicon:`beaker` General examples
+      :link: examples/index
+      :link-type: doc
+
+      Gallery examples and templates used with Sphinx-Gallery documentation.
+
+   .. grid-item-card:: :octicon:`code` Documentation for developers
+      :link: how-to/documenting
+      :link-type: doc
+
+      Documentation setup, build, deployment, and maintenance workflows.
+
 .. toctree::
    :hidden:
    :maxdepth: 3
 
    getting-started/index
    how-to/index
-   all-styles
+   style-reference
    abstractions/index
    content-writing/index
