@@ -320,7 +320,7 @@ A minimal job definition looks like this:
     Replace ``vX.Y.Z`` with the latest available version. For the full list of
     inputs and outputs supported by this action, see the
     `Code style action documentation
-    <hhttps://actions.docs.ansys.com/version/stable/style-actions/index.html#code-style-action>`_.
+    <https://actions.docs.ansys.com/version/stable/style-actions/index.html#code-style-action>`_.
 
 For a complete list of all reusable actions provided by the PyAnsys ecosystem,
 see the `Ansys actions documentation
