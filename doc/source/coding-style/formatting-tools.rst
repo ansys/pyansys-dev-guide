@@ -288,3 +288,40 @@ Use the following configuration in your ``.pre-commit-config.yaml`` file to be c
 
     repos:
         # Your repository-specific configurations here
+
+CI/CD integration with Ansys reusable actions
+----------------------------------------------
+
+The PyAnsys ecosystem provides a set of reusable GitHub Actions in the
+`ansys/actions <https://actions.docs.ansys.com/version/stable/index.html>`_
+repository. These actions encapsulate common CI/CD tasks so that individual
+PyAnsys projects do not need to re-implement them from scratch.
+
+For code style enforcement in CI, use the ``code-style`` action. It internally
+runs ``pre-commit`` with all hooks defined in your ``.pre-commit-config.yaml``
+file, guaranteeing that every pull request is checked against the same rules
+that developers run locally.
+
+A minimal job definition looks like this:
+
+.. code-block:: yaml
+
+    code-style:
+      name: "Code style"
+      runs-on: ubuntu-latest
+      steps:
+        - name: "Code style"
+          uses: ansys/actions/code-style@vX.Y.Z
+          with:
+            python-version: ${{ env.MAIN_PYTHON_VERSION }}
+
+.. note::
+
+    Replace ``vX.Y.Z`` with the latest available version. For the full list of
+    inputs and outputs supported by this action, see the
+    `Code style action documentation
+    <hhttps://actions.docs.ansys.com/version/stable/style-actions/index.html#code-style-action>`_.
+
+For a complete list of all reusable actions provided by the PyAnsys ecosystem,
+see the `Ansys actions documentation
+<https://actions.docs.ansys.com/version/stable/index.html>`_.
