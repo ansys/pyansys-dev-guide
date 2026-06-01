@@ -9,6 +9,9 @@ third-party dependencies.
 :ref:`Packaging style` collects the fundamentals of Python packaging and packaging style
 guidelines that apply to PyAnsys projects.
 
+For related lifecycle steps, see :doc:`supporting-python-versions` to define
+version policy and :doc:`releasing` for final publication workflows.
+
 Dependencies
 ------------
 

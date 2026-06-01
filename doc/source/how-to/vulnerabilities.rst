@@ -6,6 +6,9 @@ Vulnerabilities
 Vulnerabilities refer to potential security flaws or weaknesses in PyAnsys packages.
 Here are some examples of common vulnerabilities:
 
+For governance controls that complement this guidance, see
+:doc:`repository-protection`.
+
 - Insufficient input validation or insecure handling of file paths leading to unauthorized access
 - Insecure code and command injection into the app
 - Remote code execution due to deserialization of untrusted code

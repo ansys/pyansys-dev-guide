@@ -10,6 +10,12 @@ are aware of the change and can transition smoothly.
 For the PyAnsys ecosystem, follow this specific process for deprecating libraries.
 This process helps maintain clarity and consistency across the projects.
 
+.. note::
+
+   This page covers deprecating an entire library lifecycle. For deprecating
+   methods, classes, or functions within an active library API, see
+   :doc:`../coding-style/deprecation`.
+
 Maintainer tasks
 ----------------
 

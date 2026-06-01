@@ -7,6 +7,9 @@ Unit testing and integration testing are critical for the successful continuous
 integration (CI) and delivery of any library belonging to the PyAnsys
 project.
 
+For CI workflow setup after creating tests, continue with
+:doc:`continuous-integration`.
+
 In 1993, Kent Beck developed `Test Driven Development (TDD)`_ as part
 of the Extreme Programming software development process. TDD is the practice
 of writing unit tests before writing production code. The benefit of this practice
