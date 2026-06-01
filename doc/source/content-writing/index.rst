@@ -3,7 +3,7 @@
 Content writing
 ===============
 
-This section is for documentarians and contributors who write, edit, and review
+This section is for technical writers and contributors who write, edit, and review
 user-facing documentation for PyAnsys libraries.
 
 If your main goal is documentation infrastructure, deployment, or project-level
