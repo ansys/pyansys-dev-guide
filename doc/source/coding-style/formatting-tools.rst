@@ -10,7 +10,7 @@ provided for each one so that you can easily include them in your PyAnsys projec
 .. note::
     This page focuses on code-quality automation for Python projects.
     For documentation-focused tools such as ``blacken-docs``, ``docformatter``,
-    ``doctest``, ``Vale``, and ``numpydoc`` validation, see
+    ``Vale``, and ``numpydoc`` validation, see
     :ref:`doc_style_tools`.
 
 Most of the tools presented can be configured using :ref:`the
@@ -145,14 +145,14 @@ configuration that includes both code and documentation formatting tools.
       rev: vX.Y.Z
       hooks:
       - id: codespell
-
+    
     - repo: https://github.com/pycqa/pydocstyle
       rev: X.Y.Z
       hooks:
       - id: pydocstyle
         additional_dependencies: [toml]
         exclude: "tests/"
-
+    
     - repo: https://github.com/ansys/pre-commit-hooks
       rev: v0.2.4
       hooks:
