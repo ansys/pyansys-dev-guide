@@ -30,7 +30,3 @@
   description: Further information is requested
   color: 6a32a5
 
-- name: 'docs:deploy'
-  description: Deploy PR documentation
-  color: 0677ba
-
