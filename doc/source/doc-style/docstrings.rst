@@ -43,7 +43,7 @@ PyAnsys library docstrings contain these numpydoc sections as a minimum:
 * `Examples <https://numpydoc.readthedocs.io/en/latest/format.html#examples>`_
 
 These sections should follow numpydoc style. To avoid inconsistencies between
-PyAnsys libraries, refer :ref:`docstring_formatting_rules`. 
+PyAnsys libraries, see :ref:`docstring_formatting_rules`. 
 
 
 Examples

@@ -60,8 +60,8 @@ Style reference
     
       Best practices for writing documentation.
 
-Contribute docs
----------------
+Contribute to the documentation
+-------------------------------
 
 .. grid:: 3
 

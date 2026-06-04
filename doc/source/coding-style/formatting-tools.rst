@@ -79,7 +79,7 @@ may look like this:
 
 Linting and formatting rules shall be added step by step when migrating a project to Ruff,
 gradually resolving the triggered errors. For more information about configuring Ruff, as
-well as a complete description of the available rules and settings, please refer to the
+well as a complete description of the available rules and settings, see the
 `tool's documentation <https://docs.astral.sh/ruff/configuration/>`__.
 
 
