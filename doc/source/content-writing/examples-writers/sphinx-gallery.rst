@@ -84,3 +84,9 @@ To include Sphinx-Gallery in your project's documentation requirements, you must
 add it as a dependency. Depending on the project's configuration, you add the required ``pip``
 packages in either the :file:`pyproject.toml` file or the :file:`requirements_doc_txt` file.
 For more information, see :ref:`doc_ext_requirements`.
+
+.. toctree::
+   :maxdepth: 5
+   :hidden:
+
+   ../../examples/index
