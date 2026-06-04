@@ -41,19 +41,6 @@ jobs:
       - name: "Install mermaid-cli"
         run: npm install -g @mermaid-js/mermaid-cli
 
-      
-      - name: Create Puppeteer config (fix sandbox)
-        run: |
-          cat <<EOF > puppeteer-config.json
-          {
-            "args": ["--no-sandbox", "--disable-setuid-sandbox"]
-          }
-          EOF
-
-      - name: Configure Mermaid CLI
-        run: echo "export MERMAID_PUPPETEER_CONFIG=puppeteer-config.json" >> $GITHUB_ENV
-
-
       - name: "Install GraphViz"
         shell: bash
         run: |
