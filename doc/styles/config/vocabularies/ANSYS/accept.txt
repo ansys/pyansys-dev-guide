@@ -12,11 +12,14 @@ CI/CD
 CLI
 CNAME
 config
+cooldown
 CSV
 Codespell
 [Cc]omponentization
 [Cc]omponentizing
 composability
+CVE(s)
+cyberchannel
 cybersecurity
 dataframes
 datagrams

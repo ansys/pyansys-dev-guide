@@ -27,7 +27,7 @@ features and advantages:
 
 - ``pyproject.toml`` support
 
-- Python 3.7 to 3.13 compatibility
+- Python 3.7 to 3.14 compatibility
 
 - Built-in caching, to avoid re-analyzing unchanged files
 

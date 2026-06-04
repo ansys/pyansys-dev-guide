@@ -1,9 +1,9 @@
-Sphinx==8.2.3
-ansys-sphinx-theme==1.6.3
+Sphinx==9.1.0
+ansys-sphinx-theme==1.7.2
 sphinx-copybutton==0.5.2
-sphinx_toolbox==4.0.0
-sphinx_design==0.6.1
-sphinxcontrib-mermaid>=0.7.1
-sphinx-gallery==0.19.0
-Pillow>=9.0
-pyvista==0.46.4
+sphinx_design==0.7.0
+sphinxcontrib-mermaid>=2.0.2
+sphinx-gallery==0.21.0
+Pillow>=12.2.0
+pyvista==0.48.2
+pydantic==2.13.4
