@@ -33,13 +33,26 @@ jobs:
 
   doc-build:
     name: "Build project documentation"
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Setup headless display
         uses: pyvista/setup-headless-display-action@5bc8de3bc71fcda7a96439571287a554901541a0 # v4.3
 
       - name: "Install mermaid-cli"
         run: npm install -g @mermaid-js/mermaid-cli
+
+      
+      - name: Create Puppeteer config (fix sandbox)
+        run: |
+          cat <<EOF > puppeteer-config.json
+          {
+            "args": ["--no-sandbox", "--disable-setuid-sandbox"]
+          }
+          EOF
+
+      - name: Configure Mermaid CLI
+        run: echo "export MERMAID_PUPPETEER_CONFIG=puppeteer-config.json" >> $GITHUB_ENV
+
 
       - name: "Install GraphViz"
         shell: bash
