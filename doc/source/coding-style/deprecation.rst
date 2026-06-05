@@ -7,6 +7,11 @@ there is no official guidance on deprecating features within Python.
 Thus, this topic provides deprecation best practices for PyAnsys
 libraries. 
 
+.. note::
+    This page covers API-level deprecation of methods, classes, and functions.
+    For retiring an entire repository or package lifecycle, see
+    :ref:`deprecating`.
+
 Whenever you deprecate a method, class, or function, you must take one of
 these actions:
 

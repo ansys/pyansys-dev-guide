@@ -10,9 +10,8 @@ have a docstring that describes and explains how to use it to interact
 with the library. When building documentation, `Sphinx <Sphinx_>`_ assembles
 the content in these docstrings to generate API reference documentation.
 
-This section covers the setup and processing of PY files by Sphinx,
-fundamental Python objects, and formatting rules for docstrings, code comments,
-and message strings.
+This section focuses on contributor-facing rules for docstrings, code comments,
+and message strings in PY files.
 
 For resources related to PY files, see :ref:`style_format_resources`.
 To learn how PY files for PyAnsys libraries are formatted, see :ref:`py_file_format`.

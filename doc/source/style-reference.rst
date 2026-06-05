@@ -1,6 +1,6 @@
 
-Style
-=====
+Style reference
+===============
 
 In the PyAnsys ecosystem, three key styles contribute to an 
 enhanced developer experience:
