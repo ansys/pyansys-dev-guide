@@ -496,14 +496,14 @@ and double-click the ``index.html`` file.
 
 Use sphinx-autobuild to see your changes live
 +++++++++++++++++++++++++++++++++++++++++++++
-The extension https://github.com/sphinx-doc/sphinx-autobuild allows you to see your changes live in the browser while
+The extension `sphinx-autobuild <https://github.com/sphinx-doc/sphinx-autobuild>`_ allows you to see your changes live in the browser while
 you are editing the documentation. To use it, you must install it first:
 
 .. code-block:: bash
 
     pip install sphinx-autobuild
 
-Then, you can run the following command to start a local server that will automatically rebuild the documentation.
+Then, you can run the following command to start a local server that automatically rebuilds the documentation.
 You can save the command in your make file for instance
 
 .. code-block:: text
