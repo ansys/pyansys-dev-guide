@@ -494,6 +494,30 @@ The resulting HTML files are created in the ``doc/_build/html`` directory.
 To view the HTML documentation in your browser, navigate to this directory
 and double-click the ``index.html`` file.
 
+Use sphinx-autobuild to see your changes live
++++++++++++++++++++++++++++++++++++++++++++++
+The extension `sphinx-autobuild <https://github.com/sphinx-doc/sphinx-autobuild>`_ allows you to see your changes live in the browser while
+you are editing the documentation. To use it, you must install it first:
+
+.. code-block:: bash
+
+    pip install sphinx-autobuild
+
+Then, you can run the following command to start a local server that automatically rebuilds the documentation.
+You can save the command in your make file for instance
+
+.. code-block:: text
+
+    autobuild:
+      sphinx-autobuild "$(SOURCEDIR)" "$(BUILDDIR)/html" \
+        $(SPHINXOPTS)
+
+And then run
+
+.. code-block:: bash
+
+    make autobuild
+
 Build PDF documentation
 ~~~~~~~~~~~~~~~~~~~~~~~
 
