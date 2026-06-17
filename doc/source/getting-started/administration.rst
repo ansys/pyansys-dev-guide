@@ -17,7 +17,7 @@ First step
 To trigger the public release process, project leads must first complete the
 open source request form.
 
-.. button-link:: https://forms.office.com/Pages/ResponsePage.aspx?id=Z87GNLgV_06A6VLai-iXBlohdWpH-0xMs83xmsDFYEBUNEZNM0dBS0taWlMzWlpDRklIQ0tFVEVSTC4u
+.. button-link:: https://forms.office.com/r/xBTsyUt8cR
     :color: black
     :expand:
 
