@@ -113,7 +113,7 @@ Click the following button to complete the Chain of liability:
     :color: black
     :expand:
 
-    **Open source code release request form**
+    **Chain of liability form**
 
 These checks are required when performing the legal review of the project:
 
