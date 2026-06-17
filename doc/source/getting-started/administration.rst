@@ -113,7 +113,7 @@ Legal
 Legal review approval ensures that the entire project complies with Ansys'
 legal policies.
 
-You must submit the Chain of liability. For any questions related to the Chain of Liability, please contact the PyAnsys core team.
+You must submit the Chain of liability to the legal department. For any questions related to the Chain of Liability, please contact the PyAnsys core team.
 
 
 These checks are required when performing the legal review of the project:
