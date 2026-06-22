@@ -22,6 +22,7 @@
 * [Dominik Gresch](https://github.com/greschd)
 * [Doug Addy](https://github.com/da1910)
 * [Edouard Coussoux](https://github.com/ecoussoux-ansys)
+* [inimaz](https://github.com/inimaz)
 * [jleonatti](https://github.com/jleonatti)
 * [Kathy Pippert](https://github.com/PipKat)
 * [Kerry McAdams](https://github.com/klmcadams)
