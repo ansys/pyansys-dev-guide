@@ -109,6 +109,8 @@ scipy
 SEO
 [Ss]etuptools
 [Ss]phinx
+Synopsys
+synopsys
 SSH
 subclassing
 sublist
