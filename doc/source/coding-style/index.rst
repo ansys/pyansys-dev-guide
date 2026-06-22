@@ -35,5 +35,4 @@ within Python.
 
    pep8
    formatting-tools
-   required-standard
    deprecation

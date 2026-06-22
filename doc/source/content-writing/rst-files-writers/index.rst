@@ -8,9 +8,8 @@ constructs to indicate the structure of a document. You use reStructuredText (RS
 files to define the hierarchy of your documentation and provide manually authored
 content.
 
-This page describes the setup of RST files for PyAnsys documentation. It also
-describes the option for using either a RST or Markdown (MD) file as the README
-file for the GitHub repository of a PyAnsys project.
+This page focuses on contributor-facing setup, formatting, and reusable RST
+patterns for PyAnsys documentation.
 
 For resources related to RST and MD files, see :ref:`style_format_resources`.
 To learn how RST files for PyAnsys libraries are formatted, see :ref:`rst_file_formatting`.

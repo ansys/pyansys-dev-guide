@@ -35,6 +35,7 @@ html_theme_options = {
     "github_url": "https://github.com/ansys/dev-guide",
     "show_prev_next": False,
     "show_breadcrumbs": True,
+    "show_nav_level": 2,
     "use_edit_page_button": True,
     "additional_breadcrumbs": [
         ("PyAnsys", "https://docs.pyansys.com/"),
@@ -51,6 +52,7 @@ html_theme_options = {
         "min_chars_for_search": 2,
         "ignoreLocation": True,
     },
+    "header_links_before_dropdown": 6,
 }
 
 # necessary for proper breadcrumb title
@@ -211,8 +213,10 @@ linkcheck_ignore = [
 linkcheck_anchors_ignore = [
     # these anchors are picked by linkcheck as broken but they are not.
     "38-comments-and-docstrings",
+    "the-light-format",
     # Permalink anchors are not supported by linkcheck
     "L[0-9]+(-L[0-9]+)?",  #  L9, L9-L10, L11-L12,etc.
+    
 ]
 
 linkcheck_anchors_ignore_for_url = ["https://github.com/ansys/ansys-api-template"]

@@ -1,9 +1,25 @@
+# -- Labels based on PR title ------------------------------------------------
+
+'fix':
+  - head-branch: ['fix']
+
+'enhancement':
+  - head-branch: ['feat']
+ 
+
 documentation:
-- changed-files:
-  - any-glob-to-any-file: ['doc/source/**/*']
+- any:
+  - changed-files:
+    - any-glob-to-any-file: ['doc/source/**/*']
+  - head-branch: ['docs', 'doc']
+
 maintenance:
-- changed-files:
-  - any-glob-to-any-file: ['.github/**/*', 'ruff.toml', 'pyproject.toml', 'docker/**/*']
+- any: 
+  - changed-files:
+    - any-glob-to-any-file: ['.github/**/*', 'ruff.toml', '.pre-commit-config.yaml']
+  - head-branch: ['maint', 'ci', 'no-ci']
+
 dependencies:
-- changed-files:
-  - any-glob-to-any-file: ['requirements/*']
+- any:
+  - changed-files:
+    - any-glob-to-any-file: ['requirements/*']
