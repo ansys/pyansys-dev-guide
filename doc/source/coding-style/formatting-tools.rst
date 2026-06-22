@@ -7,6 +7,12 @@ There are many tools for checking code style. This section presents some of
 the most popular ones in the Python ecosystem. A minimum configuration is
 provided for each one so that you can easily include them in your PyAnsys project.
 
+.. note::
+    This page focuses on code-quality automation for Python projects.
+    For documentation-focused tools such as ``blacken-docs``, ``docformatter``,
+    ``Vale``, and ``numpydoc`` validation, see
+    :ref:`doc_style_tools`.
+
 Most of the tools presented can be configured using :ref:`the
 \`\`pyproject.toml\`\` file`. Avoiding dotfiles leads to a much
 cleaner root project directory.
@@ -14,20 +20,20 @@ cleaner root project directory.
 Ruff
 ----
 
-`Ruff`_ is a Python linter and code formatter written in Rust. It aims to be 
-orders of magnitude faster than alternative tools while integrating more 
-functionality behind a single, common interface. Ruff can therefore be used 
-to replace the previously preferred alternatives that were `Flake8`_ 
+`Ruff`_ is a Python linter and code formatter written in Rust. It aims to be
+orders of magnitude faster than alternative tools while integrating more
+functionality behind a single, common interface. Ruff can therefore be used
+to replace the previously preferred alternatives that were `Flake8`_
 (natively re-implementing its popular plugins), `Black`_ and `isort`_.
 
-It is actively developed, used in major open-source projects, and offers the following 
+It is actively developed, used in major open-source projects, and offers the following
 features and advantages:
 
 - Can be installed via ``pip install ruff``
 
 - ``pyproject.toml`` support
 
-- Python 3.7 to 3.13 compatibility
+- Python 3.7 to 3.14 compatibility
 
 - Built-in caching, to avoid re-analyzing unchanged files
 
@@ -47,6 +53,7 @@ may look like this:
     [tool.ruff.format]
     quote-style = "double"
     indent-style = "space"
+    docstring-code-format = true
 
     [tool.ruff.lint]
     select = [
@@ -57,6 +64,7 @@ may look like this:
         "N",    # pep8-naming, see https://docs.astral.sh/ruff/rules/#pep8-naming-n
         "PTH",  # flake8-use-pathlib, https://docs.astral.sh/ruff/rules/#flake8-use-pathlib-pth
         "TD",   # flake8-todos, https://docs.astral.sh/ruff/rules/#flake8-todos-td
+        "W",    # pycodestyle, see https://docs.astral.sh/ruff/rules/#pycodestyle-e-w
     ]
     ignore = [
         "TD003", # Missing issue link in TODOs comment
@@ -69,9 +77,9 @@ may look like this:
     combine-as-imports = true
     force-sort-within-sections = true
 
-Linting and formatting rules shall be added step by step when migrating a project to Ruff, 
-gradually resolving the triggered errors. For more information about configuring Ruff, as 
-well as a complete description of the available rules and settings, please refer to the 
+Linting and formatting rules shall be added step by step when migrating a project to Ruff,
+gradually resolving the triggered errors. For more information about configuring Ruff, as
+well as a complete description of the available rules and settings, see the
 `tool's documentation <https://docs.astral.sh/ruff/configuration/>`__.
 
 
@@ -126,13 +134,13 @@ configuration that includes both code and documentation formatting tools.
 .. code-block:: yaml
 
     repos:
-    
+
     - repo: https://github.com/astral-sh/ruff-pre-commit
       rev: vX.Y.Z
       hooks:
       - id: ruff
       - id: ruff-format
-    
+
     - repo: https://github.com/codespell-project/codespell
       rev: vX.Y.Z
       hooks:
@@ -144,7 +152,7 @@ configuration that includes both code and documentation formatting tools.
       - id: pydocstyle
         additional_dependencies: [toml]
         exclude: "tests/"
-
+    
     - repo: https://github.com/ansys/pre-commit-hooks
       rev: v0.2.4
       hooks:
@@ -168,7 +176,7 @@ Then, ensure that you install it as a ``Git hook`` by running this command:
 Use ``pre-commit``
 ~~~~~~~~~~~~~~~~~~
 
-One installed as described, ``pre-commit`` automatically triggers every time
+Once installed as described, ``pre-commit`` automatically triggers every time
 that you try to commit a change. If any hook defined in the ``.pre-commit-config.yaml``
 file fails, you must fix the failing files, stage the new changes, and try to commit
 them again.
@@ -280,3 +288,40 @@ Use the following configuration in your ``.pre-commit-config.yaml`` file to be c
 
     repos:
         # Your repository-specific configurations here
+
+CI/CD integration with Ansys reusable actions
+----------------------------------------------
+
+The PyAnsys ecosystem provides a set of reusable GitHub Actions in the
+`ansys/actions <https://actions.docs.ansys.com/version/stable/index.html>`_
+repository. These actions encapsulate common CI/CD tasks so that individual
+PyAnsys projects do not need to re-implement them from scratch.
+
+For code style enforcement in CI, use the ``code-style`` action. It internally
+runs ``pre-commit`` with all hooks defined in your ``.pre-commit-config.yaml``
+file, guaranteeing that every pull request is checked against the same rules
+that developers run locally.
+
+A minimal job definition looks like this:
+
+.. code-block:: yaml
+
+    code-style:
+      name: "Code style"
+      runs-on: ubuntu-latest
+      steps:
+        - name: "Code style"
+          uses: ansys/actions/code-style@vX.Y.Z
+          with:
+            python-version: ${{ env.MAIN_PYTHON_VERSION }}
+
+.. note::
+
+    Replace ``vX.Y.Z`` with the latest available version. For the full list of
+    inputs and outputs supported by this action, see the
+    `Code style action documentation
+    <https://actions.docs.ansys.com/version/stable/style-actions/index.html#code-style-action>`_.
+
+For a complete list of all reusable actions provided by the PyAnsys ecosystem,
+see the `Ansys actions documentation
+<https://actions.docs.ansys.com/version/stable/index.html>`_.

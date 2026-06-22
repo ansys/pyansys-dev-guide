@@ -35,6 +35,7 @@ html_theme_options = {
     "github_url": "https://github.com/ansys/dev-guide",
     "show_prev_next": False,
     "show_breadcrumbs": True,
+    "show_nav_level": 2,
     "use_edit_page_button": True,
     "additional_breadcrumbs": [
         ("PyAnsys", "https://docs.pyansys.com/"),
@@ -51,6 +52,7 @@ html_theme_options = {
         "min_chars_for_search": 2,
         "ignoreLocation": True,
     },
+    "header_links_before_dropdown": 6,
 }
 
 # necessary for proper breadcrumb title
@@ -59,7 +61,6 @@ html_short_title = html_title = project
 # Sphinx extensions
 extensions = [
     "sphinx_copybutton",
-    "sphinx_toolbox.collapse",
     "sphinx.ext.autodoc",
     "sphinx.ext.autosectionlabel",
     "sphinx.ext.autosummary",
@@ -201,6 +202,7 @@ linkcheck_ignore = [
     "https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706",
     "https://opensource.org/licenses/MIT",
     "https://www.gnu.org/software/make/",
+    "https://docutils.sourceforge.io/.*",
     # Private links
     "https://github.com/ansys-internal/.*",
     "https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi",
@@ -211,8 +213,10 @@ linkcheck_ignore = [
 linkcheck_anchors_ignore = [
     # these anchors are picked by linkcheck as broken but they are not.
     "38-comments-and-docstrings",
+    "the-light-format",
     # Permalink anchors are not supported by linkcheck
     "L[0-9]+(-L[0-9]+)?",  #  L9, L9-L10, L11-L12,etc.
+    
 ]
 
 linkcheck_anchors_ignore_for_url = ["https://github.com/ansys/ansys-api-template"]

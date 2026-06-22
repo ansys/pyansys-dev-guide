@@ -95,6 +95,13 @@ control system.
     | |uncheck| All documentation builds successfully.
     | |uncheck| The project builds successfully.
 
+.. note:: Pre-releases
+
+   To perform a pre-release, the process is the same as described below, with the exception
+   of using a pre-release tag that follows `PEP 440 <https://peps.python.org/pep-0440/>`_.
+   Furthermore, limiting pre-release tags to ``N.N.N[{a|b|rc}N]`` subset is encouraged for
+   PyAnsys libraries.
+
 .. dropdown:: Release major and minor versions
 
     Before performing a release, you must verify that your ``origin main`` branch is up to date

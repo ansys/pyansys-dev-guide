@@ -19,13 +19,18 @@ help:
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 
-# customized clean due to examples gallery
+# customized clean
 clean:
-	rm -rf build
-	rm -rf source/examples/
+	rm -rf _build
 
 # customized pdf fov svg format images
 pdf:
 	@$(SPHINXBUILD) -M latex "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	cd $(BUILDDIR)/latex && latexmk -r latexmkrc -pdf *.tex -interaction=nonstopmode || true
 	(test -f $(BUILDDIR)/latex/pyansys*.pdf && echo pdf exists) || exit 1
+
+# Hot-reload the page with sphinx-autobuild. This is useful for local development of the docs.
+autobuild:
+	sphinx-autobuild "$(SOURCEDIR)" "$(BUILDDIR)/html" \
+		--ignore="$(SOURCEDIR)/examples" \
+		$(SPHINXOPTS)

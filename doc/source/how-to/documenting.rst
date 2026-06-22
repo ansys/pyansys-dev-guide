@@ -8,9 +8,25 @@ contributing to PyAnsys documentation, see the `Google developer documentation s
 <Google_dev_doc_style_guide_>`_, which provides the general guidelines that you are to follow.
 This page supplies guidance specific to PyAnsys documentation.
 
-.. note::
-    For comprehensive information on contributing new content or revising existing
-    content, see :ref:`content_writing`.
+Use this page as the entry point for documentation maintenance workflows.
+
+.. grid:: 2
+
+    .. grid-item-card:: :fas:`fa-solid fa-code` Documentation for developers
+      :link: ../doc-style/index
+      :link-type: doc
+      :padding: 2 2 2 2
+
+      Standards, API doc quality rules, and documentation style guidance.
+
+    .. grid-item-card:: :fas:`fa-solid fa-pen-nib` Documentation for documentarians
+      :link: ../content-writing/index
+      :link-type: doc
+      :padding: 2 2 2 2
+
+      Writing, editing, and reviewing user-facing documentation content.
+
+For setup, build, deployment, versioning, and search behavior, continue on this page.
 
 When writing developer documentation, the relationship between code and
 documentation is key. To keep documentation up to date with evolving
@@ -172,7 +188,7 @@ is recommended but not enforced:
 - For subsubsubsection-level headings, use ``~~~``.
 - For paragraph-level headings, use ``+++``.
 
-For comprehensive syntax information, see the `reStrucutredText Markup Specification
+For comprehensive syntax information, see the `reStructuredText Markup Specification
 <RST_markup_spec_>`_.
 
 Because you must be familiar with the content in this guide before contributing to
@@ -344,8 +360,8 @@ To describe *why* and *how* to use a class in RST files, use the
             .. code-block:: pycon
 
                >>> from my_module import MyClass
-               >>> my_obj = MyClass(parm1="apple", parm2="orange")
-               >>> my_obj.parm1
+               >>> my_obj = MyClass(param1="apple", param2="orange")
+               >>> my_obj.param1
                'apple'
 
     .. tab-item:: Rendered documentation
@@ -356,8 +372,8 @@ To describe *why* and *how* to use a class in RST files, use the
         .. code-block:: pycon
 
            >>> from my_module import MyClass
-           >>> my_obj = MyClass(parm1="apple", parm2="orange")
-           >>> my_obj.parm1
+           >>> my_obj = MyClass(param1="apple", param2="orange")
+           >>> my_obj.param1
            'apple'
 
 Automatically generate documentation
@@ -477,6 +493,30 @@ The resulting HTML files are created in the ``doc/_build/html`` directory.
 
 To view the HTML documentation in your browser, navigate to this directory
 and double-click the ``index.html`` file.
+
+Use sphinx-autobuild to see your changes live
++++++++++++++++++++++++++++++++++++++++++++++
+The extension `sphinx-autobuild <https://github.com/sphinx-doc/sphinx-autobuild>`_ allows you to see your changes live in the browser while
+you are editing the documentation. To use it, you must install it first:
+
+.. code-block:: bash
+
+    pip install sphinx-autobuild
+
+Then, you can run the following command to start a local server that automatically rebuilds the documentation.
+You can save the command in your make file for instance
+
+.. code-block:: text
+
+    autobuild:
+      sphinx-autobuild "$(SOURCEDIR)" "$(BUILDDIR)/html" \
+        $(SPHINXOPTS)
+
+And then run
+
+.. code-block:: bash
+
+    make autobuild
 
 Build PDF documentation
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -763,79 +803,7 @@ are changing. For more information, see :ref:`Branching model`.
 As you are making changes in this branch, you want to periodically generate the
 documentation locally so that you can test your changes before you create a
 GitHub pull request. For more information, see :ref:`Build documentation`.
-
-Use PyMeilisearch as a documentation search engine
---------------------------------------------------
-
-PyMeilisearch is a Python client library that lets you use MeiliSearch, an open
-source search engine, to provide fast and relevant documentation search capabilities.
-
-To use PyMeilisearch as a search engine for multi-version documentation, perform
-these steps.
-
-#. Ensure that you are using `Ansys Sphinx Theme <Ansys_Sphinx_theme_repo_>`_ version 0.8
-   or later for building your library's documentation.
-
-#. In the ``conf.py`` file in the ``doc/source`` directory, include these lines:
-
-   .. code-block:: python
-  
-       import os
-  
-       from ansys_sphinx_theme import convert_version_to_pymeilisearch
-  
-  
-       cname = os.getenv("DOCUMENTATION_CNAME", "<DEFAULT_CNAME>")
-       """Canonical name (CNAME) of the webpage hosting the documentation."""
-  
-       html_theme_options = {
-           "use_meilisearch": {
-             "api_key": os.getenv("MEILISEARCH_API_KEY", ""),
-             "index_uids": {
-               f"<your-index-name>{convert_version_to_pymeilisearch(__version__)}": "index name to display",  # noqa: E501
-             },
-           },
-           ...
-       }
-  
-#. In these lines, replace *<your-index-name>* with the name for your MeiliSearch index.
-  
-   The ``convert_version_to_pymeilisearch`` function converts your library's version into
-   a format suitable for MeiliSearch indexing.
-
-#. Enable documentation index deployment for development and stable versions using Ansys actions:
-  
-   .. code-block:: yaml
-
-     jobs:
-       doc-deploy-index:
-         name: "Index the documentation and scrap using PyMeilisearch"
-         runs-on: ubuntu-latest
-         needs: doc-deploy
-         if: github.event_name == 'push'
-         steps:
-           - name: Scrape the stable documentation to PyMeilisearch
-             run: |
-               VERSION=$(python -c "from <your-package> import __version__; print('.'.join(__version__.split('.')[:2]))")
-               VERSION_MEILI=$(python -c "from <your-package> import __version__; print('-'.join(__version__.split('.')[:2]))")
-               echo "Calculated VERSION: $VERSION"
-               echo "Calculated VERSION_MEILI: $VERSION_MEILI"
-
-           - name: "Deploy the latest documentation index"
-             uses: ansys/actions/doc-deploy-index@v4.1
-             with:
-               cname: "<library>.docs.pyansys.com/version/$VERSION"
-               index-name: "<index-name>v$VERSION_MEILI"
-               host-url: "<meilisearch-host-url>"
-               api-key: ${{ secrets.MEILISEARCH_API_KEY }}
-
-#. Replace *<your-package>*, *<your-index-name>*, and *<library>* with appropriate values
-   for your project. 
-
-The version of your package is automatically calculated and used for indexing, ensuring that
-your documentation remains up to date. For more information, see the `PyMeilisearch`_ and
-`Ansys Sphinx Theme <ansys-sphinx-theme-doc_>`_ documentation.
-
+              
 .. _SEO:
 
 Optimize web searches

@@ -169,6 +169,47 @@ You can scroll to the end of these lines to see how they now conclude with ``# n
 When you commit these changes, Ruff sees the ``# noqa: E501`` comments at the end of these lines
 and knows to ignore their long line lengths.
 
+.. _reduce_github_linkcheck_flakiness:
+
+Reduce GitHub link check flakiness
+----------------------------------
+
+GitHub's platform can experience intermittent availability issues, sometimes returning
+internal server errors. This is particularly problematic when verifying links in an
+auto-generated changelog, which can contain thousands of links to GitHub pull requests
+that are known to exist. Even links to files, scripts, or images within the same
+repository can fail intermittently.
+
+To reduce this flakiness, it is recommended to configure your Sphinx :file:`conf.py` to:
+
+- Exclude the changelog document from link checking altogether.
+- Ignore links pointing to your own repository on GitHub.
+
+Here is an example configuration:
+
+.. code:: python
+
+    linkcheck_ignore = [
+        # GitHub availability can be unreliable; skip own-repo links
+        r"https://github.com/ansys/<repository-name>/.*",  # noqa: E501
+    ]
+
+    linkcheck_exclude_documents = ["<changelog-document-name>"]
+
+Replace ``<repository-name>`` with the name of your repository, as well as
+``<changelog-document-name>`` with the name of your changelog document.
+
+Here is an example pull request that implements this configuration:
+
+ - `ansys/pre-commit-hooks/pull/123 <https://github.com/ansys/pre-commit-hooks/pull/425>`_
+
+.. note::
+
+    Skipping link checks entirely is not recommended. Continue to verify external
+    links. Reserve ``linkcheck_ignore`` entries for links that are known to exist
+    but are unreachable by the Sphinx build environment, such as links behind
+    authentication, rate limits, or those internal to a repository.
+
 .. _resolve_mismatched_message_strings:
 
 Resolve mismatched message strings

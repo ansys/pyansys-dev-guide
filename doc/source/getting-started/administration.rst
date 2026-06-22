@@ -8,12 +8,22 @@ the public release of a PyAnsys library must go through a project approval proce
 First step
 ----------
 
+.. danger::
+
+    Open-source allows users not only to view the source code, but also to modify, share, and reuse it under specific conditions.
+    It differs from making it public as anyone can use and build upon the content.
+    Do not commit any proprietary information belonging either to Ansys or to external sources. If you are uncertain, consult your manager.
+
 To trigger the public release process, project leads must first complete the
 `open source request form`_.
 
 This form lets the different parties involved in the public release process know that
 there is a request to release a project. If your intent is to release an Ansys open
 source project, then continue to the next section.
+
+For more information, see
+:ref:`Questions asked on the OSS approval request form`.
+
 
 Approval process
 ----------------
@@ -54,13 +64,6 @@ When releasing a project to the public, you must perform these tasks:
 * Coordinate with the product line development team, if applicable.
 * Maintain the project by means of fixing bugs and providing support for new releases.
 * Uphold Ansys' reputation in the open source community.
-
-Once all three approvals have been awarded, project leads must then complete
-the `OSS (Open Source Software) approval request form <https://ansys.typeform.com/ReleaseSupport?typeform-source=gz2idtcjsw2.typeform.com/OSSapproval>`_.
-
-This form serves as a final checklist to verify that all approvals have been processed
-and to formalize the OSS approval process as a final record. For more information, see
-:ref:`Questions asked on the OSS approval request form`.
 
 Managerial
 ^^^^^^^^^^
@@ -104,9 +107,9 @@ Legal
 Legal review approval ensures that the entire project complies with Ansys'
 legal policies.
 
-Click the following button to complete the legal review request form for open sourcing the code:
+Click the following button to complete the Chain of liability:
 
-.. button-link:: https://github.com/ansys-internal/oss-approval-tracklist/issues/new?assignees=MaxJPRey%2C+RobPasMue%2C+jorgepiloto%2C+&labels=&projects=&template=oss_final_signature.yml&title=Name+of+the+package+to+release
+.. button-link:: https://forms.office.com/Pages/ResponsePage.aspx?id=Z87GNLgV_06A6VLai-iXBlohdWpH-0xMs83xmsDFYEBUNEZNM0dBS0taWlMzWlpDRklIQ0tFVEVSTC4u
     :color: black
     :expand:
 
@@ -155,6 +158,8 @@ The PyAnsys core team performs these checks when performing the technical review
     | |uncheck| :ref:`The \`\`LICENSE\`\` file` is present and compliant with legal requirements.
     | |uncheck| :ref:`The \`\`CONTRIBUTING.md\`\` file` is present.
     | |uncheck| :ref:`The \`\`CONTRIBUTORS.md\`\` file` is present and contains the project lead and main contributors.
+    | |uncheck| :ref:`The \`\`CODE_OF_CONDUCT.md\`\` file` is present.
+    | |uncheck| :ref:`The \`\`SECURITY.md\`\` file` is present.
 
 .. card:: |uncheck| The project is compliant with PyAnsys style guidelines.
 

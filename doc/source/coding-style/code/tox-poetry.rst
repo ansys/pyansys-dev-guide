@@ -3,18 +3,18 @@
     [tox]
     description = Default tox environments list
     envlist =
-        style,{py310,py311,py312,py313}{,-coverage},doc
+        style,{py310,py311,py312,py313,py314}{,-coverage},doc
     skip_missing_interpreters = true
     isolated_build = true
     
     [testenv]
     description = Checks for project unit tests and coverage (if desired)
     basepython =
-        py39: python3.9
         py310: python3.10
         py311: python3.11
         py312: python3.12
         py313: python3.13
+        py314: python3.14
         py: python3
         {style,reformat,doc,build}: python3
     skip_install = true

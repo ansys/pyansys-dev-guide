@@ -36,7 +36,7 @@
 .. _ansys_help: https://ansyshelp.ansys.com
 .. _join_ansys_organization: https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706
 .. _join_ansys_internal_organization: https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706
-.. _open source request form: https://forms.office.com/r/HwZm15ApKQ
+.. _open source request form: https://forms.office.com/r/xBTsyUt8cR
 
 .. #PyAnsys repositories
 .. _ansys-api-mapdl: https://pypi.org/project/ansys-api-mapdl/
@@ -100,7 +100,7 @@
 .. _docstring-coverage: https://bitbucket.org/DataGreed/docstring-coverage/wiki/Home
 .. _doctest: https://docs.python.org/3/library/doctest.html
 .. _docformatter: https://github.com/PyCQA/docformatter
-.. _pydocstyle: https://www.pydocstyle.org/en/stable/
+.. _pydocstyle: https://pydocstyle.pycqa.org/en/stable/
 
 .. #External links
 .. _Docutils: https://docutils.sourceforge.io/
@@ -118,6 +118,20 @@
 .. _unzip: https://7-zip.org/
 .. _conventional_commit_types: https://github.com/commitizen/conventional-commit-types/blob/master/index.json
 .. _Test Driven Development (TDD): https://en.wikipedia.org/wiki/Test-driven_development
+.. _bandit documentation: https://bandit.readthedocs.io/en/latest/
+.. _blacklists bandit documentation: https://bandit.readthedocs.io/en/latest/blacklists/blacklist_calls.html
+.. _zizmor: https://docs.zizmor.sh/
+.. _zizmor audit rules: https://docs.zizmor.sh/audits/
+.. _zizmor trophy case: https://docs.zizmor.sh/trophy-case/
+.. _ignoring zizmor results: https://docs.zizmor.sh/usage/#ignoring-results
+.. _artipacked audit rule: https://docs.zizmor.sh/audits/#artipacked
+.. _unpinned-uses audit rule: https://docs.zizmor.sh/audits/#unpinned-uses
+.. _github-env audit rule: https://docs.zizmor.sh/audits/#github-env
+.. _template-injection audit rule: https://docs.zizmor.sh/audits/#template-injection
+.. _excessive-permissions audit rule: https://docs.zizmor.sh/audits/#excessive-permissions
+.. _anonymous-definition audit rule: https://docs.zizmor.sh/audits/#anonymous-definition
+.. _pinact: https://github.com/suzuki-shunsuke/pinact
+
 
 .. #Sphinx-related links
 .. _PyData_Sphinx_theme: https://github.com/pydata/pydata-sphinx-theme
@@ -212,11 +226,25 @@
 .. _PyPI API token: https://pypi.org/help/#apitoken
 
 .. #Vulnerabilities
-.. _metapackage: https://github.com/pyansys/pyansys
+.. _metapackage: https://github.com/ansys/pyansys
 .. _CVE: https://www.cve.org/
 .. _Safety: https://pyup.io/safety/
 .. _Bandit: https://bandit.readthedocs.io/en/latest/
-.. _the action's documentation: https://actions.docs.ansys.com/version/stable/vulnerability-actions/index.html#check-vulnerabilities-action
+.. _check_vulnerabilities: https://actions.docs.ansys.com/version/stable/vulnerability-actions/index.html#check-vulnerabilities-action
+.. _check_action_security: https://actions.docs.ansys.com/version/stable/vulnerability-actions/index.html#check-actions-security-action
 .. _PyACP security considerations: https://acp.docs.pyansys.com/version/dev/user_guide/security_considerations.html
 .. _Github's documentation: https://docs.github.com/en/code-security/security-advisories/working-with-repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
 .. _PyAnsys Geometry subprocess advisory: https://github.com/ansys/pyansys-geometry/security/advisories/GHSA-38jr-29fh-w9vm
+.. _Ansys actions security fixes 1: https://github.com/ansys/actions/pull/739
+.. _Ansys actions security fixes 2: https://github.com/ansys/actions/pull/725
+.. _Ansys actions security fixes 3: https://github.com/ansys/actions/pull/967
+.. _PyConverter-XML2Py security fixes: https://github.com/ansys/pyconverter-xml2py/pull/452
+
+.. #Deprecation
+.. _PyAdditive Widgets README: https://github.com/ansys/pyadditive-widgets/blob/main/README.rst
+.. _PyAdditive Widgets deprecation issue: https://github.com/ansys/pyadditive-widgets/issues/102
+.. _PyAdditive Widgets deprecation warning: https://github.com/ansys/pyadditive-widgets/blob/600915a8db2dbb02088266c17ba2be53584079d0/src/ansys/additive/widgets/__init__.py#L24-L31
+.. _PyAdditive Widgets PyPI archive: https://pypi.org/project/ansys-additive-widgets/
+.. _Metapackage deprecation PR: https://github.com/ansys/pyansys/pull/968
+.. _PyAnsys Dev deprecation PR: https://github.com/ansys-internal/pyansys-dev/pull/44
+.. _Automation project deprecation PR: https://github.com/ansys-internal/pyansys-maintenance-automation/pull/79

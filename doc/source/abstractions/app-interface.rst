@@ -31,13 +31,13 @@ open region in the active editor:
 |    oModule = oDesign.GetModule("BoundarySetup")      |                                              |
 |                                                      |                                              |
 |    # create an open region                           |                                              |
-|    parm = [                                          |                                              |
+|    param = [                                         |                                              |
 |        "NAME:Settings",                              |                                              |
 |        "OpFreq:=", "1GHz",                           |                                              |
 |        "Boundary:=", "Radition",                     |                                              |
 |        "ApplyInfiniteGP:=", False                    |                                              |
 |    ]                                                 |                                              |
-|    oModule.CreateOpenRegion(parm)                    |                                              |
+|    oModule.CreateOpenRegion(param)                   |                                              |
 +------------------------------------------------------+----------------------------------------------+
 
 Besides length and readability, the biggest difference between the two
