@@ -23,6 +23,9 @@ select = [
 ]
 ignore = []
 
+[lint.per-file-ignores]
+"examples/*.py" = ["D400"]
+
 [lint.pydocstyle]
 convention = "numpy"
 
