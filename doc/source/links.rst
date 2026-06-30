@@ -69,6 +69,8 @@
 .. _PyMAPDL Legacy Reader: https://github.com/ansys/pymapdl-reader
 .. _PyMechanical: https://github.com/ansys/pymechanical
 .. _PyMeilisearch: https://pymeilisearch.docs.ansys.com/
+.. _PyFluent: https://github.com/ansys/pyfluent
+.. _PyOptiSLang: https://github.com/ansys/pyoptislang
 .. _PySpeos: https://github.com/ansys/pyspeos
 .. _PyPIM: https://github.com/ansys/pypim
 .. _python_installer_qt_ui_releases: https://github.com/ansys/python-installer-qt-gui/releases
@@ -80,6 +82,9 @@
 .. _PyAnsys Organization: https://github.com/ansys
 
 .. #Other libraries
+.. _Matplotlib: https://matplotlib.org/
+.. _Plotly: https://plotly.com/python/
+.. _Seaborn: https://seaborn.pydata.org/
 .. _Black: https://black.readthedocs.io/en/latest/
 .. _codespell: https://github.com/codespell-project/codespell
 .. _Docker: https://www.docker.com/
