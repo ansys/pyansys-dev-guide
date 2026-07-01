@@ -46,30 +46,3 @@ ecosystem. Here are some examples:
    basic
    administration
    componentization
-
-Contributing to this guide
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-If you would like to contribute to this guide, maintainers gladly 
-review all pull requests. For more information, see :ref:`Documentation style`.
-
-This repository uses `pre-commit <https://pre-commit.com/>`_ to
-automate style checking. To use it, enter your Python environment and install
-``pre-commit`` with this command::
-
-   pip install pre-commit
-
-You can then run ``pre-commit`` manually with this command::
-
-   pre-commit run --all-files
-
-This performs various style and spelling checks to ensure your contributions
-meet minimum coding style and documentation standards.
-
-You can make sure that these checks are always run prior to ``git commit``
-running them by installing ``pre-commit`` as a Git hook with this command::
-
-  pre-commit install
-
-Now, each time you run ``git commit``, your commit is only created if it
-passes the minimum style checks that also run on the GitHub CI/CD.
