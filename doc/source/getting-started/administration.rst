@@ -15,7 +15,13 @@ First step
     Do not commit any proprietary information belonging either to Ansys or to external sources. If you are uncertain, consult your manager.
 
 To trigger the public release process, project leads must first complete the
-`open source request form`_.
+open source request form.
+
+.. button-link:: https://forms.office.com/r/xBTsyUt8cR
+    :color: black
+    :expand:
+
+    **Open Source Request form**
 
 This form lets the different parties involved in the public release process know that
 there is a request to release a project. If your intent is to release an Ansys open
@@ -107,13 +113,8 @@ Legal
 Legal review approval ensures that the entire project complies with Ansys'
 legal policies.
 
-Click the following button to complete the Chain of liability:
+You must submit the Chain of liability to the legal department. For any questions related to the Chain of Liability, please contact the [PyAnsys Core team](mailto:pyansys.core@ansys.com).
 
-.. button-link:: https://forms.office.com/Pages/ResponsePage.aspx?id=Z87GNLgV_06A6VLai-iXBlohdWpH-0xMs83xmsDFYEBUNEZNM0dBS0taWlMzWlpDRklIQ0tFVEVSTC4u
-    :color: black
-    :expand:
-
-    **Open source code release request form**
 
 These checks are required when performing the legal review of the project:
 
