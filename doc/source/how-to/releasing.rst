@@ -198,6 +198,73 @@ control system.
        git push -u origin release/X.Y
        git push origin vX.Y.Z
 
+Release for CVE related dependency update
+-----------------------------------------
+
+When a Common Vulnerabilities and Exposures (CVE) affects a dependency in your
+Python project, and fixing it involves modifying the allowed version range,
+a new release must be created. This ensures downstream users and tooling are
+made aware of the fix and can adopt it reliably.
+
+You should always create a new release when fixing a vulnerability requires
+changing the allowed version range of a dependency. This is a critical step in
+making the fix discoverable and usable by others, especially those relying on
+automated tools, for example dependabot, to manage dependencies.
+
+A typical scenario requiring a release is that a known CVE affects one of your
+dependencies, for example `Pillow`, and the secure version is `>=10.0.0`. You
+update the version range in your project to exclude the vulnerable version. This
+can be done by modifying the `pyproject.toml` or requirements file used to define
+the dependencies of your project. Here is an example of such an update:
+
+.. tab-set::
+
+    .. tab-item:: poetry
+    
+        .. code-block:: toml
+
+            # Before the update
+            [tool.poetry.dependencies]
+            Pillow = ">=9.0.0"
+
+            # After the update
+            [tool.poetry.dependencies]
+            Pillow = ">=10.0.0" # CVE-2023-44271 fix
+
+    .. tab-item:: flit
+
+        .. code-block:: toml
+
+            # Before the update
+            [project]
+            dependencies = [
+                "Pillow>=9.0.0",
+            ]
+            
+
+            # After the update
+            [tool.poetry.dependencies]
+            dependencies = [
+                "Pillow>=10.0.0", # CVE-2023-44271 fix
+            ]
+
+    .. tab-item:: requirements file
+        
+        .. code-block:: text
+
+            # Before the update
+            Pillow>=9.0.0
+
+            # After the update
+            Pillow>=10.0.0  # CVE-2023-44271 fix
+
+Once the change is committed to your main branch, you now need to create
+a new release. This ensures that:
+
+- your PyPI package no longer resolves to vulnerable combinations;
+- automated tooling stop reporting your package as affected by the CVE;
+- users who pin your package can become aware of the fix and update accordingly.
+
 Artifact publication
 --------------------
 
