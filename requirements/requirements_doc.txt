@@ -5,6 +5,6 @@ sphinx-copybutton==0.5.2
 sphinx_design==0.7.0
 sphinxcontrib-mermaid>=2.0.2
 sphinx-gallery==0.21.0
-Pillow>=12.2.0
+Pillow>=12.3.0
 pyvista==0.48.4
 pydantic==2.13.4
