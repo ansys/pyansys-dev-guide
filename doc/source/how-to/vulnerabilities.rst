@@ -162,7 +162,7 @@ should be avoided. Refer to the `blacklists Bandit documentation`_ for detailed 
 
 .. note::
 
-   The PyAnsys dev guide recommends to leverage the ``bandit`` scan checks only focus on the source code
+   The PyAnsys dev guide recommends to leverage the ``bandit`` scan checks only to focus on the source code
    folder of the project, and not on other directories containing Python code which might not be relevant
    for end users - such as the tests directory. This can be achieved by running ``bandit -r src/ ...``
 
