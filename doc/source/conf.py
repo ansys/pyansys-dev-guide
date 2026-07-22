@@ -211,6 +211,9 @@ linkcheck_ignore = [
     "https://github.com/ansys-internal/.*",
     "https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi",
     "https://forms.office.com/r/HwZm15ApKQ",
+    # Bot access prevented
+    "https://github.com/signup",
+    "https://github.com/join",
 ]
 
 # Linkcheck ignore broken anchors
