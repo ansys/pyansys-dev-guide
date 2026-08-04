@@ -16,7 +16,7 @@ installations. For more information, see :ref:`componentizing`.
 Additionally, libraries play vital roles in key simulation tasks,
 including these:
 
-- Application automation
+- App automation
 - Machine learning
 - Postprocessing
 - Data visualization

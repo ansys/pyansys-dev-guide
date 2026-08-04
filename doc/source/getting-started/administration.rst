@@ -2,7 +2,7 @@ Project approval and public release
 ===================================
 
 Most of the projects in the `Ansys organization <Ansys GitHub organization_>`_ 
-expose the functionality of Ansys products. Due to intellectual property reasons,
+expose features of Ansys products. Due to intellectual property reasons,
 the public release of a PyAnsys library must go through a project approval process.
 
 First step
@@ -10,7 +10,7 @@ First step
 
 .. danger::
 
-    Open-source allows users not only to view the source code, but also to modify, share, and reuse it under specific conditions.
+    Open source allows users not only to view the source code, but also to modify, share, and reuse it under specific conditions.
     It differs from making it public as anyone can use and build upon the content.
     Do not commit any proprietary information belonging either to Ansys or to external sources. If you are uncertain, consult your manager.
 
