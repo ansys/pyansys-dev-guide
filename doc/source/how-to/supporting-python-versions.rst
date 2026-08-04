@@ -38,8 +38,8 @@ Python earlier than their end of life (EOL) as outlined in `NEP 29
 <https://numpy.org/neps/nep-0029-deprecation_policy.html#support-table>`_.
 
 You can still install an older version from PyPI using `pip`_ as
-your package manager. When ``pip`` is used, it downloads and installs
-the most recent version of the library that supports your version of Python. You
+your package manager. When ``pip`` is used, it installs the most recent
+version of the library that supports your version of Python. You
 can enforce a minimum-required Python version within the ``setup.py`` file with
 this code:
 
