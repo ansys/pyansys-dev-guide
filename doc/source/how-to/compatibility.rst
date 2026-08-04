@@ -1,8 +1,8 @@
 Product compatibility
 =====================
 
-As PyAnsys libraries evolve, backward and forward compatibility issues can
-occur. Here are examples of two common issues:
+As PyAnsys libraries evolve, they can face backward-compatibility issues as well as
+forward-compatibility issues. Here are examples of two common issues:
 
 * An Ansys product has implemented certain features in its new server version
   that are not available in previous server versions. This causes backward
@@ -25,8 +25,8 @@ file for the DPF-Core library.
 
 One of the easiest ways to keep track of the versions supported is to set up a
 *minimum version* data structure in which forward compatibility is ensured.
-Server versions earlier than the minimum version do not have access to this
-functionality. The previously referenced ``check_version.py`` file uses the
+Server versions earlier than the minimum version do not support this
+feature. The previously referenced ``check_version.py`` file uses the
 ``VERSIONS_MAP`` structure.
 
 Most Ansys products provide forward compatibility, meaning that features

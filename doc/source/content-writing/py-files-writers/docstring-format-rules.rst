@@ -154,11 +154,11 @@ This unnamed docstring section follows the short summary only if the Python obje
 deprecated or has been deprecated. It consists of a ``deprecated`` directive that warns
 users about when this object is to be removed (or was removed) from the API. The
 ``deprecated`` directive gives a reason for the deprecation, such as the
-object is superseded or duplicates functionality found elsewhere. Lastly, it recommends
-how to obtain the same functionality.
+object is superseded or duplicates a feature found elsewhere. Lastly, it recommends
+how to obtain the same feature.
 
 Here is an example of a PyAEDT method with a ``deprecated`` directive. It indicates
-the version for the deprecation and explains that this method is superseded by functionality
+the version for the deprecation and explains that this method is superseded by a feature
 in another method. It uses the ``func`` role to link to the method that should be used::
 
   def create_polygon_from_points(self, point_list, layer_name, net_name=""):
@@ -172,7 +172,7 @@ in another method. It uses the ``func`` role to link to the method that should b
 Extended summary
 ----------------
 
-If the short summary does not clearly and fully explain the functionality of the object,
+If the short summary does not clearly and fully explain the purpose and behavior of the object,
 this unnamed docstring section provides the additional information that is needed in
 complete sentences. A blank line must always be inserted before and after the extended
 summary.
