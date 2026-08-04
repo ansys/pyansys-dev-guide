@@ -348,7 +348,7 @@ optional dependencies:
 
    There are three types of dependencies to consider:
 
-     - **Main dependencies**: These are required for the core features of the library and
+   - **Main dependencies**: These are required for the core features of the library and
      must be specified in the main dependencies section of the build system configuration.
    - **Optional dependencies (extras)**: These are user-facing dependencies that enable
      additional features. They are included in the `.whl` file and specified under `extras`
