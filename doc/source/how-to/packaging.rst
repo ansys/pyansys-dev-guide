@@ -348,7 +348,7 @@ optional dependencies:
 
    There are three types of dependencies to consider:
 
-   - **Main dependencies**: These are required for the core functionality of the library and
+   - **Main dependencies**: These are required for the core features of the library and
      must be specified in the main dependencies section of the build system configuration.
    - **Optional dependencies (extras)**: These are user-facing dependencies that enable
      additional features. They are included in the `.whl` file and specified under `extras`
@@ -409,7 +409,7 @@ Dependency version range
 .. note::
 
     This guidance applies only to PyAnsys *library* projects. For projects
-    which deliver an *application* or *dedicated workflow*, it is
+    which deliver an *app* or *dedicated workflow*, it is
     recommended to fully pinning all (direct and transitive) dependencies.
 
 When specifying dependencies in a project, it is generally recommended to avoid
