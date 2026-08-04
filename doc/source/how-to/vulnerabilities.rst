@@ -185,7 +185,7 @@ To mitigate this risk, you should:
 
 - avoid using the `subprocess` module to execute shell commands with user input, as it can lead
   to command injection vulnerabilities.
-- if the previous point is not possible, you need to disable the `shell=True` argument in 
+- if the previous point is not possible, you need to avoid passing the `shell=True` argument in 
   `subprocess.run()` or similar functions, as it allows for shell injection attacks.
 
 By removing the `shell=True` argument, a list is needed to pass the command and its
@@ -217,7 +217,7 @@ and the risk of command injection is significantly reduced.
 
   Bandit warning remains even after deactivating the `shell=True` argument.
   If you are sure that the command is safe, you can ignore the Bandit warning. Please
-  check the `Ignore Bandit warnings`_ section for more information on how to do so.
+  check the `Ignore selected warnings`_ section for more information on how to do so.
 
 
 
@@ -303,8 +303,8 @@ provides a secure way to generate random numbers.
           secure_random_letter = secrets.choice(["a", "b", "c"])  # Secure choice from a list
 
 
-Ignore Bandit warnings
-~~~~~~~~~~~~~~~~~~~~~~
+Ignore selected warnings
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 In-line comment
 +++++++++++++++
@@ -356,7 +356,7 @@ Auditing CI/CD setups in the PyAnsys ecosystem
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 For PyAnsys ecosystem projects, the recommended way to audit workflows is to use the
 ``ansys/actions/check-actions-security`` action. The action wraps ``zizmor`` and provides
-additional functionality and configuration tailored to PyAnsys projects. For setup instructions,
+additional features and configuration tailored to PyAnsys projects. For setup instructions,
 see `the check-actions-security action documentation <check_action_security_>`_.
 
 Fixing common issues detected by ``zizmor``
@@ -412,7 +412,7 @@ which can allow them push malicious code, among other things. See `artipacked au
 **unpinned-uses**
 
 The vulnerability is that using unpinned ``uses:`` clauses in GitHub Actions allows workflows to pull in action
-code that can change at any time, including through branch or tag updates.
+code that can change at any time, including when the referenced Git ref changes.
 
 Fixing it is important because unpinned actions could be modified by attackers or upstream maintainers, leading
 to unexpected or malicious code execution in your workflows. See `unpinned-uses audit rule`_ for more

@@ -134,7 +134,7 @@ Core team tasks
 The PyAnsys Core team is responsible for assisting with the deprecation process by:
 
 - Reviewing the deprecation issue to ensure it meets the project's standards.
-- Assisting with the above steps, if necessary.
+- Assisting with the preceding steps, if necessary.
 - Remove from PyPI the configuration (PyPI token or trusted publisher) for the library.
 - Archive the project on PyPI. See `PyAdditive Widgets PyPI archive`_.
 - Removing the library from the `PyAnsys metapackage <metapackage_>`_, automation project

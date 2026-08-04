@@ -22,11 +22,11 @@ Ruff
 
 `Ruff`_ is a Python linter and code formatter written in Rust. It aims to be
 orders of magnitude faster than alternative tools while integrating more
-functionality behind a single, common interface. Ruff can therefore be used
+features behind a single, common interface. Ruff can therefore be used
 to replace the previously preferred alternatives that were `Flake8`_
 (natively re-implementing its popular plugins), `Black`_ and `isort`_.
 
-It is actively developed, used in major open-source projects, and offers the following
+It is actively developed, used in major open source projects, and offers the following
 features and advantages:
 
 - Can be installed via ``pip install ruff``
@@ -187,7 +187,7 @@ If you want to manually run ``pre-commit``, run this command:
 
     pre-commit run --all-files --show-diff-on-failure
 
-If any of the hooks fail, this command shows the current and expected style of the code.
+This command shows the current, and expected style of the code if any of the hooks fail.
 
 The ``tox`` tool
 ----------------

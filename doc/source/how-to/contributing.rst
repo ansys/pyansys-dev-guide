@@ -93,7 +93,7 @@ in the GitHub documentation.
 Report bugs
 ~~~~~~~~~~~
 
-If you encounter a bug in the code, open a new issue and select the template
+If you encounter a bug in the code, open a new issue by selecting the template
 for creating a bug report. In the bug report, take these actions:
 
 - Indicate the operating system, Python version, and library version that you are using.
