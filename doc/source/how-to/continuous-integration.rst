@@ -548,5 +548,11 @@ By default, the bot has access to **all repositories** and has the following per
 * **Read and write** permission to **actions, code, packages, and pull requests**
 * **Read** permission to **metadata and organization secrets**
 
+.. vale off
+
 These permissions can be obtained using a temporal token obtained from
-the ``BOT_APPLICATION_PRIVATE_KEY`` token and the `peter-murray/workflow-application-token-action <https://github.com/peter-murray/workflow-application-token-action>`_. For an example, see :ref:`deploying_to_another_repo`.
+the ``BOT_APPLICATION_PRIVATE_KEY`` token and the
+`peter-murray/workflow-application-token-action <https://github.com/peter-murray/workflow-application-token-action>`_.
+For an example, see :ref:`deploying_to_another_repo`.
+
+.. vale on
