@@ -216,6 +216,8 @@ You can use secrets to pass sensitive data such as passwords, tokens, or IP addr
 The ``ansys`` and ``ansys-internal`` organizations provide certain secrets by default to
 help you to automate or unify certain tasks, such as releasing a package.
 
+.. _secrets_for_github_actions:
+
 Secrets for GitHub Actions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -257,13 +259,13 @@ Dependabot secrets are generally replicas of the `Secrets for GitHub Actions`_.
 +=====================================+=============================================+========================================+==============================================+
 | ``BOT_APPLICATION_ID``              | `Secrets for GitHub Actions`_ equivalent                                                                                            |
 +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+
-| ``BOT_APPLICATION_PRIVATE_KEY``     | Same as `Actions secrets`_ equivalent                                                                                               |
+| ``BOT_APPLICATION_PRIVATE_KEY``     | Same as :ref:`secrets_for_github_actions` equivalent                                                                                |
 +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+
-| ``LICENSE_SERVER``                  | Same as `Actions secrets`_ equivalent                                                                                               |
+| ``LICENSE_SERVER``                  | Same as :ref:`secrets_for_github_actions` equivalent                                                                                |
 +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+
-| ``MULTIPR_DEPENDABOT``              | Same as `Actions secrets`_ equivalent                                                                                               |
+| ``MULTIPR_DEPENDABOT``              | Same as :ref:`secrets_for_github_actions` equivalent                                                                                |
 +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+
-| ``PYANSYS_PYPI_PRIVATE_PAT``        | Same as `Actions secrets`_ equivalent                                                                                               |
+| ``PYANSYS_PYPI_PRIVATE_PAT``        | Same as :ref:`secrets_for_github_actions` equivalent                                                                                |
 +-------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+
 
 
