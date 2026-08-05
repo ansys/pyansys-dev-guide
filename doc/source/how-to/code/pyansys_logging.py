@@ -1,3 +1,5 @@
+"""Module for PyAnsys logging."""
+
 from copy import copy
 from datetime import datetime
 import logging
@@ -10,9 +12,7 @@ FILE_NAME = "PyProject.log"
 
 
 # Formatting
-STDOUT_MSG_FORMAT = (
-    "%(levelname)s - %(instance_name)s - %(module)s - %(funcName)s - %(message)s"
-)
+STDOUT_MSG_FORMAT = "%(levelname)s - %(instance_name)s - %(module)s - %(funcName)s - %(message)s"
 FILE_MSG_FORMAT = STDOUT_MSG_FORMAT
 
 DEFAULT_STDOUT_HEADER = """
@@ -36,13 +36,13 @@ string_to_loglevel = {
 
 
 class InstanceCustomAdapter(logging.LoggerAdapter):
-    """This is key to keep the reference to a product instance name dynamic.
+    """Keeps the reference to a product instance name dynamic.
 
-    If we use the standard approach which is supplying ``extra`` input
-    to the logger, we would need to keep inputting product instances
+    If you use the standard approach, which is supplying ``extra`` input
+    to the logger, you would need to keep inputting product instances
     every time a log is created.
 
-    Using adapters we just need to specify the product instance we refer
+    Using adapters, you just need to specify the product instance that you refer
     to once.
     """
 
@@ -59,6 +59,7 @@ class InstanceCustomAdapter(logging.LoggerAdapter):
         self.std_out_handler = logger.std_out_handler
 
     def process(self, msg, kwargs):
+        """Get instance_name for logging."""
         kwargs["extra"] = {}
         # These are the extra parameters sent to log
         # here self.extra is the argument pass to the log records.
@@ -77,7 +78,6 @@ class InstanceCustomAdapter(logging.LoggerAdapter):
             Level of logging, for example ``'DEBUG'``. By default
             ``logging.DEBUG``.
         """
-
         self.logger = add_file_handler(
             self.logger, filename=filename, level=level, write_headers=True
         )
@@ -106,6 +106,8 @@ class InstanceCustomAdapter(logging.LoggerAdapter):
 
 
 class PyAnsysPercentStyle(logging.PercentStyle):
+    """Log message formatting."""
+
     def __init__(self, fmt, *, defaults=None):
         self._fmt = fmt or self.default_format
         self._defaults = defaults
@@ -117,12 +119,12 @@ class PyAnsysPercentStyle(logging.PercentStyle):
         else:
             values = record.__dict__
 
-        # Here we can make any changes we want in the record, for
-        # example adding a key.
+        # Here you can make any changes that you want in the record. For
+        # example, adding a key.
 
-        # We could create an if here if we want conditional formatting, and even
+        # You could create an ``if`` here if you want conditional formatting, and even
         # change the record.__dict__.
-        # Since now we don't want to create conditional fields, it is fine to keep
+        # If you don't want to create conditional fields, it is fine to keep
         # the same MSG_FORMAT for all of them.
 
         # For the case of logging exceptions to the logger.
@@ -154,6 +156,7 @@ class InstanceFilter(logging.Filter):
     """Ensures that instance_name record always exists."""
 
     def filter(self, record):
+        """If record had no attribute instance_name, create it and populate with empty string."""
         if not hasattr(record, "instance_name"):
             record.instance_name = ""
         return True
@@ -162,7 +165,7 @@ class InstanceFilter(logging.Filter):
 class Logger:
     """Logger used for each PyProject session.
 
-    This class allows you to add a handler to a file or standard output.
+    This class lets you add a handler to a file or standard output.
 
     Parameters
     ----------
@@ -193,14 +196,11 @@ class Logger:
         cleanup=True,
     ):
         """Initialize Logger class."""
-
-        self.logger = logging.getLogger(
-            "pyproject_global"
-        )  # Creating default main logger.
+        self.logger = logging.getLogger("pyproject_global")  # Creating default main logger.
         self.logger.addFilter(InstanceFilter())
         self.logger.setLevel(level)
         self.logger.propagate = True
-        self.level = self.logger.level  # TODO: TO REMOVE
+        self.level = self.logger.level  # noqa: TD002, TD003 # TODO: TO REMOVE
 
         # Writing logging methods.
         self.debug = self.logger.debug
@@ -217,7 +217,7 @@ class Logger:
         if to_stdout:
             self.log_to_stdout(level=level)
 
-        self.add_handling_uncaught_expections(
+        self.add_handling_uncaught_exceptions(
             self.logger
         )  # Using logger to record unhandled exceptions.
 
@@ -233,10 +233,7 @@ class Logger:
         level : str, optional
             Level of logging. E.x. 'DEBUG'. By default LOG_LEVEL
         """
-
-        self = add_file_handler(
-            self, filename=filename, level=level, write_headers=True
-        )
+        self = add_file_handler(self, filename=filename, level=level, write_headers=True)
 
     def log_to_stdout(self, level=LOG_LEVEL):
         """Add standard output handler to the logger.
@@ -246,7 +243,6 @@ class Logger:
         level : str, optional
             Level of logging record. By default LOG_LEVEL
         """
-
         self = add_stdout_handler(self, level=level)
 
     def setLevel(self, level="DEBUG"):
@@ -256,7 +252,7 @@ class Logger:
             each_handler.setLevel(level)
         self._level = level
 
-    def _make_child_logger(self, sufix, level):
+    def _make_child_logger(self, suffix, level):
         """Create a child logger.
 
         Create a child logger either using ``getChild`` or copying
@@ -264,7 +260,7 @@ class Logger:
         one.
 
         """
-        logger = logging.getLogger(sufix)
+        logger = logging.getLogger(suffix)
         logger.std_out_handler = None
         logger.file_handler = None
 
@@ -297,7 +293,7 @@ class Logger:
         logger.propagate = True
         return logger
 
-    def add_child_logger(self, sufix, level=None):
+    def add_child_logger(self, suffix, level=None):
         """Add a child logger to the main logger.
 
         This logger is more general than an instance logger which is designed
@@ -309,7 +305,7 @@ class Logger:
 
         Parameters
         ----------
-        sufix : str
+        suffix : str
             Name of the logger.
         level : str
             Level of logging
@@ -319,7 +315,7 @@ class Logger:
         logging.logger
             Logger class.
         """
-        name = self.logger.name + "." + sufix
+        name = self.logger.name + "." + suffix
         self._instances[name] = self._make_child_logger(self, name, level)
         return self._instances[name]
 
@@ -333,9 +329,7 @@ class Logger:
                 self._make_child_logger("NO_NAMED_YET", level), product_instance
             )
         else:
-            raise TypeError(
-                f"``name`` parameter must be a string or None, not f{type(name)}"
-            )
+            raise TypeError(f"``name`` parameter must be a string or None, not f{type(name)}")
 
         return instance_logger
 
@@ -379,21 +373,20 @@ class Logger:
         return self._instances[new_name]
 
     def __getitem__(self, key):
+        """Define custom KeyError message."""
         if key in self._instances.keys():
             return self._instances[key]
         else:
             raise KeyError(f"There are no instances with name {key}")
 
-    def add_handling_uncaught_expections(self, logger):
-        """This just redirects the output of an exception to the logger."""
+    def add_handling_uncaught_exceptions(self, logger):
+        """Redirect the output of an exception to the logger."""
 
         def handle_exception(exc_type, exc_value, exc_traceback):
             if issubclass(exc_type, KeyboardInterrupt):
                 sys.__excepthook__(exc_type, exc_value, exc_traceback)
                 return
-            logger.critical(
-                "Uncaught exception", exc_info=(exc_type, exc_value, exc_traceback)
-            )
+            logger.critical("Uncaught exception", exc_info=(exc_type, exc_value, exc_traceback))
 
         sys.excepthook = handle_exception
 
@@ -405,7 +398,7 @@ class Logger:
                 for handler in self.logger.handlers:
                     handler.close()
                     self.logger.removeHandler(handler)
-            except Exception as e:
+            except Exception:
                 try:
                     if self.logger is not None:
                         self.logger.error("The logger was not deleted properly.")
@@ -434,7 +427,6 @@ def add_file_handler(logger, filename=FILE_NAME, level=LOG_LEVEL, write_headers=
     logger
         Return the logger or Logger object.
     """
-
     file_handler = logging.FileHandler(filename)
     file_handler.setLevel(level)
     file_handler.setFormatter(logging.Formatter(FILE_MSG_FORMAT))
@@ -471,7 +463,6 @@ def add_stdout_handler(logger, level=LOG_LEVEL, write_headers=False):
     logger
         The logger or Logger object.
     """
-
     std_out_handler = logging.StreamHandler(sys.stdout)
     std_out_handler.setLevel(level)
     std_out_handler.setFormatter(PyProjectFormatter(STDOUT_MSG_FORMAT))

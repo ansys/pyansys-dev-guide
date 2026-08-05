@@ -1,4 +1,4 @@
 General example
-###############
+===============
 
-This gallery consists of introductory example using pyvista.
+This gallery consists of introductory example using PyVista.

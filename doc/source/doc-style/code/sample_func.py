@@ -1,4 +1,4 @@
-def func(arg1, arg2):
+def func(arg1, arg2):  # noqa: D100
     """Summary line <should be only one line>.
 
     Extended description of the function. The extended description,
@@ -6,7 +6,7 @@ def func(arg1, arg2):
     of the function.
 
     .. warning::
-       Use the ``.. warning::`` directive within the docstring for any
+       Use the ``warning`` directive within the docstring for any
        warnings that need to be explicitly stated. For example, you
        want to include a warning for a method that is to be deprecated
        in the next release.
@@ -25,7 +25,7 @@ def func(arg1, arg2):
 
     Examples
     --------
-    >>> func(1, 'foo')
+    >>> func(1, "foo")
     True
 
     """

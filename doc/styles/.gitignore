@@ -1,4 +1,5 @@
 *
-!Vocab
-!Vocab/**
+!config
+!config/**
+!typos.toml
 !.gitignore

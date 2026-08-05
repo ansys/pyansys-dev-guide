@@ -1,18 +1,24 @@
 Deprecation best practices
 ==========================
-While deprecation best practices are outlined in a `Stack
-Overflow Answer <https://stackoverflow.com/questions/2536307>`_ and
-in this `Deprecation library <https://deprecation.readthedocs.io/>`_ ,
+
+While deprecation best practices are outlined in 
+this `deprecation documentation <https://deprecation.readthedocs.io/>`_,
 there is no official guidance on deprecating features within Python.
 Thus, this topic provides deprecation best practices for PyAnsys
 libraries. 
 
-Whenever you deprecate a method, class, or function, you must either:
+.. note::
+    This page covers API-level deprecation of methods, classes, and functions.
+    For retiring an entire repository or package lifecycle, see
+    :ref:`deprecating`.
 
-- Have the old method call the new method and raise a warning
-- Raise an ``AttributeError`` if you remove the method entirely
+Whenever you deprecate a method, class, or function, you must take one of
+these actions:
 
-In the docstring of the old method, provide a `Sphinx Deprecated Directive
+- Have the old method call the new method and raise a warning.
+- Raise an ``AttributeError`` if you remove the method entirely.
+
+In the docstring of the old method, use a Sphinx `deprecated directive
 <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-deprecated>`_
 that links to the new method. This way, you notify your users when you make
 an API change and give them a chance to change their code. Otherwise,
@@ -92,4 +98,4 @@ You then use this custom ``DeprecationError`` in place of an ``Exception``.
             This function has been deprecated.
 
         """
-        raise DeprecationError('`my_function` has been deprecated.')
+        raise DeprecationError("`my_function` has been deprecated.")

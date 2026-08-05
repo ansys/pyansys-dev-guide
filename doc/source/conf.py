@@ -1,5 +1,7 @@
-"""Sphinx documentation configuration file for the pyansys developer's guide."""
+"""Sphinx documentation configuration file for the PyAnsys developer's guide."""
+
 from datetime import datetime
+import os
 
 from ansys_sphinx_theme import (
     __version__,
@@ -14,12 +16,11 @@ import pyvista
 from sphinx_gallery.sorting import FileNameSortKey
 
 # Project information
-project = "PyAnsys Developer's Guide"
+project = "PyAnsys developer's guide"
 copyright = f"(c) {datetime.now().year} ANSYS, Inc. All rights reserved"
 author = "Ansys Inc."
 release = version = datetime.now().strftime("%Y-%m-%d")
 
-html_logo = pyansys_logo_black
 html_theme = "ansys_sphinx_theme"
 html_favicon = ansys_favicon
 html_context = {
@@ -30,9 +31,11 @@ html_context = {
 }
 
 html_theme_options = {
+    "logo": "pyansys",
     "github_url": "https://github.com/ansys/dev-guide",
     "show_prev_next": False,
     "show_breadcrumbs": True,
+    "show_nav_level": 2,
     "use_edit_page_button": True,
     "additional_breadcrumbs": [
         ("PyAnsys", "https://docs.pyansys.com/"),
@@ -40,10 +43,16 @@ html_theme_options = {
     "icon_links": [
         {
             "name": "Contribute",
-            "url": "https://dev.docs.pyansys.com/dev/how-to/contributing.html",
+            "url": "https://dev.docs.pyansys.com/how-to/contributing.html",
             "icon": "fa fa-wrench",
         },
     ],
+    "static_search": {
+        "threshold": 0.5,
+        "min_chars_for_search": 2,
+        "ignoreLocation": True,
+    },
+    "header_links_before_dropdown": 6,
 }
 
 # necessary for proper breadcrumb title
@@ -52,7 +61,6 @@ html_short_title = html_title = project
 # Sphinx extensions
 extensions = [
     "sphinx_copybutton",
-    "sphinx_toolbox.collapse",
     "sphinx.ext.autodoc",
     "sphinx.ext.autosectionlabel",
     "sphinx.ext.autosummary",
@@ -78,7 +86,7 @@ sphinx_gallery_conf = {
     # Remove sphinx configuration comments from code blocks
     "remove_config_comments": True,
     # Sort gallery example by file name instead of number of lines (default)
-    "within_subsection_order": FileNameSortKey,
+    "within_subsection_order": "FileNameSortKey",
     # directory where function granular galleries are stored
     "backreferences_dir": None,
     # Modules for which function level galleries are created.  In
@@ -158,12 +166,24 @@ exclude_patterns = [
     "how-to/api/ansys_sphinx_theme.examples.samples.Complex.abs.rst",
     "how-to/api/ansys_sphinx_theme.examples.samples.Complex.imag.rst",
     "how-to/api/ansys_sphinx_theme.examples.samples.Complex.real.rst",
+    "links.rst",
 ]
+
+# make rst_epilog a variable, so you can add other epilog parts to it
+rst_epilog = ""
+
+# Read link all targets from file
+with open("links.rst") as f:
+    rst_epilog += f.read()
 
 # Fix excessive margins in mermaid output.
 # See issue: https://github.com/mermaid-js/mermaid/issues/1800#issuecomment-741617143
 mermaid_output_format = "png"
-mermaid_params = ["--width", "2000", "--backgroundColor", "white"]
+mermaid_params = [
+    "--width", "2000",
+    "--backgroundColor", "white",
+    "-p", os.path.join(os.path.dirname(__file__), "puppeteer-config.json"),
+]
 
 # Graphviz diagrams configuration
 graphviz_output_format = "png"
@@ -178,3 +198,32 @@ suppress_warnings = ["autosectionlabel.*"]
 # Generate the LaTeX preamble
 latex_additional_files = [watermark, ansys_logo_white, ansys_logo_white_cropped]
 latex_elements = {"preamble": generate_preamble(html_title)}
+
+# Linkcheck configuration
+linkcheck_ignore = [
+    # Needs user authentication
+    "https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706",
+    "https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706",
+    "https://opensource.org/licenses/MIT",
+    "https://www.gnu.org/software/make/",
+    "https://docutils.sourceforge.io/.*",
+    # Private links
+    "https://github.com/ansys-internal/.*",
+    "https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi",
+    "https://forms.office.com/r/HwZm15ApKQ",
+    # Bot access prevented
+    "https://github.com/signup",
+    "https://github.com/join",
+]
+
+# Linkcheck ignore broken anchors
+linkcheck_anchors_ignore = [
+    # these anchors are picked by linkcheck as broken but they are not.
+    "38-comments-and-docstrings",
+    "the-light-format",
+    # Permalink anchors are not supported by linkcheck
+    "L[0-9]+(-L[0-9]+)?",  #  L9, L9-L10, L11-L12,etc.
+    
+]
+
+linkcheck_anchors_ignore_for_url = ["https://github.com/ansys/ansys-api-template"]

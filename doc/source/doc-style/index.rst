@@ -1,13 +1,14 @@
+.. _doc_style_developers:
+
 Documentation style
-###################
+===================
 
 Good API documentation drives library adoption and usage and is the
 foundation for a good developer experience. Even with the best
 interfaces and the most functional product, an API is not adopted
-if users aren't satisfied with the documentation or the examples
-that they are presented with.
+if users aren't satisfied with a library's documentation or examples.
 
-Good API documentation provides:
+Good API documentation provides many benefits, including these:
 
 * Increased adoption and improved experiences for developers using
   the API or library.
@@ -21,16 +22,16 @@ Good API documentation provides:
 
 The documentation for a PyAnsys library should contain:
 
-* Module, class, method, and function docstrings. See 
+* Module, function, class, and method docstrings. See 
   :ref:`docstrings`.
-* Full gallery of examples. See `PyMAPDL Examples
-  <https://mapdldocs.pyansys.com/examples/index.html>`_.
+* A full gallery of examples. See `PyMAPDL examples
+  <https://examples.mapdl.docs.pyansys.com/>`_.
 * General content on installing, using, and contributing.
 * Link to the library's documentation from the repository's README file.
 
 To ensure clear and consistent documentation, all PyAnsys libraries are to
 follow the guidelines in the `Google developer documentation style guide
-<https://developers.google.com/style/>`_. Key guidelines include using:
+<Google_dev_doc_style_guide_>`_. Key guidelines include using:
 
 - Sentence case for headings and titles
 - Active voice
@@ -38,11 +39,10 @@ follow the guidelines in the `Google developer documentation style guide
 - Short, clear sentences
 
 To help you follow the Google guidelines and any custom rules
-developed by Ansys, you can implement `Vale <https://vale.sh/>`_.
-This command-line tool brings code-like linting to prose. For more
-information, see :ref:`Vale`.
+developed by Ansys, you can implement `Vale <Vale_>`_.
+This command-line tool brings code-like linting to prose.
 
-Finally, the documentation should be public and hosted via gh-pages, either as
+Finally, the documentation should be public and hosted using GitHub pages, either as
 a branch named ``gh-pages`` within the library repository or within a
 ``gh-pages`` branch within ``<library-repository>-docs``. 
 
@@ -51,7 +51,8 @@ see :ref:`DNS configuration`. You should ensure that you are compliant with
 the naming convention for your CNAME.
 
 For procedural information related to crafting, building, and deploying
-documentation, see :ref:`Documenting` in the :ref:`How-to` section.
+documentation, see :ref:`documenting_developers`. For comprehensive information
+on writing content for PyAnsys developers, see :ref:`content_writing`.
 
 .. toctree::
    :hidden:

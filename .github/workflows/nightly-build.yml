@@ -6,24 +6,27 @@ on:
   workflow_dispatch:
 
 env:
-  MAIN_PYTHON_VERSION: '3.10'
+  MAIN_PYTHON_VERSION: '3.14'
 
 jobs:
   nightly-docs:
     name: Nightly documentation
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - name: Setup headless display
+        uses: pyvista/setup-headless-display-action@5bc8de3bc71fcda7a96439571287a554901541a0 # v4.3
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
 
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y xvfb texlive-latex-extra latexmk nodejs npm graphviz
+          sudo apt-get install -y texlive-latex-extra latexmk nodejs npm graphviz
           npm install -g @mermaid-js/mermaid-cli
 
       - name: Install Python dependencies
@@ -32,7 +35,7 @@ jobs:
 
       - name: Build HTML documentation
         run: |
-          xvfb-run tox -e doc
+          tox -e doc
 
       - name: Build PDF Documentation
         run: |
@@ -42,25 +45,25 @@ jobs:
           make -C doc pdf
 
       - name: Upload HTML documentation
-        uses: actions/upload-artifact@v3.1.2
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: HTML-Documentation
-          path: .tox/doc_out_html/
+          path: doc/_build/html
           retention-days: 7
 
       - name: Upload PDF Documentation
-        uses: actions/upload-artifact@v3.1.2
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: PDF-Documentation
-          path: doc/build/latex/pyansys*.pdf
+          path: doc/_build/latex/pyansys*.pdf
           retention-days: 7
 
       - name: Deploy to gh-pages
         if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-        uses: JamesIves/github-pages-deploy-action@v4.4.2
+        uses: JamesIves/github-pages-deploy-action@d92aa235d04922e8f08b40ce78cc5442fcfbfa2f # v4.8.0
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: .tox/doc_out_html/
-          CLEAN: true
-          SINGLE_COMMIT: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: .tox/doc_out_html/
+          clean: true
+          single-commit: true
