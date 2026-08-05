@@ -288,53 +288,53 @@ Fine-grained tokens
 *******************
 
 +----------------------------------------------------------------+----------------------------------------+
-| | **TOKEN NAME**                                               | ``dependabot-multi-pr``                |
+|   **TOKEN NAME**                                               | ``dependabot-multi-pr``                |
 +================================================================+========================================+
-| | **Repository access**                                        |  Public repositories (read-only)       |
+|   **Repository access**                                        |  Public repositories (read-only)       |
 +----------------------------------------------------------------+----------------------------------------+
-| | **Permissions**                                              |                                        |
+|   **Permissions**                                              |                                        |
 +----------------------------------------------------------------+----------------------------------------+
-| |    **Block another user**                                    |  No access                             |
-| |     View and manage users who you've blocked.                |                                        |
+|      **Block another user**                                    |  No access                             |
+|       View and manage users who you've blocked.                |                                        |
 +----------------------------------------------------------------+----------------------------------------+
-| |    **Codespaces user secrets**                               |  No access                             |
-| |     Manage Codespaces user secrets.                          |                                        |
+|      **Codespaces user secrets**                               |  No access                             |
+|       Manage Codespaces user secrets.                          |                                        |
 +----------------------------------------------------------------+----------------------------------------+
-| |    **email addresses**                                       |  No access                             |
-| |     Manage a user's email addresses.                         |                                        |
+|      **email addresses**                                       |  No access                             |
+|       Manage a user's email addresses.                         |                                        |
 +----------------------------------------------------------------+----------------------------------------+
-| |    **Followers**                                             |  No access                             |
-| |     A user's followers.                                      |                                        |
+|      **Followers**                                             |  No access                             |
+|       A user's followers.                                      |                                        |
 +----------------------------------------------------------------+----------------------------------------+
-| |    **GPG keys**                                              |  No access                             |
-| |     View and manage a user's GPG keys.                       |                                        |
+|      **GPG keys**                                              |  No access                             |
+|       View and manage a user's GPG keys.                       |                                        |
 +----------------------------------------------------------------+----------------------------------------+
-| |    **gists**                                                 |  No access                             |
-| |     Create and modify a user's gists and comments.           |                                        |
+|      **gists**                                                 |  No access                             |
+|       Create and modify a user's gists and comments.           |                                        |
 +----------------------------------------------------------------+----------------------------------------+
-| |    **Git SSH keys**                                          |  No access                             |
-| |     Git SSH keys.                                            |                                        |
+|      **Git SSH keys**                                          |  No access                             |
+|       Git SSH keys.                                            |                                        |
 +----------------------------------------------------------------+----------------------------------------+
-| |    **Interaction limits**                                    |  No access                             |
-| |     Interaction limits on repositories.                      |                                        |
+|      **Interaction limits**                                    |  No access                             |
+|       Interaction limits on repositories.                      |                                        |
 +----------------------------------------------------------------+----------------------------------------+
-| |    **Plan**                                                  |  No access                             |
-| |     View a user's plan.                                      |                                        |
+|      **Plan**                                                  |  No access                             |
+|       View a user's plan.                                      |                                        |
 +----------------------------------------------------------------+----------------------------------------+
-| |    **Private repository invitations**                        |  No access                             |
-| |     View a user's invitations to private repositories.       |                                        |
+|      **Private repository invitations**                        |  No access                             |
+|       View a user's invitations to private repositories.       |                                        |
 +----------------------------------------------------------------+----------------------------------------+
-| |    **Profile**                                               |  No access                             |
-| |     Manage a user's profile settings.                        |                                        |
+|      **Profile**                                               |  No access                             |
+|       Manage a user's profile settings.                        |                                        |
 +----------------------------------------------------------------+----------------------------------------+
-| |    **SSH signing keys**                                      |  No access                             |
-| |     View and manage a user's SSH signing keys.               |                                        |
+|      **SSH signing keys**                                      |  No access                             |
+|       View and manage a user's SSH signing keys.               |                                        |
 +----------------------------------------------------------------+----------------------------------------+
-| |    **Starring**                                              |  No access                             |
-| |     List and manage repositories a user is starring.         |                                        |
+|      **Starring**                                              |  No access                             |
+|       List and manage repositories a user is starring.         |                                        |
 +----------------------------------------------------------------+----------------------------------------+
-| |    **Watching**                                              |  No access                             |
-| |     List and change repositories a user is subscribed to.    |                                        |
+|      **Watching**                                              |  No access                             |
+|       List and change repositories a user is subscribed to.    |                                        |
 +----------------------------------------------------------------+----------------------------------------+
 
 Classic tokens
