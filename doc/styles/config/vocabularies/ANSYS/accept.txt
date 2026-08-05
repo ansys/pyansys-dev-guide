@@ -42,6 +42,8 @@ dunder
 [Ee]num
 [Ee]nums
 Fortran
+ist
+ists
 [Gg]ist
 [Gg]ists
 (?i)Git
