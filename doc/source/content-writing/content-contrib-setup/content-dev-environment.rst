@@ -277,9 +277,13 @@ Install the Python in Visual Studio Code extension:
 
 #. In either the **EXTENSIONS** pane or the main pane, click **Install**.
 
+.. vale off
+
 The **Install** button changes to a settings (gear) icon in the **EXTENSIONS** pane or to
 two buttons, **Disable** and **Uninstall**, in the main pane. This lets you know that the
 Python extension for Windows has been installed successfully.
+
+.. vale on
 
 Install pre-commit
 ------------------

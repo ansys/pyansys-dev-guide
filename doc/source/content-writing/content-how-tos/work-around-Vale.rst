@@ -47,10 +47,14 @@ MD file by typing ``word1&nbsp;word2``.
 Allow the use of a word not allowed by the Google word list
 -----------------------------------------------------------
 
+.. vale off
+
 Based on an implemented Google word list, Vale raises warnings when certain
-words, such as "check" and "functionality," are used. While you can ignore
+words, such as "check" and "capability," are used. While you can ignore
 Vale warnings, if the list of warnings becomes long, it can become annoying
 to have to scroll through them to find the errors that you must address.
+
+.. vale on
 
 To have Vale accept your use of a word that is raising a warning, you can
 add the word to the :file:`accept.txt` file in the ``doc/styles/config/vocabularies/ANSYS``
