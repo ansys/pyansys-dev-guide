@@ -2,7 +2,7 @@ repos:
 
 
 - repo: https://github.com/astral-sh/ruff-pre-commit
-  rev: 77039ccbba72c8aede339c5f8ae29b42aced0a2e  # frozen: v0.15.18
+  rev: aab412d509121cb5f7533134b7e67f9fab59c682  # frozen: v0.16.4
   hooks:
     - id: ruff-check
     - id: ruff-format
@@ -14,7 +14,7 @@ repos:
     additional_dependencies: [black==24.8.0]
 
 - repo: https://github.com/codespell-project/codespell
-  rev: 2ccb47ff45ad361a21071a7eedda4c37e6ae8c5a  # frozen: v2.4.2
+  rev: 57b21406f092110c18776e39b0bda50d37c945c8  # frozen: v2.4.3
   hooks:
   - id: codespell
     args: ["--ignore-words", "doc/styles/config/vocabularies/ANSYS/accept.txt"]
@@ -26,7 +26,7 @@ repos:
   - id: debug-statements
 
 - repo: https://github.com/python-jsonschema/check-jsonschema
-  rev: 0.37.3
+  rev: 0.38.0
   hooks:
     - id: check-github-workflows
       name: "Check GitHub workflows"

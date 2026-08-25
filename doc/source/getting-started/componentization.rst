@@ -3,14 +3,14 @@
 Componentizing Ansys packages
 =============================
 
-Componentization is the process of subdividing the functionality of large apps 
+Componentization is the process of subdividing large apps 
 into multiple self-contained services with independent APIs. API creation surrounding 
 existing Ansys products naturally aligns to publishing packages that mimic the full 
 domain and scope of each product.
 
 Emphasizing component libraries and services during API exposure sets a new paradigm
 for Ansys product architecture that inherently breaks apart larger monolithic desktop
-apps into subsets of functionality, with the expectation of compatibility and reusability
+apps into smaller feature sets, with the expectation of compatibility and reusability
 across the entire Ansys portfolio.
 
 Many Ansys products already have a scripting solution in place, and wrapping that execution 
