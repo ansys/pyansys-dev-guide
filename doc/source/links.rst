@@ -96,7 +96,6 @@
 .. _blacken-docs: https://github.com/asottile/blacken-docs
 .. _interrogate: https://interrogate.readthedocs.io/en/latest/
 .. _docstr-coverage: https://docstr-coverage.readthedocs.io/en/latest/index.html
-.. _docstring-coverage: https://bitbucket.org/DataGreed/docstring-coverage/wiki/Home
 .. _doctest: https://docs.python.org/3/library/doctest.html
 .. _docformatter: https://github.com/PyCQA/docformatter
 .. _pydocstyle: https://pydocstyle.pycqa.org/en/stable/
