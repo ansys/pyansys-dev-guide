@@ -131,6 +131,13 @@ and app APIs.
 
       How to create and publish a versioned release to PyPI.
 
+    .. grid-item-card:: :fas:`fa-solid fa-lightbulb` Tutorials and best practices
+      :link: tutorials/index
+      :link-type: doc
+      :padding: 2 2 2 2
+
+      How to use Python libraries effectively and efficiently.
+
 .. toctree::
    :hidden:
    :maxdepth: 1
@@ -167,6 +174,7 @@ and app APIs.
    vulnerabilities
    compatibility
    deprecating
+   tutorials/index.rst
 
 .. toctree::
    :hidden:
