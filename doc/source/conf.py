@@ -208,7 +208,7 @@ linkcheck_ignore = [
     "https://www.gnu.org/software/make/",
     "https://docutils.sourceforge.io/.*",
     # Private links
-    "https://github.com/ansys-internal/.*",
+    "https://github.com/ansys/.*/pull/.*",
     "https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi",
     "https://forms.office.com/r/HwZm15ApKQ",
     # Bot access prevented
