@@ -241,8 +241,9 @@
 .. #Deprecation
 .. _PyAdditive Widgets README: https://github.com/ansys/pyadditive-widgets/blob/main/README.rst
 .. _PyAdditive Widgets deprecation issue: https://github.com/ansys/pyadditive-widgets/issues/102
-.. _PyAdditive Widgets deprecation warning: https://github.com/ansys/pyadditive-widgets/blob/600915a8db2dbb02088266c17ba2be53584079d0/src/ansys/additive/widgets/__init__.py#L24-L31
+.. _PySeascape deprecation warning: https://github.com/ansys/pyseascape/blob/6332624c532ec58805923a716599b097b6a980bc/src/ansys/seascape/__init__.py#L29-L32
 .. _PyAdditive Widgets PyPI archive: https://pypi.org/project/ansys-additive-widgets/
 .. _Metapackage deprecation PR: https://github.com/ansys/pyansys/pull/968
-.. _PyAnsys Dev deprecation PR: https://github.com/ansys-internal/pyansys-dev/pull/44
-.. _Automation project deprecation PR: https://github.com/ansys-internal/pyansys-maintenance-automation/pull/79
+.. _PyAnsys Dev deprecation PR: https://github.com/ansys/pyansys-dev/pull/44
+.. _Automation project deprecation PR: https://github.com/ansys/pyansys-maintenance-automation/pull/79
+.. _Python Manager PR: https://github.com/ansys/python-installer-qt-gui/pull/638
