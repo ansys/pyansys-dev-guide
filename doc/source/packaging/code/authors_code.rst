@@ -11,4 +11,4 @@
     # submit a request.
     #
     #
-    ANSYS, Inc.
+    Synopsys, Inc. and ANSYS, Inc.
