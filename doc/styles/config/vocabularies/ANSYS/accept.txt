@@ -129,6 +129,7 @@ untracked
 untrusted
 unvalidated
 URIs
+uv
 Vale
 venv
 Visual Studio Code
