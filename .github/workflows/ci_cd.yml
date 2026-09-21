@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Check documentation style"
-        uses: ansys/actions/doc-style@21c78f8b27683ae8c93557345392abe39ab21d2f # v11.0.4
+        uses: ansys/actions/doc-style@3ad3b285bd9b67045477dafc7f9865a3aa39f692 # v11.0.6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -48,7 +48,7 @@ jobs:
           sudo apt-get install graphviz
 
       - name: "Build project documentation"
-        uses: ansys/actions/doc-build@21c78f8b27683ae8c93557345392abe39ab21d2f # v11.0.4
+        uses: ansys/actions/doc-build@3ad3b285bd9b67045477dafc7f9865a3aa39f692 # v11.0.6
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
           use-python-cache: false
@@ -61,7 +61,7 @@ jobs:
     if: github.event_name == 'pull_request'
     needs: doc-build
     steps:
-      - uses: ansys/actions/doc-deploy-pr@21c78f8b27683ae8c93557345392abe39ab21d2f # v11.0.4
+      - uses: ansys/actions/doc-deploy-pr@3ad3b285bd9b67045477dafc7f9865a3aa39f692 # v11.0.6
         with:
           cname: ${{ env.DOCUMENTATION_CNAME }}
           token: ${{ secrets.GITHUB_TOKEN }}
