@@ -56,8 +56,8 @@ the project's repository:
 
    .. note::
       In some repositories, the **Discussions** page is not available because the
-      project maintainers want you to always use the `Discussions <https://developerforum.synopsys.com/>`_
-      page on the Ansys Developer portal instead.
+      project maintainers want you to always use the
+      `Synopsys Developer Forum <https://developerforum.synopsys.com/>`_ instead.
 
 #. In the upper right corner, click **New discussion**.
 #. If the page that opens lists templates, click **Get Started** for the
