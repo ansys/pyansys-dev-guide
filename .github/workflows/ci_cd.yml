@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Check documentation style"
-        uses: ansys/actions/doc-style@3ad3b285bd9b67045477dafc7f9865a3aa39f692 # v11.0.6
+        uses: ansys/actions/doc-style@7410037bfb276c79ae91eb3617b9f5d2876f0c94 # v11.0.8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup headless display
-        uses: pyvista/setup-headless-display-action@b0bf9f57d62d2b3fee9f1c0e0c7e390f05e97a4e # v5.0.0
+        uses: pyvista/setup-headless-display-action@c103a2ff45650d38cb71684b5dc6cdfeb9442c79 # v5.1.0
 
       - name: "Install mermaid-cli"
         run: npm install -g @mermaid-js/mermaid-cli
@@ -48,7 +48,7 @@ jobs:
           sudo apt-get install graphviz
 
       - name: "Build project documentation"
-        uses: ansys/actions/doc-build@3ad3b285bd9b67045477dafc7f9865a3aa39f692 # v11.0.6
+        uses: ansys/actions/doc-build@7410037bfb276c79ae91eb3617b9f5d2876f0c94 # v11.0.8
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
           use-python-cache: false
@@ -61,7 +61,7 @@ jobs:
     if: github.event_name == 'pull_request'
     needs: doc-build
     steps:
-      - uses: ansys/actions/doc-deploy-pr@3ad3b285bd9b67045477dafc7f9865a3aa39f692 # v11.0.6
+      - uses: ansys/actions/doc-deploy-pr@7410037bfb276c79ae91eb3617b9f5d2876f0c94 # v11.0.8
         with:
           cname: ${{ env.DOCUMENTATION_CNAME }}
           token: ${{ secrets.GITHUB_TOKEN }}
