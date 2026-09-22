@@ -18,7 +18,7 @@ Additionally, content contributors can create issues on the **Issues**
 page of a library's GitHub repository. If the repository has a **Discussions**
 page, they can use it to start a discussion on this library. Otherwise, you
 can post questions, share ideas, and get community feedback on the
-`Discussions <https://discuss.ansys.com/>`_ on the Ansys Developer portal.
+`Discussions <https://developerforum.synopsys.com/>`_ on the Ansys Developer portal.
 
 .. toctree::
    :maxdepth: 3

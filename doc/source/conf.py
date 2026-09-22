@@ -207,6 +207,7 @@ linkcheck_ignore = [
     "https://opensource.org/licenses/MIT",
     "https://www.gnu.org/software/make/",
     "https://docutils.sourceforge.io/.*",
+    "http://timgolden.me.uk/pywin32-docs/pythoncom.html",
     # Private links
     "https://github.com/ansys/.*/pull/.*",
     "https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi",
@@ -214,6 +215,8 @@ linkcheck_ignore = [
     # Bot access prevented
     "https://github.com/signup",
     "https://github.com/join",
+    r"https://(?:[^/]+\.)*ansys\.com(?:/.*)?",
+    r"https://(?:[^/]+\.)*synopsys\.com(?:/.*)?",
 ]
 
 # Linkcheck ignore broken anchors
