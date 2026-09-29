@@ -217,6 +217,7 @@ linkcheck_ignore = [
     "https://github.com/join",
     r"https://(?:[^/]+\.)*ansys\.com(?:/.*)?",
     r"https://(?:[^/]+\.)*synopsys\.com(?:/.*)?",
+    "https://blog.sonarsource.com/10-unknown-security-pitfalls-for-python",
 ]
 
 # Linkcheck ignore broken anchors
