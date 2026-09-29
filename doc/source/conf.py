@@ -180,7 +180,7 @@ with open("links.rst") as f:
 # See issue: https://github.com/mermaid-js/mermaid/issues/1800#issuecomment-741617143
 mermaid_output_format = "png"
 mermaid_params = [
-    "--width", "2000",
+    "--size", "2000",
     "--backgroundColor", "white",
     "-p", os.path.join(os.path.dirname(__file__), "puppeteer-config.json"),
 ]
