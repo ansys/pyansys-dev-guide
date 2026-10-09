@@ -278,7 +278,7 @@ Some examples of setting values follow.
 
 .. code-block:: bash
 
-    git config --global user.email <Ansys Email>
+    git config --global user.email <Synopsys Email>
 
 **Set the default branch name** 
 
@@ -307,13 +307,13 @@ Dynamic
 It is possible to configure Git such that it selects between multiple
 configuration profiles according to whether your project is located on your system.
 This lets you define common configurations for working under
-``Ansys`` or other open source projects from which Ansys benefits.
+``Synopsys`` or other open source projects from which Synopsys benefits.
 
 As an example, consider the following scenario for setting up two Git
-configuration profiles for working with Ansys projects and personal projects.
+configuration profiles for working with Synopsys projects and personal projects.
 
 Create the two files, naming them so that they are easily distinguishable. For
-example, name them ``.gitconfig-ansys`` and ``.gitconfig-personal``. Then, use Git
+example, name them ``.gitconfig-synopsys`` and ``.gitconfig-personal``. Then, use Git
 `Conditional includes <https://git-scm.com/docs/git-config#_conditional_includes>`_
 to control which Git configuration is applied based on whether the project is located
 on your system.
@@ -326,21 +326,21 @@ Here are examples of what these files might look like:
 
         .. code-block:: text
 
-            [includeIf "gitdir:path/to/your/ansys/folder/of/projects"]
-              path = path/to/.gitconfig-ansys
+            [includeIf "gitdir:path/to/your/synopsys/folder/of/projects"]
+              path = path/to/.gitconfig-synopsys
 
             [includeIf "gitdir:path/to/your/personal/folder/of/projects"]
               path = path/to/.gitconfig-personal
 
-    .. tab-item:: .gitconfig-ansys
+    .. tab-item:: .gitconfig-synopsys
 
         .. code-block:: text
 
             [user]
 
-              name = <Ansys Name>
-              email = <Ansys Email>
-              signingkey = <Ansys GPG Key>
+              name = <Synopsys Name>
+              email = <Synopsys Email>
+              signingkey = <Synopsys GPG Key>
 
     .. tab-item:: .gitconfig-personal
 
