@@ -64,7 +64,7 @@ a reason to reject a contribution.
 Knowing the model, version, and reasoning settings helps reviewers understand
 how the contribution was produced. These details can provide context about the
 level of automated reasoning applied during code creation and help reviewers
-identify areas that warrant closer attention. Include only details exposed by
+identify areas that require closer attention. Include only details exposed by
 the tool; do not guess unavailable information.
 
 This context is not evidence of human review or a guarantee of correctness.
