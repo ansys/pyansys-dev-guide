@@ -100,7 +100,7 @@ Never claim to have run a test, benchmark, or simulation that you did not run.
 Clearly identify checks that could not be performed in your environment.
 
 Confidentiality and security
----------------------------
+----------------------------
 
 Do not send information to an AI tool unless you are authorized to share it with
 that tool. This includes:
@@ -122,7 +122,7 @@ Report vulnerabilities through the repository's designated security channel,
 not through public issues or unapproved AI services.
 
 Licensing and intellectual property
-----------------------------------
+-----------------------------------
 
 You must have the rights needed to submit the code, text, images, and data in your
 contribution under the repository's applicable license and contribution terms.
