@@ -13,7 +13,7 @@ are required.
 Purpose and scope
 -----------------
 
-Generative artificial intelligence (AI) tools can help contributors understand
+Generative artificial intelligence (GenAI) tools can help contributors understand
 code, develop features, write tests, and improve documentation. Their use is
 permitted when it supports reliable, understandable, and maintainable contributions.
 
