@@ -44,7 +44,7 @@ not understood or reviewed yourself.
 Disclosure
 ----------
 
-External contributors must state in every pull request whether generative AI
+External contributors must state in every pull request whether GenAI
 was used to prepare the contribution.
 
 When disclosure is required, briefly describe:
