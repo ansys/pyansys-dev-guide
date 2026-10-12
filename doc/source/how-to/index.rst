@@ -24,6 +24,13 @@ and app APIs.
 
       How to follow PyAnsys coding standards, branching, and the contribution workflow.
 
+    .. grid-item-card:: :fas:`fa-solid fa-file` AI use policy (draft)
+      :link: ai-policy
+      :link-type: doc
+      :padding: 2 2 2 2
+
+      Proposed requirements for responsible AI-assisted contributions.
+
 .. rubric:: Library Development
 
 .. grid:: 3
@@ -138,6 +145,7 @@ and app APIs.
 
    setting-up
    contributing
+  ai-policy
 
 .. toctree::
    :hidden:

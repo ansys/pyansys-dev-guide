@@ -30,6 +30,10 @@ coding paradigms used for PyAnsys development.
 #. Review the Ansys `Contributor Code of Conduct
    <https://github.com/ansys/.github/blob/main/CODE_OF_CONDUCT.md>`_.
 
+For proposed guidance on AI-assisted contributions, see :ref:`ai_use_policy`.
+The policy is a draft for discussion and approval; it does not establish
+organization-wide requirements until explicitly adopted.
+
 All PyAnsys projects are hosted on `GitHub`_ in the form of :ref:`Git`
 repositories. GitHub is a platform that not only provides storage for
 projects but also additional features like code reviews or issue boards.
