@@ -24,7 +24,7 @@ and app APIs.
 
       How to follow PyAnsys coding standards, branching, and the contribution workflow.
 
-    .. grid-item-card:: :fas:`fa-solid fa-file` AI use policy (draft)
+    .. grid-item-card:: :fas:`fa-solid fa-file` AI use policy
       :link: ai-policy
       :link-type: doc
       :padding: 2 2 2 2
@@ -145,7 +145,7 @@ and app APIs.
 
    setting-up
    contributing
-  ai-policy
+   ai-policy
 
 .. toctree::
    :hidden:
