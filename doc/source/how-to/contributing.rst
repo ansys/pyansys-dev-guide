@@ -234,7 +234,20 @@ work across all supported platforms. For procedural information, see `Creating a
 <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request>`_
 in the GitHub documentation.
 
-After you submit your PR, a project maintainer reviews your code to verify that it meets
+For Ansys open source projects, the Ansys CLA bot is a GitHub App that checks
+whether contributors have signed the Contributor License Agreement (CLA) before
+their contributions are merged. It sends reminders to contributors who have not
+signed and provides an interface for managing CLA status.
+
+The bot checks the CLA status of the GitHub account associated with each commit
+author. Make sure the email configured for Git (``user.email``) is added to and
+verified on your GitHub account. Configure Git as described in the
+:ref:`Dynamic` Git configuration section of :doc:`setting-up`, and make sure
+the commit email is associated with your GitHub account. GitHub must be able to
+resolve the commit author to your account; a name and email in the commit
+metadata alone might not be enough.
+
+A project maintainer then reviews your PR to verify that it meets
 the :ref:`Packaging style`, :ref:`Coding style`, and :ref:`Documentation style`.
 
 Once your code is approved, if you have write permission, you can merge the PR
