@@ -7,8 +7,11 @@ AI use policy
    Ansys policy and does not establish organization-wide requirements until
    explicitly adopted by the responsible project or organization owners.
 
-AI assistance is welcome; human understanding, accountability, and validation
-are required.
+.. admonition:: Guiding principle
+   :class: important
+
+   AI assistance is welcome; human understanding, accountability, and
+   validation are required.
 
 Purpose and scope
 -----------------
@@ -38,8 +41,11 @@ to produce it. Before submitting an AI-assisted contribution, you must:
 * Be able to explain your technical decisions and respond personally to review.
 * Perform validation appropriate to the change.
 
-Do not transfer responsibility to maintainers for checking work that you have
-not understood or reviewed yourself.
+.. admonition:: Always review yourself
+   :class: caution
+
+  Do not transfer responsibility to maintainers for checking work that you
+  have not understood or reviewed yourself.
 
 Disclosure
 ----------
@@ -88,6 +94,8 @@ You must:
 * Add relevant tests, including edge cases where appropriate.
 * Check that tests assess the intended behavior rather than merely reproducing
   assumptions made by generated code.
+* Avoid unnecessary brittle or heavily mocked tests that do not provide
+  meaningful coverage; prefer tests that verify observable behavior.
 * Follow the project's style, documentation, and compatibility requirements.
 * Keep changes focused, without unrelated refactoring or dependencies.
 
@@ -102,30 +110,32 @@ Clearly identify checks that could not be performed in your environment.
 Confidentiality and security
 ----------------------------
 
-Do not send information to an AI tool unless you are authorized to share it with
-that tool. This includes:
+Protecting information shared with AI tools is an important good practice. This
+guidance does not replace internal policies that apply to employees or
+contractors. Before sharing information, consider whether you are authorized to
+share it with the tool and the consequences of disclosure. Check the tool's data
+processing, retention, and training terms. Do not submit nonpublic information
+unless the applicable policies and tool terms authorize it. This includes:
 
 * Secrets, credentials, tokens, and license access information.
 * Proprietary or nonpublic source code.
 * Confidential customer data, CAD models, meshes, and simulation results.
 * Personal data and nonpublic security information.
 
-Check the tool's data processing, retention, and training terms. For nonpublic
-information, use only tools and configurations authorized for that information
-under the applicable policies.
-
-Agents must not bypass access controls, branch protections, or security rules.
-Limit their permissions to those needed for the task. Review commands and their
-effects before allowing operations that could expose data or alter shared systems.
+For nonpublic information, use only tools and configurations authorized for
+that information under the applicable policies.
 
 Report vulnerabilities through the repository's designated security channel,
-not through public issues or unapproved AI services.
+not through public issues or unapproved AI services. For information on reporting
+vulnerabilities, see :doc:`vulnerabilities`.
 
 Licensing and intellectual property
 -----------------------------------
 
 You must have the rights needed to submit the code, text, images, and data in your
 contribution under the repository's applicable license and contribution terms.
+AI assistance does not change any requirement to sign a Contributor License
+Agreement (CLA) or comply with other applicable contribution terms.
 
 AI output is not a guarantee of provenance or license compatibility. Check material
 that might originate from third-party sources, preserve required attribution,
@@ -154,12 +164,15 @@ than replacing them with generated text.
 Agents and automation
 ---------------------
 
-Agents may prepare changes in a controlled environment. They must not submit
-public contributions without prior human validation.
+Agents may prepare changes in a controlled environment and open draft pull
+requests when an identified person initiated the task and owns the work. A human
+must review and validate the changes before marking a pull request ready for
+review or merging it.
 
 An identified person must understand and validate the changes, authorize their
-submission, and take responsibility for follow-up. Autonomous publication of
-unreviewed pull requests, issues, or comments is not permitted.
+submission, and take responsibility for follow-up. Agents must not
+autonomously mark pull requests ready for review or merge them, or publish
+unreviewed issues or comments.
 
 Maintainer-approved bots and integrations may operate within an explicitly
 defined scope, with a clear identity and limited permissions. AI-generated
