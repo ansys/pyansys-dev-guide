@@ -238,6 +238,8 @@ work across all supported platforms. For procedural information, see `Creating a
 <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request>`_
 in the GitHub documentation.
 
+.. _contributor_license_agreement:
+
 For Ansys open source projects, the Ansys CLA bot is a GitHub App that checks
 whether contributors have signed the Contributor License Agreement (CLA) before
 their contributions are merged. It sends reminders to contributors who have not

@@ -51,7 +51,8 @@ Disclosure
 ----------
 
 External contributors must state in every pull request whether GenAI
-was used to prepare the contribution.
+was used to prepare the contribution. Use the AI disclosure trailers in the
+repository's pull request template to record this information.
 
 When disclosure is required, briefly describe:
 
@@ -135,7 +136,10 @@ Licensing and intellectual property
 You must have the rights needed to submit the code, text, images, and data in your
 contribution under the repository's applicable license and contribution terms.
 AI assistance does not change any requirement to sign a Contributor License
-Agreement (CLA) or comply with other applicable contribution terms.
+Agreement (CLA) or comply with other applicable contribution terms. For information
+about CLA requirements, see the
+:ref:`Contributor License Agreement <contributor_license_agreement>` section in
+the contributing guide.
 
 AI output is not a guarantee of provenance or license compatibility. Check material
 that might originate from third-party sources, preserve required attribution,
