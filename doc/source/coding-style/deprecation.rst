@@ -123,13 +123,16 @@ directive without wrapping the function or changing its runtime behavior:
     import inspect
     import re
 
+
     def deprecation_doc(*, deprecated_in, removed_in):
         """Add deprecation details to a function's documentation."""
 
         def decorator(func):
             message = getattr(func, "__deprecated__", None)
             if not isinstance(message, str):
-                raise ValueError("Apply deprecated_doc above the standard @deprecated decorator.")
+                raise ValueError(
+                    "Apply deprecated_doc above the standard @deprecated decorator."
+                )
             docstring = func.__doc__ or ""
             if ".. deprecated::" not in docstring:
                 docstring = inspect.cleandoc(docstring)
@@ -137,7 +140,9 @@ directive without wrapping the function or changing its runtime behavior:
                 paragraphs = re.split(r"\n[ \t]*\n", docstring, maxsplit=1)
                 summary = paragraphs[0]
                 remainder = paragraphs[1] if len(paragraphs) > 1 else ""
-                func.__doc__ = "\n\n".join(part for part in (summary, directive, remainder) if part)
+                func.__doc__ = "\n\n".join(
+                    part for part in (summary, directive, remainder) if part
+                )
             return func
 
         return decorator
@@ -170,7 +175,7 @@ Decorating the entire function would incorrectly mark all calls as deprecated.
     def output_restult(output_format):
         """Output results.
 
-           The ``"legacy"`` output format is deprecated. Use ``"json"`` instead.
+        The ``"legacy"`` output format is deprecated. Use ``"json"`` instead.
 
         """
         if output_format == "legacy":
