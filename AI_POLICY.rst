@@ -44,8 +44,8 @@ to produce it. Before submitting an AI-assisted contribution, you must:
 .. admonition:: Always review yourself
    :class: caution
 
-  Do not transfer responsibility to maintainers for checking work that you
-  have not understood or reviewed yourself.
+   Do not transfer responsibility to maintainers for checking work that you
+   have not understood or reviewed yourself.
 
 Disclosure
 ----------
