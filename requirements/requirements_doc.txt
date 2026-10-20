@@ -7,4 +7,4 @@ sphinxcontrib-mermaid>=2.1.1
 sphinx-gallery==0.22.1
 Pillow>=12.3.0
 pyvista==0.49.0
-pydantic==2.13.5
+pydantic==2.14.0
