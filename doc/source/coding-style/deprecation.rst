@@ -172,7 +172,7 @@ Decorating the entire function would incorrectly mark all calls as deprecated.
 
 .. code:: python
 
-    def output_restult(output_format):
+    def output_result(output_format):
         """Output results.
 
         The ``"legacy"`` output format is deprecated. Use ``"json"`` instead.
