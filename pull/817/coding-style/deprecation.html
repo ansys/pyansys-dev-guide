@@ -58,7 +58,7 @@
   
     <link href="../_static/css/breadcrumbs.css" rel="stylesheet" />
   
-    <script src="../_static/documentation_options.js?v=bc60af3c"></script>
+    <script src="../_static/documentation_options.js?v=1520db5a"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -76,7 +76,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2026-10-20" />
+  <meta name="docsearch:version" content="2026-10-21" />
   
     
     <script src="../_static/searchtools.js"></script>
@@ -619,7 +619,7 @@ to your project’s existing <code class="docutils literal notranslate"><span cl
 </div>
 <p>By default, <code class="docutils literal notranslate"><span class="pre">&#64;deprecated</span></code> emits a <code class="docutils literal notranslate"><span class="pre">DeprecationWarning</span></code> when a decorated
 function or method is called, or when a decorated class is instantiated or
-subclassed. Supporting type checkers and editors can also flag deprecated API
+inherited from. Supporting type checkers and editors can also flag deprecated API
 usage without executing the code, depending on their configuration. The
 decorator does not remove the API or prevent its execution.</p>
 <section id="document-deprecation-and-removal-versions">
@@ -718,7 +718,7 @@ decorator own the runtime warning.</p>
 recommended for conditional deprecations. For example, a function might still
 be supported while one of its parameter values or execution paths is not.
 Decorating the entire function would incorrectly mark all calls as deprecated.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">output_restult</span><span class="p">(</span><span class="n">output_format</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">output_result</span><span class="p">(</span><span class="n">output_format</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Output results.</span>
 
 <span class="sd">    The ``"legacy"`` output format is deprecated. Use ``"json"`` instead.</span>
