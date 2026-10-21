@@ -569,7 +569,7 @@ block, output is generated and printed to the screen according to its
       content: "\00b7";
       padding: 0 6px;
     }
-    </style><pre class='pv-text-repr-fallback'>PolyData (0x7f5f7931dae0)
+    </style><pre class='pv-text-repr-fallback'>PolyData (0x7f4823719ae0)
       N Cells:    1680
       N Points:   842
       N Strips:   0
@@ -614,7 +614,7 @@ block, output is generated and printed to the screen according to its
         <tspan fill="#3776AB" opacity="0.7">P</tspan><tspan fill="#FFD43B" opacity="0.7">y</tspan><tspan fill="#008c9e">Vista</tspan>
       </text>
     </svg>
-    </span></div><div class='pv-metadata'><div class='pv-meta-row pv-copyable'><span class='pv-meta-row-label'>Bounds</span><button class='pv-copy-btn' title='Copy to clipboard' data-copy='(-0.49926671385765076, 0.49926671385765076, -0.4965316653251648, 0.4965316653251648, -0.5, 0.5)' onclick="navigator.clipboard.writeText(this.dataset.copy)">⧉</button><span class='pv-meta-entry'><span class='pv-meta-label'>X</span> [-4.993e-01, 4.993e-01]</span><span class='pv-meta-entry'><span class='pv-meta-label'>Y</span> [-4.965e-01, 4.965e-01]</span><span class='pv-meta-entry'><span class='pv-meta-label'>Z</span> [-5.000e-01, 5.000e-01]</span></div><div class='pv-meta-row pv-copyable'><span class='pv-meta-row-label'>Cells</span><span class='pv-meta-entry'><span class='pv-meta-label'>faces</span> 1,680</span></div></div><ul class='pv-sections'><li class='pv-section-item'><input id='section-1bd1b42c-bdc5-4dd5-ad01-238f6c34bf59' class='pv-section-summary-in' type='checkbox' checked /><label for='section-1bd1b42c-bdc5-4dd5-ad01-238f6c34bf59' class='pv-section-summary' title='Expand/collapse section'>Point Data: <span>(1)</span></label><div class='pv-section-inline-details'></div><div class='pv-section-details'><ul class='pv-var-list'><li class='pv-var-item'><div class='pv-var-name'><span>Normals</span><button class='pv-copy-btn' title='Copy to clipboard' data-copy='Normals' onclick="navigator.clipboard.writeText(this.dataset.copy)">⧉</button></div><div class='pv-var-dims'>3 comp</div><div class='pv-var-dtype'>float32</div><div class='pv-var-range'>[-1.000e+00, 1.000e+00]</div><div class='pv-var-badges'> <span class='pv-badge pv-badge-normals'>normals</span></div></li></ul></div></li></ul></div></div>
+    </span></div><div class='pv-metadata'><div class='pv-meta-row pv-copyable'><span class='pv-meta-row-label'>Bounds</span><button class='pv-copy-btn' title='Copy to clipboard' data-copy='(-0.49926671385765076, 0.49926671385765076, -0.4965316653251648, 0.4965316653251648, -0.5, 0.5)' onclick="navigator.clipboard.writeText(this.dataset.copy)">⧉</button><span class='pv-meta-entry'><span class='pv-meta-label'>X</span> [-4.993e-01, 4.993e-01]</span><span class='pv-meta-entry'><span class='pv-meta-label'>Y</span> [-4.965e-01, 4.965e-01]</span><span class='pv-meta-entry'><span class='pv-meta-label'>Z</span> [-5.000e-01, 5.000e-01]</span></div><div class='pv-meta-row pv-copyable'><span class='pv-meta-row-label'>Cells</span><span class='pv-meta-entry'><span class='pv-meta-label'>faces</span> 1,680</span></div></div><ul class='pv-sections'><li class='pv-section-item'><input id='section-66a96ac7-32ee-42a9-80bb-376025645763' class='pv-section-summary-in' type='checkbox' checked /><label for='section-66a96ac7-32ee-42a9-80bb-376025645763' class='pv-section-summary' title='Expand/collapse section'>Point Data: <span>(1)</span></label><div class='pv-section-inline-details'></div><div class='pv-section-details'><ul class='pv-var-list'><li class='pv-var-item'><div class='pv-var-name'><span>Normals</span><button class='pv-copy-btn' title='Copy to clipboard' data-copy='Normals' onclick="navigator.clipboard.writeText(this.dataset.copy)">⧉</button></div><div class='pv-var-dims'>3 comp</div><div class='pv-var-dtype'>float32</div><div class='pv-var-range'>[-1.000e+00, 1.000e+00]</div><div class='pv-var-badges'> <span class='pv-badge pv-badge-normals'>normals</span></div></li></ul></div></li></ul></div></div>
     </div>
     <br />
     <br />
@@ -689,7 +689,7 @@ cell:
  .. code-block:: none
 
 
-    Actor (0x7f5f706fabc0)
+    Actor (0x7f481a8fabc0)
       Center:                     (0.0, 0.0, 0.0)
       Pickable:                   True
       Position:                   (0.0, 0.0, 0.0)
@@ -701,7 +701,7 @@ cell:
       User matrix:                Identity
       Has mapper:                 True
 
-    Property (0x7f5f7925ab60)
+    Property (0x7f482367eb60)
       Ambient:                     0.0
       Ambient color:               Color(name='light_blue', hex='#add8e6ff', opacity=255)
       Anisotropy:                  0.0
@@ -730,7 +730,7 @@ cell:
       Specular power:              100.0
       Style:                       "Surface"
 
-    DataSetMapper (0x7f5f7925ab60)
+    DataSetMapper (0x7f482367eb60)
       Scalar visibility:           False
       Scalar range:                (0.0, 1.0)
       Interpolate before mapping:  True
@@ -738,7 +738,7 @@ cell:
       Color mode:                  direct
 
     Attached dataset:
-    PolyData (0x7f5f7931dae0)
+    PolyData (0x7f4823719ae0)
       N Cells:    1680
       N Points:   842
       N Strips:   0
@@ -793,7 +793,7 @@ Branches containing examples should be prefixed with ``docs/`` as per `Branch-na
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.963 seconds)
+   **Total running time of the script:** (0 minutes 13.909 seconds)
 
 
 .. _sphx_glr_download_examples_pyvista_example.py:
