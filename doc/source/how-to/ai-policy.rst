@@ -7,4 +7,4 @@ Policy file
 
 The documentation includes the policy file from the repository root so that
 both versions stay consistent. You can :download:`download the policy
-<../../../AI_POLICY.rst>` for review or adaptation in another repository.
+<../../../AI_POLICY.rst>` for review or reuse in another repository.
