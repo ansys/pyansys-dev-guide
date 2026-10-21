@@ -59,7 +59,7 @@ to your project's existing ``[project].dependencies`` list:
 
 By default, ``@deprecated`` emits a ``DeprecationWarning`` when a decorated
 function or method is called, or when a decorated class is instantiated or
-subclassed. Supporting type checkers and editors can also flag deprecated API
+inherited from. Supporting type checkers and editors can also flag deprecated API
 usage without executing the code, depending on their configuration. The
 decorator does not remove the API or prevent its execution.
 
