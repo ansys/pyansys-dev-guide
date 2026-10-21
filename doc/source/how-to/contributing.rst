@@ -30,6 +30,10 @@ coding paradigms used for PyAnsys development.
 #. Review the Ansys `Contributor Code of Conduct
    <https://github.com/ansys/.github/blob/main/CODE_OF_CONDUCT.md>`_.
 
+For proposed guidance on AI-assisted contributions, see :ref:`ai_use_policy`.
+The policy is a draft for discussion and approval; it does not establish
+organization-wide requirements until explicitly adopted.
+
 All PyAnsys projects are hosted on `GitHub`_ in the form of :ref:`Git`
 repositories. GitHub is a platform that not only provides storage for
 projects but also additional features like code reviews or issue boards.
@@ -233,6 +237,8 @@ the repository's ``main`` branch. This automatically runs CI testing and verifie
 work across all supported platforms. For procedural information, see `Creating a pull request
 <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request>`_
 in the GitHub documentation.
+
+.. _contributor_license_agreement:
 
 For Ansys open source projects, the Ansys CLA bot is a GitHub App that checks
 whether contributors have signed the Contributor License Agreement (CLA) before
