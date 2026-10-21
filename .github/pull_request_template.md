@@ -24,4 +24,4 @@ Examples:
 - [ ] I have reviewed my changes before submitting this pull request.
 - [ ] I have linked the issue(s) that are solved by the PR if any.
 - [ ] I have assigned this PR to myself.
-- [ ] I have agreed with the Contributor License Agreement ([CLA](https://developer.ansys.com/form/cla-acceptance)).
+- [ ] I have agreed with the Contributor License Agreement ([CLA](https://cla.developer.synopsys.com/).
