@@ -32,8 +32,8 @@ with nonpublic information.
 Human responsibility
 --------------------
 
-You are responsible for your entire contribution, regardless of the tools used
-to produce it. Before submitting an AI-assisted contribution, you must:
+Contributors remain responsible for the entirety of their contributions,
+regardless of the tools used to create them. Before submitting an AI-assisted contribution, you must:
 
 * Read and understand all proposed changes and the relevant existing code.
 * Check that the changes address the project's needs.
