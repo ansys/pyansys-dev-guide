@@ -221,7 +221,7 @@
 .. _setuptools_repo: https://pypi.org/project/setuptools/
 .. _setuptools metadata fields: https://setuptools.pypa.io/en/latest/userguide/declarative_config.html#declarative-config
 .. _PyPI Trusted Publisher: https://docs.pypi.org/trusted-publishers/
-.. _PyPI API token: https://pypi.org/help/#apitoken
+.. _PyPI API token: https://docs.pypi.org/publishing/publishing-to-pypi/#using-an-api-token
 
 .. #Vulnerabilities
 .. _metapackage: https://github.com/ansys/pyansys
