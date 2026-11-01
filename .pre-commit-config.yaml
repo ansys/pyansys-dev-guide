@@ -11,7 +11,7 @@ repos:
   rev: dda8db18cfc68df532abf33b185ecd12d5b7b326  # frozen: 1.20.0
   hooks:
   - id: blacken-docs
-    additional_dependencies: [black==24.8.0]
+    additional_dependencies: [black==26.10.1]
 
 - repo: https://github.com/codespell-project/codespell
   rev: 57b21406f092110c18776e39b0bda50d37c945c8  # frozen: v2.4.3
