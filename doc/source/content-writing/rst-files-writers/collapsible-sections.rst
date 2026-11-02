@@ -5,7 +5,7 @@ Collapsible sections
 
 When information is applicable only to a subset of your users or provides
 more comprehensive information than most users need, you can use collapsible
-sections. Then, only users who either need or want to view this information
+sections. Then, only users who need this information or want to view it
 can expand these sections.
 
 .. note::

@@ -10,15 +10,15 @@ Developer's Guide*.
 +-------------+----------------+-----------------+---------------------------+------------+
 | **Version** | **PEP**        | **Released**    | **Security support ends** | **Status** |
 +-------------+----------------+-----------------+---------------------------+------------+
-| 3.14        | `PEP 745`_     | 07 Oct 2025     |    Oct 2030               | Stable     |
+| 3.14        | `PEP 745`_     | October 7, 2025 |    Oct 2030               | Stable     |
 +-------------+----------------+-----------------+---------------------------+------------+
-| 3.13        | `PEP 719`_     | 07 Oct 2024     |    Oct 2029               | Stable     |
+| 3.13        | `PEP 719`_     | October 7, 2024 |    Oct 2029               | Stable     |
 +-------------+----------------+-----------------+---------------------------+------------+
-| 3.12        | `PEP 693`_     | 02 Oct 2023     |    Oct 2028               | Stable     |
+| 3.12        | `PEP 693`_     | October 2, 2023 |    Oct 2028               | Stable     |
 +-------------+----------------+-----------------+---------------------------+------------+
-| 3.11        | `PEP 664`_     | 03 Oct 2022     |    Oct 2027               | Stable     |
+| 3.11        | `PEP 664`_     | October 3, 2022 |    Oct 2027               | Stable     |
 +-------------+----------------+-----------------+---------------------------+------------+
-| 3.10        | `PEP 619`_     | 04 Oct 2021     |    Oct 2026               | Stable     |
+| 3.10        | `PEP 619`_     | October 4, 2021 |    Oct 2026               | Stable     |
 +-------------+----------------+-----------------+---------------------------+------------+
 
 .. _PEP 745: https://peps.python.org/pep-0745/
@@ -38,8 +38,8 @@ Python earlier than their end of life (EOL) as outlined in `NEP 29
 <https://numpy.org/neps/nep-0029-deprecation_policy.html#support-table>`_.
 
 You can still install an older version from PyPI using `pip`_ as
-your package manager. When ``pip`` is used, it downloads and installs
-the most recent version of the library that supports your version of Python. You
+your package manager. When ``pip`` is used, it installs the most recent
+version of the library that supports your version of Python. You
 can enforce a minimum-required Python version within the ``setup.py`` file with
 this code:
 

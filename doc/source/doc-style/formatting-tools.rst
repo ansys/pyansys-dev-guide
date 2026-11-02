@@ -76,8 +76,8 @@ methods in a Python library hold a docstring.
     color = true
     verbose = 2
 
-Alternate tools to `interrogate`_ are `docstr-coverage`_ and
-`docstring-coverage`_. However, `interrogate`_ is modern and maintained, with
+Alternate tool to `interrogate`_ is `docstr-coverage`_.
+However, `interrogate`_ is modern and maintained, with
 output resembling that of `pytest-cov`_, which is the equivalent tool
 for source code coverage.
 

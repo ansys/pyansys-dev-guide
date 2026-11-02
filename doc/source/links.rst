@@ -36,7 +36,6 @@
 .. _ansys_help: https://ansyshelp.ansys.com
 .. _join_ansys_organization: https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706
 .. _join_ansys_internal_organization: https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706
-.. _open source request form: https://forms.office.com/r/HwZm15ApKQ
 
 .. #PyAnsys repositories
 .. _ansys-api-mapdl: https://pypi.org/project/ansys-api-mapdl/
@@ -102,7 +101,6 @@
 .. _blacken-docs: https://github.com/asottile/blacken-docs
 .. _interrogate: https://interrogate.readthedocs.io/en/latest/
 .. _docstr-coverage: https://docstr-coverage.readthedocs.io/en/latest/index.html
-.. _docstring-coverage: https://bitbucket.org/DataGreed/docstring-coverage/wiki/Home
 .. _doctest: https://docs.python.org/3/library/doctest.html
 .. _docformatter: https://github.com/PyCQA/docformatter
 .. _pydocstyle: https://pydocstyle.pycqa.org/en/stable/
@@ -228,7 +226,7 @@
 .. _setuptools_repo: https://pypi.org/project/setuptools/
 .. _setuptools metadata fields: https://setuptools.pypa.io/en/latest/userguide/declarative_config.html#declarative-config
 .. _PyPI Trusted Publisher: https://docs.pypi.org/trusted-publishers/
-.. _PyPI API token: https://pypi.org/help/#apitoken
+.. _PyPI API token: https://docs.pypi.org/publishing/publishing-to-pypi/#using-an-api-token
 
 .. #Vulnerabilities
 .. _metapackage: https://github.com/ansys/pyansys
@@ -248,8 +246,9 @@
 .. #Deprecation
 .. _PyAdditive Widgets README: https://github.com/ansys/pyadditive-widgets/blob/main/README.rst
 .. _PyAdditive Widgets deprecation issue: https://github.com/ansys/pyadditive-widgets/issues/102
-.. _PyAdditive Widgets deprecation warning: https://github.com/ansys/pyadditive-widgets/blob/600915a8db2dbb02088266c17ba2be53584079d0/src/ansys/additive/widgets/__init__.py#L24-L31
+.. _PySeascape deprecation warning: https://github.com/ansys/pyseascape/blob/6332624c532ec58805923a716599b097b6a980bc/src/ansys/seascape/__init__.py#L29-L32
 .. _PyAdditive Widgets PyPI archive: https://pypi.org/project/ansys-additive-widgets/
 .. _Metapackage deprecation PR: https://github.com/ansys/pyansys/pull/968
-.. _PyAnsys Dev deprecation PR: https://github.com/ansys-internal/pyansys-dev/pull/44
-.. _Automation project deprecation PR: https://github.com/ansys-internal/pyansys-maintenance-automation/pull/79
+.. _PyAnsys Dev deprecation PR: https://github.com/ansys/pyansys-dev/pull/44
+.. _Automation project deprecation PR: https://github.com/ansys/pyansys-maintenance-automation/pull/79
+.. _Python Manager PR: https://github.com/ansys/python-installer-qt-gui/pull/638

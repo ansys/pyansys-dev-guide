@@ -93,10 +93,10 @@ is used in this guide.
           "This library is deprecated and will no longer be maintained. "
           "Please consider using alternatives. "
           "For more information check https://github.com/ansys/<repository>/issues/<number>",
-          DeprecationWarning,
+          FutureWarning,
       )
 
-   See an example at `PyAdditive Widgets deprecation warning`_.
+   See an example at `PySeascape deprecation warning`_.
 
 6. **(Optional) Adapt the documentation**: PyAnsys libraries host documentation in GitHub Pages through
    the ``gh-pages`` branch. If your library has documentation, consider adding a deprecation notice
@@ -134,12 +134,13 @@ Core team tasks
 The PyAnsys Core team is responsible for assisting with the deprecation process by:
 
 - Reviewing the deprecation issue to ensure it meets the project's standards.
-- Assisting with the above steps, if necessary.
+- Assisting with the preceding steps, if necessary.
 - Remove from PyPI the configuration (PyPI token or trusted publisher) for the library.
 - Archive the project on PyPI. See `PyAdditive Widgets PyPI archive`_.
-- Removing the library from the `PyAnsys metapackage <metapackage_>`_, automation project
-  and the ``pyansys-dev`` repository. See example pull requests:
+- Removing the library from the `PyAnsys metapackage <metapackage_>`_, automation project,
+  the ``pyansys-dev`` repository and the python manager. See example pull requests:
 
   - `Metapackage deprecation PR`_
   - `PyAnsys Dev deprecation PR`_
   - `Automation project deprecation PR`_
+  - `Python Manager PR`_

@@ -208,7 +208,7 @@ from any RST or PY file in this guide, here is how you insert the link::
   indicates that lines should be limited to a maximum of 79 characters.
 
 While the link still begins with a single backtick and the display text for the link,
-carats surround the target name and an underscore. Following the closing carat, you must
+carats surround the target name, and an underscore follows it. Following the closing carat, you must
 have a closing single backtick and another underscore.
 
 For examples of named targets and how to organize them by categories, see the

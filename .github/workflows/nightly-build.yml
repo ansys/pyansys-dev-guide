@@ -14,12 +14,12 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Setup headless display
-        uses: pyvista/setup-headless-display-action@5bc8de3bc71fcda7a96439571287a554901541a0 # v4.3
+        uses: pyvista/setup-headless-display-action@c103a2ff45650d38cb71684b5dc6cdfeb9442c79 # v5.1.0
 
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Set up Python
-        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
 
@@ -45,14 +45,14 @@ jobs:
           make -C doc pdf
 
       - name: Upload HTML documentation
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: HTML-Documentation
           path: doc/_build/html
           retention-days: 7
 
       - name: Upload PDF Documentation
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: PDF-Documentation
           path: doc/_build/latex/pyansys*.pdf
@@ -60,7 +60,7 @@ jobs:
 
       - name: Deploy to gh-pages
         if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-        uses: JamesIves/github-pages-deploy-action@d92aa235d04922e8f08b40ce78cc5442fcfbfa2f # v4.8.0
+        uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445 # v4.9.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages

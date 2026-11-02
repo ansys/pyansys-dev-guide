@@ -27,16 +27,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Check documentation style"
-        uses: ansys/actions/doc-style@d946b24b9a765f4169bcc94afdb27bd1a0533741 # v10.3.2
+        uses: ansys/actions/doc-style@7410037bfb276c79ae91eb3617b9f5d2876f0c94 # v11.0.8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
   doc-build:
     name: "Build project documentation"
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Setup headless display
-        uses: pyvista/setup-headless-display-action@5bc8de3bc71fcda7a96439571287a554901541a0 # v4.3
+        uses: pyvista/setup-headless-display-action@c103a2ff45650d38cb71684b5dc6cdfeb9442c79 # v5.1.0
 
       - name: "Install mermaid-cli"
         run: npm install -g @mermaid-js/mermaid-cli
@@ -48,7 +48,7 @@ jobs:
           sudo apt-get install graphviz
 
       - name: "Build project documentation"
-        uses: ansys/actions/doc-build@d946b24b9a765f4169bcc94afdb27bd1a0533741 # v10.3.2
+        uses: ansys/actions/doc-build@7410037bfb276c79ae91eb3617b9f5d2876f0c94 # v11.0.8
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
           use-python-cache: false
@@ -61,7 +61,7 @@ jobs:
     if: github.event_name == 'pull_request'
     needs: doc-build
     steps:
-      - uses: ansys/actions/doc-deploy-pr@d946b24b9a765f4169bcc94afdb27bd1a0533741 # v10.3.2
+      - uses: ansys/actions/doc-deploy-pr@7410037bfb276c79ae91eb3617b9f5d2876f0c94 # v11.0.8
         with:
           cname: ${{ env.DOCUMENTATION_CNAME }}
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -76,7 +76,7 @@ jobs:
     steps:
   
       - name: "Download HTML documentation artifacts"
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: documentation-html
           path: documentation-html
@@ -97,7 +97,7 @@ jobs:
     steps:
 
     - name: "Download HTML documentation"
-      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+      uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
       with:
         name: documentation-html
         path: documentation-html
@@ -109,7 +109,7 @@ jobs:
         dest: documentation-html.zip
 
     - name: "Download PDF documentation"
-      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+      uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
       with:
         name: documentation-pdf
         path: documentation-pdf
@@ -125,7 +125,7 @@ jobs:
       run: ls -R
 
     - name: "Release to GitHub"
-      uses: softprops/action-gh-release@b4309332981a82ec1c5618f44dd2e27cc8bfbfda # v3.0.0
+      uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64 # v3.0.3
       with:
         files: |
           documentation-html.zip
@@ -138,7 +138,7 @@ jobs:
     steps:
   
       - name: "Download HTML documentation artifacts"
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: documentation-html
           path: documentation-html

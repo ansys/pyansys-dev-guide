@@ -184,11 +184,11 @@ numerals one and zero.
 Packages and modules
 ~~~~~~~~~~~~~~~~~~~~
 
-Use a short, lowercase word or words for module names. Separate words
+Use a short, lowercase word, or words for module names. Separate words
 with underscores to improve readability. For example, use ``module.py``
 or ``my_module.py``.
 
-For a package name, use a short, lowercase word or words. Avoid
+For a package name, use a short, lowercase word, or words. Avoid
 underscores as these must be represented as dashes when installing
 from PyPI.
 
@@ -309,7 +309,7 @@ Indentation should be used to emphasize:
        """Top-level function docstring."""
        return
 
-To improve readability, add blank lines and wrap lines. You
+To improve readability, add blank lines, and wrap lines. You
 should add two blank lines before and after all function and class
 definitions.
 

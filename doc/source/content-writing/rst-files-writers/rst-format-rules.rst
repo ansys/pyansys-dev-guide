@@ -43,7 +43,7 @@ page in the *Goggle developer documentation style guide*.
 
 - Use ``you`` and ``your`` rather then ``we`` and ``our``.
 
-- Omit the word "please" and replace the phrase "In order to" with "To."
+- Omit the word "please" and replace wordy infinitive phrases with concise ones like "To."
 
 - Italicize a word or phrase by surrounding it in a single asterisk (``*``) or a
   single backtick (:code:`\``). In PyAnsys documentation, the following are italicized: words

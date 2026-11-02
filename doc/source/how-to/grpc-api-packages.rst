@@ -217,7 +217,7 @@ Release the API package
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 As shown in the ``release`` section of the previous GitHub workflow, once the Python
-API package is compiled it is then uploaded to the public PyPI. In order to do
+API package is compiled it is then uploaded to the public PyPI. To do
 so, it is necessary to have access to the ``PYPI_TOKEN`` within the GitHub
 repository. To get the needed credentials, contact the
 `PyAnsy core team <pyansys_core_email_>`_.

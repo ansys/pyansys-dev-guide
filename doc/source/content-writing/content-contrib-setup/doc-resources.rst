@@ -50,7 +50,7 @@ and format PyAnsys documentation content correctly in various types of source fi
   standards for Sphinx-based documentation.
 - `Using Markdown and Liquid in GitHub Docs <GitHub_doc_flavored_markdown_>`_: Provides an
   explanation of GitHub Flavored Markdown and explains how GitHub docs use `Liquid <Liquid_>`_
-  syntax to expand the functionality to provide accessible tables, maintainable links, versioning,
+  syntax to extend the feature set to provide accessible tables, maintainable links, versioning,
   variables, and chunks of reusable content.
 
 .. _tool_resources:

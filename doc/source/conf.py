@@ -179,7 +179,11 @@ with open("links.rst") as f:
 # Fix excessive margins in mermaid output.
 # See issue: https://github.com/mermaid-js/mermaid/issues/1800#issuecomment-741617143
 mermaid_output_format = "png"
-mermaid_params = ["--width", "2000", "--backgroundColor", "white"]
+mermaid_params = [
+    "--size", "2000",
+    "--backgroundColor", "white",
+    "-p", os.path.join(os.path.dirname(__file__), "puppeteer-config.json"),
+]
 
 # Graphviz diagrams configuration
 graphviz_output_format = "png"
@@ -203,10 +207,17 @@ linkcheck_ignore = [
     "https://opensource.org/licenses/MIT",
     "https://www.gnu.org/software/make/",
     "https://docutils.sourceforge.io/.*",
+    "http://timgolden.me.uk/pywin32-docs/pythoncom.html",
     # Private links
-    "https://github.com/ansys-internal/.*",
+    "https://github.com/ansys/.*/pull/.*",
     "https://pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi",
     "https://forms.office.com/r/HwZm15ApKQ",
+    # Bot access prevented
+    "https://github.com/signup",
+    "https://github.com/join",
+    r"https://(?:[^/]+\.)*ansys\.com(?:/.*)?",
+    r"https://(?:[^/]+\.)*synopsys\.com(?:/.*)?",
+    "https://blog.sonarsource.com/10-unknown-security-pitfalls-for-python",
 ]
 
 # Linkcheck ignore broken anchors

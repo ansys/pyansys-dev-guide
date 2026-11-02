@@ -51,8 +51,8 @@ action is different, they all have a common structure:
     jobs:
       <All jobs must be defined below this line>
 
-Disable concurrent workflows
-----------------------------
+Turn off concurrent workflows
+-----------------------------
 
 Handling hardware resources is a big deal, especially when running with self-hosted agents.
 If you are using public GitHub hardware for running your workflows, disabling concurrent

@@ -3,7 +3,7 @@
 Content in RST files
 ####################
 
-reStructuredText, a plaintext markup language, uses simple and intuitive
+reStructuredText, a plaintext markup language, uses intuitive plaintext
 constructs to indicate the structure of a document. You use reStructuredText (RST)
 files to define the hierarchy of your documentation and provide manually authored
 content.

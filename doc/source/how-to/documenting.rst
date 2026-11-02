@@ -107,7 +107,7 @@ each section of your documentation.
 
 As shown in the preceding figure, each documentation section has its own ``index.rst`` file.
 However, to optimize web searches of the generated HTML documentation, the names of the
-index files for sections should be short and descriptive, containing keywords and using
+index files for sections should be short, descriptive, include keywords, and use
 hyphens (``-``) as word separators. For more information, see :ref:`SEO`.
 
 Here is an example of the hierarchical structure for RST files. The main index files is
@@ -494,6 +494,30 @@ The resulting HTML files are created in the ``doc/_build/html`` directory.
 To view the HTML documentation in your browser, navigate to this directory
 and double-click the ``index.html`` file.
 
+Use sphinx-autobuild to see your changes live
++++++++++++++++++++++++++++++++++++++++++++++
+The extension `sphinx-autobuild <https://github.com/sphinx-doc/sphinx-autobuild>`_ allows you to see your changes live in the browser while
+you are editing the documentation. To use it, you must install it first:
+
+.. code-block:: bash
+
+    pip install sphinx-autobuild
+
+Then, you can run the following command to start a local server that automatically rebuilds the documentation.
+You can save the command in your make file for instance
+
+.. code-block:: text
+
+    autobuild:
+      sphinx-autobuild "$(SOURCEDIR)" "$(BUILDDIR)/html" \
+        $(SPHINXOPTS)
+
+And then run
+
+.. code-block:: bash
+
+    make autobuild
+
 Build PDF documentation
 ~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -864,7 +888,7 @@ Facilitating contributions in the form of examples
 
 A common challenge in libraries is the lack of examples. Examples are
 critical for users to understand how to use the library and present new
-functionality. They also serve as a mechanism to educate users on best practices.
+features. They also serve as a mechanism to educate users on best practices.
 
 To encourage contributions of examples, it is important to provide a clear
 structure for contributors to follow. The build process should also be straightforward.
@@ -878,8 +902,8 @@ Three best practices for examples are:
   errors before submission. The verification process should involve running the example
   and checking the output. If the example fails, it should be easy to identify and fix the issue.
 - **Making the example usable in multiple contexts**: Ensures that the example can be
-  usable by a user reading the documentation, an application engineer using the library
-  through a notebook, or a developer including the example to the documentation.
+  useful to someone reading the documentation, an engineer using the library through
+  a notebook, or a developer including the example in the documentation.
 
 Providing a template
 ~~~~~~~~~~~~~~~~~~~~

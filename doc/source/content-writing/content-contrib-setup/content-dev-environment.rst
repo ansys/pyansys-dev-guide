@@ -191,7 +191,7 @@ you can perform these steps to install and immediately begin using this app:
    #. To see a list of all packages installed in your virtual environment, under
       **General package management** in the app, click **List installed packages**.
 
-      The **Administrator** window opens, showing the names and versions of all installed packages.
+      The **Administrator** window opens and lists all installed packages with version details.
 
       If you create an issue on the **Issues** page for a project's GitHub repository, you are
       asked for your Python version, which you selected on the **Install Python** tab, and

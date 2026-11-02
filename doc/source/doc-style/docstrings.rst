@@ -3,7 +3,7 @@
 Numpydoc docstrings
 ===================
 
-When writing docstrings for PyAnsys libraries, follow the syntax and best practices
+When writing docstrings for PyAnsys libraries, follow the documented syntax together with the recommended best practices
 described in `Style guide <numpydoc_style_guide_>`_ in the *numpydoc Manual*.
 
 For consistency within PyAnsys libraries, always use ``"""`` to introduce and conclude a
