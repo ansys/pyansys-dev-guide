@@ -13,7 +13,7 @@ steps in these topics:
 
 - :ref:`doc_for_create_github_account`
 - :ref:`install_git`
-- :ref:`join_ansys_github_orgs`
+- :ref:`join_synopsys_emu`
 
 If you intend to :ref:`create your own PRs <create_pr>`, perform the steps in all
 topics to set up a full content development environment.
@@ -84,26 +84,18 @@ that the GUI provides to better understand branching, PRs, merging, and history 
 If you do not yet have Git or a GUI client for Git installed, install your
 preferred tool from an official channel.
 
-.. _join_ansys_github_orgs:
+.. _join_synopsys_emu:
 
-Join Ansys GitHub organizations
--------------------------------
+Join the Synopsys EMU
+---------------------
 
-Ansys has two GitHub organizations:
+PyAnsys libraries exist in two different GitHub organizations:
 
-- ``ansys``: Contains Ansys public repositories
-- ``ansys-internal``: Contains Ansys internal repositories
+- ``ansys``: Contains PyAnsys public repositories
+- ``snps-ansys-internal``: Contains PyAnsys internal repositories (Synopsys EMU account)
 
-Ansys employees can join these Ansys organizations by clicking the following
-links to sign in first with their Ansys credentials and then with their
-GitHub credentials.
-
-- Join the `Ansys GitHub organization <join_ansys_organization_>`_.
-- Join the `Ansys Internal GitHub organization <join_ansys_internal_organization_>`_.
-
-Writers outside of Ansys who want to contribute to the documentation for a PyAnsys
-library can contact the `PyAnsy core team <pyansys_core_email_>`_
-for permission to access this project's repository.
+To contribute to internal PyAnsys libraries, Ansys employees
+must complete the `GitHub EMU Access Request <join_GitHub_EMU_>`_ form.
 
 .. _Ansys_Python_Manager:
 
@@ -138,8 +130,7 @@ you can perform these steps to install and immediately begin using this app:
    #. For **Installation type**, choose **Standard** to install the standard
       installation from the `Python`_ organization.
 
-   #. For **Python version**, choose **Python 3.11** to install the latest available
-      version.
+   #. For **Python version**, install the latest available version.
 
    #. At the bottom of the page, click **Install**.
 

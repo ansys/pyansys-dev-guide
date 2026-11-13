@@ -34,8 +34,7 @@
 .. #Ansys
 .. _ansys: https://www.ansys.com/
 .. _ansys_help: https://ansyshelp.ansys.com
-.. _join_ansys_organization: https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706
-.. _join_ansys_internal_organization: https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706
+.. _join_GitHub_EMU: https://synopsys.service-now.com/esc?id=sc_cat_item&table=sc_cat_item&sys_id=45d44d471bf12610b5baeaca234bcb30&recordUrl=com.glideapp.servicecatalog_cat_item_view.do%3Fv%3D1&sysparm_id=45d44d471bf12610b5baeaca234bcb30
 
 .. #PyAnsys repositories
 .. _ansys-api-mapdl: https://pypi.org/project/ansys-api-mapdl/

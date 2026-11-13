@@ -47,8 +47,8 @@ Create a GitHub account
 To use GitHub, start by creating an account for the platform. Follow the
 `GitHub Join Process <Join_GitHub_>`_.
 
-For Ansys employees who would like to join the Ansys GitHub organization,
-visit `Join Ansys GitHub Organization <https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706>`_.
+Ansys employees who would like to contribute to internal PyAnsys libraries
+must complete the `GitHub EMU Access Request <join_GitHub_EMU_>`_ form.
 
 .. _github_repo_sections:
 

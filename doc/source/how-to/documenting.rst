@@ -350,7 +350,7 @@ To describe *why* and *how* to use a class in RST files, use the
 
 .. tab-set::
 
-    .. tab-item:: Documentation surce code
+    .. tab-item:: Documentation source code
 
         .. code-block:: rst
 

@@ -108,12 +108,11 @@ manually change it in the PY file.
 Sometimes, however, the line that is too long is for a URL added to the ``linkcheck_ignore``
 variable in the Sphinx configuration (``doc/source/conf.py``) file. Here is an example of how
 this can happen. The central links (``doc/source/links.rst``) file for this guide contains
-explicit target names for joining the two Ansys GitHub accounts:
+an explicit target name for joining the GitHub account containing internal PyAnsys libraries:
 
 .. code::
 
-    .. _join_ansys_organization: https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706
-    .. _join_ansys_internal_organization: https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706
+    .. _join_GitHub_EMU: https://synopsys.service-now.com/esc?id=sc_cat_item&table=sc_cat_item&sys_id=45d44d471bf12610b5baeaca234bcb30&recordUrl=com.glideapp.servicecatalog_cat_item_view.do%3Fv%3D1&sysparm_id=45d44d471bf12610b5baeaca234bcb30
 
 When building documentation, Sphinx checks all links to ensure that they are valid. In most cases,
 broken links are the result of formatting errors that you must fix manually. However, the
@@ -139,8 +138,7 @@ Here is what adding these lines looks like:
     # Linkcheck ignore too long lines
 
     linkcheck_ignore = [
-        "https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706", # Join Ansys GitHub account
-        "https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706", # Join Ansys internal GitHub account
+        "https://synopsys.service-now.com/esc?id=sc_cat_item&table=sc_cat_item&sys_id=45d44d471bf12610b5baeaca234bcb30&recordUrl=com.glideapp.servicecatalog_cat_item_view.do%3Fv%3D1&sysparm_id=45d44d471bf12610b5baeaca234bcb30", # Request Synopsys GitHub EMU access
     ]
 
     # Linkcheck ignore broken anchors:
@@ -151,23 +149,22 @@ Here is what adding these lines looks like:
     ]
 
 If you committed the preceding changes, Sphinx would no longer find any broken links. However, Ruff
-would throw line length errors for the two lines that define the items for the ``linkcheck_ignore`` variable
-in the Sphinx :file:`config.py` file. Because you cannot modify the length of these lines, you must follow
-each of these URLs (and any comment about it) with a space and then ``# noqa: E501``.
+would throw line length errors for the line that define the item for the ``linkcheck_ignore`` variable
+in the Sphinx :file:`config.py` file. Because you cannot modify the length of this line, you must follow
+the URL (and any comment about it) with a space and then ``# noqa: E501``.
 
-You can scroll to the end of these lines to see how they now conclude with ``# noqa: E501``:
+You can scroll to the end of the line to see how it now conclude with ``# noqa: E501``:
 
 .. code::
 
     # Linkcheck ignore too long lines
 
     linkcheck_ignore = [
-        "https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706", # Join Ansys GitHub account # noqa: E501
-        "https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706", # Join Ansys internal GitHub account # noqa: E501
+        "https://synopsys.service-now.com/esc?id=sc_cat_item&table=sc_cat_item&sys_id=45d44d471bf12610b5baeaca234bcb30&recordUrl=com.glideapp.servicecatalog_cat_item_view.do%3Fv%3D1&sysparm_id=45d44d471bf12610b5baeaca234bcb30", # Request Synopsys GitHub EMU access # noqa: E501
     ]
 
-When you commit these changes, Ruff sees the ``# noqa: E501`` comments at the end of these lines
-and knows to ignore their long line lengths.
+When you commit this change, Ruff sees the ``# noqa: E501`` comments at the end of the line
+and knows to ignore the long line length.
 
 .. _reduce_github_linkcheck_flakiness:
 

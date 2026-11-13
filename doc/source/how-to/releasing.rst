@@ -43,7 +43,7 @@ to be much more stable.
     release cycle in a rapid CI/CD manner. Thus, library versions should
     not match product versions. For example, PyMAPDL library (``ansys-mapdl-core``)
     might have the version ``0.59.0`` whereas the product (Ansys Parametric
-    Design Language (APDL) might have the version is ``22.2`` (2022 R2).
+    Design Language (APDL) might have the version ``22.2`` (2022 R2).
 
 Branching model
 ---------------
