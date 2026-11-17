@@ -93,8 +93,7 @@ Ansys has one GitHub organization where it hosts its public repositories, ``ansy
 located at https://github.com/ansys.
 
 Ansys employees can join this organization by clicking the  `Ansys GitHub organization <join_ansys_organization_>`_ link
-to sign in first with their company credentials and then
-with their GitHub credentials.
+to sign in first with their company credentials and then with their GitHub credentials.
 
 Writers outside of Ansys who want to contribute to the documentation for a PyAnsys
 library can contact the `PyAnsy core team <pyansys_core_email_>`_
