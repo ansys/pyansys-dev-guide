@@ -13,7 +13,7 @@ steps in these topics:
 
 - :ref:`doc_for_create_github_account`
 - :ref:`install_git`
-- :ref:`join_ansys_github_orgs`
+- :ref:`join_ansys_github_org`
 
 If you intend to :ref:`create your own PRs <create_pr>`, perform the steps in all
 topics to set up a full content development environment.
