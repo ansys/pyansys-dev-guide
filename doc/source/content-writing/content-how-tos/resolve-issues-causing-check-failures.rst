@@ -108,7 +108,7 @@ manually change it in the PY file.
 Sometimes, however, the line that is too long is for a URL added to the ``linkcheck_ignore``
 variable in the Sphinx configuration (``doc/source/conf.py``) file. Here is an example of how
 this can happen. The central links (``doc/source/links.rst``) file for this guide contains
-explicit target name for joining the Ansys GitHub account:
+an explicit target name for joining the Ansys GitHub account:
 
 .. code::
 
