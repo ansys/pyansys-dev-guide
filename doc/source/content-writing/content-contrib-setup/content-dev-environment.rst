@@ -89,9 +89,8 @@ preferred tool from an official channel.
 Join Ansys GitHub organization
 ------------------------------
 
-Ansys has one GitHub organization where it hosts its public repositories:
-
-- ``ansys``: https://github.com/ansys
+Ansys has one GitHub organization where it hosts its public repositories, ``ansys``,
+located at https://github.com/ansys.
 
 Ansys employees can join this organization by clicking the  `Ansys GitHub organization <join_ansys_organization_>`_ link
 to sign in first with their company credentials and then
