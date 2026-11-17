@@ -27,7 +27,6 @@ can post questions, share ideas, and get community feedback on the
    clone-branch
    review-PR
    create-PR
-   request-bot-review
    work-around-Vale
    resolve-issues-causing-check-failures
    edit-on-GitHub
