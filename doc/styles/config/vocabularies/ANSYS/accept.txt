@@ -118,6 +118,7 @@ sublist
 subprocess
 substring
 superset
+Synopsys EMU
 tensorflow
 Theme
 TXT
