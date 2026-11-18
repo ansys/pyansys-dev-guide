@@ -306,10 +306,6 @@ To create a PR:
 
    A draft pull request cannot be merged until you mark it as ready for review,
 
-.. tip::
-   The `Ansys Review Bot <review_bot_>`_ can perform a review of your changes. For more information,
-   see :ref:`bot_reviews`.
-
 Resolve failed checks
 ---------------------
 

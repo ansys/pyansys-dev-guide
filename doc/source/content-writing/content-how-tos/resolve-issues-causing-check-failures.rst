@@ -108,12 +108,11 @@ manually change it in the PY file.
 Sometimes, however, the line that is too long is for a URL added to the ``linkcheck_ignore``
 variable in the Sphinx configuration (``doc/source/conf.py``) file. Here is an example of how
 this can happen. The central links (``doc/source/links.rst``) file for this guide contains
-explicit target names for joining the two Ansys GitHub accounts:
+an explicit target name for joining the Ansys GitHub account:
 
 .. code::
 
-    .. _join_ansys_organization: https://myapps.microsoft.com/signin/8f67c59b-83ac-4318-ae96-f0588382ddc0?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706
-    .. _join_ansys_internal_organization: https://myapps.microsoft.com/signin/42c0fa04-03f2-4407-865e-103af6973dae?tenantId=34c6ce67-15b8-4eff-80e9-52da8be89706
+    .. _join_ansys_organization: https://...
 
 When building documentation, Sphinx checks all links to ensure that they are valid. In most cases,
 broken links are the result of formatting errors that you must fix manually. However, the
