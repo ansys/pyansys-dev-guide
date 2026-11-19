@@ -8,6 +8,7 @@ BCs
 [Bb]lacken-[Dd]ocs
 Booleans
 Brinkrolf
+centerline
 CI/CD
 CLI
 CNAME
@@ -78,6 +79,7 @@ PEP 518
 [Pp][Dd][Ff]
 plaintext
 pluggable
+Plotly
 [Pp]ostprocessing
 (?i)PR
 Protobuf
@@ -106,6 +108,7 @@ RST
 [Rr]ulesets
 [Rr]uleset
 scipy
+Seaborn
 SEO
 [Ss]etuptools
 [Ss]phinx
@@ -120,6 +123,7 @@ substring
 superset
 tensorflow
 Theme
+tooltips
 TXT
 turbomachinery
 UDFs
@@ -132,6 +136,8 @@ URIs
 Vale
 venv
 Visual Studio Code
+Von
+Mises
 worktree
 (?i)WSL
 WSL2
