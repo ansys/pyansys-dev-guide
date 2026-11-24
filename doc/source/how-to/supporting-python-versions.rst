@@ -10,6 +10,8 @@ Developer's Guide*.
 +-------------+----------------+-----------------+---------------------------+------------+
 | **Version** | **PEP**        | **Released**    | **Security support ends** | **Status** |
 +-------------+----------------+-----------------+---------------------------+------------+
+| 3.15        | `PEP 790`_     | October 9, 2026 |    Oct 2031               | Stable     |
++-------------+----------------+-----------------+---------------------------+------------+
 | 3.14        | `PEP 745`_     | October 7, 2025 |    Oct 2030               | Stable     |
 +-------------+----------------+-----------------+---------------------------+------------+
 | 3.13        | `PEP 719`_     | October 7, 2024 |    Oct 2029               | Stable     |
@@ -18,14 +20,12 @@ Developer's Guide*.
 +-------------+----------------+-----------------+---------------------------+------------+
 | 3.11        | `PEP 664`_     | October 3, 2022 |    Oct 2027               | Stable     |
 +-------------+----------------+-----------------+---------------------------+------------+
-| 3.10        | `PEP 619`_     | October 4, 2021 |    Oct 2026               | Stable     |
-+-------------+----------------+-----------------+---------------------------+------------+
 
+.. _PEP 745: https://peps.python.org/pep-0790/
 .. _PEP 745: https://peps.python.org/pep-0745/
 .. _PEP 719: https://peps.python.org/pep-0719/
 .. _PEP 693: https://peps.python.org/pep-0693/
 .. _PEP 664: https://peps.python.org/pep-0664/
-.. _PEP 619: https://peps.python.org/pep-0619/
 
 .. admonition:: Consider supporting stable Python versions.
 
@@ -55,7 +55,7 @@ this code:
 This helps ``pip`` to know which versions of your library
 support which versions of Python. You can also impose an upper limit if you're
 sure you don't support certain versions of Python. For example, if you only
-support Python 3.10 through 3.14, your command would look like this: ``python_requires='>=3.10, <3.15'``.
+support Python 3.11 through 3.15, your command would look like this: ``python_requires='>=3.10, <3.15'``.
 
 Verify Python support
 ---------------------
@@ -75,7 +75,7 @@ is by :ref:`continuous_integration`. An example GitHub workflow testing Python
        strategy:
          matrix:
            os: [windows-latest, ubuntu-latest]
-           python-version: ['3.10', '3.11', '3.12', '3.13', '3.14']
+           python-version: ['3.11', '3.12', '3.13', '3.14', '3.15']
        steps:
          - name: "Run tests using pytest"
            run: ansys/actions/test-pytest@v8
